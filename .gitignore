@@ -1,0 +1,6 @@
+# baoyu-design skills (install steps: README.md). Their upstream NOTICE.md
+# grants no license for the Anthropic-derived parts.
+/.agents/skills/claude-design
+/.agents/skills/claude-design-system
+/.claude/skills/claude-design
+/.claude/skills/claude-design-system

@@ -4,3 +4,8 @@ CHANGELOG.md
 # Copier rewraps this to a width prettier doesn't agree with, so the two
 # fight over its formatting on every `copier update`.
 .copier-answers.yml
+
+# The baoyu-design editors write each design's project/ and comments.json with
+# their own formatting, so prettier would rewrite every save made in the editor.
+project/
+comments.json

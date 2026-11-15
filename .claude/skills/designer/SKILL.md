@@ -11,7 +11,7 @@ This session handles design requests for one app repository. The repository is p
 a agent title set "designer <owner>/<repo>"
 ```
 
-The skill sets this session's `work_type` to `designer`. Keep the assigned repository for the lifetime of the session.
+Loading this skill sets the session's `work_type` metadata to `designer` through the existing skill-loading mechanism. No separate command is needed. Keep the assigned repository for the lifetime of the session.
 
 ## Receive a design request
 

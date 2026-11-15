@@ -55,11 +55,12 @@ body{margin:0}
 <div style="font-size: 12px; color: #8b8b94">Approval sent. Waiting for Claude Code…</div>
 </article>
 
-<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Permission denied</strong>A call the rules refused.</div>
+<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Permission denied</strong>A call the auto-approval check turned down. Allow and retry sends a one-time retry; a denial with no verdict shows a note instead of the button.</div>
 <article style="border: 1px solid #fbbf24; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px">
-<h2 style="margin: 0; color: #fbbf24; font-size: 12px; font-weight: 700">Operation denied</h2>
-<div style="font-size: 13px; color: #d4d4d8">本番の名前空間への書き込みは許可されていません。</div>
-<button type="button" style="align-self: flex-start; height: 28px; padding: 0 12px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Allow and retry</button>
+<div style="display: flex; align-items: center; gap: 10px"><h2 style="margin: 0; color: #fbbf24; font-size: 12px; font-weight: 700">Operation denied</h2><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a1a1aa">Bash</span></div>
+<pre style="margin: 0; padding: 10px 12px; background: #131313; border-radius: 0.45rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #d4d4d8">rm -rf ./tmp/cache</pre>
+<div style="font-size: 13px; color: #d4d4d8">作業ディレクトリの外を消す可能性があるため自動では許可しませんでした。</div>
+<button type="button" style="align-self: flex-start; height: 28px; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Allow and retry</button>
 </article>
 
 <div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Proposal</strong>Options to choose from. Up to 880px wide.</div>

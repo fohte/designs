@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Run the skills' `artifact.mjs` from `.claude/skills/<skill>/scripts/` at the repository root. [README.md](README.md) has the install and open commands.
+Run canvas `artifact.mjs` scripts directly from `~/.agents/skills/<skill>/scripts/`, without `node` and outside Claude Code's sandbox. [README.md](README.md) has the installation and open commands.
 
 ## Roles
 
@@ -36,7 +36,7 @@ In one design PR:
 The design system is written by hand from the app's source. When the app's CSS changes a token or a built component, update `design-system/`, then copy it into `screens/` and each canvas under `explore/`:
 
 ```sh
-node .claude/skills/claude-design/scripts/artifact.mjs ds-sync <repo>/<app>/<canvas>
+~/.agents/skills/claude-design/scripts/artifact.mjs ds-sync <repo>/<app>/<canvas>
 ```
 
 Canvases under `decisions/` keep the copy they were decided with.

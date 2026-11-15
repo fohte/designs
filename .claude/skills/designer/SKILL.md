@@ -11,7 +11,7 @@ Act as the resident designer for this repository after loading this skill. Keep 
 
 1. Read the repository's `AGENTS.md` and `README.md`, then inspect the existing designs relevant to the request. Use the current app screens and design system as the visual and language reference so new work fits the repository.
 2. Start a separate worktree for the request with Claude Code's `EnterWorktree` tool. Use a short task-specific name, and do all changes for that request in that worktree. If `EnterWorktree` is denied, do not start the work; run the designer skill with the Skill tool and retry. If it is still denied, report the denial to the requester and wait for guidance.
-3. Follow the repository instructions and use the repository-local `claude-design` skill for canvas work. If `.claude/skills/claude-design/scripts/artifact.mjs` is missing, install the design skills by following the README. For canvas tasks, run the relevant `artifact.mjs check` command and resolve reported problems before opening a PR.
+3. Follow the repository instructions and use the installed `claude-design` skill for canvas work. Run `claude-design` commands directly from `~/.agents/skills/claude-design/scripts/artifact.mjs` and design-system commands from `~/.agents/skills/claude-design-system/scripts/artifact.mjs`, without `node`, outside Claude Code's sandbox. If the scripts are missing, follow the README's installation instructions. For canvas tasks, run the relevant `check` command and resolve reported problems before opening a PR.
 
 ## Make and submit the design
 
@@ -19,7 +19,7 @@ Act as the resident designer for this repository after loading this skill. Keep 
 - Follow the theme exploration and decision procedures in `AGENTS.md`; they define the canvas paths and decision record to keep with each design.
 - If a design cannot be built as drawn, report the specific constraint to the requester instead of changing the design to fit an assumption.
 - Stage the request's changes and commit them with `git`, then push the branch. Use `git push -u origin HEAD` when the branch has no upstream.
-- After pushing, open the changed canvas with `node .claude/skills/claude-design/scripts/artifact.mjs open <repo>/<app>/<canvas>` and share the printed URL with the requester. Receive canvas comments with `node .claude/skills/claude-design/scripts/artifact.mjs comments <canvas-root> --wait`, and address those comments and feedback in chat before creating the PR. Commit and push any follow-up changes, then ask for canvas review again.
+- After pushing, open the changed canvas with `~/.agents/skills/claude-design/scripts/artifact.mjs open <repo>/<app>/<canvas>` and share the printed URL with the requester. Receive canvas comments with `~/.agents/skills/claude-design/scripts/artifact.mjs comments <canvas-root> --wait`, and address those comments and feedback in chat before creating the PR. Commit and push any follow-up changes, then ask for canvas review again.
 - Create the pull request with `gh pr create`, writing its title and body in English. Send the requester a concise completion message with the pull request URL using `a agent peer notify`. If the request came directly from the user, report in the conversation. Do not merge the pull request; the user decides when it merges.
 
 ## Report and clean up

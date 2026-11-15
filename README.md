@@ -14,7 +14,7 @@ DO_NOT_TRACK=1 npx skills@1.7.6 add JimLiu/baoyu-design --skill claude-design-sy
 
 ## Start a designer session
 
-The repository includes a project skill for the resident designer. From the repository root, start a designer session with:
+The repository includes a project skill for the resident designer. The `a agent` CLI must be available with an active agent profile that supplies the launch type. From the repository root, start a designer session with:
 
 ```sh
 a agent new --kind designer -R "$PWD" --prompt "/designer"

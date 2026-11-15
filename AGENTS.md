@@ -5,7 +5,7 @@ Run the skills' `artifact.mjs` from `.claude/skills/<skill>/scripts/` at the rep
 ## Roles
 
 - A Claude Code session started from this repository's root must first invoke the `designer` skill with the Skill tool and act as the resident designer for this repository.
-- The design session edits the canvases and the design systems, then commits and pushes its changes. A human reviews a design PR on the changed canvas: the designer opens the canvas editor, shares its URL, and addresses canvas comments or chat feedback. This canvas review replaces `crit` review for design PRs. The user decides the PR body, submission, and merge.
+- The design session edits the canvases and the design systems, then commits and pushes its changes. A human reviews a design PR on the changed canvas after the push: the designer opens the canvas editor, shares its URL, and addresses canvas comments or chat feedback before creating the PR. The PR title and body are in English. The user decides when it merges.
 - The implementation session reads the app's `screens/` as the spec and changes the app in the app's repository. It does not edit this repository. Where the design cannot be built as drawn, it reports back to the design session instead of choosing another look.
 
 ## Layout

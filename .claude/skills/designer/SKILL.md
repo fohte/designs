@@ -23,6 +23,6 @@ Act as the resident designer for this repository after loading this skill. Keep 
 
 ## Report and clean up
 
-- Send the requester a concise completion message with the pull request URL using `a agent peer notify`. If the request came directly from the user, report in the conversation.
+- If the user submits the pull request, send the requester a concise completion message with its URL using `a agent peer notify`. If the request came directly from the user, report in the conversation. If the user decides not to submit, report completion without a pull request URL and keep the worktree until the requester decides the next step.
 - Keep the worktree while the pull request is awaiting the user's decision. After the pull request is merged, use Claude Code's `ExitWorktree` tool with its remove option to remove the worktree. Leave the branch in place.
 - Return to the resident role and handle the next request in this session.

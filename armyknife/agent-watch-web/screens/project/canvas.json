@@ -344,7 +344,7 @@
       "title": "18. iPhone · 会話から答える",
       "page": "screens"
     },
-    "components/Nav.dc.html": {
+    "screens/Nav.dc.html": {
       "x": 0,
       "y": 0,
       "w": 240,
@@ -352,7 +352,7 @@
       "title": "Nav",
       "page": "components"
     },
-    "components/InboxList.dc.html": {
+    "screens/InboxList.dc.html": {
       "x": 320,
       "y": 0,
       "w": 460,
@@ -360,7 +360,7 @@
       "title": "InboxList",
       "page": "components"
     },
-    "components/Conversation.dc.html": {
+    "screens/Conversation.dc.html": {
       "x": 860,
       "y": 0,
       "w": 880,
@@ -368,7 +368,7 @@
       "title": "Conversation",
       "page": "components"
     },
-    "components/StatusPanel.dc.html": {
+    "screens/StatusPanel.dc.html": {
       "x": 1820,
       "y": 0,
       "w": 640,
@@ -376,7 +376,7 @@
       "title": "StatusPanel",
       "page": "components"
     },
-    "before/components/ChatPane.dc.html": {
+    "before/screens/ChatPane.dc.html": {
       "x": 0,
       "y": 0,
       "w": 1180,
@@ -384,7 +384,7 @@
       "title": "ChatPane",
       "page": "before-components"
     },
-    "before/components/FPalette.dc.html": {
+    "before/screens/FPalette.dc.html": {
       "x": 1260,
       "y": 0,
       "w": 1440,
@@ -392,7 +392,7 @@
       "title": "FPalette",
       "page": "before-components"
     },
-    "before/components/FSession.dc.html": {
+    "before/screens/FSession.dc.html": {
       "x": 2780,
       "y": 0,
       "w": 1440,
@@ -400,7 +400,7 @@
       "title": "FSession",
       "page": "before-components"
     },
-    "before/components/V8Board.dc.html": {
+    "before/screens/V8Board.dc.html": {
       "x": 4300,
       "y": 0,
       "w": 1440,
@@ -408,7 +408,7 @@
       "title": "V8Board",
       "page": "before-components"
     },
-    "before/components/V8Inbox.dc.html": {
+    "before/screens/V8Inbox.dc.html": {
       "x": 5820,
       "y": 0,
       "w": 1440,
@@ -416,7 +416,7 @@
       "title": "V8Inbox",
       "page": "before-components"
     },
-    "before/components/V8Nav.dc.html": {
+    "before/screens/V8Nav.dc.html": {
       "x": 7340,
       "y": 0,
       "w": 240,
@@ -424,7 +424,7 @@
       "title": "V8Nav",
       "page": "before-components"
     },
-    "before/components/V9Decision.dc.html": {
+    "before/screens/V9Decision.dc.html": {
       "x": 7660,
       "y": 0,
       "w": 1200,
@@ -432,7 +432,7 @@
       "title": "V9Decision",
       "page": "before-components"
     },
-    "before/components/V9Proposal.dc.html": {
+    "before/screens/V9Proposal.dc.html": {
       "x": 8940,
       "y": 0,
       "w": 1200,
@@ -440,7 +440,7 @@
       "title": "V9Proposal",
       "page": "before-components"
     },
-    "before/components/V9Review.dc.html": {
+    "before/screens/V9Review.dc.html": {
       "x": 10220,
       "y": 0,
       "w": 1440,
@@ -490,19 +490,19 @@
     "screens/PhoneDrawer.dc.html",
     "before/screens/BeforeFPhoneChat.dc.html",
     "screens/PhoneChat.dc.html",
-    "components/Nav.dc.html",
-    "components/InboxList.dc.html",
-    "components/Conversation.dc.html",
-    "components/StatusPanel.dc.html",
-    "before/components/ChatPane.dc.html",
-    "before/components/FPalette.dc.html",
-    "before/components/FSession.dc.html",
-    "before/components/V8Board.dc.html",
-    "before/components/V8Inbox.dc.html",
-    "before/components/V8Nav.dc.html",
-    "before/components/V9Decision.dc.html",
-    "before/components/V9Proposal.dc.html",
-    "before/components/V9Review.dc.html"
+    "screens/Nav.dc.html",
+    "screens/InboxList.dc.html",
+    "screens/Conversation.dc.html",
+    "screens/StatusPanel.dc.html",
+    "before/screens/ChatPane.dc.html",
+    "before/screens/FPalette.dc.html",
+    "before/screens/FSession.dc.html",
+    "before/screens/V8Board.dc.html",
+    "before/screens/V8Inbox.dc.html",
+    "before/screens/V8Nav.dc.html",
+    "before/screens/V9Decision.dc.html",
+    "before/screens/V9Proposal.dc.html",
+    "before/screens/V9Review.dc.html"
   ],
   "notes": {
     "diff0": {

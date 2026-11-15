@@ -5,7 +5,7 @@ Run canvas `artifact.mjs` scripts directly from `~/.agents/skills/<skill>/script
 ## Roles
 
 - A Claude Code session started from this repository's root must first invoke the `designer` skill with the Skill tool and act as the resident designer for this repository.
-- The design session edits the canvases and the design systems, then commits and pushes its changes. A human reviews a design PR on the changed canvas after the push: the designer opens the canvas editor, shares its URL, and addresses canvas comments or chat feedback before creating the PR. The PR title and body are in English. The user decides when it merges.
+- The design session edits the canvases and the design systems, then commits with the `commit` skill and pushes its changes. After pushing, a human reviews the changed canvas: the designer opens the canvas editor, shares its URL, and addresses canvas comments or chat feedback before creating the PR. This canvas review replaces the `crit-approval-review` step in the `commit` and `create-pr` workflows; do not open Crit. The designer creates the PR with the `create-pr` skill and follows its remaining drafting, review, approval, and submission steps. The PR title and body are in English. The user decides when it merges.
 - The implementation session reads the app's `screens/` as the spec and changes the app in the app's repository. It does not edit this repository. Where the design cannot be built as drawn, it reports back to the design session instead of choosing another look.
 
 ## Layout

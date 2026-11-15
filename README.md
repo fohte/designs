@@ -14,13 +14,13 @@ This installs the skills under `~/.agents/skills/`. Run their `artifact.mjs` com
 
 ## Start a designer session
 
-The repository includes a project skill for the resident designer. Start Claude Code from the repository root:
+Run one session per app repository, passing the assigned GitHub repository as `<owner>/<repo>`:
 
 ```sh
-claude
+claude "/designer <owner>/<repo>"
 ```
 
-`AGENTS.md` instructs the session to start as the resident designer.
+If the repository is omitted, the designer asks which repository it owns. It sets the session title to `designer <owner>/<repo>`, which PMs use with the `designer` work type to find the right session. See [AGENTS.md](AGENTS.md) for the request, handoff, and implementation workflow.
 
 ## Open a design
 
@@ -33,4 +33,4 @@ Run these commands outside Claude Code's sandbox. Each command starts a local ed
 ~/.agents/skills/claude-design/scripts/artifact.mjs open <repo>/<app>/<canvas>
 ```
 
-Design changes are committed and pushed before the designer shares the changed canvas editor URL for human review. The designer receives canvas comments with `~/.agents/skills/claude-design/scripts/artifact.mjs comments <canvas-root> --wait`; chat feedback is handled in the conversation. The designer addresses feedback before creating the PR, then commits and pushes follow-up changes and requests canvas review again if feedback changes the design. PRs follow the standard drafting, review, approval, and submission process, and the user decides when the PR merges.
+Design changes are committed and pushed before the designer shares the changed canvas editor URL for human review. The designer receives canvas comments with `~/.agents/skills/claude-design/scripts/artifact.mjs comments <canvas-root> --wait`; chat feedback is handled in the conversation. The designer addresses feedback before creating the PR, then commits and pushes follow-up changes and requests canvas review again if feedback changes the design. PRs follow the standard drafting, review, approval, and submission process. The designer sends the PR URL to the requesting PM; a design is confirmed only after the user merges the PR.

@@ -4,9 +4,11 @@ Run canvas `artifact.mjs` scripts directly from `~/.agents/skills/<skill>/script
 
 ## Roles
 
-- A Claude Code session started from this repository's root must first invoke the `designer` skill with the Skill tool and act as the resident designer for this repository.
-- The design session edits the canvases and the design systems, then commits with the `commit` skill and pushes its changes. After pushing, a human reviews the changed canvas: the designer opens the canvas editor, shares its URL, and addresses canvas comments or chat feedback before creating the PR. This canvas review replaces the `crit-approval-review` step in the `commit` and `create-pr` workflows; do not open Crit. The designer creates the PR with the `create-pr` skill and follows its remaining drafting, review, approval, and submission steps. The user decides when it merges.
-- The implementation session reads the app's `screens/` as the spec and changes the app in the app's repository. It does not edit this repository. Where the design cannot be built as drawn, it reports back to the design session instead of choosing another look.
+- A Claude Code session started from this repository's root must first invoke the `designer` skill with the Skill tool and act as the designer for one app repository. This also applies when starting with plain `claude`; if `/designer <owner>/<repo>` is omitted, the skill asks the user which repository it owns.
+- The designer handles one assigned repository per session. It sets the session title to `designer <owner>/<repo>`; loading this skill sets its `work_type` to `designer`.
+- The designer accepts requests only for its assigned repository. For a request targeting another repository, it declines and directs the requester to the matching designer or the launch command `cd ~/ghq/github.com/fohte/designs && claude "/designer <owner>/<repo>"`.
+- The designer edits the canvases and design systems, then commits with the `commit` skill and pushes its changes. After pushing, a human reviews the changed canvas: the designer opens the canvas editor, shares its URL, and addresses canvas comments or chat feedback before creating the PR. This canvas review replaces the `crit-approval-review` step in the `commit` and `create-pr` workflows; do not open Crit. The designer creates the PR with the `create-pr` skill and follows its remaining drafting, review, approval, and submission steps, then sends the PR URL to the requester with `a agent peer notify`.
+- A design is confirmed only after its PR is merged. The user decides when it merges; the designer does not merge the PR.
 
 ## Layout
 

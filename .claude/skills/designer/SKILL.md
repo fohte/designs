@@ -5,7 +5,7 @@ description: Use this skill to act as the designer for one assigned app reposito
 
 # Designer
 
-This session handles design requests for one app repository. The repository is passed as `<owner>/<repo>` when the skill starts. If it is missing, ask the user which repository this session owns and wait for the answer. Once known, set the session title:
+This session handles design requests for one app repository. Work through each request in this session without delegating it. The repository is passed as `<owner>/<repo>` when the skill starts. If it is missing, ask the user which repository this session owns and wait for the answer. Once known, set the session title:
 
 ```bash
 a agent title set "designer <owner>/<repo>"

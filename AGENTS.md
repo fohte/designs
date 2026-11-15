@@ -31,6 +31,14 @@ In one design PR:
 1. Apply the chosen option to `screens/`.
 2. `git mv explore/<theme> decisions/<YYYY-MM-DD>-<theme>` and write its `README.md`.
 
+## Show a design PR's changes to `screens/`
+
+The reviewer cannot tell from the canvas alone what a design PR changed, so put the changes on the canvas before asking for review:
+
+1. Copy each changed artboard from the base branch into `screens/project/before/`, prefixing its name with `Before` so stems stay unique. Copy the parts it `<dc-import>`s into the same folder: the editor looks for a part only beside the artboard that imports it.
+2. On the canvas, place each old artboard beside its new one, with a sticky note listing the differences.
+3. Before the PR merges, delete `before/` and the notes, and restore the layout.
+
 ## Keep the design system in step with the app
 
 The design system is written by hand from the app's source. When the app's CSS changes a token or a built component, update `design-system/`, then copy it into `screens/` and each canvas under `explore/`:

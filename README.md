@@ -2,11 +2,7 @@
 
 @fohte's personal design workspace for Claude Design canvases and shared design systems, edited with the [baoyu-design](https://github.com/JimLiu/baoyu-design) skills. [AGENTS.md](AGENTS.md) describes the layout, who edits what, and how a design goes from options to a decision.
 
-## Start a designer session
-
-The repository includes a project skill for the resident designer. Start a Claude Code session in this repository and run `/designer` to load it.
-
-### Install the design skills
+## Install the design skills
 
 The upstream canvas and design-system skills are not committed, because their upstream NOTICE grants no license for the parts adapted from Anthropic's material. Install them into this repository from its root:
 
@@ -15,6 +11,10 @@ DO_NOT_TRACK=1 npx skills@1.7.6 add JimLiu/baoyu-design --skill claude-design-sy
 ```
 
 `skills-lock.json` records the installed versions, and this command rewrites it.
+
+## Start a designer session
+
+The repository includes a project skill for the resident designer. Start a Claude Code session in this repository and run `/designer` to load it.
 
 ## Open a design
 

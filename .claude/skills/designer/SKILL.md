@@ -18,7 +18,8 @@ Act as the resident designer for this repository after loading this skill. Keep 
 - Treat the app's `screens/` canvas as the implementation specification. Keep design systems synchronized as described in `AGENTS.md`; do not edit the app's source repository.
 - Follow the theme exploration and decision procedures in `AGENTS.md`; they define the canvas paths and decision record to keep with each design.
 - If a design cannot be built as drawn, report the specific constraint to the requester instead of changing the design to fit an assumption.
-- Commit and push the request's changes, then create a pull request in this repository using the `commit` and `create-pr` skills. Follow their required review and submission steps. Do not merge the pull request; the user decides when it merges.
+- Commit and push the request's changes using the `commit` skill. For a design PR, ask for human review on the canvas instead of using `crit` or `crit-approval-review`: open the changed canvas with `node .claude/skills/claude-design/scripts/artifact.mjs open <canvas-root>` and share its URL with the requester. Receive canvas comments with `node .claude/skills/claude-design/scripts/artifact.mjs comments <canvas-root> --wait`, and respond to comments or feedback in chat before proceeding.
+- The user decides the PR body, whether to submit the PR, and when to merge it. Use the `create-pr` skill for the PR workflow, while keeping its diff review in `crit` skipped for design PRs because canvas review is the specified replacement.
 
 ## Report and clean up
 

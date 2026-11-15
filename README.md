@@ -32,3 +32,5 @@ node .claude/skills/claude-design-system/scripts/artifact.mjs open <repo>/<app>/
 # A canvas: screens, explore/<theme> or decisions/<YYYY-MM-DD>-<theme>
 node .claude/skills/claude-design/scripts/artifact.mjs open <repo>/<app>/<canvas>
 ```
+
+Design PRs are reviewed on the changed canvas instead of in `crit`. The designer shares the editor URL and receives canvas comments with `node .claude/skills/claude-design/scripts/artifact.mjs comments <canvas-root> --wait`; chat feedback is handled in the conversation. The user decides the PR body, submission, and merge.

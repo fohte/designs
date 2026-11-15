@@ -20,7 +20,7 @@ The repository includes a project skill for the resident designer. Start Claude 
 claude
 ```
 
-`AGENTS.md` directs the session to invoke the designer skill with the Skill tool.
+`AGENTS.md` instructs the session to start as the resident designer.
 
 ## Open a design
 

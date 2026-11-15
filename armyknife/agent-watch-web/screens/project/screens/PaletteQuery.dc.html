@@ -1,20 +1,19 @@
 <!doctype html>
-<html lang="ja"><head>
+<html lang="ja">
+<head>
 <meta charset="utf-8">
-<title>Command palette with a query</title>
+<title>Command palette: tq tasks</title>
 <script src="./support.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
 <style>
 body{margin:0}
 </style>
 </helmet>
-<div style="width: 1440px; height: 900px; background: #0a0a0a">
-<dc-import name="FPalette" query="notify" hint-size="1440px,900px"></dc-import>
-</div>
+<div style="width: 1440px; height: 900px; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif"><dc-import name="Palette" scope="tasks" hint-size="1440px,900px"></dc-import></div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
 class Component extends DCLogic {
@@ -23,6 +22,5 @@ class Component extends DCLogic {
   }
 }
 </script>
-
-
-</body></html>
+</body>
+</html>

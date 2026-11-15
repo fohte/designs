@@ -12,7 +12,7 @@ agent watch is a dark, dense, square-cornered console for watching coding-agent 
 
 - Dark only. Put every view on `aw-bg-app`, the nav and side panels on `aw-bg-nav`, cards on `aw-bg-surface`, menus and popovers on `aw-bg-popover`.
 - Text: titles in `aw-text-primary`, message body and control labels in `aw-text-body`, context lines and labels in `aw-text-muted`, timestamps and counts in `aw-text-secondary`. Keep `aw-text-secondary` off `aw-bg-pressed` and `aw-bg-selected`, where it drops under 4.5:1.
-- Color means state: `aw-color-warning` is waiting on the user (question and permission cards, unread needs-action dots) and the star; `aw-color-working` is running; `aw-color-error` is failed; `aw-color-neutral` is a settled choice. `aw-color-brand` is only the `>` of the wordmark and link text in messages.
+- Color means state: `aw-color-warning` is waiting on the user (question and permission cards, unread needs-action dots) and the star; `aw-color-working` is running; `aw-color-error` is failed; `aw-color-success` is a bang command that succeeded; `aw-color-neutral` is a settled choice. `aw-color-brand` is only the `>` of the wordmark and link text in messages.
 - Separate with hairlines, not fills: `aw-border` between regions, `aw-border-row` and `aw-border-row-mobile` between rows, `aw-border-control` around controls, `aw-border-emphasis` for pressed, selected and focused.
 - Pairs the source ships under the contrast floor, kept as they are: `aw-text-disabled` on `aw-bg-app` (4.10:1), `aw-text-crit-line` on `aw-bg-app` (2.56:1, an icon), `aw-border-control` on `aw-bg-app` (1.90:1, a control border).
 - The `background` … `tint-*` names are what @fohte/ui reads; they alias the `aw-*` tokens. Style app code with the `aw-*` names.

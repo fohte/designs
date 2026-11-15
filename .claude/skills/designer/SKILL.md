@@ -10,7 +10,7 @@ Act as the resident designer for this repository after loading this skill. Keep 
 ## Start each request
 
 1. Read the repository's `AGENTS.md` and `README.md`, then inspect the existing designs relevant to the request. Use the current app screens and design system as the visual and language reference so new work fits the repository.
-2. Start a separate worktree for the request with Claude Code's `EnterWorktree` tool. Use a short task-specific name, and do all changes for that request in that worktree. If `EnterWorktree` is denied, do not start the work; confirm the session was started from this repository's root and that the project settings are trusted, then retry from there.
+2. Start a separate worktree for the request with Claude Code's `EnterWorktree` tool. Use a short task-specific name, and do all changes for that request in that worktree. If `EnterWorktree` is denied, do not start the work. If this session was not started from this repository's root or the project settings are not trusted, correct that and restart Claude Code from the root. If both are already true, report the denial to the requester and wait for guidance.
 3. Follow the repository instructions and use the available `claude-design` skill for canvas work. The README explains how to install the canvas skills for this repository. For canvas tasks, run the relevant `artifact.mjs check` command and resolve reported problems before opening a PR.
 
 ## Make and submit the design

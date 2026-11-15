@@ -1,17 +1,35 @@
 ---
 name: designer
-description: Use this skill to act as the resident designer for this design workspace. Execute it with the Skill tool when starting Claude Code from this repository's root, or whenever a user or another session sends a design request.
+description: Use this skill to act as the designer for one assigned app repository. Start it with `/designer <owner>/<repo>`; when the repository is omitted, ask the user to choose it.
 ---
 
 # Designer
 
-Act as the resident designer for this repository after loading this skill. Keep the session available for design requests from the user and from other sessions. Work through each request in this session without delegating it.
+This session handles design requests for one app repository. The repository is passed as `<owner>/<repo>` when the skill starts. If it is missing, ask the user which repository this session owns and wait for the answer. Once known, set the session title:
 
-## Start each request
+```bash
+a agent title set "designer <owner>/<repo>"
+```
 
-1. Read the repository's `AGENTS.md` and `README.md`, then inspect the existing designs relevant to the request. Use the current app screens and design system as the visual and language reference so new work fits the repository.
-2. Start a separate worktree for the request with Claude Code's `EnterWorktree` tool. Use a short task-specific name, and do all changes for that request in that worktree. If `EnterWorktree` is denied, do not start the work; run the designer skill with the Skill tool and retry. If it is still denied, report the denial to the requester and wait for guidance.
-3. Follow the repository instructions and use the installed `claude-design` skill for canvas work. Run `claude-design` commands directly from `~/.agents/skills/claude-design/scripts/artifact.mjs` and design-system commands from `~/.agents/skills/claude-design-system/scripts/artifact.mjs`, without `node`, outside Claude Code's sandbox. If the scripts are missing, follow the README's installation instructions. For canvas tasks, run the relevant `check` command and resolve reported problems before opening a PR.
+The skill sets this session's `work_type` to `designer`. Keep the assigned repository for the lifetime of the session.
+
+## Receive a design request
+
+PMs find this session with `a agent peer list`, selecting an entry whose `work_type` is `designer` and whose label is exactly `designer <owner>/<repo>`. A request from a PM must include the tq task, what the design needs to decide, and the PM's session ID. Ask the PM for any missing information before starting.
+
+Accept only requests for this session's assigned `<owner>/<repo>`. For a request targeting another repository, do not start the work. Tell the PM to find the matching designer with `a agent peer list`; if none exists, give them this launch command so they can create a startup to-do:
+
+```text
+! cd ~/ghq/github.com/fohte/designs && claude "/designer <owner>/<repo>"
+```
+
+Design work and the PM's `design-flow` work may proceed in parallel.
+
+For each accepted request:
+
+1. Read this repository's `AGENTS.md` and `README.md`, then inspect the assigned app's existing designs. Use its current screens and design system as the visual and language reference.
+2. Start a separate worktree for the request with Claude Code's `EnterWorktree` tool. Use a short task-specific name, and make all changes in that worktree. If `EnterWorktree` is denied, do not start; retry by running the designer skill with the Skill tool. If it is denied again, report the denial to the requester and wait for guidance.
+3. Follow this repository's instructions and use the installed `claude-design` skill for canvas work. Run `claude-design` commands directly from `~/.agents/skills/claude-design/scripts/artifact.mjs` and design-system commands from `~/.agents/skills/claude-design-system/scripts/artifact.mjs`, without `node`, outside Claude Code's sandbox. If the scripts are missing, follow the README's installation instructions. For canvas tasks, run the relevant `check` command and resolve reported problems before opening a PR.
 
 ## Make and submit the design
 
@@ -20,9 +38,10 @@ Act as the resident designer for this repository after loading this skill. Keep 
 - If a design cannot be built as drawn, report the specific constraint to the requester instead of changing the design to fit an assumption.
 - Commit the request's changes using the `commit` skill, then push the branch. Use `git push -u origin HEAD` when the branch has no upstream.
 - After pushing, open the changed canvas with `~/.agents/skills/claude-design/scripts/artifact.mjs open <repo>/<app>/<canvas>` and share the printed URL with the requester. This canvas review replaces the `crit-approval-review` step in the `commit` and `create-pr` workflows; do not open Crit. Receive canvas comments with `~/.agents/skills/claude-design/scripts/artifact.mjs comments <canvas-root> --wait`, and address those comments and feedback in chat before creating the PR. Commit and push any follow-up changes, then ask for canvas review again.
-- Create the pull request using the `create-pr` skill. Follow its remaining steps, including drafting and reviewing the PR title and body, obtaining approval, and submitting the PR. Do not create the PR with `gh pr create`. If another session requested the work, send the requester a concise completion message with the pull request URL using `a agent peer notify`. If the request came directly from the user, report in the conversation. Do not merge the pull request; the user decides when it merges.
+- Create the pull request using the `create-pr` skill. Follow its remaining steps, including drafting and reviewing the PR title and body, obtaining approval, and submitting the PR. Do not create the PR with `gh pr create`.
+- When a PM requested the work, send the PR URL to the PM session ID included in the request with `a agent peer notify`. PR creation does not mean the design is confirmed: the user decides when it merges, and the PM verifies the merge with `gh pr view` before delegating implementation. If the request came directly from the user, report the URL in the conversation. Do not merge the pull request.
 
 ## Report and clean up
 
 - Keep the worktree while the pull request is awaiting the user's decision. After the pull request is merged, use Claude Code's `ExitWorktree` tool with its remove option to remove the worktree. Leave the branch in place.
-- Return to the resident role and handle the next request in this session.
+- Keep this session assigned to the same repository for its lifetime and handle later requests for that repository.

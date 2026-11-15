@@ -4,9 +4,16 @@ Run canvas `artifact.mjs` scripts directly from `~/.agents/skills/<skill>/script
 
 ## Roles
 
-- A Claude Code session started from this repository's root must first invoke the `designer` skill with the Skill tool and act as the resident designer for this repository.
-- The design session edits the canvases and the design systems, then commits with the `commit` skill and pushes its changes. After pushing, a human reviews the changed canvas: the designer opens the canvas editor, shares its URL, and addresses canvas comments or chat feedback before creating the PR. This canvas review replaces the `crit-approval-review` step in the `commit` and `create-pr` workflows; do not open Crit. The designer creates the PR with the `create-pr` skill and follows its remaining drafting, review, approval, and submission steps. The user decides when it merges.
-- The implementation session reads the app's `screens/` as the spec and changes the app in the app's repository. It does not edit this repository. Where the design cannot be built as drawn, it reports back to the design session instead of choosing another look.
+- Start one designer session per app repository with `/designer <owner>/<repo>`. If the argument is missing, the designer asks which repository it owns. The designer sets the session title to `designer <owner>/<repo>`; loading this skill sets its `work_type` to `designer`.
+- A PM locates the assigned designer with `a agent peer list`, matching both `work_type: designer` and the label `designer <owner>/<repo>`. The PM sends the request with `a agent peer notify --message <MESSAGE> <session_id>`. Include the tq task, what the design needs to decide, and the PM's session ID in the request. If no matching designer exists, add a startup todo with `a agent todo add`; its detail includes:
+
+  ```text
+  ! cd ~/ghq/github.com/fohte/designs && claude "/designer <owner>/<repo>"
+  ```
+
+- The designer accepts requests only for its assigned repository. For another repository, it declines the request and directs the PM to the matching designer or the launch command above. Design work and the PM's `design-flow` work may proceed in parallel.
+- The designer edits the canvases and design systems, then commits with the `commit` skill and pushes its changes. After pushing, a human reviews the changed canvas: the designer opens the canvas editor, shares its URL, and addresses canvas comments or chat feedback before creating the PR. This canvas review replaces the `crit-approval-review` step in the `commit` and `create-pr` workflows; do not open Crit. The designer creates the PR with the `create-pr` skill and follows its remaining drafting, review, approval, and submission steps, then sends the PR URL to the requesting PM with `a agent peer notify`. The user decides when it merges.
+- A design is confirmed only after its PR is merged. Before delegating implementation, the PM verifies the merge with `gh pr view`. The implementation session reads the app's `screens/` as the spec and changes the app in the app's repository. It does not edit this repository. Where the design cannot be built as drawn, it reports back to the design session instead of choosing another look.
 
 ## Layout
 

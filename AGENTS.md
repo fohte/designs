@@ -4,7 +4,7 @@ Run the skills' `artifact.mjs` from `.claude/skills/<skill>/scripts/` at the rep
 
 ## Roles
 
-- A Claude Code session started from this repository's root must first read `.claude/skills/designer/SKILL.md` and act as the resident designer for this repository.
+- A Claude Code session started from this repository's root must first invoke the `designer` skill with the Skill tool and act as the resident designer for this repository.
 - The design session edits the canvases and the design systems, and opens design PRs. A human reviews the canvas before a design PR merges.
 - The implementation session reads the app's `screens/` as the spec and changes the app in the app's repository. It does not edit this repository. Where the design cannot be built as drawn, it reports back to the design session instead of choosing another look.
 

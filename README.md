@@ -14,13 +14,13 @@ DO_NOT_TRACK=1 npx skills@1.7.6 add JimLiu/baoyu-design --skill claude-design-sy
 
 ## Start a designer session
 
-The repository includes a project skill for the resident designer. Project settings set the designer launch type. After trusting those settings, start Claude Code from the repository root:
+The repository includes a project skill for the resident designer. Start Claude Code from the repository root:
 
 ```sh
 claude
 ```
 
-`AGENTS.md` directs the session to read the designer skill automatically.
+`AGENTS.md` directs the session to invoke the designer skill with the Skill tool.
 
 ## Open a design
 

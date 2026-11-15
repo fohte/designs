@@ -14,7 +14,11 @@ DO_NOT_TRACK=1 npx skills@1.7.6 add JimLiu/baoyu-design --skill claude-design-sy
 
 ## Start a designer session
 
-The repository includes a project skill for the resident designer. Start a Claude Code session in this repository and run `/designer` to load it.
+The repository includes a project skill for the resident designer. From the repository root, start a designer session with:
+
+```sh
+a agent new --kind designer -R "$PWD" --prompt "/designer"
+```
 
 ## Open a design
 

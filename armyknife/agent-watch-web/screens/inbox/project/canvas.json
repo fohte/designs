@@ -88,6 +88,118 @@
       "h": 844,
       "title": "iPhone · ナビゲーション",
       "page": "screens"
+    },
+    "NewSession.dc.html": {
+      "x": 0,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション",
+      "page": "screens"
+    },
+    "NewSessionPicker.dc.html": {
+      "x": 1520,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション · ディレクトリを選ぶ",
+      "page": "screens"
+    },
+    "PhoneNewSession.dc.html": {
+      "x": 3040,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 新しいセッション",
+      "page": "screens"
+    },
+    "PhoneNewSessionPicker.dc.html": {
+      "x": 3510,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ディレクトリを選ぶ",
+      "page": "screens"
+    },
+    "before/BeforeInbox.dc.html": {
+      "x": 0,
+      "y": 5360,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Inbox と会話",
+      "page": "screens"
+    },
+    "before/BeforeLater.dc.html": {
+      "x": 2460,
+      "y": 5360,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Later メニュー (L)",
+      "page": "screens"
+    },
+    "before/BeforeInboxFilter.dc.html": {
+      "x": 3980,
+      "y": 5360,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Inbox の絞り込み (/)",
+      "page": "screens"
+    },
+    "before/BeforeInboxFiltered.dc.html": {
+      "x": 5500,
+      "y": 5360,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 絞り込んだ状態と Save view",
+      "page": "screens"
+    },
+    "before/BeforeTaskLinks.dc.html": {
+      "x": 7020,
+      "y": 5360,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 1 つのセッションに tq タスクが複数",
+      "page": "screens"
+    },
+    "before/BeforePhoneInbox.dc.html": {
+      "x": 1520,
+      "y": 5360,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · Inbox",
+      "page": "screens"
+    },
+    "before/BeforePhoneDrawer.dc.html": {
+      "x": 1990,
+      "y": 5360,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · ナビゲーション",
+      "page": "screens"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 0,
+      "y": 1100,
+      "w": 240,
+      "h": 900,
+      "title": "Before · Nav",
+      "page": "components"
+    },
+    "before/BeforeInboxList.dc.html": {
+      "x": 320,
+      "y": 1100,
+      "w": 460,
+      "h": 900,
+      "title": "Before · InboxList",
+      "page": "components"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 860,
+      "y": 1100,
+      "w": 880,
+      "h": 900,
+      "title": "Before · Conversation",
+      "page": "components"
     }
   },
   "order": [
@@ -101,7 +213,21 @@
     "TaskLinks.dc.html",
     "Nav.dc.html",
     "InboxList.dc.html",
-    "Conversation.dc.html"
+    "Conversation.dc.html",
+    "NewSession.dc.html",
+    "NewSessionPicker.dc.html",
+    "PhoneNewSession.dc.html",
+    "PhoneNewSessionPicker.dc.html",
+    "before/BeforeInbox.dc.html",
+    "before/BeforeLater.dc.html",
+    "before/BeforeInboxFilter.dc.html",
+    "before/BeforeInboxFiltered.dc.html",
+    "before/BeforeTaskLinks.dc.html",
+    "before/BeforePhoneInbox.dc.html",
+    "before/BeforePhoneDrawer.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeInboxList.dc.html",
+    "before/BeforeConversation.dc.html"
   ],
   "pages": [
     {
@@ -113,7 +239,16 @@
       "name": "部品"
     }
   ],
-  "notes": {},
+  "notes": {
+    "diffLaunch": {
+      "x": 8540,
+      "y": 3740,
+      "w": 420,
+      "page": "screens",
+      "fill": "orange",
+      "text": "変更点\n- サイドバーの ⌘K の横と、スマホの Inbox の検索ボタンの前に + (New session) を足した\n- + から開く空の会話と、ディレクトリを選ぶ画面を足した (3 段目)"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,

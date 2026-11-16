@@ -48,6 +48,110 @@
       "h": 40,
       "title": "SessionUsage",
       "page": "screens"
+    },
+    "PhoneChatReview.dc.html": {
+      "x": 3040,
+      "y": 964,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · crit のレビュー待ち",
+      "page": "screens"
+    },
+    "StatusBandStates.dc.html": {
+      "x": 5500,
+      "y": 0,
+      "w": 1290,
+      "h": 1690,
+      "title": "返信欄の上の帯 · 状態ごと",
+      "page": "screens"
+    },
+    "StatusBand.dc.html": {
+      "x": 3980,
+      "y": 1180,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "screens"
+    },
+    "before/BeforeMessageKinds.dc.html": {
+      "x": 0,
+      "y": 3560,
+      "w": 1440,
+      "h": 2300,
+      "title": "Before · 会話に出るメッセージ",
+      "page": "screens"
+    },
+    "before/BeforePhoneChat.dc.html": {
+      "x": 3040,
+      "y": 3560,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · 会話から答える",
+      "page": "screens"
+    },
+    "before/BeforePhoneChatMenu.dc.html": {
+      "x": 3510,
+      "y": 3560,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · セッションの操作メニュー",
+      "page": "screens"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 3980,
+      "y": 3560,
+      "w": 672,
+      "h": 40,
+      "title": "Before · SessionUsage",
+      "page": "screens"
+    },
+    "before/BeforeThinkingMessageKinds.dc.html": {
+      "x": 0,
+      "y": 6340,
+      "w": 1440,
+      "h": 2300,
+      "title": "Before (thinking) · 会話に出るメッセージ",
+      "page": "screens"
+    },
+    "before/BeforeThinkingPhoneChat.dc.html": {
+      "x": 3040,
+      "y": 6340,
+      "w": 390,
+      "h": 844,
+      "title": "Before (thinking) · iPhone · 会話から答える",
+      "page": "screens"
+    },
+    "before/BeforeThinkingPhoneChatMenu.dc.html": {
+      "x": 3510,
+      "y": 6340,
+      "w": 390,
+      "h": 844,
+      "title": "Before (thinking) · iPhone · セッションの操作メニュー",
+      "page": "screens"
+    },
+    "before/BeforeThinkingPhoneChatReview.dc.html": {
+      "x": 3040,
+      "y": 7304,
+      "w": 390,
+      "h": 844,
+      "title": "Before (thinking) · iPhone · crit のレビュー待ち",
+      "page": "screens"
+    },
+    "before/BeforeThinkingStatusBand.dc.html": {
+      "x": 3980,
+      "y": 6340,
+      "w": 760,
+      "h": 60,
+      "title": "Before (thinking) · StatusBand",
+      "page": "screens"
+    },
+    "before/BeforeThinkingSessionUsage.dc.html": {
+      "x": 3980,
+      "y": 6520,
+      "w": 672,
+      "h": 40,
+      "title": "Before (thinking) · SessionUsage",
+      "page": "screens"
     }
   },
   "order": [
@@ -56,7 +160,20 @@
     "PhoneChat.dc.html",
     "PhoneChatMenu.dc.html",
     "Dialogs.dc.html",
-    "SessionUsage.dc.html"
+    "SessionUsage.dc.html",
+    "PhoneChatReview.dc.html",
+    "StatusBandStates.dc.html",
+    "StatusBand.dc.html",
+    "before/BeforeMessageKinds.dc.html",
+    "before/BeforePhoneChat.dc.html",
+    "before/BeforePhoneChatMenu.dc.html",
+    "before/BeforeSessionUsage.dc.html",
+    "before/BeforeThinkingMessageKinds.dc.html",
+    "before/BeforeThinkingPhoneChat.dc.html",
+    "before/BeforeThinkingPhoneChatMenu.dc.html",
+    "before/BeforeThinkingPhoneChatReview.dc.html",
+    "before/BeforeThinkingStatusBand.dc.html",
+    "before/BeforeThinkingSessionUsage.dc.html"
   ],
   "pages": [
     {
@@ -64,7 +181,40 @@
       "name": "画面"
     }
   ],
-  "notes": {},
+  "notes": {
+    "beforeTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3320,
+      "maxW": 4740,
+      "page": "screens",
+      "text": "変更前 (origin/main)"
+    },
+    "diffBand": {
+      "x": 4740,
+      "y": 3560,
+      "w": 440,
+      "page": "screens",
+      "fill": "orange",
+      "text": "変更点\n- iPhone の会話: 返信欄の上に帯を足した。質問の待ちでは 2 行目に質問の文が出る\n- iPhone · crit のレビュー待ち を足した。帯に幅いっぱい・高さ 44px の Review in crit のボタンが出る\n- 会話に出るメッセージ: Working を、返信欄の上の帯で描いた\n- 返信欄の上の帯 · 状態ごと と、部品の StatusBand を足した\n- 返信欄の下の使用状況の行はそのまま"
+    },
+    "diffThinkingTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 6100,
+      "maxW": 5260,
+      "page": "screens",
+      "text": "変更前 (thinking の見せ方を決める前)"
+    },
+    "diffThinking": {
+      "x": 4820,
+      "y": 6340,
+      "w": 440,
+      "page": "screens",
+      "fill": "orange",
+      "text": "変更点 (thinking)\n- 会話に出るメッセージ: Narration を足した。本文の流れに出し、文字を薄くするだけで返答と分ける\n- 会話に出るメッセージ: ツールの行で thinking をツールと同じく Thought ×N と数える。開くと Thought の行がツールと順に並び、1 行に畳む。押すと全文が出る\n- 会話に出るメッセージ: ツールを使わない thinking だけの行を足した。Codex の reasoning の要約も同じ扱いで、空なら何も出さない\n- iPhone の会話: 返答の下に Thought ×1 を含むツールの行 (高さ 44px) を足した\n- iPhone · crit のレビュー待ち: ツールの行に Thought ×2 を足し、高さ 44px のボタンにした\n- iPhone · セッションの操作メニュー: 後ろの会話が iPhone の会話と同じく変わった"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,

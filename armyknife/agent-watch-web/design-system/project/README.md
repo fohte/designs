@@ -5,7 +5,7 @@ agent watch is a dark, dense, square-cornered console for watching coding-agent 
 - Write fixed UI text in English, short and plain: `Later`, `Close`, `Send answers`, `No answer (Esc)`, `Back to Inbox`, `Message session`.
 - Session titles, messages, task names and repo names come from the sessions and are often Japanese. Show them as they are; never translate, re-case or decorate them.
 - Labels and placeholders are sentence case (`Or enter your own answer`, `Select one or more choices.`).
-- No emoji. Small states use the glyphs the app already draws: `✓` done or selected, `☆` / `★` star, `▾` menu, `›` disclosure, `↑` parent, `·` separator, `…` truncation.
+- No emoji. Small states use the glyphs the app already draws: `✓` done or selected, `☆` / `★` star, `▾` menu, `›` disclosure, `↑` parent, `·` separator, `…` truncation, `▲` usage ahead of an even pace (amber).
 - Counts are bare numbers beside their icon (the status-panel toggle shows `2`, not `2 tasks`).
 
 ## Color

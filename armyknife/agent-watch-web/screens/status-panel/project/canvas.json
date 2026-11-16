@@ -64,6 +64,14 @@
       "h": 900,
       "title": "StatusPanel",
       "page": "components"
+    },
+    "StatusTasks.dc.html": {
+      "x": 7600,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Tasks",
+      "page": "screens"
     }
   },
   "order": [
@@ -72,6 +80,7 @@
     "StatusDecisions.dc.html",
     "StatusReview.dc.html",
     "StatusWebUi.dc.html",
+    "StatusTasks.dc.html",
     "Nav.dc.html",
     "Conversation.dc.html",
     "StatusPanel.dc.html"

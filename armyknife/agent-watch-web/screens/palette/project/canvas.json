@@ -1,0 +1,81 @@
+{
+  "title": "agent watch UI · palette",
+  "boards": {
+    "Palette.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "⌘K · 開いた直後",
+      "page": "screens"
+    },
+    "PaletteQuery.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "⌘K · # で tq タスクに絞る",
+      "page": "screens"
+    },
+    "Nav.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 900,
+      "title": "Nav",
+      "page": "components"
+    },
+    "InboxList.dc.html": {
+      "x": 320,
+      "y": 0,
+      "w": 460,
+      "h": 900,
+      "title": "InboxList",
+      "page": "components"
+    },
+    "Conversation.dc.html": {
+      "x": 860,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "components"
+    }
+  },
+  "order": [
+    "Palette.dc.html",
+    "PaletteQuery.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "Conversation.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "screens",
+      "name": "画面"
+    },
+    {
+      "id": "components",
+      "name": "部品"
+    }
+  ],
+  "notes": {},
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-13T11:42:55Z"
+  },
+  "launch": {
+    "view": "canvas",
+    "page": "screens"
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-15T10:37:15Z"
+    }
+  ]
+}

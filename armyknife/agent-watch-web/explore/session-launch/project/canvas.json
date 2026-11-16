@@ -73,24 +73,59 @@
     },
     "Nav.dc.html": {
       "x": 0,
-      "y": 5200,
+      "y": 6500,
       "w": 240,
       "h": 900,
       "title": "Part · Nav"
     },
     "InboxList.dc.html": {
       "x": 320,
-      "y": 5200,
+      "y": 6500,
       "w": 460,
       "h": 900,
       "title": "Part · Inbox list"
     },
     "Conversation.dc.html": {
       "x": 860,
-      "y": 5200,
+      "y": 6500,
       "w": 880,
       "h": 900,
       "title": "Part · Conversation"
+    },
+    "session-launch-d.dc.html": {
+      "x": 0,
+      "y": 5200,
+      "w": 1440,
+      "h": 900,
+      "title": "D · + beside ⌘K opens a blank conversation"
+    },
+    "session-launch-d-picker.dc.html": {
+      "x": 1520,
+      "y": 5200,
+      "w": 1440,
+      "h": 900,
+      "title": "D · choose the directory after typing"
+    },
+    "session-launch-d-phone-inbox.dc.html": {
+      "x": 3040,
+      "y": 5200,
+      "w": 390,
+      "h": 844,
+      "title": "D · phone: + beside search"
+    },
+    "session-launch-d-phone.dc.html": {
+      "x": 3510,
+      "y": 5200,
+      "w": 390,
+      "h": 844,
+      "title": "D · phone: blank conversation"
+    },
+    "session-launch-d-phone-picker.dc.html": {
+      "x": 3980,
+      "y": 5200,
+      "w": 390,
+      "h": 844,
+      "title": "D · phone: choose a directory"
     }
   },
   "order": [
@@ -104,7 +139,12 @@
     "session-launch-c-phone.dc.html",
     "Nav.dc.html",
     "InboxList.dc.html",
-    "Conversation.dc.html"
+    "Conversation.dc.html",
+    "session-launch-d.dc.html",
+    "session-launch-d-picker.dc.html",
+    "session-launch-d-phone-inbox.dc.html",
+    "session-launch-d-phone.dc.html",
+    "session-launch-d-phone-picker.dc.html"
   ],
   "notes": {
     "current": {
@@ -137,10 +177,17 @@
     },
     "parts": {
       "x": 0,
-      "y": 4940,
+      "y": 6240,
       "text": "Parts the artboards import",
       "kind": "title1",
       "maxW": 1900
+    },
+    "d": {
+      "x": 0,
+      "y": 4940,
+      "text": "D · + beside ⌘K: blank conversation, directory chosen later",
+      "kind": "title1",
+      "maxW": 4400
     }
   }
 }

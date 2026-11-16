@@ -121,110 +121,6 @@
       "title": "iPhone · ディレクトリを選ぶ",
       "page": "screens"
     },
-    "before/BeforeMain.dc.html": {
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 1500,
-      "title": "Before · 仕様のまとめ",
-      "page": "screens"
-    },
-    "before/BeforeInbox.dc.html": {
-      "x": 0,
-      "y": 3780,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · Inbox と会話",
-      "page": "screens"
-    },
-    "before/BeforeLater.dc.html": {
-      "x": 2460,
-      "y": 3780,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · Later メニュー (L)",
-      "page": "screens"
-    },
-    "before/BeforeInboxFilter.dc.html": {
-      "x": 3980,
-      "y": 3780,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · Inbox の絞り込み (/)",
-      "page": "screens"
-    },
-    "before/BeforeInboxFiltered.dc.html": {
-      "x": 5500,
-      "y": 3780,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · 絞り込んだ状態と Save view",
-      "page": "screens"
-    },
-    "before/BeforeTaskLinks.dc.html": {
-      "x": 7020,
-      "y": 3780,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · 1 つのセッションに tq タスクが複数",
-      "page": "screens"
-    },
-    "before/BeforePhoneInbox.dc.html": {
-      "x": 1520,
-      "y": 3780,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · Inbox",
-      "page": "screens"
-    },
-    "before/BeforePhoneDrawer.dc.html": {
-      "x": 1990,
-      "y": 3780,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · ナビゲーション",
-      "page": "screens"
-    },
-    "before/BeforeNewSession.dc.html": {
-      "x": 0,
-      "y": 4800,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · 新しいセッション",
-      "page": "screens"
-    },
-    "before/BeforeNewSessionPicker.dc.html": {
-      "x": 1520,
-      "y": 4800,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · 新しいセッション · ディレクトリを選ぶ",
-      "page": "screens"
-    },
-    "before/BeforeNav.dc.html": {
-      "x": 0,
-      "y": 1100,
-      "w": 240,
-      "h": 900,
-      "title": "Before · Nav",
-      "page": "components"
-    },
-    "before/BeforeInboxList.dc.html": {
-      "x": 320,
-      "y": 1100,
-      "w": 460,
-      "h": 900,
-      "title": "Before · InboxList",
-      "page": "components"
-    },
-    "before/BeforeConversation.dc.html": {
-      "x": 860,
-      "y": 1100,
-      "w": 880,
-      "h": 900,
-      "title": "Before · Conversation",
-      "page": "components"
-    },
     "SessionRow.dc.html": {
       "x": 1820,
       "y": 0,
@@ -248,118 +144,6 @@
       "h": 40,
       "title": "SessionUsage",
       "page": "components"
-    },
-    "before/BeforeUsageMain.dc.html": {
-      "x": 3040,
-      "y": 0,
-      "w": 1440,
-      "h": 1500,
-      "title": "Before (usage) · 仕様のまとめ",
-      "page": "screens"
-    },
-    "before/BeforeUsageInbox.dc.html": {
-      "x": 0,
-      "y": 5940,
-      "w": 1440,
-      "h": 900,
-      "title": "Before (usage) · Inbox と会話",
-      "page": "screens"
-    },
-    "before/BeforeUsagePhoneInbox.dc.html": {
-      "x": 1520,
-      "y": 5940,
-      "w": 390,
-      "h": 844,
-      "title": "Before (usage) · iPhone · Inbox",
-      "page": "screens"
-    },
-    "before/BeforeUsagePhoneDrawer.dc.html": {
-      "x": 1990,
-      "y": 5940,
-      "w": 390,
-      "h": 844,
-      "title": "Before (usage) · iPhone · ナビゲーション",
-      "page": "screens"
-    },
-    "before/BeforeUsageLater.dc.html": {
-      "x": 2460,
-      "y": 5940,
-      "w": 1440,
-      "h": 900,
-      "title": "Before (usage) · Later メニュー (L)",
-      "page": "screens"
-    },
-    "before/BeforeUsageInboxFilter.dc.html": {
-      "x": 3980,
-      "y": 5940,
-      "w": 1440,
-      "h": 900,
-      "title": "Before (usage) · Inbox の絞り込み (/)",
-      "page": "screens"
-    },
-    "before/BeforeUsageInboxFiltered.dc.html": {
-      "x": 5500,
-      "y": 5940,
-      "w": 1440,
-      "h": 900,
-      "title": "Before (usage) · 絞り込んだ状態と Save view",
-      "page": "screens"
-    },
-    "before/BeforeUsageTaskLinks.dc.html": {
-      "x": 7020,
-      "y": 5940,
-      "w": 1440,
-      "h": 900,
-      "title": "Before (usage) · 1 つのセッションに tq タスクが複数",
-      "page": "screens"
-    },
-    "before/BeforeUsageNewSession.dc.html": {
-      "x": 0,
-      "y": 6960,
-      "w": 1440,
-      "h": 900,
-      "title": "Before (usage) · 新しいセッション",
-      "page": "screens"
-    },
-    "before/BeforeUsageNewSessionPicker.dc.html": {
-      "x": 1520,
-      "y": 6960,
-      "w": 1440,
-      "h": 900,
-      "title": "Before (usage) · 新しいセッション · ディレクトリを選ぶ",
-      "page": "screens"
-    },
-    "before/BeforeUsageNav.dc.html": {
-      "x": 0,
-      "y": 2200,
-      "w": 240,
-      "h": 900,
-      "title": "Before (usage) · Nav",
-      "page": "components"
-    },
-    "before/BeforeUsageInboxList.dc.html": {
-      "x": 320,
-      "y": 2200,
-      "w": 460,
-      "h": 900,
-      "title": "Before (usage) · InboxList",
-      "page": "components"
-    },
-    "before/BeforeUsageConversation.dc.html": {
-      "x": 860,
-      "y": 2200,
-      "w": 880,
-      "h": 900,
-      "title": "Before (usage) · Conversation",
-      "page": "components"
-    },
-    "before/BeforeUsageSessionRow.dc.html": {
-      "x": 1820,
-      "y": 2200,
-      "w": 460,
-      "h": 76,
-      "title": "Before (usage) · SessionRow",
-      "page": "components"
     }
   },
   "order": [
@@ -378,36 +162,9 @@
     "NewSessionPicker.dc.html",
     "PhoneNewSession.dc.html",
     "PhoneNewSessionPicker.dc.html",
-    "before/BeforeMain.dc.html",
-    "before/BeforeInbox.dc.html",
-    "before/BeforeLater.dc.html",
-    "before/BeforeInboxFilter.dc.html",
-    "before/BeforeInboxFiltered.dc.html",
-    "before/BeforeTaskLinks.dc.html",
-    "before/BeforePhoneInbox.dc.html",
-    "before/BeforePhoneDrawer.dc.html",
-    "before/BeforeNewSession.dc.html",
-    "before/BeforeNewSessionPicker.dc.html",
-    "before/BeforeNav.dc.html",
-    "before/BeforeInboxList.dc.html",
-    "before/BeforeConversation.dc.html",
     "SessionRow.dc.html",
     "Quota.dc.html",
-    "SessionUsage.dc.html",
-    "before/BeforeUsageMain.dc.html",
-    "before/BeforeUsageInbox.dc.html",
-    "before/BeforeUsagePhoneInbox.dc.html",
-    "before/BeforeUsagePhoneDrawer.dc.html",
-    "before/BeforeUsageLater.dc.html",
-    "before/BeforeUsageInboxFilter.dc.html",
-    "before/BeforeUsageInboxFiltered.dc.html",
-    "before/BeforeUsageTaskLinks.dc.html",
-    "before/BeforeUsageNewSession.dc.html",
-    "before/BeforeUsageNewSessionPicker.dc.html",
-    "before/BeforeUsageNav.dc.html",
-    "before/BeforeUsageInboxList.dc.html",
-    "before/BeforeUsageConversation.dc.html",
-    "before/BeforeUsageSessionRow.dc.html"
+    "SessionUsage.dc.html"
   ],
   "pages": [
     {
@@ -419,40 +176,7 @@
       "name": "部品"
     }
   ],
-  "notes": {
-    "diffScreens": {
-      "x": -640,
-      "y": 1620,
-      "w": 560,
-      "fill": "orange",
-      "text": "変更前との違い (y 3780 から下が変更前。仕様のまとめは右が変更前)\n- 先頭は状態だけ: 種類のアイコン (Needs action)、青い丸 (Working)、✓ (Done)。黄色い四角の未読の印をやめ、未読は太字だけ\n- 種類を文字で出す場所をなくし、すべて lucide のアイコンにする\n- 2 行目 (Inbox は 3 行目) に灰色の role アイコンと engine (claude / codex) を足す。role がないセッションは … (work_type_fallback)\n- tq タスクは ID と題名を出し、ないときは — No task\n- Inbox: 経過時間から Working · / Merged # などの前置きを外す。Done の decisions はプレビューの行に出す。行ごとの ★ ボタンを外す\n- ナビとスマホのドロワー: Starred / Recent もほかと同じ行にし、行の ★ を外す。Development (プロジェクトの一覧) を PM (PM のセッションの一覧) に変える\n- スマホの Inbox: 種類の文字をアイコンにし、role / engine を足す\n- 仕様のまとめ: ナビ、Inbox、Tree の説明を直し、「セッションの行」を足す",
-      "page": "screens"
-    },
-    "diffParts": {
-      "x": -640,
-      "y": 0,
-      "w": 560,
-      "fill": "orange",
-      "text": "変更前との違い (下の段が変更前)\n- SessionRow を足し、Nav と InboxList のセッションの行をすべてこれで描く\n- Nav: Development を PM のセッションの一覧に変える",
-      "page": "components"
-    },
-    "diffUsageScreens": {
-      "x": -640,
-      "y": 5940,
-      "w": 560,
-      "fill": "orange",
-      "text": "変更前との違い (使用状況。y 5940 から下が変更前。仕様のまとめは右端が変更前)\n- ナビの一番下に Quota を固定: claude と codex の 5h / 7d の棒、%、ペースの印 (✓ / ▲)、リセットまでの時間\n- ナビの一覧は Quota の上でスクロールする\n- 会話の返信欄の下に使用状況の行: engine、model (effort)、context、5h / 7d、バージョン\n- iPhone のナビゲーションの一番下にも同じ Quota\n- 仕様のまとめ: ナビの Quota、会話の使用状況の行、▲ / ✓ と 80% / 95% の色を足す\n- iPhone · Inbox は変わらない (ナビゲーションの変更前が読み込むための写し)",
-      "page": "screens"
-    },
-    "diffUsageParts": {
-      "x": -640,
-      "y": 2200,
-      "w": 560,
-      "fill": "orange",
-      "text": "変更前との違い (使用状況。下の段が変更前)\n- Nav: 一番下に Quota を固定。一覧は Quota の上でスクロール\n- Conversation: 返信欄の下に使用状況の行 (SessionUsage)\n- Quota と SessionUsage は新しい部品\n- SessionRow / InboxList / StatusPanel は変わらない (変更前の画面が読み込むための写し)",
-      "page": "components"
-    }
-  },
+  "notes": {},
   "v": 3,
   "createdOnFiles": {
     "v": 1,
@@ -470,5 +194,6 @@
       "version": null,
       "copiedAt": "2026-11-15T10:37:15Z"
     }
-  ]
+  ],
+  "noteOrder": null
 }

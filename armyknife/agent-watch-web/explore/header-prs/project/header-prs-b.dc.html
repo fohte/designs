@@ -87,7 +87,10 @@ class Component extends DCLogic {
             { name: 'Opened elsewhere', rows: [row(57, 'インデックス用のジョブを追加する', 'example/infra', 'passed')] },
             { name: 'Merged · 1', rows: [row(121, 'インデックスの形式を決める', 'example/search-api', 'merged')] }
           ] }),
-        st({ ...base, taskId: 'P3 #3090', taskTitle: '検索結果を整える', title: '検索結果の並び順を直す', label: '3 · どちらも merged。ヘッダーに PR は出ない (パネルの Merged に残る)', hasChip: false, panel: false, groups: [] })
+        st({ ...base, taskId: 'P3 #3090', taskTitle: '検索結果を整える', title: '検索結果の並び順を直す', label: '3 · どちらも merged。ヘッダーに PR は出ず、パネルの Merged に残る', hasChip: false, panel: true,
+          groups: [
+            { name: 'Merged · 2', rows: [row(29, '並び順の重みを設定から読む', 'example/search-api', 'merged'), row(28, '並び順のテストを足す', 'example/search-api', 'merged')] }
+          ] })
       ]
     };
   }

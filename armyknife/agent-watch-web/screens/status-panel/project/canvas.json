@@ -65,12 +65,84 @@
       "title": "StatusPanel",
       "page": "components"
     },
+    "before/BeforeStatusRunning.dc.html": {
+      "x": 0,
+      "y": 1100,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Running",
+      "page": "screens"
+    },
+    "before/BeforeStatusTree.dc.html": {
+      "x": 1520,
+      "y": 1100,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tree",
+      "page": "screens"
+    },
+    "before/BeforeStatusDecisions.dc.html": {
+      "x": 3040,
+      "y": 1100,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Decisions",
+      "page": "screens"
+    },
+    "before/BeforeStatusReview.dc.html": {
+      "x": 4560,
+      "y": 1100,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Review",
+      "page": "screens"
+    },
+    "before/BeforeStatusWebUi.dc.html": {
+      "x": 6080,
+      "y": 1100,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Web UI (crit)",
+      "page": "screens"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 0,
+      "y": 1100,
+      "w": 240,
+      "h": 900,
+      "title": "Before · Nav",
+      "page": "components"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 860,
+      "y": 1100,
+      "w": 880,
+      "h": 900,
+      "title": "Before · Conversation",
+      "page": "components"
+    },
+    "before/BeforeStatusPanel.dc.html": {
+      "x": 1820,
+      "y": 1100,
+      "w": 640,
+      "h": 900,
+      "title": "Before · StatusPanel",
+      "page": "components"
+    },
     "StatusTasks.dc.html": {
       "x": 7600,
       "y": 0,
       "w": 1440,
       "h": 900,
       "title": "状況パネル · Tasks",
+      "page": "screens"
+    },
+    "before/BeforeStatusTasks.dc.html": {
+      "x": 7600,
+      "y": 1100,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tasks",
       "page": "screens"
     }
   },
@@ -83,7 +155,16 @@
     "StatusTasks.dc.html",
     "Nav.dc.html",
     "Conversation.dc.html",
-    "StatusPanel.dc.html"
+    "StatusPanel.dc.html",
+    "before/BeforeStatusRunning.dc.html",
+    "before/BeforeStatusTree.dc.html",
+    "before/BeforeStatusDecisions.dc.html",
+    "before/BeforeStatusReview.dc.html",
+    "before/BeforeStatusWebUi.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforeStatusPanel.dc.html",
+    "before/BeforeStatusTasks.dc.html"
   ],
   "pages": [
     {
@@ -95,7 +176,16 @@
       "name": "部品"
     }
   ],
-  "notes": {},
+  "notes": {
+    "diffLaunch": {
+      "x": 9120,
+      "y": 1100,
+      "w": 420,
+      "page": "screens",
+      "fill": "orange",
+      "text": "変更点\n- サイドバーの ⌘K の横に + (New session) を足した\n- 下の段は、足す前の画面"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,

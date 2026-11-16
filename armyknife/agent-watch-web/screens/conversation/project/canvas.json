@@ -40,14 +40,6 @@
       "h": 844,
       "title": "iPhone · セッションの操作メニュー",
       "page": "screens"
-    },
-    "before/BeforePhoneChat.dc.html": {
-      "x": 3040,
-      "y": 1004,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · 会話から答える",
-      "page": "screens"
     }
   },
   "order": [
@@ -55,8 +47,7 @@
     "Cards.dc.html",
     "PhoneChat.dc.html",
     "PhoneChatMenu.dc.html",
-    "Dialogs.dc.html",
-    "before/BeforePhoneChat.dc.html"
+    "Dialogs.dc.html"
   ],
   "pages": [
     {
@@ -64,16 +55,7 @@
       "name": "画面"
     }
   ],
-  "notes": {
-    "diffPhone": {
-      "x": 3510,
-      "y": 1004,
-      "w": 380,
-      "page": "screens",
-      "fill": "orange",
-      "text": "変更点\n- 2 段目を画面の幅いっぱいに広げた\n- 2 段目はタスクと repo だけ。長いときはタスク名の末尾を省略し、repo は常に全部出す\n- 完了したタスクの一覧は状況パネルの Tasks タブで見る"
-    }
-  },
+  "notes": {},
   "v": 3,
   "createdOnFiles": {
     "v": 1,

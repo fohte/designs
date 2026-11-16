@@ -31,15 +31,21 @@ For each accepted request:
 2. Start a separate worktree for the request with Claude Code's `EnterWorktree` tool. Use a short task-specific name, and make all changes in that worktree. If `EnterWorktree` is denied, do not start; retry by running the designer skill with the Skill tool. If it is denied again, report the denial to the requester and wait for guidance.
 3. Follow this repository's instructions and use the installed `claude-design` skill for canvas work. Run `claude-design` commands directly from `~/.agents/skills/claude-design/scripts/artifact.mjs` and design-system commands from `~/.agents/skills/claude-design-system/scripts/artifact.mjs`, without `node`, outside Claude Code's sandbox. If the scripts are missing, follow the README's installation instructions. For canvas tasks, run the relevant `check` command and resolve reported problems before opening a PR.
 
+## Coordinate decisions and reviews with the user
+
+- Ask the user to choose among design options in this designer session. Register a choice as a proposal with `a agent proposal add`.
+- Ask the user to review the canvas in this designer session. Register the review as a to-do with `a agent todo add`.
+- Ask the user to merge the design PR in this designer session when a merge request is needed, and register it as a to-do with `a agent todo add`. Do not ask the PM to collect these decisions or reviews.
+
 ## Make and submit the design
 
 - Treat the app's `screens/` canvas as the implementation specification. Keep design systems synchronized as described in `AGENTS.md`; do not edit the app's source repository.
 - Follow the theme exploration and decision procedures in `AGENTS.md`; they define the canvas paths and decision record to keep with each design.
 - If a design cannot be built as drawn, report the specific constraint to the requester instead of changing the design to fit an assumption.
 - Commit the request's changes using the `commit` skill, then push the branch. Use `git push -u origin HEAD` when the branch has no upstream.
-- After pushing, open the changed canvas with `~/.agents/skills/claude-design/scripts/artifact.mjs open <repo>/<app>/<canvas>` and share the printed URL with the requester. This canvas review replaces the `crit-approval-review` step in the `commit` and `create-pr` workflows; do not open Crit. Receive canvas comments with `~/.agents/skills/claude-design/scripts/artifact.mjs comments <canvas-root> --wait`, and address those comments and feedback in chat before creating the PR. Commit and push any follow-up changes, then ask for canvas review again.
+- After pushing, open the changed canvas with `~/.agents/skills/claude-design/scripts/artifact.mjs open <repo>/<app>/<canvas>` and share the printed URL with the user in this designer session. This canvas review replaces the `crit-approval-review` step in the `commit` and `create-pr` workflows; do not open Crit. Receive canvas comments with `~/.agents/skills/claude-design/scripts/artifact.mjs comments <canvas-root> --wait`, and address those comments and feedback in chat before creating the PR. Commit and push any follow-up changes, then ask the user to review the canvas again in this session.
 - Create the pull request using the `create-pr` skill. Follow its remaining steps, including drafting and reviewing the PR title and body, obtaining approval, and submitting the PR. Do not create the PR with `gh pr create`.
-- When a PM requested the work, send the PR URL to the PM session ID included in the request with `a agent peer notify`. PR creation does not mean the design is confirmed: the user decides when it merges, and the PM verifies the merge with `gh pr view` before delegating implementation. If the request came directly from the user, report the URL in the conversation. Do not merge the pull request.
+- When a PM requested the work, send the PR URL to the PM session ID included in the request with `a agent peer notify`. After the user merges the PR, notify the PM session again that it was merged. PR creation does not mean the design is confirmed: the user decides when it merges, and the PM verifies the merge with `gh pr view` before delegating implementation. If the request came directly from the user, report the URL in the conversation. Do not merge the pull request.
 
 ## Report and clean up
 

@@ -20,7 +20,7 @@
       "y": 1300,
       "w": 1440,
       "h": 900,
-      "title": "A · gray icons in the meta line"
+      "title": "A · gray role icon + engine name in the meta line"
     },
     "session-identity-a-phone.dc.html": {
       "x": 1520,
@@ -48,7 +48,7 @@
       "y": 3900,
       "w": 1440,
       "h": 900,
-      "title": "C · role avatar with an engine badge"
+      "title": "C · role avatar, engine name in the meta line"
     },
     "session-identity-c-phone.dc.html": {
       "x": 1520,
@@ -81,13 +81,13 @@
       "y": 0,
       "w": 440,
       "fill": "gray",
-      "text": "前提\n- role の色は armyknife の設定 (agent.work_types) の TUI の色をそのまま使った。いまの feed には色とアイコンが来ていないので、B と C は feed に足す必要がある\n- role のアイコンは lucide から、TUI の Nerd Font のアイコンに近いものを選んだ\n- engine の印は製品ロゴの代わりの仮の絵。実装では公式の SVG を使う (A と C)\n- 状態 (Needs action、Error など) は今のまま、黄・赤・青の点と kind で出す"
+      "text": "前提\n- role の色は armyknife の設定 (agent.work_types) の TUI の色をそのまま使った。いまの feed には色とアイコンが来ていないので、B と C は feed に足す必要がある\n- role のアイコンは lucide から、TUI の Nerd Font のアイコンに近いものを選んだ\n- engine は製品ロゴを使わず、claude / codex の文字で出す。ロゴは商標で、Anthropic も OpenAI も事前の許可なしに使うことを認めていない\n- 状態 (Needs action、Error など) は今のまま、黄・赤・青の点と kind で出す"
     },
     "a": {
       "kind": "title1",
       "x": 0,
       "y": 1060,
-      "text": "A · 2 行目の先頭に、灰色の role アイコンと engine のロゴ",
+      "text": "A · 2 行目の先頭に、灰色の role アイコンと engine 名",
       "maxW": 1900
     },
     "aNote": {
@@ -95,7 +95,7 @@
       "y": 1300,
       "w": 400,
       "fill": "blue",
-      "text": "A\n- 色を使わないので、状態の色と混ざらない\n- 目立たない。アイコンの意味は覚える必要があり、hover で名前が出る\n- feed に足すものはない"
+      "text": "A\n- 色を使わないので、状態の色と混ざらない\n- 目立たない。role のアイコンの意味は覚える必要があり、hover で名前が出る\n- feed に足すものはない"
     },
     "b": {
       "kind": "title1",
@@ -115,7 +115,7 @@
       "kind": "title1",
       "x": 0,
       "y": 3660,
-      "text": "C · 行の左に role のアバター、右下に engine のロゴ",
+      "text": "C · 行の左に role のアバター、2 行目の先頭に engine 名",
       "maxW": 1900
     },
     "cNote": {

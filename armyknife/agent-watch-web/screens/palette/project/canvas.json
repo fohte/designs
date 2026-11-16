@@ -56,46 +56,6 @@
       "h": 844,
       "title": "iPhone · コマンドパレット · 新しいセッション",
       "page": "screens"
-    },
-    "before/BeforePalette.dc.html": {
-      "x": 1520,
-      "y": 1100,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · ⌘K · 開いた直後",
-      "page": "screens"
-    },
-    "before/BeforePaletteQuery.dc.html": {
-      "x": 3040,
-      "y": 1100,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · ⌘K · # で tq タスクに絞る",
-      "page": "screens"
-    },
-    "before/BeforeNav.dc.html": {
-      "x": 0,
-      "y": 1100,
-      "w": 240,
-      "h": 900,
-      "title": "Before · Nav",
-      "page": "components"
-    },
-    "before/BeforeInboxList.dc.html": {
-      "x": 320,
-      "y": 1100,
-      "w": 460,
-      "h": 900,
-      "title": "Before · InboxList",
-      "page": "components"
-    },
-    "before/BeforeConversation.dc.html": {
-      "x": 860,
-      "y": 1100,
-      "w": 880,
-      "h": 900,
-      "title": "Before · Conversation",
-      "page": "components"
     }
   },
   "order": [
@@ -105,12 +65,7 @@
     "InboxList.dc.html",
     "Conversation.dc.html",
     "PaletteNewSession.dc.html",
-    "PhonePaletteNewSession.dc.html",
-    "before/BeforePalette.dc.html",
-    "before/BeforePaletteQuery.dc.html",
-    "before/BeforeNav.dc.html",
-    "before/BeforeInboxList.dc.html",
-    "before/BeforeConversation.dc.html"
+    "PhonePaletteNewSession.dc.html"
   ],
   "pages": [
     {
@@ -122,16 +77,7 @@
       "name": "部品"
     }
   ],
-  "notes": {
-    "diffLaunch": {
-      "x": 6550,
-      "y": 1100,
-      "w": 420,
-      "page": "screens",
-      "fill": "orange",
-      "text": "変更点\n- サイドバーの ⌘K の横に + (New session) を足した\n- コマンドパレットに New session を足した (右の 2 枚が新しい artboard)"
-    }
-  },
+  "notes": {},
   "v": 3,
   "createdOnFiles": {
     "v": 1,

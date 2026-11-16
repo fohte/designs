@@ -120,6 +120,14 @@
       "h": 844,
       "title": "iPhone · ディレクトリを選ぶ",
       "page": "screens"
+    },
+    "SessionRow.dc.html": {
+      "x": 1820,
+      "y": 0,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "components"
     }
   },
   "order": [
@@ -137,7 +145,8 @@
     "NewSession.dc.html",
     "NewSessionPicker.dc.html",
     "PhoneNewSession.dc.html",
-    "PhoneNewSessionPicker.dc.html"
+    "PhoneNewSessionPicker.dc.html",
+    "SessionRow.dc.html"
   ],
   "pages": [
     {
@@ -167,5 +176,6 @@
       "version": null,
       "copiedAt": "2026-11-15T10:37:15Z"
     }
-  ]
+  ],
+  "noteOrder": null
 }

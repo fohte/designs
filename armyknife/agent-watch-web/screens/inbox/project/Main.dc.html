@@ -20,7 +20,7 @@ body{margin:0}
 <p style="margin: 8px 0 0; color: #a1a1aa">Claude Code と Codex のセッションを見張り、返事を待っているものに答えるための画面です。この canvas は fohte/armyknife の agent-watch-web のいまのコードに合わせて描いています。</p>
 </header>
 <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px 40px">
-<sc-for list="{{sections}}" as="s" hint-placeholder-count="9">
+<sc-for list="{{sections}}" as="s" hint-placeholder-count="10">
 <section style="display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 1px solid #2a2a2a">
 <h2 style="margin: 0; font-size: 17px; font-weight: 700; color: #fafafa">{{s.title}}</h2>
 <sc-for list="{{s.items}}" as="i" hint-placeholder-count="3">
@@ -42,11 +42,11 @@ class Component extends DCLogic {
           '760px 以下では iPhone の配置になり、Inbox と会話を 1 画面ずつ見せます。'
         ] },
         { title: 'ナビ', items: [
-          'Inbox と Board の切り替え、保存した絞り込み (VIEWS)、Starred、Recent、作業の種類ごとのプロジェクトを並べます。',
+          'Inbox と Board の切り替え、保存した絞り込み (VIEWS)、Starred、Recent、PM のセッションを並べます。',
           '⌘K でパレットを開き、ボタンで Inbox をたたみます。'
         ] },
         { title: 'Inbox', items: [
-          'Needs action を tq の優先度順に並べ、未読は黄色の点と太字で示します。',
+          'Needs action を tq の優先度順に並べ、未読は太字で示します。',
           'Later に回したもの、In progress (先頭 2 件)、Done を下に続けます。Done は Close all でまとめて閉じます。',
           'j / k で移動し、L で Later、E で閉じます。'
         ] },
@@ -65,7 +65,12 @@ class Component extends DCLogic {
         ] },
         { title: '状況パネル', items: [
           'Running、Tree、Review、Decisions のタブと、セッションが開いた web UI (crit など) のタブを持ちます。',
-          'Tree は親子のセッションを並べ、tq と repo は親と違うときだけ出します。'
+          'Tree は親子のセッションを、ほかの一覧と同じ行で並べます。'
+        ] },
+        { title: 'セッションの行', items: [
+          'セッションが並ぶ場所はすべて同じ行 (SessionRow) で描きます。先頭は状態で、種類のアイコン (Needs action)、青い丸 (Working)、✓ (Done) のどれかです。',
+          'Inbox はタイトル、プレビュー、role / engine / tq タスクとリポジトリの 3 行です。ほかの一覧はプレビューを省き、リポジトリを 3 行目に出します。',
+          'role は灰色のアイコンで、role がないセッションは設定の agent.work_type_fallback のアイコンを出します。engine は claude / codex の文字で出します。'
         ] },
         { title: 'Board と ⌘K', items: [
           'Board はプロジェクトごとの列で、手が要るプロジェクトを先に並べます。',

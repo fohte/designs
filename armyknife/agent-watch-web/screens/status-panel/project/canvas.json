@@ -72,6 +72,14 @@
       "h": 900,
       "title": "状況パネル · Tasks",
       "page": "screens"
+    },
+    "SessionRow.dc.html": {
+      "x": 2540,
+      "y": 0,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "components"
     }
   },
   "order": [
@@ -83,7 +91,8 @@
     "StatusTasks.dc.html",
     "Nav.dc.html",
     "Conversation.dc.html",
-    "StatusPanel.dc.html"
+    "StatusPanel.dc.html",
+    "SessionRow.dc.html"
   ],
   "pages": [
     {
@@ -113,5 +122,6 @@
       "version": null,
       "copiedAt": "2026-11-15T10:37:15Z"
     }
-  ]
+  ],
+  "noteOrder": null
 }

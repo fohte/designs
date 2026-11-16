@@ -29,14 +29,7 @@ body{margin:0}
 </div>
 <h2 style="display: flex; align-items: center; gap: 8px; margin: 8px 0 0; padding: 0 16px 6px; font-size: 13px; font-weight: 700">Needs action <span style="font-family: 'JetBrains Mono', monospace; color: #fbbf24">6</span></h2>
 <sc-for list="{{rows}}" as="r" hint-placeholder-count="4">
-<div style="display: grid; grid-template-columns: 8px 1fr; gap: 12px; padding: 10px 16px; border-bottom: 1px solid #1f1f1f">
-<span style="width: 8px; height: 8px; margin-top: 8px; background: {{r.dot}}"></span>
-<div style="min-width: 0">
-<div style="display: flex; gap: 8px"><strong style="flex: 1; min-width: 0; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{r.title}}</strong><span style="font-size: 12.5px; color: #8b8b94">{{r.age}}</span></div>
-<div style="font-size: 13.5px; color: #d4d4d8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="color: {{r.dot}}">{{r.kind}}</span> · {{r.preview}}</div>
-<div style="font-size: 12px; color: #8b8b94; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{r.task}}</span> · {{r.repo}}</div>
-</div>
-</div>
+<dc-import name="SessionRow" s="{{ r }}" density="phone" hint-size="100%,88px"></dc-import>
 </sc-for>
 <div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>◷ Later</span><span style="font-family: 'JetBrains Mono', monospace; color: #8b8b94">2</span><span style="margin-left: auto; color: #8b8b94">in 2h ›</span></div>
 <div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>In progress</span><span style="font-family: 'JetBrains Mono', monospace; color: #60a5fa">5</span><span style="margin-left: auto; color: #52525b">›</span></div>
@@ -46,13 +39,12 @@ body{margin:0}
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
-    const r = (kind, dot, title, age, preview, task, repo) => ({ kind, dot, title, age, preview, task, repo });
     return {
       rows: [
-        r('Question', '#fbbf24', '通知の再送処理を見直す', '8s', '再試行は 3 回で止めてよいですか?', 'P1 #2048 通知の信頼性を上げる', 'service'),
-        r('Review', '#fbbf24', '配信チェックの PR を確認する', '2m', 'PR #2049 を見てください', 'P2 #2050 配信チェックを入れる', 'web-app'),
-        r('Error', '#f87171', '統合テストの失敗を直す', '4m', 'テストが 2 件失敗しました', 'P1 #2052 テストを安定させる', 'service'),
-        r('Proposal', '#fbbf24', 'アラートの送り先を決める', '12m', '2 つの案から選んでください', 'P2 #2051 監視を整える', 'observability')
+        { status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', preview: '再試行は 3 回で止めてよいですか?', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'service' },
+        { status: 'Review', unread: true, title: '配信チェックの PR を確認する', age: '2m', preview: 'PR #2049 を見てください', role: '', engine: 'codex', taskRef: 'P2 #2050', taskTitle: '配信チェックを入れる', repo: 'web-app' },
+        { status: 'Error', unread: true, title: '統合テストの失敗を直す', age: '4m', preview: 'テストが 2 件失敗しました', role: 'debug-flow', engine: 'claude', taskRef: 'P1 #2052', taskTitle: 'テストを安定させる', repo: 'service' },
+        { status: 'Proposal', title: 'アラートの送り先を決める', age: '12m', preview: '2 つの案から選んでください', role: 'designer', engine: 'claude', taskRef: 'P2 #2051', taskTitle: '監視を整える', repo: 'observability' }
       ]
     };
   }

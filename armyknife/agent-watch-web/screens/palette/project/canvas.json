@@ -56,6 +56,14 @@
       "h": 844,
       "title": "iPhone · コマンドパレット · 新しいセッション",
       "page": "screens"
+    },
+    "SessionRow.dc.html": {
+      "x": 1820,
+      "y": 0,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "components"
     }
   },
   "order": [
@@ -65,7 +73,8 @@
     "InboxList.dc.html",
     "Conversation.dc.html",
     "PaletteNewSession.dc.html",
-    "PhonePaletteNewSession.dc.html"
+    "PhonePaletteNewSession.dc.html",
+    "SessionRow.dc.html"
   ],
   "pages": [
     {
@@ -95,5 +104,6 @@
       "version": null,
       "copiedAt": "2026-11-15T10:37:15Z"
     }
-  ]
+  ],
+  "noteOrder": null
 }

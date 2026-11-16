@@ -102,7 +102,7 @@
     },
     "screens/Board.dc.html": {
       "x": 0,
-      "y": 3660,
+      "y": 4680,
       "w": 1440,
       "h": 900,
       "title": "10. Board",
@@ -110,7 +110,7 @@
     },
     "screens/Palette.dc.html": {
       "x": 1520,
-      "y": 3660,
+      "y": 4680,
       "w": 1440,
       "h": 900,
       "title": "11. ⌘K · 開いた直後",
@@ -118,7 +118,7 @@
     },
     "screens/PaletteQuery.dc.html": {
       "x": 3040,
-      "y": 3660,
+      "y": 4680,
       "w": 1440,
       "h": 900,
       "title": "12. ⌘K · # で tq タスクに絞る",
@@ -126,7 +126,7 @@
     },
     "screens/MessageKinds.dc.html": {
       "x": 0,
-      "y": 4680,
+      "y": 5700,
       "w": 1440,
       "h": 2300,
       "title": "13. 会話に出るメッセージ",
@@ -134,7 +134,7 @@
     },
     "screens/Cards.dc.html": {
       "x": 1520,
-      "y": 4680,
+      "y": 5700,
       "w": 1440,
       "h": 3200,
       "title": "14. 返答を待つカード",
@@ -142,7 +142,7 @@
     },
     "screens/Dialogs.dc.html": {
       "x": 3040,
-      "y": 4680,
+      "y": 5700,
       "w": 1440,
       "h": 900,
       "title": "15. 確認ダイアログ",
@@ -150,7 +150,7 @@
     },
     "screens/PhoneInbox.dc.html": {
       "x": 0,
-      "y": 8000,
+      "y": 9020,
       "w": 390,
       "h": 844,
       "title": "16. iPhone · Inbox",
@@ -158,7 +158,7 @@
     },
     "screens/PhoneDrawer.dc.html": {
       "x": 470,
-      "y": 8000,
+      "y": 9020,
       "w": 390,
       "h": 844,
       "title": "17. iPhone · ナビゲーション",
@@ -166,7 +166,7 @@
     },
     "screens/PhoneChat.dc.html": {
       "x": 940,
-      "y": 8000,
+      "y": 9020,
       "w": 390,
       "h": 844,
       "title": "18. iPhone · 会話から答える",
@@ -206,7 +206,7 @@
     },
     "screens/TaskLinks.dc.html": {
       "x": 4560,
-      "y": 3660,
+      "y": 4680,
       "w": 1440,
       "h": 900,
       "title": "19. 1 つのセッションに tq タスクが複数",
@@ -214,11 +214,91 @@
     },
     "screens/PhoneChatMenu.dc.html": {
       "x": 1410,
-      "y": 8000,
+      "y": 9020,
       "w": 390,
       "h": 844,
       "title": "20. iPhone · セッションの操作メニュー",
       "page": "screens"
+    },
+    "screens/StatusTasks.dc.html": {
+      "x": 7600,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Tasks",
+      "page": "screens"
+    },
+    "before/BeforeStatusRunning.dc.html": {
+      "x": 0,
+      "y": 3660,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Running",
+      "page": "screens"
+    },
+    "before/BeforeStatusTree.dc.html": {
+      "x": 1520,
+      "y": 3660,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tree",
+      "page": "screens"
+    },
+    "before/BeforeStatusDecisions.dc.html": {
+      "x": 3040,
+      "y": 3660,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Decisions",
+      "page": "screens"
+    },
+    "before/BeforeStatusReview.dc.html": {
+      "x": 4560,
+      "y": 3660,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Review",
+      "page": "screens"
+    },
+    "before/BeforeStatusWebUi.dc.html": {
+      "x": 6080,
+      "y": 3660,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Web UI (crit)",
+      "page": "screens"
+    },
+    "before/BeforePhoneChat.dc.html": {
+      "x": 940,
+      "y": 9984,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · 会話から答える",
+      "page": "screens"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 0,
+      "y": 1020,
+      "w": 240,
+      "h": 900,
+      "title": "Before · Nav",
+      "page": "components"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 320,
+      "y": 1020,
+      "w": 880,
+      "h": 900,
+      "title": "Before · Conversation",
+      "page": "components"
+    },
+    "before/BeforeStatusPanel.dc.html": {
+      "x": 1280,
+      "y": 1020,
+      "w": 640,
+      "h": 900,
+      "title": "Before · StatusPanel",
+      "page": "components"
     }
   },
   "order": [
@@ -232,6 +312,7 @@
     "screens/StatusDecisions.dc.html",
     "screens/StatusReview.dc.html",
     "screens/StatusWebUi.dc.html",
+    "screens/StatusTasks.dc.html",
     "screens/Board.dc.html",
     "screens/Palette.dc.html",
     "screens/PaletteQuery.dc.html",
@@ -246,9 +327,34 @@
     "screens/Conversation.dc.html",
     "screens/StatusPanel.dc.html",
     "screens/TaskLinks.dc.html",
-    "screens/PhoneChatMenu.dc.html"
+    "screens/PhoneChatMenu.dc.html",
+    "before/BeforeStatusRunning.dc.html",
+    "before/BeforeStatusTree.dc.html",
+    "before/BeforeStatusDecisions.dc.html",
+    "before/BeforeStatusReview.dc.html",
+    "before/BeforeStatusWebUi.dc.html",
+    "before/BeforePhoneChat.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforeStatusPanel.dc.html"
   ],
-  "notes": {},
+  "notes": {
+    "diffStatus": {
+      "x": 7600,
+      "y": 3660,
+      "w": 420,
+      "page": "screens",
+      "fill": "orange",
+      "text": "変更点\n- タブに Tasks を足した (右上の新しい artboard)\n- Tasks タブで、進行中のタスクと完了したタスクの一覧を見る\n- スマホのトップバーから外した完了タスクの一覧の置き場所"
+    },
+    "diffPhone": {
+      "x": 1410,
+      "y": 9984,
+      "w": 380,
+      "page": "screens",
+      "text": "変更点\n- 2 段目を画面の幅いっぱいに広げた\n- 2 段目はタスクと repo だけ。長いときはタスク名の末尾を省略し、repo は常に全部出す\n- 完了したタスクの一覧は状況パネルの Tasks タブで見る"
+    }
+  },
   "designSystems": [
     {
       "title": "agent watch",

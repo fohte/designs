@@ -43,6 +43,17 @@ test retry::backs_off ... ok</pre>
 </div>
 </sc-if>
 
+<sc-if value="{{isTasks}}" hint-placeholder-val="{{ false }}">
+<div role="tabpanel" style="flex: 1; min-height: 0; overflow: hidden; padding: 6px 0">
+<h3 style="height: 30px; display: flex; align-items: center; margin: 0; padding: 0 18px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">IN PROGRESS</h3>
+<a href="#" style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; padding: 8px 18px; color: #fafafa; text-decoration: none"><span style="color: #60a5fa">●</span><div style="min-width: 0"><div><span style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">#2048</span> 通知の信頼性を上げる</div><div style="font-size: 12px; color: #8b8b94">P1 · service</div></div></a>
+<h3 style="height: 30px; display: flex; align-items: center; margin: 8px 0 0; padding: 0 18px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">COMPLETED <span style="margin-left: 6px; font-family: 'JetBrains Mono', monospace">12</span></h3>
+<sc-for list="{{doneTasks}}" as="d" hint-placeholder-count="4">
+<a href="#" style="display: grid; grid-template-columns: 14px 1fr auto; gap: 10px; align-items: center; padding: 6px 18px; color: #d4d4d8; text-decoration: none"><span style="color: #71717a">✓</span><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; color: #8b8b94">{{d.no}}</span> {{d.title}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8b8b94">{{d.age}}</span></a>
+</sc-for>
+</div>
+</sc-if>
+
 <sc-if value="{{isTree}}" hint-placeholder-val="{{ false }}">
 <div role="tabpanel" style="flex: 1; min-height: 0; display: flex; flex-direction: column">
 <div role="tree" style="flex: 1; min-height: 0; overflow: hidden; padding: 6px 0">
@@ -119,12 +130,13 @@ test retry::backs_off ... ok</pre>
 </sc-if>
 </aside>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"tab":{"editor":"enum","options":["running","tree","review","decisions","crit"],"default":"running"},"$preview":{"width":640,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit"],"default":"running"},"$preview":{"width":640,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const tab = this.props.tab ?? 'running';
     const tabs = [
       ['running', 'Running', '2', '#60a5fa'],
+      ['tasks', 'Tasks', '13', '#8b8b94'],
       ['tree', 'Tree', '1', '#fbbf24'],
       ['review', 'Review', '', '#8b8b94'],
       ['decisions', 'Decisions', '1', '#fbbf24'],
@@ -141,10 +153,13 @@ class Component extends DCLogic {
     return {
       tabs,
       isRunning: tab === 'running',
+      isTasks: tab === 'tasks',
       isTree: tab === 'tree',
       isReview: tab === 'review',
       isDecisions: tab === 'decisions',
       isCrit: tab === 'crit',
+      doneTasks: [['#2047', '再送の上限を設定に出す', '1h'], ['#2046', '送信キューを分ける', '2h'], ['#2043', '失敗時の記録を残す', '1d'], ['#2041', '再送のテストを足す', '2d']]
+        .map(([no, title, age]) => ({ no, title, age })),
       tree: [
         node(0, '▾', '#60a5fa', '通知まわりの改修', '12m', '', '#a1a1aa', 'サブタスクを順に進めています', '', false, false),
         node(1, '▾', '#fbbf24', '通知の再送処理を見直す', '8s', 'Question', '#fbbf24', '再試行は 3 回で止めてよいですか?', '', true, false),

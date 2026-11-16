@@ -39,7 +39,7 @@ For each accepted request:
 
 ## Make and submit the design
 
-- Treat the app's `screens/` canvas as the implementation specification. Keep design systems synchronized as described in `AGENTS.md`; do not edit the app's source repository.
+- Treat the app's `screens/<group>/` canvases as the implementation specification. Keep design systems synchronized as described in `AGENTS.md`; do not edit the app's source repository.
 - Follow the theme exploration and decision procedures in `AGENTS.md`; they define the canvas paths and decision record to keep with each design.
 - If a design cannot be built as drawn, report the specific constraint to the requester instead of changing the design to fit an assumption.
 - Commit the request's changes using the `commit` skill, then push the branch. Use `git push -u origin HEAD` when the branch has no upstream.

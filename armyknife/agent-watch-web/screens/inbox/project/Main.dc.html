@@ -43,7 +43,8 @@ class Component extends DCLogic {
         ] },
         { title: 'ナビ', items: [
           'Inbox と Board の切り替え、保存した絞り込み (VIEWS)、Starred、Recent、PM のセッションを並べます。',
-          '⌘K でパレットを開き、ボタンで Inbox をたたみます。'
+          '⌘K でパレットを開き、ボタンで Inbox をたたみます。',
+          '一番下に claude と codex の quota (5h と 7d) を常に出します。棒の細い縦線は均等に使ったときの量で、それより使っていれば ▲ (黄)、下回っていれば ✓ (灰) です。'
         ] },
         { title: 'Inbox', items: [
           'Needs action を tq の優先度順に並べ、未読は太字で示します。',
@@ -57,7 +58,8 @@ class Component extends DCLogic {
         { title: '会話', items: [
           'メッセージは最大 672px の列に中央寄せで並べます。返事を待つカードも会話の中に出します (composer の上には固定しません)。',
           'ヘッダーに tq タスク、repo、親セッション、PR と Merge、ターミナルで開くボタンを置きます。',
-          '↵ で送り、Esc で止め、⌥↑ / ⌥↓ で自分のメッセージをたどります。'
+          '↵ で送り、Esc で止め、⌥↑ / ⌥↓ で自分のメッセージをたどります。',
+          '返信欄の下に status line と同じ並びで engine、model (effort)、context、5h / 7d の quota、バージョンを出します。表示だけで、押しても何も起きません。iPhone では折り返します。'
         ] },
         { title: '返事を待つカード', items: [
           'Question、Permission、Proposal、To-do の 4 種類です。返事を待っている間は黄色の枠で囲みます。',
@@ -78,6 +80,7 @@ class Component extends DCLogic {
         ] },
         { title: '色', items: [
           '黄色は返事待ち、青は実行中、赤は失敗、緑は ! コマンドの成功です。',
+          'quota の使用率は 80% 以上で黄、95% 以上で赤にします。',
           '角は丸めず、影は画面の上に浮かぶものにだけ付けます。'
         ] }
       ]

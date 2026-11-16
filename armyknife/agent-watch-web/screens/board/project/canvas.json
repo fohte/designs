@@ -24,12 +24,21 @@
       "h": 76,
       "title": "SessionRow",
       "page": "components"
+    },
+    "Quota.dc.html": {
+      "x": 1180,
+      "y": 0,
+      "w": 240,
+      "h": 140,
+      "title": "Quota",
+      "page": "components"
     }
   },
   "order": [
     "Board.dc.html",
     "Nav.dc.html",
-    "SessionRow.dc.html"
+    "SessionRow.dc.html",
+    "Quota.dc.html"
   ],
   "pages": [
     {

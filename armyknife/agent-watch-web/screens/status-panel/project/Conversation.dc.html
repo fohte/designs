@@ -95,7 +95,7 @@ a{color:#ef4444}
 <div role="status" style="flex: none; box-sizing: border-box; display: flex; align-items: center; gap: 8px; width: 100%; padding: 8px max(24px, calc((100% - 672px) / 2)); color: #8b8b94; font-size: 13px"><span style="width: 7px; height: 7px; border-radius: 50%; background: #60a5fa"></span><span>Working · 18s</span><span style="display: inline-flex; gap: 6px; min-width: 0; font-family: 'JetBrains Mono', monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Bash <span>cargo test -p metrics</span></span></div>
 </sc-if>
 
-<form style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 20px; border: 1px solid #3f3f46; background: #141414">
+<form style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 6px; border: 1px solid #3f3f46; background: #141414">
 <textarea aria-label="Message" rows="2" placeholder="{{placeholder}}" style="display: block; width: 100%; min-height: 54px; box-sizing: border-box; padding: 12px 14px 4px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; line-height: 1.6; resize: none"></textarea>
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 8px 8px 14px; color: #a1a1aa; font-size: 11.5px">
 <span>↵ Send · ⇧↵ / ⌥↵ New line · Esc Interrupt</span>
@@ -103,6 +103,7 @@ a{color:#ef4444}
 <button type="submit" aria-label="Send message" style="width: 32px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414; opacity: 0.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
 </div>
 </form>
+<div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
@@ -116,6 +117,7 @@ class Component extends DCLogic {
       isQuestion: q,
       isWorking: !q,
       hasTasks: !q,
+      engine: q ? 'claude' : 'codex',
       title: q ? '通知の再送処理を見直す' : '配信メトリクスを追加する',
       taskId: q ? 'P1 #2048' : 'P3 #2055',
       taskTitle: q ? '通知の信頼性を上げる' : '監視を整える',

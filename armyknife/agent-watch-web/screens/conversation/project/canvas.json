@@ -40,6 +40,14 @@
       "h": 844,
       "title": "iPhone · セッションの操作メニュー",
       "page": "screens"
+    },
+    "SessionUsage.dc.html": {
+      "x": 3980,
+      "y": 1020,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "screens"
     }
   },
   "order": [
@@ -47,7 +55,8 @@
     "Cards.dc.html",
     "PhoneChat.dc.html",
     "PhoneChatMenu.dc.html",
-    "Dialogs.dc.html"
+    "Dialogs.dc.html",
+    "SessionUsage.dc.html"
   ],
   "pages": [
     {
@@ -73,5 +82,6 @@
       "version": null,
       "copiedAt": "2026-11-15T10:37:15Z"
     }
-  ]
+  ],
+  "noteOrder": null
 }

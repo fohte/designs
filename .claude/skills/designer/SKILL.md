@@ -50,4 +50,5 @@ For each accepted request:
 ## Report and clean up
 
 - Keep the worktree while the pull request is awaiting the user's decision. After the pull request is merged, use Claude Code's `ExitWorktree` tool with its remove option to remove the worktree. Leave the branch in place.
+- When a canvas is deleted or moved, such as `explore/<theme>/` moving to `decisions/`, remove its web UI registration with `a agent web-ui remove <NAME>` in the same step. Its old URL no longer opens the canvas, so a registration left behind shows a broken tab in watch-web.
 - Keep this session assigned to the same repository for its lifetime and handle later requests for that repository.

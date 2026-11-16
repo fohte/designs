@@ -1,0 +1,146 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-16T18:20:34Z"
+  },
+  "title": "Header PRs",
+  "launch": {
+    "view": "canvas"
+  },
+  "pages": [],
+  "boards": {
+    "header-prs-current.dc.html": {
+      "title": "Current · ヘッダーの PR (desktop)",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 640
+    },
+    "header-prs-a.dc.html": {
+      "title": "A · 3 つの場合 (desktop)",
+      "x": 0,
+      "y": 1100,
+      "w": 1440,
+      "h": 860
+    },
+    "header-prs-a-phone.dc.html": {
+      "title": "A · phone · PR が 2 つ",
+      "x": 1520,
+      "y": 1100,
+      "w": 390,
+      "h": 844
+    },
+    "header-prs-b.dc.html": {
+      "title": "B · 3 つの場合 (desktop)",
+      "x": 0,
+      "y": 2620,
+      "w": 1440,
+      "h": 880
+    },
+    "header-prs-b-phone.dc.html": {
+      "title": "B · phone · PR が 2 つ",
+      "x": 1520,
+      "y": 2620,
+      "w": 390,
+      "h": 844
+    },
+    "header-prs-c.dc.html": {
+      "title": "C · 3 つの場合 (desktop)",
+      "x": 0,
+      "y": 4220,
+      "w": 1440,
+      "h": 760
+    },
+    "header-prs-c-phone.dc.html": {
+      "title": "C · phone · PR が 2 つ",
+      "x": 1520,
+      "y": 4220,
+      "w": 390,
+      "h": 844
+    }
+  },
+  "order": [
+    "header-prs-current.dc.html",
+    "header-prs-a.dc.html",
+    "header-prs-a-phone.dc.html",
+    "header-prs-b.dc.html",
+    "header-prs-b-phone.dc.html",
+    "header-prs-c.dc.html",
+    "header-prs-c-phone.dc.html"
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "maxW": 1900,
+      "text": "Current · PR 番号が並ぶだけで、どれが何か分からない",
+      "x": 0,
+      "y": -240
+    },
+    "about": {
+      "fill": "gray",
+      "w": 480,
+      "x": 1520,
+      "y": 0,
+      "text": "今のヘッダー\n- desktop は右上に #番号 PR を並べる。番号のほかは出ない (タイトル、repo、状態、CI なし)\n- 並ぶのは cwd の branch の PR と、submit のときに記録した PR (別の worktree や repo で開いたもの)\n- merged / closed も同じ見た目で残る\n- Merge は並びの先頭の PR が open のときに出る。先頭が branch の PR とは限らない\n- phone のヘッダーには PR が出ない\n- 右のパネルに PR の一覧はない\n- データはすべて架空"
+    },
+    "unknowns": {
+      "fill": "gray",
+      "w": 480,
+      "x": 2080,
+      "y": 0,
+      "text": "わからないこと\n- API の PR には CI の結果も draft かどうかもない。どの案も足す必要がある\n- merged の PR をいつまで出すか (この案ではセッションが続く間は出す)\n- 別の repo の PR を開いたとき、その repo の branch を知る手段はない。「ほかで開いた」とだけ出す\n- branch の PR がなく、ほかの PR だけあるときの「いま見るべき PR」(この案では open のうち番号が新しいもの)"
+    },
+    "a": {
+      "kind": "title1",
+      "maxW": 1900,
+      "text": "A · branch の PR を 1 つ、タイトルと状態つきで出す。ほかは +1 から",
+      "x": 0,
+      "y": 860
+    },
+    "aNote": {
+      "fill": "blue",
+      "w": 440,
+      "x": 1990,
+      "y": 1100,
+      "text": "A\n- ヘッダーには cwd の branch の PR だけを、状態の色、番号、タイトル、CI で出す\n- ほかの PR は +1 のボタン。押すと This branch / Opened elsewhere / Merged に分けた一覧\n- 全部 merged なら薄い ✓ Merged で残す\n- phone はタイトルの下に 1 行 (44px)。押すと同じ一覧のシート\n\n得るもの\n- 並びの意味が一目で分かる。今の位置のままで済む\n失うもの\n- ほかの PR の状態は押すまで見えない\n- ヘッダーの右側が今より広くなる"
+    },
+    "b": {
+      "kind": "title1",
+      "maxW": 1900,
+      "text": "B · ヘッダーには open の branch の PR だけ。一覧は右のパネル",
+      "x": 0,
+      "y": 2380
+    },
+    "bNote": {
+      "fill": "blue",
+      "w": 440,
+      "x": 1990,
+      "y": 2620,
+      "text": "B\n- ヘッダーは open / draft の branch の PR だけを、番号、状態、CI の短い形で出す。merged になったら消える\n- 右のパネルに Pull requests を足し、すべての PR をタイトル、repo、状態、CI つきで並べる。merged / closed は下にまとめて薄く\n- phone はヘッダーを変えず、パネルに同じ一覧\n\n得るもの\n- ヘッダーがいちばん静か。終わった PR で迷わない\n失うもの\n- 別の repo の PR が open でも、パネルを開くまで見えない\n- merged になると PR の場所がヘッダーから消える"
+    },
+    "c": {
+      "kind": "title1",
+      "maxW": 1900,
+      "text": "C · ヘッダーの下に PR の帯。open の PR を役割の名前つきで全部並べる",
+      "x": 0,
+      "y": 3980
+    },
+    "cNote": {
+      "fill": "blue",
+      "w": 440,
+      "x": 1990,
+      "y": 4220,
+      "text": "C\n- ヘッダーの下に 1 行の帯を足し、open の PR を This branch / Opened elsewhere の名前つきで並べる。タイトル、repo、CI も出す\n- merged / closed は帯の右端の 2 merged ▾ にまとめる\n- 全部 merged なら帯は 1 行の薄い文字だけ\n- phone は open の PR ごとに 1 行 (44px)、merged は最後の 1 行にまとめる。phone に Merge は出さない (今と同じ)\n\n得るもの\n- 押さずに全部の PR の状態が見える\n失うもの\n- PR がある間、会話の高さが 36px (phone は 44px × PR の数) 減る\n- PR が 3 つ以上 open だと帯が詰まる"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-16T18:20:34Z"
+    }
+  ]
+}

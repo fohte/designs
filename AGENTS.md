@@ -17,7 +17,7 @@ Each app's designs live in `<repo>/<app>/`: `<repo>` is the name of the app's re
 Each canvas is a folder with `project/canvas.json`. An app's folder holds:
 
 - `design-system/`: the app's design system. It belongs in `@fohte/ui` and lives here until it moves there.
-- `screens/<group>/`: one canvas per group of related screens the app should have, such as one page of the app and its dialogs, so that each canvas stays small enough to read. Together they differ from the app only between a design PR and the implementation PR that follows it. A part that screens in several groups `<dc-import>` is copied into each of those canvases, because the editor looks for a part only beside the artboard that imports it; change every copy in the same PR.
+- `screens/<group>/`: one canvas per group of related screens the app should have, such as one page of the app and its dialogs, so that each canvas stays small enough to read. A screen's mobile artboards sit beside its desktop artboard in the same canvas. Together they differ from the app only between a design PR and the implementation PR that follows it. A part that screens in several groups `<dc-import>` is copied into each of those canvases, because the editor looks for a part only beside the artboard that imports it; change every copy in the same PR.
 - `explore/<theme>/`: one canvas per theme being decided, holding its options and `<theme>-current.dc.html`, a copy of the screen as it is now to compare against.
 - `decisions/<YYYY-MM-DD>-<theme>/`: a decided theme. Its `README.md` records the options, the one chosen, and why; its `project/` is the theme's canvas, kept as it was when decided.
 

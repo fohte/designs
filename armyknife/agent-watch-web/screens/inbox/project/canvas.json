@@ -18,7 +18,7 @@
       "page": "screens"
     },
     "Later.dc.html": {
-      "x": 1520,
+      "x": 2460,
       "y": 1620,
       "w": 1440,
       "h": 900,
@@ -26,7 +26,7 @@
       "page": "screens"
     },
     "InboxFilter.dc.html": {
-      "x": 3040,
+      "x": 3980,
       "y": 1620,
       "w": 1440,
       "h": 900,
@@ -34,7 +34,7 @@
       "page": "screens"
     },
     "InboxFiltered.dc.html": {
-      "x": 4560,
+      "x": 5500,
       "y": 1620,
       "w": 1440,
       "h": 900,
@@ -42,7 +42,7 @@
       "page": "screens"
     },
     "TaskLinks.dc.html": {
-      "x": 6080,
+      "x": 7020,
       "y": 1620,
       "w": 1440,
       "h": 900,
@@ -74,16 +74,16 @@
       "page": "components"
     },
     "PhoneInbox.dc.html": {
-      "x": 0,
-      "y": 2640,
+      "x": 1520,
+      "y": 1620,
       "w": 390,
       "h": 844,
       "title": "iPhone · Inbox",
       "page": "screens"
     },
     "PhoneDrawer.dc.html": {
-      "x": 470,
-      "y": 2640,
+      "x": 1990,
+      "y": 1620,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーション",
@@ -93,12 +93,12 @@
   "order": [
     "Main.dc.html",
     "Inbox.dc.html",
+    "PhoneInbox.dc.html",
+    "PhoneDrawer.dc.html",
     "Later.dc.html",
     "InboxFilter.dc.html",
     "InboxFiltered.dc.html",
     "TaskLinks.dc.html",
-    "PhoneInbox.dc.html",
-    "PhoneDrawer.dc.html",
     "Nav.dc.html",
     "InboxList.dc.html",
     "Conversation.dc.html"

@@ -41,7 +41,7 @@ body{margin:0}
 <sc-if value="{{isPm}}" hint-placeholder-val="{{ false }}"><svg width="12.5" height="12.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: {{rolePx}}; height: {{rolePx}}"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></sc-if>
 <sc-if value="{{isNoRole}}" hint-placeholder-val="{{ false }}"><svg width="12.5" height="12.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: {{rolePx}}; height: {{rolePx}}"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></sc-if>
 </span>
-<span title="{{engineName}}" style="font-family: 'JetBrains Mono', monospace; font-size: {{metaSize}}; color: #8b8b94; white-space: nowrap">{{engine}}</span><span>·</span>
+<sc-if value="{{hasEngine}}" hint-placeholder-val="{{ true }}"><span title="{{engineName}}" style="font-family: 'JetBrains Mono', monospace; font-size: {{metaSize}}; color: #8b8b94; white-space: nowrap">{{engine}}</span><span>·</span></sc-if>
 <span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><sc-if value="{{hasTask}}" hint-placeholder-val="{{ true }}"><span style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{taskRef}}</span> {{taskTitle}}</sc-if><sc-if value="{{noTask}}" hint-placeholder-val="{{ false }}"><span>— No task</span></sc-if></span>
 </span>
 <sc-if value="{{repoInline}}" hint-placeholder-val="{{ true }}"><span style="margin-left: auto"></span><span style="flex: none; font-family: 'JetBrains Mono', monospace">{{repo}}</span></sc-if>
@@ -80,7 +80,7 @@ class Component extends DCLogic {
       roleLabel: role || 'no role',
       isDevelopment: role === 'development', isDesign: role === 'design', isDesigner: role === 'designer',
       isResearch: role === 'research', isDebugFlow: role === 'debug-flow', isPm: role === 'PM', isNoRole: role === '',
-      engine: s.engine, engineName: s.engine === 'codex' ? 'Codex' : 'Claude Code',
+      engine: s.engine, hasEngine: !!s.engine, engineName: s.engine === 'codex' ? 'Codex' : s.engine === 'claude' ? 'Claude Code' : '',
       hasTask: !!s.taskRef, noTask: !s.taskRef, taskRef: s.taskRef ?? '', taskTitle: s.taskTitle ?? '',
       repo: s.repo, repoInline: !compact, repoOwnLine: compact
     };

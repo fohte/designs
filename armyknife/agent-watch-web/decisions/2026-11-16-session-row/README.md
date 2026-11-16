@@ -15,14 +15,14 @@ Inbox、サイドバーの Starred / Recent / PM、ボード、⌘K、状況パ�
 - tq タスクは番号だけでは分からないので、タイトルも出す。
 - compact でも tq タスクと repo を省かず、3 行使ってよい。
 - starred の印は各行に要らない。
-- role がないセッションは TUI (`a agent watch`) と同じ見せ方にする。
+- role がないセッションにも印を出し、role のあるセッションとタイトルの位置をそろえる。
 
 ## 採用した案
 
-A。どの一覧でも 1 行目はタイトルと経過時間、2 行目は full ではプレビュー、残りの行は role のアイコン、engine (`claude` / `codex` の文字)、tq タスクの番号とタイトル、repo を出す。role がないセッションには、設定の `work_type_fallback` のアイコンと色を出す。サイドバーの PM は、プロジェクトの一覧から PM のセッションの一覧に変えた。
+A。どの一覧でも 1 行目はタイトルと経過時間、2 行目は full ではプレビュー、残りの行は role のアイコン、engine (`claude` / `codex` の文字)、tq タスクの番号とタイトル、repo を出す。role がないセッションには、灰色の … (ellipsis) を出す。サイドバーの PM は、プロジェクトの一覧から PM のセッションの一覧に変えた。
 
 ## 理由
 
 - 一覧を見る目的は、手を入れるべきセッションを探すことなので、状態を先頭に置く。
 - role と engine は、状態の次に見る補足として灰色で控えめに出す。
-- engine はロゴを使わず文字で出す。Anthropic と OpenAI のロゴは商標で、使うには事前の許可が要る。
+- engine はロゴを使わず文字で出す。Anthropic と OpenAI のロゴは商標で、使うには事前の許可が要る ([Anthropic](https://www.anthropic.com/legal/trademark-guidelines)、[OpenAI](https://openai.com/brand/))。

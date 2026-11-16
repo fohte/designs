@@ -76,6 +76,12 @@ body{margin:0}
 
 <sc-if value="{{bPop}}" hint-placeholder-val="{{ false }}">
 <section role="dialog" aria-labelledby="vibe-pop-title" style="position: absolute; z-index: 5; top: 74px; left: 236px; width: 400px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%); color: #d4d4d8; font-size: 13px">
+<sc-if value="{{bPopBlocked}}" hint-placeholder-val="{{ false }}">
+<h2 id="vibe-pop-title" style="margin: 0; color: #fafafa; font-size: 13px; font-weight: 700">Vibe mode is unavailable</h2>
+<p style="margin: 0">example/legacy does not allow vibe mode, so it cannot be turned on here. Change the repository setting to allow it.</p>
+<div style="display: flex; justify-content: flex-end"><button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Close</button></div>
+</sc-if>
+<sc-if value="{{bPopToggle}}" hint-placeholder-val="{{ true }}">
 <h2 id="vibe-pop-title" style="margin: 0; color: #fafafa; font-size: 13px; font-weight: 700">Vibe mode is off</h2>
 <p style="margin: 0">Turn it on to let this session merge PRs and submit without human review in example/service. Its child sessions launched with --vibe inherit it.</p>
 <div style="display: flex; flex-direction: column; gap: 4px">
@@ -86,6 +92,7 @@ body{margin:0}
 <button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Cancel</button>
 <button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Turn on and send</button>
 </div>
+</sc-if>
 </section>
 </sc-if>
 </header>
@@ -136,6 +143,7 @@ class Component extends DCLogic {
       chipBg: open ? '#262626' : 'transparent',
       chipColor: (on || inh || open) ? '#fafafa' : '#a1a1aa',
       bPop: opt === 'b' && open,
+      bPopBlocked: blocked, bPopToggle: !blocked,
       cTag: opt === 'c' && !open && (on || inh),
       cTagText: inh ? 'Vibe on · inherited from ' + parent : 'Vibe on',
       cEdit,

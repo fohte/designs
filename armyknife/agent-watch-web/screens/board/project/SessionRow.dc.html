@@ -76,7 +76,7 @@ class Component extends DCLogic {
       title: s.title, age: s.age,
       titleColor: s.unread ? '#fafafa' : '#d4d4d8', titleWeight: s.unread ? 700 : 400,
       hasPreview: !compact && !!s.preview, preview: s.preview ?? '', previewColor: s.previewColor ?? '#a1a1aa',
-      // A session without a role shows the icon of the configured agent.work_type_fallback.
+      // A session without a role shows the gray ellipsis icon.
       roleLabel: role || 'no role',
       isDevelopment: role === 'development', isDesign: role === 'design', isDesigner: role === 'designer',
       isResearch: role === 'research', isDebugFlow: role === 'debug-flow', isPm: role === 'PM', isNoRole: role === '',

@@ -1,0 +1,138 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "session-usage-current.dc.html": {
+      "title": "Current · no model, context, quota or version",
+      "w": 1440,
+      "h": 900,
+      "x": 0,
+      "y": 0
+    },
+    "session-usage-detail.dc.html": {
+      "title": "Detail · opened from the usage line (A and C)",
+      "w": 900,
+      "h": 320,
+      "x": 1520,
+      "y": 0
+    },
+    "session-usage-a.dc.html": {
+      "title": "A + X · desktop",
+      "w": 1440,
+      "h": 900,
+      "x": 0,
+      "y": 1220
+    },
+    "session-usage-a-phone.dc.html": {
+      "title": "A · phone",
+      "w": 390,
+      "h": 844,
+      "x": 1520,
+      "y": 1220
+    },
+    "session-usage-x-drawer.dc.html": {
+      "title": "X · phone drawer",
+      "w": 390,
+      "h": 844,
+      "x": 1990,
+      "y": 1220
+    },
+    "session-usage-c.dc.html": {
+      "title": "C + Y · desktop",
+      "w": 1440,
+      "h": 900,
+      "x": 0,
+      "y": 2440
+    },
+    "session-usage-c-phone.dc.html": {
+      "title": "C · phone",
+      "w": 390,
+      "h": 844,
+      "x": 1520,
+      "y": 2440
+    },
+    "session-usage-y-drawer.dc.html": {
+      "title": "Y · phone drawer",
+      "w": 390,
+      "h": 844,
+      "x": 1990,
+      "y": 2440
+    }
+  },
+  "designSystems": [
+    {
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "copiedAt": "2026-11-15T10:37:15Z",
+      "namespace": "agentwatch",
+      "title": "agent watch",
+      "version": null
+    }
+  ],
+  "noteOrder": [
+    "current",
+    "about",
+    "a",
+    "aNote",
+    "c",
+    "cNote"
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "maxW": 1900,
+      "text": "Current · セッションのページにもサイドバーにも、model や quota が出ていない",
+      "w": 240,
+      "x": 0,
+      "y": -240
+    },
+    "about": {
+      "fill": "gray",
+      "text": "前提\n- 2 つを決める。セッションのページの使用状況の行 (A か C) と、サイドバーの一番下の quota (X か Y)。組み合わせは自由\n- 使用状況の行は status line と同じ並び: engine、model (effort)、context、5h と 7d の quota、バージョン。クリックすると Detail が開く\n- quota の棒の細い縦線は、今の時点で均等に使ったときの量 (ペース)。それを超えていると ▲ (黄)、下回っていれば ✓\n- 使用率は 80% で黄、95% で赤\n- engine はロゴを使わず claude / codex の文字で出す。セッションの行 (tq 2342) とそろえる\n- 数値はすべて架空",
+      "w": 480,
+      "x": 2500,
+      "y": 0
+    },
+    "a": {
+      "kind": "title1",
+      "maxW": 1900,
+      "text": "A + X · 使用状況はヘッダーの 3 行目、quota は engine ごとに棒 2 本",
+      "w": 240,
+      "x": 0,
+      "y": 980
+    },
+    "aNote": {
+      "fill": "blue",
+      "text": "A (セッションのページ)\n- タイトルのすぐ下なので、開いた直後に目に入る\n- ヘッダーが 1 行高くなる\nX (サイドバー)\n- 残りとペースが棒の長さで分かる\n- 6 行使うので、サイドバーの一覧が少し短くなる",
+      "w": 400,
+      "x": 2460,
+      "y": 1220
+    },
+    "c": {
+      "kind": "title1",
+      "maxW": 1900,
+      "text": "C + Y · 使用状況は返信欄の下、quota は engine ごとに 1 行",
+      "w": 240,
+      "x": 0,
+      "y": 2200
+    },
+    "cNote": {
+      "fill": "blue",
+      "text": "C (セッションのページ)\n- ターミナルの status line と同じ場所。ヘッダーは今のまま\n- 返信するときに目に入るが、会話を読んでいるときは目に入りにくい\nY (サイドバー)\n- 2 行で済み、一覧を圧迫しない\n- リセットまでの時間は hover で出す。スマホでは見られない",
+      "w": 400,
+      "x": 2460,
+      "y": 2440
+    }
+  },
+  "order": [
+    "session-usage-current.dc.html",
+    "session-usage-detail.dc.html",
+    "session-usage-a.dc.html",
+    "session-usage-a-phone.dc.html",
+    "session-usage-x-drawer.dc.html",
+    "session-usage-c.dc.html",
+    "session-usage-c-phone.dc.html",
+    "session-usage-y-drawer.dc.html"
+  ],
+  "pages": [],
+  "title": "Design"
+}

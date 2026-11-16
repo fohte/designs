@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Status panel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<aside aria-label="Session status" style="width: 100%; height: 900px; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; background: #0f0f0f; border-left: 1px solid #2a2a2a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+
+<div role="tablist" aria-label="Session status" style="flex: none; height: 48px; box-sizing: border-box; display: flex; align-items: stretch; gap: 16px; padding: 0 10px 0 18px; border-bottom: 1px solid #2a2a2a; font-size: 12.5px">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="5">
+<button type="button" role="tab" aria-selected="{{t.selected}}" style="display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; border-bottom: 2px solid {{t.underline}}; background: transparent; color: {{t.color}}; font-family: inherit; font-size: 12.5px; font-weight: {{t.weight}}; white-space: nowrap">{{t.label}}<span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: {{t.countColor}}">{{t.count}}</span></button>
+</sc-for>
+<button type="button" aria-label="Close session status panel" title="Close session status panel" style="margin-left: auto; align-self: center; width: 28px; height: 28px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 16px">×</button>
+</div>
+
+<sc-if value="{{isRunning}}" hint-placeholder-val="{{ true }}">
+<div role="tabpanel" style="flex: 1; min-height: 0; overflow: hidden; padding: 6px 0">
+<h3 style="height: 30px; display: flex; align-items: center; margin: 0; padding: 0 18px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">SUBAGENTS</h3>
+<div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; padding: 8px 18px">
+<span style="color: #60a5fa">◐</span>
+<div style="min-width: 0"><div><strong>Explore</strong> <span style="color: #d4d4d8">再送処理の呼び出し元を探す</span></div><div style="font-size: 12px; color: #8b8b94">42s</div></div>
+</div>
+<h3 style="height: 30px; display: flex; align-items: center; margin: 8px 0 0; padding: 0 18px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">BACKGROUND TASKS</h3>
+<div style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; padding: 8px 18px">
+<span style="color: #60a5fa">▶</span>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<div><span style="font-family: 'JetBrains Mono', monospace; color: #d4d4d8">cargo test -p service</span></div>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #8b8b94"><span>1m 05s</span><button type="button" aria-expanded="true" style="height: 22px; padding: 0 8px; border: 1px solid #2a2a2a; border-radius: 4px; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 11px">Output</button></div>
+<pre style="margin: 0; padding: 8px 10px; background: #141414; color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: 11px; white-space: pre-wrap">running 24 tests
+test retry::stops_after_limit ... ok
+test retry::backs_off ... ok</pre>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isTasks}}" hint-placeholder-val="{{ false }}">
+<div role="tabpanel" style="flex: 1; min-height: 0; overflow: hidden; padding: 6px 0">
+<h3 style="height: 30px; display: flex; align-items: center; margin: 0; padding: 0 18px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">IN PROGRESS</h3>
+<a href="#" style="display: grid; grid-template-columns: 14px 1fr; gap: 10px; padding: 8px 18px; color: #fafafa; text-decoration: none"><span style="color: #60a5fa">●</span><div style="min-width: 0"><div><span style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">#2048</span> 通知の信頼性を上げる</div><div style="font-size: 12px; color: #8b8b94">P1 · service</div></div></a>
+<h3 style="height: 30px; display: flex; align-items: center; margin: 8px 0 0; padding: 0 18px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">COMPLETED <span style="margin-left: 6px; font-family: 'JetBrains Mono', monospace">12</span></h3>
+<sc-for list="{{doneTasks}}" as="d" hint-placeholder-count="4">
+<a href="#" style="display: grid; grid-template-columns: 14px 1fr auto; gap: 10px; align-items: center; padding: 6px 18px; color: #d4d4d8; text-decoration: none"><span style="color: #71717a">✓</span><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; color: #8b8b94">{{d.no}}</span> {{d.title}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8b8b94">{{d.age}}</span></a>
+</sc-for>
+<button type="button" style="margin: 4px 0 0 42px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px">Show 8 more</button>
+</div>
+</sc-if>
+
+<sc-if value="{{isTree}}" hint-placeholder-val="{{ false }}">
+<div role="tabpanel" style="flex: 1; min-height: 0; display: flex; flex-direction: column">
+<div role="tree" style="flex: 1; min-height: 0; overflow: hidden; padding: 6px 0">
+<sc-for list="{{tree}}" as="n" hint-placeholder-count="5">
+<div role="treeitem" aria-current="{{n.current}}"><dc-import name="BeforeThinkingSessionRow" s="{{ n }}" density="compact" hint-size="100%,69px"></dc-import></div>
+</sc-for>
+</div>
+<p style="flex: none; margin: 0; padding: 10px 18px; border-top: 1px solid #2a2a2a; font-size: 11px; color: #8b8b94">← / → fold.</p>
+</div>
+</sc-if>
+
+<sc-if value="{{isDecisions}}" hint-placeholder-val="{{ false }}">
+<div role="tabpanel" style="flex: 1; min-height: 0; display: flex; flex-direction: column">
+<div style="flex: none; display: flex; align-items: center; padding: 12px 18px"><strong style="font-size: 13px">Decisions in this session</strong><span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">1 / 2 reviewed</span></div>
+<div style="flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; gap: 10px; padding: 0 18px">
+<article style="padding: 12px 14px; background: #141414; border: 1px solid #3f3f46; display: flex; flex-direction: column; gap: 8px">
+<div style="font-size: 11.5px; color: #8b8b94">◇ Decided · 34m ago</div>
+<h4 style="margin: 0; font-size: 14px; font-weight: 700">待ち時間を指数的に伸ばす</h4>
+<div style="font-size: 12.5px; color: #d4d4d8"><span style="color: #8b8b94">Why · </span>相手のサーバーが落ちているときに負荷をかけないため。</div>
+<div style="font-size: 12.5px; color: #d4d4d8"><span style="color: #8b8b94">Also considered · </span>一定間隔で再試行する</div>
+<div style="font-size: 12.5px; color: #d4d4d8"><span style="color: #8b8b94">Easy to change · </span>間隔の計算は 1 か所にまとまっている。</div>
+<div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px">
+<button type="button" style="width: 100%; height: 30px; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">OK<kbd style="font-family: 'JetBrains Mono', monospace; font-weight: 400">Y</kbd></button>
+<button type="button" style="width: 100%; height: 30px; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Change… (sends to 通知の再送処理を見直す)<kbd style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">C</kbd></button>
+</div>
+</article>
+<article style="padding: 12px 14px; background: #141414; border: 1px solid transparent; display: flex; flex-direction: column; gap: 6px; opacity: 0.64">
+<div style="font-size: 11.5px; color: #8b8b94">✓ OK · 1h ago</div>
+<h4 style="margin: 0; font-size: 14px; font-weight: 700">再送の記録を既存のテーブルに足す</h4>
+</article>
+</div>
+<p style="flex: none; margin: 0; padding: 10px 18px; border-top: 1px solid #2a2a2a; font-size: 11px; color: #8b8b94">Y OK and next · C Change · ↵ Jump to it in the conversation</p>
+</div>
+</sc-if>
+
+<sc-if value="{{isReview}}" hint-placeholder-val="{{ false }}">
+<div role="tabpanel" style="flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 12px; padding: 14px 18px; box-sizing: border-box">
+<div style="display: grid; grid-template-columns: 90px 1fr; align-items: center; gap: 8px 10px; font-size: 12px; color: #a1a1aa">
+<label for="rv-title">title</label><input id="rv-title" value="再送処理の設計" style="height: 28px; box-sizing: border-box; padding: 0 8px; border: 1px solid #3f3f46; border-radius: 6px; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: 12.5px">
+<label for="rv-status">status</label><input id="rv-status" value="draft" style="height: 28px; box-sizing: border-box; padding: 0 8px; border: 1px solid #3f3f46; border-radius: 6px; background: #0a0a0a; color: #fafafa; font-family: 'JetBrains Mono', monospace; font-size: 12px">
+</div>
+<div role="group" aria-label="Body" style="display: flex; gap: 6px">
+<button type="button" aria-pressed="true" style="height: 26px; padding: 0 10px; border: 1px solid #60a5fa; border-radius: 6px; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">Edit</button>
+<button type="button" aria-pressed="false" style="height: 26px; padding: 0 10px; border: 1px solid #3f3f46; border-radius: 6px; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px">Preview</button>
+</div>
+<div style="flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #1a1a1a; border-radius: 8px; overflow: hidden">
+<textarea aria-label="Body" style="padding: 12px; border: 0; border-right: 1px solid #1a1a1a; background: #0a0a0a; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.6; resize: none">## 方針
+
+失敗したら待ち時間を倍にして
+最大 3 回まで送り直す。</textarea>
+<div style="padding: 12px; color: #d4d4d8; font-size: 13px"><h4 style="margin: 0 0 8px; font-size: 14px">方針</h4><p style="margin: 0">失敗したら待ち時間を倍にして最大 3 回まで送り直す。</p></div>
+</div>
+<div style="flex: none; display: flex; align-items: center; gap: 8px; font-size: 12px; color: #8b8b94">
+<span>Unsaved changes</span>
+<button type="button" style="margin-left: auto; height: 28px; padding: 0 12px; border: 1px solid #3f3f46; border-radius: 6px; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Save</button>
+<button type="button" style="height: 28px; padding: 0 12px; border: 1px solid #60a5fa; border-radius: 6px; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">Finish review</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isCrit}}" hint-placeholder-val="{{ false }}">
+<div role="tabpanel" style="flex: 1; min-height: 0; display: flex; flex-direction: column">
+<div style="flex: none; height: 56px; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 0 12px 0 18px; background: #141414; border-bottom: 1px solid #2a2a2a">
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column"><strong style="font-size: 13px">crit</strong><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: #8b8b94; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">http://127.0.0.1:3000/review/example</span></div>
+<button type="button" aria-label="Open full width" title="Open full width" style="width: 28px; height: 28px; padding: 0; border: 0; background: transparent; color: #a1a1aa">⛶</button>
+<button type="button" aria-label="Close web UI" title="Close web UI" style="width: 28px; height: 28px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 16px">×</button>
+</div>
+<div style="flex: 1; min-height: 0; display: grid; place-items: center; background: #0a0a0a; color: #71717a; font-size: 12px">The web UI shows here</div>
+</div>
+</sc-if>
+</aside>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit"],"default":"running"},"$preview":{"width":640,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const tab = this.props.tab ?? 'running';
+    const tabs = [
+      ['running', 'Running', '2', '#60a5fa'],
+      ['tasks', 'Tasks', '13', '#8b8b94'],
+      ['tree', 'Tree', '1', '#fbbf24'],
+      ['review', 'Review', '', '#8b8b94'],
+      ['decisions', 'Decisions', '1', '#fbbf24'],
+      ['crit', 'crit', '', '#8b8b94']
+    ].map(([id, label, count, countColor]) => {
+      const on = id === tab;
+      return { label, count, countColor, selected: on ? 'true' : 'false', color: on ? '#fafafa' : '#a1a1aa', weight: on ? 700 : 400, underline: on ? '#fafafa' : 'transparent' };
+    });
+    const node = (depth, caret, status, title, age, role, engine, taskRef, taskTitle, repo, current, ended) => ({
+      pad: '6px 12px 7px ' + (depth * 18 + 12) + 'px', caret, status, unread: current, title, age, role, engine, taskRef, taskTitle, repo,
+      current: current ? 'true' : 'false',
+      bg: current ? '#262626' : 'transparent', bar: current ? 'inset 2px 0 0 #fafafa' : 'none', opacity: ended ? 0.64 : 1
+    });
+    return {
+      tabs,
+      isRunning: tab === 'running',
+      isTasks: tab === 'tasks',
+      isTree: tab === 'tree',
+      isReview: tab === 'review',
+      isDecisions: tab === 'decisions',
+      isCrit: tab === 'crit',
+      doneTasks: [['#2047', '再送の上限を設定に出す', '1h'], ['#2046', '送信キューを分ける', '2h'], ['#2043', '失敗時の記録を残す', '1d'], ['#2041', '再送のテストを足す', '2d']]
+        .map(([no, title, age]) => ({ no, title, age })),
+      tree: [
+        node(0, '▾', 'Working', '通知まわりの改修', '12m', 'PM', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/service', false, false),
+        node(1, '▾', 'Question', '通知の再送処理を見直す', '8s', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/service', true, false),
+        node(2, '', 'Working', '再送の記録を残す', '1m', 'development', 'codex', 'P1 #2048', '通知の信頼性を上げる', 'example/service', false, false),
+        node(1, '', 'Review', '配信チェックの PR を確認する', '2m', '', 'codex', 'P2 #2050', '配信チェックを入れる', 'example/web-app', false, false),
+        node(1, '', 'Done', '送信キューを分ける', '2h', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/service', false, true)
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

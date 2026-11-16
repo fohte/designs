@@ -88,6 +88,38 @@
       "h": 844,
       "title": "iPhone · ナビゲーション",
       "page": "screens"
+    },
+    "NewSession.dc.html": {
+      "x": 0,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション",
+      "page": "screens"
+    },
+    "NewSessionPicker.dc.html": {
+      "x": 1520,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション · ディレクトリを選ぶ",
+      "page": "screens"
+    },
+    "PhoneNewSession.dc.html": {
+      "x": 3040,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 新しいセッション",
+      "page": "screens"
+    },
+    "PhoneNewSessionPicker.dc.html": {
+      "x": 3510,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ディレクトリを選ぶ",
+      "page": "screens"
     }
   },
   "order": [
@@ -101,7 +133,11 @@
     "TaskLinks.dc.html",
     "Nav.dc.html",
     "InboxList.dc.html",
-    "Conversation.dc.html"
+    "Conversation.dc.html",
+    "NewSession.dc.html",
+    "NewSessionPicker.dc.html",
+    "PhoneNewSession.dc.html",
+    "PhoneNewSessionPicker.dc.html"
   ],
   "pages": [
     {

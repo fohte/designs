@@ -40,6 +40,22 @@
       "h": 900,
       "title": "Conversation",
       "page": "components"
+    },
+    "PaletteNewSession.dc.html": {
+      "x": 4560,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "コマンドパレット · 新しいセッション",
+      "page": "screens"
+    },
+    "PhonePaletteNewSession.dc.html": {
+      "x": 6080,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · コマンドパレット · 新しいセッション",
+      "page": "screens"
     }
   },
   "order": [
@@ -47,7 +63,9 @@
     "PaletteQuery.dc.html",
     "Nav.dc.html",
     "InboxList.dc.html",
-    "Conversation.dc.html"
+    "Conversation.dc.html",
+    "PaletteNewSession.dc.html",
+    "PhonePaletteNewSession.dc.html"
   ],
   "pages": [
     {

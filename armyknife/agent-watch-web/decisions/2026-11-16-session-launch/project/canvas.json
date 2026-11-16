@@ -1,0 +1,193 @@
+{
+  "v": 3,
+  "title": "Start a session from watch-web",
+  "launch": {
+    "view": "canvas"
+  },
+  "pages": [],
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-16T00:00:00Z"
+    }
+  ],
+  "boards": {
+    "session-launch-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Current · no way to start a session"
+    },
+    "PhoneInbox.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "Current · phone"
+    },
+    "session-launch-a.dc.html": {
+      "x": 0,
+      "y": 1300,
+      "w": 1440,
+      "h": 900,
+      "title": "A · + in the sidebar opens a form"
+    },
+    "session-launch-a-phone.dc.html": {
+      "x": 1520,
+      "y": 1300,
+      "w": 390,
+      "h": 844,
+      "title": "A · phone: + in the drawer opens a full-screen form"
+    },
+    "session-launch-b.dc.html": {
+      "x": 0,
+      "y": 2600,
+      "w": 1440,
+      "h": 900,
+      "title": "B · ⌘K > New session, then pick a directory"
+    },
+    "session-launch-b-phone.dc.html": {
+      "x": 1520,
+      "y": 2600,
+      "w": 390,
+      "h": 844,
+      "title": "B · phone: the same palette, full screen"
+    },
+    "session-launch-c.dc.html": {
+      "x": 0,
+      "y": 3900,
+      "w": 1440,
+      "h": 900,
+      "title": "C · + on a project opens a blank conversation"
+    },
+    "session-launch-c-phone.dc.html": {
+      "x": 1520,
+      "y": 3900,
+      "w": 390,
+      "h": 844,
+      "title": "C · phone: + on a project in the drawer"
+    },
+    "Nav.dc.html": {
+      "x": 0,
+      "y": 6500,
+      "w": 240,
+      "h": 900,
+      "title": "Part · Nav"
+    },
+    "InboxList.dc.html": {
+      "x": 320,
+      "y": 6500,
+      "w": 460,
+      "h": 900,
+      "title": "Part · Inbox list"
+    },
+    "Conversation.dc.html": {
+      "x": 860,
+      "y": 6500,
+      "w": 880,
+      "h": 900,
+      "title": "Part · Conversation"
+    },
+    "session-launch-d.dc.html": {
+      "x": 0,
+      "y": 5200,
+      "w": 1440,
+      "h": 900,
+      "title": "D · + beside ⌘K opens a blank conversation"
+    },
+    "session-launch-d-picker.dc.html": {
+      "x": 1520,
+      "y": 5200,
+      "w": 1440,
+      "h": 900,
+      "title": "D · choose the directory after typing"
+    },
+    "session-launch-d-phone-inbox.dc.html": {
+      "x": 3040,
+      "y": 5200,
+      "w": 390,
+      "h": 844,
+      "title": "D · phone: + beside search"
+    },
+    "session-launch-d-phone.dc.html": {
+      "x": 3510,
+      "y": 5200,
+      "w": 390,
+      "h": 844,
+      "title": "D · phone: blank conversation"
+    },
+    "session-launch-d-phone-picker.dc.html": {
+      "x": 3980,
+      "y": 5200,
+      "w": 390,
+      "h": 844,
+      "title": "D · phone: choose a directory"
+    }
+  },
+  "order": [
+    "session-launch-current.dc.html",
+    "PhoneInbox.dc.html",
+    "session-launch-a.dc.html",
+    "session-launch-a-phone.dc.html",
+    "session-launch-b.dc.html",
+    "session-launch-b-phone.dc.html",
+    "session-launch-c.dc.html",
+    "session-launch-c-phone.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "Conversation.dc.html",
+    "session-launch-d.dc.html",
+    "session-launch-d-picker.dc.html",
+    "session-launch-d-phone-inbox.dc.html",
+    "session-launch-d-phone.dc.html",
+    "session-launch-d-phone-picker.dc.html"
+  ],
+  "notes": {
+    "current": {
+      "x": 0,
+      "y": -260,
+      "text": "Current · the Inbox has no way to start a session",
+      "kind": "title1",
+      "maxW": 1900
+    },
+    "a": {
+      "x": 0,
+      "y": 1040,
+      "text": "A · one form: directory, engine, worktree, first message",
+      "kind": "title1",
+      "maxW": 1900
+    },
+    "b": {
+      "x": 0,
+      "y": 2340,
+      "text": "B · command palette: directory → Enter",
+      "kind": "title1",
+      "maxW": 1900
+    },
+    "c": {
+      "x": 0,
+      "y": 3640,
+      "text": "C · from a project: a blank conversation with options in the composer",
+      "kind": "title1",
+      "maxW": 1900
+    },
+    "parts": {
+      "x": 0,
+      "y": 6240,
+      "text": "Parts the artboards import",
+      "kind": "title1",
+      "maxW": 1900
+    },
+    "d": {
+      "x": 0,
+      "y": 4940,
+      "text": "D · + beside ⌘K: blank conversation, directory chosen later",
+      "kind": "title1",
+      "maxW": 4400
+    }
+  }
+}

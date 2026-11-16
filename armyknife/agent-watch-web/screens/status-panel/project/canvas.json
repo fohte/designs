@@ -128,6 +128,22 @@
       "h": 900,
       "title": "Before · StatusPanel",
       "page": "components"
+    },
+    "StatusTasks.dc.html": {
+      "x": 7600,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Tasks",
+      "page": "screens"
+    },
+    "before/BeforeStatusTasks.dc.html": {
+      "x": 7600,
+      "y": 1100,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tasks",
+      "page": "screens"
     }
   },
   "order": [
@@ -136,6 +152,7 @@
     "StatusDecisions.dc.html",
     "StatusReview.dc.html",
     "StatusWebUi.dc.html",
+    "StatusTasks.dc.html",
     "Nav.dc.html",
     "Conversation.dc.html",
     "StatusPanel.dc.html",
@@ -146,7 +163,8 @@
     "before/BeforeStatusWebUi.dc.html",
     "before/BeforeNav.dc.html",
     "before/BeforeConversation.dc.html",
-    "before/BeforeStatusPanel.dc.html"
+    "before/BeforeStatusPanel.dc.html",
+    "before/BeforeStatusTasks.dc.html"
   ],
   "pages": [
     {
@@ -160,7 +178,7 @@
   ],
   "notes": {
     "diffLaunch": {
-      "x": 7600,
+      "x": 9120,
       "y": 1100,
       "w": 420,
       "page": "screens",

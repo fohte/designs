@@ -1,0 +1,93 @@
+{
+  "v": 3,
+  "title": "Mobile top bar text",
+  "launch": {
+    "view": "canvas"
+  },
+  "pages": [],
+  "boards": {
+    "topbar-text-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "Current (v0.1.744)"
+    },
+    "topbar-text-a.dc.html": {
+      "x": 470,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · Context row spans the width"
+    },
+    "topbar-text-b.dc.html": {
+      "x": 940,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "B · Title only, tasks in the status panel"
+    },
+    "topbar-text-c.dc.html": {
+      "x": 1410,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "C · Two-line title, context row below"
+    },
+    "topbar-text-d.dc.html": {
+      "x": 0,
+      "y": 1224,
+      "w": 390,
+      "h": 844,
+      "title": "D · Second row: the task only"
+    },
+    "topbar-text-e.dc.html": {
+      "x": 470,
+      "y": 1224,
+      "w": 390,
+      "h": 844,
+      "title": "E · Second row: repo · task number · completed"
+    },
+    "topbar-text-f.dc.html": {
+      "x": 940,
+      "y": 1224,
+      "w": 390,
+      "h": 844,
+      "title": "F · Second row: task and repo"
+    }
+  },
+  "order": [
+    "topbar-text-current.dc.html",
+    "topbar-text-a.dc.html",
+    "topbar-text-b.dc.html",
+    "topbar-text-c.dc.html",
+    "topbar-text-d.dc.html",
+    "topbar-text-e.dc.html",
+    "topbar-text-f.dc.html"
+  ],
+  "notes": {
+    "data": {
+      "x": 0,
+      "y": -260,
+      "text": "Paused · starred · long title · 1 task + 12 completed linked tasks",
+      "kind": "title1",
+      "maxW": 1800
+    },
+    "second": {
+      "x": 0,
+      "y": 964,
+      "text": "What the second row holds · no Paused · long task name",
+      "kind": "title1",
+      "maxW": 1800
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-15T10:37:15Z"
+    }
+  ]
+}

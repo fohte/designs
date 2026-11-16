@@ -26,11 +26,12 @@ body{margin:0}
 <div style="height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 4px; color: #d4d4d8"><span style="flex: 1">web-app のレビュー</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #fbbf24">3</span></div>
 <div style="height: 40px; display: flex; align-items: center; gap: 8px; padding: 0 4px; color: #d4d4d8"><span style="flex: 1">Errors</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #f87171">1</span></div>
 <h2 style="height: 26px; display: flex; align-items: center; margin: 12px 0 0; padding: 0 4px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">Starred</h2>
-<div style="padding: 6px 4px"><div style="display: flex; align-items: center; gap: 8px"><span style="color: #fbbf24; font-size: 10px">★</span><strong style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">通知の再送処理を見直す</strong><span style="font-size: 11.5px; color: #fbbf24">Question</span></div><div style="margin-left: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">#2048 · example/service</div></div>
-<div style="padding: 6px 4px"><div style="display: flex; align-items: center; gap: 8px"><span style="color: #fbbf24; font-size: 10px">★</span><span style="flex: 1; min-width: 0; color: #d4d4d8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">配信ログの保存期間を決める</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #60a5fa">Working</span></div><div style="margin-left: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">#2051 · example/observability</div></div>
-<h2 style="height: 26px; display: flex; align-items: center; margin: 14px 0 0; padding: 0 4px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">Development</h2>
-<sc-for list="{{projects}}" as="p" hint-placeholder-count="4">
-<div style="height: 40px; display: grid; grid-template-columns: 6px 1fr auto; align-items: center; gap: 8px; padding: 0 4px"><span style="width: 6px; height: 6px; background: {{p.dot}}"></span><span style="color: {{p.color}}; font-weight: {{p.weight}}">{{p.name}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: {{p.statusColor}}">{{p.status}}</span></div>
+<sc-for list="{{starred}}" as="s" hint-placeholder-count="2">
+<div style="margin: 0 -8px"><dc-import name="SessionRow" s="{{ s }}" density="compact" hint-size="100%,69px"></dc-import></div>
+</sc-for>
+<h2 style="height: 26px; display: flex; align-items: center; margin: 14px 0 0; padding: 0 4px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">PM</h2>
+<sc-for list="{{pm}}" as="s" hint-placeholder-count="2">
+<div style="margin: 0 -8px"><dc-import name="SessionRow" s="{{ s }}" density="compact" hint-size="100%,69px"></dc-import></div>
 </sc-for>
 </nav>
 </div>
@@ -38,14 +39,15 @@ body{margin:0}
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
-    const S = {
-      Review: ['#fbbf24', '#fafafa', 700, '#fbbf24'],
-      Working: ['transparent', '#fafafa', 400, '#60a5fa'],
-      Idle: ['transparent', '#a1a1aa', 400, '#8b8b94']
-    };
     return {
-      projects: [['web-app', 'Review'], ['service', 'Working'], ['observability', 'Working'], ['handbook', 'Idle']]
-        .map(([name, status]) => ({ name, status, dot: S[status][0], color: S[status][1], weight: S[status][2], statusColor: S[status][3] }))
+      starred: [
+        { status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service' },
+        { status: 'Working', title: '配信ログの保存期間を決める', age: '2m', role: 'research', engine: 'codex', taskRef: 'P2 #2051', taskTitle: '監視を整える', repo: 'example/observability' }
+      ],
+      pm: [
+        { status: 'Plan', title: '段階的な公開を進める', age: '5m', role: 'PM', engine: 'claude', taskRef: 'P2 #2052', taskTitle: '新しい設定を段階的に公開する', repo: 'example/web-app' },
+        { status: 'Working', title: '通知まわりの改修', age: '12m', role: 'PM', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service' }
+      ]
     };
   }
 }

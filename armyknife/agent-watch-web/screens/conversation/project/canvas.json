@@ -24,12 +24,30 @@
       "h": 900,
       "title": "確認ダイアログ",
       "page": "screens"
+    },
+    "PhoneChat.dc.html": {
+      "x": 0,
+      "y": 3320,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 会話から答える",
+      "page": "screens"
+    },
+    "PhoneChatMenu.dc.html": {
+      "x": 470,
+      "y": 3320,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · セッションの操作メニュー",
+      "page": "screens"
     }
   },
   "order": [
     "MessageKinds.dc.html",
     "Cards.dc.html",
-    "Dialogs.dc.html"
+    "Dialogs.dc.html",
+    "PhoneChat.dc.html",
+    "PhoneChatMenu.dc.html"
   ],
   "pages": [
     {

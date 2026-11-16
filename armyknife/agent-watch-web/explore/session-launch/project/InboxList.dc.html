@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Inbox</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-labelledby="inbox-title" style="width: 460px; height: 900px; box-sizing: border-box; display: flex; flex-direction: column; background: #0c0c0c; border-right: 1px solid #2a2a2a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13.5px; line-height: 1.5">
+
+<header style="flex: 0 0 48px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 18px; border-bottom: 1px solid #2a2a2a">
+<h1 id="inbox-title" style="margin: 0; font-size: 15px; font-weight: 700; line-height: 1">Inbox</h1>
+<span style="font-size: 11.5px; color: #8b8b94">Sorted by tq priority</span>
+</header>
+
+<div style="flex: none; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 44px; padding: 8px 14px; border-bottom: 1px solid #1a1a1a">
+<sc-if value="{{noFilter}}" hint-placeholder-val="{{ true }}">
+<button type="button" style="flex: 1; min-height: 28px; display: flex; align-items: center; gap: 8px; padding: 0 10px; border: 1px solid #2a2a2a; background: #141414; color: #8b8b94; font-family: inherit; font-size: 12.5px; text-align: left"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"></path></svg><span style="flex: 1">Filter by project, kind, tq task, repo</span><kbd style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8b8b94">/</kbd></button>
+</sc-if>
+<sc-if value="{{hasFilter}}" hint-placeholder-val="{{ false }}">
+<div aria-label="Active inbox filters" style="display: flex; flex-wrap: wrap; gap: 6px">
+<span style="display: inline-flex; align-items: center; gap: 6px; min-height: 26px; padding: 0 4px 0 9px; background: #262626; font-size: 12.5px; white-space: nowrap"><span style="color: #a1a1aa">Project</span><span style="color: #fafafa; font-weight: 700">web-app</span><button type="button" aria-label="Remove Project filter" style="width: 20px; height: 20px; border: 0; background: transparent; color: #a1a1aa; font-size: 13px">×</button></span>
+<span style="display: inline-flex; align-items: center; gap: 6px; min-height: 26px; padding: 0 4px 0 9px; background: #262626; font-size: 12.5px; white-space: nowrap"><span style="color: #a1a1aa">Kind</span><span style="color: #fafafa; font-weight: 700">Question, Review</span><button type="button" aria-label="Remove Kind filter" style="width: 20px; height: 20px; border: 0; background: transparent; color: #a1a1aa; font-size: 13px">×</button></span>
+</div>
+<button type="button" style="min-height: 26px; padding: 0 8px; border: 1px dashed #3f3f46; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px">+ Filter</button>
+<span style="margin-left: auto; font-size: 12px; color: #8b8b94">2 of 6</span>
+<sc-if value="{{notSaving}}" hint-placeholder-val="{{ true }}">
+<button type="button" style="min-height: 26px; padding: 0 8px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Save view</button>
+</sc-if>
+<sc-if value="{{saving}}" hint-placeholder-val="{{ false }}">
+<form style="flex: 1 1 100%; display: flex; align-items: center; justify-content: flex-end; gap: 3px; margin: 0">
+<input aria-label="Saved view name" placeholder="Name this view" maxlength="60" value="web-app のレビュー" style="width: 132px; box-sizing: border-box; padding: 5px 7px; border: 1px solid #3f3f46; background: #161616; color: #fafafa; font-family: inherit; font-size: 10.5px; outline: none">
+<button type="button" style="min-height: 26px; padding: 0 8px; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px">Save</button>
+<button type="button" style="min-height: 26px; padding: 0 8px; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px">Cancel</button>
+</form>
+</sc-if>
+</sc-if>
+</div>
+
+<div style="flex: 1; min-height: 0; overflow: hidden">
+<section aria-label="Needs action">
+<h2 style="height: 32px; display: flex; align-items: center; gap: 8px; margin: 0; padding: 0 18px; font-size: 12.5px; font-weight: 700; color: #fafafa"><span>Needs action</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #fbbf24">{{needCount}}</span></h2>
+<ul style="margin: 0; padding: 0; list-style: none">
+<sc-for list="{{need}}" as="s" hint-placeholder-count="6">
+<li style="border-bottom: 1px solid #1a1a1a">
+<div style="display: grid; grid-template-columns: 1fr auto; background: {{s.bg}}; outline: {{s.outline}}; outline-offset: -1px">
+<button type="button" aria-current="{{s.current}}" style="min-width: 0; display: grid; grid-template-columns: 7px 1fr; align-items: start; gap: 10px; padding: 8px 18px 9px 16px; border: 0; background: transparent; font-family: inherit; text-align: left">
+<span aria-hidden="true" style="width: 7px; height: 7px; margin-top: 7px; background: {{s.dot}}"></span>
+<span style="min-width: 0; display: flex; flex-direction: column">
+<span style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px"><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 13.5px; color: {{s.titleColor}}; font-weight: {{s.titleWeight}}">{{s.title}}</span><span style="flex: 0 0 auto; font-size: 11.5px; color: #8b8b94">{{s.age}}</span></span>
+<span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 12.5px; color: #d4d4d8"><span role="img" aria-label="{{s.kind}}" title="{{s.kind}}" style="display: inline-flex; vertical-align: -2px; color: {{s.kindColor}}">
+<sc-if value="{{s.isQuestion}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg></sc-if>
+<sc-if value="{{s.isReview}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg></sc-if>
+<sc-if value="{{s.isError}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></sc-if>
+<sc-if value="{{s.isPlan}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h.01"></path><path d="M3 12h.01"></path><path d="M3 19h.01"></path><path d="M8 5h13"></path><path d="M8 12h13"></path><path d="M8 19h13"></path></svg></sc-if>
+<sc-if value="{{s.isApprove}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="M9.1 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg></sc-if>
+<sc-if value="{{s.isProposal}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 13v8"></path><path d="M12 3v3"></path><path d="M18 6a2 2 0 0 1 1.387.56l2.307 2.22a1 1 0 0 1 0 1.44l-2.307 2.22A2 2 0 0 1 18 13H6a2 2 0 0 1-1.387-.56l-2.306-2.22a1 1 0 0 1 0-1.44l2.306-2.22A2 2 0 0 1 6 6z"></path></svg></sc-if>
+</span> {{s.preview}}</span>
+<span style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 11.5px; color: #8b8b94"><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{s.taskRef}}</span>{{s.taskTitle}}</span><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', monospace">{{s.repo}}</span></span>
+</span>
+</button>
+<div style="display: flex; padding: 8px 8px 0 0">
+<sc-if value="{{s.starred}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Remove from Starred" aria-pressed="true" style="width: 26px; height: 26px; border: 0; background: transparent; color: #fbbf24; font-size: 15px">★</button></sc-if>
+</div>
+</div>
+</li>
+</sc-for>
+</ul>
+</section>
+
+<button type="button" aria-expanded="{{laterOpenStr}}" style="width: 100%; height: 38px; display: flex; align-items: center; gap: 8px; padding: 0 18px; border: 0; border-bottom: 1px solid #2a2a2a; background: #141414; color: #d4d4d8; font-family: inherit; font-size: 12.5px; font-weight: 700; text-align: left"><span>◷ Later</span><span style="font-family: 'JetBrains Mono', monospace; font-weight: 400; color: #a1a1aa">{{laterCount}}</span><span style="margin-left: auto; font-weight: 400; color: #8b8b94">{{laterNext}}</span></button>
+
+<sc-if value="{{showInProgress}}" hint-placeholder-val="{{ true }}">
+<section aria-label="In progress">
+<h2 style="height: 32px; display: flex; align-items: center; gap: 8px; margin: 6px 0 0; padding: 0 18px; font-size: 12.5px; font-weight: 700; color: #d4d4d8"><span>In progress</span><span style="font-family: 'JetBrains Mono', monospace; color: #60a5fa">5</span></h2>
+<ul style="margin: 0; padding: 0; list-style: none">
+<sc-for list="{{working}}" as="s" hint-placeholder-count="2">
+<li style="border-bottom: 1px solid #1a1a1a">
+<button type="button" style="width: 100%; display: grid; grid-template-columns: 7px 1fr; align-items: start; gap: 10px; padding: 6px 18px 6px 16px; border: 0; background: transparent; font-family: inherit; text-align: left">
+<span aria-hidden="true" style="width: 7px; height: 7px; margin-top: 7px; border-radius: 50%; background: #60a5fa"></span>
+<span style="min-width: 0; display: flex; flex-direction: column">
+<span style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px"><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 13.5px; color: #d4d4d8">{{s.title}}</span><span style="flex: 0 0 auto; font-size: 11.5px; color: #8b8b94">{{s.age}}</span></span>
+<span style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 11.5px; color: #8b8b94"><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{s.taskRef}}</span>{{s.taskTitle}}</span><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', monospace">{{s.repo}}</span></span>
+</span>
+</button>
+</li>
+</sc-for>
+</ul>
+<button type="button" aria-expanded="false" style="display: block; width: 100%; padding: 2px 18px 6px 33px; border: 0; background: transparent; color: #8b8b94; font-family: inherit; font-size: 12px; text-align: left">3 more ▸</button>
+</section>
+</sc-if>
+
+<section aria-label="Done">
+<h2 style="height: 32px; display: flex; align-items: center; gap: 8px; margin: 4px 0 0; padding: 0 18px; border-top: 1px solid #2a2a2a; font-size: 12.5px; font-weight: 700; color: #d4d4d8"><span>Done</span><span style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{doneCount}}</span><button type="button" style="height: 22px; margin-left: auto; padding: 0 7px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 11px; font-weight: 400; opacity: {{closeAllOpacity}}">Close all</button></h2>
+<ul style="margin: 0; padding: 0; list-style: none">
+<sc-for list="{{done}}" as="s" hint-placeholder-count="3">
+<li style="border-bottom: 1px solid #1a1a1a">
+<button type="button" style="width: 100%; display: grid; grid-template-columns: 7px 1fr; align-items: start; gap: 10px; padding: 6px 18px 6px 16px; border: 0; background: transparent; font-family: inherit; text-align: left">
+<span aria-hidden="true" style="width: 7px; padding-top: 3px; font-size: 10px; line-height: 1; color: #a1a1aa">✓</span>
+<span style="min-width: 0; display: flex; flex-direction: column">
+<span style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px"><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 13.5px; color: #d4d4d8">{{s.title}}</span><span style="flex: 0 0 auto; font-size: 11.5px; color: #8b8b94">{{s.age}}</span></span>
+<span style="display: flex; align-items: baseline; justify-content: space-between; gap: 8px; font-size: 11.5px; color: #8b8b94"><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{s.taskRef}}</span>{{s.taskTitle}}</span><span style="flex: 0 0 auto; font-family: 'JetBrains Mono', monospace">{{s.repo}}</span><span style="white-space: nowrap; color: #d4d4d8">{{s.decisions}}</span></span>
+</span>
+</button>
+</li>
+</sc-for>
+</ul>
+</section>
+</div>
+
+<footer aria-label="Keyboard shortcuts" style="flex: 0 0 32px; box-sizing: border-box; display: flex; align-items: center; gap: 14px; padding: 0 18px; border-top: 1px solid #2a2a2a; font-size: 11.5px; color: #8b8b94; white-space: nowrap">
+<span><kbd style="font-family: 'JetBrains Mono', monospace">j</kbd> <kbd style="font-family: 'JetBrains Mono', monospace">k</kbd> Move</span>
+<span><kbd style="font-family: 'JetBrains Mono', monospace">L</kbd> Later</span>
+<span><kbd style="font-family: 'JetBrains Mono', monospace">E</kbd> Close</span>
+<span><kbd style="font-family: 'JetBrains Mono', monospace">⇧B</kbd> Board</span>
+<span><kbd style="font-family: 'JetBrains Mono', monospace">[</kbd> Inbox</span>
+<span><kbd style="font-family: 'JetBrains Mono', monospace">⌘.</kbd> Panel</span>
+</footer>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"filter":{"editor":"enum","options":["none","chips","saving"],"default":"none"},"laterMenuOpen":{"editor":"boolean","default":false},"$preview":{"width":460,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const filter = this.props.filter ?? 'none';
+    const laterMenuOpen = this.props.laterMenuOpen ?? false;
+    const filtered = filter !== 'none';
+    const K = { Question: '#fbbf24', Review: '#fbbf24', Plan: '#fbbf24', Approve: '#fbbf24', Proposal: '#fbbf24', Error: '#f87171' };
+    const rows = [
+      { title: '通知の再送処理を見直す', kind: 'Question', unread: true, age: '8s', preview: '再試行は 3 回で止めてよいですか?', taskRef: 'P1 #2048', taskTitle: ' · 通知の信頼性を上げる', repo: 'example/service', starred: true, match: true },
+      { title: '配信チェックの PR を確認する', kind: 'Review', unread: true, age: '2m', preview: 'PR #2049 のレビューをお願いします。', taskRef: '', taskTitle: '— No task', repo: 'example/web-app', match: true },
+      { title: '統合テストの失敗を直す', kind: 'Error', unread: true, age: '4m', preview: 'テストが exit code 101 で終了しました。', taskRef: '', taskTitle: '— No task', repo: 'example/service' },
+      { title: '段階的な公開の計画を立てる', kind: 'Plan', unread: false, age: '5m', preview: '計画を確認してください。', taskRef: 'P2 #2052', taskTitle: ' · 新しい設定を段階的に公開する', repo: 'example/web-app' },
+      { title: 'ステージングの設定を書き換える', kind: 'Approve', unread: false, age: '6m', preview: 'Bash の実行を許可してください。', taskRef: 'P2 #2052', taskTitle: ' · 新しい設定を段階的に公開する', repo: 'example/service' },
+      { title: 'アラートの送り先を決める', kind: 'Proposal', unread: false, age: '12m', preview: '2 つの案から選んでください。', taskRef: 'P3 #2055', taskTitle: ' · 監視を整える', repo: 'example/observability' }
+    ];
+    const need = rows.filter((r) => !filtered || r.match).map((r, i) => ({
+      ...r,
+      current: i === 0 ? 'true' : 'false',
+      bg: i === 0 ? (laterMenuOpen ? '#1f1f1f' : '#262626') : 'transparent',
+      outline: i === 0 && laterMenuOpen ? '1px solid #a1a1aa' : 'none',
+      dot: r.unread ? '#fbbf24' : 'transparent',
+      titleColor: r.unread ? '#fafafa' : '#d4d4d8',
+      titleWeight: r.unread ? 700 : 400,
+      kindColor: K[r.kind],
+      isQuestion: r.kind === 'Question', isReview: r.kind === 'Review', isError: r.kind === 'Error',
+      isPlan: r.kind === 'Plan', isApprove: r.kind === 'Approve', isProposal: r.kind === 'Proposal',
+      starred: !!r.starred
+    }));
+    const done = filtered ? [] : [
+      { title: 'リクエスト上限を文書にする', age: 'Merged #2047 · 1h', taskRef: '', taskTitle: '— No task', repo: 'example/service', decisions: '◇ 2 decisions to review' },
+      { title: 'セットアップ手順を更新する', age: 'Finished · 2h', taskRef: '', taskTitle: '— No task', repo: 'example/handbook', decisions: '' },
+      { title: 'キャッシュの挙動を調べる', age: 'Finished · 3h', taskRef: 'P3 #2050', taskTitle: ' · キャッシュを見直す', repo: 'example/service', decisions: '◇ 1 decision' }
+    ];
+    return {
+      noFilter: !filtered,
+      hasFilter: filtered,
+      saving: filter === 'saving',
+      notSaving: filter !== 'saving',
+      need,
+      needCount: need.length,
+      laterCount: filtered ? 0 : 2,
+      laterOpenStr: 'false',
+      laterNext: filtered ? '' : 'Next back 19:00 ▸',
+      showInProgress: !filtered,
+      working: [
+        { title: '配信メトリクスを追加する', age: 'Working · 30s', taskRef: 'P3 #2055', taskTitle: ' · 監視を整える', repo: 'example/observability' },
+        { title: 'リクエストの遅延を計測する', age: 'Working · 1m', taskRef: '', taskTitle: '— No task', repo: 'example/service' }
+      ],
+      done,
+      doneCount: done.length,
+      closeAllOpacity: done.length ? 1 : 0.5
+    };
+  }
+}
+</script>
+</body>
+</html>

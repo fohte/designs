@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Phone conversation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<main aria-label="Conversation with ログの保存期間を設定に出す" style="width: 100%; height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.55">
+<header style="flex: none; display: grid; grid-template-columns: 44px 1fr auto; align-items: center; column-gap: 4px; padding: 6px 8px 6px 0; border-bottom: 1px solid #2a2a2a">
+<button type="button" aria-label="Back to Inbox" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
+<h1 style="margin: 0; min-width: 0; font-size: 15px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">ログの保存期間を設定に出す</h1>
+<div style="display: flex; align-items: center; gap: 8px">
+<button type="button" aria-label="Open session status panel" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path><path d="m10 15-3-3 3-3"></path></svg></button>
+<button type="button" aria-label="More actions" aria-haspopup="menu" aria-expanded="false" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid #3f3f46; background: transparent; color: #fafafa"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</div>
+<a href="#" style="grid-column: 1 / -1; min-width: 0; min-height: 24px; display: flex; align-items: center; gap: 6px; padding: 0 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa; text-decoration: none; white-space: nowrap"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">#3104 ログ基盤を整える</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: none">logship</span></a>
+</header>
+<div aria-live="polite" style="flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; padding: 0 16px 16px">
+<article style="align-self: flex-end; max-width: 92%; display: flex; flex-direction: column; gap: 4px">
+<div style="text-align: right; font-size: 12px; color: #8b8b94">You · 14:20</div>
+<div style="padding: 10px 14px; background: #1f1f1f">ログの保存期間を設定ファイルで変えられるようにして。</div>
+</article>
+<article style="color: #d4d4d8">保存期間を <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">retention_days</code> で設定できるようにしました。既定値は 30 日のままです。</article>
+<div style="margin-top: -8px; font-size: 12.5px; color: #a1a1aa">Edit config.rs · Read ×3 · Shell ×2 <span style="color: #71717a">›</span></div>
+<article style="color: #d4d4d8">差分を crit で開きました。気になるところにコメントをください。</article>
+</div>
+<div style="flex: none">
+<sc-if value="{{isNow}}" hint-placeholder-val="{{ false }}"><dc-import name="ComposerNow" state="{{state}}" phone="{{ true }}" hint-size="100%,130px"></dc-import></sc-if>
+<sc-if value="{{isA}}" hint-placeholder-val="{{ false }}"><dc-import name="ComposerA" state="{{state}}" phone="{{ true }}" hint-size="100%,170px"></dc-import></sc-if>
+<sc-if value="{{isB}}" hint-placeholder-val="{{ false }}"><dc-import name="ComposerB" state="{{state}}" phone="{{ true }}" hint-size="100%,180px"></dc-import></sc-if>
+<sc-if value="{{isC}}" hint-placeholder-val="{{ false }}"><dc-import name="ComposerC" state="{{state}}" phone="{{ true }}" hint-size="100%,230px"></dc-import></sc-if>
+</div>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["now","a","b","c"],"default":"now"},"state":{"editor":"enum","options":["working","background","crit","critBg","question","permission","waiting","idle"],"default":"crit"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const o = this.props.option ?? 'now';
+    return { state: this.props.state ?? 'crit', isNow: o === 'now', isA: o === 'a', isB: o === 'b', isC: o === 'c' };
+  }
+}
+</script>
+</body>
+</html>

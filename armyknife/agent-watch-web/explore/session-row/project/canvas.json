@@ -73,7 +73,7 @@
     },
     "about": {
       "fill": "gray",
-      "text": "何をそろえるか\n- Inbox、サイドバーの Starred / Recent / PM、ボード、⌘K、状況パネルの tree、スマホの Inbox とドロワー。セッションが並ぶ場所をすべて同じ 1 つの行で描く\n- 行は 2 つの密度だけ持つ。full (Inbox、スマホ Inbox) はタイトル、プレビュー、tq タスクとリポジトリの 3 行。compact (それ以外) もタイトル、role / engine と tq タスク、リポジトリの 3 行で、プレビューだけ省く\n- 種類 (Question など) は実装と同じ lucide のアイコンで出す。文字だけで出す場所をなくす\n- 状態は 3 つ: 種類のアイコン (Needs action)、青い丸 (Working)、✓ (Done)\n- PM は今はプロジェクトの一覧なので、PM のセッションの一覧に変える\n- engine はロゴを使わず claude / codex の文字で出す (ロゴは商標で、事前の許可が要る)\n- role がないセッションは、TUI (a agent watch) の work_type_fallback と同じ灰色の … (ellipsis) を出す。設定にない role は TUI と同じく空けて、タイトルの位置をそろえる\n- Starred のセッションは、どの一覧でも経過時間の左に ★ を出す。サイドバーの Starred は今のまま、その一覧を集めた場所として残す",
+      "text": "何をそろえるか\n- Inbox、サイドバーの Starred / Recent / PM、ボード、⌘K、状況パネルの tree、スマホの Inbox とドロワー。セッションが並ぶ場所をすべて同じ 1 つの行で描く\n- 行は 2 つの密度だけ持つ。full (Inbox、スマホ Inbox) はタイトル、プレビュー、tq タスクとリポジトリの 3 行。compact (それ以外) もタイトル、role / engine と tq タスク、リポジトリの 3 行で、プレビューだけ省く\n- 種類 (Question など) は実装と同じ lucide のアイコンで出す。文字だけで出す場所をなくす\n- 状態は 3 つ: 種類のアイコン (Needs action)、青い丸 (Working)、✓ (Done)\n- PM は今はプロジェクトの一覧なので、PM のセッションの一覧に変える\n- engine はロゴを使わず claude / codex の文字で出す (ロゴは商標で、事前の許可が要る)\n- role がないセッションは、TUI (a agent watch) の work_type_fallback と同じ灰色の … (ellipsis) を出す。設定にない role は TUI と同じく空けて、タイトルの位置をそろえる",
       "w": 480,
       "x": 2320,
       "y": 0

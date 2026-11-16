@@ -96,7 +96,7 @@ class Component extends DCLogic {
     const laterMenuOpen = this.props.laterMenuOpen ?? false;
     const filtered = filter !== 'none';
     const rows = [
-      { status: 'Question', title: '通知の再送処理を見直す', unread: true, age: '8s', preview: '再試行は 3 回で止めてよいですか?', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', match: true },
+      { status: 'Question', title: '通知の再送処理を見直す', unread: true, age: '8s', preview: '再試行は 3 回で止めてよいですか?', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', vibe: 'inherited', match: true },
       { status: 'Review', title: '配信チェックの PR を確認する', unread: true, age: '2m', preview: 'PR #2049 のレビューをお願いします。', role: '', engine: 'codex', taskRef: '', repo: 'example/web-app', match: true },
       { status: 'Error', title: '統合テストの失敗を直す', unread: true, age: '4m', preview: 'テストが exit code 101 で終了しました。', role: 'debug-flow', engine: 'claude', taskRef: '', repo: 'example/service' },
       { status: 'Plan', title: '段階的な公開の計画を立てる', unread: false, age: '5m', preview: '計画を確認してください。', role: 'PM', engine: 'claude', taskRef: 'P2 #2052', taskTitle: '新しい設定を段階的に公開する', repo: 'example/web-app' },
@@ -127,7 +127,7 @@ class Component extends DCLogic {
       laterNext: filtered ? '' : 'Next back 19:00 ▸',
       showInProgress: !filtered,
       working: [
-        { status: 'Working', title: '配信メトリクスを追加する', age: '30s', role: 'development', engine: 'codex', taskRef: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/observability' },
+        { status: 'Working', title: '配信メトリクスを追加する', age: '30s', role: 'development', engine: 'codex', taskRef: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/observability', vibe: 'on' },
         { status: 'Working', title: 'リクエストの遅延を計測する', age: '1m', role: 'research', engine: 'claude', taskRef: '', repo: 'example/service' }
       ],
       done,

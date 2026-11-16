@@ -264,6 +264,110 @@
       "h": 60,
       "title": "Before (thinking) · StatusBand",
       "page": "components"
+    },
+    "before/BeforeVibeStatusRunning.dc.html": {
+      "x": 0,
+      "y": 3660,
+      "w": 1440,
+      "h": 900,
+      "title": "Before (vibe) · 状況パネル · Running",
+      "page": "screens"
+    },
+    "before/BeforeVibeStatusTree.dc.html": {
+      "x": 1520,
+      "y": 3660,
+      "w": 1440,
+      "h": 900,
+      "title": "Before (vibe) · 状況パネル · Tree",
+      "page": "screens"
+    },
+    "before/BeforeVibeStatusDecisions.dc.html": {
+      "x": 3040,
+      "y": 3660,
+      "w": 1440,
+      "h": 900,
+      "title": "Before (vibe) · 状況パネル · Decisions",
+      "page": "screens"
+    },
+    "before/BeforeVibeStatusReview.dc.html": {
+      "x": 4560,
+      "y": 3660,
+      "w": 1440,
+      "h": 900,
+      "title": "Before (vibe) · 状況パネル · Review",
+      "page": "screens"
+    },
+    "before/BeforeVibeStatusWebUi.dc.html": {
+      "x": 6080,
+      "y": 3660,
+      "w": 1440,
+      "h": 900,
+      "title": "Before (vibe) · 状況パネル · Web UI (crit)",
+      "page": "screens"
+    },
+    "before/BeforeVibeStatusTasks.dc.html": {
+      "x": 7600,
+      "y": 3660,
+      "w": 1440,
+      "h": 900,
+      "title": "Before (vibe) · 状況パネル · Tasks",
+      "page": "screens"
+    },
+    "before/BeforeVibeNav.dc.html": {
+      "x": 0,
+      "y": 3420,
+      "w": 240,
+      "h": 900,
+      "title": "Before (vibe) · Nav",
+      "page": "components"
+    },
+    "before/BeforeVibeConversation.dc.html": {
+      "x": 860,
+      "y": 3420,
+      "w": 880,
+      "h": 900,
+      "title": "Before (vibe) · Conversation",
+      "page": "components"
+    },
+    "before/BeforeVibeStatusPanel.dc.html": {
+      "x": 1820,
+      "y": 3420,
+      "w": 640,
+      "h": 900,
+      "title": "Before (vibe) · StatusPanel",
+      "page": "components"
+    },
+    "before/BeforeVibeSessionRow.dc.html": {
+      "x": 2540,
+      "y": 3420,
+      "w": 460,
+      "h": 76,
+      "title": "Before (vibe) · SessionRow",
+      "page": "components"
+    },
+    "before/BeforeVibeQuota.dc.html": {
+      "x": 2540,
+      "y": 3620,
+      "w": 240,
+      "h": 140,
+      "title": "Before (vibe) · Quota",
+      "page": "components"
+    },
+    "before/BeforeVibeSessionUsage.dc.html": {
+      "x": 2540,
+      "y": 3880,
+      "w": 672,
+      "h": 40,
+      "title": "Before (vibe) · SessionUsage",
+      "page": "components"
+    },
+    "before/BeforeVibeStatusBand.dc.html": {
+      "x": 2540,
+      "y": 4040,
+      "w": 760,
+      "h": 60,
+      "title": "Before (vibe) · StatusBand",
+      "page": "components"
     }
   },
   "order": [
@@ -299,7 +403,20 @@
     "before/BeforeThinkingSessionRow.dc.html",
     "before/BeforeThinkingQuota.dc.html",
     "before/BeforeThinkingSessionUsage.dc.html",
-    "before/BeforeThinkingStatusBand.dc.html"
+    "before/BeforeThinkingStatusBand.dc.html",
+    "before/BeforeVibeStatusRunning.dc.html",
+    "before/BeforeVibeStatusTree.dc.html",
+    "before/BeforeVibeStatusDecisions.dc.html",
+    "before/BeforeVibeStatusReview.dc.html",
+    "before/BeforeVibeStatusWebUi.dc.html",
+    "before/BeforeVibeStatusTasks.dc.html",
+    "before/BeforeVibeNav.dc.html",
+    "before/BeforeVibeConversation.dc.html",
+    "before/BeforeVibeStatusPanel.dc.html",
+    "before/BeforeVibeSessionRow.dc.html",
+    "before/BeforeVibeQuota.dc.html",
+    "before/BeforeVibeSessionUsage.dc.html",
+    "before/BeforeVibeStatusBand.dc.html"
   ],
   "pages": [
     {
@@ -351,6 +468,30 @@
       "page": "components",
       "fill": "orange",
       "text": "変更前 (thinking) の部品\n- Before (thinking) · 状況パネル · Running が読み込む部品の写し\n- Conversation は working のときだけ変わった。ここに出る question は変わらない"
+    },
+    "diffVibeTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3420,
+      "maxW": 9040,
+      "page": "screens",
+      "text": "変更前 (vibe mode を決める前)"
+    },
+    "diffVibe": {
+      "x": 9120,
+      "y": 3660,
+      "w": 400,
+      "page": "screens",
+      "fill": "orange",
+      "text": "変更点 (vibe mode)\n- 会話のヘッダー: タイトルの鉛筆の後ろに vibe mode の状態のボタンを足した (Vibe on、Vibe on · inherited など)。押すとポップオーバーが出る\n- サイドバーの行: vibe mode が on のセッションは、タイトルの後ろに稲妻のアイコンが出る。親から引き継いだ on は線だけで描く\n- 状況パネルの中は、例のセッションが off なので変わらない"
+    },
+    "diffVibeParts": {
+      "x": 3380,
+      "y": 3420,
+      "w": 440,
+      "page": "components",
+      "fill": "orange",
+      "text": "変更点 (vibe mode)\n- Conversation: ヘッダーに vibe mode の状態のボタンと、押したときのポップオーバーを足した\n- SessionRow: vibe mode が on のとき、タイトルの後ろに稲妻のアイコンを出す。引き継ぎの on は線だけ。既定の例は off なので、部品だけの見た目は変わらない\n- Nav: 例のセッションの 2 つを on と引き継ぎの on にした\n- StatusPanel は変わらない。Before の各画面が読むので写した"
     }
   },
   "v": 3,

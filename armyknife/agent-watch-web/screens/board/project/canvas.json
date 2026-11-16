@@ -32,13 +32,49 @@
       "h": 140,
       "title": "Quota",
       "page": "components"
+    },
+    "before/BeforeVibeBoard.dc.html": {
+      "x": 0,
+      "y": 1260,
+      "w": 1440,
+      "h": 900,
+      "title": "Before (vibe) · Board",
+      "page": "screens"
+    },
+    "before/BeforeVibeNav.dc.html": {
+      "x": 0,
+      "y": 1140,
+      "w": 240,
+      "h": 900,
+      "title": "Before (vibe) · Nav",
+      "page": "components"
+    },
+    "before/BeforeVibeSessionRow.dc.html": {
+      "x": 640,
+      "y": 1140,
+      "w": 460,
+      "h": 76,
+      "title": "Before (vibe) · SessionRow",
+      "page": "components"
+    },
+    "before/BeforeVibeQuota.dc.html": {
+      "x": 1180,
+      "y": 1140,
+      "w": 240,
+      "h": 140,
+      "title": "Before (vibe) · Quota",
+      "page": "components"
     }
   },
   "order": [
     "Board.dc.html",
     "Nav.dc.html",
     "SessionRow.dc.html",
-    "Quota.dc.html"
+    "Quota.dc.html",
+    "before/BeforeVibeBoard.dc.html",
+    "before/BeforeVibeNav.dc.html",
+    "before/BeforeVibeSessionRow.dc.html",
+    "before/BeforeVibeQuota.dc.html"
   ],
   "pages": [
     {
@@ -50,7 +86,32 @@
       "name": "部品"
     }
   ],
-  "notes": {},
+  "notes": {
+    "diffVibeTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 1920,
+      "page": "screens",
+      "text": "変更前 (vibe mode を決める前)"
+    },
+    "diffVibe": {
+      "x": 1520,
+      "y": 1260,
+      "w": 400,
+      "page": "screens",
+      "fill": "orange",
+      "text": "変更点 (vibe mode)\n- サイドバーの行: vibe mode が on のセッションは、タイトルの後ろに稲妻のアイコンが出る。親から引き継いだ on は線だけで描く\n- off と、repo の設定で使えないセッションには何も出さない\n- 例として、通知の再送処理を見直す を引き継ぎの on、通知まわりの改修 を on にした\n- ボードのカードは、例のセッションが off なので変わらない"
+    },
+    "diffVibeParts": {
+      "x": 1500,
+      "y": 1140,
+      "w": 400,
+      "page": "components",
+      "fill": "orange",
+      "text": "変更点 (vibe mode)\n- SessionRow: vibe mode が on のとき、タイトルの後ろに稲妻のアイコンを出す。引き継ぎの on は線だけ。既定の例は off なので、部品だけの見た目は変わらない\n- Nav: 例のセッションの 2 つを on と引き継ぎの on にした"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,

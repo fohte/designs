@@ -152,6 +152,70 @@
       "h": 40,
       "title": "Before (thinking) · SessionUsage",
       "page": "screens"
+    },
+    "VibePopover.dc.html": {
+      "x": 6870,
+      "y": 0,
+      "w": 1848,
+      "h": 1940,
+      "title": "セッションのヘッダー · vibe mode のボタンを押したとき",
+      "page": "screens"
+    },
+    "PhoneChatVibe.dc.html": {
+      "x": 3510,
+      "y": 964,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · vibe mode のシート",
+      "page": "screens"
+    },
+    "Conversation.dc.html": {
+      "x": 3980,
+      "y": 1360,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "screens"
+    },
+    "before/BeforeVibePhoneChat.dc.html": {
+      "x": 3040,
+      "y": 9000,
+      "w": 390,
+      "h": 844,
+      "title": "Before (vibe) · iPhone · 会話から答える",
+      "page": "screens"
+    },
+    "before/BeforeVibePhoneChatMenu.dc.html": {
+      "x": 3510,
+      "y": 9000,
+      "w": 390,
+      "h": 844,
+      "title": "Before (vibe) · iPhone · セッションの操作メニュー",
+      "page": "screens"
+    },
+    "before/BeforeVibePhoneChatReview.dc.html": {
+      "x": 3040,
+      "y": 9964,
+      "w": 390,
+      "h": 844,
+      "title": "Before (vibe) · iPhone · crit のレビュー待ち",
+      "page": "screens"
+    },
+    "before/BeforeVibeStatusBand.dc.html": {
+      "x": 3980,
+      "y": 9000,
+      "w": 760,
+      "h": 60,
+      "title": "Before (vibe) · StatusBand",
+      "page": "screens"
+    },
+    "before/BeforeVibeSessionUsage.dc.html": {
+      "x": 3980,
+      "y": 9180,
+      "w": 672,
+      "h": 40,
+      "title": "Before (vibe) · SessionUsage",
+      "page": "screens"
     }
   },
   "order": [
@@ -173,7 +237,15 @@
     "before/BeforeThinkingPhoneChatMenu.dc.html",
     "before/BeforeThinkingPhoneChatReview.dc.html",
     "before/BeforeThinkingStatusBand.dc.html",
-    "before/BeforeThinkingSessionUsage.dc.html"
+    "before/BeforeThinkingSessionUsage.dc.html",
+    "VibePopover.dc.html",
+    "PhoneChatVibe.dc.html",
+    "Conversation.dc.html",
+    "before/BeforeVibePhoneChat.dc.html",
+    "before/BeforeVibePhoneChatMenu.dc.html",
+    "before/BeforeVibePhoneChatReview.dc.html",
+    "before/BeforeVibeStatusBand.dc.html",
+    "before/BeforeVibeSessionUsage.dc.html"
   ],
   "pages": [
     {
@@ -213,6 +285,22 @@
       "page": "screens",
       "fill": "orange",
       "text": "変更点 (thinking)\n- 会話に出るメッセージ: Narration を足した。本文の流れに出し、文字を薄くするだけで返答と分ける\n- 会話に出るメッセージ: ツールの行で thinking をツールと同じく Thought ×N と数える。開くと Thought の行がツールと順に並び、1 行に畳む。押すと全文が出る\n- 会話に出るメッセージ: ツールを使わない thinking だけの行を足した。Codex の reasoning の要約も同じ扱いで、空なら何も出さない\n- iPhone の会話: 返答の下に Thought ×1 を含むツールの行 (高さ 44px) を足した\n- iPhone · crit のレビュー待ち: ツールの行に Thought ×2 を足し、高さ 44px のボタンにした\n- iPhone · セッションの操作メニュー: 後ろの会話が iPhone の会話と同じく変わった"
+    },
+    "diffVibeTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 8760,
+      "maxW": 5260,
+      "page": "screens",
+      "text": "変更前 (vibe mode を決める前)"
+    },
+    "diffVibe": {
+      "x": 4820,
+      "y": 9000,
+      "w": 440,
+      "page": "screens",
+      "fill": "orange",
+      "text": "変更点 (vibe mode)\n- iPhone の会話: ヘッダーの下に、高さ 36px の vibe mode の帯を足した。状態 (ここでは Vibe on · inherited と引き継ぎ元) を出し、押すとシートが出る\n- iPhone · vibe mode のシート を足した。説明、セッションに送るメッセージ、切り替えのボタン (高さ 44px) を出す。使えないときは説明と Close だけ\n- セッションのヘッダー · vibe mode のボタンを押したとき を足した。4 つの状態ごとにポップオーバーの中身を描いた。別の確認ダイアログは出さない\n- 部品の Conversation を足した。inbox などの canvas と同じもの\n- iPhone · セッションの操作メニュー と crit のレビュー待ち: ヘッダーに同じ帯が足された"
     }
   },
   "v": 3,

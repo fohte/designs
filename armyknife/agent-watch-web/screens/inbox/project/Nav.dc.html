@@ -69,7 +69,7 @@ class Component extends DCLogic {
       inboxStyle: view === 'inbox' ? on : off,
       boardStyle: view === 'board' ? on : off,
       starred: [
-        { status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service' },
+        { status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', vibe: 'inherited' },
         { status: 'Working', title: '配信ログの保存期間を決める', age: '2m', role: 'research', engine: 'codex', taskRef: 'P2 #2051', taskTitle: '監視を整える', repo: 'example/observability' }
       ],
       recent: [
@@ -79,7 +79,7 @@ class Component extends DCLogic {
       ],
       pm: [
         { status: 'Plan', title: '段階的な公開を進める', age: '5m', role: 'PM', engine: 'claude', taskRef: 'P2 #2052', taskTitle: '新しい設定を段階的に公開する', repo: 'example/web-app' },
-        { status: 'Working', title: '通知まわりの改修', age: '12m', role: 'PM', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service' }
+        { status: 'Working', title: '通知まわりの改修', age: '12m', role: 'PM', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', vibe: 'on' }
       ]
     };
   }

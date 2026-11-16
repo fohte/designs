@@ -160,6 +160,86 @@
       "h": 40,
       "title": "Before · SessionUsage",
       "page": "components"
+    },
+    "before/BeforeVibePalette.dc.html": {
+      "x": 1520,
+      "y": 2520,
+      "w": 1440,
+      "h": 900,
+      "title": "Before (vibe) · ⌘K · 開いた直後",
+      "page": "screens"
+    },
+    "before/BeforeVibePaletteQuery.dc.html": {
+      "x": 3040,
+      "y": 2520,
+      "w": 1440,
+      "h": 900,
+      "title": "Before (vibe) · ⌘K · # で tq タスクに絞る",
+      "page": "screens"
+    },
+    "before/BeforeVibePaletteNewSession.dc.html": {
+      "x": 4560,
+      "y": 2520,
+      "w": 1440,
+      "h": 900,
+      "title": "Before (vibe) · コマンドパレット · 新しいセッション",
+      "page": "screens"
+    },
+    "before/BeforeVibeNav.dc.html": {
+      "x": 0,
+      "y": 2280,
+      "w": 240,
+      "h": 900,
+      "title": "Before (vibe) · Nav",
+      "page": "components"
+    },
+    "before/BeforeVibeInboxList.dc.html": {
+      "x": 320,
+      "y": 2280,
+      "w": 460,
+      "h": 900,
+      "title": "Before (vibe) · InboxList",
+      "page": "components"
+    },
+    "before/BeforeVibeConversation.dc.html": {
+      "x": 860,
+      "y": 2280,
+      "w": 880,
+      "h": 900,
+      "title": "Before (vibe) · Conversation",
+      "page": "components"
+    },
+    "before/BeforeVibeSessionRow.dc.html": {
+      "x": 1820,
+      "y": 2280,
+      "w": 460,
+      "h": 76,
+      "title": "Before (vibe) · SessionRow",
+      "page": "components"
+    },
+    "before/BeforeVibeQuota.dc.html": {
+      "x": 1820,
+      "y": 2480,
+      "w": 240,
+      "h": 140,
+      "title": "Before (vibe) · Quota",
+      "page": "components"
+    },
+    "before/BeforeVibeSessionUsage.dc.html": {
+      "x": 1820,
+      "y": 2740,
+      "w": 672,
+      "h": 40,
+      "title": "Before (vibe) · SessionUsage",
+      "page": "components"
+    },
+    "before/BeforeVibeStatusBand.dc.html": {
+      "x": 1820,
+      "y": 2900,
+      "w": 760,
+      "h": 60,
+      "title": "Before (vibe) · StatusBand",
+      "page": "components"
     }
   },
   "order": [
@@ -182,7 +262,17 @@
     "before/BeforeConversation.dc.html",
     "before/BeforeSessionRow.dc.html",
     "before/BeforeQuota.dc.html",
-    "before/BeforeSessionUsage.dc.html"
+    "before/BeforeSessionUsage.dc.html",
+    "before/BeforeVibePalette.dc.html",
+    "before/BeforeVibePaletteQuery.dc.html",
+    "before/BeforeVibePaletteNewSession.dc.html",
+    "before/BeforeVibeNav.dc.html",
+    "before/BeforeVibeInboxList.dc.html",
+    "before/BeforeVibeConversation.dc.html",
+    "before/BeforeVibeSessionRow.dc.html",
+    "before/BeforeVibeQuota.dc.html",
+    "before/BeforeVibeSessionUsage.dc.html",
+    "before/BeforeVibeStatusBand.dc.html"
   ],
   "pages": [
     {
@@ -218,6 +308,30 @@
       "page": "components",
       "fill": "orange",
       "text": "変更点 (部品)\n- StatusBand を足した。返信欄の上の帯で、state と phone で描き分ける\n- Conversation: 実行中の行 (Working · 18s) を StatusBand に置き換えた。question は質問の待ち、working は実行中の帯を出す\n- Conversation: crit のレビュー待ちの variant (review) を足した\n- InboxList: 選んでいる行を current で指定できるようにした (見た目は変わらない)"
+    },
+    "diffVibeTitle": {
+      "kind": "title1",
+      "x": 1520,
+      "y": 2280,
+      "maxW": 4480,
+      "page": "screens",
+      "text": "変更前 (vibe mode を決める前)"
+    },
+    "diffVibe": {
+      "x": 6080,
+      "y": 2520,
+      "w": 400,
+      "page": "screens",
+      "fill": "orange",
+      "text": "変更点 (vibe mode)\n- 会話のヘッダー: タイトルの鉛筆の後ろに vibe mode の状態のボタンを足した (ここでは Vibe on · inherited)。押すとポップオーバーが出る\n- サイドバーと Inbox の行: vibe mode が on のセッションは、タイトルの後ろに稲妻のアイコンが出る。親から引き継いだ on は線だけで描く\n- パレットの候補の行は、例のセッションが off なので変わらない"
+    },
+    "diffVibeParts": {
+      "x": 2660,
+      "y": 2280,
+      "w": 440,
+      "page": "components",
+      "fill": "orange",
+      "text": "変更点 (vibe mode)\n- Conversation: ヘッダーに vibe mode の状態のボタンと、押したときのポップオーバーを足した\n- SessionRow: vibe mode が on のとき、タイトルの後ろに稲妻のアイコンを出す。引き継ぎの on は線だけ。既定の例は off なので、部品だけの見た目は変わらない\n- Nav と InboxList: 例のセッションの一部を on と引き継ぎの on にした"
     }
   },
   "v": 3,

@@ -28,7 +28,7 @@ body{margin:0}
 <sc-if value="{{isDone}}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="Done" title="Done" style="display: inline-grid; place-items: center; flex: none; width: {{iconPx}}; height: {{iconPx}}; color: #71717a; font-size: 11px">✓</span></sc-if>
 </span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
-<span style="display: flex; align-items: center; gap: 8px"><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: {{titleSize}}; color: {{titleColor}}; font-weight: {{titleWeight}}">{{title}}</span><span style="margin-left: auto"></span><span style="flex: none; font-family: 'JetBrains Mono', monospace; font-size: {{metaSize}}; color: #8b8b94">{{age}}</span></span>
+<span style="display: flex; align-items: center; gap: 8px"><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: {{titleSize}}; color: {{titleColor}}; font-weight: {{titleWeight}}">{{title}}</span><sc-if value="{{vibeIcon}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="{{zapFill}}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="{{vibeLabel}}" style="flex: none; margin-left: -4px; color: #a1a1aa"><title>{{vibeLabel}}</title><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg></sc-if><span style="margin-left: auto"></span><span style="flex: none; font-family: 'JetBrains Mono', monospace; font-size: {{metaSize}}; color: #8b8b94">{{age}}</span></span>
 <sc-if value="{{hasPreview}}" hint-placeholder-val="{{ true }}"><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: {{previewSize}}; color: {{previewColor}}">{{preview}}</span></sc-if>
 <span style="display: flex; align-items: center; gap: 6px; font-size: {{metaSize}}; color: #8b8b94; white-space: nowrap">
 <span style="min-width: 0; display: flex; align-items: center; gap: 5px; overflow: hidden">
@@ -82,7 +82,11 @@ class Component extends DCLogic {
       isResearch: role === 'research', isDebugFlow: role === 'debug-flow', isPm: role === 'PM', isNoRole: role === '',
       engine: s.engine, hasEngine: !!s.engine, engineName: s.engine === 'codex' ? 'Codex' : s.engine === 'claude' ? 'Claude Code' : '',
       hasTask: !!s.taskRef, noTask: !s.taskRef, taskRef: s.taskRef ?? '', taskTitle: s.taskTitle ?? '',
-      repo: s.repo, repoInline: !compact, repoOwnLine: compact
+      repo: s.repo, repoInline: !compact, repoOwnLine: compact,
+      // s.vibe: 'on' | 'inherited' | 'off'. A session whose repository does not allow vibe mode is 'off' here.
+      vibeIcon: s.vibe === 'on' || s.vibe === 'inherited',
+      vibeLabel: s.vibe === 'inherited' ? 'Vibe mode on, inherited from a parent session' : 'Vibe mode on',
+      zapFill: s.vibe === 'inherited' ? 'none' : 'currentColor'
     };
   }
 }

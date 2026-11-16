@@ -218,7 +218,7 @@
       "w": 480,
       "fill": "gray",
       "page": "options",
-      "text": "前提\n- 返信欄の上に、セッションの今の状態を 1 か所で出す。crit のリンクはその上に乗せる\n- 状態はすべて既存のデータから出す。working は activityStatus、経過時間は elapsedSeconds、ツールは tool_in_progress\n- バックグラウンドタスクは backgroundTasks (説明と経過時間) と waitingForBackgroundTasks\n- crit 待ちは kind が Review で、webUis に crit があるとき。Review は review document と merge 待ちにも使われるので、crit の有無で分ける\n- crit は待っていないときも webUis に残ることがある。そのときはリンクを出さない\n- 他の待ちは Question、Approve (permission)、Proposal、Todo、Plan と、agent status の waitingReason (自由文)\n- リンクは今の crit タブと同じ WebUiPane を全画面 (defaultFullscreen) で開く\n- 出せないもの: crit のコメント数や差分の量、作業の残り時間。crit がこの端末の外から開けない (exposedUrl がない) かも、開くまで分からない\n- 返信欄の下の使用状況の行はそのまま\n- データはすべて架空"
+      "text": "前提\n- 返信欄の上に、セッションの今の状態を 1 か所で出す。crit のリンクはその上に乗せる\n- 状態はすべて既存のデータから出す。working は activityStatus、経過時間は elapsedSeconds、ツールは tool_in_progress\n- バックグラウンドタスクは backgroundTasks (説明と経過時間) と waitingForBackgroundTasks\n- crit 待ちは、手を入れるべきセッション (needs_action) で kind が Review、かつ webUis に crit があるとき (古いセッションは critUrl)。Review は review document と merge 待ちにも使われるので、crit の有無で分ける\n- crit は待っていないときも webUis に残ることがある。そのときはリンクを出さない\n- 他の待ちは Question、Approve (permission)、Proposal、Todo、Plan と、agent status の waitingReason (自由文)\n- リンクは今の crit タブと同じ WebUiPane を全画面 (defaultFullscreen) で開く\n- 出せないもの: crit のコメント数や差分の量、作業の残り時間。crit がこの端末の外から開けない (exposedUrl がない) かも、開くまで分からない\n- 返信欄の下の使用状況の行はそのまま\n- データはすべて架空"
     },
     "a": {
       "kind": "title1",

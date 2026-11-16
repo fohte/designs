@@ -54,7 +54,7 @@ class Component extends DCLogic {
   renderVals() {
     const st = this.props.state ?? 'crit';
     const phone = this.props.phone ?? false;
-    // The app renders this row only for in_progress or compacting sessions on desktop; phones add it when background tasks run.
+    // The app renders this row only for in_progress sessions (agent-status waiting included) or compacting ones; phones add it when background tasks run.
     const T = {
       working: { label: 'Working · 1m 12s', tool: 'Bash', target: 'cargo test -p logship', inProgress: true },
       background: { label: 'Waiting for background tasks', bg: 2, inProgress: true },

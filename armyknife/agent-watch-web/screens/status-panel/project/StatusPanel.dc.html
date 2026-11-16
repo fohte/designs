@@ -59,14 +59,10 @@ test retry::backs_off ... ok</pre>
 <div role="tabpanel" style="flex: 1; min-height: 0; display: flex; flex-direction: column">
 <div role="tree" style="flex: 1; min-height: 0; overflow: hidden; padding: 6px 0">
 <sc-for list="{{tree}}" as="n" hint-placeholder-count="5">
-<div role="treeitem" aria-current="{{n.current}}" style="box-sizing: border-box; padding: 7px 12px 8px {{n.indent}}; background: {{n.bg}}; box-shadow: {{n.bar}}; opacity: {{n.opacity}}">
-<div style="display: flex; align-items: center; gap: 7px"><span style="width: 10px; color: #8b8b94; font-size: 11px">{{n.caret}}</span><span style="width: 7px; height: 7px; border-radius: 50%; background: {{n.dot}}; flex: none"></span><span style="flex: 1; min-width: 0; font-size: 12.5px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{n.title}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: #8b8b94">{{n.age}}</span></div>
-<div style="margin-left: 24px; font-size: 10.5px; color: #a1a1aa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><strong style="color: {{n.kindColor}}">{{n.kind}}</strong>{{n.preview}}</div>
-<sc-if value="{{n.hasMeta}}" hint-placeholder-val="{{ false }}"><div style="margin-left: 24px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: #8b8b94">{{n.meta}}</div></sc-if>
-</div>
+<div role="treeitem" aria-current="{{n.current}}"><dc-import name="SessionRow" s="{{ n }}" density="compact" hint-size="100%,69px"></dc-import></div>
 </sc-for>
 </div>
-<p style="flex: none; margin: 0; padding: 10px 18px; border-top: 1px solid #2a2a2a; font-size: 11px; color: #8b8b94">tq and repo are shown only when they differ from the parent. ← / → fold.</p>
+<p style="flex: none; margin: 0; padding: 10px 18px; border-top: 1px solid #2a2a2a; font-size: 11px; color: #8b8b94">← / → fold.</p>
 </div>
 </sc-if>
 
@@ -146,9 +142,9 @@ class Component extends DCLogic {
       const on = id === tab;
       return { label, count, countColor, selected: on ? 'true' : 'false', color: on ? '#fafafa' : '#a1a1aa', weight: on ? 700 : 400, underline: on ? '#fafafa' : 'transparent' };
     });
-    const node = (depth, caret, dot, title, age, kind, kindColor, preview, meta, current, ended) => ({
-      indent: (depth * 18 + 12) + 'px', caret, dot, title, age, kind, kindColor, preview: kind ? ' · ' + preview : preview,
-      meta, hasMeta: meta !== '', current: current ? 'true' : 'false',
+    const node = (depth, caret, status, title, age, role, engine, taskRef, taskTitle, repo, current, ended) => ({
+      pad: '6px 12px 7px ' + (depth * 18 + 12) + 'px', caret, status, unread: current, title, age, role, engine, taskRef, taskTitle, repo,
+      current: current ? 'true' : 'false',
       bg: current ? '#262626' : 'transparent', bar: current ? 'inset 2px 0 0 #fafafa' : 'none', opacity: ended ? 0.64 : 1
     });
     return {
@@ -162,11 +158,11 @@ class Component extends DCLogic {
       doneTasks: [['#2047', '再送の上限を設定に出す', '1h'], ['#2046', '送信キューを分ける', '2h'], ['#2043', '失敗時の記録を残す', '1d'], ['#2041', '再送のテストを足す', '2d']]
         .map(([no, title, age]) => ({ no, title, age })),
       tree: [
-        node(0, '▾', '#60a5fa', '通知まわりの改修', '12m', '', '#a1a1aa', 'サブタスクを順に進めています', '', false, false),
-        node(1, '▾', '#fbbf24', '通知の再送処理を見直す', '8s', 'Question', '#fbbf24', '再試行は 3 回で止めてよいですか?', '', true, false),
-        node(2, '', '#60a5fa', '再送の記録を残す', '1m', '', '#a1a1aa', 'テストを足しています', '', false, false),
-        node(1, '', '#fbbf24', '配信チェックの PR を確認する', '2m', 'Review', '#fbbf24', 'PR #2049 を見てください', 'P2 #2050 · example/web-app', false, false),
-        node(1, '', '#71717a', '送信キューを分ける', '2h', '', '#a1a1aa', 'Finished', '', false, true)
+        node(0, '▾', 'Working', '通知まわりの改修', '12m', 'PM', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/service', false, false),
+        node(1, '▾', 'Question', '通知の再送処理を見直す', '8s', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/service', true, false),
+        node(2, '', 'Working', '再送の記録を残す', '1m', 'development', 'codex', 'P1 #2048', '通知の信頼性を上げる', 'example/service', false, false),
+        node(1, '', 'Review', '配信チェックの PR を確認する', '2m', '', 'codex', 'P2 #2050', '配信チェックを入れる', 'example/web-app', false, false),
+        node(1, '', 'Done', '送信キューを分ける', '2h', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/service', false, true)
       ]
     };
   }

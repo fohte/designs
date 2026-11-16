@@ -33,11 +33,7 @@ body{margin:0}
 <div style="display: flex; flex-direction: column; gap: 6px">
 <h3 style="margin: 0; font-size: 11.5px; font-weight: 700; color: #fbbf24">Needs action</h3>
 <sc-for list="{{col.needs}}" as="c" hint-placeholder-count="2">
-<article style="padding: 7px 9px; background: #1c1c1c">
-<div style="display: flex; justify-content: space-between; font-size: 11.5px"><strong style="color: {{c.kindColor}}">{{c.kind}}</strong><span style="color: #8b8b94">{{c.age}}</span></div>
-<div style="font-size: 13px; font-weight: 700; color: #fafafa">{{c.title}}</div>
-<div style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">{{c.task}}</div>
-</article>
+<div style="margin: 0 -12px"><dc-import name="SessionRow" s="{{ c }}" density="compact" hint-size="100%,69px"></dc-import></div>
 </sc-for>
 </div>
 </sc-if>
@@ -45,11 +41,7 @@ body{margin:0}
 <div style="display: flex; flex-direction: column; gap: 6px">
 <h3 style="margin: 0; font-size: 11.5px; font-weight: 700; color: #60a5fa">In progress</h3>
 <sc-for list="{{col.working}}" as="c" hint-placeholder-count="2">
-<article style="padding: 7px 9px; background: #161616">
-<div style="display: flex; justify-content: space-between; font-size: 11.5px"><strong style="color: #60a5fa">Working</strong><span style="color: #8b8b94">{{c.age}}</span></div>
-<div style="font-size: 13px; color: #d4d4d8">{{c.title}}</div>
-<div style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">{{c.task}}</div>
-</article>
+<div style="margin: 0 -12px"><dc-import name="SessionRow" s="{{ c }}" density="compact" hint-size="100%,69px"></dc-import></div>
 </sc-for>
 <sc-if value="{{col.hasMore}}" hint-placeholder-val="{{ false }}"><button type="button" style="align-self: flex-start; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px">{{col.more}}</button></sc-if>
 </div>
@@ -76,25 +68,25 @@ class Component extends DCLogic {
       hasMore: more !== '',
       hasDone: done !== ''
     });
-    const n = (kind, kindColor, age, title, task) => ({ kind, kindColor, age, title, task });
-    const w = (age, title, task) => ({ age, title, task });
+    const n = (status, age, title, role, engine, taskRef, taskTitle, repo) => ({ status, unread: true, age, title, role, engine, taskRef, taskTitle, repo });
+    const w = (age, title, role, engine, taskRef, taskTitle, repo) => ({ status: 'Working', age, title, role, engine, taskRef, taskTitle, repo });
     return {
       columns: [
         col('service', 'example/service', [
-          n('Question', '#fbbf24', '8s', '通知の再送処理を見直す', 'P1 #2048'),
-          n('Error', '#f87171', '4m', '統合テストの失敗を直す', 'P1 #2052'),
-          n('Approve', '#fbbf24', '6m', 'ステージングの設定を書き換える', 'P2 #2053')
-        ], [w('30s', '再送の記録を残す', 'P1 #2048')], '', '送信キューを分ける and 2 more'),
+          n('Question', '8s', '通知の再送処理を見直す', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/service'),
+          n('Error', '4m', '統合テストの失敗を直す', 'debug-flow', 'claude', 'P1 #2052', 'テストを安定させる', 'example/service'),
+          n('Approve', '6m', 'ステージングの設定を書き換える', 'development', 'codex', 'P2 #2053', '新しい設定を段階的に公開する', 'example/service')
+        ], [w('30s', '再送の記録を残す', 'development', 'codex', 'P1 #2048', '通知の信頼性を上げる', 'example/service')], '', '送信キューを分ける and 2 more'),
         col('web-app', 'example/web-app', [
-          n('Review', '#fbbf24', '2m', '配信チェックの PR を確認する', 'P2 #2050'),
-          n('Plan', '#8b8b94', '5m', '段階的な公開の計画を立てる', 'P2 #2054')
-        ], [w('1m', '設定画面の文言を直す', 'P3 #2056')], '', 'ログイン画面を直す'),
+          n('Review', '2m', '配信チェックの PR を確認する', '', 'codex', 'P2 #2050', '配信チェックを入れる', 'example/web-app'),
+          { ...n('Plan', '5m', '段階的な公開の計画を立てる', 'PM', 'claude', 'P2 #2054', '新しい設定を段階的に公開する', 'example/web-app'), unread: false }
+        ], [w('1m', '設定画面の文言を直す', 'design', 'claude', 'P3 #2056', '設定画面を作り直す', 'example/web-app')], '', 'ログイン画面を直す'),
         col('observability', 'example/observability', [
-          n('Proposal', '#fbbf24', '12m', 'アラートの送り先を決める', 'P2 #2051')
+          n('Proposal', '12m', 'アラートの送り先を決める', 'designer', 'claude', 'P2 #2051', '監視を整える', 'example/observability')
         ], [
-          w('18s', '配信メトリクスを追加する', 'P3 #2055'),
-          w('2m', '配信ログの保存期間を決める', 'P2 #2051'),
-          w('5m', 'ダッシュボードの遅延を調べる', 'P3 #2057')
+          w('18s', '配信メトリクスを追加する', 'development', 'codex', 'P3 #2055', '監視を整える', 'example/observability'),
+          w('2m', '配信ログの保存期間を決める', 'research', 'codex', 'P2 #2051', '監視を整える', 'example/observability'),
+          w('5m', 'ダッシュボードの遅延を調べる', 'debug-flow', 'codex', 'P3 #2057', '監視を整える', 'example/observability')
         ], '1 more', ''),
         col('handbook', 'example/handbook', [], [], '', 'セットアップ手順を更新する')
       ]

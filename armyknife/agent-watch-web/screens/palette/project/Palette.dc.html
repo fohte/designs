@@ -34,11 +34,15 @@ body{margin:0}
 <sc-for list="{{groups}}" as="g" hint-placeholder-count="3">
 <h2 style="height: 28px; display: flex; align-items: center; margin: 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">{{g.title}}</h2>
 <sc-for list="{{g.items}}" as="it" hint-placeholder-count="3">
-<div role="option" aria-selected="{{it.selected}}" style="min-height: 44px; box-sizing: border-box; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 12px; padding: 5px 16px; background: {{it.bg}}">
-<span aria-hidden="true" style="color: {{it.glyphColor}}; text-align: center">{{it.glyph}}</span>
+<sc-if value="{{it.isSession}}" hint-placeholder-val="{{ true }}">
+<div role="option" aria-selected="{{it.selected}}"><dc-import name="SessionRow" s="{{ it }}" density="compact" hint-size="100%,69px"></dc-import></div>
+</sc-if>
+<sc-if value="{{it.isOther}}" hint-placeholder-val="{{ false }}">
+<div role="option" aria-selected="{{it.selected}}" style="min-height: 44px; box-sizing: border-box; display: grid; grid-template-columns: 16px 1fr; align-items: center; gap: 12px; padding: 5px 16px; background: {{it.bg}}">
+<span aria-hidden="true" style="color: #a1a1aa; text-align: center">{{it.glyph}}</span>
 <div style="min-width: 0"><div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fafafa">{{it.title}}</div><div style="font-size: 11.5px; color: #a1a1aa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{it.sub}}</div></div>
-<div style="display: flex; align-items: center; gap: 10px"><strong style="font-size: 12px; color: {{it.glyphColor}}">{{it.kind}}</strong><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">{{it.age}}</span></div>
 </div>
+</sc-if>
 </sc-for>
 </sc-for>
 </div>
@@ -60,30 +64,33 @@ class Component extends DCLogic {
         return { label, selected: on ? 'true' : 'false', color: on ? '#fafafa' : '#a1a1aa', weight: on ? 700 : 400, underline: on ? '#fafafa' : 'transparent' };
       });
     let first = true;
-    const it = (glyph, glyphColor, title, sub, kind, age) => {
+    const pick = (o) => {
       const on = first; first = false;
-      return { glyph, glyphColor, title, sub, kind, age, selected: on ? 'true' : 'false', bg: on ? '#2a2a2e' : 'transparent' };
+      return { ...o, selected: on ? 'true' : 'false', bg: on ? '#2a2a2e' : 'transparent' };
     };
+    const it = (glyph, title, sub) => pick({ isOther: true, isSession: false, glyph, title, sub });
+    const ses = (status, unread, title, age, role, engine, taskRef, taskTitle, repo) =>
+      pick({ isSession: true, isOther: false, pad: '6px 16px 7px', status, unread, title, age, role, engine, taskRef, taskTitle, repo });
     const groups = tasks ? [
       { title: 'TQ TASKS', items: [
-        it('#', '#a1a1aa', '#2048 通知の信頼性を上げる', 'P1 · 3 sessions', '', ''),
-        it('#', '#a1a1aa', '#2050 配信チェックを入れる', 'P2 · 1 session', '', ''),
-        it('#', '#a1a1aa', '#2055 監視を整える', 'P3 · 2 sessions', '', '')
+        it('#', '#2048 通知の信頼性を上げる', 'P1 · 3 sessions'),
+        it('#', '#2050 配信チェックを入れる', 'P2 · 1 session'),
+        it('#', '#2055 監視を整える', 'P3 · 2 sessions')
       ] }
     ] : [
       { title: 'NEEDS ACTION', items: [
-        it('◆', '#fbbf24', '通知の再送処理を見直す', 'P1 #2048 · example/service', 'Question', '8s'),
-        it('◆', '#fbbf24', '配信チェックの PR を確認する', 'P2 #2050 · example/web-app', 'Review', '2m'),
-        it('×', '#f87171', '統合テストの失敗を直す', 'P1 #2052 · example/service', 'Error', '4m')
+        ses('Question', true, '通知の再送処理を見直す', '8s', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/service'),
+        ses('Review', true, '配信チェックの PR を確認する', '2m', '', 'codex', 'P2 #2050', '配信チェックを入れる', 'example/web-app'),
+        ses('Error', true, '統合テストの失敗を直す', '4m', 'debug-flow', 'claude', 'P1 #2052', 'テストを安定させる', 'example/service')
       ] },
       { title: 'RECENT', items: [
-        it('●', '#60a5fa', '配信メトリクスを追加する', 'P3 #2055 · example/observability', 'Working', '18s'),
-        it('✓', '#a1a1aa', '送信キューを分ける', 'P1 #2048 · example/service', 'Done', '1h')
+        ses('Working', false, '配信メトリクスを追加する', '18s', 'development', 'codex', 'P3 #2055', '監視を整える', 'example/observability'),
+        ses('Done', false, '送信キューを分ける', '1h', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/service')
       ] },
       { title: 'COMMANDS', items: [
-        it('+', '#a1a1aa', 'New session', 'Start Claude Code or Codex in a directory', '', ''),
-        it('›', '#a1a1aa', 'Switch to Board', '', '', ''),
-        it('›', '#a1a1aa', 'Close all done', '', '', '')
+        it('+', 'New session', 'Start Claude Code or Codex in a directory'),
+        it('›', 'Switch to Board', ''),
+        it('›', 'Close all done', '')
       ] }
     ];
     return { query: tasks ? '#20' : '', scopes, groups };

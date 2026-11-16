@@ -16,11 +16,38 @@
       "h": 900,
       "title": "Nav",
       "page": "components"
+    },
+    "before/BeforeBoard.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Board",
+      "page": "screens"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 320,
+      "y": 0,
+      "w": 240,
+      "h": 900,
+      "title": "Before · Nav",
+      "page": "components"
+    },
+    "SessionRow.dc.html": {
+      "x": 640,
+      "y": 0,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "components"
     }
   },
   "order": [
     "Board.dc.html",
-    "Nav.dc.html"
+    "Nav.dc.html",
+    "before/BeforeBoard.dc.html",
+    "before/BeforeNav.dc.html",
+    "SessionRow.dc.html"
   ],
   "pages": [
     {
@@ -32,7 +59,16 @@
       "name": "部品"
     }
   ],
-  "notes": {},
+  "notes": {
+    "diffScreens": {
+      "x": 0,
+      "y": -800,
+      "w": 560,
+      "fill": "orange",
+      "text": "変更前との違い (右が変更前)\n- 先頭は状態だけ: 種類のアイコン (Needs action)、青い丸 (Working)、✓ (Done)。黄色い四角の未読の印をやめ、未読は太字だけ\n- 種類を文字で出す場所をなくし、すべて lucide のアイコンにする\n- 2 行目 (Inbox は 3 行目) に灰色の role アイコンと engine (claude / codex) を足す。role がないセッションは … (work_type_fallback)\n- tq タスクは ID と題名を出し、ないときは — No task\n- Board: 種類の文字と灰色の背景のカードをやめ、ほかの一覧と同じ行にする。Plan のアイコンは灰色から黄色にする\n- ナビも新しい行になり、Development が PM になる",
+      "page": "screens"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,

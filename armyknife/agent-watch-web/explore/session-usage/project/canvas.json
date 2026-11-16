@@ -9,13 +9,6 @@
       "x": 0,
       "y": 0
     },
-    "session-usage-detail.dc.html": {
-      "title": "Detail · opened from the usage line (A and C)",
-      "w": 900,
-      "h": 320,
-      "x": 1520,
-      "y": 0
-    },
     "session-usage-a.dc.html": {
       "title": "A + X · desktop",
       "w": 1440,
@@ -87,7 +80,7 @@
     },
     "about": {
       "fill": "gray",
-      "text": "前提\n- 2 つを決める。セッションのページの使用状況の行 (A か C) と、サイドバーの一番下の quota (X か Y)。組み合わせは自由\n- 使用状況の行は status line と同じ並び: engine、model (effort)、context、5h と 7d の quota、バージョン。クリックすると Detail が開く\n- quota の棒の細い縦線は、今の時点で均等に使ったときの量 (ペース)。それを超えていると ▲ (黄)、下回っていれば ✓\n- 使用率は 80% で黄、95% で赤\n- engine はロゴを使わず claude / codex の文字で出す。セッションの行 (tq 2342) とそろえる\n- 数値はすべて架空",
+      "text": "前提\n- 2 つを決める。セッションのページの使用状況の行 (A か C) と、サイドバーの一番下の quota (X か Y)。組み合わせは自由\n- 使用状況の行は status line と同じ並び: engine、model (effort)、context、5h と 7d の quota、バージョン\n- quota の棒の細い縦線は、今の時点で均等に使ったときの量 (ペース)。それを超えていると ▲ (黄)、下回っていれば ✓\n- 使用率は 80% で黄、95% で赤\n- engine はロゴを使わず claude / codex の文字で出す。セッションの行 (tq 2342) とそろえる\n- 数値はすべて架空",
       "w": 480,
       "x": 2500,
       "y": 0
@@ -125,7 +118,6 @@
   },
   "order": [
     "session-usage-current.dc.html",
-    "session-usage-detail.dc.html",
     "session-usage-a.dc.html",
     "session-usage-a-phone.dc.html",
     "session-usage-x-drawer.dc.html",

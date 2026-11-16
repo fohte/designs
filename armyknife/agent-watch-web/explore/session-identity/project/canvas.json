@@ -1,0 +1,138 @@
+{
+  "v": 3,
+  "boards": {
+    "session-identity-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 460,
+      "h": 900,
+      "title": "Current · role and engine are not shown"
+    },
+    "session-identity-legend.dc.html": {
+      "x": 540,
+      "y": 0,
+      "w": 1000,
+      "h": 360,
+      "title": "All roles × engines, per option"
+    },
+    "session-identity-a.dc.html": {
+      "x": 0,
+      "y": 1300,
+      "w": 1440,
+      "h": 900,
+      "title": "A · gray icons in the meta line"
+    },
+    "session-identity-a-phone.dc.html": {
+      "x": 1520,
+      "y": 1300,
+      "w": 390,
+      "h": 844,
+      "title": "A · phone"
+    },
+    "session-identity-b.dc.html": {
+      "x": 0,
+      "y": 2600,
+      "w": 1440,
+      "h": 900,
+      "title": "B · colored role label + engine name"
+    },
+    "session-identity-b-phone.dc.html": {
+      "x": 1520,
+      "y": 2600,
+      "w": 390,
+      "h": 844,
+      "title": "B · phone"
+    },
+    "session-identity-c.dc.html": {
+      "x": 0,
+      "y": 3900,
+      "w": 1440,
+      "h": 900,
+      "title": "C · role avatar with an engine badge"
+    },
+    "session-identity-c-phone.dc.html": {
+      "x": 1520,
+      "y": 3900,
+      "w": 390,
+      "h": 844,
+      "title": "C · phone"
+    }
+  },
+  "order": [
+    "session-identity-current.dc.html",
+    "session-identity-legend.dc.html",
+    "session-identity-a.dc.html",
+    "session-identity-a-phone.dc.html",
+    "session-identity-b.dc.html",
+    "session-identity-b-phone.dc.html",
+    "session-identity-c.dc.html",
+    "session-identity-c-phone.dc.html"
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -240,
+      "text": "Current · 行やヘッダーに role と engine が出ていない",
+      "maxW": 1900
+    },
+    "about": {
+      "x": 1620,
+      "y": 0,
+      "w": 440,
+      "fill": "gray",
+      "text": "前提\n- role の色は armyknife の設定 (agent.work_types) の TUI の色をそのまま使った。いまの feed には色とアイコンが来ていないので、B と C は feed に足す必要がある\n- role のアイコンは lucide から、TUI の Nerd Font のアイコンに近いものを選んだ\n- engine の印は製品ロゴの代わりの仮の絵。実装では公式の SVG を使う (A と C)\n- 状態 (Needs action、Error など) は今のまま、黄・赤・青の点と kind で出す"
+    },
+    "a": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1060,
+      "text": "A · 2 行目の先頭に、灰色の role アイコンと engine のロゴ",
+      "maxW": 1900
+    },
+    "aNote": {
+      "x": 1990,
+      "y": 1300,
+      "w": 400,
+      "fill": "blue",
+      "text": "A\n- 色を使わないので、状態の色と混ざらない\n- 目立たない。アイコンの意味は覚える必要があり、hover で名前が出る\n- feed に足すものはない"
+    },
+    "b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2360,
+      "text": "B · タイトルの後ろに、role の色付きラベルと engine 名",
+      "maxW": 1900
+    },
+    "bNote": {
+      "x": 1990,
+      "y": 2600,
+      "w": 400,
+      "fill": "blue",
+      "text": "B\n- 文字なので覚えなくてよい。TUI と同じ色で見分けられる\n- debug-flow の赤と PM の黄が、Error や Needs action の色に近い\n- タイトルが長いと、ラベルの分だけ早く省略される\n- ロゴは使わない"
+    },
+    "c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3660,
+      "text": "C · 行の左に role のアバター、右下に engine のロゴ",
+      "maxW": 1900
+    },
+    "cNote": {
+      "x": 1990,
+      "y": 3900,
+      "w": 400,
+      "fill": "blue",
+      "text": "C\n- 一番目立つ。並んだ行のどれが PM か designer かが一目で分かる\n- 行の左が 24px 広がり、タイトルの幅が減る\n- 色は背景の薄い面とアイコンだけで、状態の点とは場所が分かれる"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-15T10:37:15Z"
+    }
+  ]
+}

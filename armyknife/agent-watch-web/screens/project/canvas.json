@@ -211,6 +211,22 @@
       "h": 900,
       "title": "19. 1 つのセッションに tq タスクが複数",
       "page": "screens"
+    },
+    "screens/PhoneChatMenu.dc.html": {
+      "x": 1410,
+      "y": 8000,
+      "w": 390,
+      "h": 844,
+      "title": "20. iPhone · セッションの操作メニュー",
+      "page": "screens"
+    },
+    "before/BeforePhoneChat.dc.html": {
+      "x": 940,
+      "y": 8944,
+      "w": 390,
+      "h": 844,
+      "title": "変更前: 18. iPhone · 会話から答える",
+      "page": "screens"
     }
   },
   "order": [
@@ -237,9 +253,19 @@
     "screens/InboxList.dc.html",
     "screens/Conversation.dc.html",
     "screens/StatusPanel.dc.html",
-    "screens/TaskLinks.dc.html"
+    "screens/TaskLinks.dc.html",
+    "screens/PhoneChatMenu.dc.html",
+    "before/BeforePhoneChat.dc.html"
   ],
-  "notes": {},
+  "notes": {
+    "topbar": {
+      "x": 1880,
+      "y": 8000,
+      "w": 420,
+      "text": "トップバー (18 と 20)\n・右端は ステータスパネル と ⋯ (メニュー) の 2 つだけ\n・Later / Close / スター / ID コピー / タイトル編集 は ⋯ のメニューへ (Close は done のときだけ)\n・スター済みはタイトルの前の星で示す\n下の段: 変更前の 18",
+      "page": "screens"
+    }
+  },
   "designSystems": [
     {
       "title": "agent watch",

@@ -1,0 +1,341 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-16T17:23:32Z"
+  },
+  "title": "Vibe mode",
+  "launch": {
+    "view": "canvas"
+  },
+  "pages": [],
+  "boards": {
+    "vibe-mode-current.dc.html": {
+      "title": "Current · セッションのページ",
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900
+    },
+    "vibe-mode-a-states.dc.html": {
+      "title": "A · 4 つの状態 (desktop)",
+      "x": 0,
+      "y": 1340,
+      "w": 1440,
+      "h": 960
+    },
+    "vibe-mode-a.dc.html": {
+      "title": "A · on にする確認",
+      "x": 1520,
+      "y": 1340,
+      "w": 1440,
+      "h": 900
+    },
+    "vibe-mode-a-after.dc.html": {
+      "title": "A · on にした後",
+      "x": 3040,
+      "y": 1340,
+      "w": 1440,
+      "h": 900
+    },
+    "vibe-mode-a-phone-states.dc.html": {
+      "title": "A · 4 つの状態 (phone)",
+      "x": 4560,
+      "y": 1340,
+      "w": 390,
+      "h": 1220
+    },
+    "vibe-mode-a-phone.dc.html": {
+      "title": "A · phone · off にする",
+      "x": 5030,
+      "y": 1340,
+      "w": 390,
+      "h": 844
+    },
+    "vibe-mode-a-phone-after.dc.html": {
+      "title": "A · phone · off にした後",
+      "x": 5500,
+      "y": 1340,
+      "w": 390,
+      "h": 844
+    },
+    "vibe-mode-b-states.dc.html": {
+      "title": "B · 4 つの状態 (desktop)",
+      "x": 0,
+      "y": 2840,
+      "w": 1440,
+      "h": 960
+    },
+    "vibe-mode-b.dc.html": {
+      "title": "B · on にする",
+      "x": 1520,
+      "y": 2840,
+      "w": 1440,
+      "h": 900
+    },
+    "vibe-mode-b-after.dc.html": {
+      "title": "B · on にした後",
+      "x": 3040,
+      "y": 2840,
+      "w": 1440,
+      "h": 900
+    },
+    "vibe-mode-b-phone-states.dc.html": {
+      "title": "B · 4 つの状態 (phone)",
+      "x": 4560,
+      "y": 2840,
+      "w": 390,
+      "h": 1220
+    },
+    "vibe-mode-b-phone.dc.html": {
+      "title": "B · phone · off にする",
+      "x": 5030,
+      "y": 2840,
+      "w": 390,
+      "h": 844
+    },
+    "vibe-mode-b-phone-after.dc.html": {
+      "title": "B · phone · off にした後",
+      "x": 5500,
+      "y": 2840,
+      "w": 390,
+      "h": 844
+    },
+    "vibe-mode-c-states.dc.html": {
+      "title": "C · 4 つの状態 (desktop)",
+      "x": 0,
+      "y": 4340,
+      "w": 1440,
+      "h": 960
+    },
+    "vibe-mode-c.dc.html": {
+      "title": "C · on にする",
+      "x": 1520,
+      "y": 4340,
+      "w": 1440,
+      "h": 900
+    },
+    "vibe-mode-c-after.dc.html": {
+      "title": "C · on にした後",
+      "x": 3040,
+      "y": 4340,
+      "w": 1440,
+      "h": 900
+    },
+    "vibe-mode-c-phone-states.dc.html": {
+      "title": "C · 4 つの状態 (phone)",
+      "x": 4560,
+      "y": 4340,
+      "w": 390,
+      "h": 1220
+    },
+    "vibe-mode-c-phone.dc.html": {
+      "title": "C · phone · off にする",
+      "x": 5030,
+      "y": 4340,
+      "w": 390,
+      "h": 844
+    },
+    "vibe-mode-c-phone-after.dc.html": {
+      "title": "C · phone · off にした後",
+      "x": 5500,
+      "y": 4340,
+      "w": 390,
+      "h": 844
+    },
+    "VibePage.dc.html": {
+      "title": "部品 · VibePage",
+      "x": 0,
+      "y": 5840,
+      "w": 1440,
+      "h": 900
+    },
+    "VibePhonePage.dc.html": {
+      "title": "部品 · VibePhonePage",
+      "x": 1520,
+      "y": 5840,
+      "w": 390,
+      "h": 844
+    },
+    "VibeStates.dc.html": {
+      "title": "部品 · VibeStates",
+      "x": 1990,
+      "y": 5840,
+      "w": 1440,
+      "h": 960
+    },
+    "VibePhoneStates.dc.html": {
+      "title": "部品 · VibePhoneStates",
+      "x": 3510,
+      "y": 5840,
+      "w": 390,
+      "h": 1220
+    },
+    "VibeHeader.dc.html": {
+      "title": "部品 · VibeHeader",
+      "x": 3980,
+      "y": 5840,
+      "w": 1200,
+      "h": 80
+    },
+    "VibePhoneHeader.dc.html": {
+      "title": "部品 · VibePhoneHeader",
+      "x": 3980,
+      "y": 6040,
+      "w": 390,
+      "h": 120
+    },
+    "VibeMenuItem.dc.html": {
+      "title": "部品 · VibeMenuItem",
+      "x": 4450,
+      "y": 6040,
+      "w": 390,
+      "h": 64
+    },
+    "VibeRow.dc.html": {
+      "title": "部品 · VibeRow",
+      "x": 3980,
+      "y": 6280,
+      "w": 460,
+      "h": 76
+    }
+  },
+  "order": [
+    "vibe-mode-current.dc.html",
+    "vibe-mode-a-states.dc.html",
+    "vibe-mode-a.dc.html",
+    "vibe-mode-a-after.dc.html",
+    "vibe-mode-a-phone-states.dc.html",
+    "vibe-mode-a-phone.dc.html",
+    "vibe-mode-a-phone-after.dc.html",
+    "vibe-mode-b-states.dc.html",
+    "vibe-mode-b.dc.html",
+    "vibe-mode-b-after.dc.html",
+    "vibe-mode-b-phone-states.dc.html",
+    "vibe-mode-b-phone.dc.html",
+    "vibe-mode-b-phone-after.dc.html",
+    "vibe-mode-c-states.dc.html",
+    "vibe-mode-c.dc.html",
+    "vibe-mode-c-after.dc.html",
+    "vibe-mode-c-phone-states.dc.html",
+    "vibe-mode-c-phone.dc.html",
+    "vibe-mode-c-phone-after.dc.html",
+    "VibePage.dc.html",
+    "VibePhonePage.dc.html",
+    "VibeStates.dc.html",
+    "VibePhoneStates.dc.html",
+    "VibeHeader.dc.html",
+    "VibePhoneHeader.dc.html",
+    "VibeMenuItem.dc.html",
+    "VibeRow.dc.html"
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "maxW": 1900,
+      "text": "Current · vibe mode は watch-web のどこにも出ていない",
+      "x": 0,
+      "y": -240
+    },
+    "about": {
+      "fill": "gray",
+      "w": 480,
+      "x": 1520,
+      "y": 0,
+      "text": "前提\n- vibe mode はセッションの記録の vibe_enabled で決まる。a agent vibe on / off が切り替える\n- 引き継ぎ: --vibe で起動したセッションは、祖先のどれかが on なら on になる。ここで off にしても、祖先が on なら on のまま\n- 使えない: repo の設定 repo.vibe が false (org の設定を repo が上書き、既定は false)。このとき PR の merge と review の省略は拒否される\n- vibe mode で許されるのは、PR の merge と、人のレビューを待たない submit\n- 切り替えたら、セッションへ自動でメッセージを送る\n- engine は claude / codex の文字。データはすべて架空"
+    },
+    "unknowns": {
+      "fill": "gray",
+      "w": 480,
+      "x": 2080,
+      "y": 0,
+      "text": "わからないこと\n- 今の watch-web の API には vibe の値も、切り替える API もない。足す必要がある\n- セッションが on でも repo が不許可のときの見せ方 (この案では「使えない」を優先)\n- 自動で送ったメッセージを、自分が書いたものと区別して記録できるか\n- 引き継ぎ元が祖父母のとき、どのセッション名を出すか (この案では最初に見つかった祖先)\n- off にしても引き継ぎで on のままのときも送るか (この案では送り、まだ on だと伝える)\n- off にすると、引き継いでいた子も off になる。その件数を出すか"
+    },
+    "dialog": {
+      "fill": "teal",
+      "w": 480,
+      "x": 2640,
+      "y": 0,
+      "text": "確認ダイアログ\n- 勧め: 別のダイアログは出さない。切り替える場所で、送るメッセージを見せてから送る (B と C の形)\n- A を選ぶなら、on にするときだけダイアログを出し、off はすぐ切り替える\n- 理由: on にすると、セッションが人のレビューなしに PR を merge できる。誤って押したときの損が大きい\n- off はセッションを慎重にするだけで、間違えても on に戻せば済む\n- 毎回出るダイアログは、読まれずに押されるようになる"
+    },
+    "a": {
+      "kind": "title1",
+      "maxW": 5890,
+      "text": "A · タイトルの横にスイッチ。スイッチはこのセッションの設定",
+      "x": 0,
+      "y": 1100
+    },
+    "aAbout": {
+      "fill": "gray",
+      "w": 400,
+      "x": 5970,
+      "y": 1340,
+      "text": "A の前提\n- スイッチは a agent vibe on / off と同じく、このセッションの設定だけを表す\n- 引き継ぎで on のときは、スイッチは off のまま、横に still on と理由を出す\n- 使えないときはスイッチを押せなくし、理由を文字で出す\n- on にするときだけ確認ダイアログ。off はすぐ切り替える\n- スマホは ⋯ メニューの項目\n- 一覧の行は engine の後ろに vibe (引き継ぎは vibe ↑)"
+    },
+    "aNote": {
+      "fill": "blue",
+      "w": 400,
+      "x": 5970,
+      "y": 1900,
+      "text": "A\n- 1 回押すだけで切り替わる\n- CLI と同じ意味なので、覚えることが少ない\n- 引き継ぎのとき、スイッチは off なのに vibe は on。文字を読まないと分からない\n- ヘッダーのタイトルの行が長くなる"
+    },
+    "b": {
+      "kind": "title1",
+      "maxW": 5890,
+      "text": "B · タイトルの横に今の状態のボタン。押すと説明と切り替えが出る",
+      "x": 0,
+      "y": 2600
+    },
+    "bAbout": {
+      "fill": "gray",
+      "w": 400,
+      "x": 5970,
+      "y": 2840,
+      "text": "B の前提\n- ボタンには実際の状態 (on / on · inherited / off / unavailable) を出す\n- 押すと、理由と、送るメッセージと、切り替えるボタンが出る。これが確認を兼ねる\n- 引き継ぎのときの操作は「ここでも on にする」(親が off にしても続く)\n- スマホはヘッダーの下に 1 行の帯を置き、押すとシートが出る\n- 一覧の行はタイトルの後ろに稲妻のアイコン (引き継ぎは線だけ)"
+    },
+    "bNote": {
+      "fill": "blue",
+      "w": 400,
+      "x": 5970,
+      "y": 3400,
+      "text": "B\n- 引き継ぎと使えない理由を、切り替える前に読める\n- 送るメッセージを見てから送れる\n- 切り替えに 2 回押す\n- スマホはヘッダーが 1 行 (36px) 高くなる\n- 行のアイコンは、意味を覚える必要がある"
+    },
+    "c": {
+      "kind": "title1",
+      "maxW": 5890,
+      "text": "C · タイトルの編集欄で一緒に切り替える。ふだんは on のときだけ出す",
+      "x": 0,
+      "y": 4100
+    },
+    "cAbout": {
+      "fill": "gray",
+      "w": 400,
+      "x": 5970,
+      "y": 4340,
+      "text": "C の前提\n- 鉛筆を押すと、タイトルと vibe のスイッチが並んだ編集欄になる\n- Save が確認を兼ねる。vibe を変えたときは Save and notify session になる\n- ふだんのヘッダーには on のときだけ vibe を出す。off と使えないは編集欄で分かる\n- スマホは ⋯ の Edit title を Edit session にして、シートを出す\n- 一覧の行は A と同じ"
+    },
+    "cNote": {
+      "fill": "blue",
+      "w": 400,
+      "x": 5970,
+      "y": 4900,
+      "text": "C\n- off のセッションのヘッダーは今のまま\n- タイトルと同じ場所なので探しやすい\n- 切り替えに 3 回押す (鉛筆、スイッチ、Save)\n- 使えないことは、編集欄を開くまで分からない"
+    },
+    "parts": {
+      "kind": "title1",
+      "maxW": 5890,
+      "text": "部品 · 上の案はこれらを組み合わせて描いている",
+      "x": 0,
+      "y": 5600
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-16T17:23:32Z"
+    }
+  ]
+}

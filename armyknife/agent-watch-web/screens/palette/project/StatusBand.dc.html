@@ -36,7 +36,7 @@ body{margin:0}
 </div>
 </sc-if>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"state":{"editor":"enum","options":["working","background","crit","critBg","question","permission","waiting","idle"],"default":"crit"},"phone":{"editor":"boolean","default":false},"label":{"editor":"text","default":""},"detail":{"editor":"text","default":""},"$preview":{"width":760,"height":60}}'>
+<script type="text/x-dc" data-dc-script data-props='{"state":{"editor":"enum","options":["working","compacting","background","crit","critBg","question","permission","waiting","idle"],"default":"crit"},"phone":{"editor":"boolean","default":false},"label":{"editor":"text","default":""},"detail":{"editor":"text","default":""},"$preview":{"width":760,"height":60}}'>
 class Component extends DCLogic {
   renderVals() {
     const st = this.props.state ?? 'crit';
@@ -46,6 +46,7 @@ class Component extends DCLogic {
     // idle (stopped or done) has no entry: the band is not drawn.
     const T = {
       working: { tone: 'working', label: 'Working · 1m 12s', detail: 'Bash  cargo test -p logship', font: mono },
+      compacting: { tone: 'working', label: 'Compacting conversation…', detail: '古い会話を要約しています', font: sans },
       background: { tone: 'working', label: 'Waiting for background tasks', detail: 'ベンチマークを回す · 4m 10s', font: sans, bg: 2 },
       crit: { tone: 'warning', label: 'Waiting for your review', detail: 'crit · PR #318 · 4m', font: sans, crit: true },
       critBg: { tone: 'warning', label: 'Waiting for your review', detail: 'crit · PR #318 · 4m', font: sans, crit: true, bg: 1 },

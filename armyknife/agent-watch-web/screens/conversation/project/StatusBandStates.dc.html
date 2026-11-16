@@ -13,7 +13,7 @@
 body{margin:0}
 </style>
 </helmet>
-<main style="width: 1290px; height: 1500px; box-sizing: border-box; padding: 32px 40px; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+<main style="width: 1290px; height: 1690px; box-sizing: border-box; padding: 32px 40px; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
 <h1 style="margin: 0; font-size: 18px; font-weight: 700">The band above the reply input</h1>
 <p style="margin: 6px 0 0; color: #a1a1aa; font-size: 13px">Line 1 is the state, line 2 the detail. Waiting states draw a yellow top line. The usage line under the reply input stays as it is.</p>
 <div style="display: grid; grid-template-columns: 760px 390px; column-gap: 60px; margin-top: 20px; font-size: 12px; color: #8b8b94">
@@ -33,12 +33,13 @@ body{margin:0}
 </div>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1290,"height":1500}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1290,"height":1690}}'>
 class Component extends DCLogic {
   renderVals() {
     return {
       rows: [
         { key: 'working', title: 'Working', source: "activityStatus 'working' · elapsedSeconds · tool_in_progress" },
+        { key: 'compacting', title: 'Compacting', source: 'compacting' },
         { key: 'background', title: 'Background tasks only', source: 'waitingForBackgroundTasks · backgroundTasks[]' },
         { key: 'crit', title: 'Review in crit', source: "needs_action · kind 'Review' + webUis[name='crit'] (or critUrl)" },
         { key: 'critBg', title: 'Review in crit + background task', source: "needs_action · kind 'Review' + crit · backgroundTasks[]" },

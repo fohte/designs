@@ -1,0 +1,122 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "session-row-current.dc.html": {
+      "title": "Current · each list draws a session its own way",
+      "w": 1440,
+      "h": 640,
+      "x": 0,
+      "y": 0
+    },
+    "session-row-legend.dc.html": {
+      "title": "Kind icons and role icons",
+      "w": 760,
+      "h": 320,
+      "x": 1520,
+      "y": 0
+    },
+    "session-row-a.dc.html": {
+      "title": "A · desktop",
+      "w": 1440,
+      "h": 960,
+      "x": 0,
+      "y": 960
+    },
+    "session-row-a-phone.dc.html": {
+      "title": "A · phone",
+      "w": 390,
+      "h": 844,
+      "x": 1520,
+      "y": 960
+    },
+    "session-row-b.dc.html": {
+      "title": "B · desktop",
+      "w": 1440,
+      "h": 960,
+      "x": 0,
+      "y": 2240
+    },
+    "session-row-b-phone.dc.html": {
+      "title": "B · phone",
+      "w": 390,
+      "h": 844,
+      "x": 1520,
+      "y": 2240
+    }
+  },
+  "designSystems": [
+    {
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "copiedAt": "2026-11-15T10:37:15Z",
+      "namespace": "agentwatch",
+      "title": "agent watch",
+      "version": null
+    }
+  ],
+  "noteOrder": [
+    "current",
+    "about",
+    "a",
+    "aNote",
+    "b",
+    "bNote"
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "maxW": 1900,
+      "text": "Current · 一覧ごとにセッションの行の形が違う",
+      "w": 240,
+      "x": 0,
+      "y": -240
+    },
+    "about": {
+      "fill": "gray",
+      "text": "何をそろえるか\n- Inbox、サイドバーの Starred / Recent / PM、ボード、⌘K、状況パネルの tree、スマホの Inbox とドロワー。セッションが並ぶ場所をすべて同じ 1 つの行で描く\n- 行は 2 つの密度だけ持つ。full (Inbox、スマホ Inbox) は 3 行で、プレビューを含む。compact (それ以外) は 2 行で、プレビューを省く\n- 種類 (Question など) は実装と同じ lucide のアイコンで出す。文字だけで出す場所をなくす\n- 状態は 3 つ: 種類のアイコン (Needs action)、青い丸 (Working)、✓ (Done)\n- PM は今はプロジェクトの一覧なので、PM のセッションの一覧に変える\n- engine はロゴを使わず claude / codex の文字で出す (ロゴは商標で、事前の許可が要る)",
+      "w": 480,
+      "x": 2320,
+      "y": 0
+    },
+    "a": {
+      "kind": "title1",
+      "maxW": 1900,
+      "text": "A · 先頭に状態、2 行目に灰色の role アイコンと engine",
+      "w": 240,
+      "x": 0,
+      "y": 720
+    },
+    "aNote": {
+      "fill": "blue",
+      "text": "A\n- 先頭の列は状態だけ。どの一覧でも、対応が要るものを先頭の色で探せる\n- role は灰色で控えめ。アイコンの意味は覚える必要があり、hover で名前が出る\n- feed に足すのは engine と role だけ",
+      "w": 400,
+      "x": 1990,
+      "y": 960
+    },
+    "b": {
+      "kind": "title1",
+      "maxW": 1900,
+      "text": "B · 先頭に role の色付きアイコン、右に種類と経過時間",
+      "w": 240,
+      "x": 0,
+      "y": 2000
+    },
+    "bNote": {
+      "fill": "blue",
+      "text": "B\n- 先頭の色で、どの行が PM か designer かがすぐ分かる\n- 状態は右に寄る。対応が要るものを探すには右端を見る\n- debug-flow の赤と PM の黄が、Error や Needs action の色に近い\n- role の色を feed に足す必要がある",
+      "w": 400,
+      "x": 1990,
+      "y": 2240
+    }
+  },
+  "order": [
+    "session-row-current.dc.html",
+    "session-row-legend.dc.html",
+    "session-row-a.dc.html",
+    "session-row-a-phone.dc.html",
+    "session-row-b.dc.html",
+    "session-row-b-phone.dc.html"
+  ],
+  "pages": [],
+  "title": "Design"
+}

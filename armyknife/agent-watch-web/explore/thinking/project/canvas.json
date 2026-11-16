@@ -1,0 +1,155 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-17T12:00:00Z"
+  },
+  "title": "agent watch · thinking",
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
+  "pages": [
+    { "id": "options", "name": "案" },
+    { "id": "parts", "name": "部品" }
+  ],
+  "boards": {
+    "thinking-current.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "Current · desktop", "page": "options" },
+    "thinking-current-phone.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "Current · phone", "page": "options" },
+
+    "thinking-a-closed.dc.html": { "x": 0, "y": 1400, "w": 1440, "h": 900, "title": "A · desktop · 畳んだまま", "page": "options" },
+    "thinking-a-open.dc.html": { "x": 1520, "y": 1400, "w": 1440, "h": 900, "title": "A · desktop · 開く (長文は畳む)", "page": "options" },
+    "thinking-a-more.dc.html": { "x": 3040, "y": 1400, "w": 1440, "h": 900, "title": "A · desktop · 長文を開く + thinking だけの行", "page": "options" },
+    "thinking-a-phone-closed.dc.html": { "x": 4560, "y": 1400, "w": 390, "h": 844, "title": "A · phone · 畳んだまま", "page": "options" },
+    "thinking-a-phone-open.dc.html": { "x": 5030, "y": 1400, "w": 390, "h": 844, "title": "A · phone · 開く", "page": "options" },
+    "thinking-a-phone-more.dc.html": { "x": 5500, "y": 1400, "w": 390, "h": 844, "title": "A · phone · 長文を開く", "page": "options" },
+
+    "thinking-b-closed.dc.html": { "x": 0, "y": 2800, "w": 1440, "h": 900, "title": "B · desktop · 畳んだまま", "page": "options" },
+    "thinking-b-open.dc.html": { "x": 1520, "y": 2800, "w": 1440, "h": 900, "title": "B · desktop · 開く (長文は畳む)", "page": "options" },
+    "thinking-b-more.dc.html": { "x": 3040, "y": 2800, "w": 1440, "h": 900, "title": "B · desktop · 長文を開く + thinking だけの行", "page": "options" },
+    "thinking-b-phone-closed.dc.html": { "x": 4560, "y": 2800, "w": 390, "h": 844, "title": "B · phone · 畳んだまま", "page": "options" },
+    "thinking-b-phone-open.dc.html": { "x": 5030, "y": 2800, "w": 390, "h": 844, "title": "B · phone · 開く", "page": "options" },
+    "thinking-b-phone-more.dc.html": { "x": 5500, "y": 2800, "w": 390, "h": 844, "title": "B · phone · 長文を開く", "page": "options" },
+
+    "thinking-c-closed.dc.html": { "x": 0, "y": 4200, "w": 1440, "h": 900, "title": "C · desktop · 畳んだまま", "page": "options" },
+    "thinking-c-open.dc.html": { "x": 1520, "y": 4200, "w": 1440, "h": 900, "title": "C · desktop · 開く (長文は畳む)", "page": "options" },
+    "thinking-c-more.dc.html": { "x": 3040, "y": 4200, "w": 1440, "h": 900, "title": "C · desktop · 長文を開く + thinking だけの行", "page": "options" },
+    "thinking-c-phone-closed.dc.html": { "x": 4560, "y": 4200, "w": 390, "h": 844, "title": "C · phone · 畳んだまま", "page": "options" },
+    "thinking-c-phone-open.dc.html": { "x": 5030, "y": 4200, "w": 390, "h": 844, "title": "C · phone · 開く", "page": "options" },
+    "thinking-c-phone-more.dc.html": { "x": 5500, "y": 4200, "w": 390, "h": 844, "title": "C · phone · 長文を開く", "page": "options" },
+
+    "Desk.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "Desk", "page": "parts" },
+    "Phone.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "Phone", "page": "parts" },
+    "Turn.dc.html": { "x": 1990, "y": 0, "w": 720, "h": 760, "title": "Turn", "page": "parts" },
+    "Nav.dc.html": { "x": 2790, "y": 0, "w": 240, "h": 900, "title": "Nav", "page": "parts" },
+    "InboxList.dc.html": { "x": 3110, "y": 0, "w": 460, "h": 900, "title": "InboxList", "page": "parts" },
+    "SessionRow.dc.html": { "x": 3650, "y": 0, "w": 460, "h": 76, "title": "SessionRow", "page": "parts" },
+    "Quota.dc.html": { "x": 3650, "y": 196, "w": 240, "h": 140, "title": "Quota", "page": "parts" },
+    "SessionUsage.dc.html": { "x": 3650, "y": 456, "w": 672, "h": 40, "title": "SessionUsage", "page": "parts" }
+  },
+  "order": [
+    "thinking-current.dc.html",
+    "thinking-current-phone.dc.html",
+    "thinking-a-closed.dc.html",
+    "thinking-a-open.dc.html",
+    "thinking-a-more.dc.html",
+    "thinking-a-phone-closed.dc.html",
+    "thinking-a-phone-open.dc.html",
+    "thinking-a-phone-more.dc.html",
+    "thinking-b-closed.dc.html",
+    "thinking-b-open.dc.html",
+    "thinking-b-more.dc.html",
+    "thinking-b-phone-closed.dc.html",
+    "thinking-b-phone-open.dc.html",
+    "thinking-b-phone-more.dc.html",
+    "thinking-c-closed.dc.html",
+    "thinking-c-open.dc.html",
+    "thinking-c-more.dc.html",
+    "thinking-c-phone-closed.dc.html",
+    "thinking-c-phone-open.dc.html",
+    "thinking-c-phone-more.dc.html",
+    "Desk.dc.html",
+    "Phone.dc.html",
+    "Turn.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "SessionUsage.dc.html"
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -240,
+      "maxW": 1910,
+      "text": "Current · narration も thinking も出ず、ツールの行が続いて途切れて見える",
+      "page": "options"
+    },
+    "about": {
+      "x": 1990,
+      "y": 0,
+      "w": 560,
+      "fill": "gray",
+      "page": "options",
+      "text": "前提\n- 決めることは 3 つ。(a) 本文に出す narration の印、(b) 畳んだツールの行で thinking があると示すか、(c) ツールの行を開いたときの thinking の見え方。案の組み合わせは自由\n- narration は、ツールを使う合間の経過報告。TUI では本文と同じ見た目で、末尾に薄く「· summary」が付く。本文に出す\n- それ以外の thinking (考えた内容の要約) は、TUI では「Thought for Ns」に畳まれる。ツールの行の中に入れ、開いたときだけ読める\n- ツールを使わない thinking (最後のツールのあと、返信の前など) は、thinking だけのツールの行を作って畳む。各案の「長文を開く」に描いた\n- 今は Claude の thinking ブロックも Codex の reasoning も捨てている\n- Codex の reasoning の要約も同じ扱い。要約は太字の見出しで始まることが多い。設定によっては空で、そのときは何も出さない\n- 分からないこと: narration とそれ以外を API がどう分けて返すか、考えた時間 (TUI の「for Ns」) が取れるか。時間は出さない前提で描いた\n- オレンジの点線は説明用で、画面には出ない\n- 長文は約 300 字。例はすべて架空"
+    },
+    "a": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1160,
+      "maxW": 5890,
+      "text": "A · narration は末尾に「· summary」、畳んだ行は今のまま、開くと Think の行がツールと順に並ぶ (2 行で畳む)",
+      "page": "options"
+    },
+    "aNote": {
+      "x": 5970,
+      "y": 1400,
+      "w": 420,
+      "fill": "blue",
+      "page": "options",
+      "text": "A\n- (a) TUI と同じ印なので見慣れている\n- (a) 印が文末なので、読み終えるまで narration と分からない\n- (b) 畳んだ行が今と同じで、会話がいちばん静か\n- (b) thinking があるかは開くまで分からない\n- (c) 考えた順にツールと並ぶので、なぜそのツールを使ったか追える\n- (c) 長い thinking は 2 行で切り、Show more で全文"
+    },
+    "b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2560,
+      "maxW": 5890,
+      "text": "B · narration は文字を薄く、畳んだ行に「Thought ×N」、開くと Thought の行を 1 行に畳む",
+      "page": "options"
+    },
+    "bNote": {
+      "x": 5970,
+      "y": 2800,
+      "w": 420,
+      "fill": "blue",
+      "page": "options",
+      "text": "B\n- (a) 印がなくても色で分かる。ただ本文との差が小さく、並んでいないと気づきにくい\n- (b) ツールと同じ数え方なので、行の中で浮かない\n- (b) 行が長くなり、スマホではツールの名前が … で切れやすい\n- (c) 開いても thinking は 1 行ずつなので、ツールの並びが見やすい\n- (c) 全文を読むにはもう 1 回押す"
+    },
+    "c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3960,
+      "maxW": 5890,
+      "text": "C · narration の先頭に「summary」の札、畳んだ行に ∴、開くと thinking をまとめてツールの上に出す (3 行で畳む)",
+      "page": "options"
+    },
+    "cNote": {
+      "x": 5970,
+      "y": 4200,
+      "w": 420,
+      "fill": "blue",
+      "page": "options",
+      "text": "C\n- (a) 文頭で narration と分かる\n- (a) 札が会話に何度も並び、少しうるさい\n- (b) 1 文字で済む。∴ は TUI が thinking に付ける記号\n- (b) ∴ はこのアプリにない記号で、知らないと意味が分からない\n- (c) thinking がひとかたまりで読みやすい\n- (c) どの thinking がどのツールの前かが分からなくなる"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-17T12:00:00Z"
+    }
+  ]
+}

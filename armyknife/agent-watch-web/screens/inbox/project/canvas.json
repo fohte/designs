@@ -1,0 +1,117 @@
+{
+  "title": "agent watch UI · inbox",
+  "boards": {
+    "Main.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 1500,
+      "title": "仕様のまとめ",
+      "page": "screens"
+    },
+    "Inbox.dc.html": {
+      "x": 0,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox と会話",
+      "page": "screens"
+    },
+    "Later.dc.html": {
+      "x": 1520,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Later メニュー (L)",
+      "page": "screens"
+    },
+    "InboxFilter.dc.html": {
+      "x": 3040,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox の絞り込み (/)",
+      "page": "screens"
+    },
+    "InboxFiltered.dc.html": {
+      "x": 4560,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "絞り込んだ状態と Save view",
+      "page": "screens"
+    },
+    "TaskLinks.dc.html": {
+      "x": 6080,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "1 つのセッションに tq タスクが複数",
+      "page": "screens"
+    },
+    "Nav.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 900,
+      "title": "Nav",
+      "page": "components"
+    },
+    "InboxList.dc.html": {
+      "x": 320,
+      "y": 0,
+      "w": 460,
+      "h": 900,
+      "title": "InboxList",
+      "page": "components"
+    },
+    "Conversation.dc.html": {
+      "x": 860,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "components"
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Inbox.dc.html",
+    "Later.dc.html",
+    "InboxFilter.dc.html",
+    "InboxFiltered.dc.html",
+    "TaskLinks.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "Conversation.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "screens",
+      "name": "画面"
+    },
+    {
+      "id": "components",
+      "name": "部品"
+    }
+  ],
+  "notes": {},
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-13T11:42:55Z"
+  },
+  "launch": {
+    "view": "canvas",
+    "page": "screens"
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-15T10:37:15Z"
+    }
+  ]
+}

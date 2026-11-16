@@ -1,0 +1,59 @@
+{
+  "title": "agent watch UI · conversation",
+  "boards": {
+    "MessageKinds.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 2300,
+      "title": "会話に出るメッセージ",
+      "page": "screens"
+    },
+    "Cards.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 3200,
+      "title": "返答を待つカード",
+      "page": "screens"
+    },
+    "Dialogs.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "確認ダイアログ",
+      "page": "screens"
+    }
+  },
+  "order": [
+    "MessageKinds.dc.html",
+    "Cards.dc.html",
+    "Dialogs.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "screens",
+      "name": "画面"
+    }
+  ],
+  "notes": {},
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-13T11:42:55Z"
+  },
+  "launch": {
+    "view": "canvas",
+    "page": "screens"
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-15T10:37:15Z"
+    }
+  ]
+}

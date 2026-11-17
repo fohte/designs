@@ -304,6 +304,14 @@
       "h": 1600,
       "title": "返信欄の上の帯 · 状態ごと",
       "page": "conversation"
+    },
+    "PhoneChatPrs.dc.html": {
+      "x": 3510,
+      "y": 964,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · セッションの PR 一覧",
+      "page": "conversation"
     }
   },
   "order": [
@@ -344,7 +352,8 @@
     "PhoneChatMenu.dc.html",
     "Dialogs.dc.html",
     "PhoneChatReview.dc.html",
-    "StatusBandStates.dc.html"
+    "StatusBandStates.dc.html",
+    "PhoneChatPrs.dc.html"
   ],
   "pages": [
     {

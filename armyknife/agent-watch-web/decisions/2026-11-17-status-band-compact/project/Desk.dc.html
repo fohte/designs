@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Desktop conversation, bottom</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<main style="width: 760px; height: 300px; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; border: 1px solid #2a2a2a; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+<div style="flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; padding: 0 24px 14px">
+<article style="align-self: flex-end; max-width: 80%; padding: 10px 14px; background: #1f1f1f">設定画面の文言をそろえて。</article>
+<article style="color: #d4d4d8">{{say}}</article>
+<sc-if value="{{isQ}}" hint-placeholder-val="{{ false }}">
+<article style="border: 1px solid #fbbf24">
+<h2 style="margin: 0; padding: 8px 14px 2px; color: #fbbf24; font-size: 12.5px; font-weight: 700">Question</h2>
+<div style="padding: 0 14px 8px">既定の保存期間は 30 日でよいですか?</div>
+<button type="button" style="width: 100%; min-height: 36px; display: flex; align-items: center; padding: 0 14px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; text-align: left">30 日のままにする</button>
+<button type="button" style="width: 100%; min-height: 36px; display: flex; align-items: center; padding: 0 14px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; text-align: left">90 日にする</button>
+</article>
+</sc-if>
+<sc-if value="{{isP}}" hint-placeholder-val="{{ false }}">
+<article style="border: 1px solid #fbbf24">
+<h2 style="margin: 0; padding: 8px 14px 2px; color: #fbbf24; font-size: 12.5px; font-weight: 700">Permission</h2>
+<div style="padding: 0 14px 8px; font-family: 'JetBrains Mono', monospace; font-size: 13px">Bash  pnpm run migrate</div>
+<div style="display: flex; gap: 8px; padding: 0 14px 10px"><button type="button" style="height: 32px; padding: 0 14px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Allow</button><button type="button" style="height: 32px; padding: 0 14px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Deny</button></div>
+</article>
+</sc-if>
+</div>
+<div style="flex: none"><dc-import name="Dock" option="{{option}}" state="{{state}}" hint-size="100%,130px"></dc-import></div>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["now","a","b","c"],"default":"a"},"state":{"editor":"enum","options":["working","compacting","background","crit","question","permission","waiting"],"default":"waiting"},"$preview":{"width":760,"height":300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.props.state ?? 'waiting';
+    const say = {
+      working: 'ボタンの文言を一覧にしてから直します。',
+      compacting: 'ボタンの文言を一覧にしてから直します。',
+      background: 'ベンチマークを裏で回しています。終わったら結果をまとめます。',
+      crit: '文言をそろえて PR #318 を作りました。crit で差分を見てください。',
+      question: '保存期間を設定ファイルで変えられるようにしました。',
+      permission: 'マイグレーションを流して確かめます。',
+      waiting: 'PR 41 を作りました。merge をお願いします。'
+    }[st] || '';
+    return { option: this.props.option ?? 'a', state: st, say, isQ: st === 'question', isP: st === 'permission' };
+  }
+}
+</script>
+</body>
+</html>

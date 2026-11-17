@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Session usage with forecast</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div role="group" aria-label="Session usage" style="position: relative; width: 100%; box-sizing: border-box; display: flex; align-items: center; gap: {{gap}}; row-gap: 2px; flex-wrap: wrap; font-family: 'JetBrains Mono', monospace; font-size: {{size}}; line-height: 1.55; color: #8b8b94; white-space: nowrap">
+<span title="{{engineTitle}}" style="color: #d4d4d8">{{engine}}</span><span style="color: #d4d4d8">{{model}}</span><span>({{effort}})</span>
+<span aria-hidden="true" style="color: #3f3f46">|</span>
+<span style="display: inline-flex; align-items: center; gap: 6px"><span role="meter" aria-label="Context used" aria-valuenow="{{ctx}}" aria-valuemin="0" aria-valuemax="100" style="position: relative; display: inline-block; flex: none; width: 48px; height: 4px; background: #262626"><span style="position: absolute; inset: 0 auto 0 0; width: {{ctx}}%; background: #d4d4d8"></span></span><span>{{tokens}} ({{ctx}}%)</span></span>
+<span aria-hidden="true" style="color: #3f3f46">|</span>
+<sc-for list="{{wins}}" as="w" hint-placeholder-count="2">
+<span title="{{w.title}}" style="display: inline-flex; align-items: center; gap: 5px">{{w.label}}<sc-if value="{{w.showMeter}}" hint-placeholder-val="{{ false }}"><span role="meter" aria-label="{{w.label}} quota used" aria-valuenow="{{w.used}}" aria-valuemin="0" aria-valuemax="100" aria-valuetext="{{w.sr}}" style="position: relative; display: inline-block; flex: none; width: 32px; height: 4px; margin: 0 4px 0 1px; background: #262626"><span style="position: absolute; inset: 0 auto 0 0; width: {{w.used}}%; background: #d4d4d8"></span><sc-if value="{{w.showProj}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: 0; bottom: 0; left: {{w.used}}%; width: {{w.projW}}%; background: {{w.projColor}}"></span></sc-if><sc-if value="{{w.showCap}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: -3px; bottom: -3px; right: -4px; width: 2px; background: {{w.markColor}}"></span></sc-if></span></sc-if><span style="color: {{w.fill}}">{{w.used}}%</span><span aria-hidden="true" style="color: {{w.markColor}}; font-weight: {{w.weight}}">{{w.mark}}</span><sc-if value="{{w.srText}}" hint-placeholder-val="{{ true }}"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">{{w.sr}}</span></sc-if></span>
+</sc-for>
+<span aria-hidden="true" style="color: #3f3f46">|</span>
+<span>{{version}}</span>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["current","a","b","c"],"default":"current"},"engine":{"editor":"enum","options":["claude","codex"],"default":"claude"},"phone":{"editor":"boolean","default":false},"$preview":{"width":760,"height":40}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const v = this.props.variant ?? 'current';
+    const tone = { none: '#8b8b94', on: '#8b8b94', warn: '#fbbf24', danger: '#f87171' };
+    const label = { on: 'On pace', warn: 'At or above quota pace', danger: 'Well above quota pace' };
+    const win = (name, used, elapsed, reset, out) => {
+      const f = elapsed < 0.05 ? null : Math.round(used / elapsed);
+      const st = f === null ? 'none' : f < 100 ? 'on' : f < 150 ? 'warn' : 'danger';
+      const over = st === 'warn' || st === 'danger';
+      const wait = name === '5h' ? '15m' : '8h24m';
+      const w = {
+        label: name, used,
+        fill: used >= 95 ? '#f87171' : used >= 80 ? '#fbbf24' : '#d4d4d8',
+        showMeter: false, showProj: false, showCap: false, projW: 0, projColor: '',
+        markColor: tone[st], weight: st === 'danger' ? 700 : 400, srText: true,
+        title: f === null ? `Forecast starts ${wait} into the window` : `${label[st]}: projected ${f}% at window end`,
+        sr: `${name} ${used}% used, ` + (f === null ? 'too early to forecast' : `${label[st]}, projected ${f}% at window end`) + (v === 'c' && over ? `, runs out in ${out}` : '') + `, resets in ${reset}`
+      };
+      if (v === 'current') {
+        w.mark = f === null ? '' : `${{ on: '✓', warn: '⚠', danger: '🔥' }[st]} ${f}%`;
+        w.markColor = st === 'on' ? '#d4d4d8' : tone[st];
+        w.weight = 400;
+        w.sr = f === null ? '' : `${label[st]}: projected ${f}% at window end`;
+        w.srText = f !== null;
+      } else if (v === 'a') {
+        w.showMeter = true;
+        w.srText = false;
+        w.showProj = f !== null && f > used;
+        w.projW = f === null ? 0 : Math.min(f, 100) - used;
+        w.projColor = { none: '', on: '#71717a', warn: 'rgba(251, 191, 36, 0.45)', danger: 'rgba(248, 113, 113, 0.45)' }[st];
+        w.showCap = f !== null && f >= 100;
+        w.mark = f === null ? '→ --' : st === 'on' ? `→ ${f}%` : `▲ ${f}%`;
+      } else if (v === 'b') {
+        w.mark = f === null ? '' : st === 'on' ? '✓' : `▲ ${f}%`;
+      } else {
+        w.mark = f === null ? '' : over ? `▲ out ${out}` : '✓';
+        if (over) w.title = `${label[st]}: runs out in ${out} at this pace (projected ${f}%), resets in ${reset}`;
+      }
+      return w;
+    };
+    const phone = this.props.phone ?? false;
+    const s = (this.props.engine ?? 'claude') === 'codex'
+      ? { engine: 'codex', engineTitle: 'Codex', model: 'gpt-5-codex', effort: 'high', ctx: 19, tokens: '51.2k', wins: [win('5h', 71, 0.4, '3h0m', '49m'), win('7d', 2, 0.03, '6d19h', null)], version: 'v0.60.0' }
+      : { engine: 'claude', engineTitle: 'Claude Code', model: 'Sonnet 5.5', effort: 'medium', ctx: 42, tokens: '84.3k', wins: [win('5h', 38, 0.5, '2h30m', null), win('7d', 62, 0.52, '3d8h', '2d5h')], version: 'v2.4.0' };
+    return { ...s, size: phone ? '11px' : '11.5px', gap: phone ? '6px' : '8px' };
+  }
+}
+</script>
+</body>
+</html>

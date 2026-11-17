@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Quota with forecast</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-label="Quota" style="width: 100%; box-sizing: border-box; display: grid; gap: 8px; padding: 10px {{inset}} 12px; border-top: 1px solid #2a2a2a; background: #0f0f0f; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; line-height: 1.55">
+<sc-for list="{{engines}}" as="e" hint-placeholder-count="2">
+<div style="display: grid; gap: 3px"><span title="{{e.title}}" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #d4d4d8">{{e.name}}</span>
+<sc-for list="{{e.rows}}" as="r" hint-placeholder-count="2">
+<div style="display: grid; grid-template-columns: 18px minmax(0, 1fr) 30px auto; align-items: center; gap: 6px; font-size: 11px; color: #8b8b94"><span style="font-family: 'JetBrains Mono', monospace">{{r.window}}</span><span role="meter" aria-label="{{e.name}} {{r.window}} quota used" aria-valuenow="{{r.used}}" aria-valuemin="0" aria-valuemax="100" aria-valuetext="{{r.valuetext}}" style="position: relative; display: inline-block; width: 100%; height: 4px; background: #262626"><span style="position: absolute; inset: 0 auto 0 0; width: {{r.used}}%; background: {{r.fill}}"></span><sc-if value="{{r.showProj}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: 0; bottom: 0; left: {{r.used}}%; width: {{r.projW}}%; background: {{r.projColor}}"></span></sc-if><sc-if value="{{r.showPace}}" hint-placeholder-val="{{ true }}"><span style="position: absolute; top: -2px; bottom: -2px; left: {{r.pace}}%; width: 1px; background: #a1a1aa"></span></sc-if><sc-if value="{{r.showCap}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: -3px; bottom: -3px; right: -4px; width: 2px; background: {{r.markColor}}"></span></sc-if></span><span style="font-family: 'JetBrains Mono', monospace; text-align: right; color: {{r.fill}}">{{r.used}}%</span><span title="{{r.title}}" style="font-family: 'JetBrains Mono', monospace; white-space: nowrap"><span aria-hidden="true" style="color: {{r.markColor}}; font-weight: {{r.weight}}">{{r.mark}}</span> {{r.tail}}</span></div>
+</sc-for>
+</div>
+</sc-for>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["current","a","b","c"],"default":"current"},"phone":{"editor":"boolean","default":false},"$preview":{"width":224,"height":150}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const v = this.props.variant ?? 'current';
+    const tone = { none: '#8b8b94', on: '#8b8b94', warn: '#fbbf24', danger: '#f87171' };
+    const label = { on: 'On pace', warn: 'At or above quota pace', danger: 'Well above quota pace' };
+    const row = (window, used, elapsed, reset, out) => {
+      const f = elapsed < 0.05 ? null : Math.round(used / elapsed);
+      const st = f === null ? 'none' : f < 100 ? 'on' : f < 150 ? 'warn' : 'danger';
+      const wait = window === '5h' ? '15m' : '8h24m';
+      const r = {
+        window, used, reset,
+        fill: used >= 95 ? '#f87171' : used >= 80 ? '#fbbf24' : '#d4d4d8',
+        pace: Math.round(elapsed * 100),
+        showPace: f !== null, showProj: false, showCap: false, projW: 0, projColor: '',
+        markColor: tone[st], weight: st === 'danger' ? 700 : 400, tail: reset,
+        title: f === null ? `Forecast starts ${wait} into the window` : `${label[st]}: projected ${f}% at window end`,
+        valuetext: `${used}% used, ` + (f === null ? 'too early to forecast' : `${label[st]}, projected ${f}% at window end`) + (v === 'c' && out && st !== 'on' ? `, runs out in ${out}` : '') + `, resets in ${reset}`
+      };
+      if (v === 'current') {
+        r.mark = f === null ? '' : `${{ on: '✓', warn: '⚠', danger: '🔥' }[st]} ${f}%`;
+        r.markColor = st === 'on' ? '#d4d4d8' : tone[st];
+        r.weight = 400;
+      } else if (v === 'a') {
+        r.showPace = false;
+        r.showProj = f !== null && f > used;
+        r.projW = f === null ? 0 : Math.min(f, 100) - used;
+        r.projColor = { none: '', on: '#71717a', warn: 'rgba(251, 191, 36, 0.45)', danger: 'rgba(248, 113, 113, 0.45)' }[st];
+        r.showCap = f !== null && f >= 100;
+        r.mark = f === null ? '→ --' : st === 'on' ? `→ ${f}%` : `▲ ${f}%`;
+      } else if (v === 'b') {
+        r.mark = f === null ? '' : st === 'on' ? '✓' : `▲ ${f}%`;
+      } else {
+        const over = st === 'warn' || st === 'danger';
+        r.mark = f === null ? '' : over ? `▲ out ${out}` : '✓';
+        r.tail = over ? '' : reset;
+        if (over) r.title = `${label[st]}: runs out in ${out} at this pace (projected ${f}%), resets in ${reset}`;
+      }
+      return r;
+    };
+    return {
+      inset: this.props.phone ? '4px' : '8px',
+      engines: [
+        { name: 'claude', title: 'Claude Code', rows: [row('5h', 38, 0.5, '2h30m', null), row('7d', 62, 0.52, '3d8h', '2d5h')] },
+        { name: 'codex', title: 'Codex', rows: [row('5h', 71, 0.4, '3h0m', '49m'), row('7d', 2, 0.03, '6d19h', null)] }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

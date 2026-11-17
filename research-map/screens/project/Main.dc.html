@@ -177,8 +177,8 @@ button{font-family:inherit}
 </div>
 </fieldset>
 <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 700; color: #9a998f">確認できたこと<textarea rows="5" style="padding: 10px 12px; border: 1px solid #3a3a37; background: #161615; color: #ededea; font: inherit; font-size: 13px; font-weight: 400; line-height: 1.6; resize: vertical">{{d.confirmedText}}</textarea></label>
-<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 700; color: #9a998f">まだ分からないこと<textarea rows="5" style="padding: 10px 12px; border: 1px solid #3a3a37; background: #161615; color: #ededea; font: inherit; font-size: 13px; font-weight: 400; line-height: 1.6; resize: vertical">{{d.unknownText}}</textarea></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 700; color: #9a998f">確認できたこと<textarea rows="5" value="{{d.confirmedText}}" style="padding: 10px 12px; border: 1px solid #3a3a37; background: #161615; color: #ededea; font: inherit; font-size: 13px; font-weight: 400; line-height: 1.6; resize: vertical"></textarea></label>
+<label style="display: flex; flex-direction: column; gap: 6px; font-size: 12px; font-weight: 700; color: #9a998f">まだ分からないこと<textarea rows="5" value="{{d.unknownText}}" style="padding: 10px 12px; border: 1px solid #3a3a37; background: #161615; color: #ededea; font: inherit; font-size: 13px; font-weight: 400; line-height: 1.6; resize: vertical"></textarea></label>
 </div>
 <fieldset style="margin: 0; padding: 0; border: 0">
 <legend style="padding: 0; margin-bottom: 8px; font-size: 12px; font-weight: 700; color: #9a998f">判断</legend>

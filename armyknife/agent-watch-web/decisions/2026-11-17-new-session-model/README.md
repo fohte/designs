@@ -11,7 +11,7 @@ watch-web の New session では engine と worktree は選べるが、モデル
 
 ## 採用した案
 
-B。engine の右に、モデルと effort をまとめたチップを 1 つ置く。何も選んでいないときは、profile の既定値 (例: atlas-5 · high) を薄い文字で出し、default の印を付ける。開くと、その engine のモデルの一覧と、選んだモデルで使える effort の段階が出る。一覧の Default には、何に解決されるかを右に出す。engine を切り替えて、選んだモデルが新しい engine にないときは default に戻し、そのことを 1 行で知らせて Undo を出す。effort はそのモデルで使えるなら残す。コマンドパレットでは OPTIONS に Model · effort の行を置き、開くと同じように選べる。
+B。engine の右に、モデルと effort をまとめたチップを 1 つ置く。何も選んでいないときは、profile の既定値 (例: atlas-5 · high) を薄い文字で出し、default の印を付ける。開くと、その engine のモデルの一覧と、選んだモデルで使える effort の段階が出る。一覧の Default には、何に解決されるかを右に出す。engine を切り替えて、選んだモデルが新しい engine にないときは default に戻し、そのことを 1 行で知らせて Undo を出す。effort はそのモデルで使えるなら残し、使えなければそのモデルの default に戻す。コマンドパレットでは OPTIONS に Model · effort の行を置き、開くと同じように選べる。
 
 例のモデル名はすべて架空。engine ごとのモデルの一覧をどこから取るかは実装で決める。
 

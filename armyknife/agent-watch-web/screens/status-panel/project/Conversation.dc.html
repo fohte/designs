@@ -33,7 +33,7 @@ a{color:#ef4444}
 <sc-for list="{{prGroups}}" as="g" hint-placeholder-count="2">
 <h3 style="margin: 0; padding: 8px 14px 4px; color: #8b8b94; font-size: 11.5px; font-weight: 400">{{g.name}}</h3>
 <sc-for list="{{g.rows}}" as="r" hint-placeholder-count="1">
-<a href="#" style="display: grid; grid-template-columns: 7px 1fr auto; align-items: center; column-gap: 10px; padding: 6px 14px; color: {{r.color}}; text-decoration: none"><span aria-hidden="true" style="width: 7px; height: 7px; background: {{r.dot}}"></span><span style="min-width: 0; display: grid"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">#{{r.num}}</span> {{r.title}}</span><span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{r.repo}}</span></span><span style="color: {{r.metaColor}}; font-size: 12px; white-space: nowrap">{{r.meta}}</span></a>
+<a href="#" style="display: grid; grid-template-columns: 7px 1fr auto; align-items: center; column-gap: 10px; padding: 6px 14px; color: {{r.color}}; text-decoration: none"><span role="img" aria-label="{{r.ci}}" title="{{r.ci}}" style="width: 7px; height: 7px; background: {{r.dot}}"></span><span style="min-width: 0; display: grid"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">#{{r.num}}</span> {{r.title}}</span><span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{r.repo}}</span></span><span style="color: {{r.metaColor}}; font-size: 12px; white-space: nowrap">{{r.meta}}</span></a>
 </sc-for>
 </sc-for>
 </section>
@@ -124,8 +124,8 @@ class Component extends DCLogic {
     const tasksOpen = this.props.tasksOpen ?? false;
     const prsOpen = this.props.prsOpen ?? false;
     const CI = {
-      running: { dot: '#fbbf24', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI running' },
-      passed: { dot: '#4ade80', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI passed' }
+      running: { dot: '#fbbf24', ci: 'CI running', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI running' },
+      passed: { dot: '#4ade80', ci: 'CI passed', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI passed' }
     };
     const pr = (num, title, repo, kind) => ({ num, title, repo, ...CI[kind] });
     const P = {

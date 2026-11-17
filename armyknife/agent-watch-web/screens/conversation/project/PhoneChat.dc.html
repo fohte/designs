@@ -75,7 +75,7 @@ body{margin:0}
 <sc-for list="{{prGroups}}" as="g" hint-placeholder-count="3">
 <h3 style="margin: 0; padding: 10px 16px 2px; color: #8b8b94; font-size: 12.5px; font-weight: 400">{{g.name}}</h3>
 <sc-for list="{{g.rows}}" as="r" hint-placeholder-count="1">
-<a href="#" style="min-height: 56px; box-sizing: border-box; display: grid; grid-template-columns: 7px 1fr; align-items: center; column-gap: 12px; padding: 6px 16px; color: #fafafa; text-decoration: none"><span aria-hidden="true" style="width: 7px; height: 7px; background: {{r.dot}}"></span><span style="min-width: 0; display: grid"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px">#{{r.num}}</span> {{r.title}}</span><span style="font-size: 12.5px; color: #a1a1aa"><span style="font-family: 'JetBrains Mono', monospace">{{r.repo}}</span> · <span style="color: {{r.metaColor}}">{{r.meta}}</span></span></span></a>
+<a href="#" style="min-height: 56px; box-sizing: border-box; display: grid; grid-template-columns: 7px 1fr; align-items: center; column-gap: 12px; padding: 6px 16px; color: #fafafa; text-decoration: none"><span role="img" aria-label="{{r.ci}}" title="{{r.ci}}" style="width: 7px; height: 7px; background: {{r.dot}}"></span><span style="min-width: 0; display: grid"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px">#{{r.num}}</span> {{r.title}}</span><span style="font-size: 12.5px; color: #a1a1aa"><span style="font-family: 'JetBrains Mono', monospace">{{r.repo}}</span> · <span style="color: {{r.metaColor}}">{{r.meta}}</span></span></span></a>
 </sc-for>
 </sc-for>
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 16px 0">
@@ -102,9 +102,9 @@ class Component extends DCLogic {
       prBorder: prsOpen ? '#a1a1aa' : '#3f3f46',
       prBg: prsOpen ? '#262626' : 'transparent',
       prGroups: [
-        { name: 'This branch', rows: [{ num: 2050, title: '再送処理を retry() にまとめる', repo: 'example/service', dot: '#fbbf24', meta: 'Open', metaColor: '#a1a1aa' }] },
-        { name: 'Opened elsewhere', rows: [{ num: 64, title: '再送キューの上限を設定に出す', repo: 'example/infra', dot: '#4ade80', meta: 'Open', metaColor: '#a1a1aa' }] },
-        { name: 'Merged', rows: [{ num: 2041, title: '再送のログを整える', repo: 'example/service', dot: '#52525b', meta: '✓ Merged', metaColor: '#8b8b94' }] }
+        { name: 'This branch', rows: [{ num: 2050, title: '再送処理を retry() にまとめる', repo: 'example/service', dot: '#fbbf24', ci: 'CI running', meta: 'Open', metaColor: '#a1a1aa' }] },
+        { name: 'Opened elsewhere', rows: [{ num: 64, title: '再送キューの上限を設定に出す', repo: 'example/infra', dot: '#4ade80', ci: 'CI passed', meta: 'Open', metaColor: '#a1a1aa' }] },
+        { name: 'Merged', rows: [{ num: 2041, title: '再送のログを整える', repo: 'example/service', dot: '#52525b', ci: 'Merged', meta: '✓ Merged', metaColor: '#8b8b94' }] }
       ],
       headerPadB: review ? '0' : '6px',
       bandState: review ? 'crit' : 'question',

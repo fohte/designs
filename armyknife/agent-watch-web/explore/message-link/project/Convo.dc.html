@@ -219,7 +219,6 @@ class Component extends DCLogic {
     const option = this.props.option ?? 'm1';
     const state = this.props.state ?? 'landed';
     const phone = this.props.phone ?? false;
-    // m1-m3 compare landing marks; l1-l3 compare how an unloaded message opens, all with the same provisional mark.
     const isM1 = option === 'm1';
     const isM2 = option === 'm2';
     const isM3 = option === 'm3';

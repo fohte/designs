@@ -26,8 +26,20 @@ a{color:#ef4444}
 <div style="flex: 0 0 auto; display: flex; align-items: center; gap: 6px; margin-left: auto">
 <button type="button" aria-label="{{panelLabel}}" title="{{panelLabel}}" aria-expanded="{{panelOpenStr}}" style="min-width: 32px; height: 26px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 10px; border: 1px solid {{panelBorder}}; background: {{panelBg}}; color: {{panelColor}}; font-family: inherit; font-size: 12px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path><path d="{{panelArrow}}"></path></svg><sc-if value="{{hasTasks}}" hint-placeholder-val="{{ false }}"><span style="color: #60a5fa">2</span></sc-if></button>
 <button type="button" aria-label="Remove from Starred" title="Remove from Starred" aria-pressed="true" style="min-width: 26px; height: 26px; padding: 0 4px; border: 1px solid #2a2a2a; background: transparent; color: #fbbf24; font-size: 16px; line-height: 1">★</button>
-<a href="#" style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa; text-decoration: none">#2049 PR</a>
-<button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Merge</button>
+<span style="position: relative; display: inline-flex">
+<button type="button" aria-haspopup="dialog" aria-expanded="{{prsOpenStr}}" aria-label="{{prAria}}" title="{{prAria}}" style="height: 26px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 7px; padding: 0 8px 0 9px; border: 1px solid {{prBorder}}; background: {{prBg}}; color: {{pr.color}}; font-family: inherit; font-size: 12px; white-space: nowrap"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: {{pr.dot}}"></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px">#{{pr.num}}</span><span style="color: {{pr.metaColor}}">{{pr.meta}}</span><sc-if value="{{hasMorePrs}}" hint-placeholder-val="{{ true }}"><span style="color: #a1a1aa">+{{morePrs}}</span></sc-if><span aria-hidden="true" style="color: #8b8b94">▾</span></button>
+<sc-if value="{{prsOpen}}" hint-placeholder-val="{{ false }}">
+<section role="dialog" aria-label="Pull requests from this session" style="position: absolute; z-index: 5; top: 32px; right: 0; width: 480px; box-sizing: border-box; padding: 6px 0; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%); color: #d4d4d8; font-size: 13px">
+<sc-for list="{{prGroups}}" as="g" hint-placeholder-count="2">
+<h3 style="margin: 0; padding: 8px 14px 4px; color: #8b8b94; font-size: 11.5px; font-weight: 400">{{g.name}}</h3>
+<sc-for list="{{g.rows}}" as="r" hint-placeholder-count="1">
+<a href="#" style="display: grid; grid-template-columns: 7px 1fr auto; align-items: center; column-gap: 10px; padding: 6px 14px; color: {{r.color}}; text-decoration: none"><span role="img" aria-label="{{r.ci}}" title="{{r.ci}}" style="width: 7px; height: 7px; background: {{r.dot}}"></span><span style="min-width: 0; display: grid"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">#{{r.num}}</span> {{r.title}}</span><span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{r.repo}}</span></span><span style="color: {{r.metaColor}}; font-size: 12px; white-space: nowrap">{{r.meta}}</span></a>
+</sc-for>
+</sc-for>
+</section>
+</sc-if>
+</span>
+<button type="button" aria-label="{{mergeAria}}" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Merge</button>
 <button type="button" aria-label="Open in terminal" title="Open in terminal" style="width: 28px; height: 26px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 11 2-2-2-2"></path><path d="M11 13h4"></path><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect></svg></button>
 </div>
 </div>
@@ -104,12 +116,24 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const variant = this.props.variant ?? 'question';
     const panelOpen = this.props.panelOpen ?? false;
     const tasksOpen = this.props.tasksOpen ?? false;
+    const prsOpen = this.props.prsOpen ?? false;
+    const CI = {
+      running: { dot: '#fbbf24', ci: 'CI running', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI running' },
+      passed: { dot: '#4ade80', ci: 'CI passed', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI passed' }
+    };
+    const pr = (num, title, repo, kind) => ({ num, title, repo, ...CI[kind] });
+    const P = {
+      question: { main: pr(2047, '再送処理を retry() にまとめる', 'example/service', 'running'), others: [pr(61, '再送キューの設定を足す', 'example/infra', 'passed')] },
+      working: { main: pr(2053, '配信メトリクスを記録する', 'example/service', 'running'), others: [] },
+      review: { main: pr(2049, '配信前のチェックを追加する', 'example/web-app', 'passed'), others: [] }
+    }[variant] ?? { main: pr(2047, '', '', 'running'), others: [] };
+    const morePrs = P.others.length;
     const q = variant === 'question';
     const w = variant === 'working';
     const V = {
@@ -133,7 +157,17 @@ class Component extends DCLogic {
       tasksOpenStr: tasksOpen ? 'true' : 'false',
       tasksBorder: tasksOpen ? '#a1a1aa' : '#3f3f46',
       tasksBg: tasksOpen ? '#262626' : 'transparent',
-      placeholder: 'Message PR 2049',
+      placeholder: 'Message PR ' + P.main.num,
+      pr: P.main,
+      morePrs,
+      hasMorePrs: morePrs > 0,
+      prsOpen,
+      prsOpenStr: prsOpen ? 'true' : 'false',
+      prBorder: prsOpen ? '#a1a1aa' : '#2a2a2a',
+      prBg: prsOpen ? '#262626' : 'transparent',
+      prAria: 'PR #' + P.main.num + ' ' + P.main.title + ', ' + P.main.word + (morePrs > 0 ? '. ' + morePrs + ' more PR from this session' : ''),
+      mergeAria: 'Merge PR #' + P.main.num,
+      prGroups: [{ name: 'This branch', rows: [P.main] }].concat(morePrs > 0 ? [{ name: 'Opened elsewhere', rows: P.others }] : []),
       panelOpenStr: panelOpen ? 'true' : 'false',
       panelLabel: panelOpen ? 'Close session status panel' : 'Open session status panel',
       panelArrow: panelOpen ? 'm8 9 3 3-3 3' : 'm10 15-3-3 3-3',

@@ -39,7 +39,7 @@ The reviewer cannot tell from the canvas alone what a design PR changed, so put 
 
 1. Copy from the base branch into `screens/<group>/project/before/` each artboard whose look changed, including one whose own file is unchanged but which `<dc-import>`s a changed part, directly or through other parts. Prefix its name with `Before` so stems stay unique. Copy every part it imports, directly or through other parts, into the same folder: the editor looks for a part only beside the artboard that imports it.
 2. On the canvas, place each old artboard beside its new one, with a sticky note listing the differences.
-3. Before the PR merges, delete `before/` and the notes, and restore the layout.
+3. Before asking the user to merge the PR, delete `before/` and the notes, and restore the layout. Give the notes ids starting with `before` or `diff`: the `Screens before check` CI fails while `before/` or such notes remain under `screens/`.
 
 ## Keep the design system in step with the app
 

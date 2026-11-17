@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Phone, every state</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section style="width: 3408px; height: 1040px; box-sizing: border-box; padding: 32px; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+<h1 style="margin: 0; font-size: 18px; font-weight: 700">{{heading}}</h1>
+<p style="margin: 6px 0 0; color: #a1a1aa; font-size: 13px">390 × 844, the same conversation in every state.</p>
+<div style="display: flex; gap: 32px; margin-top: 24px">
+<sc-for list="{{cols}}" as="c" hint-placeholder-count="7">
+<div style="flex: none; width: 390px; display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; font-size: 13px; font-weight: 700">{{c.title}}</h2>
+<dc-import name="Phone" option="{{option}}" state="{{c.key}}" open="{{c.open}}" hint-size="390px,844px"></dc-import>
+</div>
+</sc-for>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["now","a","b","c"],"default":"a"},"$preview":{"width":3408,"height":1040}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const option = this.props.option ?? 'a';
+    const heading = {
+      now: 'Current · phone',
+      a: 'A · one-line band · phone',
+      b: 'B · status in the usage line · phone',
+      c: 'C · chip on the reply box · phone'
+    }[option];
+    const cols = [
+      { key: 'working', title: 'Working', open: false },
+      { key: 'compacting', title: 'Compacting', open: false },
+      { key: 'background', title: 'Background tasks', open: false },
+      { key: 'crit', title: 'Review in crit', open: false },
+      { key: 'question', title: 'Question', open: false },
+      { key: 'permission', title: 'Permission', open: false },
+      { key: 'waiting', title: 'Other waiting', open: false }
+    ];
+    // Only A and C expand the reason in place.
+    if (option === 'a' || option === 'c') cols.push({ key: 'waiting', title: 'Other waiting · tapped', open: true });
+    return { option, heading, cols };
+  }
+}
+</script>
+</body>
+</html>

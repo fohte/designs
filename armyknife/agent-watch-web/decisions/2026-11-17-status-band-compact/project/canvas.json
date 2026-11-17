@@ -1,0 +1,236 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-17T05:46:05Z"
+  },
+  "title": "agent watch · status band compact",
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
+  "pages": [
+    {
+      "id": "options",
+      "name": "案"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "status-band-compact-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1640,
+      "h": 1600,
+      "title": "Current · desktop · 7 状態",
+      "page": "options"
+    },
+    "status-band-compact-current-phone.dc.html": {
+      "x": 1720,
+      "y": 0,
+      "w": 3408,
+      "h": 1040,
+      "title": "Current · phone · 7 状態",
+      "page": "options"
+    },
+    "status-band-compact-a.dc.html": {
+      "x": 0,
+      "y": 1980,
+      "w": 1640,
+      "h": 1600,
+      "title": "A · desktop · 7 状態",
+      "page": "options"
+    },
+    "status-band-compact-a-phone.dc.html": {
+      "x": 1720,
+      "y": 1980,
+      "w": 3408,
+      "h": 1040,
+      "title": "A · phone · 7 状態 + 展開",
+      "page": "options"
+    },
+    "status-band-compact-b.dc.html": {
+      "x": 0,
+      "y": 3960,
+      "w": 1640,
+      "h": 1600,
+      "title": "B · desktop · 7 状態",
+      "page": "options"
+    },
+    "status-band-compact-b-phone.dc.html": {
+      "x": 1720,
+      "y": 3960,
+      "w": 3408,
+      "h": 1040,
+      "title": "B · phone · 7 状態",
+      "page": "options"
+    },
+    "status-band-compact-c.dc.html": {
+      "x": 0,
+      "y": 5940,
+      "w": 1640,
+      "h": 1600,
+      "title": "C · desktop · 7 状態",
+      "page": "options"
+    },
+    "status-band-compact-c-phone.dc.html": {
+      "x": 1720,
+      "y": 5940,
+      "w": 3408,
+      "h": 1040,
+      "title": "C · phone · 7 状態 + 展開",
+      "page": "options"
+    },
+    "DeskSheet.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1640,
+      "h": 1600,
+      "title": "DeskSheet",
+      "page": "parts"
+    },
+    "PhoneSheet.dc.html": {
+      "x": 0,
+      "y": 1720,
+      "w": 3408,
+      "h": 1040,
+      "title": "PhoneSheet",
+      "page": "parts"
+    },
+    "Desk.dc.html": {
+      "x": 1720,
+      "y": 0,
+      "w": 760,
+      "h": 300,
+      "title": "Desk",
+      "page": "parts"
+    },
+    "Phone.dc.html": {
+      "x": 2560,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "Phone",
+      "page": "parts"
+    },
+    "Dock.dc.html": {
+      "x": 1720,
+      "y": 420,
+      "w": 760,
+      "h": 260,
+      "title": "Dock",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 1720,
+      "y": 800,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand (current)",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 1720,
+      "y": 980,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "status-band-compact-current.dc.html",
+    "status-band-compact-current-phone.dc.html",
+    "status-band-compact-a.dc.html",
+    "status-band-compact-a-phone.dc.html",
+    "status-band-compact-b.dc.html",
+    "status-band-compact-b-phone.dc.html",
+    "status-band-compact-c.dc.html",
+    "status-band-compact-c-phone.dc.html",
+    "DeskSheet.dc.html",
+    "PhoneSheet.dc.html",
+    "Desk.dc.html",
+    "Phone.dc.html",
+    "Dock.dc.html",
+    "StatusBand.dc.html",
+    "SessionUsage.dc.html"
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 5128,
+      "text": "Status band compact · Current: どの状態も 2 行の帯 (スマホで約 90px)",
+      "page": "options"
+    },
+    "about": {
+      "x": 5208,
+      "y": 0,
+      "w": 460,
+      "fill": "gray",
+      "page": "options",
+      "text": "前提\n- フィードバック: 情報量のない状態で帯が画面を取りすぎる。crit はすぐ見るべきなので大きくてよい\n- 大きいまま残すのは crit のレビュー待ちだけ (Review in crit のボタンを持つ唯一の状態)。A〜C とも今の帯をそのまま使う\n- 質問と permission は小さい側に入れる。答える操作 (選択肢、Allow / Deny) は会話の中のカードにあり、帯は同じ文を繰り返すだけだから。ただし黄色の線と四角の印、Question / Permission の文字で、ほかの小さい状態より目立たせる。タップでカードまで戻る\n- 実行中、要約中、バックグラウンドタスク、ほかの待ち (セッションが伝えた理由) は小さくする\n- 色だけに頼らない: 実行中は丸、待ちは四角、状態は文字でも出す\n- Current は screens/conversation の StatusBand のコピーで、理由は 1 行で … で切れ、ほかの待ちは灰色。実機では理由が 2 行に折り返し、ほかの待ちが黄色で出るので、実機の帯はこれより高い\n- データはすべて架空"
+    },
+    "a": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1720,
+      "maxW": 5128,
+      "text": "A · 1 行の帯。タップで理由を全部出す。crit だけ 2 行とボタン",
+      "page": "options"
+    },
+    "aNote": {
+      "x": 5208,
+      "y": 1980,
+      "w": 420,
+      "fill": "blue",
+      "page": "options",
+      "text": "A\n- 状態と理由を 1 行にまとめ、はみ出た理由は … で切る。行全体がボタンで、タップすると理由を全部出す\n- スマホの帯は 44px (今は約 90px)。デスクトップは 32px\n- 帯の場所も見た目も今と同じなので、覚え直しがない\n- 質問と permission も 1 行。黄色の線と ↑ で、タップするとカードに戻る\n- 理由は 1 行目しか見えないので、長い理由は 1 回タップが要る\n- フィードバックへの答え: 情報量の少ない状態の高さを半分にし、crit だけ今の大きさに残す"
+    },
+    "b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3700,
+      "maxW": 5128,
+      "text": "B · 帯は crit のときだけ。ほかの状態は返信欄の下の使用状況の行に入れる",
+      "page": "options"
+    },
+    "bNote": {
+      "x": 5208,
+      "y": 3960,
+      "w": 420,
+      "fill": "blue",
+      "page": "options",
+      "text": "B\n- crit 以外では帯を出さない。状態は返信欄の下の行の先頭に、小さい文字で 1 行だけ出す\n- デスクトップでは使用状況と同じ行に並ぶので、高さは増えない。スマホでも 1 行 (約 20px) 増えるだけ\n- 帯が出るのは crit のときだけなので、帯が出たら見る、と決められる\n- 文字が小さく、返信欄より下にあるので、質問と permission にも気づきにくい\n- 押せる大きさにしていないので、長い理由は状況パネルを開かないと読めない\n- フィードバックへの答え: 情報量の少ない状態から帯そのものをなくす"
+    },
+    "c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 5680,
+      "maxW": 5128,
+      "text": "C · 返信欄の左上に乗るチップ。タップで理由を吹き出しに出す。crit だけ帯",
+      "page": "options"
+    },
+    "cNote": {
+      "x": 5208,
+      "y": 5940,
+      "w": 420,
+      "fill": "blue",
+      "page": "options",
+      "text": "C\n- 状態を返信欄の上の枠線に乗るチップにする。返信欄の上に 14px 足すだけ\n- チップは返信欄の一部に見えるので、どのセッションの状態か迷わない\n- 押せる範囲は 44px あるが、半分は会話欄の下の余白に張り出す\n- チップの幅に限りがあり、理由は A より早く切れる。全部はタップして吹き出しで読む\n- 質問と permission は黄色の枠のチップ\n- フィードバックへの答え: 情報量の少ない状態を帯ではなく小さな印にする"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-17T05:46:05Z"
+    }
+  ]
+}

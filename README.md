@@ -29,7 +29,7 @@ Run these commands outside Claude Code's sandbox. Each command starts a local ed
 ```sh
 # A design system
 ~/.agents/skills/claude-design-system/scripts/artifact.mjs open <repo>/<app>/design-system
-# A canvas: screens/<group>, explore/<theme> or decisions/<YYYY-MM-DD>-<theme>
+# A canvas: screens, explore/<theme> or decisions/<YYYY-MM-DD>-<theme>
 ~/.agents/skills/claude-design/scripts/artifact.mjs open <repo>/<app>/<canvas>
 ```
 

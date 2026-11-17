@@ -1,0 +1,34 @@
+name: Screens before check
+
+on:
+  push:
+
+permissions:
+  contents: read
+
+jobs:
+  screens-before:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # The before/ copies and diff notes exist only for reviewing a design PR (AGENTS.md); this fails until they are removed so the PR is not merged with them.
+      - name: Fail when screens keep review-only before copies or diff notes
+        run: |
+          set -euo pipefail
+          status=0
+          while IFS= read -r dir; do
+            echo "::error file=${dir}::Delete ${dir} before merging"
+            status=1
+          done < <(find . -type d -path './*/screens/project/before')
+          while IFS= read -r canvas; do
+            notes=$(jq -r '.notes // {} | keys[] | select(test("^(before|diff)"))' "$canvas")
+            if [ -n "$notes" ]; then
+              echo "::error file=${canvas}::Delete the review notes before merging: $(echo "$notes" | paste -sd, -)"
+              status=1
+            fi
+          done < <(find . -type f -path './*/screens/project/canvas.json')
+          exit "$status"

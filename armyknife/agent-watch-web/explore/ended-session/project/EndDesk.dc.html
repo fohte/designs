@@ -33,7 +33,7 @@ body{margin:0}
 <div role="status" style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); min-height: 56px; margin: 0 auto 14px; display: flex; align-items: center; gap: 12px; padding: 0 10px 0 14px; border: 1px solid #3f3f46; background: #141414">
 <span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #71717a"></span>
 <span style="min-width: 0; flex: 1"><span style="color: #fafafa; font-weight: 700">This session has ended</span> <span style="color: #a1a1aa; font-size: 13px">· 14:32 · {{barHint}}</span></span>
-<sc-if value="{{isA}}" hint-placeholder-val="{{ false }}"><button type="button" disabled="{{resuming}}" style="flex: none; height: 32px; display: inline-flex; align-items: center; gap: 6px; padding: 0 14px; border: 1px solid #fafafa; background: {{resumeBg}}; color: {{resumeFg}}; font-family: inherit; font-size: 12.5px; font-weight: 700">{{resumeLabel}}</button></sc-if>
+<sc-if value="{{isA}}" hint-placeholder-val="{{ false }}"><button type="button" aria-disabled="{{resuming}}" style="flex: none; height: 32px; display: inline-flex; align-items: center; gap: 6px; padding: 0 14px; border: 1px solid #fafafa; background: {{resumeBg}}; color: {{resumeFg}}; font-family: inherit; font-size: 12.5px; font-weight: 700">{{resumeLabel}}</button></sc-if>
 <sc-if value="{{isC}}" hint-placeholder-val="{{ false }}"><button type="button" style="flex: none; height: 32px; padding: 0 14px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12.5px">New session here</button></sc-if>
 </div>
 </sc-if>

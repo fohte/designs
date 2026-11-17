@@ -19,10 +19,10 @@ body{margin:0}
 <div style="flex: 1; min-width: 0"><dc-import name="Convo" option="{{option}}" state="{{state}}" phone="{{ false }}" hint-size="100%,900px"></dc-import></div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["current","a","b","c"],"default":"a"},"state":{"editor":"enum","options":["latest","landed","older","missing","copy"],"default":"landed"},"$preview":{"width":1440,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["current","m1","m2","m3","l1","l2","l3","shared"],"default":"m1"},"state":{"editor":"enum","options":["latest","landed","older","missing","copy"],"default":"landed"},"$preview":{"width":1440,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
-    return { option: this.props.option ?? 'a', state: this.props.state ?? 'landed' };
+    return { option: this.props.option ?? 'm1', state: this.props.state ?? 'landed' };
   }
 }
 </script>

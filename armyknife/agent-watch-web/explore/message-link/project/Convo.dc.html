@@ -87,7 +87,7 @@ body{margin:0}
 <article aria-label="Linked message, 10:41" style="position: relative; flex: none; box-sizing: border-box; padding: {{tgPad}}; border-top: {{tgBorderTop}}; border-right: {{tgBorderSide}}; border-bottom: {{tgBorderSide}}; border-left: {{tgBorderLeft}}; background: {{tgBg}}; color: #d4d4d8">
 <sc-if value="{{tgLegend}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: -10px; left: 10px; display: inline-flex; align-items: center; gap: 5px; padding: 0 6px; background: #0a0a0a; color: #d4d4d8; font-size: 11.5px; line-height: 18px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>Linked · 10:41</span></sc-if>
 <sc-if value="{{tgGlyph}}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="Linked message" title="Linked message" style="position: absolute; top: {{glyphTop}}; left: {{glyphLeft}}; display: flex; color: #d4d4d8"><svg width="{{glyphSize}}" height="{{glyphSize}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></span></sc-if>
-<sc-if value="{{tgFlashNote}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 6px; right: 8px; padding: 1px 6px; border: 1px dashed #fb923c; color: #fb923c; font-size: 11px; line-height: 1.5">開いた直後の光 · 約 1.2 秒で消え、左のアイコンだけ残る</span></sc-if>
+<sc-if value="{{tgNoteOn}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: {{tgNoteTop}}; right: 8px; padding: 1px 6px; border: 1px dashed #fb923c; background: #0a0a0a; color: #fb923c; font-size: 11px; line-height: 1.5; white-space: nowrap">{{tgNote}}</span></sc-if>
 <sc-if value="{{tgLabel}}" hint-placeholder-val="{{ false }}">
 <div style="display: flex; align-items: center; gap: 8px; min-width: 0; margin: 0 0 8px; color: #a1a1aa; font-size: 12px">
 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #fafafa"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
@@ -213,15 +213,20 @@ retry gave up after 7 attempts</pre>
 </sc-if>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["current","a","b","c"],"default":"a"},"state":{"editor":"enum","options":["latest","landed","older","missing","copy"],"default":"landed"},"phone":{"editor":"boolean","default":false},"$preview":{"width":740,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["current","m1","m2","m3","l1","l2","l3","shared"],"default":"m1"},"state":{"editor":"enum","options":["latest","landed","older","missing","copy"],"default":"landed"},"phone":{"editor":"boolean","default":false},"$preview":{"width":740,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
-    const option = this.props.option ?? 'a';
+    const option = this.props.option ?? 'm1';
     const state = this.props.state ?? 'landed';
     const phone = this.props.phone ?? false;
-    const isA = option === 'a';
-    const isB = option === 'b';
-    const isC = option === 'c';
+    // m1-m3 compare landing marks; l1-l3 compare how an unloaded message opens, all with the same provisional mark.
+    const isM1 = option === 'm1';
+    const isM2 = option === 'm2';
+    const isM3 = option === 'm3';
+    const isL1 = option === 'l1';
+    const isL2 = option === 'l2';
+    const isL3 = option === 'l3';
+    const neutral = isL1 || isL2 || isL3;
     const text = (t, extra) => ({ isText: true, text: t, margin: '0', padding: '0', bg: 'transparent', ...extra });
     const A1 = text('まず今の再送の動きをステージングで測ります。');
     const T1 = { isTools: true, text: 'Read ×3 · Shell ×2' };
@@ -245,17 +250,18 @@ class Component extends DCLogic {
     } else if (state === 'landed') {
       justify = 'flex-start';
       items = [T1, target('full'), U2, A2];
-    } else if (state === 'older' && isB) {
+    } else if (state === 'older' && isL2) {
       justify = 'flex-start';
       items = [{ isLoadEarlier: true }, A1, T1, target('full'), U2];
-    } else if (state === 'older' && isC) {
+    } else if (state === 'older' && isL3) {
       justify = 'flex-start';
       items = [target('tail'), U2, A2, T2, { isGap: true }, U3, A3];
     }
 
-    const flash = isB && state === 'landed' && !phone;
+    const flash = isM2 && state === 'landed' && !phone;
     const frame = '1px solid #a1a1aa';
-    const tgPad = isA ? (phone ? '10px 12px 12px' : '10px 14px 12px') : isB ? '8px 12px' : (state === 'older' ? '0 14px 12px' : '14px 14px 12px');
+    const dashed = '1px dashed #fb923c';
+    const tgPad = isM1 ? (phone ? '10px 12px 12px' : '10px 14px 12px') : isM3 ? '14px 14px 12px' : '8px 12px';
     const deskPad = '24px max(24px, calc((100% - 672px) / 2))';
     const deskPadTop = '16px max(24px, calc((100% - 672px) / 2)) 24px';
     const top = justify === 'flex-start';
@@ -272,7 +278,7 @@ class Component extends DCLogic {
       tapS: phone ? '44px' : '26px',
       tapT: phone ? '44px' : '28px',
       items,
-      listOpacity: isA && state === 'older' ? '0.45' : '1',
+      listOpacity: isL1 && state === 'older' ? '0.45' : '1',
       rows: [
         { n: '1', cur: '5 秒', nw: '2 秒' },
         { n: '2', cur: '5 秒', nw: '4 秒' },
@@ -283,30 +289,32 @@ class Component extends DCLogic {
         { n: '7 以降', cur: '120 回まで続く', nw: '7 回で止まる' }
       ],
       tgPad,
-      tgBorderTop: isC && state !== 'older' ? frame : 'none',
-      tgBorderSide: isC ? frame : 'none',
-      tgBorderLeft: isA ? '3px solid #fafafa' : isC ? frame : 'none',
-      tgBg: isA ? '#141414' : flash ? '#262626' : 'transparent',
-      tgLabel: isA,
-      tgGlyph: isB,
-      tgLegend: isC && state === 'landed',
-      tgFlashNote: flash,
+      tgBorderTop: isM3 ? frame : neutral ? dashed : 'none',
+      tgBorderSide: isM3 ? frame : neutral ? dashed : 'none',
+      tgBorderLeft: isM1 ? '3px solid #fafafa' : isM3 ? frame : neutral ? dashed : 'none',
+      tgBg: isM1 ? '#141414' : flash ? '#262626' : 'transparent',
+      tgLabel: isM1,
+      tgGlyph: isM2,
+      tgLegend: isM3 && state === 'landed',
+      tgNoteOn: flash || neutral,
+      tgNote: flash ? '開いた直後の光 · 約 1.2 秒で消え、左のアイコンだけ残る' : '着地したメッセージ · 印は仮',
+      tgNoteTop: flash ? '6px' : '-10px',
       glyphTop: phone ? '12px' : '11px',
       glyphLeft: phone ? '-15px' : '-22px',
       glyphSize: phone ? '12' : '14',
-      stripC: isC && (state === 'landed' || state === 'older'),
+      stripC: isL3 && (state === 'landed' || state === 'older'),
       stripPad: phone ? '0 4px 0 16px' : '4px 24px',
-      loading: isA && state === 'older',
+      loading: isL1 && state === 'older',
       missing: state === 'missing',
       ovX,
       ovPad: phone ? '6px 4px 6px 12px' : '10px 10px 10px 14px',
-      pill: (isA || isB) && state === 'landed',
-      pillLabel: isA ? 'Back to latest' : '34 newer',
-      pillLeft: isA ? 'auto' : '50%',
-      pillRight: isA ? (phone ? '16px' : 'max(24px, calc((100% - 672px) / 2))') : 'auto',
-      pillX: isA ? 'none' : 'translateX(-50%)',
+      pill: isL1 && state === 'landed',
+      pillLabel: 'Back to latest',
+      pillLeft: 'auto',
+      pillRight: phone ? '16px' : 'max(24px, calc((100% - 672px) / 2))',
+      pillX: 'none',
       pillH: phone ? '44px' : '30px',
-      contextBar: isB && state === 'older',
+      contextBar: isL2 && state === 'older',
       barW: phone ? '100%' : 'min(712px, calc(100% - 48px))',
       barMargin: phone ? '0' : '12px auto 0',
       barPad: phone ? '0 4px 0 16px' : '6px 8px 6px 12px',

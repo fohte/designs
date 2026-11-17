@@ -7,35 +7,39 @@
   "title": "agent watch · message link",
   "launch": {
     "view": "canvas",
-    "page": "options"
+    "page": "marks"
   },
   "pages": [
-    { "id": "options", "name": "案" },
+    { "id": "marks", "name": "着地の印" },
+    { "id": "loading", "name": "古いメッセージの開き方" },
+    { "id": "shared", "name": "今と共通" },
     { "id": "parts", "name": "部品" }
   ],
   "boards": {
-    "message-link-current.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "Current · desktop · To-do から開くと最新の位置", "page": "options" },
-    "message-link-current-phone.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "Current · phone", "page": "options" },
+    "message-link-m1.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "M1 · desktop · 着地", "page": "marks" },
+    "message-link-m1-phone.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "M1 · phone · 着地", "page": "marks" },
+    "message-link-m2.dc.html": { "x": 0, "y": 1400, "w": 1440, "h": 900, "title": "M2 · desktop · 光った直後", "page": "marks" },
+    "message-link-m2-phone.dc.html": { "x": 1520, "y": 1400, "w": 390, "h": 844, "title": "M2 · phone · 光が消えたあと", "page": "marks" },
+    "message-link-m3.dc.html": { "x": 0, "y": 2800, "w": 1440, "h": 900, "title": "M3 · desktop · 着地", "page": "marks" },
+    "message-link-m3-phone.dc.html": { "x": 1520, "y": 2800, "w": 390, "h": 844, "title": "M3 · phone · 着地", "page": "marks" },
 
-    "message-link-a-landed.dc.html": { "x": 0, "y": 1400, "w": 1440, "h": 900, "title": "A · desktop · 着地", "page": "options" },
-    "message-link-a-older.dc.html": { "x": 1520, "y": 1400, "w": 1440, "h": 900, "title": "A · desktop · 読み込んでいない古いメッセージ", "page": "options" },
-    "message-link-a-phone-landed.dc.html": { "x": 3040, "y": 1400, "w": 390, "h": 844, "title": "A · phone · 着地", "page": "options" },
-    "message-link-a-phone-older.dc.html": { "x": 3510, "y": 1400, "w": 390, "h": 844, "title": "A · phone · 古いメッセージ", "page": "options" },
+    "message-link-l1-loading.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "L1 · desktop · 読み込み中", "page": "loading" },
+    "message-link-l1-landed.dc.html": { "x": 1520, "y": 0, "w": 1440, "h": 900, "title": "L1 · desktop · 読み終えて着地", "page": "loading" },
+    "message-link-l1-phone-loading.dc.html": { "x": 3040, "y": 0, "w": 390, "h": 844, "title": "L1 · phone · 読み込み中", "page": "loading" },
+    "message-link-l1-phone-landed.dc.html": { "x": 3510, "y": 0, "w": 390, "h": 844, "title": "L1 · phone · 読み終えて着地", "page": "loading" },
+    "message-link-l2.dc.html": { "x": 0, "y": 1400, "w": 1440, "h": 900, "title": "L2 · desktop · 前後だけの表示", "page": "loading" },
+    "message-link-l2-phone.dc.html": { "x": 1520, "y": 1400, "w": 390, "h": 844, "title": "L2 · phone · 前後だけの表示", "page": "loading" },
+    "message-link-l3-landed.dc.html": { "x": 0, "y": 2800, "w": 1440, "h": 900, "title": "L3 · desktop · 着地", "page": "loading" },
+    "message-link-l3-scrolled.dc.html": { "x": 1520, "y": 2800, "w": 1440, "h": 900, "title": "L3 · desktop · 下へ送って空きに来たところ", "page": "loading" },
+    "message-link-l3-phone-landed.dc.html": { "x": 3040, "y": 2800, "w": 390, "h": 844, "title": "L3 · phone · 着地", "page": "loading" },
+    "message-link-l3-phone-scrolled.dc.html": { "x": 3510, "y": 2800, "w": 390, "h": 844, "title": "L3 · phone · 空きに来たところ", "page": "loading" },
 
-    "message-link-b-landed.dc.html": { "x": 0, "y": 2800, "w": 1440, "h": 900, "title": "B · desktop · 着地 (光った直後)", "page": "options" },
-    "message-link-b-older.dc.html": { "x": 1520, "y": 2800, "w": 1440, "h": 900, "title": "B · desktop · 古いメッセージ (前後だけの表示)", "page": "options" },
-    "message-link-b-phone-landed.dc.html": { "x": 3040, "y": 2800, "w": 390, "h": 844, "title": "B · phone · 着地 (光が消えたあと)", "page": "options" },
-    "message-link-b-phone-older.dc.html": { "x": 3510, "y": 2800, "w": 390, "h": 844, "title": "B · phone · 古いメッセージ", "page": "options" },
-
-    "message-link-c-landed.dc.html": { "x": 0, "y": 4200, "w": 1440, "h": 900, "title": "C · desktop · 着地", "page": "options" },
-    "message-link-c-older.dc.html": { "x": 1520, "y": 4200, "w": 1440, "h": 900, "title": "C · desktop · 古いメッセージ (下へ送ったところ)", "page": "options" },
-    "message-link-c-phone-landed.dc.html": { "x": 3040, "y": 4200, "w": 390, "h": 844, "title": "C · phone · 着地", "page": "options" },
-    "message-link-c-phone-older.dc.html": { "x": 3510, "y": 4200, "w": 390, "h": 844, "title": "C · phone · 古いメッセージ", "page": "options" },
-
-    "message-link-missing.dc.html": { "x": 0, "y": 5600, "w": 1440, "h": 900, "title": "共通 · desktop · メッセージがもうない", "page": "options" },
-    "message-link-missing-phone.dc.html": { "x": 1520, "y": 5600, "w": 390, "h": 844, "title": "共通 · phone · メッセージがもうない", "page": "options" },
-    "message-link-copy.dc.html": { "x": 1990, "y": 5600, "w": 1440, "h": 900, "title": "共通 · desktop · リンクをコピーする", "page": "options" },
-    "message-link-copy-phone.dc.html": { "x": 3510, "y": 5600, "w": 390, "h": 844, "title": "共通 · phone · 長押しでリンクをコピーする", "page": "options" },
+    "message-link-current.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "Current · desktop · To-do から開くと最新の位置", "page": "shared" },
+    "message-link-current-phone.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "Current · phone", "page": "shared" },
+    "message-link-missing.dc.html": { "x": 0, "y": 1400, "w": 1440, "h": 900, "title": "共通 · desktop · メッセージがもうない", "page": "shared" },
+    "message-link-missing-phone.dc.html": { "x": 1520, "y": 1400, "w": 390, "h": 844, "title": "共通 · phone · メッセージがもうない", "page": "shared" },
+    "message-link-copy.dc.html": { "x": 1990, "y": 1400, "w": 1440, "h": 900, "title": "共通 · desktop · リンクをコピーする", "page": "shared" },
+    "message-link-copy-phone.dc.html": { "x": 3510, "y": 1400, "w": 390, "h": 844, "title": "共通 · phone · 長押しでリンクをコピーする", "page": "shared" },
 
     "Desk.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "Desk", "page": "parts" },
     "Convo.dc.html": { "x": 1520, "y": 0, "w": 740, "h": 900, "title": "Convo", "page": "parts" },
@@ -46,20 +50,24 @@
     "SessionUsage.dc.html": { "x": 3200, "y": 456, "w": 672, "h": 40, "title": "SessionUsage", "page": "parts" }
   },
   "order": [
+    "message-link-m1.dc.html",
+    "message-link-m1-phone.dc.html",
+    "message-link-m2.dc.html",
+    "message-link-m2-phone.dc.html",
+    "message-link-m3.dc.html",
+    "message-link-m3-phone.dc.html",
+    "message-link-l1-loading.dc.html",
+    "message-link-l1-landed.dc.html",
+    "message-link-l1-phone-loading.dc.html",
+    "message-link-l1-phone-landed.dc.html",
+    "message-link-l2.dc.html",
+    "message-link-l2-phone.dc.html",
+    "message-link-l3-landed.dc.html",
+    "message-link-l3-scrolled.dc.html",
+    "message-link-l3-phone-landed.dc.html",
+    "message-link-l3-phone-scrolled.dc.html",
     "message-link-current.dc.html",
     "message-link-current-phone.dc.html",
-    "message-link-a-landed.dc.html",
-    "message-link-a-older.dc.html",
-    "message-link-a-phone-landed.dc.html",
-    "message-link-a-phone-older.dc.html",
-    "message-link-b-landed.dc.html",
-    "message-link-b-older.dc.html",
-    "message-link-b-phone-landed.dc.html",
-    "message-link-b-phone-older.dc.html",
-    "message-link-c-landed.dc.html",
-    "message-link-c-older.dc.html",
-    "message-link-c-phone-landed.dc.html",
-    "message-link-c-phone-older.dc.html",
     "message-link-missing.dc.html",
     "message-link-missing-phone.dc.html",
     "message-link-copy.dc.html",
@@ -73,85 +81,141 @@
     "SessionUsage.dc.html"
   ],
   "notes": {
+    "about": {
+      "x": 2490,
+      "y": 0,
+      "w": 600,
+      "fill": "gray",
+      "page": "marks",
+      "text": "message-link: 会話の 1 つのメッセージへのリンク\n\n決めることは 2 つ。それぞれ別に選び、どの組み合わせでもよい\n1. 着地の印 (このページ, M1-M3): 飛んだ先のメッセージをどう示し、いつまで残すか\n2. 古いメッセージの開き方 (ページ「古いメッセージの開き方」, L1-L3): まだ読み込んでいないメッセージをどう開き、そこから最新へどう戻るか\n\nこのページの前提\n- 飛んだ先はすでに読み込まれているメッセージなので、読み込みは関係しない\n- 最新へ戻る操作は開き方で決まるので、このページには描いていない\n\n全体の前提\n- 例は To-do「計測結果を見て上限を決める」から 10:41 のメッセージ (計測結果の表) へのリンク。最新まで 34 件ある\n- 長いメッセージは、どの印でもメッセージの頭を会話欄の上端に合わせ、直前の行を少し見せる\n- 印は色だけに頼らず、形 (線、枠、アイコン) か文字を必ず添える\n- 今の画面と、案によらず同じもの (メッセージがもうない、リンクの取り方) はページ「今と共通」\n- オレンジの点線は説明用で、画面には出ない。例はすべて架空"
+    },
+    "m1": {
+      "kind": "title1",
+      "x": 0,
+      "y": -240,
+      "maxW": 2400,
+      "text": "M1 · 左の線と地色と「Linked message」の見出し",
+      "page": "marks"
+    },
+    "m1Note": {
+      "x": 1990,
+      "y": 0,
+      "w": 420,
+      "fill": "blue",
+      "page": "marks",
+      "text": "印 M1 · 線 + 地色 + 見出し\n- 良い: 見出しに To-do の名前が出て、どこから来たか分かる\n- 良い: 線と地色で、長いメッセージでも範囲が分かる\n- 悪い: 見出しの分だけ本文が下がり、3 つの中でいちばん重い\n- 悪い: 消すには Clear を押す\n- 残る期間: Clear、返信の送信、別のリンクを開くまで"
+    },
+    "m2": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1160,
+      "maxW": 2400,
+      "text": "M2 · 開いた直後だけ地を光らせ、左に小さなリンクのアイコンを残す",
+      "page": "marks"
+    },
+    "m2Note": {
+      "x": 1990,
+      "y": 1400,
+      "w": 420,
+      "fill": "blue",
+      "page": "marks",
+      "text": "印 M2 · 一瞬光らせてアイコンを残す\n- 良い: 光るので目が行き、消えたあとは会話がいちばん静か\n- 良い: 本文の位置も幅も変わらない\n- 悪い: 光は約 1.2 秒で消え、見落とすとアイコンしか残らない\n- 悪い: どこから来たかは分からない。範囲も光っている間しか分からない\n- 動きを減らす設定では光らせず、アイコンだけ\n- 残る期間: アイコンは別のリンクを開くか、読み込み直すまで"
+    },
+    "m3": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2560,
+      "maxW": 2400,
+      "text": "M3 · メッセージを枠で囲み「Linked · 10:41」の札を付ける",
+      "page": "marks"
+    },
+    "m3Note": {
+      "x": 1990,
+      "y": 2800,
+      "w": 420,
+      "fill": "blue",
+      "page": "marks",
+      "text": "印 M3 · 枠 + 時刻の札\n- 良い: 枠なので長いメッセージでも範囲が分かり、地色がなく本文が読みやすい\n- 良い: 押して消す手間がない\n- 悪い: 札は時刻だけで、どこから来たかは分からない\n- 悪い: 枠は会話の中で目立ち続ける\n- 残る期間: 返信の送信か、別のリンクを開くまで"
+    },
+    "loadingAbout": {
+      "x": 4480,
+      "y": 0,
+      "w": 520,
+      "fill": "gray",
+      "page": "loading",
+      "text": "このページの比べ方\n- L1-L3 は、まだ読み込んでいないメッセージ (最新の 34 件前) へのリンクを開いたときの動きだけが違う\n- 着地したメッセージの印は、どの案も同じ仮の印 (オレンジの点線と「着地したメッセージ · 印は仮」) にした。実際にはページ「着地の印」で選んだ印に置き換わる\n- 最新へ戻る操作は開き方で変わるので、このページで比べる\n- 各段は左から desktop、右に phone"
+    },
+    "l1": {
+      "kind": "title1",
+      "x": 0,
+      "y": -240,
+      "maxW": 4400,
+      "text": "L1 · 全部読み込んでから飛ぶ",
+      "page": "loading"
+    },
+    "l1Note": {
+      "x": 3980,
+      "y": 0,
+      "w": 420,
+      "fill": "blue",
+      "page": "loading",
+      "text": "開き方 L1 · 全部読み込んでから飛ぶ\n- 動き: 今の会話を薄くし、上に進み具合と Cancel を出す。読み終えたら着地する\n- 良い: 会話は 1 本のままで、着地後は普通にスクロールできる\n- 良い: 最新へは右下の「Back to latest」1 つ。phone では 44px にして返信欄の上に置く\n- 悪い: 古いほど待つ。数百件先だと数秒かかるかもしれない\n- 悪い: 読み込み中は会話を読めない"
+    },
+    "l2": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1160,
+      "maxW": 4400,
+      "text": "L2 · 前後だけを別の表示で出す",
+      "page": "loading"
+    },
+    "l2Note": {
+      "x": 3980,
+      "y": 1400,
+      "w": 420,
+      "fill": "blue",
+      "page": "loading",
+      "text": "開き方 L2 · 前後だけ別の表示で出す\n- 動き: 対象のまわりの数件だけを読み、今の会話とは別の表示で出す。上は Load earlier で足せる\n- 良い: 古さに関係なく待たない\n- 良い: 下の帯で「34 件をまだ読んでいない」と分かり、Jump to latest で最新へ戻る\n- 悪い: 今の会話とは別の表示で、下へスクロールしても最新につながらない\n- 悪い: phone では返信欄の上に帯が 1 本増える"
+    },
+    "l3": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2560,
+      "maxW": 4400,
+      "text": "L3 · 最新との間を空けた 1 本の会話に置く",
+      "page": "loading"
+    },
+    "l3Note": {
+      "x": 3980,
+      "y": 2800,
+      "w": 420,
+      "fill": "blue",
+      "page": "loading",
+      "text": "開き方 L3 · 間を空けた 1 本の会話に置く\n- 動き: 対象のまわりを先に読み、最新との間は「34 messages not loaded」の空きにする。空きまでスクロールしたら読む\n- 良い: 待たずに出せて、会話は 1 本のまま\n- 良い: 最新へは上の帯の Back to latest。スクロールでもたどり着ける\n- 悪い: 別のリンクを続けて開くと空きが 2 つ以上でき、分かりにくい\n- 悪い: 上の帯は phone では親指から遠い"
+    },
     "current": {
       "kind": "title1",
       "x": 0,
       "y": -240,
       "maxW": 1910,
       "text": "Current · リンクはセッション単位で、開くと最新の位置。古いメッセージは上へスクロールして探す",
-      "page": "options"
-    },
-    "about": {
-      "x": 1990,
-      "y": 0,
-      "w": 600,
-      "fill": "gray",
-      "page": "options",
-      "text": "message-link: 会話の 1 つのメッセージへのリンク\n\n決めること\n1. 着地の印: リンクを開いてそのメッセージまで送ったとき、どう示すか。いつまで残すか。画面より長いメッセージはどこに合わせるか\n2. 読み込んでいない古いメッセージへのリンク: 読み込んでから飛ぶか、前後だけ別に出すか、間を空けて置くか。メッセージがもうないとき (セッションの終了、履歴の切り詰め) の知らせ方\n3. phone と desktop の違い: 最新へ戻る操作、44px の押し先、safe area、返信欄を使えるままにすること\n\n前提\n- 例は To-do「計測結果を見て上限を決める」から 10:41 のメッセージ (計測結果の表) へのリンク。最新まで 34 件ある\n- 長いメッセージは、どの案もメッセージの頭を会話欄の上端に合わせ、直前の行を少し見せる。真ん中には合わせない\n- 印は色だけに頼らず、形 (線、枠、アイコン) か文字を必ず添える\n- 「メッセージがもうない」と「リンクの取り方」は案によらず同じなので、一番下の段に 1 つずつ描いた\n- オレンジの点線は説明用で、画面には出ない。例はすべて架空"
-    },
-    "a": {
-      "kind": "title1",
-      "x": 0,
-      "y": 1160,
-      "maxW": 4400,
-      "text": "A · 左の線と地色と「Linked message」の見出しを残す。古いときは読み込んでから飛ぶ",
-      "page": "options"
-    },
-    "aNote": {
-      "x": 3980,
-      "y": 1400,
-      "w": 420,
-      "fill": "blue",
-      "page": "options",
-      "text": "A\n- 1. 線 + 地色 + 見出しで、どこから来たか (To-do の名前) まで分かる。Clear、返信の送信、別のリンクを開くまで残る\n- 1. 見出しの分だけ本文が下がり、印がいちばん重い\n- 2. 読み込み中は今の会話を薄くし、上に進み具合と Cancel を出す。終わったら着地に移る。会話は 1 本のままで分かりやすい\n- 2. 古いほど待つ。数百件先だと数秒かかるかもしれない\n- 3. 右下の「Back to latest」で最新へ。phone では 44px にして返信欄の上に置く"
-    },
-    "b": {
-      "kind": "title1",
-      "x": 0,
-      "y": 2560,
-      "maxW": 4400,
-      "text": "B · 開いた直後だけ地を光らせ、消えたあとは左の小さなリンクのアイコンだけ残す。古いときは前後だけを別の表示で出す",
-      "page": "options"
-    },
-    "bNote": {
-      "x": 3980,
-      "y": 2800,
-      "w": 420,
-      "fill": "blue",
-      "page": "options",
-      "text": "B\n- 1. 光るので目は行くが、消えたあとの印はアイコン 1 つで、会話がいちばん静か\n- 1. 光は約 1.2 秒で消える。見落とすとアイコンしか残らない。動きを減らす設定では光らせずアイコンだけ\n- 2. 対象のまわりの数件だけを読み、すぐ出せる。古さに関係なく待たない\n- 2. 今の会話とは別の表示になる。下の帯で「34 件をまだ読んでいない」と示し、Jump to latest で戻る\n- 3. 最新へは中央の「34 newer」。phone では帯が返信欄の上に 1 本増える"
-    },
-    "c": {
-      "kind": "title1",
-      "x": 0,
-      "y": 3960,
-      "maxW": 4400,
-      "text": "C · メッセージを枠で囲み「Linked · 10:41」の札を付ける。古いときは間を空けた 1 本の会話に置く",
-      "page": "options"
-    },
-    "cNote": {
-      "x": 3980,
-      "y": 4200,
-      "w": 420,
-      "fill": "blue",
-      "page": "options",
-      "text": "C\n- 1. 枠なので、長いメッセージでもどこまでが対象か分かる。地色を使わず本文が読みやすい\n- 1. 札に時刻しかなく、どこから来たかは分からない\n- 2. 対象のまわりを先に読み、最新との間は「34 messages not loaded」の空きにする。スクロールで空きに来たら読む\n- 2. 空きが 2 つ以上できると (別のリンクを続けて開く) 分かりにくい\n- 3. 最新へは会話欄の上の帯から。帯は phone でも返信欄から離れていて、親指からは遠い"
+      "page": "shared"
     },
     "shared": {
       "kind": "title1",
       "x": 0,
-      "y": 5360,
-      "maxW": 4400,
+      "y": 1160,
+      "maxW": 3900,
       "text": "共通 · メッセージがもうないときの知らせと、リンクの取り方",
-      "page": "options"
+      "page": "shared"
     },
     "sharedNote": {
       "x": 3980,
-      "y": 5600,
+      "y": 1400,
       "w": 420,
       "fill": "blue",
-      "page": "options",
-      "text": "共通\n- メッセージがもうないときは最新の位置で開き、上に知らせを出す。会話も返信欄も触れる。Dismiss か、スクロールで消える\n- リンクは、desktop ではメッセージにポインタを載せたときの「Copy link」、phone では長押しのメニューから取る\n- To-do などにリンクを貼るのはセッション側 (agent) の仕事で、ここでは人が取る経路だけ描いた"
+      "page": "shared",
+      "text": "共通\n- 印と開き方の案によらず同じ\n- メッセージがもうないときは最新の位置で開き、上に知らせを出す。会話も返信欄も触れる。Dismiss か、スクロールで消える\n- リンクは、desktop ではメッセージにポインタを載せたときの「Copy link」、phone では長押しのメニューから取る\n- To-do などにリンクを貼るのはセッション側 (agent) の仕事で、ここでは人が取る経路だけ描いた"
     }
   },
   "designSystems": [

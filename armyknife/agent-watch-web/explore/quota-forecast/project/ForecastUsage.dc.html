@@ -19,13 +19,13 @@ body{margin:0}
 <span style="display: inline-flex; align-items: center; gap: 6px"><span role="meter" aria-label="Context used" aria-valuenow="{{ctx}}" aria-valuemin="0" aria-valuemax="100" style="position: relative; display: inline-block; flex: none; width: 48px; height: 4px; background: #262626"><span style="position: absolute; inset: 0 auto 0 0; width: {{ctx}}%; background: #d4d4d8"></span></span><span>{{tokens}} ({{ctx}}%)</span></span>
 <span aria-hidden="true" style="color: #3f3f46">|</span>
 <sc-for list="{{wins}}" as="w" hint-placeholder-count="2">
-<span title="{{w.title}}" style="display: inline-flex; align-items: center; gap: 5px">{{w.label}}<sc-if value="{{w.showMeter}}" hint-placeholder-val="{{ false }}"><span role="meter" aria-label="{{w.label}} quota used" aria-valuenow="{{w.used}}" aria-valuemin="0" aria-valuemax="100" aria-valuetext="{{w.sr}}" style="position: relative; display: inline-block; flex: none; width: 32px; height: 4px; margin: 0 4px 0 1px; background: #262626"><span style="position: absolute; inset: 0 auto 0 0; width: {{w.used}}%; background: #d4d4d8"></span><sc-if value="{{w.showProj}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: 0; bottom: 0; left: {{w.used}}%; width: {{w.projW}}%; background: {{w.projColor}}"></span></sc-if><sc-if value="{{w.showCap}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: -3px; bottom: -3px; right: -4px; width: 2px; background: {{w.markColor}}"></span></sc-if></span></sc-if><span style="color: {{w.fill}}">{{w.used}}%</span><span aria-hidden="true" style="color: {{w.markColor}}; font-weight: {{w.weight}}">{{w.mark}}</span><sc-if value="{{w.srText}}" hint-placeholder-val="{{ true }}"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">{{w.sr}}</span></sc-if></span>
+<span title="{{w.title}}" style="display: inline-flex; align-items: center; gap: 5px; margin-right: {{w.after}}">{{w.label}}<sc-if value="{{w.showMeter}}" hint-placeholder-val="{{ false }}"><span role="meter" aria-label="{{w.label}} quota used" aria-valuenow="{{w.used}}" aria-valuemin="0" aria-valuemax="100" aria-valuetext="{{w.sr}}" style="position: relative; display: inline-block; flex: none; width: 32px; height: 4px; margin: 0 4px 0 1px; background: #262626"><span style="position: absolute; inset: 0 auto 0 0; width: {{w.used}}%; background: #d4d4d8"></span><sc-if value="{{w.showProj}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: 0; bottom: 0; left: {{w.used}}%; width: {{w.projW}}%; background: {{w.projColor}}"></span></sc-if><sc-if value="{{w.showCap}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; top: -3px; bottom: -3px; right: -4px; width: 2px; background: {{w.markColor}}"></span></sc-if></span></sc-if><span style="color: {{w.fill}}">{{w.used}}%</span><sc-if value="{{w.showMark}}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="color: {{w.markColor}}; font-weight: {{w.weight}}">{{w.mark}}</span></sc-if><sc-if value="{{w.showFc}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true"><span style="color: {{w.leadColor}}">{{w.lead}}</span> <span style="color: {{w.fcColor}}; font-weight: {{w.weight}}">{{w.fc}}%<sc-if value="{{w.showIcon}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 1px; vertical-align: -1px"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path></svg></sc-if></span></span></sc-if><sc-if value="{{w.srText}}" hint-placeholder-val="{{ true }}"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">{{w.sr}}</span></sc-if></span>
 </sc-for>
 <span aria-hidden="true" style="color: #3f3f46">|</span>
 <span>{{version}}</span>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["current","a","b","c"],"default":"current"},"engine":{"editor":"enum","options":["claude","codex"],"default":"claude"},"phone":{"editor":"boolean","default":false},"$preview":{"width":760,"height":40}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["current","a","b","c","d","e"],"default":"current"},"engine":{"editor":"enum","options":["claude","codex"],"default":"claude"},"phone":{"editor":"boolean","default":false},"$preview":{"width":760,"height":40}}'>
 class Component extends DCLogic {
   renderVals() {
     const v = this.props.variant ?? 'current';
@@ -40,6 +40,7 @@ class Component extends DCLogic {
         label: name, used,
         fill: used >= 95 ? '#f87171' : used >= 80 ? '#fbbf24' : '#d4d4d8',
         showMeter: false, showProj: false, showCap: false, projW: 0, projColor: '',
+        showMark: true, showFc: false, showIcon: false, fc: '', fcColor: '', lead: '', leadColor: '', after: '0px',
         markColor: tone[st], weight: st === 'danger' ? 700 : 400, srText: true,
         title: f === null ? `Forecast starts ${wait} into the window` : `${label[st]}: projected ${f}% at window end`,
         sr: `${name} ${used}% used, ` + (f === null ? 'too early to forecast' : `${label[st]}, projected ${f}% at window end`) + (v === 'c' && over ? `, runs out in ${out}` : '') + `, resets in ${reset}`
@@ -60,6 +61,16 @@ class Component extends DCLogic {
         w.mark = f === null ? '→ --' : st === 'on' ? `→ ${f}%` : `▲ ${f}%`;
       } else if (v === 'b') {
         w.mark = f === null ? '' : st === 'on' ? '✓' : `▲ ${f}%`;
+      } else if (v === 'd' || v === 'e') {
+        w.showMark = false;
+        w.showFc = f !== null;
+        w.fc = f;
+        w.fcColor = { none: '', on: '#8b8b94', warn: '#fbbf24', danger: '#f87171' }[st];
+        w.lead = v === 'd' ? '→' : '· end';
+        w.leadColor = v === 'd' ? w.fcColor : '#8b8b94';
+        w.showIcon = v === 'e' && over;
+        w.sr = `${name}: ${used}% used, ` + (f === null ? 'too early to forecast' : `projected ${f}% at window end` + (over ? `, ${label[st].toLowerCase()}` : '')) + `, resets in ${reset}`;
+        if (f !== null) w.title = w.sr;
       } else {
         w.mark = f === null ? '' : over ? `▲ out ${out}` : '✓';
         if (over) w.title = `${label[st]}: runs out in ${out} at this pace (projected ${f}%), resets in ${reset}`;
@@ -70,6 +81,8 @@ class Component extends DCLogic {
     const s = (this.props.engine ?? 'claude') === 'codex'
       ? { engine: 'codex', engineTitle: 'Codex', model: 'gpt-5-codex', effort: 'high', ctx: 19, tokens: '51.2k', wins: [win('5h', 71, 0.4, '3h0m', '49m'), win('7d', 2, 0.03, '6d19h', null)], version: 'v0.60.0' }
       : { engine: 'claude', engineTitle: 'Claude Code', model: 'Sonnet 5.5', effort: 'medium', ctx: 42, tokens: '84.3k', wins: [win('5h', 38, 0.5, '2h30m', null), win('7d', 62, 0.52, '3d8h', '2d5h')], version: 'v2.4.0' };
+    // D/E: usage and forecast read as one group per window, so windows need a wider gap between them.
+    if (v === 'd' || v === 'e') s.wins[0].after = '10px';
     return { ...s, size: phone ? '11px' : '11.5px', gap: phone ? '6px' : '8px' };
   }
 }

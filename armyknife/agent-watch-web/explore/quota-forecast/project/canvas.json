@@ -18,7 +18,13 @@
     "quota-forecast-c-phone.dc.html": { "title": "C · phone", "x": 1080, "y": 3660, "w": 390, "h": 844 },
     "quota-forecast-c-drawer.dc.html": { "title": "C · phone drawer", "x": 1550, "y": 3660, "w": 390, "h": 844 },
     "ForecastQuota.dc.html": { "title": "Part · sidebar quota", "x": 0, "y": 4880, "w": 224, "h": 150 },
-    "ForecastUsage.dc.html": { "title": "Part · usage row", "x": 304, "y": 4880, "w": 760, "h": 40 }
+    "ForecastUsage.dc.html": { "title": "Part · usage row", "x": 304, "y": 4880, "w": 760, "h": 40 },
+    "quota-forecast-d.dc.html": { "title": "D · desktop", "x": 0, "y": 5410, "w": 1000, "h": 340 },
+    "quota-forecast-d-phone.dc.html": { "title": "D · phone", "x": 1080, "y": 5410, "w": 390, "h": 844 },
+    "quota-forecast-d-drawer.dc.html": { "title": "D · phone drawer", "x": 1550, "y": 5410, "w": 390, "h": 844 },
+    "quota-forecast-e.dc.html": { "title": "E · desktop", "x": 0, "y": 6630, "w": 1000, "h": 340 },
+    "quota-forecast-e-phone.dc.html": { "title": "E · phone", "x": 1080, "y": 6630, "w": 390, "h": 844 },
+    "quota-forecast-e-drawer.dc.html": { "title": "E · phone drawer", "x": 1550, "y": 6630, "w": 390, "h": 844 }
   },
   "order": [
     "quota-forecast-current.dc.html",
@@ -34,7 +40,13 @@
     "quota-forecast-c-phone.dc.html",
     "quota-forecast-c-drawer.dc.html",
     "ForecastQuota.dc.html",
-    "ForecastUsage.dc.html"
+    "ForecastUsage.dc.html",
+    "quota-forecast-d.dc.html",
+    "quota-forecast-d-phone.dc.html",
+    "quota-forecast-d-drawer.dc.html",
+    "quota-forecast-e.dc.html",
+    "quota-forecast-e-phone.dc.html",
+    "quota-forecast-e-drawer.dc.html"
   ],
   "notes": {
     "current": { "kind": "title1", "maxW": 2400, "x": 0, "y": -240, "text": "Current (v0.1.764) · ✓ ⚠ 🔥 と着地予測の % を、リセットまでの時間の前に出す" },
@@ -46,7 +58,11 @@
     "bNote": { "fill": "blue", "w": 480, "x": 2020, "y": 2440, "text": "B\n- 棒と縦線は決めたときのまま (X)\n- 100% 未満は ✓ だけ。予測の % は hover と読み上げで出す\n- 100% 以上 150% 未満は ▲ 119% (黄)、150% 以上は ▲ 178% (赤、太字)\n- 経過 5% 未満は記号を出さない。縦線も出さない\n\n良い点: 問題がないときは静か。今の見た目からの変更が一番小さい\n悪い点: 100% 未満の予測はスマホでは見られない。黄と赤の違いは数字と太さだけ" },
     "c": { "kind": "title1", "maxW": 2400, "x": 0, "y": 3420, "text": "C · 予測の % の代わりに、使い切るまでの時間を出す" },
     "cNote": { "fill": "blue", "w": 480, "x": 2020, "y": 3660, "text": "C\n- 100% を超えるときは、リセットまでの時間の代わりに ▲ out 49m (このペースで使い切るまで) を出す\n- 100% 未満は今までどおり ✓ とリセットまでの時間\n- 黄と赤のしきい値は予測の % のまま\n- 経過 5% 未満は記号を出さない\n\n良い点: 「あとどれだけ使えるか」が時間で分かり、リセットまでの時間と比べやすい\n悪い点: status line の % と違う数字になる。使い切るときは、リセットまでの時間が hover と読み上げでしか見えない" },
-    "parts": { "kind": "title1", "maxW": 2400, "x": 0, "y": 4640, "text": "Parts · variant を切り替えると上の 4 案になる" }
+    "parts": { "kind": "title1", "maxW": 2400, "x": 0, "y": 4640, "text": "Parts · variant を切り替えると各案になる" },
+    "d": { "kind": "title1", "maxW": 2400, "x": 0, "y": 5170, "text": "D · 今の使用率 → 窓の終わりの予測。62% → 119%" },
+    "dNote": { "fill": "blue", "w": 480, "x": 2020, "y": 5410, "text": "D\n- 使用状況の行は 7d 62% → 119% の形。矢印は「今 → 窓の終わり」を表し、予測の数字の側に付く。ほかの記号は使わない\n- 矢印と予測の数字は同じ色: 100% 未満は薄い灰色、100% 以上 150% 未満は黄、150% 以上は赤の太字\n- 5h と 7d の間は、使用率と予測の間より広く空け、窓ごとのまとまりに見せる\n- サイドバーの棒と縦線は X のまま。予測は棒の右に → 119% 3d8h と文字で出す\n- 経過 5% 未満は矢印も予測も出さない\n- hover と読み上げ: 7d: 62% used, projected 119% at window end\n\n指摘への対応: 棒を足さない / C の時間表示なし / 記号は予測の数字の前に付けて使用率と離す / 三角をやめ、増減ではなく「この先こうなる」と読める矢印にする\n\n良い点: 一番短い。100% 未満の予測もスマホで見える\n悪い点: 100% 以上でも警告の形は出ず、目立たせるのは色と太字と数字そのものだけ" },
+    "e": { "kind": "title1", "maxW": 2400, "x": 0, "y": 6390, "text": "E · 予測にラベルを付ける。62% · end 119% と、100% 以上で警告アイコン" },
+    "eNote": { "fill": "blue", "w": 480, "x": 2020, "y": 6630, "text": "E\n- 使用状況の行は 7d 62% · end 119% の形。サイドバーは棒の右に end 119% 3d8h\n- ラベルは end にした。proj. は略語で意味を知っている人にしか読めない。end は hover の at window end やリセットまでの時間と同じ「窓の終わり」を指し、3 文字で短い\n- 100% 以上は数字の直後に警告アイコン (三角の中に !) を詰めて付ける。100% 以上 150% 未満は黄、150% 以上は赤の太字\n- 100% 未満は end 76% を薄い灰色で出し、アイコンは付けない\n- 経過 5% 未満はラベルも予測も出さない\n- hover と読み上げ: 7d: 62% used, projected 119% at window end\n\n指摘への対応: 棒を足さない / C の時間表示なし / アイコンは数字の後ろに付け、使用率から離す / 裸の三角ではなく ! 入りの警告アイコンにし、増減と読めないようにする\n\n良い点: 何の数字かが文字で分かる。超えるときだけアイコンが出て、色を見なくても気づける\n悪い点: D より 5 文字ほど長い。スマホでは行が折り返しやすい" }
   },
   "designSystems": [
     { "title": "agent watch", "namespace": "agentwatch", "artifact": "armyknife/agent-watch-web/design-system", "version": null, "copiedAt": "2026-11-17T03:00:36Z" }

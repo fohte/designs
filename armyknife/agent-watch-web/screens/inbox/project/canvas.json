@@ -152,6 +152,142 @@
       "h": 60,
       "title": "StatusBand",
       "page": "components"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 0,
+      "y": 3900,
+      "w": 1440,
+      "h": 1500,
+      "title": "Before · 仕様のまとめ",
+      "page": "screens"
+    },
+    "before/BeforeInbox.dc.html": {
+      "x": 0,
+      "y": 5520,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Inbox と会話",
+      "page": "screens"
+    },
+    "before/BeforePhoneDrawer.dc.html": {
+      "x": 1990,
+      "y": 5520,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · ナビゲーション",
+      "page": "screens"
+    },
+    "before/BeforeLater.dc.html": {
+      "x": 2460,
+      "y": 5520,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Later メニュー (L)",
+      "page": "screens"
+    },
+    "before/BeforeInboxFilter.dc.html": {
+      "x": 3980,
+      "y": 5520,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Inbox の絞り込み (/)",
+      "page": "screens"
+    },
+    "before/BeforeInboxFiltered.dc.html": {
+      "x": 5500,
+      "y": 5520,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 絞り込んだ状態と Save view",
+      "page": "screens"
+    },
+    "before/BeforeTaskLinks.dc.html": {
+      "x": 7020,
+      "y": 5520,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 1 つのセッションに tq タスクが複数",
+      "page": "screens"
+    },
+    "before/BeforeNewSession.dc.html": {
+      "x": 0,
+      "y": 6540,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 新しいセッション",
+      "page": "screens"
+    },
+    "before/BeforeNewSessionPicker.dc.html": {
+      "x": 1520,
+      "y": 6540,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 新しいセッション · ディレクトリを選ぶ",
+      "page": "screens"
+    },
+    "before/BeforePhoneInbox.dc.html": {
+      "x": 1520,
+      "y": 5520,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · Inbox",
+      "page": "screens"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 0,
+      "y": 1260,
+      "w": 240,
+      "h": 900,
+      "title": "Before · Nav",
+      "page": "components"
+    },
+    "before/BeforeInboxList.dc.html": {
+      "x": 320,
+      "y": 1260,
+      "w": 460,
+      "h": 900,
+      "title": "Before · InboxList",
+      "page": "components"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 860,
+      "y": 1260,
+      "w": 880,
+      "h": 900,
+      "title": "Before · Conversation",
+      "page": "components"
+    },
+    "before/BeforeSessionRow.dc.html": {
+      "x": 1820,
+      "y": 1260,
+      "w": 460,
+      "h": 76,
+      "title": "Before · SessionRow",
+      "page": "components"
+    },
+    "before/BeforeQuota.dc.html": {
+      "x": 1820,
+      "y": 1460,
+      "w": 240,
+      "h": 140,
+      "title": "Before · Quota",
+      "page": "components"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 1820,
+      "y": 1720,
+      "w": 672,
+      "h": 40,
+      "title": "Before · SessionUsage",
+      "page": "components"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 1820,
+      "y": 1880,
+      "w": 760,
+      "h": 60,
+      "title": "Before · StatusBand",
+      "page": "components"
     }
   },
   "order": [
@@ -173,7 +309,24 @@
     "SessionRow.dc.html",
     "Quota.dc.html",
     "SessionUsage.dc.html",
-    "StatusBand.dc.html"
+    "StatusBand.dc.html",
+    "before/BeforeMain.dc.html",
+    "before/BeforeInbox.dc.html",
+    "before/BeforePhoneDrawer.dc.html",
+    "before/BeforeLater.dc.html",
+    "before/BeforeInboxFilter.dc.html",
+    "before/BeforeInboxFiltered.dc.html",
+    "before/BeforeTaskLinks.dc.html",
+    "before/BeforeNewSession.dc.html",
+    "before/BeforeNewSessionPicker.dc.html",
+    "before/BeforePhoneInbox.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeInboxList.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforeSessionRow.dc.html",
+    "before/BeforeQuota.dc.html",
+    "before/BeforeSessionUsage.dc.html",
+    "before/BeforeStatusBand.dc.html"
   ],
   "pages": [
     {
@@ -185,7 +338,40 @@
       "name": "部品"
     }
   ],
-  "notes": {},
+  "notes": {
+    "beforeTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3660,
+      "maxW": 8460,
+      "page": "screens",
+      "text": "変更前 (origin/main)"
+    },
+    "diff": {
+      "x": 8540,
+      "y": 3900,
+      "w": 440,
+      "page": "screens",
+      "fill": "orange",
+      "text": "変更点\n- 仕様のまとめ: ナビの quota と使用状況の行の説明を予測の出し方に合わせた\n- ナビの一番下の quota: 棒の右の ▲ / ✓ をやめ、このペースで窓の終わりに何 % になるかを → 92% の形で出した。その右がリセットまでの時間\n- 矢印と予測の数字は同じ色: 100% 未満は灰、100% 以上 150% 未満は黄 (codex 5h の → 138%)、150% 以上は赤の太字。ほかの記号は付けない\n- 予測とリセットまでの時間は列の幅を決め、行ごとに位置がずれないようにした\n- 窓の経過が 5% 未満では矢印も予測も出さない\n- hover と読み上げ: 5h: 88% used, projected 138% at window end, at or above quota pace, resets in 47m\n- 棒と細い縦線はそのまま\n- 返信欄の下の使用状況の行: ▲ / ✓ をやめ、5h 41% → 79%  7d 76% → 92% の形にした。色の決め方はナビと同じ\n- 5h と 7d の間を、使用率と予測の間より広く空け、窓ごとのまとまりに見せた\n- hover と読み上げに、予測とリセットまでの時間の文を出す"
+    },
+    "beforeTitleParts": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 2580,
+      "page": "components",
+      "text": "変更前 (origin/main)"
+    },
+    "diffParts": {
+      "x": 2660,
+      "y": 1260,
+      "w": 440,
+      "page": "components",
+      "fill": "orange",
+      "text": "変更点 (部品)\n- Quota と SessionUsage を、画面のページの変更点のとおりに変えた。Nav と Conversation はそれを読み込んでいるだけで、ほかは変わらない"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,

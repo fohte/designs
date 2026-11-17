@@ -44,7 +44,7 @@ class Component extends DCLogic {
         { title: 'ナビ', items: [
           'Inbox と Board の切り替え、保存した絞り込み (VIEWS)、Starred、Recent、PM のセッションを並べます。',
           '⌘K でパレットを開き、ボタンで Inbox をたたみます。',
-          '一番下に claude と codex の quota (5h と 7d) を常に出します。棒の細い縦線は均等に使ったときの量で、それより使っていれば ▲ (黄)、下回っていれば ✓ (灰) です。'
+          '一番下に claude と codex の quota (5h と 7d) を常に出します。棒の細い縦線は均等に使ったときの量です。棒の右に、このペースで窓の終わりに何 % になるかを → 92% の形で出します。100% 未満は灰、100% 以上 150% 未満は黄、150% 以上は赤の太字で、窓の経過が 5% 未満のうちは出しません。その右はリセットまでの時間です。'
         ] },
         { title: 'Inbox', items: [
           'Needs action を tq の優先度順に並べ、未読は太字で示します。',
@@ -60,7 +60,7 @@ class Component extends DCLogic {
           'ヘッダーに tq タスク、repo、親セッション、PR と Merge、ターミナルで開くボタンを置きます。',
           '返信欄の上に、会話欄の幅いっぱいの帯で今の状態を出します。1 行目が状態、2 行目が詳細 (質問の文、実行中のコマンド、タスク名) です。crit のレビュー待ちでは Review in crit で crit を全画面で開きます。止まっているときは帯を出しません。',
           '↵ で送り、Esc で止め、⌥↑ / ⌥↓ で自分のメッセージをたどります。',
-          '返信欄の下に status line と同じ並びで engine、model (effort)、context、5h / 7d の quota、バージョンを出します。表示だけで、押しても何も起きません。iPhone では折り返します。'
+          '返信欄の下に status line と同じ並びで engine、model (effort)、context、5h / 7d の quota (7d 76% → 92% の形で、今の使用率と窓の終わりの予測。色はナビと同じ)、バージョンを出します。表示だけで、押しても何も起きません。iPhone では折り返します。'
         ] },
         { title: '返事を待つカード', items: [
           'Question、Permission、Proposal、To-do の 4 種類です。返事を待っている間は黄色の枠で囲みます。',

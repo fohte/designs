@@ -17,7 +17,7 @@ body{margin:0}
 <sc-for list="{{engines}}" as="e" hint-placeholder-count="2">
 <div style="display: grid; gap: 3px"><span title="{{e.title}}" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #d4d4d8">{{e.name}}</span>
 <sc-for list="{{e.rows}}" as="r" hint-placeholder-count="2">
-<div style="display: grid; grid-template-columns: 18px minmax(0, 1fr) 30px auto; align-items: center; gap: 6px; font-size: 11px; color: #8b8b94"><span style="font-family: 'JetBrains Mono', monospace">{{r.window}}</span><span role="meter" aria-label="{{e.name}} {{r.window}} quota used" aria-valuenow="{{r.used}}" aria-valuemin="0" aria-valuemax="100" style="position: relative; display: inline-block; width: 100%; height: 4px; background: #262626"><span style="position: absolute; inset: 0 auto 0 0; width: {{r.used}}%; background: {{r.fill}}"></span><span style="position: absolute; top: -2px; bottom: -2px; left: {{r.pace}}%; width: 1px; background: #a1a1aa"></span></span><span style="font-family: 'JetBrains Mono', monospace; color: {{r.color}}">{{r.used}}%</span><span style="font-family: 'JetBrains Mono', monospace; white-space: nowrap"><span title="{{r.paceTitle}}" style="color: {{r.markColor}}">{{r.mark}}</span> {{r.reset}}</span></div>
+<div title="{{r.text}}" style="display: grid; grid-template-columns: 18px minmax(0, 1fr) 4ch 6ch 5ch; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94"><span>{{r.window}}</span><span role="meter" aria-label="{{e.name}} {{r.window}} quota used" aria-valuenow="{{r.used}}" aria-valuemin="0" aria-valuemax="100" aria-valuetext="{{r.text}}" style="position: relative; display: inline-block; width: 100%; height: 4px; background: #262626"><span style="position: absolute; inset: 0 auto 0 0; width: {{r.used}}%; background: {{r.color}}"></span><sc-if value="{{r.showFc}}" hint-placeholder-val="{{ true }}"><span style="position: absolute; top: -2px; bottom: -2px; left: {{r.pace}}%; width: 1px; background: #a1a1aa"></span></sc-if></span><span style="text-align: right; color: {{r.color}}">{{r.used}}%</span><span aria-hidden="true" style="white-space: nowrap; overflow: hidden; color: {{r.fcColor}}; font-weight: {{r.weight}}"><sc-if value="{{r.showFc}}" hint-placeholder-val="{{ true }}">→ {{r.fc}}%</sc-if></span><span style="text-align: right; white-space: nowrap">{{r.reset}}</span></div>
 </sc-for>
 </div>
 </sc-for>
@@ -26,15 +26,18 @@ body{margin:0}
 <script type="text/x-dc" data-dc-script data-props='{"phone":{"editor":"boolean","default":false},"$preview":{"width":240,"height":140}}'>
 class Component extends DCLogic {
   renderVals() {
+    // pace = elapsed share of the window in %; the forecast is used / elapsed, hidden under 5% elapsed.
     const row = (window, used, pace, reset) => {
+      const fc = pace < 5 ? null : Math.round(used * 100 / pace);
+      const st = fc === null ? null : fc < 100 ? 'on' : fc < 150 ? 'warn' : 'danger';
       const color = used >= 95 ? '#f87171' : used >= 80 ? '#fbbf24' : '#d4d4d8';
-      const ahead = used > pace;
+      const over = { warn: ', at or above quota pace', danger: ', well above quota pace' }[st] ?? '';
       return {
-        window, used, pace, reset, color,
-        fill: color,
-        mark: ahead ? '▲' : '✓',
-        markColor: ahead ? '#fbbf24' : '#71717a',
-        paceTitle: `${ahead ? 'Ahead of pace' : 'On pace'}: ${pace}% expected by now`
+        window, used, pace, reset, color, fc,
+        showFc: fc !== null,
+        fcColor: { on: '#8b8b94', warn: '#fbbf24', danger: '#f87171' }[st] ?? '#8b8b94',
+        weight: st === 'danger' ? 700 : 400,
+        text: `${window}: ${used}% used, ` + (fc === null ? 'too early to forecast' : `projected ${fc}% at window end${over}`) + `, resets in ${reset}`
       };
     };
     return {

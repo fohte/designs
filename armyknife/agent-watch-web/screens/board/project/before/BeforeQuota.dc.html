@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Quota</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-label="Quota" style="width: 100%; box-sizing: border-box; display: grid; gap: 8px; padding: 10px {{inset}} 12px; border-top: 1px solid #2a2a2a; background: #0f0f0f; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; line-height: 1.55">
+<sc-for list="{{engines}}" as="e" hint-placeholder-count="2">
+<div style="display: grid; gap: 3px"><span title="{{e.title}}" style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #d4d4d8">{{e.name}}</span>
+<sc-for list="{{e.rows}}" as="r" hint-placeholder-count="2">
+<div style="display: grid; grid-template-columns: 18px minmax(0, 1fr) 30px auto; align-items: center; gap: 6px; font-size: 11px; color: #8b8b94"><span style="font-family: 'JetBrains Mono', monospace">{{r.window}}</span><span role="meter" aria-label="{{e.name}} {{r.window}} quota used" aria-valuenow="{{r.used}}" aria-valuemin="0" aria-valuemax="100" style="position: relative; display: inline-block; width: 100%; height: 4px; background: #262626"><span style="position: absolute; inset: 0 auto 0 0; width: {{r.used}}%; background: {{r.fill}}"></span><span style="position: absolute; top: -2px; bottom: -2px; left: {{r.pace}}%; width: 1px; background: #a1a1aa"></span></span><span style="font-family: 'JetBrains Mono', monospace; color: {{r.color}}">{{r.used}}%</span><span style="font-family: 'JetBrains Mono', monospace; white-space: nowrap"><span title="{{r.paceTitle}}" style="color: {{r.markColor}}">{{r.mark}}</span> {{r.reset}}</span></div>
+</sc-for>
+</div>
+</sc-for>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"phone":{"editor":"boolean","default":false},"$preview":{"width":240,"height":140}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const row = (window, used, pace, reset) => {
+      const color = used >= 95 ? '#f87171' : used >= 80 ? '#fbbf24' : '#d4d4d8';
+      const ahead = used > pace;
+      return {
+        window, used, pace, reset, color,
+        fill: color,
+        mark: ahead ? '▲' : '✓',
+        markColor: ahead ? '#fbbf24' : '#71717a',
+        paceTitle: `${ahead ? 'Ahead of pace' : 'On pace'}: ${pace}% expected by now`
+      };
+    };
+    return {
+      inset: this.props.phone ? '4px' : '8px',
+      engines: [
+        { name: 'claude', title: 'Claude Code', rows: [row('5h', 41, 52, '2h10m'), row('7d', 76, 83, '1d14h')] },
+        { name: 'codex', title: 'Codex', rows: [row('5h', 88, 64, '47m'), row('7d', 35, 40, '4d2h')] }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

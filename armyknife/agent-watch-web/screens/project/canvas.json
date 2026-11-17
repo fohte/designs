@@ -1,0 +1,395 @@
+{
+  "title": "agent watch UI",
+  "boards": {
+    "Main.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 1500,
+      "title": "仕様のまとめ",
+      "page": "inbox"
+    },
+    "Inbox.dc.html": {
+      "x": 0,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox と会話",
+      "page": "inbox"
+    },
+    "Later.dc.html": {
+      "x": 2460,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Later メニュー (L)",
+      "page": "inbox"
+    },
+    "InboxFilter.dc.html": {
+      "x": 3980,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox の絞り込み (/)",
+      "page": "inbox"
+    },
+    "InboxFiltered.dc.html": {
+      "x": 5500,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "絞り込んだ状態と Save view",
+      "page": "inbox"
+    },
+    "TaskLinks.dc.html": {
+      "x": 7020,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "1 つのセッションに tq タスクが複数",
+      "page": "inbox"
+    },
+    "PhoneInbox.dc.html": {
+      "x": 1520,
+      "y": 1620,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Inbox",
+      "page": "inbox"
+    },
+    "PhoneDrawer.dc.html": {
+      "x": 1990,
+      "y": 1620,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーション",
+      "page": "inbox"
+    },
+    "NewSession.dc.html": {
+      "x": 0,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション",
+      "page": "inbox"
+    },
+    "NewSessionPicker.dc.html": {
+      "x": 1520,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション · ディレクトリを選ぶ",
+      "page": "inbox"
+    },
+    "PhoneNewSession.dc.html": {
+      "x": 3040,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 新しいセッション",
+      "page": "inbox"
+    },
+    "PhoneNewSessionPicker.dc.html": {
+      "x": 3510,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ディレクトリを選ぶ",
+      "page": "inbox"
+    },
+    "Nav.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 900,
+      "title": "Nav",
+      "page": "components"
+    },
+    "InboxList.dc.html": {
+      "x": 320,
+      "y": 0,
+      "w": 460,
+      "h": 900,
+      "title": "InboxList",
+      "page": "components"
+    },
+    "Conversation.dc.html": {
+      "x": 860,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "components"
+    },
+    "SessionRow.dc.html": {
+      "x": 1820,
+      "y": 0,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "components"
+    },
+    "Quota.dc.html": {
+      "x": 1820,
+      "y": 200,
+      "w": 240,
+      "h": 140,
+      "title": "Quota",
+      "page": "components"
+    },
+    "SessionUsage.dc.html": {
+      "x": 1820,
+      "y": 460,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "components"
+    },
+    "StatusBand.dc.html": {
+      "x": 1820,
+      "y": 620,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "components"
+    },
+    "Board.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Board",
+      "page": "board"
+    },
+    "Palette.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "⌘K · 開いた直後",
+      "page": "palette"
+    },
+    "PaletteQuery.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "⌘K · # で tq タスクに絞る",
+      "page": "palette"
+    },
+    "PaletteNewSession.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "コマンドパレット · 新しいセッション",
+      "page": "palette"
+    },
+    "PhonePaletteNewSession.dc.html": {
+      "x": 4560,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · コマンドパレット · 新しいセッション",
+      "page": "palette"
+    },
+    "StatusRunning.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Running",
+      "page": "status-panel"
+    },
+    "StatusTree.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Tree",
+      "page": "status-panel"
+    },
+    "StatusDecisions.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Decisions",
+      "page": "status-panel"
+    },
+    "StatusReview.dc.html": {
+      "x": 4560,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Review",
+      "page": "status-panel"
+    },
+    "StatusWebUi.dc.html": {
+      "x": 6080,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Web UI (crit)",
+      "page": "status-panel"
+    },
+    "StatusTasks.dc.html": {
+      "x": 7600,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Tasks",
+      "page": "status-panel"
+    },
+    "StatusPanel.dc.html": {
+      "x": 2660,
+      "y": 0,
+      "w": 640,
+      "h": 900,
+      "title": "StatusPanel",
+      "page": "components"
+    },
+    "MessageKinds.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 2300,
+      "title": "会話に出るメッセージ",
+      "page": "conversation"
+    },
+    "Cards.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 3200,
+      "title": "返答を待つカード",
+      "page": "conversation"
+    },
+    "Dialogs.dc.html": {
+      "x": 3980,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "確認ダイアログ",
+      "page": "conversation"
+    },
+    "PhoneChat.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 会話から答える",
+      "page": "conversation"
+    },
+    "PhoneChatMenu.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · セッションの操作メニュー",
+      "page": "conversation"
+    },
+    "PhoneChatReview.dc.html": {
+      "x": 3040,
+      "y": 964,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · crit のレビュー待ち",
+      "page": "conversation"
+    },
+    "StatusBandStates.dc.html": {
+      "x": 5500,
+      "y": 0,
+      "w": 1290,
+      "h": 1690,
+      "title": "返信欄の上の帯 · 状態ごと",
+      "page": "conversation"
+    }
+  },
+  "order": [
+    "Main.dc.html",
+    "Inbox.dc.html",
+    "PhoneInbox.dc.html",
+    "PhoneDrawer.dc.html",
+    "Later.dc.html",
+    "InboxFilter.dc.html",
+    "InboxFiltered.dc.html",
+    "TaskLinks.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "Conversation.dc.html",
+    "NewSession.dc.html",
+    "NewSessionPicker.dc.html",
+    "PhoneNewSession.dc.html",
+    "PhoneNewSessionPicker.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html",
+    "Board.dc.html",
+    "Palette.dc.html",
+    "PaletteQuery.dc.html",
+    "PaletteNewSession.dc.html",
+    "PhonePaletteNewSession.dc.html",
+    "StatusRunning.dc.html",
+    "StatusTree.dc.html",
+    "StatusDecisions.dc.html",
+    "StatusReview.dc.html",
+    "StatusWebUi.dc.html",
+    "StatusTasks.dc.html",
+    "StatusPanel.dc.html",
+    "MessageKinds.dc.html",
+    "Cards.dc.html",
+    "PhoneChat.dc.html",
+    "PhoneChatMenu.dc.html",
+    "Dialogs.dc.html",
+    "PhoneChatReview.dc.html",
+    "StatusBandStates.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "inbox",
+      "name": "Inbox"
+    },
+    {
+      "id": "board",
+      "name": "Board"
+    },
+    {
+      "id": "palette",
+      "name": "Palette"
+    },
+    {
+      "id": "status-panel",
+      "name": "Status panel"
+    },
+    {
+      "id": "conversation",
+      "name": "Conversation"
+    },
+    {
+      "id": "components",
+      "name": "部品"
+    }
+  ],
+  "notes": {},
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-13T11:42:55Z"
+  },
+  "launch": {
+    "view": "canvas",
+    "page": "inbox"
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-15T10:37:15Z"
+    }
+  ],
+  "noteOrder": null
+}

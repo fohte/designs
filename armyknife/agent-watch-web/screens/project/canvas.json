@@ -301,9 +301,217 @@
       "x": 5500,
       "y": 0,
       "w": 1290,
-      "h": 1690,
+      "h": 1600,
       "title": "返信欄の上の帯 · 状態ごと",
       "page": "conversation"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": -1520,
+      "y": 0,
+      "w": 1440,
+      "h": 1500,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
+    },
+    "before/BeforeLater.dc.html": {
+      "x": 2460,
+      "y": 600,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Later メニュー (L)",
+      "page": "inbox"
+    },
+    "before/BeforeInboxFilter.dc.html": {
+      "x": 3980,
+      "y": 600,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Inbox の絞り込み (/)",
+      "page": "inbox"
+    },
+    "before/BeforeInboxFiltered.dc.html": {
+      "x": 5500,
+      "y": 600,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 絞り込んだ状態と Save view",
+      "page": "inbox"
+    },
+    "before/BeforeTaskLinks.dc.html": {
+      "x": 7020,
+      "y": 600,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 1 つのセッションに tq タスクが複数",
+      "page": "inbox"
+    },
+    "before/BeforePalette.dc.html": {
+      "x": 0,
+      "y": 1020,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · ⌘K · 開いた直後",
+      "page": "palette"
+    },
+    "before/BeforePaletteQuery.dc.html": {
+      "x": 1520,
+      "y": 1020,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · ⌘K · # で tq タスクに絞る",
+      "page": "palette"
+    },
+    "before/BeforePaletteNewSession.dc.html": {
+      "x": 3040,
+      "y": 1020,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コマンドパレット · 新しいセッション",
+      "page": "palette"
+    },
+    "before/BeforeStatusRunning.dc.html": {
+      "x": 0,
+      "y": 1020,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Running",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusTree.dc.html": {
+      "x": 1520,
+      "y": 1020,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tree",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusDecisions.dc.html": {
+      "x": 3040,
+      "y": 1020,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Decisions",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusReview.dc.html": {
+      "x": 4560,
+      "y": 1020,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Review",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusWebUi.dc.html": {
+      "x": 6080,
+      "y": 1020,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Web UI (crit)",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusTasks.dc.html": {
+      "x": 7600,
+      "y": 1020,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tasks",
+      "page": "status-panel"
+    },
+    "before/BeforeMessageKinds.dc.html": {
+      "x": -1520,
+      "y": 0,
+      "w": 1440,
+      "h": 2300,
+      "title": "Before · 会話に出るメッセージ",
+      "page": "conversation"
+    },
+    "before/BeforePhoneChat.dc.html": {
+      "x": 3040,
+      "y": 1928,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · 会話から答える",
+      "page": "conversation"
+    },
+    "before/BeforePhoneChatMenu.dc.html": {
+      "x": 3510,
+      "y": 1928,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · セッションの操作メニュー",
+      "page": "conversation"
+    },
+    "before/BeforeStatusBandStates.dc.html": {
+      "x": 5500,
+      "y": 1720,
+      "w": 1290,
+      "h": 1690,
+      "title": "Before · 返信欄の上の帯 · 状態ごと",
+      "page": "conversation"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 0,
+      "y": 1020,
+      "w": 240,
+      "h": 900,
+      "title": "Before · Nav",
+      "page": "components"
+    },
+    "before/BeforeInboxList.dc.html": {
+      "x": 320,
+      "y": 1020,
+      "w": 460,
+      "h": 900,
+      "title": "Before · InboxList",
+      "page": "components"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 860,
+      "y": 1020,
+      "w": 880,
+      "h": 900,
+      "title": "Before · Conversation",
+      "page": "components"
+    },
+    "before/BeforeSessionRow.dc.html": {
+      "x": 1820,
+      "y": 1020,
+      "w": 460,
+      "h": 76,
+      "title": "Before · SessionRow",
+      "page": "components"
+    },
+    "before/BeforeQuota.dc.html": {
+      "x": 1820,
+      "y": 1220,
+      "w": 240,
+      "h": 140,
+      "title": "Before · Quota",
+      "page": "components"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 1820,
+      "y": 1480,
+      "w": 672,
+      "h": 40,
+      "title": "Before · SessionUsage",
+      "page": "components"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 1820,
+      "y": 1640,
+      "w": 760,
+      "h": 60,
+      "title": "Before · StatusBand",
+      "page": "components"
+    },
+    "before/BeforeStatusPanel.dc.html": {
+      "x": 2660,
+      "y": 1020,
+      "w": 640,
+      "h": 900,
+      "title": "Before · StatusPanel",
+      "page": "components"
     }
   },
   "order": [
@@ -344,7 +552,33 @@
     "PhoneChatMenu.dc.html",
     "Dialogs.dc.html",
     "PhoneChatReview.dc.html",
-    "StatusBandStates.dc.html"
+    "StatusBandStates.dc.html",
+    "before/BeforeMain.dc.html",
+    "before/BeforeLater.dc.html",
+    "before/BeforeInboxFilter.dc.html",
+    "before/BeforeInboxFiltered.dc.html",
+    "before/BeforeTaskLinks.dc.html",
+    "before/BeforePalette.dc.html",
+    "before/BeforePaletteQuery.dc.html",
+    "before/BeforePaletteNewSession.dc.html",
+    "before/BeforeStatusRunning.dc.html",
+    "before/BeforeStatusTree.dc.html",
+    "before/BeforeStatusDecisions.dc.html",
+    "before/BeforeStatusReview.dc.html",
+    "before/BeforeStatusWebUi.dc.html",
+    "before/BeforeStatusTasks.dc.html",
+    "before/BeforeMessageKinds.dc.html",
+    "before/BeforePhoneChat.dc.html",
+    "before/BeforePhoneChatMenu.dc.html",
+    "before/BeforeStatusBandStates.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeInboxList.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforeSessionRow.dc.html",
+    "before/BeforeQuota.dc.html",
+    "before/BeforeSessionUsage.dc.html",
+    "before/BeforeStatusBand.dc.html",
+    "before/BeforeStatusPanel.dc.html"
   ],
   "pages": [
     {
@@ -372,7 +606,72 @@
       "name": "部品"
     }
   ],
-  "notes": {},
+  "notes": {
+    "diffMain": {
+      "x": -2000,
+      "y": 0,
+      "w": 400,
+      "page": "inbox",
+      "fill": "orange",
+      "text": "変更点\n- 会話の節の帯の説明を 1 行の帯に合わせて書き直した (… で切る、押すと詳細を全部出す、質問と permission はカードに戻る、crit だけ 2 行)"
+    },
+    "diffInbox": {
+      "x": 8540,
+      "y": 600,
+      "w": 440,
+      "page": "inbox",
+      "fill": "orange",
+      "text": "変更点 (上が変更前、下が変更後)\n- 質問の待ちの帯を 2 行から 1 行にした。「Question · 質問の文 ↑」\n- ラベルを Waiting for your answer から Question にし、黄色にした\n- 行全体がボタンで、↑ は会話の中のカードに戻る印\n- TaskLinks は実行中の帯で、「Working · 18s · コマンド ›」の 1 行\n- 帯が低くなった分、会話が広くなる。ほかは変えていない"
+    },
+    "diffPalette": {
+      "x": 4560,
+      "y": 1020,
+      "w": 440,
+      "page": "palette",
+      "fill": "orange",
+      "text": "変更点 (上が変更後、下が変更前)\n- 後ろの会話の帯が、質問の待ちで 1 行になった (Question · 質問の文 ↑)\n- パレットそのものは変えていない"
+    },
+    "diffStatus": {
+      "x": 9120,
+      "y": 1020,
+      "w": 440,
+      "page": "status-panel",
+      "fill": "orange",
+      "text": "変更点 (上が変更後、下が変更前)\n- 左の会話の帯が 1 行になった。Running は実行中 (Working · 18s · コマンド ›)、ほかは質問の待ち (Question · 質問の文 ↑)\n- 状況パネルは変えていない"
+    },
+    "diffMessageKinds": {
+      "x": -2000,
+      "y": 0,
+      "w": 400,
+      "page": "conversation",
+      "fill": "orange",
+      "text": "変更点 (左が変更前)\n- Working の例の帯を 1 行にした。「Working · 18s · Bash  cargo test -p service ›」\n- ほかのメッセージは変えていない"
+    },
+    "diffPhoneChat": {
+      "x": 3980,
+      "y": 1928,
+      "w": 440,
+      "page": "conversation",
+      "fill": "orange",
+      "text": "変更点 (下が変更前)\n- 会話から答える / 操作メニュー: 質問の待ちの帯を 44px の 1 行にした (今は約 90px)。「Question · 質問の文 ↑」で、押すと質問のカードに戻る\n- crit のレビュー待ち (iPhone · crit のレビュー待ち) は今の 2 行の帯とボタンのままなので、変更前を置いていない"
+    },
+    "diffStatusBandStates": {
+      "x": 6870,
+      "y": 1720,
+      "w": 440,
+      "page": "conversation",
+      "fill": "orange",
+      "text": "変更点 (下が変更前)\n- crit 以外の状態を 1 行の帯にした。デスクトップ 32px、スマホ 44px\n- 状態の文を短くした: Compacting…、Background tasks (2)、Question、Permission\n- 質問と permission は文字も黄色にし、末尾を ↑ (カードに戻る) にした。ほかは › で、押すと詳細を全部出す\n- バックグラウンドタスクのボタンは帯に入れた。押すとタスクを全部出す\n- 押したあとの形として、バックグラウンドタスクとほかの待ちに tapped の行を足した\n- crit のレビュー待ち (バックグラウンドタスクと重なるときも) は今の帯のまま\n- 板を 1690px から 1600px に縮めた"
+    },
+    "diffParts": {
+      "x": 3380,
+      "y": 1020,
+      "w": 440,
+      "page": "components",
+      "fill": "orange",
+      "text": "変更点 (部品、下が変更前)\n- StatusBand: crit 以外を 1 行の帯にした。open で押したあとの形を描く。この板は crit なので見た目は変わらない\n- Conversation: 帯が 1 行になった (question は Question の行)。Conversation のファイル自体は変えていない\n- 下の行のほかの部品は、変更前の板が読み込むための写しで、変わっていない"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,

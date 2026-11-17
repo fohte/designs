@@ -61,9 +61,9 @@ body{margin:0}
 class Component extends DCLogic {
   renderVals() {
     const listOpen = this.props.listOpen ?? true;
-    // CI and state colors: working = running, success = passed, error = failed, muted = merged.
+    // CI and state colors: warning = running (GitHub の CI 実行中と同じ黄), success = passed, error = failed, muted = merged.
     const CI = {
-      running: { dot: '#60a5fa', meta: 'Open · CI running', metaColor: '#60a5fa', color: '#fafafa', word: 'open, CI running' },
+      running: { dot: '#fbbf24', meta: 'Open · CI running', metaColor: '#fbbf24', color: '#fafafa', word: 'open, CI running' },
       passed: { dot: '#4ade80', meta: 'Open · CI passed', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI passed' },
       merged: { dot: '#52525b', meta: '✓ Merged', metaColor: '#8b8b94', color: '#a1a1aa', word: 'merged' }
     };

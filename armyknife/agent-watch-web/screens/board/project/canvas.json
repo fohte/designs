@@ -32,49 +32,13 @@
       "h": 140,
       "title": "Quota",
       "page": "components"
-    },
-    "before/BeforeBoard.dc.html": {
-      "x": 0,
-      "y": 1260,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · Board",
-      "page": "screens"
-    },
-    "before/BeforeNav.dc.html": {
-      "x": 0,
-      "y": 1260,
-      "w": 240,
-      "h": 900,
-      "title": "Before · Nav",
-      "page": "components"
-    },
-    "before/BeforeSessionRow.dc.html": {
-      "x": 640,
-      "y": 1260,
-      "w": 460,
-      "h": 76,
-      "title": "Before · SessionRow",
-      "page": "components"
-    },
-    "before/BeforeQuota.dc.html": {
-      "x": 1180,
-      "y": 1260,
-      "w": 240,
-      "h": 140,
-      "title": "Before · Quota",
-      "page": "components"
     }
   },
   "order": [
     "Board.dc.html",
     "Nav.dc.html",
     "SessionRow.dc.html",
-    "Quota.dc.html",
-    "before/BeforeBoard.dc.html",
-    "before/BeforeNav.dc.html",
-    "before/BeforeSessionRow.dc.html",
-    "before/BeforeQuota.dc.html"
+    "Quota.dc.html"
   ],
   "pages": [
     {
@@ -86,40 +50,7 @@
       "name": "部品"
     }
   ],
-  "notes": {
-    "beforeTitle": {
-      "kind": "title1",
-      "x": 0,
-      "y": 1020,
-      "maxW": 1440,
-      "page": "screens",
-      "text": "変更前 (origin/main)"
-    },
-    "diff": {
-      "x": 1520,
-      "y": 1260,
-      "w": 440,
-      "page": "screens",
-      "fill": "orange",
-      "text": "変更点\n- ナビの一番下の quota: 棒の右の ▲ / ✓ をやめ、このペースで窓の終わりに何 % になるかを → 92% の形で出した。その右がリセットまでの時間\n- 矢印と予測の数字は同じ色: 100% 未満は灰、100% 以上 150% 未満は黄 (codex 5h の → 138%)、150% 以上は赤の太字。ほかの記号は付けない\n- 予測とリセットまでの時間は列の幅を決め、行ごとに位置がずれないようにした\n- 窓の経過が 5% 未満では矢印も予測も出さない\n- hover と読み上げ: 5h: 88% used, projected 138% at window end, at or above quota pace, resets in 47m\n- 棒と細い縦線はそのまま"
-    },
-    "beforeTitleParts": {
-      "kind": "title1",
-      "x": 0,
-      "y": 1020,
-      "maxW": 1420,
-      "page": "components",
-      "text": "変更前 (origin/main)"
-    },
-    "diffParts": {
-      "x": 1500,
-      "y": 1260,
-      "w": 440,
-      "page": "components",
-      "fill": "orange",
-      "text": "変更点 (部品)\n- Quota を、画面のページの変更点のとおりに変えた。Nav はそれを読み込んでいるだけで、ほかは変わらない"
-    }
-  },
+  "notes": {},
   "v": 3,
   "createdOnFiles": {
     "v": 1,

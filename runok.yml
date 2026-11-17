@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/fohte/runok/main/schema/runok.schema.json
+
+rules:
+  # 未 merge の design の branch を merge すると、独立した design PR が stack になる
+  - deny: 'git [-C *] merge *'
+    when: "args.exists(a, a.startsWith('origin/') && a != 'origin/main')"
+    message: 'design の branch には origin/main だけを merge する。未 merge の design が要るなら、その PR の merge を待ってから始める'
+    tests:
+      - deny: 'git merge origin/fohte/vibe-mode'
+      - deny: 'git -C /tmp/.claude/worktrees/foo merge origin/fohte/status-band --no-edit'
+      - deny: 'git merge origin/main origin/fohte/vibe-mode'
+      - deny: 'git merge origin/fohte/vibe-mode origin/main'
+      - deny: "git merge -m 'Merge design' origin/fohte/vibe-mode"
+      - pass: "git merge -m 'Merge main' origin/main"
+      - pass: 'git merge origin/main'
+      - pass: 'git -C /tmp/.claude/worktrees/foo merge origin/main --no-edit'

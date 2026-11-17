@@ -88,6 +88,86 @@
       "h": 60,
       "title": "StatusBand",
       "page": "components"
+    },
+    "before/BeforePalette.dc.html": {
+      "x": 1520,
+      "y": 1140,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · ⌘K · 開いた直後",
+      "page": "screens"
+    },
+    "before/BeforePaletteQuery.dc.html": {
+      "x": 3040,
+      "y": 1140,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · ⌘K · # で tq タスクに絞る",
+      "page": "screens"
+    },
+    "before/BeforePaletteNewSession.dc.html": {
+      "x": 4560,
+      "y": 1140,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コマンドパレット · 新しいセッション",
+      "page": "screens"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 0,
+      "y": 1140,
+      "w": 880,
+      "h": 900,
+      "title": "Before · Conversation",
+      "page": "components"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 960,
+      "y": 1140,
+      "w": 240,
+      "h": 900,
+      "title": "Before · Nav",
+      "page": "components"
+    },
+    "before/BeforeInboxList.dc.html": {
+      "x": 1280,
+      "y": 1140,
+      "w": 460,
+      "h": 900,
+      "title": "Before · InboxList",
+      "page": "components"
+    },
+    "before/BeforeSessionRow.dc.html": {
+      "x": 1820,
+      "y": 1140,
+      "w": 460,
+      "h": 76,
+      "title": "Before · SessionRow",
+      "page": "components"
+    },
+    "before/BeforeQuota.dc.html": {
+      "x": 2360,
+      "y": 1140,
+      "w": 240,
+      "h": 140,
+      "title": "Before · Quota",
+      "page": "components"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 2680,
+      "y": 1140,
+      "w": 672,
+      "h": 40,
+      "title": "Before · SessionUsage",
+      "page": "components"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 3432,
+      "y": 1140,
+      "w": 760,
+      "h": 60,
+      "title": "Before · StatusBand",
+      "page": "components"
     }
   },
   "order": [
@@ -101,7 +181,17 @@
     "SessionRow.dc.html",
     "Quota.dc.html",
     "SessionUsage.dc.html",
-    "StatusBand.dc.html"
+    "StatusBand.dc.html",
+    "before/BeforePalette.dc.html",
+    "before/BeforePaletteQuery.dc.html",
+    "before/BeforePaletteNewSession.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeInboxList.dc.html",
+    "before/BeforeSessionRow.dc.html",
+    "before/BeforeQuota.dc.html",
+    "before/BeforeSessionUsage.dc.html",
+    "before/BeforeStatusBand.dc.html"
   ],
   "pages": [
     {
@@ -113,7 +203,24 @@
       "name": "部品"
     }
   ],
-  "notes": {},
+  "notes": {
+    "diffHeaderPr": {
+      "x": 6080,
+      "y": 1140,
+      "w": 480,
+      "fill": "orange",
+      "page": "screens",
+      "text": "ヘッダーの PR を D にする (Before · が変更前)\n- 「#番号 PR」のリンクを、状態の色、番号、状態と CI のボタンにする。タイトルは出さない\n- ほかの PR は同じボタンの中の +1 (question の会話)。ボタン全体が This branch / Opened elsewhere の一覧を開く\n- ほかの PR がなくても ▾ を出す\n- CI 実行中は黄 (#fbbf24)、CI passed は緑の点\n- Merge の位置と見た目は変えない"
+    },
+    "diffHeaderPrParts": {
+      "x": 4272,
+      "y": 1140,
+      "w": 480,
+      "fill": "orange",
+      "page": "components",
+      "text": "部品 Conversation (Before · が変更前)\n- ヘッダー右上の PR を D のボタンにする (上の画面のメモと同じ)\n- prsOpen で一覧を開いた形を見られる\n- ほかの部品は変えていない。Before の画面が import するために複製している"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,

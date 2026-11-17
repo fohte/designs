@@ -72,6 +72,38 @@
       "h": 60,
       "title": "StatusBand",
       "page": "screens"
+    },
+    "before/BeforePhoneChatReview.dc.html": {
+      "x": 3510,
+      "y": 964,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · crit のレビュー待ち",
+      "page": "screens"
+    },
+    "before/BeforePhoneChat.dc.html": {
+      "x": 3510,
+      "y": 3440,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · 会話から答える",
+      "page": "screens"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 3980,
+      "y": 3440,
+      "w": 760,
+      "h": 60,
+      "title": "Before · StatusBand",
+      "page": "screens"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 4820,
+      "y": 3440,
+      "w": 672,
+      "h": 40,
+      "title": "Before · SessionUsage",
+      "page": "screens"
     }
   },
   "order": [
@@ -83,7 +115,11 @@
     "SessionUsage.dc.html",
     "PhoneChatReview.dc.html",
     "StatusBandStates.dc.html",
-    "StatusBand.dc.html"
+    "StatusBand.dc.html",
+    "before/BeforePhoneChatReview.dc.html",
+    "before/BeforePhoneChat.dc.html",
+    "before/BeforeStatusBand.dc.html",
+    "before/BeforeSessionUsage.dc.html"
   ],
   "pages": [
     {
@@ -91,7 +127,16 @@
       "name": "画面"
     }
   ],
-  "notes": {},
+  "notes": {
+    "diffHeaderPr": {
+      "x": 3040,
+      "y": 1900,
+      "w": 470,
+      "fill": "orange",
+      "page": "screens",
+      "text": "iPhone のヘッダーに PR を出す (D、Before · が変更前)\n- PR のあるセッションでは、タイトルと tq タスクの下に高さ 44px の PR ボタンを足す: 状態の色、#2050、Open · CI running (黄 #fbbf24)、▾\n- 押すと This branch / Opened elsewhere / Merged の一覧のシートを開く (ここでは閉じた形だけ描く)\n- PR のない会話 (iPhone · 会話から答える、操作メニュー) は変えていない\n- Before · PhoneChat、StatusBand、SessionUsage は変えていない。Before の画面が import するために複製している"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,

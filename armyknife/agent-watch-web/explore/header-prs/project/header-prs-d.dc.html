@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Header PRs: D</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1440px; height: 860px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px; padding: 40px; background: #050505; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+<sc-for list="{{states}}" as="s" hint-placeholder-count="3">
+<section aria-label="{{s.label}}" style="display: flex; flex-direction: column; gap: 8px">
+<h2 style="margin: 0; color: #a1a1aa; font-size: 12.5px; font-weight: 400">{{s.label}}</h2>
+<div style="border: 1px solid #2a2a2a; background: #0a0a0a">
+<header style="display: flex; flex-direction: column; padding: 10px 24px 0; border-bottom: 1px solid #2a2a2a">
+<div style="display: flex; align-items: center; gap: 10px; min-width: 0; font-size: 12px; color: #8b8b94">
+<a href="#" style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #d4d4d8; text-decoration: none"><span style="font-family: 'JetBrains Mono', monospace; font-weight: 700">{{s.taskId}}</span> {{s.taskTitle}}</a>
+<a href="#" style="flex: none; font-family: 'JetBrains Mono', monospace; color: #8b8b94; text-decoration: none; white-space: nowrap">{{s.repo}}</a>
+<div style="flex: 0 0 auto; display: flex; align-items: center; gap: 6px; margin-left: auto">
+<button type="button" aria-label="Open session status panel" title="Open session status panel" style="min-width: 32px; height: 26px; display: inline-flex; align-items: center; justify-content: center; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path><path d="m10 15-3-3 3-3"></path></svg></button>
+<button type="button" aria-label="Add to Starred" title="Add to Starred" aria-pressed="false" style="min-width: 26px; height: 26px; padding: 0 4px; border: 1px solid #2a2a2a; background: transparent; color: #8b8b94; font-size: 16px; line-height: 1">☆</button>
+<span style="position: relative; display: inline-flex">
+<button type="button" aria-haspopup="dialog" aria-expanded="{{s.openStr}}" aria-label="{{s.aria}}" title="{{s.aria}}" style="height: 26px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 7px; padding: 0 8px 0 9px; border: 1px solid {{s.border}}; background: {{s.bg}}; color: {{s.chip.color}}; font-family: inherit; font-size: 12px; white-space: nowrap"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: {{s.chip.dot}}"></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px">#{{s.chip.num}}</span><span style="color: {{s.chip.metaColor}}">{{s.chip.meta}}</span><sc-if value="{{s.hasMore}}" hint-placeholder-val="{{ true }}"><span style="color: #a1a1aa">+{{s.moreCount}}</span></sc-if><span aria-hidden="true" style="color: #8b8b94">▾</span></button>
+<sc-if value="{{s.open}}" hint-placeholder-val="{{ false }}">
+<section role="dialog" aria-label="Pull requests from this session" style="position: absolute; z-index: 5; top: 32px; right: 0; width: 480px; box-sizing: border-box; padding: 6px 0; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%); color: #d4d4d8; font-size: 13px">
+<sc-for list="{{s.groups}}" as="g" hint-placeholder-count="2">
+<h3 style="margin: 0; padding: 8px 14px 4px; color: #8b8b94; font-size: 11.5px; font-weight: 400">{{g.name}}</h3>
+<sc-for list="{{g.rows}}" as="r" hint-placeholder-count="1">
+<a href="#" style="display: grid; grid-template-columns: 7px 1fr auto; align-items: center; column-gap: 10px; padding: 6px 14px; color: {{r.color}}; text-decoration: none"><span aria-hidden="true" style="width: 7px; height: 7px; background: {{r.dot}}"></span><span style="min-width: 0; display: grid"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">#{{r.num}}</span> {{r.title}}</span><span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{r.repo}}</span></span><span style="color: {{r.metaColor}}; font-size: 12px; white-space: nowrap">{{r.meta}}</span></a>
+</sc-for>
+</sc-for>
+</section>
+</sc-if>
+</span>
+<sc-if value="{{s.merge}}" hint-placeholder-val="{{ true }}">
+<button type="button" aria-label="{{s.mergeAria}}" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Merge</button>
+</sc-if>
+<button type="button" aria-label="Open in terminal" title="Open in terminal" style="width: 28px; height: 26px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 11 2-2-2-2"></path><path d="M11 13h4"></path><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect></svg></button>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0">
+<h1 style="margin: 2px 0 12px; min-width: 0; font-size: 16px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{s.title}}</h1>
+<button type="button" aria-label="Copy session ID" title="Copy session ID" style="flex: none; width: 26px; height: 26px; margin-bottom: 10px; display: grid; place-items: center; padding: 0; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button>
+<button type="button" aria-label="Edit session title" title="Edit session title" style="flex: none; width: 26px; height: 26px; margin-bottom: 10px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg></button>
+<button type="button" aria-haspopup="dialog" aria-expanded="false" style="flex: none; height: 24px; margin: 0 0 10px 2px; display: inline-flex; align-items: center; gap: 6px; padding: 0 8px; border: 1px solid #2a2a2a; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px; white-space: nowrap">Vibe off<span aria-hidden="true" style="color: #8b8b94">▾</span></button>
+</div>
+</header>
+<div style="height: {{s.bodyH}}"></div>
+</div>
+</section>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"listOpen":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":860}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const listOpen = this.props.listOpen ?? true;
+    // CI and state colors: working = running, success = passed, error = failed, muted = merged.
+    const CI = {
+      running: { dot: '#60a5fa', meta: 'Open · CI running', metaColor: '#60a5fa', color: '#fafafa', word: 'open, CI running' },
+      passed: { dot: '#4ade80', meta: 'Open · CI passed', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI passed' },
+      merged: { dot: '#52525b', meta: '✓ Merged', metaColor: '#8b8b94', color: '#a1a1aa', word: 'merged' }
+    };
+    const pr = (num, title, repo, kind) => ({ num, title, repo, ...CI[kind] });
+    const b128 = pr(128, '検索のインデックスを差分で更新する', 'example/search-api', 'running');
+    const o57 = pr(57, 'インデックス用のジョブを追加する', 'example/infra', 'passed');
+    const b29 = pr(29, '並び順の重みを設定に出す', 'example/search-api', 'merged');
+    const o28 = pr(28, '並び順のテストを足す', 'example/search-api', 'merged');
+    const base = { taskId: 'P2 #3104', taskTitle: '検索を速くする', repo: 'example/search-api', title: '検索のインデックスを作り直す' };
+    const st = (s) => ({
+      ...s,
+      hasMore: s.moreCount > 0,
+      openStr: s.open ? 'true' : 'false',
+      border: s.open ? '#a1a1aa' : '#2a2a2a',
+      bg: s.open ? '#262626' : 'transparent',
+      aria: 'PR #' + s.chip.num + ' ' + s.chip.title + ', ' + s.chip.word + (s.moreCount > 0 ? '. ' + s.moreCount + ' more PR from this session' : ''),
+      mergeAria: 'Merge PR #' + s.chip.num,
+      bodyH: s.open ? '220px' : '48px'
+    });
+    return {
+      states: [
+        st({ ...base, label: '1 · branch の PR が open で CI 実行中 (押すとタイトルつきの一覧)', chip: b128, moreCount: 0, open: false, merge: true,
+          groups: [{ name: 'This branch', rows: [b128] }] }),
+        st({ ...base, label: '2 · branch の PR と、セッションがほかで開いた PR (PR を押して一覧を開いたところ)', chip: b128, moreCount: 1, open: listOpen, merge: true,
+          groups: [{ name: 'This branch', rows: [b128] }, { name: 'Opened elsewhere', rows: [o57] }] }),
+        st({ ...base, taskId: 'P3 #3090', taskTitle: '検索結果を整える', title: '検索結果の並び順を直す', label: '3 · どちらも merged。branch の PR を薄く残す', chip: b29, moreCount: 1, open: false, merge: false,
+          groups: [{ name: 'Merged', rows: [b29, o28] }] })
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

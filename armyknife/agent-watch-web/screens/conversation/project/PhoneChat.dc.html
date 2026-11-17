@@ -40,7 +40,9 @@ body{margin:0}
 <div style="text-align: right; font-size: 12px; color: #8b8b94">You · 10:02</div>
 <div style="padding: 10px 14px; background: #1f1f1f">通知の再送処理を見直して。失敗したら何回か再試行したい。</div>
 </article>
+<sc-if value="{{isQuestion}}" hint-placeholder-val="{{ true }}">
 <article style="color: #d4d4d8">再送処理を <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">retry()</code> にまとめました。上限の回数だけ決めてください。</article>
+<button type="button" aria-expanded="false" style="width: 100%; min-height: 44px; margin: -14px 0 -8px; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13px; text-align: left"><span style="flex: none; color: #d4d4d8; font-style: italic">Thought ×1</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Edit client.ts · Read ×3 · Shell ×1</span><span aria-hidden="true" style="flex: none; color: #71717a">›</span></button>
 <article style="border: 1px solid #fbbf24">
 <h2 style="margin: 0; padding: 10px 14px 4px; color: #fbbf24; font-size: 12.5px; font-weight: 700">Question</h2>
 <div style="padding: 0 14px 10px; font-size: 15px">再試行は 3 回で止めてよいですか?</div>
@@ -48,20 +50,32 @@ body{margin:0}
 <button type="button" style="width: 100%; min-height: 48px; display: flex; align-items: center; padding: 0 14px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #fafafa; font-family: inherit; font-size: 15px; text-align: left">{{c}}</button>
 </sc-for>
 </article>
+</sc-if>
+<sc-if value="{{isReview}}" hint-placeholder-val="{{ false }}">
+<article style="color: #d4d4d8">再送処理を <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">retry()</code> にまとめて PR #2050 を作りました。crit で差分を見てください。</article>
+<button type="button" aria-expanded="false" style="width: 100%; min-height: 44px; margin: -14px 0 0; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13px; text-align: left"><span style="flex: none; color: #d4d4d8; font-style: italic">Thought ×2</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Edit client.ts · Read ×3 · Shell ×2</span><span aria-hidden="true" style="flex: none; color: #71717a">›</span></button>
+</sc-if>
 </div>
 
+<div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" phone="{{ true }}" detail="{{bandDetail}}" hint-size="100%,110px"></dc-import></div>
 <form style="flex: none; display: grid; grid-template-columns: 1fr 44px; gap: 8px; padding: 10px 12px 6px; border-top: 1px solid #2a2a2a; background: #141414">
-<textarea aria-label="Message" rows="1" placeholder="Choose an option above, or message the session" style="min-height: 44px; box-sizing: border-box; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: 16px; resize: none; outline: none"></textarea>
+<textarea aria-label="Message" rows="1" placeholder="{{placeholder}}" style="min-height: 44px; box-sizing: border-box; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: 16px; resize: none; outline: none"></textarea>
 <button type="submit" aria-label="Send message" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
 </form>
 <div style="flex: none; padding: 0 14px 24px; background: #141414"><dc-import name="SessionUsage" engine="claude" phone="{{ true }}" hint-size="100%,36px"></dc-import></div>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false}}'>
 class Component extends DCLogic {
   renderVals() {
     const menuOpen = this.props.menuOpen ?? false;
+    const review = (this.props.state ?? 'question') === 'review';
     return {
+      isQuestion: !review,
+      isReview: review,
+      bandState: review ? 'crit' : 'question',
+      bandDetail: review ? 'crit · PR #2050 · 1m' : '再試行は 3 回で止めてよいですか?',
+      placeholder: review ? 'Message PR 2050' : 'Choose an option above, or message the session',
       choices: ['3 回で止める', '5 回まで続ける', '上限を設定ファイルに出す'],
       menuOpen,
       done: this.props.done ?? false,

@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Composer · A</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+<sc-if value="{{desk}}" hint-placeholder-val="{{ true }}">
+<div style="box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto; padding-top: 8px">
+<sc-if value="{{hasBand}}" hint-placeholder-val="{{ true }}">
+<div role="group" aria-label="Session status" style="display: flex; align-items: center; gap: 8px; min-height: 32px; box-sizing: border-box; padding: 0 4px 0 12px; border: 1px solid #3f3f46; border-bottom: 1px solid #2a2a2a; background: {{bandBg}}; font-size: 12px; white-space: nowrap">
+<span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{dotRadius}}; background: {{dotColor}}"></span>
+<span role="status" style="color: {{labelColor}}">{{label}}</span>
+<sc-if value="{{hasTool}}" hint-placeholder-val="{{ false }}"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">{{tool}} {{target}}</span></sc-if>
+<span style="flex: 1"></span>
+<sc-if value="{{hasBg}}" hint-placeholder-val="{{ false }}"><details style="flex: none; color: #d4d4d8"><summary style="padding: 0 8px">Background tasks ({{bg}})</summary></details></sc-if>
+<sc-if value="{{isCrit}}" hint-placeholder-val="{{ false }}"><button type="button" aria-controls="web-ui-pane" style="flex: none; height: 26px; padding: 0 8px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px">Review with crit <span aria-hidden="true">→</span></button></sc-if>
+</div>
+</sc-if>
+<form style="box-sizing: border-box; width: 100%; margin: 0 0 6px; border: 1px solid #3f3f46; border-top: {{formTop}}; background: #141414">
+<textarea aria-label="Message" rows="2" placeholder="Message PR 318" style="display: block; width: 100%; min-height: 54px; box-sizing: border-box; padding: 12px 14px 4px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; line-height: 1.6; resize: none"></textarea>
+<div style="display: flex; align-items: center; gap: 12px; padding: 6px 8px 8px 14px; color: #a1a1aa; font-size: 11.5px">
+<span>↵ Send · ⇧↵ / ⌥↵ New line · Esc Interrupt</span>
+<span style="margin-left: auto">⌥↑ / ⌥↓ My messages</span>
+<button type="submit" aria-label="Send message" style="width: 32px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414; opacity: 0.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
+</div>
+</form>
+<div style="padding-bottom: 12px"><dc-import name="SessionUsage" engine="claude" hint-size="100%,18px"></dc-import></div>
+</div>
+</sc-if>
+<sc-if value="{{phone}}" hint-placeholder-val="{{ false }}">
+<sc-if value="{{hasBand}}" hint-placeholder-val="{{ true }}">
+<div role="group" aria-label="Session status" style="display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; min-height: 44px; box-sizing: border-box; padding: 0 4px 0 14px; border-top: 1px solid #2a2a2a; background: {{bandBg}}; font-size: 13px; white-space: nowrap">
+<span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{dotRadius}}; background: {{dotColor}}"></span>
+<span role="status" style="color: {{labelColor}}">{{label}}</span>
+<sc-if value="{{hasTool}}" hint-placeholder-val="{{ false }}"><span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #a1a1aa">{{tool}} {{target}}</span></sc-if>
+<span style="flex: 1"></span>
+<sc-if value="{{hasBg}}" hint-placeholder-val="{{ false }}"><details style="flex: none; color: #d4d4d8; font-size: 12.5px"><summary style="min-height: 44px; display: flex; align-items: center; padding: 0 10px">Background tasks ({{bg}})</summary></details></sc-if>
+<sc-if value="{{isCrit}}" hint-placeholder-val="{{ false }}"><button type="button" aria-controls="web-ui-pane" style="flex: none; height: 44px; padding: 0 10px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px">Review with crit <span aria-hidden="true">→</span></button></sc-if>
+</div>
+</sc-if>
+<form style="display: grid; grid-template-columns: 1fr 44px; gap: 8px; padding: 10px 12px 6px; border-top: 1px solid #2a2a2a; background: #141414">
+<textarea aria-label="Message" rows="1" placeholder="Message PR 318" style="min-height: 44px; box-sizing: border-box; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: 16px; resize: none; outline: none"></textarea>
+<button type="submit" aria-label="Send message" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
+</form>
+<div style="padding: 0 14px 24px; background: #141414"><dc-import name="SessionUsage" engine="claude" phone="{{ true }}" hint-size="100%,36px"></dc-import></div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"state":{"editor":"enum","options":["working","background","crit","critBg","question","permission","waiting","idle"],"default":"crit"},"phone":{"editor":"boolean","default":false},"$preview":{"width":760,"height":200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.props.state ?? 'crit';
+    const phone = this.props.phone ?? false;
+    const T = {
+      working: { tone: 'working', label: 'Working · 1m 12s', tool: 'Bash', target: 'cargo test -p logship' },
+      background: { tone: 'working', label: 'Waiting for background tasks', bg: 2 },
+      crit: { tone: 'warning', label: 'Waiting for your review · 4m', crit: true },
+      critBg: { tone: 'warning', label: 'Waiting for your review · 4m', crit: true, bg: 1 },
+      question: { tone: 'warning', label: 'Waiting for your answer' },
+      permission: { tone: 'warning', label: 'Waiting for permission', tool: 'Bash', target: 'pnpm run migrate' },
+      waiting: { tone: 'neutral', label: 'Waiting · CI の結果を待っています' }
+    }[st];
+    const tone = T ? T.tone : 'neutral';
+    return {
+      desk: !phone,
+      phone,
+      hasBand: !!T,
+      label: T ? T.label : '',
+      hasTool: !!(T && T.tool),
+      tool: T && T.tool ? T.tool : '',
+      target: T && T.target ? T.target : '',
+      hasBg: !!(T && T.bg),
+      bg: T && T.bg ? T.bg : 0,
+      isCrit: !!(T && T.crit),
+      // #27200d is --tint-yellow (12% warning over the app background).
+      bandBg: tone === 'warning' ? '#27200d' : '#0f0f0f',
+      labelColor: tone === 'warning' ? '#fafafa' : '#d4d4d8',
+      dotColor: tone === 'warning' ? '#fbbf24' : tone === 'working' ? '#60a5fa' : '#a1a1aa',
+      dotRadius: tone === 'working' ? '50%' : '0',
+      formTop: T ? '0' : '1px solid #3f3f46'
+    };
+  }
+}
+</script>
+</body>
+</html>

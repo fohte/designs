@@ -96,6 +96,14 @@
       "h": 40,
       "title": "SessionUsage",
       "page": "components"
+    },
+    "StatusBand.dc.html": {
+      "x": 2540,
+      "y": 620,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "components"
     }
   },
   "order": [
@@ -110,7 +118,8 @@
     "StatusPanel.dc.html",
     "SessionRow.dc.html",
     "Quota.dc.html",
-    "SessionUsage.dc.html"
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html"
   ],
   "pages": [
     {

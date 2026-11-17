@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Band states</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<main style="width: 1290px; height: 2420px; box-sizing: border-box; padding: 32px 40px; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+<div style="display: grid; grid-template-columns: 760px 390px; column-gap: 60px; row-gap: 8px; align-items: end">
+<div style="font-size: 12px; color: #8b8b94">Desktop</div>
+<div style="font-size: 12px; color: #8b8b94">Phone</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 28px; margin-top: 12px">
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="8">
+<section style="display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 1px solid #2a2a2a">
+<h2 style="margin: 0; display: flex; align-items: baseline; gap: 12px; font-size: 13px; font-weight: 700">{{r.title}}<span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 400; color: #8b8b94">{{r.source}}</span></h2>
+<div style="display: grid; grid-template-columns: 760px 390px; column-gap: 60px; align-items: end">
+<div style="width: 760px">
+<sc-if value="{{isNow}}" hint-placeholder-val="{{ false }}"><dc-import name="ComposerNow" state="{{r.key}}" hint-size="100%,160px"></dc-import></sc-if>
+<sc-if value="{{isA}}" hint-placeholder-val="{{ false }}"><dc-import name="ComposerA" state="{{r.key}}" hint-size="100%,190px"></dc-import></sc-if>
+<sc-if value="{{isB}}" hint-placeholder-val="{{ false }}"><dc-import name="ComposerB" state="{{r.key}}" hint-size="100%,190px"></dc-import></sc-if>
+<sc-if value="{{isC}}" hint-placeholder-val="{{ false }}"><dc-import name="ComposerC" state="{{r.key}}" hint-size="100%,220px"></dc-import></sc-if>
+</div>
+<div style="width: 390px">
+<sc-if value="{{isNow}}" hint-placeholder-val="{{ false }}"><dc-import name="ComposerNow" state="{{r.key}}" phone="{{ true }}" hint-size="100%,130px"></dc-import></sc-if>
+<sc-if value="{{isA}}" hint-placeholder-val="{{ false }}"><dc-import name="ComposerA" state="{{r.key}}" phone="{{ true }}" hint-size="100%,170px"></dc-import></sc-if>
+<sc-if value="{{isB}}" hint-placeholder-val="{{ false }}"><dc-import name="ComposerB" state="{{r.key}}" phone="{{ true }}" hint-size="100%,180px"></dc-import></sc-if>
+<sc-if value="{{isC}}" hint-placeholder-val="{{ false }}"><dc-import name="ComposerC" state="{{r.key}}" phone="{{ true }}" hint-size="100%,230px"></dc-import></sc-if>
+</div>
+</div>
+</section>
+</sc-for>
+</div>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["now","a","b","c"],"default":"now"},"$preview":{"width":1290,"height":2420}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const o = this.props.option ?? 'now';
+    return {
+      isNow: o === 'now', isA: o === 'a', isB: o === 'b', isC: o === 'c',
+      rows: [
+        { key: 'working', title: 'Working', source: "activityStatus 'working' · elapsedSeconds · tool_in_progress" },
+        { key: 'background', title: 'Background tasks only', source: 'waitingForBackgroundTasks · backgroundTasks[]' },
+        { key: 'crit', title: 'Review in crit', source: "needs_action · kind 'Review' + webUis[name='crit'] (or critUrl)" },
+        { key: 'critBg', title: 'Review in crit + background task', source: "needs_action · kind 'Review' + webUis[name='crit'] (or critUrl) · backgroundTasks[]" },
+        { key: 'question', title: 'Question', source: "kind 'Question'" },
+        { key: 'permission', title: 'Permission', source: "kind 'Approve' · permission item" },
+        { key: 'waiting', title: 'Waiting on something else', source: "activityStatus 'waiting' · waitingReason" },
+        { key: 'idle', title: 'Idle (stopped or done): no band', source: "kind 'Stopped' · category 'done'" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

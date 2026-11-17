@@ -88,9 +88,10 @@ body{margin:0}
 </footer>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"filter":{"editor":"enum","options":["none","chips","saving"],"default":"none"},"laterMenuOpen":{"editor":"boolean","default":false},"$preview":{"width":460,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"filter":{"editor":"enum","options":["none","chips","saving"],"default":"none"},"laterMenuOpen":{"editor":"boolean","default":false},"current":{"editor":"int","default":0},"$preview":{"width":460,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
+    const cur = this.props.current ?? 0;
     const filter = this.props.filter ?? 'none';
     const laterMenuOpen = this.props.laterMenuOpen ?? false;
     const filtered = filter !== 'none';
@@ -104,9 +105,9 @@ class Component extends DCLogic {
     ];
     const need = rows.filter((r) => !filtered || r.match).map((r, i) => ({
       ...r,
-      current: i === 0 ? 'true' : 'false',
-      bg: i === 0 ? (laterMenuOpen ? '#1f1f1f' : '#262626') : 'transparent',
-      outline: i === 0 && laterMenuOpen ? '1px solid #a1a1aa' : 'none'
+      current: i === cur ? 'true' : 'false',
+      bg: i === cur ? (laterMenuOpen ? '#1f1f1f' : '#262626') : 'transparent',
+      outline: i === cur && laterMenuOpen ? '1px solid #a1a1aa' : 'none'
     }));
     // A done row shows its decisions left to review on the preview line.
     const done = filtered ? [] : [

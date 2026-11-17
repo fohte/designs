@@ -124,8 +124,8 @@ class Component extends DCLogic {
     const tasksOpen = this.props.tasksOpen ?? false;
     const prsOpen = this.props.prsOpen ?? false;
     const CI = {
-      running: { dot: '#fbbf24', meta: 'Open · CI running', metaColor: '#fbbf24', color: '#fafafa', word: 'open, CI running' },
-      passed: { dot: '#4ade80', meta: 'Open · CI passed', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI passed' }
+      running: { dot: '#fbbf24', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI running' },
+      passed: { dot: '#4ade80', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI passed' }
     };
     const pr = (num, title, repo, kind) => ({ num, title, repo, ...CI[kind] });
     const P = {

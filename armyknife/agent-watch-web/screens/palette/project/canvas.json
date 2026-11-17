@@ -210,7 +210,7 @@
       "w": 480,
       "fill": "orange",
       "page": "screens",
-      "text": "ヘッダーの PR を D にする (Before · が変更前)\n- 「#番号 PR」のリンクを、状態の色、番号、状態と CI のボタンにする。タイトルは出さない\n- ほかの PR は同じボタンの中の +1 (question の会話)。ボタン全体が This branch / Opened elsewhere の一覧を開く\n- ほかの PR がなくても ▾ を出す\n- CI 実行中は黄 (#fbbf24)、CI passed は緑の点\n- Merge の位置と見た目は変えない"
+      "text": "ヘッダーの PR を D にする (Before · が変更前)\n- 「#番号 PR」のリンクを、状態の色、番号、状態のボタンにする。タイトルは出さない\n- ほかの PR は同じボタンの中の +1 (question の会話)。ボタン全体が This branch / Opened elsewhere の一覧を開く\n- ほかの PR がなくても ▾ を出す\n- CI は文字にせず、点の色だけで出す (実行中は黄 #fbbf24、passed は緑)\n- Merge の位置と見た目は変えない"
     },
     "diffHeaderPrParts": {
       "x": 2780,

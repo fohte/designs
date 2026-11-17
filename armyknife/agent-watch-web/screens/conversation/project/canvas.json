@@ -143,7 +143,7 @@
       "w": 470,
       "fill": "orange",
       "page": "screens",
-      "text": "iPhone のヘッダーに PR を出す (D、Before · が変更前)\n- PR のあるセッションでは、タイトルと tq タスクの下に高さ 44px の PR ボタンを足す: 状態の色、#2050、Open · CI running (黄 #fbbf24)、ほかの PR の数 +2、▾\n- 押すと This branch / Opened elsewhere / Merged の一覧のシート。新しい画面「iPhone · セッションの PR 一覧」で開いた形を描く (新規のため Before なし)\n- PR のない会話 (iPhone · 会話から答える、操作メニュー) は変えていない\n- Before · PhoneChat、StatusBand、SessionUsage は変えていない。Before の画面が import するために複製している"
+      "text": "iPhone のヘッダーに PR を出す (D、Before · が変更前)\n- PR のあるセッションでは、タイトルと tq タスクの下に高さ 44px の PR ボタンを足す: 状態の色、#2050、Open、ほかの PR の数 +2、▾\n- 押すと This branch / Opened elsewhere / Merged の一覧のシート。新しい画面「iPhone · セッションの PR 一覧」で開いた形を描く (新規のため Before なし)\n- PR のない会話 (iPhone · 会話から答える、操作メニュー) は変えていない\n- Before · PhoneChat、StatusBand、SessionUsage は変えていない。Before の画面が import するために複製している"
     }
   },
   "v": 3,

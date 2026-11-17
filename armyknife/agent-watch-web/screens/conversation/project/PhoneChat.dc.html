@@ -24,7 +24,7 @@ body{margin:0}
 <a href="#" style="grid-column: 1 / -1; min-width: 0; min-height: 24px; display: flex; align-items: center; gap: 6px; padding: 0 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa; text-decoration: none; white-space: nowrap"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">#2048 通知の信頼性を上げる</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: none">service</span></a>
 <sc-if value="{{hasPr}}" hint-placeholder-val="{{ false }}">
 <div style="grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; padding: 4px 0 8px 14px">
-<button type="button" aria-haspopup="dialog" aria-expanded="{{prsOpenStr}}" aria-label="PR #2050 再送処理を retry() にまとめる, open, CI running. 2 more PRs from this session" style="min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 8px; padding: 0 12px; border: 1px solid {{prBorder}}; background: {{prBg}}; color: #fafafa; font-family: inherit; font-size: 13px; white-space: nowrap"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: #fbbf24"></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px">#2050</span><span style="color: #fbbf24">Open · CI running</span><span style="color: #a1a1aa">+2</span><span aria-hidden="true" style="color: #8b8b94">▾</span></button>
+<button type="button" aria-haspopup="dialog" aria-expanded="{{prsOpenStr}}" aria-label="PR #2050 再送処理を retry() にまとめる, open, CI running. 2 more PRs from this session" style="min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 8px; padding: 0 12px; border: 1px solid {{prBorder}}; background: {{prBg}}; color: #fafafa; font-family: inherit; font-size: 13px; white-space: nowrap"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: #fbbf24"></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px">#2050</span><span style="color: #a1a1aa">Open</span><span style="color: #a1a1aa">+2</span><span aria-hidden="true" style="color: #8b8b94">▾</span></button>
 </div>
 </sc-if>
 </header>
@@ -102,8 +102,8 @@ class Component extends DCLogic {
       prBorder: prsOpen ? '#a1a1aa' : '#3f3f46',
       prBg: prsOpen ? '#262626' : 'transparent',
       prGroups: [
-        { name: 'This branch', rows: [{ num: 2050, title: '再送処理を retry() にまとめる', repo: 'example/service', dot: '#fbbf24', meta: 'Open · CI running', metaColor: '#fbbf24' }] },
-        { name: 'Opened elsewhere', rows: [{ num: 64, title: '再送キューの上限を設定に出す', repo: 'example/infra', dot: '#4ade80', meta: 'Open · CI passed', metaColor: '#a1a1aa' }] },
+        { name: 'This branch', rows: [{ num: 2050, title: '再送処理を retry() にまとめる', repo: 'example/service', dot: '#fbbf24', meta: 'Open', metaColor: '#a1a1aa' }] },
+        { name: 'Opened elsewhere', rows: [{ num: 64, title: '再送キューの上限を設定に出す', repo: 'example/infra', dot: '#4ade80', meta: 'Open', metaColor: '#a1a1aa' }] },
         { name: 'Merged', rows: [{ num: 2041, title: '再送のログを整える', repo: 'example/service', dot: '#52525b', meta: '✓ Merged', metaColor: '#8b8b94' }] }
       ],
       headerPadB: review ? '0' : '6px',

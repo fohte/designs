@@ -23,12 +23,12 @@ jobs:
           while IFS= read -r dir; do
             echo "::error file=${dir}::Delete ${dir} before merging"
             status=1
-          done < <(find . -type d -path './*/screens/*/project/before')
+          done < <(find . -type d -path './*/screens/project/before')
           while IFS= read -r canvas; do
             notes=$(jq -r '.notes // {} | keys[] | select(test("^(before|diff)"))' "$canvas")
             if [ -n "$notes" ]; then
               echo "::error file=${canvas}::Delete the review notes before merging: $(echo "$notes" | paste -sd, -)"
               status=1
             fi
-          done < <(find . -type f -path './*/screens/*/project/canvas.json')
+          done < <(find . -type f -path './*/screens/project/canvas.json')
           exit "$status"

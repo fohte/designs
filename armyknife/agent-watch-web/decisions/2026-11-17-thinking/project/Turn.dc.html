@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Turn: a turn with thinking and tool groups</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; padding: {{pad}}; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
+<sc-for list="{{items}}" as="it" hint-placeholder-count="6">
+
+<sc-if value="{{it.isGap}}" hint-placeholder-val="{{ false }}">
+<div aria-hidden="true" style="margin-top: -6px; padding: 3px 8px; border: 1px dashed #fb923c; color: #fb923c; font-size: 11px; line-height: 1.4">{{it.text}}</div>
+</sc-if>
+
+<sc-if value="{{it.isUser}}" hint-placeholder-val="{{ false }}">
+<article style="flex: none; align-self: flex-end; max-width: {{userW}}; display: flex; flex-direction: column; gap: 4px">
+<div style="text-align: right; font-size: 12px; color: #8b8b94">You · 10:02</div>
+<div style="padding: 10px 14px; background: #1f1f1f">通知の再送処理を見直して。失敗したら何回か再試行したい。</div>
+</article>
+</sc-if>
+
+<sc-if value="{{it.isNarr}}" hint-placeholder-val="{{ false }}">
+<article style="flex: none; color: {{narrColor}}"><sc-if value="{{narrTag}}" hint-placeholder-val="{{ false }}"><span style="display: inline-block; margin-right: 8px; padding: 0 5px; border: 1px solid #3f3f46; color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; line-height: 16px; vertical-align: 1px">summary</span></sc-if>{{it.text}}<sc-if value="{{narrTrail}}" hint-placeholder-val="{{ false }}"> <span style="color: #8b8b94; font-size: 12.5px; white-space: nowrap">· summary</span></sc-if></article>
+</sc-if>
+
+<sc-if value="{{it.isText}}" hint-placeholder-val="{{ false }}">
+<article style="flex: none; color: #d4d4d8">{{it.text}}<sc-if value="{{it.hasCode}}" hint-placeholder-val="{{ false }}"> <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">retry()</code> {{it.tail}}</sc-if></article>
+</sc-if>
+
+<sc-if value="{{it.isGroup}}" hint-placeholder-val="{{ true }}">
+<div style="flex: none; width: 100%; min-width: 0; margin-top: -8px; color: #a1a1aa; font-size: 12.5px; line-height: 1.55">
+
+<sc-if value="{{it.closed}}" hint-placeholder-val="{{ true }}">
+<button type="button" aria-expanded="false" style="width: 100%; min-height: {{tap}}; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12.5px; text-align: left"><sc-if value="{{it.glyph}}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="Includes thinking" title="Includes thinking" style="flex: none; color: #d4d4d8">∴</span></sc-if><sc-if value="{{it.thoughtLabel}}" hint-placeholder-val="{{ false }}"><span style="flex: none; color: #d4d4d8; font-style: italic">{{it.thoughtLabel}}</span><sc-if value="{{it.hasTools}}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="flex: none">·</span></sc-if></sc-if><span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{it.summary}}</span><span aria-hidden="true" style="flex: none; color: #71717a">›</span></button>
+</sc-if>
+
+<sc-if value="{{it.open}}" hint-placeholder-val="{{ false }}">
+<button type="button" aria-expanded="true" style="width: 100%; min-height: {{tap}}; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12.5px; text-align: left"><sc-if value="{{it.glyph}}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="Includes thinking" title="Includes thinking" style="flex: none; color: #d4d4d8">∴</span></sc-if><span>{{it.header}}</span><span style="margin-left: auto; color: #71717a; white-space: nowrap">‹ Collapse</span></button>
+
+<sc-if value="{{it.hasBlock}}" hint-placeholder-val="{{ false }}">
+<div style="margin: 6px 0 0; padding: 0 0 0 14px; border-left: 1px solid #3f3f46">
+<div style="color: #8b8b94">Thinking</div>
+<sc-if value="{{it.blockClamped}}" hint-placeholder-val="{{ true }}">
+<div style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden; font-style: italic; color: #a1a1aa">{{it.blockText}}</div>
+</sc-if>
+<sc-if value="{{it.blockFull}}" hint-placeholder-val="{{ false }}">
+<div style="font-style: italic; color: #a1a1aa; white-space: pre-line">{{it.blockText}}</div>
+</sc-if>
+<sc-if value="{{it.blockMore}}" hint-placeholder-val="{{ true }}">
+<button type="button" aria-expanded="{{it.blockExpandedStr}}" style="min-height: {{tapMore}}; padding: 0; border: 0; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px; text-decoration: underline; text-underline-offset: 2px">{{it.blockMoreLabel}}</button>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{it.hasRows}}" hint-placeholder-val="{{ true }}">
+<ul style="display: grid; gap: 3px; margin: 6px 0 0; padding: 0 0 0 14px; border-left: 1px solid #3f3f46; list-style: none">
+<sc-for list="{{it.rows}}" as="r" hint-placeholder-count="4">
+
+<sc-if value="{{r.isTool}}" hint-placeholder-val="{{ true }}">
+<li style="display: grid; min-width: 0; grid-template-columns: {{r.cols}}; align-items: baseline; gap: 3px 12px"><span style="color: #8b8b94; white-space: nowrap">{{r.name}}</span><code style="min-width: 0; overflow: hidden; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; white-space: nowrap; text-overflow: ellipsis">{{r.arg}}</code><span role="img" aria-label="{{r.markLabel}}" style="color: {{r.markColor}}">{{r.mark}}</span></li>
+</sc-if>
+
+<sc-if value="{{r.isThinkA}}" hint-placeholder-val="{{ false }}">
+<li style="display: grid; min-width: 0; grid-template-columns: {{r.cols}}; align-items: baseline; gap: 3px 12px"><span style="color: #8b8b94; white-space: nowrap">Think</span><div style="min-width: 0; grid-column: 2 / -1">
+<sc-if value="{{r.clamped}}" hint-placeholder-val="{{ false }}"><div style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; font-style: italic; color: #a1a1aa">{{r.text}}</div></sc-if>
+<sc-if value="{{r.full}}" hint-placeholder-val="{{ true }}"><div style="font-style: italic; color: #a1a1aa">{{r.text}}</div></sc-if>
+<sc-if value="{{r.hasMore}}" hint-placeholder-val="{{ false }}"><button type="button" aria-expanded="{{r.expandedStr}}" style="min-height: {{tapMore}}; padding: 0; border: 0; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px; text-decoration: underline; text-underline-offset: 2px">{{r.moreLabel}}</button></sc-if>
+</div></li>
+</sc-if>
+
+<sc-if value="{{r.isThinkB}}" hint-placeholder-val="{{ false }}">
+<li style="min-width: 0">
+<sc-if value="{{r.isLine}}" hint-placeholder-val="{{ true }}"><div style="display: grid; min-width: 0; grid-template-columns: {{r.cols}}; align-items: baseline; gap: 3px 12px"><span style="color: #8b8b94; white-space: nowrap">Thought</span><span style="grid-column: 2 / -1; min-width: 0; font-style: italic; color: #a1a1aa">{{r.text}}</span></div></sc-if>
+<sc-if value="{{r.isFoldClosed}}" hint-placeholder-val="{{ false }}"><button type="button" aria-expanded="false" style="width: 100%; min-height: {{tapMore}}; display: grid; min-width: 0; grid-template-columns: 56px minmax(0, 1fr) 16px; align-items: baseline; gap: 3px 12px; padding: 0; border: 0; background: transparent; font-family: inherit; font-size: 12.5px; line-height: 1.55; text-align: left"><span style="color: #8b8b94">Thought</span><span style="min-width: 0; overflow: hidden; font-style: italic; color: #a1a1aa; white-space: nowrap; text-overflow: ellipsis">{{r.text}}</span><span aria-hidden="true" style="color: #71717a">›</span></button></sc-if>
+<sc-if value="{{r.isFoldOpen}}" hint-placeholder-val="{{ false }}"><button type="button" aria-expanded="true" style="width: 100%; min-height: {{tapMore}}; display: grid; min-width: 0; grid-template-columns: 56px minmax(0, 1fr) 16px; align-items: baseline; gap: 3px 12px; padding: 0; border: 0; background: transparent; font-family: inherit; font-size: 12.5px; line-height: 1.55; text-align: left"><span style="color: #8b8b94">Thought</span><span style="min-width: 0; color: #8b8b94">{{r.chars}}</span><span aria-hidden="true" style="color: #71717a">‹</span></button><div style="margin: 2px 0 4px 68px; font-style: italic; color: #a1a1aa">{{r.text}}</div></sc-if>
+</li>
+</sc-if>
+
+</sc-for>
+</ul>
+</sc-if>
+</sc-if>
+</div>
+</sc-if>
+
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["current","a","b","c"],"default":"a"},"state":{"editor":"enum","options":["closed","open","more"],"default":"open"},"phone":{"editor":"boolean","default":false},"$preview":{"width":720,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const option = this.props.option ?? 'a';
+    const state = this.props.state ?? 'open';
+    const phone = this.props.phone ?? false;
+    const cur = option === 'current';
+    const T1 = 'まず再送がどこで行われているかを確かめる。';
+    const T2 = 'queue.rs と client.rs がそれぞれ別に再送している。queue.rs は失敗すると固定で 5 秒待って送り直すので、相手のサーバーが落ちている間も同じ間隔で叩き続けてしまう。client.rs には回数の上限がなく、エラーの種類も見ていない。retry() を 1 つ作って両方から呼び、待ち時間は試行ごとに倍にするのがよさそう。4xx は送り直しても通らないので、再送は 5xx とタイムアウトだけにする。上限の回数は運用で決まる値なので、こちらでは決めずにあとで聞く。queue_test.rs は固定の 5 秒を前提にしているので、待ち時間を差し替えられるようにしてから直す。';
+    const T3 = 'テストを直したので、まとめて流して確かめる。';
+    const T4 = 'テストは全部通った。上限の回数だけユーザーに聞けばよい。';
+    const cols = option === 'b' ? '56px minmax(0, 1fr) 16px' : '44px minmax(0, 1fr) 16px';
+    const ok = { mark: '✓', markColor: '#8b8b94', markLabel: 'Succeeded' };
+    const tool = (name, arg) => ({ isTool: true, name, arg, cols, ...ok });
+    const think = (text, long, expanded) => {
+      if (option === 'a') {
+        return { isThinkA: true, text, cols, clamped: long && !expanded, full: !long || expanded, hasMore: long, expandedStr: expanded ? 'true' : 'false', moreLabel: expanded ? 'Show less' : 'Show more' };
+      }
+      return { isThinkB: true, text, cols, isLine: !long, isFoldClosed: long && !expanded, isFoldOpen: long && expanded, chars: `${text.length} chars` };
+    };
+    // Which groups are open, and whether the long thought is unfolded, for each state.
+    const open1 = state === 'open';
+    const open2 = state !== 'closed';
+    const open3 = state === 'more';
+    const longOpen = state === 'more';
+    const group = (g) => {
+      const thoughts = g.ops.filter((o) => o.t !== undefined);
+      const tools = g.ops.filter((o) => o.t === undefined);
+      const nThink = cur ? 0 : thoughts.length;
+      const hasTools = tools.length > 0;
+      const opened = cur ? false : g.open;
+      const rows = [];
+      if (option !== 'c') {
+        g.ops.forEach((o) => {
+          if (o.t === undefined) rows.push(tool(o.name, o.arg));
+          else if (!cur) rows.push(think(o.t, o.long === true, o.long === true && longOpen));
+        });
+      } else {
+        tools.forEach((o) => rows.push(tool(o.name, o.arg)));
+      }
+      const blockText = thoughts.map((o) => o.t).join('\n');
+      const blockLong = blockText.length > 120;
+      const toolWord = `${tools.length} tool call${tools.length === 1 ? '' : 's'}`;
+      let header = toolWord;
+      if (option === 'a' && !hasTools) header = 'Thinking';
+      if (option === 'b') header = hasTools ? `${nThink} thought${nThink === 1 ? '' : 's'} · ${toolWord}` : `${nThink} thought${nThink === 1 ? '' : 's'}`;
+      if (option === 'c' && !hasTools) header = 'Thinking';
+      let summary = g.summary;
+      if (!hasTools && option !== 'b') summary = 'Thinking';
+      if (!hasTools && option === 'b') summary = '';
+      return {
+        isGroup: true,
+        closed: !opened,
+        open: opened,
+        hasTools,
+        summary,
+        header,
+        glyph: option === 'c' && nThink > 0,
+        thoughtLabel: option === 'b' && nThink > 0 ? `Thought ×${nThink}` : '',
+        rows,
+        hasRows: rows.length > 0,
+        hasBlock: option === 'c' && nThink > 0,
+        blockText,
+        blockClamped: blockLong && !longOpen,
+        blockFull: !blockLong || longOpen,
+        blockMore: blockLong,
+        blockExpandedStr: longOpen ? 'true' : 'false',
+        blockMoreLabel: longOpen ? 'Show less' : 'Show more'
+      };
+    };
+    const gap = (text) => ({ isGap: true, text });
+    const narr = (text) => ({ isNarr: true, text });
+    const items = [{ isUser: true }];
+    if (cur) items.push(gap('narration「再送の処理がどこに…」と、group の中の thinking は出ない'));
+    else items.push(narr('再送の処理がどこにあるかを調べています。'));
+    items.push(group({ open: open1, summary: 'Read ×3 · Grep ×1', ops: [
+      { t: T1 },
+      { name: 'Read', arg: 'src/notify/client.rs' },
+      { name: 'Grep', arg: 'retry|resend' },
+      { name: 'Read', arg: 'src/notify/queue.rs' },
+      { name: 'Read', arg: 'tests/queue_test.rs' }
+    ] }));
+    if (cur) items.push(gap('narration と、300 字ほどの thinking (方針と理由) は出ない'));
+    else items.push(narr('再送が 2 か所に分かれていたので、retry() にまとめてテストを直しています。'));
+    items.push(group({ open: open2, summary: 'Edit ×3 · Shell ×1', ops: [
+      { t: T2, long: true },
+      { name: 'Edit', arg: 'src/notify/retry.rs' },
+      { name: 'Edit', arg: 'src/notify/queue.rs' },
+      { name: 'Edit', arg: 'tests/queue_test.rs' },
+      { t: T3 },
+      { name: 'Shell', arg: 'cargo test -p notify' }
+    ] }));
+    // A thought with no tool after it: shown as a group of its own, only on the "more" boards.
+    if (!cur && state === 'more') items.push(group({ open: open3, summary: '', ops: [{ t: T4 }] }));
+    items.push({ isText: true, text: '再送処理を', hasCode: true, tail: 'にまとめました。待ち時間は試行ごとに倍になり、4xx は送り直しません。上限の回数だけ決めてください。' });
+    return {
+      items,
+      narrColor: option === 'b' ? '#a1a1aa' : '#d4d4d8',
+      narrTrail: option === 'a',
+      narrTag: option === 'c',
+      pad: phone ? '0 16px 16px' : '24px max(24px, calc((100% - 672px) / 2))',
+      fs: phone ? '15px' : '14px',
+      userW: phone ? '92%' : '80%',
+      tap: phone ? '44px' : '22px',
+      tapMore: phone ? '44px' : '20px'
+    };
+  }
+}
+</script>
+</body>
+</html>

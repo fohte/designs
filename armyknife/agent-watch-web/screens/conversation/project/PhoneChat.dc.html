@@ -42,6 +42,7 @@ body{margin:0}
 </article>
 <sc-if value="{{isQuestion}}" hint-placeholder-val="{{ true }}">
 <article style="color: #d4d4d8">再送処理を <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">retry()</code> にまとめました。上限の回数だけ決めてください。</article>
+<button type="button" aria-expanded="false" style="width: 100%; min-height: 44px; margin: -14px 0 -8px; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13px; text-align: left"><span style="flex: none; color: #d4d4d8; font-style: italic">Thought ×1</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Edit client.ts · Read ×3 · Shell ×1</span><span aria-hidden="true" style="flex: none; color: #71717a">›</span></button>
 <article style="border: 1px solid #fbbf24">
 <h2 style="margin: 0; padding: 10px 14px 4px; color: #fbbf24; font-size: 12.5px; font-weight: 700">Question</h2>
 <div style="padding: 0 14px 10px; font-size: 15px">再試行は 3 回で止めてよいですか?</div>
@@ -52,7 +53,7 @@ body{margin:0}
 </sc-if>
 <sc-if value="{{isReview}}" hint-placeholder-val="{{ false }}">
 <article style="color: #d4d4d8">再送処理を <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">retry()</code> にまとめて PR #2050 を作りました。crit で差分を見てください。</article>
-<details style="font-size: 13px; color: #a1a1aa"><summary style="list-style: none">Edit client.ts · Read ×3 · Shell ×2 ›</summary></details>
+<button type="button" aria-expanded="false" style="width: 100%; min-height: 44px; margin: -14px 0 0; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13px; text-align: left"><span style="flex: none; color: #d4d4d8; font-style: italic">Thought ×2</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Edit client.ts · Read ×3 · Shell ×2</span><span aria-hidden="true" style="flex: none; color: #71717a">›</span></button>
 </sc-if>
 </div>
 

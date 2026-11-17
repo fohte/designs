@@ -28,16 +28,38 @@ a{color:#ef4444}
 <pre style="margin: 0; padding: 10px 12px; background: #131313; border: 1px solid #262626; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #d4d4d8">const delay = base * 2 ** attempt;</pre>
 </article>
 
-<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Tool calls</strong>One line under the reply; opens to a list.</div>
-<div style="display: flex; flex-direction: column; gap: 10px; font-size: 12.5px; color: #a1a1aa">
-<div>Edit client.ts · Read ×3 · Shell ×1 <span style="color: #71717a">›</span></div>
+<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Narration</strong>The session's progress report between tool calls. In the body, told from the reply only by dimmer text.</div>
+<article style="color: #a1a1aa">再送の処理がどこにあるかを調べています。</article>
+
+<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Tool calls</strong>One line under the reply; opens to a list. Thoughts count like a tool and sit in order among the tools, one line each. A thought opens to its full text. Phone rows are 44px tall.</div>
+<div style="display: flex; flex-direction: column; gap: 16px; font-size: 12.5px; color: #a1a1aa">
+<button type="button" aria-expanded="false" style="width: 100%; min-height: 22px; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12.5px; text-align: left"><span style="flex: none; color: #d4d4d8; font-style: italic">Thought ×2</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Edit client.ts · Read ×2 · Shell ×1</span><span aria-hidden="true" style="flex: none; color: #71717a">›</span></button>
 <div>
-<div style="margin-bottom: 6px">4 tool calls <span style="color: #71717a">‹ Collapse</span></div>
-<div style="display: flex; flex-direction: column; gap: 4px; padding-left: 12px; border-left: 1px solid #3f3f46">
-<sc-for list="{{tools}}" as="t" hint-placeholder-count="4">
-<div style="display: grid; grid-template-columns: 44px 1fr 16px; gap: 8px"><span style="color: #8b8b94">{{t.name}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{t.arg}}</span><span style="color: {{t.color}}">{{t.mark}}</span></div>
+<button type="button" aria-expanded="true" style="width: 100%; min-height: 22px; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12.5px; text-align: left"><span>2 thoughts · 4 tool calls</span><span style="margin-left: auto; color: #71717a; white-space: nowrap">‹ Collapse</span></button>
+<ul style="display: grid; gap: 3px; margin: 6px 0 0; padding: 0 0 0 14px; border-left: 1px solid #3f3f46; list-style: none">
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="6">
+<sc-if value="{{r.isTool}}" hint-placeholder-val="{{ true }}">
+<li style="display: grid; min-width: 0; grid-template-columns: 56px minmax(0, 1fr) 16px; align-items: baseline; gap: 3px 12px"><span style="color: #8b8b94; white-space: nowrap">{{r.name}}</span><code style="min-width: 0; overflow: hidden; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; white-space: nowrap; text-overflow: ellipsis">{{r.arg}}</code><span role="img" aria-label="{{r.markLabel}}" style="color: {{r.color}}">{{r.mark}}</span></li>
+</sc-if>
+<sc-if value="{{r.isThoughtClosed}}" hint-placeholder-val="{{ false }}">
+<li style="min-width: 0"><button type="button" aria-expanded="false" style="width: 100%; min-height: 20px; display: grid; min-width: 0; grid-template-columns: 56px minmax(0, 1fr) 16px; align-items: baseline; gap: 3px 12px; padding: 0; border: 0; background: transparent; font-family: inherit; font-size: 12.5px; line-height: 1.55; text-align: left"><span style="color: #8b8b94">Thought</span><span style="min-width: 0; overflow: hidden; font-style: italic; color: #a1a1aa; white-space: nowrap; text-overflow: ellipsis">{{r.text}}</span><span aria-hidden="true" style="color: #71717a">›</span></button></li>
+</sc-if>
+<sc-if value="{{r.isThoughtOpen}}" hint-placeholder-val="{{ false }}">
+<li style="min-width: 0"><button type="button" aria-expanded="true" style="width: 100%; min-height: 20px; display: grid; min-width: 0; grid-template-columns: 56px minmax(0, 1fr) 16px; align-items: baseline; gap: 3px 12px; padding: 0; border: 0; background: transparent; font-family: inherit; font-size: 12.5px; line-height: 1.55; text-align: left"><span style="color: #8b8b94">Thought</span><span style="min-width: 0; color: #8b8b94">{{r.chars}}</span><span aria-hidden="true" style="color: #71717a">‹</span></button><div style="margin: 2px 0 4px 68px; font-style: italic; color: #a1a1aa">{{r.text}}</div></li>
+</sc-if>
 </sc-for>
+</ul>
 </div>
+</div>
+
+<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Thinking only</strong>A thought with no tool call after it gets a row of its own, folded the same way. Codex reasoning summaries are drawn the same; an empty one draws nothing.</div>
+<div style="display: flex; flex-direction: column; gap: 16px; font-size: 12.5px; color: #a1a1aa">
+<button type="button" aria-expanded="false" style="width: 100%; min-height: 22px; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12.5px; text-align: left"><span style="flex: none; color: #d4d4d8; font-style: italic">Thought ×1</span><span style="flex: 1"></span><span aria-hidden="true" style="flex: none; color: #71717a">›</span></button>
+<div>
+<button type="button" aria-expanded="true" style="width: 100%; min-height: 22px; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12.5px; text-align: left"><span>1 thought</span><span style="margin-left: auto; color: #71717a; white-space: nowrap">‹ Collapse</span></button>
+<ul style="display: grid; gap: 3px; margin: 6px 0 0; padding: 0 0 0 14px; border-left: 1px solid #3f3f46; list-style: none">
+<li style="min-width: 0"><button type="button" aria-expanded="false" style="width: 100%; min-height: 20px; display: grid; min-width: 0; grid-template-columns: 56px minmax(0, 1fr) 16px; align-items: baseline; gap: 3px 12px; padding: 0; border: 0; background: transparent; font-family: inherit; font-size: 12.5px; line-height: 1.55; text-align: left"><span style="color: #8b8b94">Thought</span><span style="min-width: 0; overflow: hidden; font-style: italic; color: #a1a1aa; white-space: nowrap; text-overflow: ellipsis">テストは全部通った。上限の回数だけユーザーに聞けばよい。</span><span aria-hidden="true" style="color: #71717a">›</span></button></li>
+</ul>
 </div>
 </div>
 
@@ -109,12 +131,16 @@ a{color:#ef4444}
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2300}}'>
 class Component extends DCLogic {
   renderVals() {
+    const ok = { isTool: true, mark: '✓', color: '#a1a1aa', markLabel: 'Succeeded' };
+    const long = 'queue.ts と client.ts がそれぞれ別に再送している。queue.ts は失敗すると固定で 5 秒待って送り直すので、相手のサーバーが落ちている間も同じ間隔で叩き続けてしまう。client.ts には回数の上限がない。retry() を 1 つ作って両方から呼び、待ち時間は試行ごとに倍にする。4xx は送り直しても通らないので、再送は 5xx とタイムアウトだけにする。';
     return {
-      tools: [
-        { name: 'Read', arg: 'src/client.ts', mark: '✓', color: '#a1a1aa' },
-        { name: 'Read', arg: 'src/queue.ts', mark: '✓', color: '#a1a1aa' },
-        { name: 'Edit', arg: 'src/client.ts', mark: '✓', color: '#a1a1aa' },
-        { name: 'Shell', arg: 'cargo test -p service', mark: '✕', color: '#f87171' }
+      rows: [
+        { isThoughtClosed: true, text: 'まず再送がどこで行われているかを確かめる。' },
+        { ...ok, name: 'Read', arg: 'src/client.ts' },
+        { ...ok, name: 'Read', arg: 'src/queue.ts' },
+        { isThoughtOpen: true, text: long, chars: `${long.length} chars` },
+        { ...ok, name: 'Edit', arg: 'src/client.ts' },
+        { isTool: true, name: 'Shell', arg: 'cargo test -p service', mark: '✕', color: '#f87171', markLabel: 'Failed' }
       ]
     };
   }

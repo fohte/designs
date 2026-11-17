@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>案 C: 判断ごとのボード</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#7aa2f7}a:hover{color:#a9c1fa}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; display: flex; flex-direction: column; overflow: hidden; color-scheme: dark; background: #0f0f0e; color: #c4c3bc; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.5">
+
+<header style="flex: none; height: 48px; display: flex; align-items: center; gap: 16px; padding: 0 20px; border-bottom: 1px solid #2a2a28; background: #161615">
+<span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #ededea">research map</span>
+<span aria-hidden="true" style="color: #4a4945">/</span>
+<span style="font-weight: 700; color: #ededea">分類精度 (balanced accuracy) を上げる</span>
+<div style="flex: 1"></div>
+<button type="button" style="height: 28px; padding: 0 10px; border: 1px solid #3a3a37; background: #161615; color: #c4c3bc; font-size: 12px; cursor: pointer">+ 候補を追加</button>
+</header>
+
+<div style="flex: none; display: flex; align-items: center; gap: 16px; padding: 12px 24px">
+<span style="font-size: 12px; color: #9a998f">列</span>
+<div role="group" aria-label="列の分け方" style="display: flex">
+<button type="button" aria-pressed="true" style="height: 28px; padding: 0 12px; border: 1px solid #ededea; background: #ededea; color: #0f0f0e; font-size: 12px; cursor: pointer">判断</button>
+<button type="button" aria-pressed="false" style="height: 28px; padding: 0 12px; margin-left: -1px; border: 1px solid #3a3a37; background: #161615; color: #c4c3bc; font-size: 12px; cursor: pointer">検証状況</button>
+</div>
+<span style="margin-left: 8px; font-size: 12px; color: #9a998f">枝</span>
+<div style="display: flex; gap: 6px">
+<sc-for list="{{branches}}" as="b" hint-placeholder-count="6">
+<button type="button" aria-pressed="{{b.pressed}}" style="{{b.style}}">{{b.label}}</button>
+</sc-for>
+</div>
+</div>
+
+<div style="flex: 1; min-height: 0; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; padding: 0 24px 24px">
+<sc-for list="{{columns}}" as="col" hint-placeholder-count="6">
+<section aria-label="{{col.label}}" style="min-height: 0; display: flex; flex-direction: column; gap: 8px; padding: 10px; background: #141413; border: 1px solid #222220">
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 2px 2px 6px">
+<div style="display: flex; align-items: baseline; gap: 8px"><h2 style="{{col.headStyle}}">{{col.label}}</h2><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9a998f">{{col.count}}</span></div>
+<span style="font-size: 11.5px; color: #9a998f">{{col.hint}}</span>
+</div>
+<sc-for list="{{col.cards}}" as="c" hint-placeholder-count="2">
+<button type="button" style="{{c.style}}">
+<span style="font-size: 11px; color: #9a998f">{{c.branch}}</span>
+<span style="display: flex; align-items: flex-start; gap: 6px; color: #ededea; font-weight: 700"><span aria-hidden="true" style="{{c.markStyle}}"></span><sc-if value="{{c.tag}}" hint-placeholder-val="{{ false }}"><span style="flex: none; padding: 0 4px; border: 1px solid #3a3a37; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 400">{{c.tag}}</span></sc-if><span>{{c.label}}</span></span>
+<sc-if value="{{c.parts}}" hint-placeholder-val="{{ false }}"><span style="font-size: 11.5px; color: #a9c1fa">{{c.parts}}</span></sc-if>
+<sc-if value="{{c.next}}" hint-placeholder-val="{{ true }}"><span style="padding-top: 6px; border-top: 1px solid #2a2a28; color: #c4c3bc">→ {{c.next}}</span></sc-if>
+<sc-if value="{{c.note}}" hint-placeholder-val="{{ false }}"><span style="font-size: 11.5px; color: #a9c1fa">{{c.note}}</span></sc-if>
+<sc-if value="{{c.exps}}" hint-placeholder-val="{{ false }}"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #9a998f">{{c.exps}}</span></sc-if>
+</button>
+</sc-for>
+</section>
+</sc-for>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const mark = (st) => {
+      const base = 'flex: none; box-sizing: border-box; width: 9px; height: 9px; margin-top: 5px; ';
+      if (st === 'done') return base + 'background: #ededea';
+      if (st === 'doing') return base + 'background: #e8913a';
+      return base + 'border: 1px solid #7a7972';
+    };
+    const card = (c) => ({
+      tag: '', parts: '', next: '', note: '', exps: '', ...c,
+      markStyle: mark(c.st),
+      style: 'display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; border: 1px ' + (c.st === 'todo' ? 'dashed #3a3a37' : 'solid #2a2a28') + '; background: ' + (c.st === 'todo' ? 'transparent' : '#161615') + '; color: inherit; font-size: 13px; text-align: left; cursor: pointer',
+    });
+    const columns = [
+      { label: '未着手', hint: 'まだ実験していない候補', blue: false, cards: [
+        { branch: '特徴表現 › C', label: '中間層 4 条件の比較', st: 'todo' },
+        { branch: '特徴表現', label: '埋め込みの中心化', st: 'todo' },
+        { branch: 'モデル', label: '小型 LLM の LoRA 微調整', st: 'todo' },
+        { branch: 'アンサンブル', tag: 'A+B', label: 'スタッキング', st: 'todo', parts: 'A 保留 · B 別方式探索' },
+      ] },
+      { label: '深掘り', hint: '有力な方向を狭い問いで検証する', blue: true, cards: [
+        { branch: 'アンサンブル', tag: 'A+C', label: '確率平均', st: 'doing', parts: 'A 保留 · C 深掘り', next: '出所を 1 つずつ外した検証で、改善が残るか確かめる', exps: '2 実験' },
+        { branch: '特徴表現', tag: 'C', label: '凍結 LLM の中間層', st: 'doing', next: '中間層 4 条件を同じ分割で比較する', exps: '2 実験' },
+      ] },
+      { label: '追加検証', hint: '判断に足りない情報を補う', blue: false, cards: [
+        { branch: '評価', label: '交差検証と公開スコアの差', st: 'doing', next: '出所ごとに分けた分割で再評価する', exps: '1 実験' },
+      ] },
+      { label: '別方式探索', hint: '既存構成から離れて探す', blue: false, cards: [
+        { branch: '特徴表現', tag: 'B', label: '凍結 LLM の最終層', st: 'done', exps: '2 実験' },
+      ] },
+      { label: '保留', hint: '再開する条件を残して止める', blue: false, cards: [
+        { branch: '特徴表現', tag: 'A', label: '文字 n-gram の TF-IDF', st: 'done', note: 'A + C で検証を続けている', exps: '3 実験' },
+        { branch: '学習データ', label: '外部コーパスの追加', st: 'done', next: 'ラベルを揃える方法が見つかったら再開', exps: '1 実験' },
+      ] },
+      { label: '終了・採用', hint: '資源を割かない / 基準に取り込んだ', blue: false, cards: [
+        { branch: 'モデル', label: 'ロジスティック回帰', st: 'done', note: '採用: 基準構成', exps: '1 実験' },
+      ] },
+    ].map((col) => ({
+      ...col,
+      count: col.cards.length,
+      cards: col.cards.map(card),
+      headStyle: 'margin: 0; font-size: 13px; font-weight: 700; color: ' + (col.blue ? '#7aa2f7' : '#ededea'),
+    }));
+    const branches = ['すべて', '特徴表現', 'モデル', 'アンサンブル', '学習データ', '評価'].map((label, i) => ({
+      label, pressed: i === 0 ? 'true' : 'false',
+      style: 'height: 26px; padding: 0 10px; border: 1px solid ' + (i === 0 ? '#ededea' : '#3a3a37') + '; background: #161615; color: ' + (i === 0 ? '#ededea' : '#c4c3bc') + '; font-size: 12px; cursor: pointer',
+    }));
+    return { columns, branches };
+  }
+}
+</script>
+</body>
+</html>

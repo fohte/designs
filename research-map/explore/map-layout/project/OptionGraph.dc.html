@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>案 B: ノードグラフ</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#7aa2f7}a:hover{color:#a9c1fa}
+button{font-family:inherit}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; overflow: hidden; color-scheme: dark; background: #0f0f0e; color: #c4c3bc; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.5">
+
+<header style="position: absolute; left: 0; top: 0; width: 1440px; height: 48px; box-sizing: border-box; display: flex; align-items: center; gap: 16px; padding: 0 20px; border-bottom: 1px solid #2a2a28; background: #161615">
+<span style="font-family: 'JetBrains Mono', monospace; font-weight: 700; color: #ededea">research map</span>
+<span aria-hidden="true" style="color: #4a4945">/</span>
+<span style="font-weight: 700; color: #ededea">分類精度 (balanced accuracy) を上げる</span>
+<div style="flex: 1"></div>
+<button type="button" style="height: 28px; padding: 0 10px; border: 1px solid #3a3a37; background: #161615; color: #c4c3bc; font-size: 12px; cursor: pointer">全体を表示</button>
+<button type="button" style="height: 28px; padding: 0 10px; border: 1px solid #3a3a37; background: #161615; color: #c4c3bc; font-size: 12px; cursor: pointer">+ 枝を追加</button>
+</header>
+
+<!-- 目的 → 枝 -->
+<div style="position: absolute; left: 264px; top: 460px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 292px; top: 220px; width: 1px; height: 481px; background: #3a3a37"></div>
+<div style="position: absolute; left: 292px; top: 220px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 292px; top: 418px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 292px; top: 538px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 292px; top: 632px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 292px; top: 700px; width: 28px; height: 1px; background: #3a3a37"></div>
+
+<!-- 枝 → 候補 -->
+<div style="position: absolute; left: 468px; top: 220px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 496px; top: 116px; width: 1px; height: 209px; background: #3a3a37"></div>
+<div style="position: absolute; left: 496px; top: 116px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 496px; top: 168px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 496px; top: 220px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 496px; top: 324px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 540px; top: 240px; width: 1px; height: 32px; background: #3a3a37"></div>
+<div style="position: absolute; left: 540px; top: 272px; width: 16px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 468px; top: 418px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 496px; top: 392px; width: 1px; height: 53px; background: #3a3a37"></div>
+<div style="position: absolute; left: 496px; top: 392px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 496px; top: 444px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 468px; top: 538px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 496px; top: 512px; width: 1px; height: 53px; background: #3a3a37"></div>
+<div style="position: absolute; left: 496px; top: 512px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 496px; top: 564px; width: 28px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 468px; top: 632px; width: 56px; height: 1px; background: #3a3a37"></div>
+<div style="position: absolute; left: 468px; top: 700px; width: 56px; height: 1px; background: #3a3a37"></div>
+
+<!-- 組み合わせの材料 (A + C ← A, C) -->
+<div style="position: absolute; left: 792px; top: 116px; width: 88px; height: 0; border-top: 1px dashed #7aa2f7"></div>
+<div style="position: absolute; left: 792px; top: 220px; width: 88px; height: 0; border-top: 1px dashed #7aa2f7"></div>
+<div style="position: absolute; left: 792px; top: 512px; width: 88px; height: 0; border-top: 1px dashed #7aa2f7"></div>
+<div style="position: absolute; left: 880px; top: 116px; width: 0; height: 396px; border-left: 1px dashed #7aa2f7"></div>
+<div style="position: absolute; left: 892px; top: 300px; width: 120px; font-size: 12px; line-height: 16px; color: #a9c1fa">A + C の材料</div>
+
+<!-- 目的 -->
+<div style="position: absolute; left: 64px; top: 404px; font-size: 11px; color: #9a998f">研究の目的</div>
+<div style="position: absolute; left: 64px; top: 428px; width: 200px; height: 64px; box-sizing: border-box; display: flex; align-items: center; padding: 0 14px; background: #161615; border: 1px solid #ededea; color: #ededea; font-weight: 700">分類精度 (balanced accuracy) を上げる</div>
+
+<!-- 枝 -->
+<div style="position: absolute; left: 320px; top: 202px; width: 148px; height: 36px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; border: 1px solid #2a2a28; color: #ededea; font-weight: 700"><span>特徴表現</span><span style="font-size: 11px; font-weight: 400; color: #9a998f">2/5</span></div>
+<div style="position: absolute; left: 320px; top: 400px; width: 148px; height: 36px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; border: 1px solid #2a2a28; color: #ededea; font-weight: 700"><span>モデル</span><span style="font-size: 11px; font-weight: 400; color: #9a998f">1/2</span></div>
+<div style="position: absolute; left: 320px; top: 520px; width: 148px; height: 36px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; border: 1px solid #2a2a28; color: #ededea; font-weight: 700"><span>アンサンブル</span><span style="font-size: 11px; font-weight: 400; color: #9a998f">0/2</span></div>
+<div style="position: absolute; left: 320px; top: 614px; width: 148px; height: 36px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; border: 1px solid #2a2a28; color: #ededea; font-weight: 700"><span>学習データ</span><span style="font-size: 11px; font-weight: 400; color: #9a998f">1/1</span></div>
+<div style="position: absolute; left: 320px; top: 682px; width: 148px; height: 36px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; border: 1px solid #2a2a28; color: #ededea; font-weight: 700"><span>評価</span><span style="font-size: 11px; font-weight: 400; color: #9a998f">0/1</span></div>
+
+<!-- 候補 -->
+<div style="position: absolute; left: 524px; top: 96px; width: 268px; height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px; background: #161615; border: 1px solid #3a3a37; color: #ededea"><span aria-hidden="true" style="flex: none; width: 9px; height: 9px; background: #ededea"></span><span style="flex: none; padding: 0 4px; border: 1px solid #3a3a37; font-family: 'JetBrains Mono', monospace; font-size: 11px">A</span><span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">文字 n-gram の TF-IDF</span><span style="flex: none; padding: 0 6px; font-size: 11.5px; line-height: 20px; border: 1px solid #3a3a37; color: #c4c3bc">保留</span></div>
+<div style="position: absolute; left: 524px; top: 148px; width: 268px; height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px; background: #161615; border: 1px solid #3a3a37; color: #ededea"><span aria-hidden="true" style="flex: none; width: 9px; height: 9px; background: #ededea"></span><span style="flex: none; padding: 0 4px; border: 1px solid #3a3a37; font-family: 'JetBrains Mono', monospace; font-size: 11px">B</span><span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">凍結 LLM の最終層</span><span style="flex: none; padding: 0 6px; font-size: 11.5px; line-height: 20px; border: 1px solid #3a3a37; color: #c4c3bc">別方式探索</span></div>
+<div style="position: absolute; left: 524px; top: 200px; width: 268px; height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px; background: #161615; border: 1px solid #3a3a37; color: #ededea"><span aria-hidden="true" style="flex: none; width: 9px; height: 9px; background: #e8913a"></span><span style="flex: none; padding: 0 4px; border: 1px solid #3a3a37; font-family: 'JetBrains Mono', monospace; font-size: 11px">C</span><span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">凍結 LLM の中間層</span><span style="flex: none; padding: 0 6px; font-size: 11.5px; line-height: 20px; border: 1px solid #7aa2f7; color: #7aa2f7">深掘り</span></div>
+<div style="position: absolute; left: 556px; top: 252px; width: 236px; height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px; border: 1px dashed #4a4945; color: #9a998f"><span aria-hidden="true" style="flex: none; box-sizing: border-box; width: 9px; height: 9px; border: 1px solid #7a7972"></span><span>中間層 4 条件の比較</span></div>
+<div style="position: absolute; left: 524px; top: 304px; width: 268px; height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px; border: 1px dashed #4a4945; color: #9a998f"><span aria-hidden="true" style="flex: none; box-sizing: border-box; width: 9px; height: 9px; border: 1px solid #7a7972"></span><span>埋め込みの中心化</span></div>
+<div style="position: absolute; left: 524px; top: 372px; width: 268px; height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px; background: #161615; border: 1px solid #3a3a37; color: #ededea"><span aria-hidden="true" style="flex: none; width: 9px; height: 9px; background: #ededea"></span><span style="flex: 1">ロジスティック回帰</span><span style="flex: none; padding: 0 6px; font-size: 11.5px; line-height: 20px; border: 1px solid #7aa2f7; color: #7aa2f7">採用</span></div>
+<div style="position: absolute; left: 524px; top: 424px; width: 268px; height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px; border: 1px dashed #4a4945; color: #9a998f"><span aria-hidden="true" style="flex: none; box-sizing: border-box; width: 9px; height: 9px; border: 1px solid #7a7972"></span><span>小型 LLM の LoRA 微調整</span></div>
+<div style="position: absolute; left: 524px; top: 492px; width: 268px; height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px; background: #1c2433; border: 1px solid #7aa2f7; color: #ededea; font-weight: 700"><span aria-hidden="true" style="flex: none; width: 9px; height: 9px; background: #e8913a"></span><span style="flex: none; padding: 0 4px; border: 1px solid #2f3d57; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 400">A+C</span><span style="flex: 1">確率平均</span><span style="flex: none; padding: 0 6px; font-size: 11.5px; line-height: 20px; font-weight: 400; border: 1px solid #7aa2f7; color: #7aa2f7">深掘り</span></div>
+<div style="position: absolute; left: 524px; top: 544px; width: 268px; height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px; border: 1px dashed #4a4945; color: #9a998f"><span aria-hidden="true" style="flex: none; box-sizing: border-box; width: 9px; height: 9px; border: 1px solid #7a7972"></span><span style="flex: none; padding: 0 4px; border: 1px solid #3a3a37; font-family: 'JetBrains Mono', monospace; font-size: 11px">A+B</span><span>スタッキング</span></div>
+<div style="position: absolute; left: 524px; top: 612px; width: 268px; height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px; background: #161615; border: 1px solid #3a3a37; color: #ededea"><span aria-hidden="true" style="flex: none; width: 9px; height: 9px; background: #ededea"></span><span style="flex: 1">外部コーパスの追加</span><span style="flex: none; padding: 0 6px; font-size: 11.5px; line-height: 20px; border: 1px solid #3a3a37; color: #c4c3bc">保留</span></div>
+<div style="position: absolute; left: 524px; top: 680px; width: 268px; height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px; background: #161615; border: 1px solid #3a3a37; color: #ededea"><span aria-hidden="true" style="flex: none; width: 9px; height: 9px; background: #e8913a"></span><span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">交差検証と公開スコアの差</span><span style="flex: none; padding: 0 6px; font-size: 11.5px; line-height: 20px; border: 1px solid #3a3a37; color: #c4c3bc">追加検証</span></div>
+
+<!-- 凡例 -->
+<div style="position: absolute; left: 64px; top: 800px; display: flex; align-items: center; gap: 20px; font-size: 12px; color: #9a998f">
+<span style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 9px; height: 9px; background: #ededea"></span>検証済み</span>
+<span style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 9px; height: 9px; background: #e8913a"></span>検討中</span>
+<span style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="box-sizing: border-box; width: 9px; height: 9px; border: 1px solid #7a7972"></span>未検証 (破線の枠)</span>
+<span style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="width: 24px; height: 0; border-top: 1px dashed #7aa2f7"></span>組み合わせの材料</span>
+</div>
+
+<!-- 選んだ候補 -->
+<aside aria-label="選んだ候補" style="position: absolute; left: 1040px; top: 48px; width: 400px; height: 852px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; padding: 24px; border-left: 1px solid #2a2a28; background: #161615; overflow-y: auto">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="font-size: 12px; color: #9a998f">アンサンブル ›</div>
+<h1 style="margin: 0; font-size: 18px; line-height: 1.4; color: #ededea"><span style="margin-right: 8px; padding: 0 5px; border: 1px solid #ededea; font-family: 'JetBrains Mono', monospace; font-size: 13px; vertical-align: 2px">A+C</span>A + C の確率平均</h1>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 12px"><span aria-hidden="true" style="width: 9px; height: 9px; background: #e8913a"></span>検討中<span aria-hidden="true" style="color: #4a4945">·</span><span style="padding: 0 6px; line-height: 20px; border: 1px solid #7aa2f7; color: #7aa2f7">深掘り</span></div>
+</div>
+<section style="display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-size: 12px; color: #9a998f">材料にした候補</h2>
+<div style="display: flex; align-items: center; gap: 8px; color: #ededea"><span style="padding: 0 4px; border: 1px solid #3a3a37; font-family: 'JetBrains Mono', monospace; font-size: 11px">A</span>文字 n-gram の TF-IDF<span style="margin-left: auto; font-size: 12px; color: #9a998f">単体は保留</span></div>
+<div style="display: flex; align-items: center; gap: 8px; color: #ededea"><span style="padding: 0 4px; border: 1px solid #3a3a37; font-family: 'JetBrains Mono', monospace; font-size: 11px">C</span>凍結 LLM の中間層<span style="margin-left: auto; font-size: 12px; color: #9a998f">単体は深掘り</span></div>
+</section>
+<section style="display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-size: 12px; color: #9a998f">確認できたこと</h2>
+<ul style="margin: 0; padding-left: 18px; color: #ededea"><li>A、C 単体のどちらよりもスコアが高い</li><li>出所ごとに改善幅がばらつく</li></ul>
+</section>
+<section style="display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-size: 12px; color: #9a998f">次の行動</h2>
+<div style="padding: 10px 12px; border: 1px solid #ededea; color: #ededea; font-weight: 700">→ 出所を 1 つずつ外した検証で、改善が残るか確かめる</div>
+</section>
+<section style="display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-size: 12px; color: #9a998f">関連する実験</h2>
+<div style="display: flex; align-items: center; gap: 10px; height: 34px; border-bottom: 1px solid #222220"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #ededea">exp-027</span><span style="flex: 1">重み 0.5 / 0.5</span><a href="https://wandb.ai/example/research-map/runs/exp-027" style="font-size: 12px; text-decoration: none">W&amp;B ↗</a></div>
+<div style="display: flex; align-items: center; gap: 10px; height: 34px; border-bottom: 1px solid #222220"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #ededea">exp-031</span><span style="flex: 1">重み 0.3 / 0.7</span><a href="https://wandb.ai/example/research-map/runs/exp-031" style="font-size: 12px; text-decoration: none">W&amp;B ↗</a></div>
+</section>
+<button type="button" style="align-self: flex-start; height: 32px; padding: 0 12px; border: 1px solid #3a3a37; background: #161615; color: #ededea; font-size: 12px; cursor: pointer">記録を編集</button>
+</aside>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

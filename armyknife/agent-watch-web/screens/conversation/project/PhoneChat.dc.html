@@ -24,7 +24,7 @@ body{margin:0}
 <a href="#" style="grid-column: 1 / -1; min-width: 0; min-height: 24px; display: flex; align-items: center; gap: 6px; padding: 0 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa; text-decoration: none; white-space: nowrap"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">#2048 通知の信頼性を上げる</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: none">service</span></a>
 <sc-if value="{{hasPr}}" hint-placeholder-val="{{ false }}">
 <div style="grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; padding: 4px 0 8px 14px">
-<button type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="PR #2050 再送処理を retry() にまとめる, open, CI running" style="min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 8px; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; white-space: nowrap"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: #fbbf24"></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px">#2050</span><span style="color: #fbbf24">Open · CI running</span><span aria-hidden="true" style="color: #8b8b94">▾</span></button>
+<button type="button" aria-haspopup="dialog" aria-expanded="{{prsOpenStr}}" aria-label="PR #2050 再送処理を retry() にまとめる, open, CI running. 2 more PRs from this session" style="min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 8px; padding: 0 12px; border: 1px solid {{prBorder}}; background: {{prBg}}; color: #fafafa; font-family: inherit; font-size: 13px; white-space: nowrap"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: #fbbf24"></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px">#2050</span><span style="color: #fbbf24">Open · CI running</span><span style="color: #a1a1aa">+2</span><span aria-hidden="true" style="color: #8b8b94">▾</span></button>
 </div>
 </sc-if>
 </header>
@@ -68,17 +68,44 @@ body{margin:0}
 <button type="submit" aria-label="Send message" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
 </form>
 <div style="flex: none; padding: 0 14px 24px; background: #141414"><dc-import name="SessionUsage" engine="claude" phone="{{ true }}" hint-size="100%,36px"></dc-import></div>
+<sc-if value="{{prsOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 30; display: flex; flex-direction: column; justify-content: flex-end; background: rgba(0, 0, 0, 0.58)">
+<section role="dialog" aria-modal="true" aria-labelledby="pr-sheet-title" style="display: flex; flex-direction: column; max-height: 80%; overflow-y: auto; padding: 16px 0 max(30px, env(safe-area-inset-bottom)); border-top: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 -12px 36px rgb(0 0 0 / 30%); color: #d4d4d8; font-size: 14px">
+<h2 id="pr-sheet-title" style="margin: 0 16px 6px; color: #fafafa; font-size: 15px; font-weight: 700">Pull requests from this session</h2>
+<sc-for list="{{prGroups}}" as="g" hint-placeholder-count="3">
+<h3 style="margin: 0; padding: 10px 16px 2px; color: #8b8b94; font-size: 12.5px; font-weight: 400">{{g.name}}</h3>
+<sc-for list="{{g.rows}}" as="r" hint-placeholder-count="1">
+<a href="#" style="min-height: 56px; box-sizing: border-box; display: grid; grid-template-columns: 7px 1fr; align-items: center; column-gap: 12px; padding: 6px 16px; color: #fafafa; text-decoration: none"><span aria-hidden="true" style="width: 7px; height: 7px; background: {{r.dot}}"></span><span style="min-width: 0; display: grid"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px">#{{r.num}}</span> {{r.title}}</span><span style="font-size: 12.5px; color: #a1a1aa"><span style="font-family: 'JetBrains Mono', monospace">{{r.repo}}</span> · <span style="color: {{r.metaColor}}">{{r.meta}}</span></span></span></a>
+</sc-for>
+</sc-for>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 16px 0">
+<button type="button" style="min-height: 44px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">Close</button>
+<button type="button" aria-label="Merge PR #2050" style="min-height: 44px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Merge #2050</button>
+</div>
+</section>
+</div>
+</sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false}}'>
 class Component extends DCLogic {
   renderVals() {
     const menuOpen = this.props.menuOpen ?? false;
     const review = (this.props.state ?? 'question') === 'review';
+    const prsOpen = review && (this.props.prsOpen ?? false);
     return {
       isQuestion: !review,
       isReview: review,
       hasPr: review,
+      prsOpen,
+      prsOpenStr: prsOpen ? 'true' : 'false',
+      prBorder: prsOpen ? '#a1a1aa' : '#3f3f46',
+      prBg: prsOpen ? '#262626' : 'transparent',
+      prGroups: [
+        { name: 'This branch', rows: [{ num: 2050, title: '再送処理を retry() にまとめる', repo: 'example/service', dot: '#fbbf24', meta: 'Open · CI running', metaColor: '#fbbf24' }] },
+        { name: 'Opened elsewhere', rows: [{ num: 64, title: '再送キューの上限を設定に出す', repo: 'example/infra', dot: '#4ade80', meta: 'Open · CI passed', metaColor: '#a1a1aa' }] },
+        { name: 'Merged', rows: [{ num: 2041, title: '再送のログを整える', repo: 'example/service', dot: '#52525b', meta: '✓ Merged', metaColor: '#8b8b94' }] }
+      ],
       headerPadB: review ? '0' : '6px',
       bandState: review ? 'crit' : 'question',
       bandDetail: review ? 'crit · PR #2050 · 1m' : '再試行は 3 回で止めてよいですか?',

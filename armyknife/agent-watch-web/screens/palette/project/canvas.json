@@ -10,7 +10,7 @@
       "page": "screens"
     },
     "PaletteQuery.dc.html": {
-      "x": 3040,
+      "x": 4560,
       "y": 0,
       "w": 1440,
       "h": 900,
@@ -42,7 +42,7 @@
       "page": "components"
     },
     "PaletteNewSession.dc.html": {
-      "x": 4560,
+      "x": 7600,
       "y": 0,
       "w": 1440,
       "h": 900,
@@ -50,7 +50,7 @@
       "page": "screens"
     },
     "PhonePaletteNewSession.dc.html": {
-      "x": 6080,
+      "x": 11200,
       "y": 0,
       "w": 390,
       "h": 844,
@@ -58,7 +58,7 @@
       "page": "screens"
     },
     "SessionRow.dc.html": {
-      "x": 1820,
+      "x": 3340,
       "y": 0,
       "w": 460,
       "h": 76,
@@ -66,7 +66,7 @@
       "page": "components"
     },
     "Quota.dc.html": {
-      "x": 1820,
+      "x": 3340,
       "y": 200,
       "w": 240,
       "h": 140,
@@ -74,7 +74,7 @@
       "page": "components"
     },
     "SessionUsage.dc.html": {
-      "x": 1820,
+      "x": 3340,
       "y": 460,
       "w": 672,
       "h": 40,
@@ -82,7 +82,7 @@
       "page": "components"
     },
     "StatusBand.dc.html": {
-      "x": 1820,
+      "x": 3340,
       "y": 620,
       "w": 760,
       "h": 60,
@@ -90,39 +90,39 @@
       "page": "components"
     },
     "before/BeforePalette.dc.html": {
-      "x": 1520,
-      "y": 1140,
+      "x": 3040,
+      "y": 0,
       "w": 1440,
       "h": 900,
       "title": "Before · ⌘K · 開いた直後",
       "page": "screens"
     },
     "before/BeforePaletteQuery.dc.html": {
-      "x": 3040,
-      "y": 1140,
+      "x": 6080,
+      "y": 0,
       "w": 1440,
       "h": 900,
       "title": "Before · ⌘K · # で tq タスクに絞る",
       "page": "screens"
     },
     "before/BeforePaletteNewSession.dc.html": {
-      "x": 4560,
-      "y": 1140,
+      "x": 9120,
+      "y": 0,
       "w": 1440,
       "h": 900,
       "title": "Before · コマンドパレット · 新しいセッション",
       "page": "screens"
     },
     "before/BeforeConversation.dc.html": {
-      "x": 0,
-      "y": 1140,
+      "x": 1820,
+      "y": 0,
       "w": 880,
       "h": 900,
       "title": "Before · Conversation",
       "page": "components"
     },
     "before/BeforeNav.dc.html": {
-      "x": 960,
+      "x": 0,
       "y": 1140,
       "w": 240,
       "h": 900,
@@ -130,7 +130,7 @@
       "page": "components"
     },
     "before/BeforeInboxList.dc.html": {
-      "x": 1280,
+      "x": 320,
       "y": 1140,
       "w": 460,
       "h": 900,
@@ -138,7 +138,7 @@
       "page": "components"
     },
     "before/BeforeSessionRow.dc.html": {
-      "x": 1820,
+      "x": 860,
       "y": 1140,
       "w": 460,
       "h": 76,
@@ -146,7 +146,7 @@
       "page": "components"
     },
     "before/BeforeQuota.dc.html": {
-      "x": 2360,
+      "x": 1400,
       "y": 1140,
       "w": 240,
       "h": 140,
@@ -154,7 +154,7 @@
       "page": "components"
     },
     "before/BeforeSessionUsage.dc.html": {
-      "x": 2680,
+      "x": 1720,
       "y": 1140,
       "w": 672,
       "h": 40,
@@ -162,7 +162,7 @@
       "page": "components"
     },
     "before/BeforeStatusBand.dc.html": {
-      "x": 3432,
+      "x": 2472,
       "y": 1140,
       "w": 760,
       "h": 60,
@@ -205,20 +205,20 @@
   ],
   "notes": {
     "diffHeaderPr": {
-      "x": 6080,
-      "y": 1140,
+      "x": 10640,
+      "y": 0,
       "w": 480,
       "fill": "orange",
       "page": "screens",
       "text": "ヘッダーの PR を D にする (Before · が変更前)\n- 「#番号 PR」のリンクを、状態の色、番号、状態と CI のボタンにする。タイトルは出さない\n- ほかの PR は同じボタンの中の +1 (question の会話)。ボタン全体が This branch / Opened elsewhere の一覧を開く\n- ほかの PR がなくても ▾ を出す\n- CI 実行中は黄 (#fbbf24)、CI passed は緑の点\n- Merge の位置と見た目は変えない"
     },
     "diffHeaderPrParts": {
-      "x": 4272,
-      "y": 1140,
+      "x": 2780,
+      "y": 0,
       "w": 480,
       "fill": "orange",
       "page": "components",
-      "text": "部品 Conversation (Before · が変更前)\n- ヘッダー右上の PR を D のボタンにする (上の画面のメモと同じ)\n- prsOpen で一覧を開いた形を見られる\n- ほかの部品は変えていない。Before の画面が import するために複製している"
+      "text": "部品 Conversation (Before · が変更前)\n- ヘッダー右上の PR を D のボタンにする (画面 page のメモと同じ)\n- prsOpen で一覧を開いた形を見られる\n- ほかの部品は変えていない。Before の画面が import するために複製している"
     }
   },
   "v": 3,

@@ -18,7 +18,7 @@
       "page": "screens"
     },
     "Dialogs.dc.html": {
-      "x": 3980,
+      "x": 4450,
       "y": 0,
       "w": 1440,
       "h": 900,
@@ -42,7 +42,7 @@
       "page": "screens"
     },
     "SessionUsage.dc.html": {
-      "x": 3980,
+      "x": 4450,
       "y": 1020,
       "w": 672,
       "h": 40,
@@ -58,7 +58,7 @@
       "page": "screens"
     },
     "StatusBandStates.dc.html": {
-      "x": 5500,
+      "x": 6130,
       "y": 0,
       "w": 1290,
       "h": 1690,
@@ -66,7 +66,7 @@
       "page": "screens"
     },
     "StatusBand.dc.html": {
-      "x": 3980,
+      "x": 4450,
       "y": 1180,
       "w": 760,
       "h": 60,
@@ -82,27 +82,35 @@
       "page": "screens"
     },
     "before/BeforePhoneChat.dc.html": {
-      "x": 3510,
-      "y": 3440,
+      "x": 3040,
+      "y": 1928,
       "w": 390,
       "h": 844,
       "title": "Before · iPhone · 会話から答える",
       "page": "screens"
     },
     "before/BeforeStatusBand.dc.html": {
-      "x": 3980,
-      "y": 3440,
+      "x": 5290,
+      "y": 1180,
       "w": 760,
       "h": 60,
       "title": "Before · StatusBand",
       "page": "screens"
     },
     "before/BeforeSessionUsage.dc.html": {
-      "x": 4820,
-      "y": 3440,
+      "x": 5202,
+      "y": 1020,
       "w": 672,
       "h": 40,
       "title": "Before · SessionUsage",
+      "page": "screens"
+    },
+    "PhoneChatPrs.dc.html": {
+      "x": 3980,
+      "y": 964,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · セッションの PR 一覧",
       "page": "screens"
     }
   },
@@ -119,7 +127,8 @@
     "before/BeforePhoneChatReview.dc.html",
     "before/BeforePhoneChat.dc.html",
     "before/BeforeStatusBand.dc.html",
-    "before/BeforeSessionUsage.dc.html"
+    "before/BeforeSessionUsage.dc.html",
+    "PhoneChatPrs.dc.html"
   ],
   "pages": [
     {
@@ -129,12 +138,12 @@
   ],
   "notes": {
     "diffHeaderPr": {
-      "x": 3040,
-      "y": 1900,
+      "x": 3510,
+      "y": 1928,
       "w": 470,
       "fill": "orange",
       "page": "screens",
-      "text": "iPhone のヘッダーに PR を出す (D、Before · が変更前)\n- PR のあるセッションでは、タイトルと tq タスクの下に高さ 44px の PR ボタンを足す: 状態の色、#2050、Open · CI running (黄 #fbbf24)、▾\n- 押すと This branch / Opened elsewhere / Merged の一覧のシートを開く (ここでは閉じた形だけ描く)\n- PR のない会話 (iPhone · 会話から答える、操作メニュー) は変えていない\n- Before · PhoneChat、StatusBand、SessionUsage は変えていない。Before の画面が import するために複製している"
+      "text": "iPhone のヘッダーに PR を出す (D、Before · が変更前)\n- PR のあるセッションでは、タイトルと tq タスクの下に高さ 44px の PR ボタンを足す: 状態の色、#2050、Open · CI running (黄 #fbbf24)、ほかの PR の数 +2、▾\n- 押すと This branch / Opened elsewhere / Merged の一覧のシート。新しい画面「iPhone · セッションの PR 一覧」で開いた形を描く (新規のため Before なし)\n- PR のない会話 (iPhone · 会話から答える、操作メニュー) は変えていない\n- Before · PhoneChat、StatusBand、SessionUsage は変えていない。Before の画面が import するために複製している"
     }
   },
   "v": 3,

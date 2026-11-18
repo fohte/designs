@@ -1,0 +1,139 @@
+{
+  "v": 3,
+  "title": "Header PRs compact",
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-15T10:37:15Z"
+    }
+  ],
+  "boards": {
+    "header-prs-compact-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 800,
+      "h": 844,
+      "title": "Current · iPhone (左: 閉じた状態、右: PR を押した)",
+      "page": "options"
+    },
+    "header-prs-compact-a.dc.html": {
+      "x": 0,
+      "y": 1200,
+      "w": 800,
+      "h": 844,
+      "title": "A · iPhone (左: 閉じた状態、右: PR を押した)",
+      "page": "options"
+    },
+    "header-prs-compact-b.dc.html": {
+      "x": 0,
+      "y": 2400,
+      "w": 800,
+      "h": 844,
+      "title": "B · iPhone (左: 閉じた状態、右: PR を押した)",
+      "page": "options"
+    },
+    "PhoneChat.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneChat",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 470,
+      "y": 0,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 470,
+      "y": 200,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "header-prs-compact-current.dc.html",
+    "header-prs-compact-a.dc.html",
+    "header-prs-compact-b.dc.html",
+    "PhoneChat.dc.html",
+    "StatusBand.dc.html",
+    "SessionUsage.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "options",
+      "name": "案"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1400,
+      "text": "Current · PR ボタンが専用の行を取り、ヘッダーが約 130px になる",
+      "page": "options"
+    },
+    "a": {
+      "kind": "title1",
+      "x": 0,
+      "y": 940,
+      "maxW": 1400,
+      "text": "A · PR ボタンを小さくして、タスクとディレクトリの行の右端に置く",
+      "page": "options"
+    },
+    "b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2140,
+      "maxW": 1400,
+      "text": "B · PR をアイコンのボタンにして、右上のボタンの並びに入れる",
+      "page": "options"
+    },
+    "about": {
+      "x": 880,
+      "y": 0,
+      "w": 460,
+      "fill": "gray",
+      "page": "options",
+      "text": "前提\n- フィードバック: スマホで PR の部分が画面を取りすぎる\n- 実装は screens の PhoneChat どおり。直すのはデザイン\n- PR を押したときのシートは今のまま\n- PC のヘッダーは PR ボタンがタイトルと同じ行にあり、高さは増えないので変えない\n- データはすべて架空"
+    },
+    "aNote": {
+      "x": 880,
+      "y": 1200,
+      "w": 460,
+      "fill": "gray",
+      "page": "options",
+      "text": "A\n- ヘッダーは約 82px (今より約 48px 低い)\n- 番号と状態 (Open) と残りの数が文字で見える\n- 見た目の高さは 28px。タップできる範囲は上下に広げて 44px を保つ\n- タスク名が長いと … で切れる幅が狭くなる"
+    },
+    "bNote": {
+      "x": 880,
+      "y": 2400,
+      "w": 460,
+      "fill": "gray",
+      "page": "options",
+      "text": "B\n- ヘッダーは約 74px (今より約 56px 低い)\n- 見えるのは点の色と PR の数だけ。番号と状態はシートを開くまで見えない\n- タイトルが使える幅が 1 ボタン分 (52px) 狭くなる"
+    }
+  },
+  "noteOrder": [
+    "current",
+    "a",
+    "b",
+    "about",
+    "aNote",
+    "bNote"
+  ]
+}

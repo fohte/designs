@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Command palette: new session with model and effort</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; display: flex; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" hint-size="240px,900px"></dc-import></div>
+<div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" hint-size="460px,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0"><dc-import name="Conversation" variant="question" hint-size="100%,900px"></dc-import></div>
+<div style="position: absolute; inset: 0; display: flex; justify-content: center; align-items: flex-start; padding-top: 96px; box-sizing: border-box; background: rgba(0, 0, 0, 0.58)">
+<div role="dialog" aria-label="New session" style="width: 680px; min-height: 420px; box-sizing: border-box; display: flex; flex-direction: column; background: #161616; border: 1px solid #3f3f46">
+<div style="flex: none; min-height: 54px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 16px; box-sizing: border-box; border-bottom: 1px solid #2a2a2a"><span style="height: 24px; display: inline-flex; align-items: center; padding: 0 8px; background: #2a2a2e; font-size: 12px">› New session</span><span style="height: 24px; display: inline-flex; align-items: center; gap: 6px; padding: 0 8px; background: #2a2a2e; font-family: 'JetBrains Mono', monospace; font-size: 12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg> example/service</span><sc-if value="{{ subPill }}" hint-placeholder-val="{{ false }}"><span style="height: 24px; display: inline-flex; align-items: center; padding: 0 8px; background: #2a2a2e; font-size: 12px">› {{ subPill }}</span></sc-if><input aria-label="{{ inputLabel }}" value="{{ inputValue }}" placeholder="{{ inputPlaceholder }}" style="flex: 1 1 200px; min-width: 0; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 15px"></div>
+
+<div role="listbox" style="flex: 1; min-height: 0; overflow: hidden; padding: 4px 0">
+
+<sc-if value="{{ aDefault }}" hint-placeholder-val="{{ true }}">
+<h2 style="height: 28px; display: flex; align-items: center; margin: 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">START WITH</h2>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 0 16px"><span><strong>Claude Code</strong> <span style="color: #a1a1aa">in example/service</span></span><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">↵</kbd></div>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 0 16px"><span>Codex <span style="color: #a1a1aa">in example/service</span></span><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">⌥↵</kbd></div>
+<h2 style="height: 28px; display: flex; align-items: center; margin: 8px 0 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">OPTIONS</h2>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px"><span style="color: #a1a1aa"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span><span>New worktree from <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">main</span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #4ade80">on</span></div>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px"><span style="color: #a1a1aa"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M15 2v2"></path><path d="M15 20v2"></path><path d="M2 15h2"></path><path d="M2 9h2"></path><path d="M20 15h2"></path><path d="M20 9h2"></path><path d="M9 2v2"></path><path d="M9 20v2"></path></svg></span><span>Model</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">atlas-5 <span style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #8b8b94">default</span> ›</span></div>
+<div role="option" aria-selected="true" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px; background: #2a2a2e"><span style="color: #a1a1aa"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 14 4-4"></path><path d="M3.34 19a10 10 0 1 1 17.32 0"></path></svg></span><span>Effort</span><span role="radiogroup" aria-label="Reasoning effort" style="display: inline-flex; border: 1px solid #52525b"><sc-for list="{{ rowEfforts }}" as="e" hint-placeholder-count="6"><span role="radio" aria-checked="{{ e.on }}" style="height: 24px; display: inline-flex; align-items: center; padding: 0 8px; background: {{ e.bg }}; color: {{ e.fg }}; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">{{ e.label }}</span></sc-for></span></div>
+</sc-if>
+
+<sc-if value="{{ aMenu }}" hint-placeholder-val="{{ false }}">
+<h2 style="height: 28px; display: flex; align-items: center; margin: 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">CLAUDE CODE MODELS</h2>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg><span>Default <span style="color: #8b8b94">from profile daily</span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a1a1aa">atlas-5</span></div>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px"><span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px">atlas-5</span><span style="font-size: 11.5px; color: #8b8b94">low–max</span></div>
+<div role="option" aria-selected="true" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px; background: #2a2a2e"><span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px">borealis-5</span><span style="font-size: 11.5px; color: #a1a1aa">low–max</span></div>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px"><span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px">comet-5</span><span style="font-size: 11.5px; color: #8b8b94">low–high</span></div>
+</sc-if>
+
+<sc-if value="{{ bDefault }}" hint-placeholder-val="{{ false }}">
+<h2 style="height: 28px; display: flex; align-items: center; margin: 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">START WITH</h2>
+<div role="option" aria-selected="true" style="min-height: 44px; display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 0 16px; background: #2a2a2e"><span><strong>Claude Code</strong> <span style="color: #a1a1aa">in example/service</span></span><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">↵</kbd></div>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 0 16px"><span>Codex <span style="color: #a1a1aa">in example/service</span></span><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">⌥↵</kbd></div>
+<h2 style="height: 28px; display: flex; align-items: center; margin: 8px 0 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">OPTIONS</h2>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px"><span style="color: #a1a1aa"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span><span>New worktree from <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">main</span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #4ade80">on</span></div>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px"><span style="color: #a1a1aa"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M15 2v2"></path><path d="M15 20v2"></path><path d="M2 15h2"></path><path d="M2 9h2"></path><path d="M20 15h2"></path><path d="M20 9h2"></path><path d="M9 2v2"></path><path d="M9 20v2"></path></svg></span><span>Model · effort</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">atlas-5 · high <span style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #8b8b94">default</span> ›</span></div>
+</sc-if>
+
+<sc-if value="{{ bMenu }}" hint-placeholder-val="{{ false }}">
+<h2 style="height: 28px; display: flex; align-items: center; margin: 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">CLAUDE CODE MODELS</h2>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px"><span></span><span>Default <span style="color: #8b8b94">from profile daily</span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a1a1aa">atlas-5 · high</span></div>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px"><span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px">atlas-5</span><span></span></div>
+<div role="option" aria-selected="true" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px; background: #2a2a2e"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px">borealis-5</span><span role="radiogroup" aria-label="Reasoning effort" style="display: inline-flex; border: 1px solid #52525b"><sc-for list="{{ rowEfforts }}" as="e" hint-placeholder-count="6"><span role="radio" aria-checked="{{ e.on }}" style="height: 24px; display: inline-flex; align-items: center; padding: 0 8px; background: {{ e.bg }}; color: {{ e.fg }}; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">{{ e.label }}</span></sc-for></span></div>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px"><span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px">comet-5</span><span style="font-size: 11.5px; color: #8b8b94">up to high</span></div>
+</sc-if>
+
+<sc-if value="{{ cDefault }}" hint-placeholder-val="{{ false }}">
+<h2 style="height: 28px; display: flex; align-items: center; margin: 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">START WITH</h2>
+<div role="option" aria-selected="true" style="min-height: 44px; display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 16px; padding: 0 16px; background: #2a2a2e"><span><strong>Claude Code</strong> <span style="color: #a1a1aa">in example/service</span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">atlas-5 · high <span style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #8b8b94">default</span></span><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">↵</kbd></div>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 16px; padding: 0 16px"><span>Codex <span style="color: #a1a1aa">in example/service</span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">cobalt-2 · medium <span style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #8b8b94">default</span></span><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">⌥↵</kbd></div>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 0 16px"><span style="color: #d4d4d8">Other models and effort…</span><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">⇥</kbd></div>
+<h2 style="height: 28px; display: flex; align-items: center; margin: 8px 0 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">OPTIONS</h2>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px"><span style="color: #a1a1aa"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span><span>New worktree from <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">main</span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #4ade80">on</span></div>
+</sc-if>
+
+<sc-if value="{{ cMenu }}" hint-placeholder-val="{{ false }}">
+<h2 style="height: 28px; display: flex; align-items: center; margin: 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">START WITH CLAUDE CODE</h2>
+<div role="option" aria-selected="false" style="min-height: 40px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; padding: 0 16px"><span>Default</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">atlas-5 · high</span></div>
+<div role="option" aria-selected="true" style="min-height: 40px; display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 16px; padding: 0 16px; background: #2a2a2e"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 700">borealis-5</span><span role="radiogroup" aria-label="Reasoning effort" style="display: inline-flex; border: 1px solid #52525b"><sc-for list="{{ rowEfforts }}" as="e" hint-placeholder-count="6"><span role="radio" aria-checked="{{ e.on }}" style="height: 24px; display: inline-flex; align-items: center; padding: 0 8px; background: {{ e.bg }}; color: {{ e.fg }}; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">{{ e.label }}</span></sc-for></span><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">↵</kbd></div>
+<div role="option" aria-selected="false" style="min-height: 40px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; padding: 0 16px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px">comet-5</span><span style="font-size: 11.5px; color: #8b8b94">up to high</span></div>
+<h2 style="height: 28px; display: flex; align-items: center; margin: 6px 0 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">START WITH CODEX</h2>
+<div role="option" aria-selected="false" style="min-height: 40px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; padding: 0 16px"><span>Default</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">cobalt-2 · medium</span></div>
+<div role="option" aria-selected="false" style="min-height: 40px; display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 16px; padding: 0 16px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px">cobalt-2-mini</span><span style="font-size: 11.5px; color: #8b8b94">up to high</span></div>
+<h2 style="height: 28px; display: flex; align-items: center; margin: 6px 0 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">OPTIONS</h2>
+<div role="option" aria-selected="false" style="min-height: 40px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px"><span style="color: #a1a1aa"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span><span>New worktree from <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">main</span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #4ade80">on</span></div>
+</sc-if>
+</div>
+<div style="flex: none; height: 36px; display: flex; align-items: center; gap: 14px; padding: 0 16px; border-top: 1px solid #2a2a2a; font-size: 11.5px; color: #8b8b94"><sc-for list="{{ hints }}" as="h" hint-placeholder-count="4"><span>{{ h }}</span></sc-for><span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{ summary }}</span></div>
+</div></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["a","b","c"],"default":"a"},"state":{"editor":"enum","options":["default","menu"],"default":"default"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const option = this.props.option ?? 'a';
+    const state = this.props.state ?? 'default';
+    const menu = state === 'menu';
+    const pick = (selected) => ['Default · high', 'low', 'medium', 'high', 'xhigh', 'max'].map((label) => {
+      const on = label === selected;
+      return { label, on, bg: on ? '#fafafa' : 'transparent', fg: on ? '#0a0a0a' : '#d4d4d8' };
+    });
+    const message = '配信ログの保存期間を設定ファイルに出したい';
+    const views = {
+      'a-default': { hints: ['←→ Effort', '↵ Start', '⌥W Worktree', '⌫ Change directory'], summary: 'claude · atlas-5 · high', efforts: pick('Default · high') },
+      'a-menu': { subPill: 'Model', hints: ['↑↓ Model', '↵ Choose', '⌫ Back'], summary: 'claude · atlas-5 · high', efforts: pick('') },
+      'b-default': { hints: ['↵ Start', '↑↓ Engine', '⌥M Model · effort', '⌫ Change directory'], summary: 'claude · atlas-5 · high', efforts: pick('') },
+      'b-menu': { subPill: 'Model · effort', hints: ['↑↓ Model', '←→ Effort', '↵ Done', '⌫ Back'], summary: 'claude · borealis-5 · xhigh', efforts: pick('xhigh') },
+      'c-default': { hints: ['↵ Start', '↑↓ Engine', '⇥ Other models', '⌥W Worktree'], summary: 'claude · atlas-5 · high', efforts: pick('') },
+      'c-menu': { hints: ['↑↓ Engine · model', '←→ Effort', '↵ Start', '⇥ Fewer'], summary: 'claude · borealis-5 · xhigh', efforts: pick('xhigh') },
+    };
+    const key = `${option}-${menu ? 'menu' : 'default'}`;
+    const v = views[key] ?? views['a-default'];
+    const sub = v.subPill ?? '';
+    return {
+      aDefault: key === 'a-default',
+      aMenu: key === 'a-menu',
+      bDefault: key === 'b-default',
+      bMenu: key === 'b-menu',
+      cDefault: key === 'c-default',
+      cMenu: key === 'c-menu',
+      subPill: sub,
+      inputLabel: sub ? 'Filter models' : 'First message',
+      inputValue: sub ? '' : message,
+      inputPlaceholder: sub ? 'Filter models' : 'First message (optional)',
+      hints: v.hints,
+      summary: v.summary,
+      rowEfforts: v.efforts,
+    };
+  }
+}
+</script>
+</body>
+</html>

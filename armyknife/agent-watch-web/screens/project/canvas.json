@@ -453,16 +453,7 @@
       "name": "部品"
     }
   ],
-  "notes": {
-    "diffEnded": {
-      "x": 3980,
-      "y": 2000,
-      "w": 460,
-      "fill": "yellow",
-      "page": "conversation",
-      "text": "この PR で足した画面\n- 終わったセッション (PC)\n- スマホ: 終わったセッション\n- スマホ: Resume を押した\n返信欄と状態の帯の代わりに、終わったことと Resume を出す。既存の画面の見た目は変わらない"
-    }
-  },
+  "notes": {},
   "v": 3,
   "createdOnFiles": {
     "v": 1,
@@ -481,7 +472,5 @@
       "copiedAt": "2026-11-15T10:37:15Z"
     }
   ],
-  "noteOrder": [
-    "diffEnded"
-  ]
+  "noteOrder": []
 }

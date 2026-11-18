@@ -103,6 +103,14 @@ a{color:#ef4444}
 </sc-if>
 </div>
 
+<sc-if value="{{ended}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); min-height: 56px; margin: 12px auto 6px; display: flex; align-items: center; gap: 12px; padding: 0 10px 0 14px; border: 1px solid #3f3f46; background: #141414">
+<span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #71717a"></span>
+<span style="min-width: 0; flex: 1"><span style="color: #fafafa; font-weight: 700">This session has ended</span> <span style="color: #a1a1aa; font-size: 13px">· 14:32 · {{endedHint}}</span></span>
+<button type="button" aria-disabled="{{resuming}}" style="flex: none; height: 32px; display: inline-flex; align-items: center; padding: 0 14px; border: 1px solid #fafafa; background: {{resumeBg}}; color: {{resumeFg}}; font-family: inherit; font-size: 12.5px; font-weight: 700">{{resumeLabel}}</button>
+</div>
+</sc-if>
+<sc-if value="{{live}}" hint-placeholder-val="{{ true }}">
 <div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" label="{{bandLabel}}" detail="{{bandDetail}}" hint-size="100%,58px"></dc-import></div>
 
 <form style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 12px auto 6px; border: 1px solid #3f3f46; background: #141414">
@@ -113,10 +121,11 @@ a{color:#ef4444}
 <button type="submit" aria-label="Send message" style="width: 32px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414; opacity: 0.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
 </div>
 </form>
+</sc-if>
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"$preview":{"width":880,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const variant = this.props.variant ?? 'question';
@@ -141,8 +150,17 @@ class Component extends DCLogic {
       working: { engine: 'codex', title: '配信メトリクスを追加する', taskId: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/service', userText: '配信の成功率と遅延をメトリクスに出して。', assistantText: '送信ごとに', assistantCode: 'delivery_latency_ms', assistantTail: 'を記録するようにしました。', toolSummary: 'Edit metrics.rs · Read ×4 · Shell ×2', bandState: 'working', bandLabel: 'Working · 18s', bandDetail: 'Bash  cargo test -p metrics' },
       review: { engine: 'codex', title: '配信チェックの PR を確認する', taskId: '', taskTitle: '', repo: 'example/web-app', userText: '配信チェックを足して PR にして。', assistantText: '配信前のチェックを', assistantCode: 'preflight()', assistantTail: 'にまとめて PR #2049 を作りました。crit で差分を見てください。', toolSummary: 'Edit preflight.ts · Read ×2 · Shell ×2', bandState: 'crit', bandLabel: '', bandDetail: 'crit · PR #2049 · 2m' }
     }[variant] ?? {};
+    const ended = this.props.ended ?? 'no';
+    const resuming = ended === 'resuming';
     return {
       ...V,
+      ended: ended !== 'no',
+      live: ended === 'no',
+      resuming,
+      endedHint: resuming ? 'Resuming…' : 'Resume it to keep talking',
+      resumeLabel: resuming ? 'Resuming…' : 'Resume',
+      resumeBg: resuming ? 'transparent' : '#fafafa',
+      resumeFg: resuming ? '#a1a1aa' : '#0a0a0a',
       isQuestion: q,
       isWorking: w,
       hasTasks: w,

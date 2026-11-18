@@ -1,0 +1,219 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-18T15:00:00Z"
+  },
+  "title": "explore: 会話のヘッダーの Merge",
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-18T15:00:00Z"
+    }
+  ],
+  "pages": [
+    {
+      "id": "options",
+      "name": "案"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "header-merge-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 5590,
+      "h": 936,
+      "title": "今 · ヘッダーに Merge が常にある",
+      "page": "options"
+    },
+    "header-merge-a.dc.html": {
+      "x": 0,
+      "y": 1300,
+      "w": 5590,
+      "h": 936,
+      "title": "A · PR の行ごとの Merge",
+      "page": "options"
+    },
+    "header-merge-b.dc.html": {
+      "x": 0,
+      "y": 2600,
+      "w": 3720,
+      "h": 936,
+      "title": "B · 一覧の下の Merge #<n>",
+      "page": "options"
+    },
+    "header-merge-c.dc.html": {
+      "x": 0,
+      "y": 3900,
+      "w": 3720,
+      "h": 936,
+      "title": "C · マージできるときだけヘッダーに Merge",
+      "page": "options"
+    },
+    "Conversation.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "parts"
+    },
+    "PhoneChat.dc.html": {
+      "x": 960,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneChat",
+      "page": "parts"
+    },
+    "Nav.dc.html": {
+      "x": 1430,
+      "y": 0,
+      "w": 240,
+      "h": 900,
+      "title": "Nav",
+      "page": "parts"
+    },
+    "InboxList.dc.html": {
+      "x": 1750,
+      "y": 0,
+      "w": 460,
+      "h": 900,
+      "title": "InboxList",
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 0,
+      "y": 1020,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "parts"
+    },
+    "Quota.dc.html": {
+      "x": 540,
+      "y": 1020,
+      "w": 240,
+      "h": 140,
+      "title": "Quota",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 860,
+      "y": 1020,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 1700,
+      "y": 1020,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "header-merge-current.dc.html",
+    "header-merge-a.dc.html",
+    "header-merge-b.dc.html",
+    "header-merge-c.dc.html",
+    "Conversation.dc.html",
+    "PhoneChat.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "StatusBand.dc.html",
+    "SessionUsage.dc.html"
+  ],
+  "notes": {
+    "about": {
+      "x": 0,
+      "y": -1100,
+      "w": 640,
+      "fill": "yellow",
+      "page": "options",
+      "text": "前提\n- 今は PC の会話のヘッダーに Merge が常に出る\n- PR をマージできなくても出る (CI 失敗など)\n- PR が複数あると、どれをマージするのか分からない\n- スマホの PR シートの Merge #<n> も常に出る\n- Merge を押した後の確認ダイアログはどの案も今のまま\n- データはすべて架空"
+    },
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 5590,
+      "page": "options",
+      "text": "今 · ヘッダーの Merge と、シートの Merge #2050 が常に出る"
+    },
+    "a": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1040,
+      "maxW": 5590,
+      "page": "options",
+      "text": "A · ヘッダーの Merge をなくし、マージできる PR の行の右端に Merge を置く"
+    },
+    "b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2340,
+      "maxW": 3720,
+      "page": "options",
+      "text": "B · ヘッダーの Merge をなくし、一覧の下にこのブランチの PR の Merge を置く"
+    },
+    "c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3640,
+      "maxW": 3720,
+      "page": "options",
+      "text": "C · マージできるときだけ、ヘッダーに Merge を出す"
+    },
+    "aNote": {
+      "x": 5670,
+      "y": 1300,
+      "w": 460,
+      "fill": "yellow",
+      "page": "options",
+      "text": "A\n- マージできない行は Merge の代わりに理由を出す\n- 別の場所で開いた PR もここからマージできる\n- スマホのシートには取っ手がないので Close は残す"
+    },
+    "bNote": {
+      "x": 3800,
+      "y": 2600,
+      "w": 460,
+      "fill": "yellow",
+      "page": "options",
+      "text": "B\n- マージできるのはこのブランチの PR だけ\n- マージできないときは理由を 1 行で出す"
+    },
+    "cNote": {
+      "x": 3800,
+      "y": 3900,
+      "w": 460,
+      "fill": "yellow",
+      "page": "options",
+      "text": "C\n- PR 一覧は今のまま\n- スマホはシートの Merge #2050 を同じ条件で出す\n- マージできない理由は一覧の CI の点でしか分からない"
+    }
+  },
+  "noteOrder": [
+    "about",
+    "current",
+    "a",
+    "b",
+    "c",
+    "aNote",
+    "bNote",
+    "cNote"
+  ]
+}

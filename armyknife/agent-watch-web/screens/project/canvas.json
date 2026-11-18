@@ -392,6 +392,14 @@
       "h": 844,
       "title": "スマホ: Resume を押した",
       "page": "conversation"
+    },
+    "DeniedCard.dc.html": {
+      "x": 1820,
+      "y": 800,
+      "w": 672,
+      "h": 200,
+      "title": "DeniedCard",
+      "page": "components"
     }
   },
   "order": [
@@ -443,7 +451,8 @@
     "PhoneChatEnded.dc.html",
     "PhoneChatResuming.dc.html",
     "VibePopover.dc.html",
-    "PhoneChatVibe.dc.html"
+    "PhoneChatVibe.dc.html",
+    "DeniedCard.dc.html"
   ],
   "pages": [
     {

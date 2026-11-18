@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Vibe on the phone · now</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 2030px; height: 880px; display: flex; gap: 20px; background: #0a0a0a; color: #a1a1aa; font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif; font-size: 12.5px"><section style="width: 390px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700; color: #a1a1aa">on</h2><div style="height: 844px"><dc-import name="PhoneChat" option="now" vibe="on" hint-size="390px,844px"></dc-import></div></section><section style="width: 390px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700; color: #a1a1aa">on · 親から引き継いだ</h2><div style="height: 844px"><dc-import name="PhoneChat" option="now" vibe="inherited" hint-size="390px,844px"></dc-import></div></section><section style="width: 390px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700; color: #a1a1aa">off</h2><div style="height: 844px"><dc-import name="PhoneChat" option="now" vibe="off" hint-size="390px,844px"></dc-import></div></section><section style="width: 390px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700; color: #a1a1aa">使えない</h2><div style="height: 844px"><dc-import name="PhoneChat" option="now" vibe="unavailable" hint-size="390px,844px"></dc-import></div></section><section style="width: 390px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700; color: #a1a1aa">押したときのシート</h2><div style="height: 844px"><dc-import name="PhoneChat" option="now" vibe="inherited" vibe-open="{{ true }}" hint-size="390px,844px"></dc-import></div></section></div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":2030,"height":880}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

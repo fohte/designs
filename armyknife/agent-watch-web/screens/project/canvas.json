@@ -608,6 +608,14 @@
       "h": 60,
       "title": "Before · StatusBand",
       "page": "components"
+    },
+    "DeniedCard.dc.html": {
+      "x": 2780,
+      "y": 780,
+      "w": 672,
+      "h": 200,
+      "title": "DeniedCard",
+      "page": "components"
     }
   },
   "order": [
@@ -686,7 +694,8 @@
     "before/BeforeSessionRow.dc.html",
     "before/BeforeQuota.dc.html",
     "before/BeforeSessionUsage.dc.html",
-    "before/BeforeStatusBand.dc.html"
+    "before/BeforeStatusBand.dc.html",
+    "DeniedCard.dc.html"
   ],
   "pages": [
     {

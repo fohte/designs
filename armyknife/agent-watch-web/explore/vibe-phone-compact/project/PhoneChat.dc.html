@@ -179,7 +179,7 @@ class Component extends DCLogic {
         { name: 'Opened elsewhere', rows: [{ num: 64, title: '再送キューの上限を設定に出す', repo: 'example/infra', dot: '#4ade80', ci: 'CI passed', meta: 'Open', metaColor: '#a1a1aa' }] },
         { name: 'Merged', rows: [{ num: 2041, title: '再送のログを整える', repo: 'example/service', dot: '#52525b', ci: 'Merged', meta: '✓ Merged', metaColor: '#8b8b94' }] }
       ],
-      headerPadB: review || option !== 'now' ? (review ? '0' : '6px') : '6px',
+      headerPadB: review ? '0' : '6px',
       bandState: review ? 'crit' : 'question',
       bandDetail: review ? 'crit · PR #2050 · 1m' : '再試行は 3 回で止めてよいですか?',
       placeholder: review ? 'Message PR 2050' : 'Choose an option above, or message the session',

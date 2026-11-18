@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Conversation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#ef4444}
+</style>
+</helmet>
+<section aria-label="Conversation with {{title}}" style="width: 100%; height: 900px; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+
+<header style="position: relative; flex: none; display: flex; align-items: flex-start; padding: 10px 24px 0; border-bottom: 1px solid #2a2a2a">
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<div style="display: flex; align-items: center; gap: 10px; min-width: 0; font-size: 12px; color: #8b8b94">
+<sc-if value="{{hasTask}}" hint-placeholder-val="{{ true }}"><a href="#" style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #d4d4d8; font-size: 12px; text-decoration: none"><span style="font-family: 'JetBrains Mono', monospace; font-weight: 700">{{taskId}}</span> {{taskTitle}}</a></sc-if>
+<sc-if value="{{hasMoreTasks}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="1 more linked tq tasks" aria-expanded="{{tasksOpenStr}}" style="flex: none; height: 22px; box-sizing: border-box; padding: 0 7px; border: 1px solid {{tasksBorder}}; background: {{tasksBg}}; color: #d4d4d8; font-family: inherit; font-size: 12px; white-space: nowrap">+1 tasks ▾</button></sc-if>
+<a href="#" style="flex: none; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8b8b94; text-decoration: none; white-space: nowrap">{{repo}}</a>
+<a href="#" style="min-width: 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8b8b94; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">↑ Parent: 通知まわりの改修</a>
+<div style="flex: 0 0 auto; display: flex; align-items: center; gap: 6px; margin-left: auto">
+<button type="button" aria-label="{{panelLabel}}" title="{{panelLabel}}" aria-expanded="{{panelOpenStr}}" style="min-width: 32px; height: 26px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 10px; border: 1px solid {{panelBorder}}; background: {{panelBg}}; color: {{panelColor}}; font-family: inherit; font-size: 12px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path><path d="{{panelArrow}}"></path></svg><sc-if value="{{hasTasks}}" hint-placeholder-val="{{ false }}"><span style="color: #60a5fa">2</span></sc-if></button>
+<button type="button" aria-label="Remove from Starred" title="Remove from Starred" aria-pressed="true" style="min-width: 26px; height: 26px; padding: 0 4px; border: 1px solid #2a2a2a; background: transparent; color: #fbbf24; font-size: 16px; line-height: 1">★</button>
+<span style="position: relative; display: inline-flex">
+<button type="button" aria-haspopup="dialog" aria-expanded="{{prsOpenStr}}" aria-label="{{prAria}}" title="{{prAria}}" style="height: 26px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 7px; padding: 0 8px 0 9px; border: 1px solid {{prBorder}}; background: {{prBg}}; color: {{pr.color}}; font-family: inherit; font-size: 12px; white-space: nowrap"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: {{pr.dot}}"></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px">#{{pr.num}}</span><span style="color: {{pr.metaColor}}">{{pr.meta}}</span><sc-if value="{{hasMorePrs}}" hint-placeholder-val="{{ true }}"><span style="color: #a1a1aa">+{{morePrs}}</span></sc-if><span aria-hidden="true" style="color: #8b8b94">▾</span></button>
+<sc-if value="{{prsOpen}}" hint-placeholder-val="{{ false }}">
+<section role="dialog" aria-label="Pull requests from this session" style="position: absolute; z-index: 5; top: 32px; right: 0; width: 480px; box-sizing: border-box; padding: 6px 0; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%); color: #d4d4d8; font-size: 13px">
+<sc-for list="{{prGroups}}" as="g" hint-placeholder-count="2">
+<h3 style="margin: 0; padding: 8px 14px 4px; color: #8b8b94; font-size: 11.5px; font-weight: 400">{{g.name}}</h3>
+<sc-for list="{{g.rows}}" as="r" hint-placeholder-count="1">
+<a href="#" style="display: grid; grid-template-columns: 7px 1fr auto; align-items: center; column-gap: 10px; padding: 6px 14px; color: {{r.color}}; text-decoration: none"><span role="img" aria-label="{{r.ci}}" title="{{r.ci}}" style="width: 7px; height: 7px; background: {{r.dot}}"></span><span style="min-width: 0; display: grid"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">#{{r.num}}</span> {{r.title}}</span><span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{r.repo}}</span></span><span style="color: {{r.metaColor}}; font-size: 12px; white-space: nowrap">{{r.meta}}</span></a>
+</sc-for>
+</sc-for>
+</section>
+</sc-if>
+</span>
+<button type="button" aria-label="{{mergeAria}}" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Merge</button>
+<button type="button" aria-label="Open in terminal" title="Open in terminal" style="width: 28px; height: 26px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 11 2-2-2-2"></path><path d="M11 13h4"></path><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect></svg></button>
+</div>
+</div>
+<div style="display: flex; align-items: center; gap: 4px; min-width: 0">
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0">
+<h1 style="margin: 2px 0 12px; min-width: 0; font-size: 16px; font-weight: 700; color: #fafafa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{title}}</h1>
+<button type="button" aria-label="Copy session ID" title="Copy session ID" style="flex: none; width: 26px; height: 26px; margin-bottom: 10px; display: grid; place-items: center; padding: 0; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button>
+</div>
+<button type="button" aria-label="Edit session title" title="Edit session title" style="flex: none; margin-bottom: 10px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg></button>
+</div>
+</div>
+<sc-if value="{{tasksMenu}}" hint-placeholder-val="{{ false }}">
+<div role="region" aria-label="Linked tq tasks" style="position: absolute; z-index: 5; top: 36px; left: 24px; width: 380px; box-sizing: border-box; border: 1px solid #3f3f46; background: #1f1f1f; color: #fafafa; font-size: 13px">
+<div style="padding: 10px 14px 6px; color: #8b8b94; font-size: 12px">Linked tq tasks · Inbox and Board use the primary one</div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 8px 14px; background: #2a2a2e"><span style="width: 14px; flex: none">✓</span><div style="flex: 1; min-width: 0; display: grid; gap: 2px"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-weight: 700">P3 #2055</span> 監視を整える</span><span style="color: #a1a1aa; font-size: 11px">2 sessions · 1 need action</span></div><span style="flex: none; color: #a1a1aa; font-size: 11.5px">Primary</span></div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 8px 14px"><span style="width: 14px; flex: none"></span><div style="flex: 1; min-width: 0; display: grid; gap: 2px"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-weight: 700">P2 #2051</span> 配信ログを見直す</span><span style="color: #a1a1aa; font-size: 11px">1 session</span></div><button type="button" style="flex: none; padding: 0; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 11.5px; white-space: nowrap">Make primary</button></div>
+</div>
+</sc-if>
+</header>
+
+<div aria-live="polite" style="flex: 1; min-height: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; overflow: hidden; padding: 24px max(24px, calc((100% - 672px) / 2))">
+<div style="display: flex; align-items: center; gap: 10px; margin-top: auto; font-size: 11px; color: #a1a1aa; white-space: nowrap"><span style="flex: 1; height: 1px; background: #1a1a1a"></span><span>Conversation</span><span style="flex: 1; height: 1px; background: #1a1a1a"></span></div>
+
+<article style="flex: none; align-self: flex-end; max-width: 80%; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: flex-end; gap: 8px; font-size: 12px; color: #8b8b94">You · 10:02</div>
+<div style="padding: 10px 14px; background: #1f1f1f; color: #fafafa">{{userText}}</div>
+</article>
+
+<article style="flex: none; max-width: 100%; color: #d4d4d8">{{assistantText}} <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">{{assistantCode}}</code> {{assistantTail}}</article>
+
+<details style="flex: none; width: 100%; margin-top: -8px; font-size: 12.5px; color: #a1a1aa"><summary style="display: flex; gap: 6px; list-style: none"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{toolSummary}}</span><span style="color: #71717a">›</span></summary></details>
+
+<sc-if value="{{isQuestion}}" hint-placeholder-val="{{ true }}">
+<article style="flex: none; font-size: 12px; color: #d4d4d8; background: #111111"><button type="button" aria-expanded="false" style="width: 100%; display: flex; align-items: center; gap: 8px; padding: 8px 12px; border: 0; background: transparent; color: inherit; font-family: inherit; font-size: 12px; text-align: left"><span style="color: #d4d4d8">◇</span><span style="color: #8b8b94">Decided</span><strong style="min-width: 0; color: #fafafa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">待ち時間を指数的に伸ばす</strong><span style="color: #8b8b94; white-space: nowrap">· also considered 1</span><span style="margin-left: auto; color: #8b8b94">▸</span></button></article>
+
+<article data-answerable-single-choice="true" style="flex: none; width: 100%; box-sizing: border-box; border: 1px solid #fbbf24">
+<h2 style="margin: 0; padding: 12px 16px 4px; color: #fbbf24; font-size: 12px; font-weight: 700">Question</h2>
+<section>
+<h3 style="margin: 0 16px 8px; color: #fafafa; font-size: 14px; font-weight: 600">再試行の上限</h3>
+<div style="margin: 0; padding: 0 16px 12px; font-size: 15px">再試行は 3 回で止めてよいですか?</div>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #2a2a2a">
+<sc-for list="{{choices}}" as="c" hint-placeholder-count="3">
+<button type="button" aria-pressed="false" style="width: 100%; min-height: 42px; box-sizing: border-box; display: flex; align-items: flex-start; gap: 12px; padding: 0 16px; border: 0; border-top: {{c.divider}}; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; text-align: left"><kbd style="padding-top: 10px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a1a1aa">{{c.key}}</kbd><span style="flex: 1; display: flex; flex-direction: column; padding-block: 8px"><span>{{c.label}}</span><sc-if value="{{c.hasDesc}}" hint-placeholder-val="{{ false }}"><small style="color: #a1a1aa; font-size: 11.5px">{{c.desc}}</small></sc-if></span></button>
+</sc-for>
+</div>
+<div style="margin: 12px 16px">
+<label for="own-answer" style="display: block; padding: 8px 12px 0; color: #a1a1aa; font-size: 14px">Or enter your own answer</label>
+<textarea id="own-answer" rows="2" style="display: block; width: 100%; box-sizing: border-box; padding: 4px 12px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; resize: none; outline: none"></textarea>
+</div>
+</section>
+<div style="display: flex; justify-content: flex-end; gap: 8px; margin-top: 8px; padding: 0 16px 12px">
+<button type="button" style="min-height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">No answer (Esc)</button>
+<button type="button" style="min-height: 28px; padding: 0 10px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Send answers</button>
+</div>
+</article>
+</sc-if>
+
+<sc-if value="{{isWorking}}" hint-placeholder-val="{{ false }}">
+<article style="flex: none; max-width: 100%; color: #a1a1aa">テストを足しています。終わったら計測値の例を貼ります。</article>
+<details style="flex: none; width: 100%; margin-top: -8px; font-size: 12.5px; color: #a1a1aa"><summary style="display: flex; gap: 6px; list-style: none"><span style="flex: none; color: #d4d4d8; font-style: italic">Thought ×2</span><span aria-hidden="true" style="flex: none">·</span><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Edit metrics.rs · Read ×2</span><span style="color: #71717a">›</span></summary></details>
+</sc-if>
+</div>
+
+<sc-if value="{{ended}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); min-height: 56px; margin: 12px auto 6px; display: flex; align-items: center; gap: 12px; padding: 0 10px 0 14px; border: 1px solid #3f3f46; background: #141414">
+<span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #71717a"></span>
+<span style="min-width: 0; flex: 1"><span style="color: #fafafa; font-weight: 700">This session has ended</span> <span style="color: #a1a1aa; font-size: 13px">· 14:32 · {{endedHint}}</span></span>
+<sc-if value="{{resuming}}" hint-placeholder-val="{{ false }}"><button type="button" disabled style="flex: none; height: 32px; display: inline-flex; align-items: center; padding: 0 14px; border: 1px solid #fafafa; background: {{resumeBg}}; color: {{resumeFg}}; font-family: inherit; font-size: 12.5px; font-weight: 700">{{resumeLabel}}</button></sc-if>
+<sc-if value="{{notResuming}}" hint-placeholder-val="{{ true }}"><button type="button" style="flex: none; height: 32px; display: inline-flex; align-items: center; padding: 0 14px; border: 1px solid #fafafa; background: {{resumeBg}}; color: {{resumeFg}}; font-family: inherit; font-size: 12.5px; font-weight: 700">{{resumeLabel}}</button></sc-if>
+</div>
+</sc-if>
+<sc-if value="{{live}}" hint-placeholder-val="{{ true }}">
+<div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" label="{{bandLabel}}" detail="{{bandDetail}}" hint-size="100%,58px"></dc-import></div>
+
+<form style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 12px auto 6px; border: 1px solid #3f3f46; background: #141414">
+<textarea aria-label="Message" rows="2" placeholder="{{placeholder}}" style="display: block; width: 100%; min-height: 54px; box-sizing: border-box; padding: 12px 14px 4px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; line-height: 1.6; resize: none"></textarea>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 8px 8px 14px; color: #a1a1aa; font-size: 11.5px">
+<span>↵ Send · ⇧↵ / ⌥↵ New line · Esc Interrupt</span>
+<span style="margin-left: auto">⌥↑ / ⌥↓ My messages</span>
+<button type="submit" aria-label="Send message" style="width: 32px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414; opacity: 0.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
+</div>
+</form>
+</sc-if>
+<div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"$preview":{"width":880,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const variant = this.props.variant ?? 'question';
+    const panelOpen = this.props.panelOpen ?? false;
+    const tasksOpen = this.props.tasksOpen ?? false;
+    const prsOpen = this.props.prsOpen ?? false;
+    const CI = {
+      running: { dot: '#fbbf24', ci: 'CI running', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI running' },
+      passed: { dot: '#4ade80', ci: 'CI passed', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI passed' }
+    };
+    const pr = (num, title, repo, kind) => ({ num, title, repo, ...CI[kind] });
+    const P = {
+      question: { main: pr(2047, '再送処理を retry() にまとめる', 'example/service', 'running'), others: [pr(61, '再送キューの設定を足す', 'example/infra', 'passed')] },
+      working: { main: pr(2053, '配信メトリクスを記録する', 'example/service', 'running'), others: [] },
+      review: { main: pr(2049, '配信前のチェックを追加する', 'example/web-app', 'passed'), others: [] }
+    }[variant] ?? { main: pr(2047, '', '', 'running'), others: [] };
+    const morePrs = P.others.length;
+    const q = variant === 'question';
+    const w = variant === 'working';
+    const V = {
+      question: { engine: 'claude', title: '通知の再送処理を見直す', taskId: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', userText: '通知の再送処理を見直して。失敗したら何回か再試行したい。', assistantText: '再送処理を', assistantCode: 'retry()', assistantTail: 'にまとめました。上限の回数だけ決めてください。', toolSummary: 'Edit client.ts · Read ×3 · Shell ×1', bandState: 'question', bandLabel: '', bandDetail: '再試行は 3 回で止めてよいですか?' },
+      working: { engine: 'codex', title: '配信メトリクスを追加する', taskId: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/service', userText: '配信の成功率と遅延をメトリクスに出して。', assistantText: '送信ごとに', assistantCode: 'delivery_latency_ms', assistantTail: 'を記録するようにしました。', toolSummary: 'Edit metrics.rs · Read ×4 · Shell ×2', bandState: 'working', bandLabel: 'Working · 18s', bandDetail: 'Bash  cargo test -p metrics' },
+      review: { engine: 'codex', title: '配信チェックの PR を確認する', taskId: '', taskTitle: '', repo: 'example/web-app', userText: '配信チェックを足して PR にして。', assistantText: '配信前のチェックを', assistantCode: 'preflight()', assistantTail: 'にまとめて PR #2049 を作りました。crit で差分を見てください。', toolSummary: 'Edit preflight.ts · Read ×2 · Shell ×2', bandState: 'crit', bandLabel: '', bandDetail: 'crit · PR #2049 · 2m' }
+    }[variant] ?? {};
+    const ended = this.props.ended ?? 'no';
+    const resuming = ended === 'resuming';
+    return {
+      ...V,
+      ended: ended !== 'no',
+      live: ended === 'no',
+      resuming,
+      notResuming: !resuming,
+      endedHint: resuming ? 'Resuming…' : 'Resume it to keep talking',
+      resumeLabel: resuming ? 'Resuming…' : 'Resume',
+      resumeBg: resuming ? 'transparent' : '#fafafa',
+      resumeFg: resuming ? '#a1a1aa' : '#0a0a0a',
+      isQuestion: q,
+      isWorking: w,
+      hasTasks: w,
+      hasTask: !!V.taskId,
+      choices: [
+        { key: '1', label: '3 回で止める', desc: '失敗が続くときは早めに諦める。', hasDesc: true, divider: '0' },
+        { key: '2', label: '5 回まで続ける', desc: '', hasDesc: false, divider: '1px solid #2a2a2a' },
+        { key: '3', label: '上限を設定ファイルに出す', desc: '', hasDesc: false, divider: '1px solid #2a2a2a' }
+      ],
+      hasMoreTasks: w,
+      tasksMenu: w && tasksOpen,
+      tasksOpenStr: tasksOpen ? 'true' : 'false',
+      tasksBorder: tasksOpen ? '#a1a1aa' : '#3f3f46',
+      tasksBg: tasksOpen ? '#262626' : 'transparent',
+      placeholder: 'Message PR ' + P.main.num,
+      pr: P.main,
+      morePrs,
+      hasMorePrs: morePrs > 0,
+      prsOpen,
+      prsOpenStr: prsOpen ? 'true' : 'false',
+      prBorder: prsOpen ? '#a1a1aa' : '#2a2a2a',
+      prBg: prsOpen ? '#262626' : 'transparent',
+      prAria: 'PR #' + P.main.num + ' ' + P.main.title + ', ' + P.main.word + (morePrs > 0 ? '. ' + morePrs + ' more PR from this session' : ''),
+      mergeAria: 'Merge PR #' + P.main.num,
+      prGroups: [{ name: 'This branch', rows: [P.main] }].concat(morePrs > 0 ? [{ name: 'Opened elsewhere', rows: P.others }] : []),
+      panelOpenStr: panelOpen ? 'true' : 'false',
+      panelLabel: panelOpen ? 'Close session status panel' : 'Open session status panel',
+      panelArrow: panelOpen ? 'm8 9 3 3-3 3' : 'm10 15-3-3 3-3',
+      panelBorder: panelOpen ? '#a1a1aa' : '#2a2a2a',
+      panelBg: panelOpen ? '#262626' : 'transparent',
+      panelColor: panelOpen ? '#fafafa' : '#d4d4d8'
+    };
+  }
+}
+</script>
+</body>
+</html>

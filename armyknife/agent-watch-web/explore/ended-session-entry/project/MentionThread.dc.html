@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Session mentions in a conversation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px; padding: 18px {{padX}}; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fontSize}}; line-height: 1.6">
+<article style="align-self: flex-end; max-width: 80%; padding: 10px 14px; background: #1f1f1f">再送の上限は、配信チェックで決めた値に合わせて。</article>
+
+<article style="width: {{cardW}}; border: 1px solid #3f3f46; background: #141414">
+<div style="display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 6px 12px; background: #1f1f1f; font-size: 12px; color: #a1a1aa"><span style="padding: 0 6px; background: #fafafa; color: #0a0a0a; font-size: 11px; font-weight: 700">FROM</span><a href="#" title="Ended 14:32 · Open" style="color: #a1a1aa; text-decoration: underline dotted; text-underline-offset: 3px">配信チェックの PR を確認する</a><span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">ended</span><span>· 14:30</span></div>
+<div style="padding: 10px 12px; color: #d4d4d8">上限は 3 回にしました。PR #2049 に入れてあります。</div>
+</article>
+
+<div style="position: relative; display: flex; flex-direction: column; gap: 10px; color: #fafafa">
+<p style="margin: 0">上限はセッション <a href="#" style="color: #a1a1aa; text-decoration: underline dotted; text-underline-offset: 3px; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">a1b2c3d4</a> <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">ended</span> で決めた 3 回に合わせました。計測は <a href="#" style="color: #fafafa; text-decoration: underline; text-underline-offset: 3px">配信メトリクスを追加する</a> に任せています。</p>
+<sc-if value="{{hover}}" hint-placeholder-val="{{ true }}">
+<div role="tooltip" style="width: 300px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; padding: 10px 12px; margin-left: 72px; border: 1px solid #3f3f46; background: #161616; font-size: 12.5px; line-height: 1.5">
+<div style="display: flex; align-items: center; gap: 8px"><span aria-hidden="true" style="width: 8px; height: 8px; box-sizing: border-box; border: 1.5px solid #8b8b94"></span><strong style="min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis">配信チェックの PR を確認する</strong></div>
+<div style="color: #a1a1aa"><span style="font-family: 'JetBrains Mono', monospace">codex</span> · <span style="font-family: 'JetBrains Mono', monospace">example/web-app</span></div>
+<div style="display: flex; align-items: center; color: #a1a1aa"><span>Ended 14:32</span><span style="margin-left: auto; color: #d4d4d8">Click to open</span></div>
+</div>
+</sc-if>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"phone":{"editor":"boolean","default":false},"hover":{"editor":"boolean","default":true},"$preview":{"width":760,"height":560}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const phone = this.props.phone ?? false;
+    return {
+      hover: this.props.hover ?? true,
+      padX: phone ? '16px' : '24px',
+      fontSize: phone ? '15px' : '14px',
+      cardW: phone ? '100%' : '88%'
+    };
+  }
+}
+</script>
+</body>
+</html>

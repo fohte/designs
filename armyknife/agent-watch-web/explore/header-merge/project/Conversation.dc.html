@@ -249,7 +249,7 @@ class Component extends DCLogic {
       mainCant: !P.main.can,
       prGroups: [{ name: 'This branch', rows: [P.main].map(row) }]
         .concat(morePrs > 0 ? [{ name: 'Opened elsewhere', rows: P.others.map(row) }] : [])
-        .concat([{ name: 'Merged', rows: P.merged.map(row) }]),
+        .concat(option === 'current' ? [] : [{ name: 'Merged', rows: P.merged.map(row) }]),
       panelOpenStr: panelOpen ? 'true' : 'false',
       panelLabel: panelOpen ? 'Close session status panel' : 'Open session status panel',
       panelArrow: panelOpen ? 'm8 9 3 3-3 3' : 'm10 15-3-3 3-3',

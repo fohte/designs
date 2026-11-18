@@ -1,0 +1,166 @@
+{
+  "v": 3,
+  "title": "explore: スマホの vibe の置き場所",
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-15T10:37:15Z"
+    }
+  ],
+  "pages": [
+    {
+      "id": "options",
+      "name": "案"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "vibe-phone-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 2030,
+      "h": 880,
+      "title": "Current · 1 行の帯",
+      "page": "options"
+    },
+    "vibe-phone-a.dc.html": {
+      "x": 0,
+      "y": 1240,
+      "w": 2030,
+      "h": 880,
+      "title": "A · 右上のアイコンボタン",
+      "page": "options"
+    },
+    "vibe-phone-b.dc.html": {
+      "x": 0,
+      "y": 2480,
+      "w": 2030,
+      "h": 880,
+      "title": "B · タスクの行の右端",
+      "page": "options"
+    },
+    "vibe-phone-c.dc.html": {
+      "x": 0,
+      "y": 3720,
+      "w": 2440,
+      "h": 880,
+      "title": "C · タイトルの後ろの印と、… のメニュー",
+      "page": "options"
+    },
+    "PhoneChat.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneChat",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 470,
+      "y": 0,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 470,
+      "y": 200,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "vibe-phone-current.dc.html",
+    "vibe-phone-a.dc.html",
+    "vibe-phone-b.dc.html",
+    "vibe-phone-c.dc.html",
+    "PhoneChat.dc.html",
+    "StatusBand.dc.html",
+    "SessionUsage.dc.html"
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1600,
+      "page": "options",
+      "text": "Current · ヘッダーの下に vibe の帯が 1 行 (36px) ある"
+    },
+    "a": {
+      "kind": "title1",
+      "x": 0,
+      "y": 980,
+      "maxW": 1600,
+      "page": "options",
+      "text": "A · 稲妻のアイコンボタンを、右上のボタンの並びに入れる"
+    },
+    "b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2220,
+      "maxW": 1600,
+      "page": "options",
+      "text": "B · タスクとディレクトリの行の右端に、小さな Vibe の印を置く"
+    },
+    "c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3460,
+      "maxW": 1600,
+      "page": "options",
+      "text": "C · ヘッダーにはボタンを置かず、… のメニューから切り替える"
+    },
+    "aNote": {
+      "x": 2110,
+      "y": 1240,
+      "w": 460,
+      "fill": "yellow",
+      "page": "options",
+      "text": "A\n- ヘッダーは 36px 低くなる\n- 塗りの稲妻が on、線だけが引き継いだ on、灰色が off、斜線が使えない\n- 右上のボタンが 3 つになり、タイトルの幅が 52px 狭くなる (PR があると 4 つ)"
+    },
+    "bNote": {
+      "x": 2110,
+      "y": 2480,
+      "w": 460,
+      "fill": "yellow",
+      "page": "options",
+      "text": "B\n- ヘッダーは 36px 低くなる\n- 見た目は 22px。タップできる範囲は上下に広げて 44px\n- タスクとディレクトリの文字が、印の幅だけ早く省略される"
+    },
+    "cNote": {
+      "x": 2520,
+      "y": 3720,
+      "w": 460,
+      "fill": "yellow",
+      "page": "options",
+      "text": "C\n- ヘッダーは 36px 低くなり、ボタンも増えない\n- on のときだけタイトルの後ろに稲妻が出る (一覧の行と同じ)\n- off や使えないことは、… を開くまで分からない\n- 切り替えるには 2 回押す"
+    },
+    "about": {
+      "x": 2110,
+      "y": 0,
+      "w": 460,
+      "fill": "yellow",
+      "page": "options",
+      "text": "前提\n- フィードバック: スマホで vibe の帯が 1 行を丸ごと使うのは微妙\n- 押したときのシートの中身は今のまま\n- PC のヘッダーは変えない\n- データはすべて架空"
+    }
+  },
+  "noteOrder": [
+    "current",
+    "a",
+    "b",
+    "c",
+    "about",
+    "aNote",
+    "bNote",
+    "cNote"
+  ]
+}

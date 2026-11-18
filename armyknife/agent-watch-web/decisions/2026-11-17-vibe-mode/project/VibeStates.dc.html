@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Vibe mode states (desktop)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1440px; height: 960px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px; padding: 20px 24px; background: #050505; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+<sc-for list="{{states}}" as="st" hint-placeholder-count="4">
+<section style="display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-size: 12.5px; font-weight: 700; color: #a1a1aa">{{st.label}}</h2>
+<div style="display: flex; gap: 24px; align-items: flex-start">
+<div style="width: 880px; flex: none; display: flex; flex-direction: column; gap: 6px">
+<dc-import name="VibeHeader" opt="{{opt}}" state="{{st.state}}" hint-size="880px,76px"></dc-import>
+<sc-if value="{{isC}}" hint-placeholder-val="{{ false }}"><dc-import name="VibeHeader" opt="c" state="{{st.state}}" open="{{ true }}" hint-size="880px,104px"></dc-import></sc-if>
+</div>
+<div style="width: 460px; flex: none; display: flex; flex-direction: column; gap: 6px">
+<div style="width: 460px; background: #0a0a0a"><dc-import name="VibeRow" s="{{st.row}}" density="full" look="{{look}}" hint-size="100%,76px"></dc-import></div>
+<div style="width: 240px; background: #0f0f0f"><dc-import name="VibeRow" s="{{st.row}}" density="compact" look="{{look}}" hint-size="100%,64px"></dc-import></div>
+</div>
+</div>
+</section>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"opt":{"editor":"enum","options":["a","b","c"],"default":"a"},"$preview":{"width":1440,"height":960}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const opt = this.props.opt ?? 'a';
+    const row = (vibe, repo) => ({ status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', preview: '再試行は 3 回で止めてよいですか?', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo, vibe });
+    return {
+      opt, isC: opt === 'c', look: opt === 'b' ? 'icon' : 'text',
+      states: [
+        { label: 'on · このセッションで on にした', state: 'on', row: row('on', 'example/service') },
+        { label: 'on · 親の「通知まわりの改修」から引き継いでいる (このセッションの設定は off)', state: 'inherited', row: row('inherited', 'example/service') },
+        { label: 'off', state: 'off', row: row('off', 'example/service') },
+        { label: '使えない · repo (example/legacy) の設定が vibe を許可していない', state: 'blocked', row: row('off', 'example/legacy') }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

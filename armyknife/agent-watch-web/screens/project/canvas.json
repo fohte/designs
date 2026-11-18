@@ -353,6 +353,22 @@
       "title": "iPhone · セッションの PR 一覧",
       "page": "conversation"
     },
+    "VibePopover.dc.html": {
+      "x": 6870,
+      "y": 0,
+      "w": 1848,
+      "h": 2910,
+      "title": "セッションのヘッダー · vibe mode のボタンを押したとき",
+      "page": "conversation"
+    },
+    "PhoneChatVibe.dc.html": {
+      "x": 8800,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · vibe mode のシート",
+      "page": "conversation"
+    },
     "ConversationEnded.dc.html": {
       "x": 3980,
       "y": 1020,
@@ -425,7 +441,9 @@
     "PhoneChatPrs.dc.html",
     "ConversationEnded.dc.html",
     "PhoneChatEnded.dc.html",
-    "PhoneChatResuming.dc.html"
+    "PhoneChatResuming.dc.html",
+    "VibePopover.dc.html",
+    "PhoneChatVibe.dc.html"
   ],
   "pages": [
     {

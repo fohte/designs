@@ -352,6 +352,222 @@
       "h": 844,
       "title": "iPhone · セッションの PR 一覧",
       "page": "conversation"
+    },
+    "before/BeforeInbox.dc.html": {
+      "x": 0,
+      "y": 5760,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Inbox と会話",
+      "page": "inbox"
+    },
+    "before/BeforeLater.dc.html": {
+      "x": 2460,
+      "y": 5760,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Later メニュー (L)",
+      "page": "inbox"
+    },
+    "before/BeforeInboxFilter.dc.html": {
+      "x": 3980,
+      "y": 5760,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Inbox の絞り込み (/)",
+      "page": "inbox"
+    },
+    "before/BeforeInboxFiltered.dc.html": {
+      "x": 5500,
+      "y": 5760,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 絞り込んだ状態と Save view",
+      "page": "inbox"
+    },
+    "before/BeforeTaskLinks.dc.html": {
+      "x": 7020,
+      "y": 5760,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 1 つのセッションに tq タスクが複数",
+      "page": "inbox"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 860,
+      "y": 1500,
+      "w": 880,
+      "h": 900,
+      "title": "Before · Conversation",
+      "page": "components"
+    },
+    "before/BeforePalette.dc.html": {
+      "x": 0,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · ⌘K · 開いた直後",
+      "page": "palette"
+    },
+    "before/BeforePaletteQuery.dc.html": {
+      "x": 1520,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · ⌘K · # で tq タスクに絞る",
+      "page": "palette"
+    },
+    "before/BeforePaletteNewSession.dc.html": {
+      "x": 3040,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コマンドパレット · 新しいセッション",
+      "page": "palette"
+    },
+    "before/BeforePaletteNewSessionModel.dc.html": {
+      "x": 5030,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コマンドパレット · モデルと effort を選ぶ",
+      "page": "palette"
+    },
+    "before/BeforeStatusRunning.dc.html": {
+      "x": 0,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Running",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusTree.dc.html": {
+      "x": 1520,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tree",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusDecisions.dc.html": {
+      "x": 3040,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Decisions",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusReview.dc.html": {
+      "x": 4560,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Review",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusWebUi.dc.html": {
+      "x": 6080,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Web UI (crit)",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusTasks.dc.html": {
+      "x": 7600,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tasks",
+      "page": "status-panel"
+    },
+    "before/BeforePhoneChat.dc.html": {
+      "x": 3040,
+      "y": 3800,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · 会話から答える",
+      "page": "conversation"
+    },
+    "before/BeforePhoneChatMenu.dc.html": {
+      "x": 3510,
+      "y": 3800,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · セッションの操作メニュー",
+      "page": "conversation"
+    },
+    "before/BeforePhoneChatReview.dc.html": {
+      "x": 3040,
+      "y": 4764,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · crit のレビュー待ち",
+      "page": "conversation"
+    },
+    "before/BeforePhoneChatPrs.dc.html": {
+      "x": 3510,
+      "y": 4764,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · セッションの PR 一覧",
+      "page": "conversation"
+    },
+    "before/BeforeInboxList.dc.html": {
+      "x": 3400,
+      "y": 1500,
+      "w": 460,
+      "h": 900,
+      "title": "Before · InboxList",
+      "page": "components"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 3400,
+      "y": 2500,
+      "w": 240,
+      "h": 900,
+      "title": "Before · Nav",
+      "page": "components"
+    },
+    "before/BeforeQuota.dc.html": {
+      "x": 3400,
+      "y": 3500,
+      "w": 240,
+      "h": 140,
+      "title": "Before · Quota",
+      "page": "components"
+    },
+    "before/BeforeSessionRow.dc.html": {
+      "x": 3400,
+      "y": 3740,
+      "w": 460,
+      "h": 76,
+      "title": "Before · SessionRow",
+      "page": "components"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 3400,
+      "y": 3916,
+      "w": 672,
+      "h": 40,
+      "title": "Before · SessionUsage",
+      "page": "components"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 3400,
+      "y": 4056,
+      "w": 760,
+      "h": 60,
+      "title": "Before · StatusBand",
+      "page": "components"
+    },
+    "before/BeforeStatusPanel.dc.html": {
+      "x": 3400,
+      "y": 4216,
+      "w": 640,
+      "h": 900,
+      "title": "Before · StatusPanel",
+      "page": "components"
     }
   },
   "order": [
@@ -398,7 +614,34 @@
     "Dialogs.dc.html",
     "PhoneChatReview.dc.html",
     "StatusBandStates.dc.html",
-    "PhoneChatPrs.dc.html"
+    "PhoneChatPrs.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforeInbox.dc.html",
+    "before/BeforeInboxFilter.dc.html",
+    "before/BeforeInboxFiltered.dc.html",
+    "before/BeforeLater.dc.html",
+    "before/BeforePalette.dc.html",
+    "before/BeforePaletteNewSession.dc.html",
+    "before/BeforePaletteNewSessionModel.dc.html",
+    "before/BeforePaletteQuery.dc.html",
+    "before/BeforePhoneChat.dc.html",
+    "before/BeforePhoneChatMenu.dc.html",
+    "before/BeforePhoneChatPrs.dc.html",
+    "before/BeforePhoneChatReview.dc.html",
+    "before/BeforeStatusDecisions.dc.html",
+    "before/BeforeStatusReview.dc.html",
+    "before/BeforeStatusRunning.dc.html",
+    "before/BeforeStatusTasks.dc.html",
+    "before/BeforeStatusTree.dc.html",
+    "before/BeforeStatusWebUi.dc.html",
+    "before/BeforeTaskLinks.dc.html",
+    "before/BeforeInboxList.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeQuota.dc.html",
+    "before/BeforeSessionRow.dc.html",
+    "before/BeforeSessionUsage.dc.html",
+    "before/BeforeStatusBand.dc.html",
+    "before/BeforeStatusPanel.dc.html"
   ],
   "pages": [
     {
@@ -426,7 +669,56 @@
       "name": "部品"
     }
   ],
-  "notes": {},
+  "notes": {
+    "diffPr-board": {
+      "x": 0,
+      "y": 1150,
+      "w": 640,
+      "fill": "yellow",
+      "page": "board",
+      "text": "この下は変更前 (Before)。上の画面との違い:\n- PC の会話のヘッダー: 右上の「■ #2047 Open +1 ▾」を、アイコンだけの PR ボタンにした。点の色が CI の状態、右下の数字が PR の数\n- スマホの会話のヘッダー: PR の行をなくし、右上のボタンの並びにアイコンの PR ボタンを入れた"
+    },
+    "diffPr-components": {
+      "x": 0,
+      "y": 1150,
+      "w": 640,
+      "fill": "yellow",
+      "page": "components",
+      "text": "この下は変更前 (Before)。上の画面との違い:\n- PC の会話のヘッダー: 右上の「■ #2047 Open +1 ▾」を、アイコンだけの PR ボタンにした。点の色が CI の状態、右下の数字が PR の数\n- スマホの会話のヘッダー: PR の行をなくし、右上のボタンの並びにアイコンの PR ボタンを入れた"
+    },
+    "diffPr-conversation": {
+      "x": 0,
+      "y": 3450,
+      "w": 640,
+      "fill": "yellow",
+      "page": "conversation",
+      "text": "この下は変更前 (Before)。上の画面との違い:\n- PC の会話のヘッダー: 右上の「■ #2047 Open +1 ▾」を、アイコンだけの PR ボタンにした。点の色が CI の状態、右下の数字が PR の数\n- スマホの会話のヘッダー: PR の行をなくし、右上のボタンの並びにアイコンの PR ボタンを入れた"
+    },
+    "diffPr-inbox": {
+      "x": 0,
+      "y": 3790,
+      "w": 640,
+      "fill": "yellow",
+      "page": "inbox",
+      "text": "この下は変更前 (Before)。上の画面との違い:\n- PC の会話のヘッダー: 右上の「■ #2047 Open +1 ▾」を、アイコンだけの PR ボタンにした。点の色が CI の状態、右下の数字が PR の数\n- スマホの会話のヘッダー: PR の行をなくし、右上のボタンの並びにアイコンの PR ボタンを入れた"
+    },
+    "diffPr-palette": {
+      "x": 0,
+      "y": 1150,
+      "w": 640,
+      "fill": "yellow",
+      "page": "palette",
+      "text": "この下は変更前 (Before)。上の画面との違い:\n- PC の会話のヘッダー: 右上の「■ #2047 Open +1 ▾」を、アイコンだけの PR ボタンにした。点の色が CI の状態、右下の数字が PR の数\n- スマホの会話のヘッダー: PR の行をなくし、右上のボタンの並びにアイコンの PR ボタンを入れた"
+    },
+    "diffPr-status-panel": {
+      "x": 0,
+      "y": 1150,
+      "w": 640,
+      "fill": "yellow",
+      "page": "status-panel",
+      "text": "この下は変更前 (Before)。上の画面との違い:\n- PC の会話のヘッダー: 右上の「■ #2047 Open +1 ▾」を、アイコンだけの PR ボタンにした。点の色が CI の状態、右下の数字が PR の数\n- スマホの会話のヘッダー: PR の行をなくし、右上のボタンの並びにアイコンの PR ボタンを入れた"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,
@@ -445,5 +737,12 @@
       "copiedAt": "2026-11-15T10:37:15Z"
     }
   ],
-  "noteOrder": null
+  "noteOrder": [
+    "diffPr-board",
+    "diffPr-components",
+    "diffPr-conversation",
+    "diffPr-inbox",
+    "diffPr-palette",
+    "diffPr-status-panel"
+  ]
 }

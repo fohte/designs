@@ -1,0 +1,193 @@
+{
+  "v": 3,
+  "title": "Ended session composer",
+  "boards": {
+    "ended-session-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 760,
+      "h": 320,
+      "title": "Current · PC",
+      "page": "options"
+    },
+    "ended-session-current-phone.dc.html": {
+      "x": 840,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "Current · iPhone",
+      "page": "options"
+    },
+    "ended-session-a.dc.html": {
+      "x": 0,
+      "y": 1200,
+      "w": 760,
+      "h": 660,
+      "title": "A · PC (上: 終わった、下: Resume を押した)",
+      "page": "options"
+    },
+    "ended-session-a-phone.dc.html": {
+      "x": 840,
+      "y": 1200,
+      "w": 800,
+      "h": 844,
+      "title": "A · iPhone (左: 終わった、右: Resume を押した)",
+      "page": "options"
+    },
+    "ended-session-b.dc.html": {
+      "x": 0,
+      "y": 2400,
+      "w": 760,
+      "h": 660,
+      "title": "B · PC (上: 終わった、下: 送った)",
+      "page": "options"
+    },
+    "ended-session-b-phone.dc.html": {
+      "x": 840,
+      "y": 2400,
+      "w": 800,
+      "h": 844,
+      "title": "B · iPhone (左: 終わった、右: 送った)",
+      "page": "options"
+    },
+    "ended-session-c.dc.html": {
+      "x": 0,
+      "y": 3600,
+      "w": 760,
+      "h": 320,
+      "title": "C · PC",
+      "page": "options"
+    },
+    "ended-session-c-phone.dc.html": {
+      "x": 840,
+      "y": 3600,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone",
+      "page": "options"
+    },
+    "EndDesk.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 760,
+      "h": 320,
+      "title": "EndDesk",
+      "page": "parts"
+    },
+    "EndPhone.dc.html": {
+      "x": 840,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "EndPhone",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "ended-session-current.dc.html",
+    "ended-session-current-phone.dc.html",
+    "ended-session-a.dc.html",
+    "ended-session-a-phone.dc.html",
+    "ended-session-b.dc.html",
+    "ended-session-b-phone.dc.html",
+    "ended-session-c.dc.html",
+    "ended-session-c-phone.dc.html",
+    "EndDesk.dc.html",
+    "EndPhone.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "options",
+      "name": "案"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1700,
+      "text": "Current · 返信欄は押せないが、見た目も placeholder も動いているセッションと同じ",
+      "page": "options"
+    },
+    "a": {
+      "kind": "title1",
+      "x": 0,
+      "y": 940,
+      "maxW": 1700,
+      "text": "A · 返信欄を「終わった」帯に替え、Resume で再開してから書く",
+      "page": "options"
+    },
+    "b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2140,
+      "maxW": 1700,
+      "text": "B · 返信欄は使えるまま。送ると再開してから届ける",
+      "page": "options"
+    },
+    "c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3340,
+      "maxW": 1700,
+      "text": "C · 返信欄を「終わった」帯に替え、同じディレクトリで新しいセッションを始める",
+      "page": "options"
+    },
+    "about": {
+      "x": 1720,
+      "y": 0,
+      "w": 460,
+      "fill": "gray",
+      "page": "options",
+      "text": "前提\n- 困りごと: 終わったセッションの返信欄は disabled なのに、見た目も placeholder (Message session) も変わらず、なぜ押せないか分からない\n- どの案も、返信欄のところで終わったことを文字で出す (灰色の四角と This session has ended / Ended、終わった時刻)\n- 案の違いは、続けたいときにどうするか\n- CLI では a agent resume <id> で終わったセッションも再開できる。web から再開する仕組みは実装で決める\n- 下の SessionUsage と状態の帯は省いている\n- データはすべて架空"
+    },
+    "aNote": {
+      "x": 1720,
+      "y": 1200,
+      "w": 460,
+      "fill": "gray",
+      "page": "options",
+      "text": "A\n+ 終わったことがいちばんはっきりする。押すまで何も起きない\n- 書き始めるまでに 1 回押して、再開を待つ"
+    },
+    "bNote": {
+      "x": 1720,
+      "y": 2400,
+      "w": 460,
+      "fill": "gray",
+      "page": "options",
+      "text": "B\n+ 手数が今の会話と同じ\n- 送るボタンが Resume and send に変わるだけなので、気づかずに再開しうる\n- 再開に失敗したとき、書いたメッセージをどうするかを決める必要がある"
+    },
+    "cNote": {
+      "x": 1720,
+      "y": 3600,
+      "w": 460,
+      "fill": "gray",
+      "page": "options",
+      "text": "C\n+ 再開の仕組みが要らない\n- 今の会話の続きにならず、文脈を引き継げない"
+    }
+  },
+  "noteOrder": [
+    "current",
+    "a",
+    "b",
+    "c",
+    "about",
+    "aNote",
+    "bNote",
+    "cNote"
+  ],
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-17T05:46:05Z"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Desktop conversation of an ended session, bottom</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<main style="width: 760px; height: 320px; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; border: 1px solid #2a2a2a; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+<div style="flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; padding: 0 24px 14px">
+<article style="align-self: flex-end; max-width: 80%; padding: 10px 14px; background: #1f1f1f">設定画面の文言をそろえて。</article>
+<article style="color: #d4d4d8">文言をそろえて PR #318 を作りました。これで終わります。</article>
+<sc-if value="{{showSent}}" hint-placeholder-val="{{ false }}">
+<article style="align-self: flex-end; max-width: 80%; display: flex; flex-direction: column; align-items: flex-end; gap: 4px"><div style="padding: 10px 14px; background: #1f1f1f">ヘルプ画面の文言もそろえて。</div><div role="status" style="font-size: 12px; color: #a1a1aa">Resuming the session…</div></article>
+</sc-if>
+</div>
+
+<sc-if value="{{isNow}}" hint-placeholder-val="{{ false }}">
+<form style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 14px; border: 1px solid #3f3f46; background: #141414">
+<textarea aria-label="Message" rows="2" disabled placeholder="Message session" style="display: block; width: 100%; min-height: 54px; box-sizing: border-box; padding: 12px 14px 4px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; line-height: 1.6; resize: none"></textarea>
+<div style="display: flex; justify-content: flex-end; padding: 0 8px 8px"><button type="submit" disabled aria-label="Send message" style="width: 32px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414; opacity: 0.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div>
+</form>
+</sc-if>
+
+<sc-if value="{{isBar}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); min-height: 56px; margin: 0 auto 14px; display: flex; align-items: center; gap: 12px; padding: 0 10px 0 14px; border: 1px solid #3f3f46; background: #141414">
+<span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #71717a"></span>
+<span style="min-width: 0; flex: 1"><span style="color: #fafafa; font-weight: 700">This session has ended</span> <span style="color: #a1a1aa; font-size: 13px">· 14:32 · {{barHint}}</span></span>
+<sc-if value="{{isA}}" hint-placeholder-val="{{ false }}"><button type="button" aria-disabled="{{resuming}}" style="flex: none; height: 32px; display: inline-flex; align-items: center; gap: 6px; padding: 0 14px; border: 1px solid #fafafa; background: {{resumeBg}}; color: {{resumeFg}}; font-family: inherit; font-size: 12.5px; font-weight: 700">{{resumeLabel}}</button></sc-if>
+<sc-if value="{{isC}}" hint-placeholder-val="{{ false }}"><button type="button" style="flex: none; height: 32px; padding: 0 14px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12.5px">New session here</button></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{isB}}" hint-placeholder-val="{{ false }}">
+<div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 14px">
+<div style="display: flex; align-items: center; gap: 8px; padding: 0 2px 6px; font-size: 12.5px; color: #a1a1aa"><span aria-hidden="true" style="width: 8px; height: 8px; background: #71717a"></span><span><span style="color: #d4d4d8">Ended</span> · 14:32 · Sending a message resumes the session</span></div>
+<form style="border: 1px solid #3f3f46; background: #141414">
+<textarea aria-label="Message" rows="2" placeholder="{{bPlaceholder}}" style="display: block; width: 100%; min-height: 54px; box-sizing: border-box; padding: 12px 14px 4px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; line-height: 1.6; resize: none"></textarea>
+<div style="display: flex; justify-content: flex-end; padding: 0 8px 8px"><button type="submit" aria-label="Resume and send" style="height: 32px; display: inline-flex; align-items: center; gap: 6px; padding: 0 12px; border: 0; background: #fafafa; color: #141414; font-family: inherit; font-size: 12.5px; font-weight: 700; opacity: {{bSendOpacity}}">Resume and send <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div>
+</form>
+</div>
+</sc-if>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["now","a","b","c"],"default":"a"},"resuming":{"editor":"boolean","default":false},"$preview":{"width":760,"height":320}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const option = this.props.option ?? 'a';
+    const resuming = (this.props.resuming ?? false) && (option === 'a' || option === 'b');
+    return {
+      isNow: option === 'now',
+      isA: option === 'a',
+      isB: option === 'b',
+      isC: option === 'c',
+      isBar: option === 'a' || option === 'c',
+      resuming,
+      showSent: resuming && option === 'b',
+      barHint: option === 'a' ? (resuming ? 'Resuming…' : 'Resume it to keep talking') : 'Start a new session in the same directory',
+      resumeLabel: resuming ? 'Resuming…' : 'Resume',
+      resumeBg: resuming ? 'transparent' : '#fafafa',
+      resumeFg: resuming ? '#a1a1aa' : '#0a0a0a',
+      bPlaceholder: resuming ? 'Resuming…' : 'Message to resume this session',
+      bSendOpacity: resuming ? '0.5' : '1'
+    };
+  }
+}
+</script>
+</body>
+</html>

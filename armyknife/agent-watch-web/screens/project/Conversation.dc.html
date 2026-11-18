@@ -125,6 +125,15 @@ a{color:#ef4444}
 </sc-if>
 </div>
 
+<sc-if value="{{ended}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); min-height: 56px; margin: 12px auto 6px; display: flex; align-items: center; gap: 12px; padding: 0 10px 0 14px; border: 1px solid #3f3f46; background: #141414">
+<span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #71717a"></span>
+<span style="min-width: 0; flex: 1"><span style="color: #fafafa; font-weight: 700">This session has ended</span> <span style="color: #a1a1aa; font-size: 13px">· 14:32 · {{endedHint}}</span></span>
+<sc-if value="{{resuming}}" hint-placeholder-val="{{ false }}"><button type="button" disabled style="flex: none; height: 32px; display: inline-flex; align-items: center; padding: 0 14px; border: 1px solid #fafafa; background: {{resumeBg}}; color: {{resumeFg}}; font-family: inherit; font-size: 12.5px; font-weight: 700">{{resumeLabel}}</button></sc-if>
+<sc-if value="{{notResuming}}" hint-placeholder-val="{{ true }}"><button type="button" style="flex: none; height: 32px; display: inline-flex; align-items: center; padding: 0 14px; border: 1px solid #fafafa; background: {{resumeBg}}; color: {{resumeFg}}; font-family: inherit; font-size: 12.5px; font-weight: 700">{{resumeLabel}}</button></sc-if>
+</div>
+</sc-if>
+<sc-if value="{{live}}" hint-placeholder-val="{{ true }}">
 <div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" label="{{bandLabel}}" detail="{{bandDetail}}" hint-size="100%,58px"></dc-import></div>
 
 <form style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 12px auto 6px; border: 1px solid #3f3f46; background: #141414">
@@ -135,10 +144,11 @@ a{color:#ef4444}
 <button type="submit" aria-label="Send message" style="width: 32px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414; opacity: 0.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
 </div>
 </form>
+</sc-if>
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const variant = this.props.variant ?? 'question';
@@ -174,6 +184,8 @@ class Component extends DCLogic {
       off: { text: 'Vibe off', head: 'Vibe mode is off', body: 'Turn it on to let this session merge PRs and submit without human review in ' + V.repo + '. Its child sessions launched with --vibe inherit it.', send: 'Vibe mode is now on for this session. In ' + V.repo + ' you may merge PRs and submit without waiting for human review.', action: 'Turn on and send' },
       unavailable: { text: 'Vibe unavailable', head: 'Vibe mode is unavailable', body: V.repo + ' does not allow vibe mode, so it cannot be turned on here. Change the repository setting to allow it.', send: '', action: '' }
     }[vibe];
+    const ended = this.props.ended ?? 'no';
+    const resuming = ended === 'resuming';
     return {
       ...V,
       vibeText: VB.text, vibeHead: VB.head, vibeBody: VB.body, vibeSend: VB.send, vibeAction: VB.action,
@@ -183,6 +195,14 @@ class Component extends DCLogic {
       vibeBorder: vibeOpen ? '#a1a1aa' : vibeOn ? '#71717a' : '#2a2a2a',
       vibeBg: vibeOpen ? '#262626' : 'transparent',
       vibeColor: vibeOn || vibeOpen ? '#fafafa' : '#a1a1aa',
+      ended: ended !== 'no',
+      live: ended === 'no',
+      resuming,
+      notResuming: !resuming,
+      endedHint: resuming ? 'Resuming…' : 'Resume it to keep talking',
+      resumeLabel: resuming ? 'Resuming…' : 'Resume',
+      resumeBg: resuming ? 'transparent' : '#fafafa',
+      resumeFg: resuming ? '#a1a1aa' : '#0a0a0a',
       isQuestion: q,
       isWorking: w,
       hasTasks: w,

@@ -368,6 +368,30 @@
       "h": 844,
       "title": "iPhone · vibe mode のシート",
       "page": "conversation"
+    },
+    "ConversationEnded.dc.html": {
+      "x": 3980,
+      "y": 1020,
+      "w": 1440,
+      "h": 900,
+      "title": "終わったセッション",
+      "page": "conversation"
+    },
+    "PhoneChatEnded.dc.html": {
+      "x": 3040,
+      "y": 1928,
+      "w": 390,
+      "h": 844,
+      "title": "スマホ: 終わったセッション",
+      "page": "conversation"
+    },
+    "PhoneChatResuming.dc.html": {
+      "x": 3510,
+      "y": 1928,
+      "w": 390,
+      "h": 844,
+      "title": "スマホ: Resume を押した",
+      "page": "conversation"
     }
   },
   "order": [
@@ -415,6 +439,9 @@
     "PhoneChatReview.dc.html",
     "StatusBandStates.dc.html",
     "PhoneChatPrs.dc.html",
+    "ConversationEnded.dc.html",
+    "PhoneChatEnded.dc.html",
+    "PhoneChatResuming.dc.html",
     "VibePopover.dc.html",
     "PhoneChatVibe.dc.html"
   ],

@@ -18,7 +18,7 @@
       "page": "inbox"
     },
     "Later.dc.html": {
-      "x": 2460,
+      "x": 3980,
       "y": 1620,
       "w": 1440,
       "h": 900,
@@ -26,7 +26,7 @@
       "page": "inbox"
     },
     "InboxFilter.dc.html": {
-      "x": 3980,
+      "x": 7020,
       "y": 1620,
       "w": 1440,
       "h": 900,
@@ -34,7 +34,7 @@
       "page": "inbox"
     },
     "InboxFiltered.dc.html": {
-      "x": 5500,
+      "x": 10060,
       "y": 1620,
       "w": 1440,
       "h": 900,
@@ -42,7 +42,7 @@
       "page": "inbox"
     },
     "TaskLinks.dc.html": {
-      "x": 7020,
+      "x": 13100,
       "y": 1620,
       "w": 1440,
       "h": 900,
@@ -50,7 +50,7 @@
       "page": "inbox"
     },
     "PhoneInbox.dc.html": {
-      "x": 1520,
+      "x": 3040,
       "y": 1620,
       "w": 390,
       "h": 844,
@@ -58,7 +58,7 @@
       "page": "inbox"
     },
     "PhoneDrawer.dc.html": {
-      "x": 1990,
+      "x": 3510,
       "y": 1620,
       "w": 390,
       "h": 844,
@@ -74,7 +74,7 @@
       "page": "inbox"
     },
     "NewSessionPicker.dc.html": {
-      "x": 1520,
+      "x": 3040,
       "y": 2640,
       "w": 1440,
       "h": 900,
@@ -82,7 +82,7 @@
       "page": "inbox"
     },
     "PhoneNewSession.dc.html": {
-      "x": 3040,
+      "x": 4560,
       "y": 2640,
       "w": 390,
       "h": 844,
@@ -90,7 +90,7 @@
       "page": "inbox"
     },
     "PhoneNewSessionPicker.dc.html": {
-      "x": 3510,
+      "x": 5030,
       "y": 2640,
       "w": 390,
       "h": 844,
@@ -98,7 +98,7 @@
       "page": "inbox"
     },
     "NewSessionModel.dc.html": {
-      "x": 3980,
+      "x": 7020,
       "y": 2640,
       "w": 1440,
       "h": 900,
@@ -106,7 +106,7 @@
       "page": "inbox"
     },
     "NewSessionModelSwitch.dc.html": {
-      "x": 5500,
+      "x": 10060,
       "y": 2640,
       "w": 1440,
       "h": 900,
@@ -114,7 +114,7 @@
       "page": "inbox"
     },
     "PhoneNewSessionModel.dc.html": {
-      "x": 7020,
+      "x": 13100,
       "y": 2640,
       "w": 390,
       "h": 844,
@@ -146,7 +146,7 @@
       "page": "components"
     },
     "SessionRow.dc.html": {
-      "x": 1820,
+      "x": 2780,
       "y": 0,
       "w": 460,
       "h": 76,
@@ -154,7 +154,7 @@
       "page": "components"
     },
     "Quota.dc.html": {
-      "x": 1820,
+      "x": 2780,
       "y": 200,
       "w": 240,
       "h": 140,
@@ -162,7 +162,7 @@
       "page": "components"
     },
     "SessionUsage.dc.html": {
-      "x": 1820,
+      "x": 2780,
       "y": 460,
       "w": 672,
       "h": 40,
@@ -170,7 +170,7 @@
       "page": "components"
     },
     "StatusBand.dc.html": {
-      "x": 1820,
+      "x": 2780,
       "y": 620,
       "w": 760,
       "h": 60,
@@ -194,7 +194,7 @@
       "page": "palette"
     },
     "PaletteQuery.dc.html": {
-      "x": 1520,
+      "x": 3040,
       "y": 0,
       "w": 1440,
       "h": 900,
@@ -202,7 +202,7 @@
       "page": "palette"
     },
     "PaletteNewSession.dc.html": {
-      "x": 3040,
+      "x": 6080,
       "y": 0,
       "w": 1440,
       "h": 900,
@@ -210,7 +210,7 @@
       "page": "palette"
     },
     "PhonePaletteNewSession.dc.html": {
-      "x": 4560,
+      "x": 9120,
       "y": 0,
       "w": 390,
       "h": 844,
@@ -218,7 +218,7 @@
       "page": "palette"
     },
     "PaletteNewSessionModel.dc.html": {
-      "x": 5030,
+      "x": 9590,
       "y": 0,
       "w": 1440,
       "h": 900,
@@ -226,7 +226,7 @@
       "page": "palette"
     },
     "PhonePaletteNewSessionModel.dc.html": {
-      "x": 6550,
+      "x": 12630,
       "y": 0,
       "w": 390,
       "h": 844,
@@ -242,7 +242,7 @@
       "page": "status-panel"
     },
     "StatusTree.dc.html": {
-      "x": 1520,
+      "x": 3040,
       "y": 0,
       "w": 1440,
       "h": 900,
@@ -250,7 +250,7 @@
       "page": "status-panel"
     },
     "StatusDecisions.dc.html": {
-      "x": 3040,
+      "x": 6080,
       "y": 0,
       "w": 1440,
       "h": 900,
@@ -258,7 +258,7 @@
       "page": "status-panel"
     },
     "StatusReview.dc.html": {
-      "x": 4560,
+      "x": 9120,
       "y": 0,
       "w": 1440,
       "h": 900,
@@ -266,7 +266,7 @@
       "page": "status-panel"
     },
     "StatusWebUi.dc.html": {
-      "x": 6080,
+      "x": 12160,
       "y": 0,
       "w": 1440,
       "h": 900,
@@ -274,7 +274,7 @@
       "page": "status-panel"
     },
     "StatusTasks.dc.html": {
-      "x": 7600,
+      "x": 15200,
       "y": 0,
       "w": 1440,
       "h": 900,
@@ -282,7 +282,7 @@
       "page": "status-panel"
     },
     "StatusPanel.dc.html": {
-      "x": 2660,
+      "x": 3620,
       "y": 0,
       "w": 640,
       "h": 900,
@@ -306,7 +306,7 @@
       "page": "conversation"
     },
     "Dialogs.dc.html": {
-      "x": 3980,
+      "x": 4450,
       "y": 0,
       "w": 1440,
       "h": 900,
@@ -338,7 +338,7 @@
       "page": "conversation"
     },
     "StatusBandStates.dc.html": {
-      "x": 5500,
+      "x": 5970,
       "y": 0,
       "w": 1290,
       "h": 1600,
@@ -354,7 +354,7 @@
       "page": "conversation"
     },
     "VibePopover.dc.html": {
-      "x": 6870,
+      "x": 7340,
       "y": 0,
       "w": 1848,
       "h": 2910,
@@ -362,7 +362,7 @@
       "page": "conversation"
     },
     "PhoneChatVibe.dc.html": {
-      "x": 8800,
+      "x": 11198,
       "y": 0,
       "w": 390,
       "h": 844,
@@ -370,7 +370,7 @@
       "page": "conversation"
     },
     "ConversationEnded.dc.html": {
-      "x": 3980,
+      "x": 4450,
       "y": 1020,
       "w": 1440,
       "h": 900,
@@ -392,6 +392,222 @@
       "h": 844,
       "title": "スマホ: Resume を押した",
       "page": "conversation"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 1500,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
+    },
+    "before/BeforeLater.dc.html": {
+      "x": 5500,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Later メニュー (L)",
+      "page": "inbox"
+    },
+    "before/BeforeInboxFilter.dc.html": {
+      "x": 8540,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Inbox の絞り込み (/)",
+      "page": "inbox"
+    },
+    "before/BeforeInboxFiltered.dc.html": {
+      "x": 11580,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 絞り込んだ状態と Save view",
+      "page": "inbox"
+    },
+    "before/BeforeTaskLinks.dc.html": {
+      "x": 14620,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 1 つのセッションに tq タスクが複数",
+      "page": "inbox"
+    },
+    "before/BeforePalette.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · ⌘K · 開いた直後",
+      "page": "palette"
+    },
+    "before/BeforePaletteQuery.dc.html": {
+      "x": 4560,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · ⌘K · # で tq タスクに絞る",
+      "page": "palette"
+    },
+    "before/BeforePaletteNewSession.dc.html": {
+      "x": 7600,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コマンドパレット · 新しいセッション",
+      "page": "palette"
+    },
+    "before/BeforePaletteNewSessionModel.dc.html": {
+      "x": 11110,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コマンドパレット · モデルと effort を選ぶ",
+      "page": "palette"
+    },
+    "before/BeforeStatusRunning.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Running",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusTree.dc.html": {
+      "x": 4560,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tree",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusDecisions.dc.html": {
+      "x": 7600,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Decisions",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusReview.dc.html": {
+      "x": 10640,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Review",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusWebUi.dc.html": {
+      "x": 13680,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Web UI (crit)",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusTasks.dc.html": {
+      "x": 16720,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tasks",
+      "page": "status-panel"
+    },
+    "before/BeforeVibePopover.dc.html": {
+      "x": 9268,
+      "y": 0,
+      "w": 1848,
+      "h": 2910,
+      "title": "Before · セッションのヘッダー · vibe mode のボタンを押したとき",
+      "page": "conversation"
+    },
+    "before/BeforePhoneChatPrs.dc.html": {
+      "x": 3980,
+      "y": 964,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · セッションの PR 一覧",
+      "page": "conversation"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 1820,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "title": "Before · Conversation",
+      "page": "components"
+    },
+    "ConversationPrs.dc.html": {
+      "x": 7340,
+      "y": 3030,
+      "w": 1848,
+      "h": 970,
+      "title": "セッションのヘッダー · PR のボタンを押したとき",
+      "page": "conversation"
+    },
+    "before/BeforePhoneChat.dc.html": {
+      "x": 0,
+      "y": 1020,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · 会話から答える",
+      "page": "components"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 470,
+      "y": 1020,
+      "w": 240,
+      "h": 900,
+      "title": "Before · Nav",
+      "page": "components"
+    },
+    "before/BeforeInboxList.dc.html": {
+      "x": 790,
+      "y": 1020,
+      "w": 460,
+      "h": 900,
+      "title": "Before · InboxList",
+      "page": "components"
+    },
+    "before/BeforeStatusPanel.dc.html": {
+      "x": 1330,
+      "y": 1020,
+      "w": 640,
+      "h": 900,
+      "title": "Before · StatusPanel",
+      "page": "components"
+    },
+    "before/BeforeSessionRow.dc.html": {
+      "x": 2050,
+      "y": 1020,
+      "w": 460,
+      "h": 76,
+      "title": "Before · SessionRow",
+      "page": "components"
+    },
+    "before/BeforeQuota.dc.html": {
+      "x": 2590,
+      "y": 1020,
+      "w": 240,
+      "h": 140,
+      "title": "Before · Quota",
+      "page": "components"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 2910,
+      "y": 1020,
+      "w": 672,
+      "h": 40,
+      "title": "Before · SessionUsage",
+      "page": "components"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 3662,
+      "y": 1020,
+      "w": 760,
+      "h": 60,
+      "title": "Before · StatusBand",
+      "page": "components"
     }
   },
   "order": [
@@ -443,7 +659,34 @@
     "PhoneChatEnded.dc.html",
     "PhoneChatResuming.dc.html",
     "VibePopover.dc.html",
-    "PhoneChatVibe.dc.html"
+    "ConversationPrs.dc.html",
+    "PhoneChatVibe.dc.html",
+    "before/BeforeMain.dc.html",
+    "before/BeforeLater.dc.html",
+    "before/BeforeInboxFilter.dc.html",
+    "before/BeforeInboxFiltered.dc.html",
+    "before/BeforeTaskLinks.dc.html",
+    "before/BeforePalette.dc.html",
+    "before/BeforePaletteQuery.dc.html",
+    "before/BeforePaletteNewSession.dc.html",
+    "before/BeforePaletteNewSessionModel.dc.html",
+    "before/BeforeStatusRunning.dc.html",
+    "before/BeforeStatusTree.dc.html",
+    "before/BeforeStatusDecisions.dc.html",
+    "before/BeforeStatusReview.dc.html",
+    "before/BeforeStatusWebUi.dc.html",
+    "before/BeforeStatusTasks.dc.html",
+    "before/BeforeVibePopover.dc.html",
+    "before/BeforePhoneChatPrs.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforePhoneChat.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeInboxList.dc.html",
+    "before/BeforeStatusPanel.dc.html",
+    "before/BeforeSessionRow.dc.html",
+    "before/BeforeQuota.dc.html",
+    "before/BeforeSessionUsage.dc.html",
+    "before/BeforeStatusBand.dc.html"
   ],
   "pages": [
     {
@@ -471,7 +714,48 @@
       "name": "部品"
     }
   ],
-  "notes": {},
+  "notes": {
+    "diffMerge-inbox": {
+      "x": 0,
+      "y": -900,
+      "w": 640,
+      "fill": "yellow",
+      "page": "inbox",
+      "text": "右隣の「Before ·」が変更前。違い:\n- 会話のヘッダー: このブランチの PR (#2047、#2053) は CI が実行中でマージできないので、Merge が出なくなった\n- 仕様のまとめ: Merge はマージできるときだけヘッダーに出すことと、PR の一覧の行の Merge と理由を書き足した"
+    },
+    "diffMerge-palette": {
+      "x": 0,
+      "y": -900,
+      "w": 640,
+      "fill": "yellow",
+      "page": "palette",
+      "text": "右隣の「Before ·」が変更前。違い:\n- 会話のヘッダー: このブランチの PR #2047 は CI が実行中でマージできないので、Merge が出なくなった"
+    },
+    "diffMerge-status-panel": {
+      "x": 0,
+      "y": -900,
+      "w": 640,
+      "fill": "yellow",
+      "page": "status-panel",
+      "text": "右隣の「Before ·」が変更前。違い:\n- 会話のヘッダー: このブランチの PR (#2047、#2053) は CI が実行中でマージできないので、Merge が出なくなった"
+    },
+    "diffMerge-conversation": {
+      "x": 0,
+      "y": -900,
+      "w": 640,
+      "fill": "yellow",
+      "page": "conversation",
+      "text": "右隣の「Before ·」が変更前。違い:\n- vibe mode のポップオーバー: CI が実行中の PR (#2047、#2053) の行で、ヘッダーの Merge が出なくなった\n- スマホの PR 一覧: シートの下の Merge #2050 をなくし、Close だけにした。マージできる #64 の行に Merge を出し、CI が実行中の #2050 の行に「CI running」を出す\n- 「セッションのヘッダー · PR のボタンを押したとき」は新しい画面 (Before なし)。マージできるときと CI が失敗のとき"
+    },
+    "diffMerge-components": {
+      "x": 0,
+      "y": -900,
+      "w": 640,
+      "fill": "yellow",
+      "page": "components",
+      "text": "右隣の「Before ·」が変更前。違い:\n- Conversation: このブランチの PR #2047 は CI が実行中でマージできないので、ヘッダーに Merge が出なくなった"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,
@@ -490,5 +774,11 @@
       "copiedAt": "2026-11-15T10:37:15Z"
     }
   ],
-  "noteOrder": []
+  "noteOrder": [
+    "diffMerge-inbox",
+    "diffMerge-palette",
+    "diffMerge-status-panel",
+    "diffMerge-conversation",
+    "diffMerge-components"
+  ]
 }

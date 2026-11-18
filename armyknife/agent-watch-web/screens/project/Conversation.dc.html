@@ -173,15 +173,16 @@ class Component extends DCLogic {
       working: { engine: 'codex', title: '配信メトリクスを追加する', taskId: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/service', userText: '配信の成功率と遅延をメトリクスに出して。', assistantText: '送信ごとに', assistantCode: 'delivery_latency_ms', assistantTail: 'を記録するようにしました。', toolSummary: 'Edit metrics.rs · Read ×4 · Shell ×2', bandState: 'working', bandLabel: 'Working · 18s', bandDetail: 'Bash  cargo test -p metrics' },
       review: { engine: 'codex', title: '配信チェックの PR を確認する', taskId: '', taskTitle: '', repo: 'example/web-app', userText: '配信チェックを足して PR にして。', assistantText: '配信前のチェックを', assistantCode: 'preflight()', assistantTail: 'にまとめて PR #2049 を作りました。crit で差分を見てください。', toolSummary: 'Edit preflight.ts · Read ×2 · Shell ×2', bandState: 'crit', bandLabel: '', bandDetail: 'crit · PR #2049 · 2m' }
     }[variant] ?? {};
-    // vibe: 'on' | 'inherited' | 'off' | 'unavailable' (the repository's setting forbids it).
+    // vibe: 'on' | 'onParent' (on here and in an ancestor) | 'inherited' | 'off' | 'unavailable' (the repository's setting forbids it).
     const vibe = this.props.vibe ?? { question: 'inherited', working: 'on', review: 'off' }[variant] ?? 'off';
     const vibeOpen = this.props.vibeOpen ?? false;
-    const vibeOn = vibe === 'on' || vibe === 'inherited';
+    const vibeOn = vibe === 'on' || vibe === 'onParent' || vibe === 'inherited';
     const parent = '通知まわりの改修';
     const VB = {
       on: { text: 'Vibe on', head: 'Vibe mode is on', body: 'This session may merge PRs and submit without human review in ' + V.repo + '. Its child sessions launched with --vibe inherit it.', send: 'Vibe mode is now off for this session. Wait for human review before merging PRs or submitting.', action: 'Turn off and send' },
       inherited: { text: 'Vibe on · inherited', head: 'Vibe mode is on · inherited', body: 'Inherited from the parent session ' + parent + '. Turn it on here too to keep it on after that session turns it off.', send: 'Vibe mode is now on for this session too. In ' + V.repo + ' you may merge PRs and submit without waiting for human review.', action: 'Turn on here and send' },
       off: { text: 'Vibe off', head: 'Vibe mode is off', body: 'Turn it on to let this session merge PRs and submit without human review in ' + V.repo + '. Its child sessions launched with --vibe inherit it.', send: 'Vibe mode is now on for this session. In ' + V.repo + ' you may merge PRs and submit without waiting for human review.', action: 'Turn on and send' },
+      onParent: { text: 'Vibe on', head: 'Vibe mode is on', body: 'Set on this session. ' + parent + ' also has it on, so after you turn it off here it stays on (inherited).', send: 'Vibe mode is now off for this session, but it stays on: it is inherited from the ancestor session ' + parent + '.', action: 'Turn off here and send' },
       unavailable: { text: 'Vibe unavailable', head: 'Vibe mode is unavailable', body: V.repo + ' does not allow vibe mode, so it cannot be turned on here. Change the repository setting to allow it.', send: '', action: '' }
     }[vibe];
     const ended = this.props.ended ?? 'no';
@@ -190,7 +191,7 @@ class Component extends DCLogic {
       ...V,
       vibeText: VB.text, vibeHead: VB.head, vibeBody: VB.body, vibeSend: VB.send, vibeAction: VB.action,
       vibeOpen, vibeOpenStr: vibeOpen ? 'true' : 'false',
-      vibeIcon: vibeOn, zapFill: vibe === 'on' ? 'currentColor' : 'none',
+      vibeIcon: vibeOn, zapFill: vibe === 'on' || vibe === 'onParent' ? 'currentColor' : 'none',
       vibeToggle: vibe !== 'unavailable', vibeBlocked: vibe === 'unavailable',
       vibeBorder: vibeOpen ? '#a1a1aa' : vibeOn ? '#71717a' : '#2a2a2a',
       vibeBg: vibeOpen ? '#262626' : 'transparent',

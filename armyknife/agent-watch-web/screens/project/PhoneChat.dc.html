@@ -119,7 +119,7 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false}}'>
 class Component extends DCLogic {
   renderVals() {
     const menuOpen = this.props.menuOpen ?? false;
@@ -127,13 +127,14 @@ class Component extends DCLogic {
     const prsOpen = review && (this.props.prsOpen ?? false);
     const vibe = this.props.vibe ?? 'inherited';
     const vibeOpen = this.props.vibeOpen ?? false;
-    const vibeOn = vibe === 'on' || vibe === 'inherited';
+    const vibeOn = vibe === 'on' || vibe === 'onParent' || vibe === 'inherited';
     const repo = 'example/service';
     const parent = '通知まわりの改修';
     const VB = {
       on: { text: 'Vibe on', sub: '', head: 'Vibe mode is on', body: 'This session may merge PRs and submit without human review in ' + repo + '. Its child sessions launched with --vibe inherit it.', send: 'Vibe mode is now off for this session. Wait for human review before merging PRs or submitting.', action: 'Turn off and send' },
       inherited: { text: 'Vibe on · inherited', sub: 'from ' + parent, head: 'Vibe mode is on · inherited', body: 'Inherited from the parent session ' + parent + '. Turn it on here too to keep it on after that session turns it off.', send: 'Vibe mode is now on for this session too. In ' + repo + ' you may merge PRs and submit without waiting for human review.', action: 'Turn on here and send' },
       off: { text: 'Vibe off', sub: '', head: 'Vibe mode is off', body: 'Turn it on to let this session merge PRs and submit without human review in ' + repo + '. Its child sessions launched with --vibe inherit it.', send: 'Vibe mode is now on for this session. In ' + repo + ' you may merge PRs and submit without waiting for human review.', action: 'Turn on and send' },
+      onParent: { text: 'Vibe on', sub: 'also on in ' + parent, head: 'Vibe mode is on', body: 'Set on this session. ' + parent + ' also has it on, so after you turn it off here it stays on (inherited).', send: 'Vibe mode is now off for this session, but it stays on: it is inherited from the ancestor session ' + parent + '.', action: 'Turn off here and send' },
       unavailable: { text: 'Vibe unavailable', sub: repo + ' does not allow it', head: 'Vibe mode is unavailable', body: repo + ' does not allow vibe mode, so it cannot be turned on here. Change the repository setting to allow it.', send: '', action: '' }
     }[vibe];
     const ended = this.props.ended ?? 'no';
@@ -141,7 +142,7 @@ class Component extends DCLogic {
     return {
       vibeText: VB.text, vibeSub: VB.sub, vibeHead: VB.head, vibeBody: VB.body, vibeSend: VB.send, vibeAction: VB.action,
       vibeOpen, vibeOpenStr: vibeOpen ? 'true' : 'false',
-      vibeIcon: vibeOn, zapFill: vibe === 'on' ? 'currentColor' : 'none',
+      vibeIcon: vibeOn, zapFill: vibe === 'on' || vibe === 'onParent' ? 'currentColor' : 'none',
       vibeToggle: vibe !== 'unavailable', vibeBlocked: vibe === 'unavailable',
       stripBg: vibeOpen ? '#262626' : 'transparent',
       stripColor: vibeOn || vibeOpen ? '#fafafa' : '#a1a1aa',

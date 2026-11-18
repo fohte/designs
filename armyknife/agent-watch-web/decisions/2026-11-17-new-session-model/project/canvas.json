@@ -1,0 +1,181 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-17T13:21:43Z"
+  },
+  "title": "agent watch · new session model",
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
+  "pages": [
+    { "id": "options", "name": "案" },
+    { "id": "parts", "name": "部品" }
+  ],
+  "boards": {
+    "new-session-model-current.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "Current · desktop", "page": "options" },
+    "new-session-model-current-phone.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "Current · phone", "page": "options" },
+    "new-session-model-current-palette.dc.html": { "x": 1990, "y": 0, "w": 1440, "h": 900, "title": "Current · palette", "page": "options" },
+    "new-session-model-current-palette-phone.dc.html": { "x": 3510, "y": 0, "w": 390, "h": 844, "title": "Current · phone · palette", "page": "options" },
+
+    "nsm-a-desk-default.dc.html": { "x": 0, "y": 1400, "w": 1440, "h": 900, "title": "A · desktop · default", "page": "options" },
+    "nsm-a-desk-menu.dc.html": { "x": 1520, "y": 1400, "w": 1440, "h": 900, "title": "A · desktop · モデルを選ぶ", "page": "options" },
+    "nsm-a-desk-chosen.dc.html": { "x": 3040, "y": 1400, "w": 1440, "h": 900, "title": "A · desktop · 選んだあと", "page": "options" },
+    "nsm-a-desk-switch.dc.html": { "x": 4560, "y": 1400, "w": 1440, "h": 900, "title": "A · desktop · Codex に切り替えた", "page": "options" },
+    "nsm-a-phone-default.dc.html": { "x": 6080, "y": 1400, "w": 390, "h": 844, "title": "A · phone · default", "page": "options" },
+    "nsm-a-phone-menu.dc.html": { "x": 6550, "y": 1400, "w": 390, "h": 844, "title": "A · phone · effort を選ぶ", "page": "options" },
+    "nsm-a-palette-default.dc.html": { "x": 7020, "y": 1400, "w": 1440, "h": 900, "title": "A · palette · default (effort の行)", "page": "options" },
+    "nsm-a-palette-menu.dc.html": { "x": 8540, "y": 1400, "w": 1440, "h": 900, "title": "A · palette · モデルを選ぶ", "page": "options" },
+    "nsm-a-palette-phone.dc.html": { "x": 10060, "y": 1400, "w": 390, "h": 844, "title": "A · phone · palette", "page": "options" },
+
+    "nsm-b-desk-default.dc.html": { "x": 0, "y": 2800, "w": 1440, "h": 900, "title": "B · desktop · default", "page": "options" },
+    "nsm-b-desk-menu.dc.html": { "x": 1520, "y": 2800, "w": 1440, "h": 900, "title": "B · desktop · 開いて選ぶ", "page": "options" },
+    "nsm-b-desk-chosen.dc.html": { "x": 3040, "y": 2800, "w": 1440, "h": 900, "title": "B · desktop · 選んだあと", "page": "options" },
+    "nsm-b-desk-switch.dc.html": { "x": 4560, "y": 2800, "w": 1440, "h": 900, "title": "B · desktop · Codex に切り替えた", "page": "options" },
+    "nsm-b-phone-default.dc.html": { "x": 6080, "y": 2800, "w": 390, "h": 844, "title": "B · phone · default", "page": "options" },
+    "nsm-b-phone-menu.dc.html": { "x": 6550, "y": 2800, "w": 390, "h": 844, "title": "B · phone · 選んだところ", "page": "options" },
+    "nsm-b-palette-default.dc.html": { "x": 7020, "y": 2800, "w": 1440, "h": 900, "title": "B · palette · default", "page": "options" },
+    "nsm-b-palette-menu.dc.html": { "x": 8540, "y": 2800, "w": 1440, "h": 900, "title": "B · palette · モデルと effort を選ぶ", "page": "options" },
+    "nsm-b-palette-phone.dc.html": { "x": 10060, "y": 2800, "w": 390, "h": 844, "title": "B · phone · palette", "page": "options" },
+
+    "nsm-c-desk-default.dc.html": { "x": 0, "y": 4200, "w": 1440, "h": 900, "title": "C · desktop · default", "page": "options" },
+    "nsm-c-desk-menu.dc.html": { "x": 1520, "y": 4200, "w": 1440, "h": 900, "title": "C · desktop · 開いて選ぶ", "page": "options" },
+    "nsm-c-desk-chosen.dc.html": { "x": 3040, "y": 4200, "w": 1440, "h": 900, "title": "C · desktop · 選んだあと", "page": "options" },
+    "nsm-c-phone-default.dc.html": { "x": 6080, "y": 4200, "w": 390, "h": 844, "title": "C · phone · default", "page": "options" },
+    "nsm-c-phone-menu.dc.html": { "x": 6550, "y": 4200, "w": 390, "h": 844, "title": "C · phone · 選んだところ", "page": "options" },
+    "nsm-c-palette-default.dc.html": { "x": 7020, "y": 4200, "w": 1440, "h": 900, "title": "C · palette · default", "page": "options" },
+    "nsm-c-palette-menu.dc.html": { "x": 8540, "y": 4200, "w": 1440, "h": 900, "title": "C · palette · モデルを広げて選ぶ", "page": "options" },
+    "nsm-c-palette-phone.dc.html": { "x": 10060, "y": 4200, "w": 390, "h": 844, "title": "C · phone · palette", "page": "options" },
+
+    "NewDesk.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "NewDesk", "page": "parts" },
+    "NewPhone.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "NewPhone", "page": "parts" },
+    "PaletteDesk.dc.html": { "x": 1990, "y": 0, "w": 1440, "h": 900, "title": "PaletteDesk", "page": "parts" },
+    "PalettePhone.dc.html": { "x": 3510, "y": 0, "w": 390, "h": 844, "title": "PalettePhone", "page": "parts" },
+    "Nav.dc.html": { "x": 3980, "y": 0, "w": 240, "h": 900, "title": "Nav", "page": "parts" },
+    "InboxList.dc.html": { "x": 4300, "y": 0, "w": 460, "h": 900, "title": "InboxList", "page": "parts" },
+    "Conversation.dc.html": { "x": 4840, "y": 0, "w": 880, "h": 900, "title": "Conversation", "page": "parts" },
+    "SessionRow.dc.html": { "x": 5800, "y": 0, "w": 460, "h": 76, "title": "SessionRow", "page": "parts" },
+    "Quota.dc.html": { "x": 5800, "y": 196, "w": 240, "h": 140, "title": "Quota", "page": "parts" },
+    "SessionUsage.dc.html": { "x": 5800, "y": 456, "w": 672, "h": 40, "title": "SessionUsage", "page": "parts" },
+    "StatusBand.dc.html": { "x": 5800, "y": 616, "w": 760, "h": 60, "title": "StatusBand", "page": "parts" }
+  },
+  "order": [
+    "new-session-model-current.dc.html",
+    "new-session-model-current-phone.dc.html",
+    "new-session-model-current-palette.dc.html",
+    "new-session-model-current-palette-phone.dc.html",
+    "nsm-a-desk-default.dc.html",
+    "nsm-a-desk-menu.dc.html",
+    "nsm-a-desk-chosen.dc.html",
+    "nsm-a-desk-switch.dc.html",
+    "nsm-a-phone-default.dc.html",
+    "nsm-a-phone-menu.dc.html",
+    "nsm-a-palette-default.dc.html",
+    "nsm-a-palette-menu.dc.html",
+    "nsm-a-palette-phone.dc.html",
+    "nsm-b-desk-default.dc.html",
+    "nsm-b-desk-menu.dc.html",
+    "nsm-b-desk-chosen.dc.html",
+    "nsm-b-desk-switch.dc.html",
+    "nsm-b-phone-default.dc.html",
+    "nsm-b-phone-menu.dc.html",
+    "nsm-b-palette-default.dc.html",
+    "nsm-b-palette-menu.dc.html",
+    "nsm-b-palette-phone.dc.html",
+    "nsm-c-desk-default.dc.html",
+    "nsm-c-desk-menu.dc.html",
+    "nsm-c-desk-chosen.dc.html",
+    "nsm-c-phone-default.dc.html",
+    "nsm-c-phone-menu.dc.html",
+    "nsm-c-palette-default.dc.html",
+    "nsm-c-palette-menu.dc.html",
+    "nsm-c-palette-phone.dc.html",
+    "NewDesk.dc.html",
+    "NewPhone.dc.html",
+    "PaletteDesk.dc.html",
+    "PalettePhone.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "Conversation.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html"
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -240,
+      "maxW": 3900,
+      "text": "Current · engine と worktree は選べるが、モデルと effort は profile の既定値のまま",
+      "page": "options"
+    },
+    "about": {
+      "x": 3980,
+      "y": 0,
+      "w": 600,
+      "fill": "gray",
+      "page": "options",
+      "text": "決めること: New session で、モデルと reasoning effort をどこでどう選ぶか\n\n前提\n- 何も選ばなければ、選択中の profile の既定値で起動する (今と同じ)。default は何もしない選択として、何に解決されるかを薄い文字で並べて出す\n- launcher はモデルと effort を受け取れる。web の New session には選ぶ所がまだない\n- 選べるモデルは engine ごとに違う。effort の段階もモデルごとに違い、使えるものだけ出す\n- engine を切り替えて、選んだモデルが新しい engine にないときは default に戻す。effort はそのモデルで使えるなら残す。戻したことを 1 行で知らせ、Undo で元の engine に戻せる (A と B の「Codex に切り替えた」)\n- モデルを変えて effort が使えなくなったときも default に戻す\n- 例はすべて架空。Claude Code: atlas-5 (既定, low–max), borealis-5 (low–max), comet-5 (low–high)。Codex: cobalt-2 (既定, low–xhigh), cobalt-2-mini (low–high)。profile の既定 effort は Claude Code が high、Codex が medium\n- パレットは desktop と phone の両方を描いた"
+    },
+    "a": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1160,
+      "maxW": 10450,
+      "text": "A · engine の横に、モデルと effort のチップを 1 つずつ並べる",
+      "page": "options"
+    },
+    "aNote": {
+      "x": 10530,
+      "y": 1400,
+      "w": 440,
+      "fill": "blue",
+      "page": "options",
+      "text": "A\n+ 今の engine のチップと同じ形で、何を選べるかが一目で分かる\n+ default がそれぞれのチップに値ごと出る\n+ パレットでは effort の行で ←→ を押すだけで変わる\n- チップが 4 つになり、スマホでは 2 行に折り返す\n- engine を変えるとモデルが default に戻ることがあり、知らせる 1 行が要る"
+    },
+    "b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2560,
+      "maxW": 10450,
+      "text": "B · モデルと effort を 1 つのチップにまとめ、開くと両方を選べる",
+      "page": "options"
+    },
+    "bNote": {
+      "x": 10530,
+      "y": 2800,
+      "w": 440,
+      "fill": "blue",
+      "page": "options",
+      "text": "B\n+ 入力欄の下のチップは今より 1 つ増えるだけ\n+ モデルを選ぶと、すぐ下の effort がそのモデルで使える段階だけに変わるので、組み合わせを間違えない\n- 選び直すには 1 回開く必要がある\n- チップの文字が長く、スマホやモデル名が長いときは … で切れる\n- engine を変えるとモデルが default に戻ることがあり、知らせる 1 行が要る (A と同じ)"
+    },
+    "c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3960,
+      "maxW": 10450,
+      "text": "C · engine とモデルを 1 つの選択にまとめ、effort も同じメニューで選ぶ",
+      "page": "options"
+    },
+    "cNote": {
+      "x": 10530,
+      "y": 4200,
+      "w": 440,
+      "fill": "blue",
+      "page": "options",
+      "text": "C\n+ モデルを engine の下に並べるので、engine を変えて選んだモデルが消えることがない (切り替えの画面が要らない)\n+ パレットでは START WITH の行を選ぶだけで engine とモデルが決まり、手数は今と同じ\n- メニューが長い。モデルが増えると縦にスクロールする\n- engine だけ変えたいときも、モデルの並ぶメニューを開くことになる"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-17T13:21:43Z"
+    }
+  ]
+}

@@ -97,6 +97,30 @@
       "title": "iPhone · ディレクトリを選ぶ",
       "page": "inbox"
     },
+    "NewSessionModel.dc.html": {
+      "x": 3980,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション · モデルと effort を選ぶ",
+      "page": "inbox"
+    },
+    "NewSessionModelSwitch.dc.html": {
+      "x": 5500,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション · engine を変えてモデルが default に戻った",
+      "page": "inbox"
+    },
+    "PhoneNewSessionModel.dc.html": {
+      "x": 7020,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · モデルと effort を選ぶ",
+      "page": "inbox"
+    },
     "Nav.dc.html": {
       "x": 0,
       "y": 0,
@@ -191,6 +215,22 @@
       "w": 390,
       "h": 844,
       "title": "iPhone · コマンドパレット · 新しいセッション",
+      "page": "palette"
+    },
+    "PaletteNewSessionModel.dc.html": {
+      "x": 5030,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "コマンドパレット · モデルと effort を選ぶ",
+      "page": "palette"
+    },
+    "PhonePaletteNewSessionModel.dc.html": {
+      "x": 6550,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · コマンドパレット · モデルと effort を選ぶ",
       "page": "palette"
     },
     "StatusRunning.dc.html": {
@@ -330,6 +370,9 @@
     "NewSessionPicker.dc.html",
     "PhoneNewSession.dc.html",
     "PhoneNewSessionPicker.dc.html",
+    "NewSessionModel.dc.html",
+    "NewSessionModelSwitch.dc.html",
+    "PhoneNewSessionModel.dc.html",
     "SessionRow.dc.html",
     "Quota.dc.html",
     "SessionUsage.dc.html",
@@ -339,6 +382,8 @@
     "PaletteQuery.dc.html",
     "PaletteNewSession.dc.html",
     "PhonePaletteNewSession.dc.html",
+    "PaletteNewSessionModel.dc.html",
+    "PhonePaletteNewSessionModel.dc.html",
     "StatusRunning.dc.html",
     "StatusTree.dc.html",
     "StatusDecisions.dc.html",

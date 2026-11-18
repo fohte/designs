@@ -402,8 +402,8 @@
       "page": "components"
     },
     "before/BeforeCards.dc.html": {
-      "x": 1520,
-      "y": 3700,
+      "x": -1520,
+      "y": 0,
       "w": 1440,
       "h": 3200,
       "title": "Before · 返答を待つカード",
@@ -491,12 +491,12 @@
   ],
   "notes": {
     "diffDeniedDismiss": {
-      "x": 1520,
-      "y": 3320,
+      "x": -1520,
+      "y": -420,
       "w": 640,
       "fill": "yellow",
       "page": "conversation",
-      "text": "この下は main の「返答を待つカード」(Before)。上の画面との違い:\n- Operation denied のカード: Allow and retry の隣に Dismiss を足した\n- スマホの幅の Operation denied のカードを足した (ボタンの高さ 44px、文字 12px)\n- Dismiss したあとの表示を足した: 会話の一番下から外れ、起きた位置に「Operation denied · Dismissed <コマンド> ▸」の 1 行で残る。押すと開く\n- スマホの幅の、Dismiss したあとの 1 行を足した (高さ 44px)"
+      "text": "この下は main の「返答を待つカード」(Before)。右の画面との違い:\n- Operation denied のカード: Allow and retry の隣に Dismiss を足した\n- スマホの幅の Operation denied のカードを足した (ボタンの高さ 44px、文字 12px)\n- 判定のない拒否のカードを足した: Allow and retry の代わりに注記を出し、Dismiss は残す\n- Dismiss したあとの表示を足した: 会話の一番下から外れ、起きた位置に「Operation denied · Dismissed <コマンド> ▸」の 1 行で残る。押すと開く\n- スマホの幅の、Dismiss したあとの 1 行を足した (高さ 44px)"
     }
   },
   "v": 3,

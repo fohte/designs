@@ -1,6 +1,6 @@
 # 止められた操作のカードを許可せずに片付ける
 
-auto mode が止めた操作のカード (Operation denied) には、コマンドと理由、Allow and retry のボタンが出る。許可するまで会話の一番下に残り続けていた。
+auto mode が止めた操作のカード (Operation denied) には、コマンドと理由が出る。判定のある拒否には Allow and retry のボタンも出る。許可するまで会話の一番下に残り続けていた。
 
 ## 案
 

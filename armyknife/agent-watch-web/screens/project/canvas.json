@@ -425,14 +425,6 @@
       "title": "Before · iPhone · セッションの PR 一覧",
       "page": "conversation"
     },
-    "before/BeforePhoneChatVibe.dc.html": {
-      "x": 8800,
-      "y": 3800,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · vibe mode のシート",
-      "page": "conversation"
-    },
     "before/BeforePhoneChatEnded.dc.html": {
       "x": 3040,
       "y": 5728,
@@ -522,7 +514,6 @@
     "before/BeforePhoneChatPrs.dc.html",
     "before/BeforePhoneChatResuming.dc.html",
     "before/BeforePhoneChatReview.dc.html",
-    "before/BeforePhoneChatVibe.dc.html",
     "before/BeforeSessionUsage.dc.html",
     "before/BeforeStatusBand.dc.html"
   ],
@@ -567,7 +558,7 @@
       "w": 640,
       "fill": "yellow",
       "page": "conversation",
-      "text": "この下は変更前 (Before)。上の画面との違い:\n- スマホの会話のヘッダー: vibe の帯 (1 行) をなくした\n- vibe が on のときだけ、タイトルの後ろに稲妻を出す (塗りが on、線だけが引き継いだ on)\n- 切り替えは … のメニューの先頭の「Vibe mode」から。押すと今と同じシートが開く"
+      "text": "この下は main の画面 (Before)。上の画面との違い:\n- スマホの会話のヘッダー: vibe が on のときだけ、タイトルの後ろに稲妻を出す (塗りが on、線だけが引き継いだ on)\n- … のメニューの先頭に「Vibe mode」と今の状態を出す。押すと右の「スマホ: vibe のシート」が開く\n- vibe の帯 (1 行) は置かない"
     }
   },
   "v": 3,

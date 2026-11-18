@@ -352,6 +352,294 @@
       "h": 844,
       "title": "iPhone · セッションの PR 一覧",
       "page": "conversation"
+    },
+    "before/BeforeInbox.dc.html": {
+      "x": 0,
+      "y": 5760,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Inbox と会話",
+      "page": "inbox"
+    },
+    "before/BeforeLater.dc.html": {
+      "x": 2460,
+      "y": 5760,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Later メニュー (L)",
+      "page": "inbox"
+    },
+    "before/BeforeInboxFilter.dc.html": {
+      "x": 3980,
+      "y": 5760,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Inbox の絞り込み (/)",
+      "page": "inbox"
+    },
+    "before/BeforeInboxFiltered.dc.html": {
+      "x": 5500,
+      "y": 5760,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 絞り込んだ状態と Save view",
+      "page": "inbox"
+    },
+    "before/BeforeTaskLinks.dc.html": {
+      "x": 7020,
+      "y": 5760,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 1 つのセッションに tq タスクが複数",
+      "page": "inbox"
+    },
+    "before/BeforePhoneInbox.dc.html": {
+      "x": 1520,
+      "y": 5760,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · Inbox",
+      "page": "inbox"
+    },
+    "before/BeforePhoneDrawer.dc.html": {
+      "x": 1990,
+      "y": 5760,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · ナビゲーション",
+      "page": "inbox"
+    },
+    "before/BeforeNewSession.dc.html": {
+      "x": 0,
+      "y": 6780,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 新しいセッション",
+      "page": "inbox"
+    },
+    "before/BeforeNewSessionPicker.dc.html": {
+      "x": 1520,
+      "y": 6780,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 新しいセッション · ディレクトリを選ぶ",
+      "page": "inbox"
+    },
+    "before/BeforeNewSessionModel.dc.html": {
+      "x": 3980,
+      "y": 6780,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 新しいセッション · モデルと effort を選ぶ",
+      "page": "inbox"
+    },
+    "before/BeforeNewSessionModelSwitch.dc.html": {
+      "x": 5500,
+      "y": 6780,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 新しいセッション · engine を変えてモデルが default に戻った",
+      "page": "inbox"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 0,
+      "y": 1500,
+      "w": 240,
+      "h": 900,
+      "title": "Before · Nav",
+      "page": "components"
+    },
+    "before/BeforeInboxList.dc.html": {
+      "x": 320,
+      "y": 1500,
+      "w": 460,
+      "h": 900,
+      "title": "Before · InboxList",
+      "page": "components"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 860,
+      "y": 1500,
+      "w": 880,
+      "h": 900,
+      "title": "Before · Conversation",
+      "page": "components"
+    },
+    "before/BeforeSessionRow.dc.html": {
+      "x": 1820,
+      "y": 1500,
+      "w": 460,
+      "h": 76,
+      "title": "Before · SessionRow",
+      "page": "components"
+    },
+    "before/BeforeBoard.dc.html": {
+      "x": 0,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Board",
+      "page": "board"
+    },
+    "before/BeforePalette.dc.html": {
+      "x": 0,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · ⌘K · 開いた直後",
+      "page": "palette"
+    },
+    "before/BeforePaletteQuery.dc.html": {
+      "x": 1520,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · ⌘K · # で tq タスクに絞る",
+      "page": "palette"
+    },
+    "before/BeforePaletteNewSession.dc.html": {
+      "x": 3040,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コマンドパレット · 新しいセッション",
+      "page": "palette"
+    },
+    "before/BeforePaletteNewSessionModel.dc.html": {
+      "x": 5030,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コマンドパレット · モデルと effort を選ぶ",
+      "page": "palette"
+    },
+    "before/BeforeStatusRunning.dc.html": {
+      "x": 0,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Running",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusTree.dc.html": {
+      "x": 1520,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tree",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusDecisions.dc.html": {
+      "x": 3040,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Decisions",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusReview.dc.html": {
+      "x": 4560,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Review",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusWebUi.dc.html": {
+      "x": 6080,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Web UI (crit)",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusTasks.dc.html": {
+      "x": 7600,
+      "y": 1500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tasks",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusPanel.dc.html": {
+      "x": 2660,
+      "y": 1500,
+      "w": 640,
+      "h": 900,
+      "title": "Before · StatusPanel",
+      "page": "components"
+    },
+    "before/BeforePhoneChat.dc.html": {
+      "x": 3040,
+      "y": 3800,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · 会話から答える",
+      "page": "conversation"
+    },
+    "before/BeforePhoneChatMenu.dc.html": {
+      "x": 3510,
+      "y": 3800,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · セッションの操作メニュー",
+      "page": "conversation"
+    },
+    "before/BeforePhoneChatReview.dc.html": {
+      "x": 3040,
+      "y": 4764,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · crit のレビュー待ち",
+      "page": "conversation"
+    },
+    "before/BeforePhoneChatPrs.dc.html": {
+      "x": 3510,
+      "y": 4764,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · セッションの PR 一覧",
+      "page": "conversation"
+    },
+    "VibePopover.dc.html": {
+      "x": 6870,
+      "y": 0,
+      "w": 1848,
+      "h": 1940,
+      "title": "セッションのヘッダー · vibe mode のボタンを押したとき",
+      "page": "conversation"
+    },
+    "PhoneChatVibe.dc.html": {
+      "x": 8800,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · vibe mode のシート",
+      "page": "conversation"
+    },
+    "before/BeforeQuota.dc.html": {
+      "x": 3400,
+      "y": 1500,
+      "w": 240,
+      "h": 140,
+      "title": "Before · Quota",
+      "page": "components"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 3400,
+      "y": 1740,
+      "w": 672,
+      "h": 40,
+      "title": "Before · SessionUsage",
+      "page": "components"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 3400,
+      "y": 1880,
+      "w": 760,
+      "h": 60,
+      "title": "Before · StatusBand",
+      "page": "components"
     }
   },
   "order": [
@@ -398,7 +686,43 @@
     "Dialogs.dc.html",
     "PhoneChatReview.dc.html",
     "StatusBandStates.dc.html",
-    "PhoneChatPrs.dc.html"
+    "PhoneChatPrs.dc.html",
+    "before/BeforeBoard.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforeInbox.dc.html",
+    "before/BeforeInboxFilter.dc.html",
+    "before/BeforeInboxFiltered.dc.html",
+    "before/BeforeInboxList.dc.html",
+    "before/BeforeLater.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeNewSession.dc.html",
+    "before/BeforeNewSessionModel.dc.html",
+    "before/BeforeNewSessionModelSwitch.dc.html",
+    "before/BeforeNewSessionPicker.dc.html",
+    "before/BeforePalette.dc.html",
+    "before/BeforePaletteNewSession.dc.html",
+    "before/BeforePaletteNewSessionModel.dc.html",
+    "before/BeforePaletteQuery.dc.html",
+    "before/BeforePhoneChat.dc.html",
+    "before/BeforePhoneChatMenu.dc.html",
+    "before/BeforePhoneChatPrs.dc.html",
+    "before/BeforePhoneChatReview.dc.html",
+    "before/BeforePhoneDrawer.dc.html",
+    "before/BeforePhoneInbox.dc.html",
+    "before/BeforeSessionRow.dc.html",
+    "before/BeforeStatusDecisions.dc.html",
+    "before/BeforeStatusPanel.dc.html",
+    "before/BeforeStatusReview.dc.html",
+    "before/BeforeStatusRunning.dc.html",
+    "before/BeforeStatusTasks.dc.html",
+    "before/BeforeStatusTree.dc.html",
+    "before/BeforeStatusWebUi.dc.html",
+    "before/BeforeTaskLinks.dc.html",
+    "VibePopover.dc.html",
+    "PhoneChatVibe.dc.html",
+    "before/BeforeQuota.dc.html",
+    "before/BeforeSessionUsage.dc.html",
+    "before/BeforeStatusBand.dc.html"
   ],
   "pages": [
     {
@@ -426,7 +750,64 @@
       "name": "部品"
     }
   ],
-  "notes": {},
+  "notes": {
+    "diffVibe-board": {
+      "x": 0,
+      "y": 1150,
+      "w": 640,
+      "fill": "yellow",
+      "page": "board",
+      "text": "この下は変更前 (Before)。上の画面との違い:\n- 会話のヘッダー: タイトルの横に Vibe on / Vibe on · inherited / Vibe off のボタンを足した\n- セッションの行: vibe が on の行はタイトルの後ろに稲妻を出す (引き継いだ on は線だけ)"
+    },
+    "diffVibe-components": {
+      "x": 0,
+      "y": 1150,
+      "w": 640,
+      "fill": "yellow",
+      "page": "components",
+      "text": "この下は変更前 (Before)。上の画面との違い:\n- 会話のヘッダー: タイトルの横に Vibe on / Vibe on · inherited / Vibe off のボタンを足した\n- セッションの行: vibe が on の行はタイトルの後ろに稲妻を出す (引き継いだ on は線だけ)"
+    },
+    "diffVibe-conversation": {
+      "x": 0,
+      "y": 3450,
+      "w": 640,
+      "fill": "yellow",
+      "page": "conversation",
+      "text": "この下は変更前 (Before)。上の画面との違い:\n- 会話のヘッダー: タイトルの横に Vibe on / Vibe on · inherited / Vibe off のボタンを足した\n- セッションの行: vibe が on の行はタイトルの後ろに稲妻を出す (引き継いだ on は線だけ)\n- スマホの会話: ヘッダーの下に vibe の 1 行の帯を足した。押すとシートが出る"
+    },
+    "diffVibe-inbox": {
+      "x": 0,
+      "y": 3790,
+      "w": 640,
+      "fill": "yellow",
+      "page": "inbox",
+      "text": "この下は変更前 (Before)。上の画面との違い:\n- 会話のヘッダー: タイトルの横に Vibe on / Vibe on · inherited / Vibe off のボタンを足した\n- セッションの行: vibe が on の行はタイトルの後ろに稲妻を出す (引き継いだ on は線だけ)\n- スマホの会話: ヘッダーの下に vibe の 1 行の帯を足した。押すとシートが出る"
+    },
+    "diffVibe-palette": {
+      "x": 0,
+      "y": 1150,
+      "w": 640,
+      "fill": "yellow",
+      "page": "palette",
+      "text": "この下は変更前 (Before)。上の画面との違い:\n- 会話のヘッダー: タイトルの横に Vibe on / Vibe on · inherited / Vibe off のボタンを足した\n- セッションの行: vibe が on の行はタイトルの後ろに稲妻を出す (引き継いだ on は線だけ)"
+    },
+    "diffVibe-status-panel": {
+      "x": 0,
+      "y": 1150,
+      "w": 640,
+      "fill": "yellow",
+      "page": "status-panel",
+      "text": "この下は変更前 (Before)。上の画面との違い:\n- 会話のヘッダー: タイトルの横に Vibe on / Vibe on · inherited / Vibe off のボタンを足した\n- セッションの行: vibe が on の行はタイトルの後ろに稲妻を出す (引き継いだ on は線だけ)"
+    },
+    "diffVibeNew": {
+      "x": 6870,
+      "y": 2040,
+      "w": 640,
+      "fill": "yellow",
+      "page": "conversation",
+      "text": "この PR で足した画面\n- セッションのヘッダー · vibe mode のボタンを押したとき (on / inherited / off / unavailable)\n- iPhone · vibe mode のシート"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,
@@ -445,5 +826,13 @@
       "copiedAt": "2026-11-15T10:37:15Z"
     }
   ],
-  "noteOrder": null
+  "noteOrder": [
+    "diffVibe-board",
+    "diffVibe-components",
+    "diffVibe-conversation",
+    "diffVibe-inbox",
+    "diffVibe-palette",
+    "diffVibe-status-panel",
+    "diffVibeNew"
+  ]
 }

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Vibe mode states (phone)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 1220px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; padding: 16px 0; background: #050505; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+<sc-for list="{{states}}" as="st" hint-placeholder-count="4">
+<section style="display: flex; flex-direction: column; gap: 4px">
+<h2 style="margin: 0; padding: 0 14px; font-size: 12.5px; font-weight: 700; color: #a1a1aa">{{st.label}}</h2>
+<dc-import name="VibePhoneHeader" opt="{{opt}}" state="{{st.state}}" hint-size="100%,82px"></dc-import>
+<sc-if value="{{hasItem}}" hint-placeholder-val="{{ true }}"><div style="padding: {{itemPad}}; background: #1f1f1f"><dc-import name="VibeMenuItem" opt="{{opt}}" state="{{st.state}}" bg="transparent" hint-size="100%,64px"></dc-import></div></sc-if>
+<div style="background: #0a0a0a"><dc-import name="VibeRow" s="{{st.row}}" density="phone" look="{{look}}" hint-size="100%,84px"></dc-import></div>
+</section>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"opt":{"editor":"enum","options":["a","b","c"],"default":"a"},"$preview":{"width":390,"height":1220}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const opt = this.props.opt ?? 'a';
+    const row = (vibe, repo) => ({ status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', preview: '再試行は 3 回で止めてよいですか?', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo, vibe });
+    const where = opt === 'a' ? ' (⋯ メニューの項目)' : opt === 'c' ? ' (Edit session のシート)' : '';
+    return {
+      opt, look: opt === 'b' ? 'icon' : 'text',
+      hasItem: opt !== 'b',
+      itemPad: opt === 'c' ? '0 16px' : '0',
+      states: [
+        { label: 'on' + where, state: 'on', row: row('on', 'example/service') },
+        { label: 'on · 親から引き継ぎ' + where, state: 'inherited', row: row('inherited', 'example/service') },
+        { label: 'off' + where, state: 'off', row: row('off', 'example/service') },
+        { label: '使えない · repo が不許可' + where, state: 'blocked', row: row('off', 'example/legacy') }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

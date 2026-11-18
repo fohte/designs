@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Operation denied card</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
+
+<sc-if value="{{isPending}}" hint-placeholder-val="{{ true }}">
+<article style="border: 1px solid #fbbf24; padding: {{pad}}; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 10px"><h2 style="margin: 0; color: #fbbf24; font-size: 12px; font-weight: 700">Operation denied</h2><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a1a1aa">Bash</span>
+<sc-if value="{{hasClose}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Dismiss without allowing" title="Dismiss" style="margin: {{closeMargin}}; margin-left: auto; width: {{closeSize}}; height: {{closeSize}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #a1a1aa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></sc-if>
+</div>
+<pre style="margin: 0; padding: 10px 12px; background: #131313; border-radius: 0.45rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #d4d4d8; white-space: pre-wrap">rm -rf ./tmp/cache</pre>
+<div style="font-size: 13px; color: #d4d4d8">作業ディレクトリの外を消す可能性があるため自動では許可しませんでした。</div>
+<div style="display: flex; gap: 8px">
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{btnFs}}; font-weight: 700">Allow and retry</button>
+<sc-if value="{{hasSecondary}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{btnFs}}">{{secondaryLabel}}</button></sc-if>
+</div>
+</article>
+</sc-if>
+
+<sc-if value="{{isRow}}" hint-placeholder-val="{{ false }}">
+<article style="font-size: 12px; color: #d4d4d8; background: #111111"><button type="button" aria-expanded="false" style="width: 100%; min-height: {{rowH}}; display: flex; align-items: center; gap: 8px; padding: 8px 12px; border: 0; background: transparent; color: inherit; font-family: inherit; font-size: {{rowFs}}; text-align: left"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #71717a"></span><span style="flex: none; color: #8b8b94">{{rowLabel}}</span><code style="min-width: 0; font-family: 'JetBrains Mono', monospace; color: #d4d4d8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">rm -rf ./tmp/cache</code><span aria-hidden="true" style="flex: none; margin-left: auto; color: #8b8b94">▸</span></button></article>
+</sc-if>
+
+<sc-if value="{{isMuted}}" hint-placeholder-val="{{ false }}">
+<article style="border: 1px solid #2a2a2a; padding: {{pad}}; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 10px"><h2 style="margin: 0; color: #a1a1aa; font-size: 12px; font-weight: 700">Operation denied</h2><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8b8b94">Bash</span></div>
+<pre style="margin: 0; padding: 10px 12px; background: #131313; border-radius: 0.45rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #a1a1aa; white-space: pre-wrap">rm -rf ./tmp/cache</pre>
+<div style="font-size: 13px; color: #a1a1aa">作業ディレクトリの外を消す可能性があるため自動では許可しませんでした。</div>
+<div role="status" style="display: flex; align-items: center; gap: 8px; font-size: 12px; color: #a1a1aa"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #71717a"></span><span><span style="color: #d4d4d8">Not allowed</span> · 10:06</span></div>
+</article>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["now","a","b","c"],"default":"a"},"state":{"editor":"enum","options":["pending","dismissed"],"default":"pending"},"phone":{"editor":"boolean","default":false},"$preview":{"width":672,"height":200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const option = this.props.option ?? 'a';
+    const phone = this.props.phone ?? false;
+    const dismissed = (this.props.state ?? 'pending') === 'dismissed' && option !== 'now';
+    return {
+      isPending: !dismissed,
+      isRow: dismissed && option !== 'c',
+      isMuted: dismissed && option === 'c',
+      hasClose: option === 'b',
+      hasSecondary: option === 'a' || option === 'c',
+      secondaryLabel: option === 'c' ? "Don't allow" : 'Dismiss',
+      rowLabel: 'Operation denied · Dismissed',
+      fs: phone ? '15px' : '14px',
+      pad: phone ? '10px 14px' : '12px 16px',
+      btnH: phone ? '44px' : '28px',
+      btnFs: phone ? '14px' : '12px',
+      closeSize: phone ? '44px' : '28px',
+      closeMargin: phone ? '-10px -10px -10px 0' : '-4px -8px -4px 0',
+      rowH: phone ? '44px' : '32px',
+      rowFs: phone ? '13px' : '12px'
+    };
+  }
+}
+</script>
+</body>
+</html>

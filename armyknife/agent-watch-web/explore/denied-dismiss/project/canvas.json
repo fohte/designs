@@ -1,0 +1,98 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-18T14:00:00Z"
+  },
+  "title": "Dismiss a denied operation",
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
+  "boards": {
+    "denied-dismiss-current.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "Current · PC", "page": "options" },
+    "denied-dismiss-current-phone.dc.html": { "x": 3040, "y": 0, "w": 390, "h": 844, "title": "Current · iPhone", "page": "options" },
+    "denied-dismiss-a.dc.html": { "x": 0, "y": 1300, "w": 1440, "h": 900, "title": "A · PC · 押す前", "page": "options" },
+    "denied-dismiss-a-after.dc.html": { "x": 1520, "y": 1300, "w": 1440, "h": 900, "title": "A · PC · Dismiss を押したあと", "page": "options" },
+    "denied-dismiss-a-phone.dc.html": { "x": 3040, "y": 1300, "w": 390, "h": 844, "title": "A · iPhone · 押す前", "page": "options" },
+    "denied-dismiss-a-after-phone.dc.html": { "x": 3510, "y": 1300, "w": 390, "h": 844, "title": "A · iPhone · 押したあと", "page": "options" },
+    "denied-dismiss-b.dc.html": { "x": 0, "y": 2600, "w": 1440, "h": 900, "title": "B · PC · 押す前", "page": "options" },
+    "denied-dismiss-b-after.dc.html": { "x": 1520, "y": 2600, "w": 1440, "h": 900, "title": "B · PC · × を押したあと", "page": "options" },
+    "denied-dismiss-b-phone.dc.html": { "x": 3040, "y": 2600, "w": 390, "h": 844, "title": "B · iPhone · 押す前", "page": "options" },
+    "denied-dismiss-b-after-phone.dc.html": { "x": 3510, "y": 2600, "w": 390, "h": 844, "title": "B · iPhone · 押したあと", "page": "options" },
+    "denied-dismiss-c.dc.html": { "x": 0, "y": 3900, "w": 1440, "h": 900, "title": "C · PC · 押す前", "page": "options" },
+    "denied-dismiss-c-after.dc.html": { "x": 1520, "y": 3900, "w": 1440, "h": 900, "title": "C · PC · Don't allow を押したあと", "page": "options" },
+    "denied-dismiss-c-phone.dc.html": { "x": 3040, "y": 3900, "w": 390, "h": 844, "title": "C · iPhone · 押す前", "page": "options" },
+    "denied-dismiss-c-after-phone.dc.html": { "x": 3510, "y": 3900, "w": 390, "h": 844, "title": "C · iPhone · 押したあと", "page": "options" },
+    "DeniedDesk.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "DeniedDesk", "page": "parts" },
+    "DeniedPhone.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "DeniedPhone", "page": "parts" },
+    "DeniedCard.dc.html": { "x": 1990, "y": 0, "w": 672, "h": 200, "title": "DeniedCard", "page": "parts" }
+  },
+  "order": [
+    "denied-dismiss-current.dc.html",
+    "denied-dismiss-current-phone.dc.html",
+    "denied-dismiss-a.dc.html",
+    "denied-dismiss-a-after.dc.html",
+    "denied-dismiss-a-phone.dc.html",
+    "denied-dismiss-a-after-phone.dc.html",
+    "denied-dismiss-b.dc.html",
+    "denied-dismiss-b-after.dc.html",
+    "denied-dismiss-b-phone.dc.html",
+    "denied-dismiss-b-after-phone.dc.html",
+    "denied-dismiss-c.dc.html",
+    "denied-dismiss-c-after.dc.html",
+    "denied-dismiss-c-phone.dc.html",
+    "denied-dismiss-c-after-phone.dc.html",
+    "DeniedDesk.dc.html",
+    "DeniedPhone.dc.html",
+    "DeniedCard.dc.html"
+  ],
+  "pages": [
+    { "id": "options", "name": "案" },
+    { "id": "parts", "name": "部品" }
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1", "x": 0, "y": -260, "maxW": 3900, "page": "options",
+      "text": "Current · Allow and retry しかなく、許可しないカードが一番下に残り続ける"
+    },
+    "a": {
+      "kind": "title1", "x": 0, "y": 1040, "maxW": 3900, "page": "options",
+      "text": "A · Allow and retry の横に Dismiss。消したカードは 1 行にたたむ"
+    },
+    "b": {
+      "kind": "title1", "x": 0, "y": 2340, "maxW": 3900, "page": "options",
+      "text": "B · カードの右上に ×。消したカードは 1 行にたたむ"
+    },
+    "c": {
+      "kind": "title1", "x": 0, "y": 3640, "maxW": 3900, "page": "options",
+      "text": "C · Don't allow。押したカードは本文を残して灰色にする"
+    },
+    "about": {
+      "x": 1520, "y": 0, "w": 520, "page": "options",
+      "text": "前提\n- 困りごと: auto mode に止められた操作のカード (Operation denied) は、解決するまで会話の一番下に固定される。解決の手段が Allow and retry しかないので、許可しないと決めても消えずに邪魔になる\n- 解決したカードは、ほかのカードと同じく起きた時刻の位置に出る\n- 各案の「押したあと」では、カードが止められた時点の位置 (2 つ目の返事の上) に移る\n- どの案もセッションには何も送らない\n- 状態の帯、SessionUsage、Inbox の列は省いている\n- データはすべて架空"
+    },
+    "aNote": {
+      "x": 3980, "y": 1300, "w": 460, "page": "options",
+      "text": "A · Dismiss\n+ 2 つのボタンが並び、許可するかしないかの 2 択だと分かる\n+ 消したあとは 1 行で場所を取らず、▸ で開ける\n- Dismiss が「許可しない」の意味だと読み取りにくい"
+    },
+    "bNote": {
+      "x": 3980, "y": 2600, "w": 460, "page": "options",
+      "text": "B · ×\n+ ボタンの列は今のまま。閉じる操作として見慣れている\n- 小さく、気づかれにくい\n- 「許可しない」判断ではなく、ただ隠すように見える"
+    },
+    "cNote": {
+      "x": 3980, "y": 3900, "w": 460, "page": "options",
+      "text": "C · Don't allow\n+ 「許可しない」と決めたことがはっきり残る\n+ 本文を残すので、何を止めたかを開かずに読める\n- たたまないので、会話の中で場所を取る\n- 何も送らないのに、Claude に拒否を伝えるように読める"
+    }
+  },
+  "noteOrder": ["current", "a", "b", "c", "about", "aNote", "bNote", "cNote"],
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-15T10:37:15Z"
+    }
+  ]
+}

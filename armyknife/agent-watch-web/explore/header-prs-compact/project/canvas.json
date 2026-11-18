@@ -58,6 +58,30 @@
       "h": 40,
       "title": "SessionUsage",
       "page": "parts"
+    },
+    "header-prs-compact-current-desk.dc.html": {
+      "x": 1440,
+      "y": 0,
+      "w": 1780,
+      "h": 900,
+      "title": "Current · PC (左: 閉じた状態、右: PR を押した)",
+      "page": "options"
+    },
+    "header-prs-compact-b-desk.dc.html": {
+      "x": 1440,
+      "y": 2400,
+      "w": 1780,
+      "h": 900,
+      "title": "B · PC (左: 閉じた状態、右: PR を押した)",
+      "page": "options"
+    },
+    "Conversation.dc.html": {
+      "x": 1300,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "parts"
     }
   },
   "order": [
@@ -66,7 +90,10 @@
     "header-prs-compact-b.dc.html",
     "PhoneChat.dc.html",
     "StatusBand.dc.html",
-    "SessionUsage.dc.html"
+    "SessionUsage.dc.html",
+    "header-prs-compact-current-desk.dc.html",
+    "header-prs-compact-b-desk.dc.html",
+    "Conversation.dc.html"
   ],
   "pages": [
     {
@@ -100,7 +127,7 @@
       "x": 0,
       "y": 2140,
       "maxW": 1400,
-      "text": "B · PR をアイコンのボタンにして、右上のボタンの並びに入れる",
+      "text": "B · PR をアイコンのボタンにして、右上のボタンの並びに入れる (スマホと PC)",
       "page": "options"
     },
     "about": {
@@ -125,7 +152,7 @@
       "w": 460,
       "fill": "gray",
       "page": "options",
-      "text": "B\n- ヘッダーは約 81px (今より約 50px 低い)\n- 見えるのは点の色と PR の数だけ。番号と状態はシートを開くまで見えない\n- タイトルが使える幅が 1 ボタン分 (52px) 狭くなる"
+      "text": "B\n- ヘッダーは約 81px (今より約 50px 低い)\n- 見えるのは点の色と PR の数だけ。番号と状態はシートを開くまで見えない\n- タイトルが使える幅が 1 ボタン分 (52px) 狭くなる\n\nPC も B にする場合\n- 右上の「■ #2047 Open +1 ▾」を、アイコンだけのボタンに替える\n- 点の色が CI の状態、右下の数字が PR の数\n- 番号と状態は、押して開く一覧で見る"
     }
   },
   "noteOrder": [

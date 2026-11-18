@@ -392,6 +392,22 @@
       "h": 844,
       "title": "スマホ: Resume を押した",
       "page": "conversation"
+    },
+    "DeniedCard.dc.html": {
+      "x": 1820,
+      "y": 800,
+      "w": 672,
+      "h": 200,
+      "title": "DeniedCard",
+      "page": "components"
+    },
+    "before/BeforeCards.dc.html": {
+      "x": 1520,
+      "y": 3700,
+      "w": 1440,
+      "h": 3200,
+      "title": "Before · 返答を待つカード",
+      "page": "conversation"
     }
   },
   "order": [
@@ -443,7 +459,9 @@
     "PhoneChatEnded.dc.html",
     "PhoneChatResuming.dc.html",
     "VibePopover.dc.html",
-    "PhoneChatVibe.dc.html"
+    "PhoneChatVibe.dc.html",
+    "DeniedCard.dc.html",
+    "before/BeforeCards.dc.html"
   ],
   "pages": [
     {
@@ -471,7 +489,16 @@
       "name": "部品"
     }
   ],
-  "notes": {},
+  "notes": {
+    "diffDeniedDismiss": {
+      "x": 1520,
+      "y": 3320,
+      "w": 640,
+      "fill": "yellow",
+      "page": "conversation",
+      "text": "この下は main の「返答を待つカード」(Before)。上の画面との違い:\n- Operation denied のカード: Allow and retry の隣に Dismiss を足した\n- スマホの幅の Operation denied のカードを足した (ボタンの高さ 44px、文字 12px)\n- Dismiss したあとの表示を足した: 会話の一番下から外れ、起きた位置に「Operation denied · Dismissed <コマンド> ▸」の 1 行で残る。押すと開く\n- スマホの幅の、Dismiss したあとの 1 行を足した (高さ 44px)"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,
@@ -490,5 +517,7 @@
       "copiedAt": "2026-11-15T10:37:15Z"
     }
   ],
-  "noteOrder": []
+  "noteOrder": [
+    "diffDeniedDismiss"
+  ]
 }

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Operation denied card</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
+
+<sc-if value="{{isPending}}" hint-placeholder-val="{{ true }}">
+<article style="border: 1px solid #fbbf24; padding: {{pad}}; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 10px"><h2 style="margin: 0; color: #fbbf24; font-size: 12px; font-weight: 700">Operation denied</h2><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a1a1aa">Bash</span></div>
+<pre style="margin: 0; padding: 10px 12px; background: #131313; border-radius: 0.45rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #d4d4d8; white-space: pre-wrap">rm -rf ./tmp/cache</pre>
+<div style="font-size: 13px; color: #d4d4d8">作業ディレクトリの外を消す可能性があるため自動では許可しませんでした。</div>
+<div style="display: flex; gap: 8px">
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Allow and retry</button>
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Dismiss</button>
+</div>
+</article>
+</sc-if>
+
+<sc-if value="{{isDismissed}}" hint-placeholder-val="{{ false }}">
+<article style="font-size: 12px; color: #d4d4d8; background: #111111"><button type="button" aria-expanded="false" style="width: 100%; min-height: {{rowH}}; display: flex; align-items: center; gap: 8px; padding: 8px 12px; border: 0; background: transparent; color: inherit; font-family: inherit; font-size: {{rowFs}}; text-align: left"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #71717a"></span><span style="flex: none; color: #8b8b94">Operation denied · Dismissed</span><code style="min-width: 0; font-family: 'JetBrains Mono', monospace; color: #d4d4d8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">rm -rf ./tmp/cache</code><span aria-hidden="true" style="flex: none; margin-left: auto; color: #8b8b94">▸</span></button></article>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"state":{"editor":"enum","options":["pending","dismissed"],"default":"pending"},"phone":{"editor":"boolean","default":false},"$preview":{"width":672,"height":200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const phone = this.props.phone ?? false;
+    const dismissed = (this.props.state ?? 'pending') === 'dismissed';
+    return {
+      isPending: !dismissed,
+      isDismissed: dismissed,
+      fs: phone ? '15px' : '14px',
+      pad: phone ? '10px 14px' : '12px 16px',
+      btnH: phone ? '44px' : '28px',
+      rowH: phone ? '44px' : '32px',
+      rowFs: phone ? '13px' : '12px'
+    };
+  }
+}
+</script>
+</body>
+</html>

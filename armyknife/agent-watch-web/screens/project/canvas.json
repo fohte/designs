@@ -471,7 +471,16 @@
       "name": "部品"
     }
   ],
-  "notes": {},
+  "notes": {
+    "diffOnParent": {
+      "x": 6870,
+      "y": 3010,
+      "w": 640,
+      "fill": "yellow",
+      "page": "conversation",
+      "text": "この PR の確認後に足した状態\n- 左の画面の 2 段目右: このセッションでも、親でも vibe が on のとき\n- ここで off にしても親から引き継いで on のまま残ることを伝え、ボタンは Turn off here and send にする\n- スマホのシートも同じ文言 (帯の補足は also on in 親の名前)"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,
@@ -490,5 +499,7 @@
       "copiedAt": "2026-11-15T10:37:15Z"
     }
   ],
-  "noteOrder": []
+  "noteOrder": [
+    "diffOnParent"
+  ]
 }

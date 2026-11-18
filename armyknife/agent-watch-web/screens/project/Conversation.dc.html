@@ -107,7 +107,8 @@ a{color:#ef4444}
 <div role="status" style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); min-height: 56px; margin: 12px auto 6px; display: flex; align-items: center; gap: 12px; padding: 0 10px 0 14px; border: 1px solid #3f3f46; background: #141414">
 <span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #71717a"></span>
 <span style="min-width: 0; flex: 1"><span style="color: #fafafa; font-weight: 700">This session has ended</span> <span style="color: #a1a1aa; font-size: 13px">· 14:32 · {{endedHint}}</span></span>
-<button type="button" aria-disabled="{{resuming}}" style="flex: none; height: 32px; display: inline-flex; align-items: center; padding: 0 14px; border: 1px solid #fafafa; background: {{resumeBg}}; color: {{resumeFg}}; font-family: inherit; font-size: 12.5px; font-weight: 700">{{resumeLabel}}</button>
+<sc-if value="{{resuming}}" hint-placeholder-val="{{ false }}"><button type="button" disabled style="flex: none; height: 32px; display: inline-flex; align-items: center; padding: 0 14px; border: 1px solid #fafafa; background: {{resumeBg}}; color: {{resumeFg}}; font-family: inherit; font-size: 12.5px; font-weight: 700">{{resumeLabel}}</button></sc-if>
+<sc-if value="{{notResuming}}" hint-placeholder-val="{{ true }}"><button type="button" style="flex: none; height: 32px; display: inline-flex; align-items: center; padding: 0 14px; border: 1px solid #fafafa; background: {{resumeBg}}; color: {{resumeFg}}; font-family: inherit; font-size: 12.5px; font-weight: 700">{{resumeLabel}}</button></sc-if>
 </div>
 </sc-if>
 <sc-if value="{{live}}" hint-placeholder-val="{{ true }}">
@@ -157,6 +158,7 @@ class Component extends DCLogic {
       ended: ended !== 'no',
       live: ended === 'no',
       resuming,
+      notResuming: !resuming,
       endedHint: resuming ? 'Resuming…' : 'Resume it to keep talking',
       resumeLabel: resuming ? 'Resuming…' : 'Resume',
       resumeBg: resuming ? 'transparent' : '#fafafa',

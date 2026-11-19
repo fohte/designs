@@ -140,13 +140,7 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<<<<<<< HEAD
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
-||||||| aed732e
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
-=======
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
->>>>>>> origin/main
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const variant = this.props.variant ?? 'question';

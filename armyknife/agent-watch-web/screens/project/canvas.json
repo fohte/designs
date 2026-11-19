@@ -393,6 +393,14 @@
       "title": "スマホ: Resume を押した",
       "page": "conversation"
     },
+    "ConversationPrs.dc.html": {
+      "x": 6870,
+      "y": 3030,
+      "w": 1848,
+      "h": 970,
+      "title": "セッションのヘッダー · PR のボタンを押したとき",
+      "page": "conversation"
+    },
     "DeniedCard.dc.html": {
       "x": 1820,
       "y": 800,
@@ -411,7 +419,7 @@
     },
     "CloseMenu.dc.html": {
       "x": 0,
-      "y": 3320,
+      "y": 4080,
       "w": 1440,
       "h": 900,
       "title": "会話のヘッダー · Done 以外は ⋯ に Close session…",
@@ -419,7 +427,7 @@
     },
     "PhoneChatClose.dc.html": {
       "x": 1520,
-      "y": 3320,
+      "y": 4080,
       "w": 390,
       "h": 844,
       "title": "iPhone · Done 以外のメニューに Close session…",
@@ -427,7 +435,7 @@
     },
     "CloseConfirm.dc.html": {
       "x": 1990,
-      "y": 3320,
+      "y": 4080,
       "w": 1440,
       "h": 900,
       "title": "Close session… を押したあと",
@@ -435,7 +443,7 @@
     },
     "PhoneChatCloseConfirm.dc.html": {
       "x": 3510,
-      "y": 3320,
+      "y": 4080,
       "w": 390,
       "h": 844,
       "title": "iPhone · Close session… を押したあと",
@@ -443,7 +451,7 @@
     },
     "CloseInbox.dc.html": {
       "x": 3980,
-      "y": 3320,
+      "y": 4080,
       "w": 1440,
       "h": 900,
       "title": "Inbox で Review の行に e",
@@ -451,7 +459,7 @@
     },
     "CloseCopy.dc.html": {
       "x": 5500,
-      "y": 3320,
+      "y": 4080,
       "w": 1440,
       "h": 1340,
       "title": "閉じる前の確認 · 状態ごとの文言",
@@ -467,7 +475,7 @@
     },
     "ConversationDone.dc.html": {
       "x": 7020,
-      "y": 3320,
+      "y": 4080,
       "w": 1440,
       "h": 900,
       "title": "会話 · Done のセッション (ヘッダーの Close で確認なしに閉じる)",
@@ -523,6 +531,7 @@
     "PhoneChatEnded.dc.html",
     "PhoneChatResuming.dc.html",
     "VibePopover.dc.html",
+    "ConversationPrs.dc.html",
     "PhoneChatVibe.dc.html",
     "DeniedCard.dc.html",
     "PaletteClose.dc.html",

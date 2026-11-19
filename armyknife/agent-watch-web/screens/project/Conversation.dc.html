@@ -33,13 +33,13 @@ a{color:#ef4444}
 <sc-for list="{{prGroups}}" as="g" hint-placeholder-count="2">
 <h3 style="margin: 0; padding: 8px 14px 4px; color: #8b8b94; font-size: 11.5px; font-weight: 400">{{g.name}}</h3>
 <sc-for list="{{g.rows}}" as="r" hint-placeholder-count="1">
-<a href="#" style="display: grid; grid-template-columns: 7px 1fr auto; align-items: center; column-gap: 10px; padding: 6px 14px; color: {{r.color}}; text-decoration: none"><span role="img" aria-label="{{r.ci}}" title="{{r.ci}}" style="width: 7px; height: 7px; background: {{r.dot}}"></span><span style="min-width: 0; display: grid"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">#{{r.num}}</span> {{r.title}}</span><span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{r.repo}}</span></span><span style="color: {{r.metaColor}}; font-size: 12px; white-space: nowrap">{{r.meta}}</span></a>
+<div style="display: grid; grid-template-columns: 7px 1fr auto; align-items: center; column-gap: 10px; padding: 6px 14px; color: {{r.color}}"><span role="img" aria-label="{{r.ci}}" title="{{r.ci}}" style="width: 7px; height: 7px; background: {{r.dot}}"></span><a href="#" style="min-width: 0; display: grid; color: inherit; text-decoration: none"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">#{{r.num}}</span> {{r.title}}</span><span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{r.repo}}</span></a><sc-if value="{{r.showMerge}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Merge PR #{{r.num}}" style="height: 26px; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">Merge</button></sc-if><sc-if value="{{r.showMeta}}" hint-placeholder-val="{{ true }}"><span style="color: {{r.metaColor}}; font-size: 12px; white-space: nowrap">{{r.meta}}</span></sc-if></div>
 </sc-for>
 </sc-for>
 </section>
 </sc-if>
 </span>
-<button type="button" aria-label="{{mergeAria}}" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Merge</button>
+<sc-if value="{{headerMerge}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="{{mergeAria}}" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Merge</button></sc-if>
 <sc-if value="{{showMenu}}" hint-placeholder-val="{{ true }}">
 <span style="position: relative; display: inline-flex">
 <button type="button" aria-label="More actions" title="More actions" aria-haspopup="menu" aria-expanded="{{menuOpenStr}}" style="width: 28px; height: 26px; display: grid; place-items: center; padding: 0; border: 1px solid {{menuBorder}}; background: {{menuBg}}; color: #d4d4d8"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
@@ -147,7 +147,7 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const variant = this.props.variant ?? 'question';
@@ -155,8 +155,9 @@ class Component extends DCLogic {
     const tasksOpen = this.props.tasksOpen ?? false;
     const prsOpen = this.props.prsOpen ?? false;
     const CI = {
-      running: { dot: '#fbbf24', ci: 'CI running', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI running' },
-      passed: { dot: '#4ade80', ci: 'CI passed', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI passed' }
+      running: { dot: '#fbbf24', ci: 'CI running', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI running', can: false, why: 'CI running' },
+      passed: { dot: '#4ade80', ci: 'CI passed', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI passed', can: true, why: '' },
+      failing: { dot: '#f87171', ci: 'CI failing', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI failing', can: false, why: 'CI failing' }
     };
     const pr = (num, title, repo, kind) => ({ num, title, repo, ...CI[kind] });
     const P = {
@@ -164,6 +165,8 @@ class Component extends DCLogic {
       working: { main: pr(2053, '配信メトリクスを記録する', 'example/service', 'running'), others: [] },
       review: { main: pr(2049, '配信前のチェックを追加する', 'example/web-app', 'passed'), others: [] }
     }[variant] ?? { main: pr(2047, '', '', 'running'), others: [] };
+    if (this.props.ciFailing) P.main = { ...P.main, ...CI.failing };
+    const row = (r) => ({ ...r, showMerge: r.can, showMeta: !r.can, meta: r.can ? r.meta : r.why, metaColor: r.can ? r.metaColor : '#8b8b94' });
     const morePrs = P.others.length;
     const q = variant === 'question';
     const w = variant === 'working';
@@ -240,7 +243,8 @@ class Component extends DCLogic {
       prBg: prsOpen ? '#262626' : 'transparent',
       prAria: 'PR #' + P.main.num + ' ' + P.main.title + ', ' + P.main.word + (morePrs > 0 ? '. ' + morePrs + ' more PR from this session' : ''),
       mergeAria: 'Merge PR #' + P.main.num,
-      prGroups: [{ name: 'This branch', rows: [P.main] }].concat(morePrs > 0 ? [{ name: 'Opened elsewhere', rows: P.others }] : []),
+      headerMerge: P.main.can,
+      prGroups: [{ name: 'This branch', rows: [P.main].map(row) }].concat(morePrs > 0 ? [{ name: 'Opened elsewhere', rows: P.others.map(row) }] : []),
       panelOpenStr: panelOpen ? 'true' : 'false',
       panelLabel: panelOpen ? 'Close session status panel' : 'Open session status panel',
       panelArrow: panelOpen ? 'm8 9 3 3-3 3' : 'm10 15-3-3 3-3',

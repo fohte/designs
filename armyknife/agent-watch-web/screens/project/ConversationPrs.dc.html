@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Pull requests popover per state</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1848px; height: 970px; box-sizing: border-box; display: grid; grid-template-columns: 880px 880px; gap: 40px; padding: 20px 24px; background: #050505; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+<sc-for list="{{states}}" as="st" hint-placeholder-count="2">
+<section style="display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-size: 12.5px; font-weight: 700; color: #a1a1aa">{{st.label}}</h2>
+<dc-import name="Conversation" variant="review" prs-open="{{ true }}" ci-failing="{{st.failing}}" hint-size="880px,900px"></dc-import>
+</section>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1848,"height":970}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      states: [
+        { label: 'このブランチの PR をマージできる · ヘッダーにも Merge が出る', failing: false },
+        { label: 'CI が失敗 · ヘッダーに Merge が出ず、一覧の行に理由が出る', failing: true }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

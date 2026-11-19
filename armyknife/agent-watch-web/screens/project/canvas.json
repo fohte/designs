@@ -796,7 +796,7 @@
     },
     "diffClose-inbox": {
       "x": 0,
-      "y": -900,
+      "y": -260,
       "w": 640,
       "fill": "yellow",
       "page": "inbox",
@@ -804,7 +804,7 @@
     },
     "diffClose-palette": {
       "x": 0,
-      "y": -900,
+      "y": -260,
       "w": 640,
       "fill": "yellow",
       "page": "palette",
@@ -812,7 +812,7 @@
     },
     "diffClose-status-panel": {
       "x": 0,
-      "y": -900,
+      "y": -260,
       "w": 640,
       "fill": "yellow",
       "page": "status-panel",
@@ -820,7 +820,7 @@
     },
     "diffClose-conversation": {
       "x": 0,
-      "y": -900,
+      "y": -260,
       "w": 640,
       "fill": "yellow",
       "page": "conversation",
@@ -828,7 +828,7 @@
     },
     "diffClose-components": {
       "x": 0,
-      "y": -900,
+      "y": -260,
       "w": 640,
       "fill": "yellow",
       "page": "components",

@@ -480,6 +480,142 @@
       "h": 900,
       "title": "会話 · Done のセッション (ヘッダーの Close で確認なしに閉じる)",
       "page": "conversation"
+    },
+    "ActionItem.dc.html": {
+      "x": 4840,
+      "y": 0,
+      "w": 360,
+      "h": 110,
+      "title": "ActionItem",
+      "page": "components"
+    },
+    "ToastStack.dc.html": {
+      "x": 4840,
+      "y": 230,
+      "w": 360,
+      "h": 240,
+      "title": "ToastStack",
+      "page": "components"
+    },
+    "Activity.dc.html": {
+      "x": 4840,
+      "y": 590,
+      "w": 400,
+      "h": 360,
+      "title": "Activity",
+      "page": "components"
+    },
+    "MergeButton.dc.html": {
+      "x": 4840,
+      "y": 1070,
+      "w": 160,
+      "h": 44,
+      "title": "MergeButton",
+      "page": "components"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 1500,
+      "title": "変更前 · 仕様のまとめ",
+      "page": "inbox"
+    },
+    "ActionRunning.dc.html": {
+      "x": 0,
+      "y": 5540,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · Merge と Close を裏で実行中",
+      "page": "conversation"
+    },
+    "ActionSuccess.dc.html": {
+      "x": 1520,
+      "y": 5540,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · Merge と Close が成功",
+      "page": "conversation"
+    },
+    "ActionFailure.dc.html": {
+      "x": 3040,
+      "y": 5540,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · Merge と Close が失敗",
+      "page": "conversation"
+    },
+    "ActionQueued.dc.html": {
+      "x": 4560,
+      "y": 5540,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · マージキューに入った (PR の一覧を開いた状態)",
+      "page": "conversation"
+    },
+    "ActionAway.dc.html": {
+      "x": 6080,
+      "y": 5540,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · 別のセッションに移っている間に終わった",
+      "page": "conversation"
+    },
+    "ActionActivity.dc.html": {
+      "x": 7600,
+      "y": 5540,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · Activity を開いた",
+      "page": "conversation"
+    },
+    "PhoneActionRunning.dc.html": {
+      "x": 0,
+      "y": 6560,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · PR の一覧から Merge して実行中",
+      "page": "conversation"
+    },
+    "PhoneActionSuccess.dc.html": {
+      "x": 470,
+      "y": 6560,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Merge が成功",
+      "page": "conversation"
+    },
+    "PhoneActionFailure.dc.html": {
+      "x": 940,
+      "y": 6560,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Merge が失敗",
+      "page": "conversation"
+    },
+    "PhoneActionClose.dc.html": {
+      "x": 1410,
+      "y": 6560,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Close を裏で実行中",
+      "page": "conversation"
+    },
+    "PhoneActionActivity.dc.html": {
+      "x": 1880,
+      "y": 6560,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Activity を開いた",
+      "page": "conversation"
+    },
+    "ActionCopy.dc.html": {
+      "x": 2350,
+      "y": 6560,
+      "w": 1640,
+      "h": 1400,
+      "title": "確定したあとの結果 · 種類ごとの文言",
+      "page": "conversation"
     }
   },
   "order": [
@@ -542,7 +678,24 @@
     "CloseInbox.dc.html",
     "CloseCopy.dc.html",
     "ConfirmDialog.dc.html",
-    "ConversationDone.dc.html"
+    "ConversationDone.dc.html",
+    "ActionItem.dc.html",
+    "ToastStack.dc.html",
+    "Activity.dc.html",
+    "MergeButton.dc.html",
+    "before/BeforeMain.dc.html",
+    "ActionRunning.dc.html",
+    "ActionSuccess.dc.html",
+    "ActionFailure.dc.html",
+    "ActionQueued.dc.html",
+    "ActionAway.dc.html",
+    "ActionActivity.dc.html",
+    "PhoneActionRunning.dc.html",
+    "PhoneActionSuccess.dc.html",
+    "PhoneActionFailure.dc.html",
+    "PhoneActionClose.dc.html",
+    "PhoneActionActivity.dc.html",
+    "ActionCopy.dc.html"
   ],
   "pages": [
     {
@@ -577,6 +730,27 @@
       "w": 420,
       "page": "components",
       "text": "ConfirmDialog: 確認ダイアログの共通部品。form で形を選ぶ\n- modal: Merge の確認 (確認ダイアログ)、閉じる前の確認 (Close session… を押したあと、Inbox の e、状態ごとの文言)\n- popover: 会話のヘッダーの vibe mode\n- sheet: iPhone の vibe mode、iPhone の閉じる前の確認\n- panel: ! コマンドの確認 (確認ダイアログ)"
+    },
+    "diffAafMain": {
+      "x": 3040,
+      "y": 0,
+      "w": 520,
+      "page": "inbox",
+      "text": "変更点 (左が変更後、右が変更前)\n- 「確認したあとの実行」の節を足した: 確定したらダイアログをすぐ閉じて裏で実行する、押した場所 / トースト / Activity / 会話の 1 行で結果を出す"
+    },
+    "diffAafParts": {
+      "x": 5320,
+      "y": 0,
+      "w": 520,
+      "page": "components",
+      "text": "変更点 (既定の見た目は変えていない)\n- 新しい部品: ActionItem (結果 1 件。toast / row / line の形と、結果の種類ごとの文言を持つ)、ToastStack (トーストの重なり)、Activity (PC は popover、iPhone は sheet)、MergeButton (Merge の押した場所。header / row / phone)\n- Nav: activity (Activity の入り口とバッジ)、activityOpen、inboxCount\n- Conversation: mergeState (ヘッダーと PR の一覧の Merge)、actionLine (会話の 1 行)\n- InboxList / PhoneInbox: close (Proposal の行の Closing… / Close failed / 消える)。PhoneInbox は activity も\n- SessionRow: s.close と s.closeReason\n- PhoneChat: mergeState (PR #64 の行)、activity、activityOpen、activityItems、toasts、actionLine"
+    },
+    "diffAafBoards": {
+      "x": 4080,
+      "y": 6560,
+      "w": 560,
+      "page": "conversation",
+      "text": "新しい画面 (確認したあと裏で実行する操作の結果)\n- 上の行: PC の実行中、成功、失敗、マージキュー、別のセッションに移ったあと、Activity\n- 下の行: iPhone の実行中、成功、失敗、Close、Activity と、結果の種類ごとの文言\n- アプリにある PR の右の青い「PR #48 merged.」は描かない。結果は押した場所、トースト、Activity、会話の 1 行に出す\n- Activity は一度 Merge か Close を実行してから出る (それまでは既存の画面と同じ)"
     }
   },
   "v": 3,
@@ -598,6 +772,9 @@
     }
   ],
   "noteOrder": [
-    "confirmDialogUsers"
+    "confirmDialogUsers",
+    "diffAafMain",
+    "diffAafParts",
+    "diffAafBoards"
   ]
 }

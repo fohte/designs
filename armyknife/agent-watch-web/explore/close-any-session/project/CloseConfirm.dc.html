@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Close confirmation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; line-height: 1.55">
+
+<sc-if value="{{isModal}}" hint-placeholder-val="{{ true }}">
+<section role="dialog" aria-modal="true" aria-labelledby="close-title" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 8px; box-shadow: 0 12px 36px rgba(0, 0, 0, 0.24); font-size: 12px">
+<h3 id="close-title" style="margin: 0; font-size: 13px; font-weight: 700">{{head}}</h3>
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{dotRadius}}; background: {{dot}}"></span><span style="flex: none; color: {{stateColor}}">{{stateLabel}}</span><span style="min-width: 0; color: #fafafa; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{title}}</span></div>
+<p style="margin: 0; color: #d4d4d8">{{body}}</p>
+<div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-top: 4px">
+<sc-if value="{{keys}}" hint-placeholder-val="{{ false }}"><span style="margin-right: auto; color: #8b8b94; font-size: 11.5px">↵ {{actionShort}} · Esc Cancel</span></sc-if>
+<button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Cancel</button>
+<button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">{{action}}</button>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isPopover}}" hint-placeholder-val="{{ false }}">
+<section role="dialog" aria-labelledby="close-pop-title" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%); color: #d4d4d8; font-size: 13px">
+<h2 id="close-pop-title" style="margin: 0; color: #fafafa; font-size: 13px; font-weight: 700">{{head}}</h2>
+<p style="margin: 0">{{body}}</p>
+<div style="display: flex; justify-content: flex-end; gap: 8px">
+<button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Cancel</button>
+<button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">{{action}}</button>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isSheet}}" hint-placeholder-val="{{ false }}">
+<section role="dialog" aria-modal="true" aria-labelledby="close-sheet-title" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 18px 16px 30px; border-top: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 -12px 36px rgb(0 0 0 / 30%); color: #d4d4d8; font-size: 14px">
+<h2 id="close-sheet-title" style="margin: 0; color: #fafafa; font-size: 15px; font-weight: 700">{{head}}</h2>
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0; font-size: 13px"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{dotRadius}}; background: {{dot}}"></span><span style="flex: none; color: {{stateColor}}">{{stateLabel}}</span><span style="min-width: 0; color: #fafafa; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{title}}</span></div>
+<p style="margin: 0">{{body}}</p>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px">
+<button type="button" style="min-height: 44px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">Cancel</button>
+<button type="button" style="min-height: 44px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">{{action}}</button>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isRow}}" hint-placeholder-val="{{ false }}">
+<div role="alertdialog" aria-labelledby="close-row-title" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; padding: 9px 18px 10px 14px; background: #1f1f1f; outline: 1px solid #a1a1aa; outline-offset: -1px; font-size: 12.5px">
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{dotRadius}}; background: {{dot}}"></span><strong id="close-row-title" style="min-width: 0; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{rowHead}}</strong></div>
+<p style="margin: 0; padding-left: 15px; color: #d4d4d8">{{bodyShort}}</p>
+<div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; padding-left: 15px">
+<span style="margin-right: auto; color: #8b8b94; font-size: 11.5px">↵ {{actionShort}} · Esc Cancel</span>
+<button type="button" style="height: 24px; padding: 0 9px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 11.5px">Cancel</button>
+<button type="button" style="height: 24px; padding: 0 9px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 11.5px; font-weight: 700">{{action}}</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isMenu}}" hint-placeholder-val="{{ false }}">
+<div role="group" aria-labelledby="close-menu-title" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; padding: 12px 14px 14px; border-top: 1px solid #2a2a2a; background: #262626; color: #d4d4d8; font-size: 13px">
+<strong id="close-menu-title" style="color: #fafafa; font-size: 13px">{{head}}</strong>
+<p style="margin: 0; font-size: 12.5px">{{bodyShort}}</p>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px">
+<button type="button" style="min-height: 44px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">Cancel</button>
+<button type="button" style="min-height: 44px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">{{action}}</button>
+</div>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"kind":{"editor":"enum","options":["working","question","proposal","approve","review","idle"],"default":"working"},"form":{"editor":"enum","options":["modal","popover","sheet","row","menu"],"default":"modal"},"keys":{"editor":"boolean","default":false},"title":{"editor":null},"$preview":{"width":360,"height":200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const kind = this.props.kind ?? 'working';
+    const form = this.props.form ?? 'modal';
+    const title = this.props.title ?? '配信メトリクスを追加する';
+    // What closing throws away differs by state: work in progress for Working, the pending ask for the rest.
+    const K = {
+      working: { state: 'Working · 18s', dot: '#60a5fa', round: true, stateColor: '#60a5fa', head: 'Stop and close this session?', body: 'It is working now. Closing stops the work in progress and ends the session.', short: 'Working now. Closing stops the work in progress.', action: 'Stop and close', actionShort: 'Stop and close' },
+      question: { state: 'Question', dot: '#fbbf24', round: false, stateColor: '#fbbf24', head: 'Close without answering?', body: 'It is waiting for your answer to a question. Closing ends the session, and the question stays unanswered.', short: 'Waiting for your answer. The question stays unanswered.', action: 'Close session', actionShort: 'Close' },
+      proposal: { state: 'Proposal', dot: '#fbbf24', round: false, stateColor: '#fbbf24', head: 'Close without choosing?', body: 'It is waiting for you to choose a proposal. Closing ends the session, and the proposal stays unchosen.', short: 'Waiting for you to choose a proposal. It stays unchosen.', action: 'Close session', actionShort: 'Close' },
+      approve: { state: 'Approve', dot: '#fbbf24', round: false, stateColor: '#fbbf24', head: 'Close without allowing?', body: 'It is waiting for permission to run a command. Closing ends the session without running it.', short: 'Waiting for permission. The command does not run.', action: 'Close session', actionShort: 'Close' },
+      review: { state: 'Review', dot: '#fbbf24', round: false, stateColor: '#fbbf24', head: 'Close before reviewing?', body: 'It is waiting for your review of PR #2049. Closing ends the session; the PR stays open.', short: 'Waiting for your review. The PR stays open.', action: 'Close session', actionShort: 'Close' },
+      idle: { state: 'Waiting', dot: '#a1a1aa', round: true, stateColor: '#a1a1aa', head: 'Close this session?', body: 'It is waiting for your next message. Closing ends the session.', short: 'Waiting for your next message.', action: 'Close session', actionShort: 'Close' }
+    }[kind];
+    return {
+      isModal: form === 'modal', isPopover: form === 'popover', isSheet: form === 'sheet', isRow: form === 'row', isMenu: form === 'menu',
+      keys: this.props.keys ?? false,
+      title,
+      head: K.head, body: K.body, bodyShort: K.short, action: K.action, actionShort: K.actionShort,
+      rowHead: (kind === 'working' ? 'Stop and close ' : 'Close ') + title + '?',
+      stateLabel: K.state, stateColor: K.stateColor, dot: K.dot, dotRadius: K.round ? '50%' : '0'
+    };
+  }
+}
+</script>
+</body>
+</html>

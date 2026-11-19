@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Phone conversation with Close in the menu</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<main style="position: relative; width: 100%; height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.55">
+<header style="flex: none; display: grid; grid-template-columns: 44px 1fr auto; align-items: center; column-gap: 4px; padding: 6px 8px 6px 0; border-bottom: 1px solid #2a2a2a">
+<button type="button" aria-label="Back to Inbox" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
+<h1 style="margin: 0; min-width: 0; font-size: 15px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{c.title}}</h1>
+<div style="display: flex; align-items: center; gap: 8px">
+<button type="button" aria-label="Open session status panel" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path><path d="m10 15-3-3 3-3"></path></svg></button>
+<button type="button" aria-label="More actions" aria-haspopup="menu" aria-expanded="{{menuOpenStr}}" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid {{menuBorder}}; background: {{menuBg}}; color: #fafafa"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</div>
+<a href="#" style="grid-column: 1 / -1; min-width: 0; min-height: 24px; display: flex; align-items: center; gap: 6px; padding: 0 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa; text-decoration: none; white-space: nowrap"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">{{c.task}}</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: none">{{c.repo}}</span></a>
+</header>
+
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ true }}">
+<div role="menu" aria-label="Session actions" style="position: absolute; top: 84px; right: 8px; z-index: 20; width: 268px; display: flex; flex-direction: column; border: 1px solid #2a2a2a; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%)">
+<button type="button" role="menuitem" aria-haspopup="dialog" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 14px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #71717a"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg><span style="flex: 1">Vibe mode</span><span style="color: #a1a1aa; font-size: 12.5px">Off</span><span aria-hidden="true" style="color: #71717a">›</span></button>
+<button type="button" role="menuitem" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 14px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #a1a1aa"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>Later</button>
+<sc-if value="{{closeHere}}" hint-placeholder-val="{{ true }}">
+<button type="button" role="menuitem" aria-haspopup="{{closeHasPopup}}" aria-expanded="{{inlineOpenStr}}" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 14px; border: 0; border-top: 1px solid #2a2a2a; background: {{closeItemBg}}; color: #fafafa; font-family: inherit; font-size: 13px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #a1a1aa"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>Close</button>
+<sc-if value="{{inline}}" hint-placeholder-val="{{ false }}"><dc-import name="CloseConfirm" kind="{{confirmKind}}" form="menu" title="{{c.title}}" hint-size="100%,150px"></dc-import></sc-if>
+</sc-if>
+<button type="button" role="menuitem" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 14px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #a1a1aa"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>Add to Starred</button>
+<button type="button" role="menuitem" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 14px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #a1a1aa"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>Copy session ID</button>
+<button type="button" role="menuitem" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 14px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #a1a1aa"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg>Edit title</button>
+<sc-if value="{{closeLast}}" hint-placeholder-val="{{ false }}">
+<button type="button" role="menuitem" aria-haspopup="dialog" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 14px; border: 0; border-top: 6px solid #141414; background: transparent; color: #f87171; font-family: inherit; font-size: 13px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>Close session…</button>
+</sc-if>
+</div>
+</sc-if>
+
+<div style="flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; padding: 0 16px 16px">
+<article style="align-self: flex-end; max-width: 92%; display: flex; flex-direction: column; gap: 4px">
+<div style="text-align: right; font-size: 12px; color: #8b8b94">You · 10:02</div>
+<div style="padding: 10px 14px; background: #1f1f1f">{{c.user}}</div>
+</article>
+<article style="color: #d4d4d8">{{c.reply}}</article>
+<sc-if value="{{isQuestion}}" hint-placeholder-val="{{ true }}">
+<article style="border: 1px solid #fbbf24">
+<h2 style="margin: 0; padding: 10px 14px 4px; color: #fbbf24; font-size: 12.5px; font-weight: 700">Question</h2>
+<div style="padding: 0 14px 10px; font-size: 15px">再試行は 3 回で止めてよいですか?</div>
+<button type="button" style="width: 100%; min-height: 48px; display: flex; align-items: center; padding: 0 14px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #fafafa; font-family: inherit; font-size: 15px; text-align: left">3 回で止める</button>
+<button type="button" style="width: 100%; min-height: 48px; display: flex; align-items: center; padding: 0 14px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #fafafa; font-family: inherit; font-size: 15px; text-align: left">5 回まで続ける</button>
+</article>
+</sc-if>
+</div>
+
+<sc-if value="{{isQuestion}}" hint-placeholder-val="{{ true }}">
+<div role="status" style="flex: none; display: flex; flex-direction: column; padding: 10px 12px; border-top: 1px solid #2a2a2a; background: #0f0f0f">
+<span style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: #fbbf24"></span>Question</span>
+<span style="padding-left: 15px; font-size: 11.5px; color: #a1a1aa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">再試行は 3 回で止めてよいですか?</span>
+</div>
+</sc-if>
+<form style="flex: none; display: grid; grid-template-columns: 1fr 44px; gap: 8px; padding: 10px 12px 30px; border-top: 1px solid #2a2a2a; background: #141414">
+<textarea aria-label="Message" rows="1" placeholder="Message the session" style="min-height: 44px; box-sizing: border-box; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: 16px; resize: none; outline: none"></textarea>
+<button type="submit" aria-label="Send message" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
+</form>
+
+<sc-if value="{{sheet}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 30; display: flex; flex-direction: column; justify-content: flex-end; background: rgba(0, 0, 0, 0.55)">
+<dc-import name="CloseConfirm" kind="{{confirmKind}}" form="sheet" title="{{c.title}}" hint-size="100%,260px"></dc-import>
+</div>
+</sc-if>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["now","a","b","c"],"default":"now"},"kind":{"editor":"enum","options":["question","done"],"default":"question"},"view":{"editor":"enum","options":["menu","confirm"],"default":"menu"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const option = this.props.option ?? 'now';
+    const kind = this.props.kind ?? 'question';
+    const view = this.props.view ?? 'menu';
+    const done = kind === 'done';
+    const C = {
+      question: { title: '通知の再送処理を見直す', task: '#2048 通知の信頼性を上げる', repo: 'service', user: '通知の再送処理を見直して。失敗したら何回か再試行したい。', reply: '再送処理を retry() にまとめました。上限の回数だけ決めてください。' },
+      done: { title: 'セットアップ手順を更新する', task: '— No task', repo: 'handbook', user: 'セットアップ手順を新しいコマンドに合わせて。', reply: '手順を書き換えて PR #318 を作りました。CI は通っています。' }
+    }[kind];
+    // c moves a non-Done Close to the bottom of the menu, apart from the rest.
+    const closeHere = option === 'a' || option === 'b' || done;
+    const closeLast = option === 'c' && !done;
+    const confirm = view === 'confirm' && !done;
+    const inline = confirm && option === 'b';
+    const sheet = confirm && (option === 'a' || option === 'c');
+    const menuOpen = !sheet;
+    return {
+      c: C, isQuestion: !done,
+      closeHere, closeLast, inline, sheet, menuOpen,
+      confirmKind: kind,
+      closeHasPopup: done ? 'false' : 'true',
+      inlineOpenStr: inline ? 'true' : 'false',
+      closeItemBg: inline ? '#262626' : 'transparent',
+      menuOpenStr: menuOpen ? 'true' : 'false',
+      menuBorder: menuOpen ? '#a1a1aa' : '#3f3f46',
+      menuBg: menuOpen ? '#262626' : 'transparent'
+    };
+  }
+}
+</script>
+</body>
+</html>

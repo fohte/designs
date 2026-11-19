@@ -1,0 +1,96 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-11-20T03:00:00Z" },
+  "title": "Close failure",
+  "launch": { "view": "canvas", "page": "options" },
+  "pages": [
+    { "id": "options", "name": "案" },
+    { "id": "parts", "name": "部品" }
+  ],
+  "boards": {
+    "close-failure-current.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "Current · PC · 会話の Close が失敗 (一覧のいちばん上にだけ出る)", "page": "options" },
+    "close-failure-current-scrolled.dc.html": { "x": 1520, "y": 0, "w": 1440, "h": 900, "title": "Current · PC · 一覧をスクロールしていると見えない", "page": "options" },
+    "close-failure-current-phone.dc.html": { "x": 3040, "y": 0, "w": 390, "h": 844, "title": "Current · iPhone · 会話では何も出ない", "page": "options" },
+
+    "close-failure-a-header.dc.html": { "x": 0, "y": 1300, "w": 1440, "h": 900, "title": "A · PC · 会話のヘッダーの Close が失敗", "page": "options" },
+    "close-failure-a-inbox.dc.html": { "x": 1520, "y": 1300, "w": 1440, "h": 900, "title": "A · PC · Inbox で e、一覧をスクロール中", "page": "options" },
+    "close-failure-a-palette.dc.html": { "x": 3040, "y": 1300, "w": 1440, "h": 900, "title": "A · PC · ⌘K から別のセッションを閉じて失敗", "page": "options" },
+    "close-failure-a-phone.dc.html": { "x": 4560, "y": 1300, "w": 390, "h": 844, "title": "A · iPhone · Close が失敗", "page": "options" },
+
+    "close-failure-b-header.dc.html": { "x": 0, "y": 2600, "w": 1440, "h": 900, "title": "B · PC · Done の Close が失敗", "page": "options" },
+    "close-failure-b-menu.dc.html": { "x": 1520, "y": 2600, "w": 1440, "h": 900, "title": "B · PC · ⋯ の Close session… が失敗", "page": "options" },
+    "close-failure-b-inbox.dc.html": { "x": 3040, "y": 2600, "w": 1440, "h": 900, "title": "B · PC · Inbox で e が失敗", "page": "options" },
+    "close-failure-b-phone.dc.html": { "x": 4560, "y": 2600, "w": 390, "h": 844, "title": "B · iPhone · Close が失敗", "page": "options" },
+
+    "close-failure-c-modal.dc.html": { "x": 0, "y": 3900, "w": 1440, "h": 900, "title": "C · PC · 残っているものを全部並べて選ばせる", "page": "options" },
+    "close-failure-c-phone.dc.html": { "x": 1520, "y": 3900, "w": 390, "h": 844, "title": "C · iPhone · 残っているものを全部並べる", "page": "options" },
+
+    "close-failure-kinds.dc.html": { "x": 0, "y": 5200, "w": 1440, "h": 820, "title": "エラーの種類ごとの文言 (A / B 共通)", "page": "options" },
+
+    "CloseFailure.dc.html": { "x": 0, "y": 0, "w": 400, "h": 220, "title": "CloseFailure", "page": "parts" },
+    "ActionItem.dc.html": { "x": 480, "y": 0, "w": 360, "h": 110, "title": "ActionItem", "page": "parts" },
+    "ToastStack.dc.html": { "x": 480, "y": 230, "w": 360, "h": 240, "title": "ToastStack", "page": "parts" },
+    "Activity.dc.html": { "x": 480, "y": 590, "w": 400, "h": 360, "title": "Activity", "page": "parts" },
+    "ActivityButton.dc.html": { "x": 480, "y": 1070, "w": 224, "h": 44, "title": "ActivityButton", "page": "parts" },
+    "ConfirmDialog.dc.html": { "x": 0, "y": 340, "w": 380, "h": 200, "title": "ConfirmDialog", "page": "parts" },
+    "MergeButton.dc.html": { "x": 0, "y": 660, "w": 160, "h": 44, "title": "MergeButton", "page": "parts" },
+    "SessionRow.dc.html": { "x": 960, "y": 0, "w": 460, "h": 76, "title": "SessionRow", "page": "parts" },
+    "StatusBand.dc.html": { "x": 960, "y": 196, "w": 760, "h": 60, "title": "StatusBand", "page": "parts" },
+    "SessionUsage.dc.html": { "x": 960, "y": 376, "w": 672, "h": 40, "title": "SessionUsage", "page": "parts" },
+    "Quota.dc.html": { "x": 960, "y": 536, "w": 240, "h": 140, "title": "Quota", "page": "parts" },
+    "Nav.dc.html": { "x": 1800, "y": 0, "w": 240, "h": 900, "title": "Nav", "page": "parts" },
+    "InboxList.dc.html": { "x": 2120, "y": 0, "w": 460, "h": 900, "title": "InboxList", "page": "parts" },
+    "Conversation.dc.html": { "x": 2660, "y": 0, "w": 880, "h": 900, "title": "Conversation", "page": "parts" },
+    "PhoneChat.dc.html": { "x": 3620, "y": 0, "w": 390, "h": 844, "title": "PhoneChat", "page": "parts" }
+  },
+  "order": [
+    "close-failure-current.dc.html",
+    "close-failure-current-scrolled.dc.html",
+    "close-failure-current-phone.dc.html",
+    "close-failure-a-header.dc.html",
+    "close-failure-a-inbox.dc.html",
+    "close-failure-a-palette.dc.html",
+    "close-failure-a-phone.dc.html",
+    "close-failure-b-header.dc.html",
+    "close-failure-b-menu.dc.html",
+    "close-failure-b-inbox.dc.html",
+    "close-failure-b-phone.dc.html",
+    "close-failure-c-modal.dc.html",
+    "close-failure-c-phone.dc.html",
+    "close-failure-kinds.dc.html",
+    "CloseFailure.dc.html",
+    "ActionItem.dc.html",
+    "ToastStack.dc.html",
+    "Activity.dc.html",
+    "ActivityButton.dc.html",
+    "ConfirmDialog.dc.html",
+    "MergeButton.dc.html",
+    "SessionRow.dc.html",
+    "StatusBand.dc.html",
+    "SessionUsage.dc.html",
+    "Quota.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "Conversation.dc.html",
+    "PhoneChat.dc.html"
+  ],
+  "notes": {
+    "titleCurrent": { "x": 0, "y": -260, "text": "Current: 失敗は Inbox の一覧のいちばん上にだけ出る", "kind": "title1", "maxW": 3430, "page": "options" },
+    "noteCurrent": { "x": 3510, "y": 0, "w": 560, "text": "今のアプリ。Close の失敗 (エラーの文と Close and keep worktree) は Inbox の一覧のいちばん上 (load-message is-error) にしか出ない。一覧をスクロールしている、会話を見ている、iPhone で会話を開いている、のどれでも目に入らない。\n\nClose の API が返すのは 1 回に 1 つだけ: dirty_worktree (worktree のパス)、unmerged_worktree (ブランチと理由)、worktree_process_guard (pid とプロセス名)、そのほか (code なし)。最初に引っかかったもので止まるので、ほかに何が残っているかは分からない。コミットしていないファイルの一覧も返らない。\n\nどの案も、確認後の Merge / Close を裏で実行する設計 (async-action-feedback: トースト、押した場所、Activity、会話の 1 行) の上に足す。", "page": "options" },
+
+    "titleA": { "x": 0, "y": 1040, "text": "A: 失敗のトーストと Activity に、残っているものと Keep worktree を足す", "kind": "title1", "maxW": 4950, "page": "options" },
+    "noteA": { "x": 5030, "y": 1300, "w": 560, "text": "async-action-feedback の closeFailed のトースト、Activity の行、会話の 1 行に、残っているもの (種類と、パス / ブランチ / プロセス) と Close and keep worktree を足す。Retry と Details はそのまま。\n\n・どこから閉じても (ヘッダー、Inbox の e、⌘K) 同じ場所 (右下) に出る。別のセッションへ移っていても気付ける。\n・失敗のトーストは自分で閉じるまで残る。閉じたあとは Activity から同じ操作ができる。\n・押した場所そのものは変えない (Inbox の行は async-action-feedback の Close failed の 1 行のまま)。\n・今の API がそのまま返す情報だけで描ける。\n\nB や C と一緒に使える。B と組むと、押した場所が見えるときはそこ、見えないときはトースト、と役割を分けられる。", "page": "options" },
+
+    "titleB": { "x": 0, "y": 2340, "text": "B: 押した場所に、残っているものと Keep worktree を出す", "kind": "title1", "maxW": 4950, "page": "options" },
+    "noteB": { "x": 5030, "y": 2600, "w": 560, "text": "押したボタンや行のそばに出す。\n\n・Done の Close: ボタンが赤い Close failed に変わり、その下にポップオーバー。閉じたあともボタンは Close failed のままで、押すと開き直す。\n・⋯ の Close session…: ⋯ に赤い点、その下に同じポップオーバー。\n・Inbox の e: 行の下に、残っているものと Close and keep worktree / Retry を出す (async-action-feedback の Close failed の 1 行を広げたもの)。\n・⌘K: パレットは閉じているので押した場所がない。A のトーストに任せる。\n・iPhone: ⋯ の Close のあと、確認のシートと同じ場所に失敗のシートを出す。⋯ にも赤い点。\n\nポップオーバーには、worktree を直しに行く Open in terminal も置ける (コミットしていない変更、動いているプロセスのとき)。", "page": "options" },
+
+    "titleC": { "x": 0, "y": 3640, "text": "C: 残っているものを全部調べて、ダイアログで選ばせる", "kind": "title1", "maxW": 1910, "page": "options" },
+    "noteC": { "x": 1990, "y": 3900, "w": 560, "text": "失敗したら、Done 以外の Close の確認と同じ ConfirmDialog の形で開き、コミットしていない変更、merge していないブランチ、動いているプロセスの 3 つを全部並べる。残っているものと、残っていないもの (None) が一度に分かる。\n\n・選べるのは Close and keep worktree か Cancel。Retry は置かない (直してから閉じ直す)。iPhone は Open in terminal も置く。\n・今の API は最初の 1 つで止まり、ファイルの一覧も返さない。3 つをまとめて調べて返す API の変更が要る。\n・同じ一覧を B のポップオーバーや A のトーストの Details の中身にも使える。\n・押す前の確認 (Done 以外) にこの一覧を先に出す形にも広げられるが、確認を開くたびに調べる時間がかかる。", "page": "options" },
+
+    "titleKinds": { "x": 0, "y": 4940, "text": "API のエラーの種類ごとの出し方", "kind": "title1", "maxW": 1440, "page": "options" },
+    "noteKinds": { "x": 1520, "y": 5200, "w": 520, "text": "code ごとに、見出し (何が残っているか)、そのあとに API のメッセージから取り出したもの (worktree のパス、ブランチと理由、pid とプロセス名) を等幅で出す。\n\ncode がないエラー (セッションが止まらない、など) は残すものがないので Close and keep worktree を出さず、メッセージと Retry だけにする。", "page": "options" }
+  },
+  "designSystems": [
+    { "title": "agent watch", "namespace": "agentwatch", "artifact": "armyknife/agent-watch-web/design-system", "version": null, "copiedAt": "2026-11-20T03:00:00Z" }
+  ]
+}

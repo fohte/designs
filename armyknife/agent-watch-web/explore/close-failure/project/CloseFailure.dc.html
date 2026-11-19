@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Close failure</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.5">
+
+<sc-if value="{{isLeft}}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{hasLeft}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 8px 10px; border: 1px solid #2a2a2a; background: #141414">
+<span style="display: flex; align-items: center; gap: 6px; color: #fafafa; font-size: {{subFs}}; font-weight: 700"><span style="display: inline-flex; color: #f87171"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></span>{{label}}</span>
+<code style="overflow-wrap: anywhere; color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: {{codeFs}}">{{detail}}</code>
+</div>
+</sc-if>
+</sc-if>
+
+<sc-if value="{{isPopover}}" hint-placeholder-val="{{ false }}">
+<section role="alertdialog" aria-label="Close failed" style="position: relative; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 30%); color: #d4d4d8; font-size: 13px">
+<div style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; color: #f87171"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></span><h2 style="flex: 1; margin: 0; color: #fafafa; font-size: 13px; font-weight: 700">{{head}}</h2><button type="button" aria-label="Dismiss" style="width: 22px; height: 22px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #8b8b94"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></div>
+<sc-if value="{{hasSession}}" hint-placeholder-val="{{ false }}"><span style="min-width: 0; color: #a1a1aa; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{session}}</span></sc-if>
+<sc-if value="{{hasLeft}}" hint-placeholder-val="{{ true }}"><div style="display: flex; flex-direction: column; gap: 2px; padding: 8px 10px; border: 1px solid #2a2a2a; background: #141414"><span style="color: #fafafa; font-size: 12px; font-weight: 700">{{label}}</span><code style="overflow-wrap: anywhere; color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{detail}}</code></div></sc-if>
+<p style="margin: 0; font-size: 12.5px">{{hint}}</p>
+<div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px">
+<sc-if value="{{hasTerminal}}" hint-placeholder-val="{{ false }}"><button type="button" style="margin-right: auto; height: 26px; padding: 0 10px; border: 0; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px; text-decoration: underline">Open in terminal</button></sc-if>
+<button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Retry</button>
+<sc-if value="{{keep}}" hint-placeholder-val="{{ true }}"><button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Close and keep worktree</button></sc-if>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isRow}}" hint-placeholder-val="{{ false }}">
+<div role="alert" style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px; font-size: 12.5px">
+<span style="display: flex; align-items: center; gap: 6px; color: #f87171"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Close failed · {{label}}</span></span>
+<code style="overflow-wrap: anywhere; color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{detail}}</code>
+<div style="display: flex; gap: 6px">
+<sc-if value="{{keep}}" hint-placeholder-val="{{ true }}"><button type="button" style="min-height: 24px; padding: 0 10px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Close and keep worktree</button></sc-if>
+<button type="button" style="min-height: 24px; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">Retry</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isModal}}" hint-placeholder-val="{{ false }}">
+<section role="alertdialog" aria-modal="true" aria-label="{{head}}" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 8px; box-shadow: 0 12px 36px rgba(0, 0, 0, 0.24); font-size: 12px">
+<h3 style="margin: 0; font-size: 13px; font-weight: 700">{{head}}</h3>
+<sc-if value="{{hasSession}}" hint-placeholder-val="{{ true }}"><div style="display: flex; align-items: center; gap: 8px; min-width: 0"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: #a1a1aa"></span><span style="flex: none; color: #a1a1aa">Done</span><span style="min-width: 0; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{session}}</span></div></sc-if>
+<p style="margin: 0; color: #d4d4d8">{{checkBody}}</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border: 1px solid #2a2a2a">
+<sc-for list="{{checks}}" as="c" hint-placeholder-count="3">
+<li style="display: grid; grid-template-columns: 14px 1fr auto; column-gap: 8px; align-items: start; padding: 8px 10px; border-top: {{c.border}}">
+<span style="padding-top: 2px; color: {{c.color}}"><sc-if value="{{c.left}}" hint-placeholder-val="{{ true }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if><sc-if value="{{c.clear}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if></span>
+<span style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="color: {{c.textColor}}; font-weight: {{c.weight}}">{{c.label}}</span><sc-if value="{{c.hasDetail}}" hint-placeholder-val="{{ true }}"><code style="overflow-wrap: anywhere; color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: 10.5px">{{c.detail}}</code></sc-if></span>
+<span style="color: {{c.color}}; font-size: 11.5px; white-space: nowrap">{{c.state}}</span>
+</li>
+</sc-for>
+</ul>
+<code style="overflow-wrap: anywhere; color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 10px">{{path}}</code>
+<div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-top: 4px">
+<span style="margin-right: auto; color: #8b8b94; font-size: 11.5px">↵ Close and keep worktree · Esc Cancel</span>
+<button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Cancel</button>
+<button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Close and keep worktree</button>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isSheet}}" hint-placeholder-val="{{ false }}">
+<section role="alertdialog" aria-modal="true" aria-label="{{head}}" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 18px 16px max(30px, env(safe-area-inset-bottom)); border-top: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 -12px 36px rgb(0 0 0 / 30%); color: #d4d4d8; font-size: 14px">
+<div style="display: flex; align-items: center; gap: 8px"><span style="display: inline-flex; color: #f87171"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></span><h2 style="margin: 0; color: #fafafa; font-size: 15px; font-weight: 700">{{head}}</h2></div>
+<sc-if value="{{hasSession}}" hint-placeholder-val="{{ true }}"><span style="min-width: 0; color: #a1a1aa; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{session}}</span></sc-if>
+<sc-if value="{{sheetSingle}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; border: 1px solid #2a2a2a; background: #141414"><span style="color: #fafafa; font-size: 13.5px; font-weight: 700">{{label}}</span><code style="overflow-wrap: anywhere; color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: 12px">{{detail}}</code></div>
+<p style="margin: 0; font-size: 13.5px">{{hint}}</p>
+</sc-if>
+<sc-if value="{{sheetChecks}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; font-size: 13.5px">{{checkBody}}</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border: 1px solid #2a2a2a; background: #141414">
+<sc-for list="{{checks}}" as="c" hint-placeholder-count="3">
+<li style="display: grid; grid-template-columns: 16px 1fr auto; column-gap: 10px; align-items: start; padding: 10px 12px; border-top: {{c.border}}; font-size: 13.5px">
+<span style="padding-top: 3px; color: {{c.color}}"><sc-if value="{{c.left}}" hint-placeholder-val="{{ true }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if><sc-if value="{{c.clear}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if></span>
+<span style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="color: {{c.textColor}}; font-weight: {{c.weight}}">{{c.label}}</span><sc-if value="{{c.hasDetail}}" hint-placeholder-val="{{ true }}"><code style="overflow-wrap: anywhere; color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">{{c.detail}}</code></sc-if></span>
+<span style="color: {{c.color}}; font-size: 12.5px; white-space: nowrap">{{c.state}}</span>
+</li>
+</sc-for>
+</ul>
+</sc-if>
+<div style="display: grid; grid-template-columns: 1fr; gap: 8px; margin-top: 4px">
+<sc-if value="{{keep}}" hint-placeholder-val="{{ true }}"><button type="button" style="min-height: 44px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 13px; font-weight: 700">Close and keep worktree</button></sc-if>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px">
+<button type="button" style="min-height: 44px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px">{{sheetSecond}}</button>
+<button type="button" style="min-height: 44px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px">Cancel</button>
+</div>
+</div>
+</section>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"f":{"editor":null},"form":{"editor":"enum","options":["left","popover","row","modal","sheet"],"default":"popover"},"phone":{"editor":"boolean","default":false},"checks":{"editor":"boolean","default":false},"$preview":{"width":400,"height":220}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // f.kind follows the close API's error code: dirty (dirty_worktree), unmerged (unmerged_worktree),
+    // process (worktree_process_guard), other (no code: only Retry, nothing to keep).
+    const f = this.props.f ?? { kind: 'dirty', session: 'アラートの送り先を決める', path: '~/src/example/observability/.worktrees/alert-routing' };
+    const form = this.props.form ?? 'popover';
+    const phone = this.props.phone ?? false;
+    const K = {
+      dirty: { label: 'Uncommitted changes in the worktree', detail: f.path, hint: 'Commit or move them, or close the session and keep the worktree.', terminal: true },
+      unmerged: { label: 'Branch ' + f.branch + ' is not merged', detail: f.reason, hint: 'Merge it first, or close the session and keep the worktree.', terminal: false },
+      process: { label: 'Processes still running in the worktree', detail: (f.processes ?? []).join(' · '), hint: 'Stop them and retry, or close the session and keep the worktree.', terminal: true },
+      other: { label: '', detail: '', hint: f.message ?? '', terminal: false }
+    }[f.kind];
+    // checks: every guard's result at once. The close API stops at the first guard today, so this needs the API to run them all.
+    const C = (f.checks ?? []).map((c, i) => ({
+      ...c,
+      left: c.state !== 'None', clear: c.state === 'None',
+      color: c.state === 'None' ? '#8b8b94' : '#f87171',
+      textColor: c.state === 'None' ? '#a1a1aa' : '#fafafa',
+      weight: c.state === 'None' ? 400 : 700,
+      hasDetail: !!c.detail,
+      border: i === 0 ? '0' : '1px solid #2a2a2a'
+    }));
+    const useChecks = this.props.checks ?? false;
+    return {
+      isLeft: form === 'left', isPopover: form === 'popover', isRow: form === 'row', isModal: form === 'modal', isSheet: form === 'sheet',
+      head: form === 'modal' || useChecks ? 'The worktree cannot be deleted' : 'Close failed',
+      session: f.session ?? '', hasSession: !!f.session,
+      label: K.label, detail: K.detail, hint: K.hint, hasLeft: f.kind !== 'other',
+      keep: f.kind !== 'other',
+      hasTerminal: K.terminal,
+      path: f.path ?? '',
+      checks: C,
+      checkBody: 'The session is still open. These stay in the worktree:',
+      sheetSingle: !useChecks, sheetChecks: useChecks,
+      sheetSecond: useChecks ? 'Open in terminal' : 'Retry',
+      fs: phone ? '14px' : '13px', subFs: phone ? '13px' : '12px', codeFs: phone ? '12px' : '11px'
+    };
+  }
+}
+</script>
+</body>
+</html>

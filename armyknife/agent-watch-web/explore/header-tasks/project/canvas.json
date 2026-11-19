@@ -1,0 +1,20 @@
+{
+  "v": 3,
+  "designSystems": [{"title": "agent watch", "namespace": "agentwatch", "artifact": "armyknife/agent-watch-web/design-system", "version": null, "copiedAt": "2026-11-15T10:37:15Z"}],
+  "pages": [{"id": "options", "name": "案"}, {"id": "parts", "name": "部品"}],
+  "boards": {
+    "header-tasks-current.dc.html": {"x": 0, "y": 0, "w": 1240, "h": 560, "title": "Current · 主タスク + +1 tasks ▾", "page": "options"},
+    "header-tasks-current-open.dc.html": {"x": 1320, "y": 0, "w": 1240, "h": 560, "title": "Current · ポップオーバーを開いたところ", "page": "options"},
+    "header-tasks-a.dc.html": {"x": 0, "y": 900, "w": 1240, "h": 560, "title": "A · 主タスクの名前だけ残す", "page": "options"},
+    "header-tasks-b.dc.html": {"x": 1320, "y": 900, "w": 1240, "h": 560, "title": "B · 主タスク + +1 でパネルの Tasks を開く", "page": "options"},
+    "header-tasks-c.dc.html": {"x": 2640, "y": 900, "w": 1240, "h": 560, "title": "C · ヘッダーからタスクをなくす", "page": "options"},
+    "HeaderTasks.dc.html": {"x": 0, "y": 0, "w": 1240, "h": 560, "title": "HeaderTasks", "page": "parts"}
+  },
+  "order": ["header-tasks-current.dc.html", "header-tasks-current-open.dc.html", "header-tasks-a.dc.html", "header-tasks-b.dc.html", "header-tasks-c.dc.html", "HeaderTasks.dc.html"],
+  "notes": {
+    "current": {"kind": "title1", "x": 0, "y": -260, "maxW": 2560, "page": "options", "text": "Current · ヘッダーの +1 tasks ▾ と、右のパネルの Tasks に同じ一覧と Make primary がある"},
+    "options": {"kind": "title1", "x": 0, "y": 640, "maxW": 3880, "page": "options", "text": "案 · Make primary は右のパネルの Tasks だけにまとめる。ヘッダーに何を残すか"},
+    "phone": {"x": 3960, "y": 900, "maxW": 360, "page": "options", "text": "iPhone の会話のヘッダーには今も tq タスクを出していないので、どの案でも変わらない。"}
+  },
+  "noteOrder": ["current", "options", "phone"]
+}

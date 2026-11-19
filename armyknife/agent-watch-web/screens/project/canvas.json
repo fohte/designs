@@ -46,7 +46,7 @@
       "y": 1620,
       "w": 1440,
       "h": 900,
-      "title": "1 つのセッションに tq タスクが複数",
+      "title": "1 つのセッションに tq タスクが複数 · +1 で状況パネルの Tasks を開く",
       "page": "inbox"
     },
     "PhoneInbox.dc.html": {
@@ -408,6 +408,102 @@
       "h": 200,
       "title": "DeniedCard",
       "page": "components"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 1500,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
+    },
+    "before/BeforeTaskLinks.dc.html": {
+      "x": 8540,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 1 つのセッションに tq タスクが複数",
+      "page": "inbox"
+    },
+    "before/BeforeStatusRunning.dc.html": {
+      "x": 0,
+      "y": 1060,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Running",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusTasks.dc.html": {
+      "x": 9120,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tasks",
+      "page": "status-panel"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 0,
+      "y": 1160,
+      "w": 880,
+      "h": 900,
+      "title": "Before · Conversation",
+      "page": "components"
+    },
+    "before/BeforeInboxList.dc.html": {
+      "x": 960,
+      "y": 1160,
+      "w": 460,
+      "h": 900,
+      "title": "Before · InboxList",
+      "page": "components"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 1500,
+      "y": 1160,
+      "w": 240,
+      "h": 900,
+      "title": "Before · Nav",
+      "page": "components"
+    },
+    "before/BeforeQuota.dc.html": {
+      "x": 1820,
+      "y": 1160,
+      "w": 240,
+      "h": 140,
+      "title": "Before · Quota",
+      "page": "components"
+    },
+    "before/BeforeSessionRow.dc.html": {
+      "x": 2140,
+      "y": 1160,
+      "w": 460,
+      "h": 76,
+      "title": "Before · SessionRow",
+      "page": "components"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 2680,
+      "y": 1160,
+      "w": 672,
+      "h": 40,
+      "title": "Before · SessionUsage",
+      "page": "components"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 3432,
+      "y": 1160,
+      "w": 760,
+      "h": 60,
+      "title": "Before · StatusBand",
+      "page": "components"
+    },
+    "before/BeforeStatusPanel.dc.html": {
+      "x": 4272,
+      "y": 1160,
+      "w": 640,
+      "h": 900,
+      "title": "Before · StatusPanel",
+      "page": "components"
     }
   },
   "order": [
@@ -461,7 +557,19 @@
     "VibePopover.dc.html",
     "ConversationPrs.dc.html",
     "PhoneChatVibe.dc.html",
-    "DeniedCard.dc.html"
+    "DeniedCard.dc.html",
+    "before/BeforeMain.dc.html",
+    "before/BeforeTaskLinks.dc.html",
+    "before/BeforeStatusRunning.dc.html",
+    "before/BeforeStatusTasks.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforeInboxList.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeQuota.dc.html",
+    "before/BeforeSessionRow.dc.html",
+    "before/BeforeSessionUsage.dc.html",
+    "before/BeforeStatusBand.dc.html",
+    "before/BeforeStatusPanel.dc.html"
   ],
   "pages": [
     {
@@ -489,7 +597,36 @@
       "name": "部品"
     }
   ],
-  "notes": {},
+  "notes": {
+    "diffHtMain": {
+      "x": 1520,
+      "y": -260,
+      "maxW": 1440,
+      "page": "inbox",
+      "text": "変更: ヘッダーには主の tq タスクを出すと書き直した。状況パネルに Tasks のタブを足し、Make primary と、ヘッダーの +N で Tasks を開くことを書いた。"
+    },
+    "diffHtTaskLinks": {
+      "x": 8540,
+      "y": 1360,
+      "maxW": 1440,
+      "page": "inbox",
+      "text": "変更: ヘッダーの +1 tasks ▾ とポップオーバーをなくした。代わりに主タスクの右の +1 を押すと、状況パネルの Tasks を開き、主でないタスクを強調する。Make primary はそこで行う。"
+    },
+    "diffHtRunning": {
+      "x": 1520,
+      "y": 1060,
+      "maxW": 600,
+      "page": "status-panel",
+      "text": "変更: ヘッダーの +1 tasks ▾ が +1 になった。"
+    },
+    "diffHtTasks": {
+      "x": 9120,
+      "y": -260,
+      "maxW": 1440,
+      "page": "status-panel",
+      "text": "変更: 各タスクの右に Primary か Make primary を出した。完了したタスクも主タスクにできる。"
+    }
+  },
   "v": 3,
   "createdOnFiles": {
     "v": 1,
@@ -508,5 +645,10 @@
       "copiedAt": "2026-11-15T10:37:15Z"
     }
   ],
-  "noteOrder": []
+  "noteOrder": [
+    "diffHtMain",
+    "diffHtTaskLinks",
+    "diffHtRunning",
+    "diffHtTasks"
+  ]
 }

@@ -151,7 +151,7 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"actionLine":{"editor":null},"$preview":{"width":880,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"$preview":{"width":880,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const variant = this.props.variant ?? 'question';
@@ -170,11 +170,17 @@ class Component extends DCLogic {
       review: { main: pr(2049, '配信前のチェックを追加する', 'example/web-app', 'passed'), others: [] }
     }[variant] ?? { main: pr(2047, '', '', 'running'), others: [] };
     if (this.props.ciFailing) P.main = { ...P.main, ...CI.failing };
-    // mergeState: the merge confirmed on this branch's PR. Its Merge in the header and in the list shows it until the PR refreshes.
+    // mergeState: the merge confirmed on PR #mergeTarget (default: this branch's PR), shown on that PR's Merge until the PR refreshes.
     const mergeState = this.props.mergeState ?? 'idle';
-    P.main = { ...P.main, mergeState, can: P.main.can || mergeState !== 'idle' };
-    if (mergeState === 'merged' || mergeState === 'alreadyMerged') P.main = { ...P.main, dot: '#52525b', ci: 'Merged', word: 'merged' };
-    const row = (r) => ({ mergeState: 'idle', ...r, showMerge: r.can, showMeta: !r.can, meta: r.can ? r.meta : r.why, metaColor: r.can ? r.metaColor : '#8b8b94' });
+    const mergeTarget = this.props.mergeTarget ?? P.main.num;
+    const withMerge = (r) => {
+      if (r.num !== mergeTarget || mergeState === 'idle') return { ...r, mergeState: 'idle' };
+      const merged = mergeState === 'merged' || mergeState === 'alreadyMerged';
+      return { ...r, mergeState, can: true, ...(merged ? { dot: '#52525b', ci: 'Merged', word: 'merged' } : {}) };
+    };
+    P.main = withMerge(P.main);
+    P.others = P.others.map(withMerge);
+    const row = (r) => ({ ...r, showMerge: r.can, showMeta: !r.can, meta: r.can ? r.meta : r.why, metaColor: r.can ? r.metaColor : '#8b8b94' });
     const morePrs = P.others.length;
     const q = variant === 'question';
     const w = variant === 'working';
@@ -251,7 +257,7 @@ class Component extends DCLogic {
       prBg: prsOpen ? '#262626' : 'transparent',
       prAria: 'PR #' + P.main.num + ' ' + P.main.title + ', ' + P.main.word + (morePrs > 0 ? '. ' + morePrs + ' more PR from this session' : ''),
       headerMerge: P.main.can,
-      mergeState,
+      mergeState: P.main.mergeState,
       actionLine: this.props.actionLine ?? null,
       hasActionLine: !!this.props.actionLine,
       prGroups: [{ name: 'This branch', rows: [P.main].map(row) }].concat(morePrs > 0 ? [{ name: 'Opened elsewhere', rows: P.others.map(row) }] : []),

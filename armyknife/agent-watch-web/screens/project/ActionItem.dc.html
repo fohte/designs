@@ -96,7 +96,7 @@ class Component extends DCLogic {
       msg, hasMsg: !!msg,
       time: a.time ?? '', hasTime: !!a.time,
       // Running toasts stay until they finish; failures stay until dismissed; the rest leave on their own.
-      autoDismiss: W.icon === 'ok' || W.icon === 'queue',
+      autoDismiss: W.icon === 'ok' || W.icon === 'done' || W.icon === 'queue',
       fs: phone ? '14px' : '13px', subFs: phone ? '13px' : '12px',
       btnH: phone ? '44px' : '26px', lineBtnH: phone ? '44px' : '24px', retryW: phone ? '88px' : '0',
       actCols: phone ? '1fr 1fr' : 'max-content max-content',

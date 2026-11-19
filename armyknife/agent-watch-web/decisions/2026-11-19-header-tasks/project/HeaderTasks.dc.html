@@ -68,7 +68,7 @@ class Component extends DCLogic {
     const o = this.props.option ?? 'a';
     const pop = o === 'now' && (this.props.popover ?? false);
     const hl = this.props.highlight ?? false;
-    const tabs = [['Running', '1'], ['Tasks', '2'], ['Tree', '3'], ['Review', ''], ['Decisions', '']].map(([name, count]) => {
+    const tabs = [['Running', '1'], ['Tasks', '4'], ['Tree', '3'], ['Review', ''], ['Decisions', '']].map(([name, count]) => {
       const sel = name === 'Tasks';
       return { name, count, sel: sel ? 'true' : 'false', line: sel ? '#fafafa' : 'transparent', color: sel ? '#fafafa' : '#8b8b94', countColor: sel && name === 'Tasks' ? '#60a5fa' : '#71717a' };
     });

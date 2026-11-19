@@ -14,7 +14,7 @@
   "notes": {
     "current": {"kind": "title1", "x": 0, "y": -260, "maxW": 2560, "page": "options", "text": "Current · ヘッダーの +1 tasks ▾ と、右のパネルの Tasks に同じ一覧と Make primary がある"},
     "options": {"kind": "title1", "x": 0, "y": 640, "maxW": 3880, "page": "options", "text": "案 · Make primary は右のパネルの Tasks だけにまとめる。ヘッダーに何を残すか"},
-    "phone": {"x": 3960, "y": 900, "maxW": 360, "page": "options", "text": "iPhone の会話のヘッダーには今も tq タスクを出していないので、どの案でも変わらない。"}
+    "phone": {"x": 3960, "y": 900, "maxW": 360, "page": "options", "text": "iPhone の会話のヘッダーは主タスクの名前だけを出し、+N tasks ▾ もポップオーバーもないので、どの案でも変わらない。"}
   },
   "noteOrder": ["current", "options", "phone"]
 }

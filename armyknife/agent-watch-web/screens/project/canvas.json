@@ -664,6 +664,14 @@
       "h": 60,
       "title": "Before · StatusBand",
       "page": "components"
+    },
+    "ConversationDone.dc.html": {
+      "x": 7020,
+      "y": 3320,
+      "w": 1440,
+      "h": 900,
+      "title": "会話 · Done のセッション (ヘッダーの Close で確認なしに閉じる)",
+      "page": "conversation"
     }
   },
   "order": [
@@ -749,7 +757,8 @@
     "before/BeforeSessionRow.dc.html",
     "before/BeforeQuota.dc.html",
     "before/BeforeSessionUsage.dc.html",
-    "before/BeforeStatusBand.dc.html"
+    "before/BeforeStatusBand.dc.html",
+    "ConversationDone.dc.html"
   ],
   "pages": [
     {
@@ -815,7 +824,7 @@
       "w": 640,
       "fill": "yellow",
       "page": "conversation",
-      "text": "右隣の「Before ·」が変更前。違い:\n- vibe mode のポップオーバー: 会話のヘッダーの Merge の右に ⋯ が増えた\n- vibe mode のポップオーバーとシート、確認ダイアログは共通部品 ConfirmDialog に置き換えた。見た目は同じなので Before なし\n- 下の行は新しい画面 (Before なし): ⋯ を開いたところ、確認ダイアログ、Inbox の e、状態ごとの文言、iPhone のメニューと確認のシート"
+      "text": "右隣の「Before ·」が変更前。違い:\n- vibe mode のポップオーバー: 会話のヘッダーの Merge の右に ⋯ が増えた (Done 以外のとき)\n- vibe mode のポップオーバーとシート、確認ダイアログは共通部品 ConfirmDialog に置き換えた。見た目は同じなので Before なし\n- 下の行は新しい画面 (Before なし): ⋯ を開いたところ、確認ダイアログ、Inbox の e、状態ごとの文言、iPhone のメニューと確認のシート、Done のセッション (⋯ の代わりにヘッダーの Close で、確認なしに閉じる)"
     },
     "diffClose-components": {
       "x": 0,

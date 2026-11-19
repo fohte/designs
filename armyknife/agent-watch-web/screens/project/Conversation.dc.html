@@ -40,7 +40,7 @@ a{color:#ef4444}
 </sc-if>
 </span>
 <button type="button" aria-label="{{mergeAria}}" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Merge</button>
-<sc-if value="{{live}}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{showMenu}}" hint-placeholder-val="{{ true }}">
 <span style="position: relative; display: inline-flex">
 <button type="button" aria-label="More actions" title="More actions" aria-haspopup="menu" aria-expanded="{{menuOpenStr}}" style="width: 28px; height: 26px; display: grid; place-items: center; padding: 0; border: 1px solid {{menuBorder}}; background: {{menuBg}}; color: #d4d4d8"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
 <sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
@@ -51,6 +51,9 @@ a{color:#ef4444}
 </div>
 </sc-if>
 </span>
+</sc-if>
+<sc-if value="{{showDoneClose}}" hint-placeholder-val="{{ false }}">
+<button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Close</button>
 </sc-if>
 <button type="button" aria-label="Open in terminal" title="Open in terminal" style="width: 28px; height: 26px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 11 2-2-2-2"></path><path d="M11 13h4"></path><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect></svg></button>
 </div>
@@ -144,7 +147,7 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"$preview":{"width":880,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const variant = this.props.variant ?? 'question';
@@ -203,6 +206,9 @@ class Component extends DCLogic {
       vibeColor: vibeOn || vibeOpen ? '#fafafa' : '#a1a1aa',
       ended: ended !== 'no',
       live: ended === 'no',
+      // Done closes from the header right away; other states go through the ⋯ menu and a confirmation.
+      showMenu: ended === 'no' && !(this.props.done ?? false),
+      showDoneClose: ended === 'no' && (this.props.done ?? false),
       resuming,
       notResuming: !resuming,
       endedHint: resuming ? 'Resuming…' : 'Resume it to keep talking',

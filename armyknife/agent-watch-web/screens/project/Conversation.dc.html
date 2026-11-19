@@ -210,8 +210,8 @@ class Component extends DCLogic {
       ended: ended !== 'no',
       live: ended === 'no',
       // Done closes from the header right away; other states go through the ⋯ menu and a confirmation.
-      showMenu: ended === 'no' && !(this.props.done ?? false),
-      showDoneClose: ended === 'no' && (this.props.done ?? false),
+      showMenu: !(this.props.done ?? false),
+      showDoneClose: this.props.done ?? false,
       resuming,
       notResuming: !resuming,
       endedHint: resuming ? 'Resuming…' : 'Resume it to keep talking',

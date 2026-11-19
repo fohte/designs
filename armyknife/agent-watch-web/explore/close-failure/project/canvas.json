@@ -28,6 +28,7 @@
     "close-failure-kinds.dc.html": { "x": 0, "y": 5200, "w": 1440, "h": 820, "title": "エラーの種類ごとの文言 (A / B 共通)", "page": "options" },
 
     "CloseFailure.dc.html": { "x": 0, "y": 0, "w": 400, "h": 220, "title": "CloseFailure", "page": "parts" },
+    "CloseChecks.dc.html": { "x": 0, "y": 820, "w": 408, "h": 170, "title": "CloseChecks", "page": "parts" },
     "ActionItem.dc.html": { "x": 480, "y": 0, "w": 360, "h": 110, "title": "ActionItem", "page": "parts" },
     "ToastStack.dc.html": { "x": 480, "y": 230, "w": 360, "h": 240, "title": "ToastStack", "page": "parts" },
     "Activity.dc.html": { "x": 480, "y": 590, "w": 400, "h": 360, "title": "Activity", "page": "parts" },
@@ -59,6 +60,7 @@
     "close-failure-c-phone.dc.html",
     "close-failure-kinds.dc.html",
     "CloseFailure.dc.html",
+    "CloseChecks.dc.html",
     "ActionItem.dc.html",
     "ToastStack.dc.html",
     "Activity.dc.html",

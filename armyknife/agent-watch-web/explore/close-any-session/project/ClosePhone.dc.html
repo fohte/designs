@@ -14,7 +14,7 @@ body{margin:0}
 </style>
 </helmet>
 <main style="position: relative; width: 100%; height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.55">
-<header style="flex: none; display: grid; grid-template-columns: 44px 1fr auto; align-items: center; column-gap: 4px; padding: 6px 8px 6px 0; border-bottom: 1px solid #2a2a2a">
+<header style="flex: none; display: grid; grid-template-columns: 44px 1fr auto; align-items: center; column-gap: 4px; padding: max(6px, env(safe-area-inset-top)) 8px 6px 0; border-bottom: 1px solid #2a2a2a">
 <button type="button" aria-label="Back to Inbox" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
 <h1 style="margin: 0; min-width: 0; font-size: 15px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{c.title}}</h1>
 <div style="display: flex; align-items: center; gap: 8px">
@@ -63,7 +63,7 @@ body{margin:0}
 <span style="padding-left: 15px; font-size: 11.5px; color: #a1a1aa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">再試行は 3 回で止めてよいですか?</span>
 </div>
 </sc-if>
-<form style="flex: none; display: grid; grid-template-columns: 1fr 44px; gap: 8px; padding: 10px 12px 30px; border-top: 1px solid #2a2a2a; background: #141414">
+<form style="flex: none; display: grid; grid-template-columns: 1fr 44px; gap: 8px; padding: 10px 12px max(30px, env(safe-area-inset-bottom)); border-top: 1px solid #2a2a2a; background: #141414">
 <textarea aria-label="Message" rows="1" placeholder="Message the session" style="min-height: 44px; box-sizing: border-box; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: 16px; resize: none; outline: none"></textarea>
 <button type="submit" aria-label="Send message" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
 </form>

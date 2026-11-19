@@ -76,7 +76,7 @@ body{margin:0}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"kind":{"editor":"enum","options":["working","question","proposal","approve","review","idle"],"default":"working"},"form":{"editor":"enum","options":["modal","popover","sheet","row","menu"],"default":"modal"},"keys":{"editor":"boolean","default":false},"title":{"editor":null},"$preview":{"width":360,"height":200}}'>
+<script type="text/x-dc" data-dc-script data-props='{"kind":{"editor":"enum","options":["working","question","proposal","approve","review","plan","error","later","idle"],"default":"working"},"form":{"editor":"enum","options":["modal","popover","sheet","row","menu"],"default":"modal"},"keys":{"editor":"boolean","default":false},"title":{"editor":null},"$preview":{"width":360,"height":200}}'>
 class Component extends DCLogic {
   renderVals() {
     const kind = this.props.kind ?? 'working';
@@ -89,6 +89,9 @@ class Component extends DCLogic {
       proposal: { state: 'Proposal', dot: '#fbbf24', round: false, stateColor: '#fbbf24', head: 'Close without choosing?', body: 'It is waiting for you to choose a proposal. Closing ends the session, and the proposal stays unchosen.', short: 'Waiting for you to choose a proposal. It stays unchosen.', action: 'Close session', actionShort: 'Close' },
       approve: { state: 'Approve', dot: '#fbbf24', round: false, stateColor: '#fbbf24', head: 'Close without allowing?', body: 'It is waiting for permission to run a command. Closing ends the session without running it.', short: 'Waiting for permission. The command does not run.', action: 'Close session', actionShort: 'Close' },
       review: { state: 'Review', dot: '#fbbf24', round: false, stateColor: '#fbbf24', head: 'Close before reviewing?', body: 'It is waiting for your review of PR #2049. Closing ends the session; the PR stays open.', short: 'Waiting for your review. The PR stays open.', action: 'Close session', actionShort: 'Close' },
+      plan: { state: 'Plan', dot: '#fbbf24', round: false, stateColor: '#fbbf24', head: 'Close without confirming the plan?', body: 'It is waiting for you to confirm its plan. Closing ends the session before any of the plan is carried out.', short: 'Waiting for you to confirm the plan. Nothing in it runs.', action: 'Close session', actionShort: 'Close' },
+      error: { state: 'Error', dot: '#f87171', round: false, stateColor: '#f87171', head: 'Close with the error unresolved?', body: 'Its last run failed (the test exited with code 101). Closing ends the session without fixing it.', short: 'The last run failed. It stays unfixed.', action: 'Close session', actionShort: 'Close' },
+      later: { state: 'Later', dot: '#a1a1aa', round: true, stateColor: '#a1a1aa', head: 'Close this session?', body: 'You set it aside for later. Closing ends the session, and it leaves Later.', short: 'Set aside for later. It leaves Later.', action: 'Close session', actionShort: 'Close' },
       idle: { state: 'Waiting', dot: '#a1a1aa', round: true, stateColor: '#a1a1aa', head: 'Close this session?', body: 'It is waiting for your next message. Closing ends the session.', short: 'Waiting for your next message.', action: 'Close session', actionShort: 'Close' }
     }[kind];
     return {

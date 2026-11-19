@@ -33,7 +33,7 @@
     "close-any-session-c-phone-confirm.dc.html": { "x": 5030, "y": 3900, "w": 390, "h": 844, "title": "C · iPhone · Close session… を押したあと", "page": "options" },
 
     "close-any-session-palette.dc.html": { "x": 0, "y": 5200, "w": 1440, "h": 900, "title": "共通 · パレットに Close this session", "page": "options" },
-    "close-any-session-copy.dc.html": { "x": 1520, "y": 5200, "w": 1440, "h": 900, "title": "共通 · 状態ごとの確認の文言", "page": "options" },
+    "close-any-session-copy.dc.html": { "x": 1520, "y": 5200, "w": 1440, "h": 1340, "title": "共通 · 状態ごとの確認の文言", "page": "options" },
 
     "CloseDesk.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "CloseDesk", "page": "parts" },
     "ClosePhone.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "ClosePhone", "page": "parts" },

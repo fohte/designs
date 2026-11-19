@@ -13,8 +13,8 @@
 body{margin:0}
 </style>
 </helmet>
-<div style="width: 1440px; height: 900px; box-sizing: border-box; display: grid; grid-template-columns: repeat(3, 380px); grid-auto-rows: min-content; justify-content: center; align-content: center; gap: 40px 56px; padding: 48px; background: #050505; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
-<sc-for list="{{kinds}}" as="k" hint-placeholder-count="6">
+<div style="width: 1440px; height: 1340px; box-sizing: border-box; display: grid; grid-template-columns: repeat(3, 380px); grid-auto-rows: min-content; justify-content: center; align-content: center; gap: 40px 56px; padding: 48px; background: #050505; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+<sc-for list="{{kinds}}" as="k" hint-placeholder-count="9">
 <div style="display: flex; flex-direction: column; gap: 10px">
 <span style="font-size: 12px; color: #a1a1aa">{{k.label}}</span>
 <dc-import name="CloseConfirm" kind="{{k.kind}}" form="modal" title="{{k.title}}" hint-size="100%,200px"></dc-import>
@@ -26,7 +26,7 @@ body{margin:0}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1340}}'>
 class Component extends DCLogic {
   renderVals() {
     return {
@@ -35,8 +35,11 @@ class Component extends DCLogic {
         { kind: 'question', label: 'Needs action · Question', title: '通知の再送処理を見直す' },
         { kind: 'proposal', label: 'Needs action · Proposal', title: 'アラートの送り先を決める' },
         { kind: 'approve', label: 'Needs action · Approve', title: 'ステージングの設定を書き換える' },
-        { kind: 'review', label: 'Needs action · Review / Plan', title: '配信チェックの PR を確認する' },
-        { kind: 'idle', label: 'Waiting · Error, Later, idle', title: '統合テストの失敗を直す' }
+        { kind: 'review', label: 'Needs action · Review', title: '配信チェックの PR を確認する' },
+        { kind: 'plan', label: 'Needs action · Plan', title: '段階的な公開の計画を立てる' },
+        { kind: 'error', label: 'Needs action · Error', title: '統合テストの失敗を直す' },
+        { kind: 'later', label: 'Later', title: 'ログの保存期間を見直す' },
+        { kind: 'idle', label: 'Waiting', title: 'README の手順を直す' }
       ]
     };
   }

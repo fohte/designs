@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Close confirmation copy by state</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1340px; box-sizing: border-box; display: grid; grid-template-columns: repeat(3, 380px); grid-auto-rows: min-content; justify-content: center; align-content: center; gap: 40px 56px; padding: 48px; background: #050505; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+<sc-for list="{{kinds}}" as="k" hint-placeholder-count="9">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; color: #a1a1aa">{{k.label}}</span>
+<dc-import name="ConfirmDialog" form="modal" head="{{k.head}}" body="{{k.body}}" action="{{k.action}}" session="{{ k.session }}" hint-size="100%,200px"></dc-import>
+</div>
+</sc-for>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; color: #a1a1aa">Done</span>
+<div style="box-sizing: border-box; padding: 16px; border: 1px dashed #3f3f46; border-radius: 8px; color: #d4d4d8; font-size: 12px">No confirmation. Close ends the session right away.</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1340}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = (state, dot, round, title) => ({ state, dot, round, color: dot, title });
+    // The heading names what closing throws away: the work in progress for Working, the pending ask for the rest.
+    return {
+      kinds: [
+        { label: 'Working', session: s('Working · 18s', '#60a5fa', true, '配信メトリクスを追加する'), head: 'Stop and close this session?', body: 'It is working now. Closing stops the work in progress and ends the session.', action: 'Stop and close' },
+        { label: 'Needs action · Question', session: s('Question', '#fbbf24', false, '通知の再送処理を見直す'), head: 'Close without answering?', body: 'It is waiting for your answer to a question. Closing ends the session, and the question stays unanswered.', action: 'Close session' },
+        { label: 'Needs action · Proposal', session: s('Proposal', '#fbbf24', false, 'アラートの送り先を決める'), head: 'Close without choosing?', body: 'It is waiting for you to choose a proposal. Closing ends the session, and the proposal stays unchosen.', action: 'Close session' },
+        { label: 'Needs action · Approve', session: s('Approve', '#fbbf24', false, 'ステージングの設定を書き換える'), head: 'Close without allowing?', body: 'It is waiting for permission to run a command. Closing ends the session without running it.', action: 'Close session' },
+        { label: 'Needs action · Review', session: s('Review', '#fbbf24', false, '配信チェックの PR を確認する'), head: 'Close before reviewing?', body: 'It is waiting for your review of PR #2049. Closing ends the session; the PR stays open.', action: 'Close session' },
+        { label: 'Needs action · Plan', session: s('Plan', '#fbbf24', false, '段階的な公開の計画を立てる'), head: 'Close without confirming the plan?', body: 'It is waiting for you to confirm its plan. Closing ends the session before any of the plan is carried out.', action: 'Close session' },
+        { label: 'Needs action · Error', session: s('Error', '#f87171', false, '統合テストの失敗を直す'), head: 'Close with the error unresolved?', body: 'Its last run failed (the test exited with code 101). Closing ends the session without fixing it.', action: 'Close session' },
+        { label: 'Later', session: s('Later', '#a1a1aa', true, 'ログの保存期間を見直す'), head: 'Close this session?', body: 'You set it aside for later. Closing ends the session, and it leaves Later.', action: 'Close session' },
+        { label: 'Waiting', session: s('Waiting', '#a1a1aa', true, 'README の手順を直す'), head: 'Close this session?', body: 'It is waiting for your next message. Closing ends the session.', action: 'Close session' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

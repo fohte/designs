@@ -49,7 +49,7 @@ class Component extends DCLogic {
         { title: 'Inbox', items: [
           'Needs action を tq の優先度順に並べ、未読は太字で示します。',
           'Later に回したもの、In progress (先頭 2 件)、Done を下に続けます。Done は Close all でまとめて閉じます。',
-          'j / k で移動し、L で Later、E で閉じます。'
+          'j / k で移動し、L で Later、E で閉じます。E は Done 以外の行でも効き、閉じる前に確認を出します。'
         ] },
         { title: '絞り込み', items: [
           '/ で絞り込みのダイアログを開き、project / kind / task / repo / engine で選びます。',
@@ -57,8 +57,9 @@ class Component extends DCLogic {
         ] },
         { title: '会話', items: [
           'メッセージは最大 672px の列に中央寄せで並べます。返事を待つカードも会話の中に出します (composer の上には固定しません)。',
-          'ヘッダーに tq タスク、repo、親セッション、PR、ターミナルで開くボタンを置きます。このブランチの PR をマージできるときだけ、PR の右に Merge を出します。',
+          'ヘッダーに tq タスク、repo、親セッション、PR、ターミナルで開くボタンを置きます。PC では、このブランチの PR をマージできるときだけ、PR の右に Merge を出します。iPhone のヘッダーには Merge を出さず、PR の一覧から merge します。',
           'PR の一覧では、マージできる PR の行に Merge を出し、マージできない行にはその理由を出します。',
+          'Done のセッションは PC ではヘッダーの Close、iPhone では ⋯ のメニューの Close ですぐ閉じます。それ以外はヘッダーの ⋯ (iPhone は ⋯ のメニューの一番下) の赤い Close session… から閉じ、Merge と同じ中央の確認ダイアログ (iPhone は下からのシート) を出します。確認の文言は状態ごとに変えます。',
           '返信欄の上に、会話欄の幅いっぱいの帯で今の状態を出します。状態と詳細 (質問の文、実行中のコマンド、タスク名) を 1 行にまとめ、はみ出た詳細は … で切ります。帯を押すと詳細を全部出し、質問と permission では会話の中のカードに戻ります。crit のレビュー待ちだけは 2 行の帯にし、Review in crit で crit を全画面で開きます。止まっているときは帯を出しません。',
           '↵ で送り、Esc で止め、⌥↑ / ⌥↓ で自分のメッセージをたどります。',
           '返信欄の下に status line と同じ並びで engine、model (effort)、context、5h / 7d の quota (7d 76% → 92% の形で、今の使用率と窓の終わりの予測。色はナビと同じ)、バージョンを出します。表示だけで、押しても何も起きません。iPhone では折り返します。'
@@ -78,7 +79,8 @@ class Component extends DCLogic {
         ] },
         { title: 'Board と ⌘K', items: [
           'Board はプロジェクトごとの列で、手が要るプロジェクトを先に並べます。',
-          '⌘K はセッション、tq タスク (#)、プロジェクト (@)、コマンド (>) を探して開きます。'
+          '⌘K はセッション、tq タスク (#)、プロジェクト (@)、コマンド (>) を探して開きます。',
+          'コマンドの Close this session は開いている会話を閉じ、Done 以外では確認を出します。Close all done は Done だけを確認なしで閉じます。'
         ] },
         { title: '色', items: [
           '黄色は返事待ち、青は実行中、赤は失敗、緑は ! コマンドの成功です。',

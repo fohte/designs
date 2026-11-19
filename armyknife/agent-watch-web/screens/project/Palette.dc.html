@@ -53,14 +53,15 @@ body{margin:0}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"scope":{"editor":"enum","options":["all","tasks"],"default":"all"},"$preview":{"width":1440,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"scope":{"editor":"enum","options":["all","tasks","close"],"default":"all"},"$preview":{"width":1440,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const scope = this.props.scope ?? 'all';
     const tasks = scope === 'tasks';
+    const close = scope === 'close';
     const scopes = [['all', 'All'], ['sessions', 'Sessions'], ['tasks', 'tq tasks #'], ['projects', 'Projects @'], ['commands', 'Commands >']]
       .map(([id, label]) => {
-        const on = id === scope;
+        const on = id === scope || (close && id === 'commands');
         return { label, selected: on ? 'true' : 'false', color: on ? '#fafafa' : '#a1a1aa', weight: on ? 700 : 400, underline: on ? '#fafafa' : 'transparent' };
       });
     let first = true;
@@ -71,7 +72,13 @@ class Component extends DCLogic {
     const it = (glyph, title, sub) => pick({ isOther: true, isSession: false, glyph, title, sub });
     const ses = (status, unread, title, age, role, engine, taskRef, taskTitle, repo) =>
       pick({ isSession: true, isOther: false, pad: '6px 16px 7px', status, unread, title, age, role, engine, taskRef, taskTitle, repo });
-    const groups = tasks ? [
+    // Close this session acts on the open conversation; only a Done session closes without asking.
+    const groups = close ? [
+      { title: 'COMMANDS', items: [
+        it('›', 'Close this session', '通知の再送処理を見直す · Question · Asks before closing'),
+        it('›', 'Close all done', 'Close every done session')
+      ] }
+    ] : tasks ? [
       { title: 'TQ TASKS', items: [
         it('#', '#2048 通知の信頼性を上げる', 'P1 · 3 sessions'),
         it('#', '#2050 配信チェックを入れる', 'P2 · 1 session'),
@@ -93,7 +100,7 @@ class Component extends DCLogic {
         it('›', 'Close all done', '')
       ] }
     ];
-    return { query: tasks ? '#20' : '', scopes, groups };
+    return { query: tasks ? '#20' : close ? '>close' : '', scopes, groups };
   }
 }
 </script>

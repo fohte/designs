@@ -409,6 +409,78 @@
       "title": "DeniedCard",
       "page": "components"
     },
+    "PaletteClose.dc.html": {
+      "x": 7020,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "コマンドパレット · Close this session",
+      "page": "palette"
+    },
+    "CloseMenu.dc.html": {
+      "x": 0,
+      "y": 4080,
+      "w": 1440,
+      "h": 900,
+      "title": "会話のヘッダー · Done 以外は ⋯ に Close session…",
+      "page": "conversation"
+    },
+    "PhoneChatClose.dc.html": {
+      "x": 1520,
+      "y": 4080,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Done 以外のメニューに Close session…",
+      "page": "conversation"
+    },
+    "CloseConfirm.dc.html": {
+      "x": 1990,
+      "y": 4080,
+      "w": 1440,
+      "h": 900,
+      "title": "Close session… を押したあと",
+      "page": "conversation"
+    },
+    "PhoneChatCloseConfirm.dc.html": {
+      "x": 3510,
+      "y": 4080,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Close session… を押したあと",
+      "page": "conversation"
+    },
+    "CloseInbox.dc.html": {
+      "x": 3980,
+      "y": 4080,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox で Review の行に e",
+      "page": "conversation"
+    },
+    "CloseCopy.dc.html": {
+      "x": 5500,
+      "y": 4080,
+      "w": 1440,
+      "h": 1340,
+      "title": "閉じる前の確認 · 状態ごとの文言",
+      "page": "conversation"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 4340,
+      "y": 0,
+      "w": 380,
+      "h": 200,
+      "title": "ConfirmDialog",
+      "page": "components"
+    },
+    "ConversationDone.dc.html": {
+      "x": 7020,
+      "y": 4080,
+      "w": 1440,
+      "h": 900,
+      "title": "会話 · Done のセッション (ヘッダーの Close で確認なしに閉じる)",
+      "page": "conversation"
+    },
     "before/BeforeMain.dc.html": {
       "x": 1520,
       "y": 0,
@@ -441,8 +513,16 @@
       "title": "Before · 状況パネル · Tasks",
       "page": "status-panel"
     },
-    "before/BeforeConversation.dc.html": {
+    "before/BeforeConfirmDialog.dc.html": {
       "x": 0,
+      "y": 1160,
+      "w": 380,
+      "h": 200,
+      "title": "Before · ConfirmDialog",
+      "page": "components"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 460,
       "y": 1160,
       "w": 880,
       "h": 900,
@@ -450,7 +530,7 @@
       "page": "components"
     },
     "before/BeforeInboxList.dc.html": {
-      "x": 960,
+      "x": 1420,
       "y": 1160,
       "w": 460,
       "h": 900,
@@ -458,7 +538,7 @@
       "page": "components"
     },
     "before/BeforeNav.dc.html": {
-      "x": 1500,
+      "x": 1960,
       "y": 1160,
       "w": 240,
       "h": 900,
@@ -466,7 +546,7 @@
       "page": "components"
     },
     "before/BeforeQuota.dc.html": {
-      "x": 1820,
+      "x": 2280,
       "y": 1160,
       "w": 240,
       "h": 140,
@@ -474,7 +554,7 @@
       "page": "components"
     },
     "before/BeforeSessionRow.dc.html": {
-      "x": 2140,
+      "x": 2600,
       "y": 1160,
       "w": 460,
       "h": 76,
@@ -482,7 +562,7 @@
       "page": "components"
     },
     "before/BeforeSessionUsage.dc.html": {
-      "x": 2680,
+      "x": 3140,
       "y": 1160,
       "w": 672,
       "h": 40,
@@ -490,7 +570,7 @@
       "page": "components"
     },
     "before/BeforeStatusBand.dc.html": {
-      "x": 3432,
+      "x": 3892,
       "y": 1160,
       "w": 760,
       "h": 60,
@@ -498,7 +578,7 @@
       "page": "components"
     },
     "before/BeforeStatusPanel.dc.html": {
-      "x": 4272,
+      "x": 4732,
       "y": 1160,
       "w": 640,
       "h": 900,
@@ -558,10 +638,20 @@
     "ConversationPrs.dc.html",
     "PhoneChatVibe.dc.html",
     "DeniedCard.dc.html",
+    "PaletteClose.dc.html",
+    "CloseMenu.dc.html",
+    "PhoneChatClose.dc.html",
+    "CloseConfirm.dc.html",
+    "PhoneChatCloseConfirm.dc.html",
+    "CloseInbox.dc.html",
+    "CloseCopy.dc.html",
+    "ConfirmDialog.dc.html",
+    "ConversationDone.dc.html",
     "before/BeforeMain.dc.html",
     "before/BeforeTaskLinks.dc.html",
     "before/BeforeStatusRunning.dc.html",
     "before/BeforeStatusTasks.dc.html",
+    "before/BeforeConfirmDialog.dc.html",
     "before/BeforeConversation.dc.html",
     "before/BeforeInboxList.dc.html",
     "before/BeforeNav.dc.html",
@@ -598,6 +688,13 @@
     }
   ],
   "notes": {
+    "confirmDialogUsers": {
+      "x": 4340,
+      "y": 320,
+      "w": 420,
+      "page": "components",
+      "text": "ConfirmDialog: 確認ダイアログの共通部品。form で形を選ぶ\n- modal: Merge の確認 (確認ダイアログ)、閉じる前の確認 (Close session… を押したあと、Inbox の e、状態ごとの文言)\n- popover: 会話のヘッダーの vibe mode\n- sheet: iPhone の vibe mode、iPhone の閉じる前の確認\n- panel: ! コマンドの確認 (確認ダイアログ)"
+    },
     "diffHtMain": {
       "x": 1520,
       "y": -260,
@@ -646,6 +743,7 @@
     }
   ],
   "noteOrder": [
+    "confirmDialogUsers",
     "diffHtMain",
     "diffHtTaskLinks",
     "diffHtRunning",

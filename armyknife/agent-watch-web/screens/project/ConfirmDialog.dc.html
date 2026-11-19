@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Confirmation dialog</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+
+<sc-if value="{{isModal}}" hint-placeholder-val="{{ true }}">
+<section role="dialog" aria-modal="true" aria-label="{{head}}" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 16px; background: #0f0f0f; border: 1px solid #1a1a1a; border-radius: 8px; box-shadow: 0 12px 36px rgba(0, 0, 0, 0.24); font-size: 12px">
+<h3 style="margin: 0; font-size: 13px; font-weight: 700">{{head}}</h3>
+<sc-if value="{{hasSession}}" hint-placeholder-val="{{ true }}"><div style="display: flex; align-items: center; gap: 8px; min-width: 0"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{s.radius}}; background: {{s.dot}}"></span><span style="flex: none; color: {{s.color}}">{{s.state}}</span><span style="min-width: 0; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{s.title}}</span></div></sc-if>
+<p style="margin: 0; color: #d4d4d8">{{body}}</p>
+<sc-if value="{{hasCode}}" hint-placeholder-val="{{ false }}"><code style="overflow-wrap: anywhere; color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 10px">{{code}}</code></sc-if>
+<div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-top: 4px">
+<sc-if value="{{hasKeys}}" hint-placeholder-val="{{ false }}"><span style="margin-right: auto; color: #8b8b94; font-size: 11.5px">{{keys}}</span></sc-if>
+<button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">{{cancel}}</button>
+<sc-if value="{{hasAction}}" hint-placeholder-val="{{ true }}"><button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">{{action}}</button></sc-if>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isPopover}}" hint-placeholder-val="{{ false }}">
+<section role="dialog" aria-label="{{head}}" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 14px 16px; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%); color: #d4d4d8; font-size: 13px">
+<h2 style="margin: 0; color: #fafafa; font-size: 13px; font-weight: 700">{{head}}</h2>
+<p style="margin: 0">{{body}}</p>
+<sc-if value="{{hasQuote}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="color: #a1a1aa; font-size: 11.5px">{{quote.label}}</span>
+<blockquote style="margin: 0; padding: 8px 10px; border: 1px solid #2a2a2a; background: #141414; color: #d4d4d8; font-size: 12.5px">{{quote.text}}</blockquote>
+</div>
+</sc-if>
+<div style="display: flex; justify-content: flex-end; gap: 8px">
+<button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">{{cancel}}</button>
+<sc-if value="{{hasAction}}" hint-placeholder-val="{{ true }}"><button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">{{action}}</button></sc-if>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isSheet}}" hint-placeholder-val="{{ false }}">
+<section role="dialog" aria-modal="true" aria-label="{{head}}" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 18px 16px 30px; border-top: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 -12px 36px rgb(0 0 0 / 30%); color: #d4d4d8; font-size: 14px">
+<h2 style="margin: 0; color: #fafafa; font-size: 15px; font-weight: 700">{{head}}</h2>
+<sc-if value="{{hasSession}}" hint-placeholder-val="{{ false }}"><div style="display: flex; align-items: center; gap: 8px; min-width: 0; font-size: 13px"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{s.radius}}; background: {{s.dot}}"></span><span style="flex: none; color: {{s.color}}">{{s.state}}</span><span style="min-width: 0; color: #fafafa; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{s.title}}</span></div></sc-if>
+<p style="margin: 0">{{body}}</p>
+<sc-if value="{{hasQuote}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="color: #a1a1aa; font-size: 12.5px">{{quote.label}}</span>
+<blockquote style="margin: 0; padding: 8px 10px; border: 1px solid #2a2a2a; background: #141414; font-size: 13.5px">{{quote.text}}</blockquote>
+</div>
+</sc-if>
+<div style="display: grid; grid-template-columns: {{sheetCols}}; gap: 8px; margin-top: 4px">
+<button type="button" style="min-height: 44px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">{{cancel}}</button>
+<sc-if value="{{hasAction}}" hint-placeholder-val="{{ true }}"><button type="button" style="min-height: 44px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">{{action}}</button></sc-if>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isPanel}}" hint-placeholder-val="{{ false }}">
+<section role="dialog" aria-modal="true" aria-label="{{head}}" style="width: 100%; box-sizing: border-box; padding: 1.25rem; background: #1f1f1f; border: 1px solid #3f3f46; box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.25)">
+<h2 style="margin: 0; font-size: 1.1rem; font-weight: 700">{{head}}</h2>
+<p style="margin: 1rem 0 0; color: #d4d4d8">{{body}}</p>
+<dl style="margin: 1rem 0">
+<sc-for list="{{details}}" as="d" hint-placeholder-count="2">
+<dt style="margin-top: 0.75rem; font-weight: 700">{{d.term}}</dt>
+<dd style="margin: 0.25rem 0 0">
+<sc-if value="{{d.inline}}" hint-placeholder-val="{{ true }}"><code style="font-family: 'JetBrains Mono', monospace; font-size: 0.9em; color: #d4d4d8">{{d.value}}</code></sc-if>
+<sc-if value="{{d.block}}" hint-placeholder-val="{{ false }}"><pre style="margin: 0; padding: 10px 12px; background: #131313; border: 1px solid #262626; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #d4d4d8">{{d.value}}</pre></sc-if>
+</dd>
+</sc-for>
+</dl>
+<div style="display: flex; justify-content: flex-end; gap: 8px">
+<button type="button" style="min-height: 2rem; padding: 0.25rem 0.65rem; border: 1px solid #3f3f46; background: #1f1f1f; color: #fafafa; font-family: inherit; font-size: 0.8rem">{{cancel}}</button>
+<sc-if value="{{hasAction}}" hint-placeholder-val="{{ true }}"><button type="button" style="min-height: 2rem; padding: 0.25rem 0.65rem; border: 1px solid #3f3f46; background: #1f1f1f; color: #fafafa; font-family: inherit; font-size: 0.8rem">{{action}}</button></sc-if>
+</div>
+</section>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["modal","popover","sheet","panel"],"default":"modal"},"head":{"editor":"text","default":"Close without answering?"},"body":{"editor":"text","default":"It is waiting for your answer to a question. Closing ends the session, and the question stays unanswered."},"action":{"editor":"text","default":"Close session"},"cancel":{"editor":"text","default":"Cancel"},"keys":{"editor":"text","default":""},"code":{"editor":"text","default":""},"session":{"editor":null},"quote":{"editor":null},"details":{"editor":null},"$preview":{"width":380,"height":200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const form = this.props.form ?? 'modal';
+    const session = this.props.session ?? null;
+    const action = this.props.action ?? 'Close session';
+    const quote = this.props.quote ?? null;
+    const code = this.props.code ?? '';
+    const keys = this.props.keys ?? '';
+    return {
+      isModal: form === 'modal', isPopover: form === 'popover', isSheet: form === 'sheet', isPanel: form === 'panel',
+      head: this.props.head ?? 'Close without answering?',
+      body: this.props.body ?? 'It is waiting for your answer to a question. Closing ends the session, and the question stays unanswered.',
+      action, hasAction: !!action,
+      cancel: this.props.cancel ?? 'Cancel',
+      keys, hasKeys: !!keys,
+      code, hasCode: !!code,
+      hasSession: !!session,
+      s: session ? { ...session, radius: session.round ? '50%' : '0' } : {},
+      hasQuote: !!quote, quote: quote ?? {},
+      // A single button (no action) spans the sheet's whole width.
+      sheetCols: action ? '1fr 1fr' : '1fr',
+      details: (this.props.details ?? []).map((d) => ({ ...d, inline: !d.block, block: !!d.block }))
+    };
+  }
+}
+</script>
+</body>
+</html>

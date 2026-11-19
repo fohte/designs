@@ -34,6 +34,9 @@ body{margin:0}
 <button type="button" role="menuitem" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 14px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #fbbf24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg>Remove from Starred</button>
 <button type="button" role="menuitem" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 14px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #a1a1aa"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg>Copy session ID</button>
 <button type="button" role="menuitem" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 14px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #a1a1aa"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg>Edit title</button>
+<sc-if value="{{notDone}}" hint-placeholder-val="{{ false }}">
+<button type="button" role="menuitem" aria-haspopup="dialog" style="display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 14px; border: 0; border-top: 6px solid #141414; background: transparent; color: #f87171; font-family: inherit; font-size: 13px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>Close session…</button>
+</sc-if>
 </div>
 </sc-if>
 
@@ -94,28 +97,18 @@ body{margin:0}
 
 <sc-if value="{{vibeOpen}}" hint-placeholder-val="{{ false }}">
 <div style="position: absolute; inset: 0; z-index: 30; display: flex; flex-direction: column; justify-content: flex-end; background: rgba(0, 0, 0, 0.55)">
-<section role="dialog" aria-modal="true" aria-labelledby="vibe-sheet-title" style="display: flex; flex-direction: column; gap: 12px; padding: 18px 16px 30px; border-top: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 -12px 36px rgb(0 0 0 / 30%); color: #d4d4d8; font-size: 14px">
-<h2 id="vibe-sheet-title" style="margin: 0; color: #fafafa; font-size: 15px; font-weight: 700">{{vibeHead}}</h2>
-<p style="margin: 0">{{vibeBody}}</p>
-<sc-if value="{{vibeToggle}}" hint-placeholder-val="{{ true }}">
-<div style="display: flex; flex-direction: column; gap: 4px">
-<span style="color: #a1a1aa; font-size: 12.5px">Sent to the session</span>
-<blockquote style="margin: 0; padding: 8px 10px; border: 1px solid #2a2a2a; background: #141414; font-size: 13.5px">{{vibeSend}}</blockquote>
-</div>
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px">
-<button type="button" style="min-height: 44px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">Cancel</button>
-<button type="button" style="min-height: 44px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">{{vibeAction}}</button>
+<dc-import name="ConfirmDialog" form="sheet" head="{{vibeHead}}" body="{{vibeBody}}" quote="{{ vibeQuote }}" action="{{vibeAction}}" cancel="{{vibeCancel}}" hint-size="100%,300px"></dc-import>
 </div>
 </sc-if>
-<sc-if value="{{vibeBlocked}}" hint-placeholder-val="{{ false }}">
-<button type="button" style="min-height: 44px; margin-top: 4px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">Close</button>
-</sc-if>
-</section>
+
+<sc-if value="{{closeConfirm}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 30; display: flex; flex-direction: column; justify-content: flex-end; background: rgba(0, 0, 0, 0.55)">
+<dc-import name="ConfirmDialog" form="sheet" head="Close without answering?" body="It is waiting for your answer to a question. Closing ends the session, and the question stays unanswered." action="Close session" session="{{ closeSession }}" hint-size="100%,260px"></dc-import>
 </div>
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false}}'>
 class Component extends DCLogic {
   renderVals() {
     const menuOpen = this.props.menuOpen ?? false;
@@ -144,7 +137,11 @@ class Component extends DCLogic {
       menuState: { on: 'On', onParent: 'On', inherited: 'On · inherited', off: 'Off', unavailable: 'Unavailable' }[vibe],
       vibeOpen, vibeOpenStr: vibeOpen ? 'true' : 'false',
       zapFill: vibe === 'on' || vibe === 'onParent' ? 'currentColor' : 'none',
-      vibeToggle: vibe !== 'unavailable', vibeBlocked: vibe === 'unavailable',
+      vibeQuote: vibe === 'unavailable' ? null : { label: 'Sent to the session', text: VB.send },
+      vibeCancel: vibe === 'unavailable' ? 'Close' : 'Cancel',
+      closeConfirm: this.props.closeConfirm ?? false,
+      closeSession: { state: 'Question', dot: '#fbbf24', round: false, color: '#fbbf24', title: '通知の再送処理を見直す' },
+      notDone: !(this.props.done ?? false),
       ended: ended !== 'no',
       live: ended === 'no',
       resuming,

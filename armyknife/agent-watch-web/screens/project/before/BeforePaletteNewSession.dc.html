@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Command palette: new session</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; display: flex; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+<div style="flex: none; width: 240px"><dc-import name="BeforeNav" view="inbox" hint-size="240px,900px"></dc-import></div>
+<div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="BeforeInboxList" filter="none" hint-size="460px,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0"><dc-import name="BeforeConversation" variant="question" hint-size="100%,900px"></dc-import></div>
+<div style="position: absolute; inset: 0; display: flex; justify-content: center; padding-top: 96px; box-sizing: border-box; background: rgba(0, 0, 0, 0.58)">
+<div role="dialog" aria-label="New session" style="width: 680px; height: 420px; box-sizing: border-box; display: flex; flex-direction: column; background: #161616; border: 1px solid #3f3f46">
+<div style="flex: none; min-height: 54px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 16px; box-sizing: border-box; border-bottom: 1px solid #2a2a2a"><span style="height: 24px; display: inline-flex; align-items: center; padding: 0 8px; background: #2a2a2e; font-size: 12px">› New session</span><span style="height: 24px; display: inline-flex; align-items: center; gap: 6px; padding: 0 8px; background: #2a2a2e; font-family: 'JetBrains Mono', monospace; font-size: 12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg> example/service</span><input aria-label="First message" value="配信ログの保存期間を設定ファイルに出したい" placeholder="First message (optional)" style="flex: 1 1 200px; min-width: 0; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 15px"></div>
+<div role="listbox" style="flex: 1; min-height: 0; overflow: hidden; padding: 4px 0">
+<h2 style="height: 28px; display: flex; align-items: center; margin: 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">START WITH</h2>
+<div role="option" aria-selected="true" style="min-height: 44px; display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 0 16px; background: #2a2a2e"><span><strong>Claude Code</strong> <span style="color: #a1a1aa">in example/service</span></span><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">↵</kbd></div>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 1fr auto; align-items: center; padding: 0 16px"><span>Codex <span style="color: #a1a1aa">in example/service</span></span><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">⌥↵</kbd></div>
+<h2 style="height: 28px; display: flex; align-items: center; margin: 8px 0 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">OPTIONS</h2>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px"><span style="color: #a1a1aa"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></span><span>New worktree from <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">main</span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #4ade80">on</span></div>
+<div role="option" aria-selected="false" style="min-height: 44px; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 10px; padding: 0 16px"><span style="color: #a1a1aa"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M15 2v2"></path><path d="M15 20v2"></path><path d="M2 15h2"></path><path d="M2 9h2"></path><path d="M20 15h2"></path><path d="M20 9h2"></path><path d="M9 2v2"></path><path d="M9 20v2"></path></svg></span><span>Model · effort</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">atlas-5 · high <span style="font-family: 'Helvetica Neue', Arial, sans-serif; color: #8b8b94">default</span> ›</span></div>
+</div>
+<div style="flex: none; height: 36px; display: flex; align-items: center; gap: 14px; padding: 0 16px; border-top: 1px solid #2a2a2a; font-size: 11.5px; color: #8b8b94"><span>↵ Start</span><span>↑↓ Engine</span><span>⌥M Model · effort</span><span>⌥W Worktree</span><span>⌫ Change directory</span><span style="margin-left: auto"><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">claude · example/service · atlas-5 · high · new worktree</span></span></div>
+</div></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

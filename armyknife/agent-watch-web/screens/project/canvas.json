@@ -393,6 +393,14 @@
       "title": "スマホ: Resume を押した",
       "page": "conversation"
     },
+    "ConversationPrs.dc.html": {
+      "x": 6870,
+      "y": 3030,
+      "w": 1848,
+      "h": 970,
+      "title": "セッションのヘッダー · PR のボタンを押したとき",
+      "page": "conversation"
+    },
     "DeniedCard.dc.html": {
       "x": 1820,
       "y": 800,
@@ -451,6 +459,7 @@
     "PhoneChatEnded.dc.html",
     "PhoneChatResuming.dc.html",
     "VibePopover.dc.html",
+    "ConversationPrs.dc.html",
     "PhoneChatVibe.dc.html",
     "DeniedCard.dc.html"
   ],

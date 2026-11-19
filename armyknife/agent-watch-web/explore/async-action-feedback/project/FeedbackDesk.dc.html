@@ -224,7 +224,7 @@ class Component extends DCLogic {
     const older = item('ok', 'Merged PR #2041', '再送のログを整える', { time: '11:40' });
     const trayItems = !C ? [] : {
       running: [item('spin', 'Merging PR #2049', '配信チェックの PR を確認する', { time: 'now' }), item('spin', 'Closing session', 'アラートの送り先を決める', { time: 'now' }), older],
-      success: [],
+      success: [item('ok', 'Merged PR #2049', '配信チェックの PR を確認する', { time: '12:03' }), item('ok', 'Closed session', 'アラートの送り先を決める', { time: '12:03' }), older],
       failure: [item('err', 'Merge failed · PR #2049', '配信チェックの PR を確認する', { time: '12:03', msg: MERGE_ERR, acts: ['Retry'] }), item('err', 'Close failed', 'アラートの送り先を決める', { time: '12:03', msg: CLOSE_ERR, acts: ['Retry'] }), older],
       away: [item('err', 'Merge failed · PR #2049', '配信チェックの PR を確認する', { time: '12:03', msg: MERGE_ERR, acts: ['Retry', 'Open session'] }), item('ok', 'Closed session', 'アラートの送り先を決める', { time: '12:02' }), older]
     }[st];

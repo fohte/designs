@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Desktop Inbox and conversation with Close</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<main style="position: relative; width: 1440px; height: 900px; display: flex; overflow: hidden; box-sizing: border-box; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+
+<nav aria-label="Main navigation" style="width: 240px; flex: none; box-sizing: border-box; display: flex; flex-direction: column; padding: 0 8px; background: #0f0f0f; border-right: 1px solid #2a2a2a; font-size: 13px">
+<div style="height: 48px; display: flex; align-items: center; padding: 0 8px; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700"><span style="margin-right: 7px; color: #ef4444">&gt;</span>agent watch</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; height: 28px; margin: 0 4px 12px; padding: 2px; background: #1a1a1a; font-size: 12.5px"><span style="display: flex; align-items: center; justify-content: center; gap: 4px; background: #3f3f46; font-weight: 700; white-space: nowrap">Inbox <span style="font-family: 'JetBrains Mono', monospace; color: #fbbf24">4</span></span><span style="display: grid; place-items: center; color: #a1a1aa">Board</span></div>
+<h2 style="height: 26px; display: flex; align-items: center; margin: 0; padding: 0 8px; font-size: 11.5px; color: #8b8b94">Starred</h2>
+<div style="padding: 5px 8px; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #d4d4d8">通知の再送処理を見直す</div>
+<div style="padding: 5px 8px; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #d4d4d8">配信ログの保存期間を決める</div>
+<h2 style="height: 26px; display: flex; align-items: center; margin: 12px 0 0; padding: 0 8px; font-size: 11.5px; color: #8b8b94">Recent</h2>
+<div style="padding: 5px 8px; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #d4d4d8; font-size: 12px">配信メトリクスを追加する</div>
+<div style="padding: 5px 8px; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #d4d4d8; font-size: 12px">セットアップ手順を更新する</div>
+</nav>
+
+<section aria-labelledby="inbox-title" style="width: 460px; flex: none; box-sizing: border-box; display: flex; flex-direction: column; background: #0c0c0c; border-right: 1px solid #2a2a2a; font-size: 13.5px; line-height: 1.5">
+<header style="flex: 0 0 48px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 18px; border-bottom: 1px solid #2a2a2a">
+<h1 id="inbox-title" style="margin: 0; font-size: 15px; font-weight: 700; line-height: 1">Inbox</h1>
+<span style="font-size: 11.5px; color: #8b8b94">Sorted by tq priority</span>
+</header>
+<div style="flex: 1; min-height: 0; overflow: hidden">
+<section aria-label="Needs action">
+<h2 style="height: 32px; display: flex; align-items: center; gap: 8px; margin: 0; padding: 0 18px; font-size: 12.5px; font-weight: 700; color: #fafafa"><span>Needs action</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #fbbf24">4</span></h2>
+<ul style="margin: 0; padding: 0; list-style: none">
+<sc-for list="{{need}}" as="s" hint-placeholder-count="4">
+<li aria-current="{{s.current}}">
+<sc-if value="{{s.plain}}" hint-placeholder-val="{{ true }}"><dc-import name="SessionRow" s="{{ s }}" density="full" hint-size="100%,76px"></dc-import></sc-if>
+<sc-if value="{{s.confirm}}" hint-placeholder-val="{{ false }}"><dc-import name="CloseConfirm" kind="proposal" form="row" title="{{s.title}}" hint-size="100%,96px"></dc-import></sc-if>
+</li>
+</sc-for>
+</ul>
+</section>
+<div style="width: 100%; height: 38px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 18px; border-bottom: 1px solid #2a2a2a; background: #141414; color: #d4d4d8; font-size: 12.5px; font-weight: 700"><span>◷ Later</span><span style="font-family: 'JetBrains Mono', monospace; font-weight: 400; color: #a1a1aa">2</span><span style="margin-left: auto; font-weight: 400; color: #8b8b94">Next back 19:00 ▸</span></div>
+<section aria-label="In progress">
+<h2 style="height: 32px; display: flex; align-items: center; gap: 8px; margin: 6px 0 0; padding: 0 18px; font-size: 12.5px; font-weight: 700; color: #d4d4d8"><span>In progress</span><span style="font-family: 'JetBrains Mono', monospace; color: #60a5fa">2</span></h2>
+<ul style="margin: 0; padding: 0; list-style: none">
+<sc-for list="{{working}}" as="s" hint-placeholder-count="2">
+<li aria-current="{{s.current}}"><dc-import name="SessionRow" s="{{ s }}" density="full" hint-size="100%,58px"></dc-import></li>
+</sc-for>
+</ul>
+</section>
+<section aria-label="Done">
+<h2 style="height: 32px; display: flex; align-items: center; gap: 8px; margin: 4px 0 0; padding: 0 18px; border-top: 1px solid #2a2a2a; font-size: 12.5px; font-weight: 700; color: #d4d4d8"><span>Done</span><span style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">2</span><button type="button" style="height: 22px; margin-left: auto; padding: 0 7px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 11px; font-weight: 400">Close all</button></h2>
+<ul style="margin: 0; padding: 0; list-style: none">
+<sc-for list="{{done}}" as="s" hint-placeholder-count="2">
+<li aria-current="{{s.current}}"><dc-import name="SessionRow" s="{{ s }}" density="full" hint-size="100%,58px"></dc-import></li>
+</sc-for>
+</ul>
+</section>
+</div>
+<footer aria-label="Keyboard shortcuts" style="flex: 0 0 32px; box-sizing: border-box; display: flex; align-items: center; gap: 14px; padding: 0 18px; border-top: 1px solid #2a2a2a; font-size: 11.5px; color: #8b8b94; white-space: nowrap">
+<span><kbd style="font-family: 'JetBrains Mono', monospace">j</kbd> <kbd style="font-family: 'JetBrains Mono', monospace">k</kbd> Move</span>
+<span><kbd style="font-family: 'JetBrains Mono', monospace">L</kbd> Later</span>
+<span style="color: {{eColor}}"><kbd style="font-family: 'JetBrains Mono', monospace">E</kbd> Close</span>
+<span><kbd style="font-family: 'JetBrains Mono', monospace">⇧B</kbd> Board</span>
+<span><kbd style="font-family: 'JetBrains Mono', monospace">[</kbd> Inbox</span>
+<span><kbd style="font-family: 'JetBrains Mono', monospace">⌘.</kbd> Panel</span>
+</footer>
+</section>
+
+<section aria-label="Conversation with {{c.title}}" style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<header style="flex: none; padding: 10px 24px 0; border-bottom: 1px solid #2a2a2a">
+<div style="display: flex; align-items: center; gap: 10px; min-width: 0; font-size: 12px; color: #8b8b94">
+<sc-if value="{{c.hasTask}}" hint-placeholder-val="{{ true }}"><a href="#" style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #d4d4d8; text-decoration: none"><span style="font-family: 'JetBrains Mono', monospace; font-weight: 700">{{c.taskId}}</span> {{c.taskTitle}}</a></sc-if>
+<a href="#" style="flex: none; font-family: 'JetBrains Mono', monospace; color: #8b8b94; text-decoration: none">{{c.repo}}</a>
+<div style="display: flex; align-items: center; gap: 6px; margin-left: auto">
+<button type="button" aria-label="Open session status panel" title="Open session status panel" aria-expanded="false" style="min-width: 32px; height: 26px; display: inline-flex; align-items: center; justify-content: center; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path><path d="m10 15-3-3 3-3"></path></svg></button>
+<button type="button" aria-label="Add to Starred" title="Add to Starred" aria-pressed="false" style="min-width: 26px; height: 26px; padding: 0 4px; border: 1px solid #2a2a2a; background: transparent; color: #71717a; font-size: 16px; line-height: 1">☆</button>
+<sc-if value="{{c.hasPr}}" hint-placeholder-val="{{ true }}">
+<button type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="PR #{{c.pr}}, open, CI running" title="PR #{{c.pr}}" style="position: relative; width: 30px; height: 26px; box-sizing: border-box; display: grid; place-items: center; padding: 0; border: 1px solid #2a2a2a; background: transparent; color: #fafafa"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg><span aria-hidden="true" style="position: absolute; top: 3px; right: 3px; width: 5px; height: 5px; background: #fbbf24"></span><span aria-hidden="true" style="position: absolute; right: 2px; bottom: 1px; font-family: 'JetBrains Mono', monospace; font-size: 9px; line-height: 1; color: #a1a1aa">1</span></button>
+<button type="button" aria-label="Merge PR #{{c.pr}}" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Merge</button>
+</sc-if>
+<sc-if value="{{showClose}}" hint-placeholder-val="{{ true }}">
+<span style="position: relative; display: inline-flex">
+<button type="button" aria-haspopup="{{closeHasPopup}}" aria-expanded="{{closeOpenStr}}" style="height: 26px; padding: 0 10px; border: 1px solid {{closeBorder}}; background: {{closeBg}}; color: #d4d4d8; font-family: inherit; font-size: 12px">Close</button>
+<sc-if value="{{popover}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 5; top: 32px; right: 0; width: 400px"><dc-import name="CloseConfirm" kind="{{confirmKind}}" form="popover" title="{{c.title}}" hint-size="100%,150px"></dc-import></div></sc-if>
+</span>
+</sc-if>
+<sc-if value="{{showMore}}" hint-placeholder-val="{{ false }}">
+<span style="position: relative; display: inline-flex">
+<button type="button" aria-label="More actions" title="More actions" aria-haspopup="menu" aria-expanded="{{menuOpenStr}}" style="width: 28px; height: 26px; display: grid; place-items: center; padding: 0; border: 1px solid {{moreBorder}}; background: {{moreBg}}; color: #d4d4d8"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<div role="menu" aria-label="Session actions" style="position: absolute; z-index: 5; top: 32px; right: 0; width: 220px; display: flex; flex-direction: column; padding: 4px 0; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%); font-size: 13px">
+<button type="button" role="menuitem" style="display: flex; align-items: center; gap: 10px; height: 32px; padding: 0 12px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; text-align: left"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #a1a1aa"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg><span style="flex: 1">Later</span><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">L</kbd></button>
+<div role="separator" style="height: 1px; margin: 4px 0; background: #2a2a2a"></div>
+<button type="button" role="menuitem" aria-haspopup="dialog" style="display: flex; align-items: center; gap: 10px; height: 32px; padding: 0 12px; border: 0; background: #2a2a2e; color: #f87171; font-family: inherit; font-size: 13px; text-align: left"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg><span style="flex: 1">Close session…</span></button>
+</div>
+</sc-if>
+</span>
+</sc-if>
+<button type="button" aria-label="Open in terminal" title="Open in terminal" style="width: 28px; height: 26px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 11 2-2-2-2"></path><path d="M11 13h4"></path><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect></svg></button>
+</div>
+</div>
+<h1 style="margin: 2px 0 12px; font-size: 16px; font-weight: 700">{{c.title}}</h1>
+</header>
+
+<div aria-live="polite" style="flex: 1; min-height: 0; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; overflow: hidden; padding: 24px max(24px, calc((100% - 672px) / 2))">
+<article style="flex: none; align-self: flex-end; max-width: 80%; display: flex; flex-direction: column; gap: 4px">
+<div style="text-align: right; font-size: 12px; color: #8b8b94">You · 10:02</div>
+<div style="padding: 10px 14px; background: #1f1f1f">{{c.user}}</div>
+</article>
+<article style="flex: none; color: #d4d4d8">{{c.reply}}</article>
+<div style="flex: none; margin-top: -8px; font-size: 12.5px; color: #a1a1aa">{{c.tools}} <span style="color: #71717a">›</span></div>
+<sc-if value="{{isWorking}}" hint-placeholder-val="{{ false }}">
+<article style="flex: none; color: #a1a1aa">テストを足しています。終わったら計測値の例を貼ります。</article>
+</sc-if>
+<sc-if value="{{isProposal}}" hint-placeholder-val="{{ false }}">
+<article style="flex: none; border: 1px solid #fbbf24">
+<h2 style="margin: 0; padding: 12px 16px 4px; color: #fbbf24; font-size: 12px; font-weight: 700">Proposal</h2>
+<div style="padding: 0 16px 10px; font-size: 15px">アラートの送り先をどちらにしますか?</div>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #2a2a2a">
+<div style="display: flex; gap: 12px; padding: 9px 16px"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a1a1aa">1</kbd><span>チャットの当番チャンネルに送る</span></div>
+<div style="display: flex; gap: 12px; padding: 9px 16px; border-top: 1px solid #2a2a2a"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a1a1aa">2</kbd><span>メールでまとめて送る</span></div>
+</div>
+</article>
+</sc-if>
+</div>
+
+<sc-if value="{{hasBand}}" hint-placeholder-val="{{ true }}">
+<div role="status" style="flex: none; box-sizing: border-box; display: flex; flex-direction: column; padding: 10px max(24px, calc((100% - 712px) / 2)); border-top: 1px solid #2a2a2a; background: #0f0f0f">
+<span style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; white-space: nowrap"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{c.bandRadius}}; background: {{c.bandDot}}"></span>{{c.bandLabel}}</span>
+<span style="padding-left: 15px; font-family: {{c.bandFont}}; font-size: 11.5px; color: #a1a1aa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{c.bandDetail}}</span>
+</div>
+</sc-if>
+<form style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 12px auto 18px; border: 1px solid #3f3f46; background: #141414">
+<textarea aria-label="Message" rows="2" placeholder="Message session" style="display: block; width: 100%; min-height: 54px; box-sizing: border-box; padding: 12px 14px 4px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; line-height: 1.6; resize: none"></textarea>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 8px 8px 14px; color: #a1a1aa; font-size: 11.5px">
+<span>↵ Send · ⇧↵ / ⌥↵ New line · Esc Interrupt</span>
+<button type="submit" aria-label="Send message" style="width: 32px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414; opacity: 0.5"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
+</div>
+</form>
+</section>
+
+<sc-if value="{{modal}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 10; display: grid; place-items: center; background: rgba(0, 0, 0, 0.55)">
+<div style="width: 380px"><dc-import name="CloseConfirm" kind="{{confirmKind}}" form="modal" keys="{{keys}}" title="{{c.title}}" hint-size="100%,200px"></dc-import></div>
+</div>
+</sc-if>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["now","a","b","c"],"default":"now"},"kind":{"editor":"enum","options":["working","done"],"default":"done"},"view":{"editor":"enum","options":["header","confirm","inbox","menu"],"default":"header"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const option = this.props.option ?? 'now';
+    const view = this.props.view ?? 'header';
+    // In the Inbox view the open conversation is the selected Proposal row.
+    const kind = view === 'inbox' ? 'proposal' : (this.props.kind ?? 'done');
+    const done = kind === 'done';
+    const C = {
+      working: { title: '配信メトリクスを追加する', hasTask: true, taskId: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/observability', hasPr: true, pr: 2053, user: '配信の成功率と遅延をメトリクスに出して。', reply: '送信ごとに遅延を記録するようにしました。', tools: 'Edit metrics.rs · Read ×4 · Shell ×2', bandDot: '#60a5fa', bandRadius: '50%', bandLabel: 'Working · 18s', bandDetail: 'Bash  cargo test -p metrics', bandFont: "'JetBrains Mono', monospace" },
+      proposal: { title: 'アラートの送り先を決める', hasTask: true, taskId: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/observability', hasPr: false, pr: 0, user: 'アラートの送り先の案を 2 つ出して。', reply: '当番チャンネルとメールの 2 案にまとめました。', tools: 'Read ×3', bandDot: '#fbbf24', bandRadius: '0', bandLabel: 'Proposal', bandDetail: '2 つの案から選んでください。', bandFont: 'inherit' },
+      done: { title: 'セットアップ手順を更新する', hasTask: false, taskId: '', taskTitle: '', repo: 'example/handbook', hasPr: true, pr: 318, user: 'セットアップ手順を新しいコマンドに合わせて。', reply: '手順を書き換えて PR #318 を作りました。CI は通っています。', tools: 'Edit setup.md · Read ×2', bandDot: '#71717a', bandRadius: '50%', bandLabel: '', bandDetail: '', bandFont: 'inherit' }
+    }[kind];
+    const sel = (key) => (key === kind ? { current: 'true', bg: '#262626' } : { current: 'false' });
+    const rowConfirm = option === 'b' && view === 'inbox';
+    const need = [
+      { key: 'question', status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', preview: '再試行は 3 回で止めてよいですか?', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service' },
+      { key: 'review', status: 'Review', unread: true, title: '配信チェックの PR を確認する', age: '2m', preview: 'PR #2049 のレビューをお願いします。', role: '', engine: 'codex', taskRef: '', repo: 'example/web-app' },
+      { key: 'proposal', status: 'Proposal', unread: false, title: 'アラートの送り先を決める', age: '3d', preview: '2 つの案から選んでください。', role: 'designer', engine: 'claude', taskRef: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/observability' },
+      { key: 'approve', status: 'Approve', unread: false, title: 'ステージングの設定を書き換える', age: '6m', preview: 'Bash の実行を許可してください。', role: 'development', engine: 'codex', taskRef: 'P2 #2052', taskTitle: '新しい設定を段階的に公開する', repo: 'example/service' }
+    ].map((r) => {
+      const confirm = rowConfirm && r.key === 'proposal';
+      return { ...r, ...sel(r.key), confirm, plain: !confirm };
+    });
+    const working = [
+      { key: 'working', status: 'Working', title: '配信メトリクスを追加する', age: '18s', role: 'development', engine: 'codex', taskRef: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/observability' },
+      { key: 'working2', status: 'Working', title: 'リクエストの遅延を計測する', age: '1m', role: 'research', engine: 'claude', taskRef: '', repo: 'example/service' }
+    ].map((r) => ({ ...r, ...sel(r.key) }));
+    const doneRows = [
+      { key: 'done', status: 'Done', title: 'セットアップ手順を更新する', age: '1h', role: '', engine: 'codex', taskRef: '', repo: 'example/handbook' },
+      { key: 'done2', status: 'Done', title: 'キャッシュの挙動を調べる', age: '3h', preview: '◇ 1 decision', previewColor: '#d4d4d8', role: 'research', engine: 'codex', taskRef: 'P3 #2050', taskTitle: 'キャッシュを見直す', repo: 'example/service' }
+    ].map((r) => ({ ...r, ...sel(r.key) }));
+    // now: Close only for Done. a, b: Close for every state. c: Close for Done; the rest reach it through More.
+    const showClose = option === 'a' || option === 'b' || done;
+    const showMore = option === 'c' && !done;
+    const menuOpen = showMore && view === 'menu';
+    const popover = option === 'b' && view === 'confirm' && !done;
+    const modal = (option === 'a' || option === 'c') && (view === 'inbox' || (view === 'confirm' && !done));
+    const closeOpen = popover || (modal && view === 'confirm' && option === 'a');
+    return {
+      c: C, need, working, done: doneRows,
+      isWorking: kind === 'working', isProposal: kind === 'proposal', hasBand: !done,
+      showClose, showMore, menuOpen, popover, modal,
+      keys: view === 'inbox',
+      confirmKind: kind,
+      closeHasPopup: done ? 'false' : 'dialog',
+      closeOpenStr: closeOpen ? 'true' : 'false',
+      closeBorder: closeOpen ? '#a1a1aa' : '#2a2a2a',
+      closeBg: closeOpen ? '#262626' : 'transparent',
+      menuOpenStr: menuOpen ? 'true' : 'false',
+      moreBorder: menuOpen || (modal && view === 'confirm') ? '#a1a1aa' : '#2a2a2a',
+      moreBg: menuOpen || (modal && view === 'confirm') ? '#262626' : 'transparent',
+      eColor: view === 'inbox' && option !== 'now' ? '#fafafa' : '#8b8b94'
+    };
+  }
+}
+</script>
+</body>
+</html>

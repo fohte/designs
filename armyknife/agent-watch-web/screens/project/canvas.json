@@ -616,6 +616,62 @@
       "h": 44,
       "title": "ActivityButton",
       "page": "components"
+    },
+    "PhoneStatusRunning.dc.html": {
+      "x": 0,
+      "y": 1020,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Running",
+      "page": "status-panel"
+    },
+    "PhoneStatusTree.dc.html": {
+      "x": 1520,
+      "y": 1020,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Tree",
+      "page": "status-panel"
+    },
+    "PhoneStatusDecisions.dc.html": {
+      "x": 3040,
+      "y": 1020,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Decisions",
+      "page": "status-panel"
+    },
+    "PhoneStatusReview.dc.html": {
+      "x": 4560,
+      "y": 1020,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Review",
+      "page": "status-panel"
+    },
+    "PhoneStatusWebUi.dc.html": {
+      "x": 6080,
+      "y": 1020,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Web UI (crit)",
+      "page": "status-panel"
+    },
+    "PhoneStatusTasks.dc.html": {
+      "x": 7600,
+      "y": 1020,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Tasks",
+      "page": "status-panel"
+    },
+    "PhoneStatusPanel.dc.html": {
+      "x": 3380,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneStatusPanel",
+      "page": "components"
     }
   },
   "order": [
@@ -655,6 +711,13 @@
     "StatusWebUi.dc.html",
     "StatusTasks.dc.html",
     "StatusPanel.dc.html",
+    "PhoneStatusRunning.dc.html",
+    "PhoneStatusTree.dc.html",
+    "PhoneStatusDecisions.dc.html",
+    "PhoneStatusReview.dc.html",
+    "PhoneStatusWebUi.dc.html",
+    "PhoneStatusTasks.dc.html",
+    "PhoneStatusPanel.dc.html",
     "MessageKinds.dc.html",
     "Cards.dc.html",
     "PhoneChat.dc.html",
@@ -730,6 +793,55 @@
       "w": 420,
       "page": "components",
       "text": "ConfirmDialog: 確認ダイアログの共通部品。form で形を選ぶ\n- modal: Merge の確認 (確認ダイアログ)、閉じる前の確認 (Close session… を押したあと、Inbox の e、状態ごとの文言)\n- popover: 会話のヘッダーの vibe mode\n- sheet: iPhone の vibe mode、iPhone の閉じる前の確認\n- panel: ! コマンドの確認 (確認ダイアログ)"
+    },
+    "diffPhoneStatusRunning": {
+      "x": 430,
+      "y": 1020,
+      "w": 400,
+      "page": "status-panel",
+      "text": "新規: iPhone の状況パネル · Running。会話のヘッダーの状況パネルのボタンで、会話の上に全画面のページを重ねる。戻るボタンと Session status の見出し、横にスクロールするタブ (Running / Tasks / Tree / Review / Decisions / crit)"
+    },
+    "diffPhoneStatusTree": {
+      "x": 1950,
+      "y": 1020,
+      "w": 400,
+      "page": "status-panel",
+      "text": "新規: iPhone の状況パネル · Tree。セッションの親子を SessionRow (phone) で並べ、今のセッションを強調する"
+    },
+    "diffPhoneStatusDecisions": {
+      "x": 3470,
+      "y": 1020,
+      "w": 400,
+      "page": "status-panel",
+      "text": "新規: iPhone の状況パネル · Decisions。タブバーを右端までスクロールした状態。判断のカードに OK / Change…"
+    },
+    "diffPhoneStatusReview": {
+      "x": 4990,
+      "y": 1020,
+      "w": 400,
+      "page": "status-panel",
+      "text": "新規: iPhone の状況パネル · Review。ページの高さいっぱいに本文の編集欄を出し、下に Save / Finish review"
+    },
+    "diffPhoneStatusWebUi": {
+      "x": 6510,
+      "y": 1020,
+      "w": 400,
+      "page": "status-panel",
+      "text": "新規: iPhone の状況パネル · Web UI (crit)。タブバーを右端までスクロールした状態。ページの高さいっぱいに web UI を出す"
+    },
+    "diffPhoneStatusTasks": {
+      "x": 8030,
+      "y": 1020,
+      "w": 400,
+      "page": "status-panel",
+      "text": "新規: iPhone の状況パネル · Tasks。IN PROGRESS と COMPLETED の tq タスクと Make primary"
+    },
+    "diffPhoneStatusPanel": {
+      "x": 3380,
+      "y": 900,
+      "w": 390,
+      "page": "components",
+      "text": "新規: PhoneStatusPanel。iPhone の状況パネル (PC の StatusPanel に対応)。tab で開くタブ、linked で tq タスクが複数の状態を選ぶ"
     }
   },
   "v": 3,
@@ -751,6 +863,13 @@
     }
   ],
   "noteOrder": [
-    "confirmDialogUsers"
+    "confirmDialogUsers",
+    "diffPhoneStatusRunning",
+    "diffPhoneStatusTree",
+    "diffPhoneStatusDecisions",
+    "diffPhoneStatusReview",
+    "diffPhoneStatusWebUi",
+    "diffPhoneStatusTasks",
+    "diffPhoneStatusPanel"
   ]
 }

@@ -1,0 +1,72 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-20T09:00:00Z"
+  },
+  "title": "explore: 何の draft か分かる見出し",
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-19T17:16:47Z"
+    }
+  ],
+  "pages": [
+    { "id": "options", "name": "案" },
+    { "id": "parts", "name": "部品" }
+  ],
+  "boards": {
+    "draft-heading-current.dc.html": { "x": 0, "y": 0, "w": 1850, "h": 936, "title": "今 · 見出しなし", "page": "options" },
+    "draft-heading-kind.dc.html": { "x": 0, "y": 1300, "w": 1850, "h": 936, "title": "案 · 種類と対象の見出し", "page": "options" },
+    "draft-heading-kinds.dc.html": { "x": 0, "y": 2600, "w": 2620, "h": 936, "title": "案 · 種類ごと", "page": "options" },
+    "DraftPanel.dc.html": { "x": 0, "y": 0, "w": 640, "h": 900, "title": "DraftPanel", "page": "parts" },
+    "Conversation.dc.html": { "x": 720, "y": 0, "w": 880, "h": 900, "title": "Conversation", "page": "parts" },
+    "Nav.dc.html": { "x": 1680, "y": 0, "w": 240, "h": 900, "title": "Nav", "page": "parts" },
+    "StatusBand.dc.html": { "x": 0, "y": 1020, "w": 760, "h": 60, "title": "StatusBand", "page": "parts" },
+    "SessionRow.dc.html": { "x": 840, "y": 1020, "w": 460, "h": 76, "title": "SessionRow", "page": "parts" },
+    "Quota.dc.html": { "x": 1380, "y": 1020, "w": 240, "h": 140, "title": "Quota", "page": "parts" },
+    "SessionUsage.dc.html": { "x": 1700, "y": 1020, "w": 672, "h": 40, "title": "SessionUsage", "page": "parts" },
+    "ConfirmDialog.dc.html": { "x": 2452, "y": 1020, "w": 380, "h": 200, "title": "ConfirmDialog", "page": "parts" }
+  },
+  "order": [
+    "draft-heading-current.dc.html",
+    "draft-heading-kind.dc.html",
+    "draft-heading-kinds.dc.html",
+    "DraftPanel.dc.html",
+    "Conversation.dc.html",
+    "Nav.dc.html",
+    "StatusBand.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "SessionUsage.dc.html",
+    "ConfirmDialog.dc.html"
+  ],
+  "notes": {
+    "about": {
+      "x": 0, "y": -1100, "w": 640, "page": "options",
+      "text": "前提\n- 対象は会話の状況パネルの Review タブ。エディタで開いている draft を読んで承認する\n- draft の種類は 4 つ: issue へのコメント、PR draft、PR のレビューへの返信、ただの draft (a ai draft)\n- このキャンバスは見出しだけを比べる。draft の切り替え、本文の読み方、承認の操作は今のまま\n- 今のサーバーは draft の種類と対象を返さない。案はサーバーが返す前提\n- データはすべて架空"
+    },
+    "current": { "kind": "title1", "x": 0, "y": -260, "maxW": 1850, "page": "options", "text": "今 · 何の draft か分からない" },
+    "kind": { "kind": "title1", "x": 0, "y": 1040, "maxW": 1850, "page": "options", "text": "案 · 見出しに種類と対象を出す" },
+    "kinds": { "kind": "title1", "x": 0, "y": 2340, "maxW": 2620, "page": "options", "text": "案 · 種類ごとの見出し" },
+    "currentNote": {
+      "x": 1930, "y": 0, "w": 460, "page": "options",
+      "text": "今\n- 見出しがなく、issue へのコメントなのか PR なのかも、どこへ出るのかも分からない\n- PR draft のタイトルは frontmatter の title の入力欄にある"
+    },
+    "kindNote": {
+      "x": 1930, "y": 1300, "w": 460, "page": "options",
+      "text": "種類と対象\n- 見出しに種類 (Issue comment / PR draft / Review replies / Draft) と対象 (repo と #番号など) を出す\n- エディタに出ているか、順番待ちかも出す\n- PR draft のときだけ、PR タイトルを見出しでその場で直せる (frontmatter の title から移る)"
+    },
+    "kindsNote": {
+      "x": 2700, "y": 2600, "w": 460, "page": "options",
+      "text": "種類ごと\n- Issue comment: 対象の issue の番号とタイトル\n- PR draft: repo · ブランチと、直せる PR タイトル\n- Review replies: PR の番号、返信するスレッドの数、取得した時刻。pr-review の pr / repo / pulled_at は入力欄にせず見出しに出す\n- Draft: ファイルのパスだけ"
+    }
+  }
+}

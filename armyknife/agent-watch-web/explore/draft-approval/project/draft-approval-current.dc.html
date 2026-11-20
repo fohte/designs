@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Draft approval · current</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 3030px; height: 936px; display: flex; gap: 20px; background: #0a0a0a; color: #a1a1aa; font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif; font-size: 12.5px">
+<sc-for list="{{kinds}}" as="k" hint-placeholder-count="4">
+<section style="width: 640px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700; color: #a1a1aa">{{k.label}}</h2><div style="width: 640px; height: 900px"><dc-import name="DraftPanel" approval="current" doc="{{k.i}}" submit="{{k.submit}}" hint-size="640px,900px"></dc-import></div></section>
+</sc-for>
+<section style="width: 390px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700; color: #a1a1aa">スマホ · Issue comment</h2><div style="height: 844px"><dc-import name="DraftPanel" approval="current" phone="{{ true }}" doc="{{ 0 }}" hint-size="390px,844px"></dc-import></div></section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":3030,"height":936}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const labels = ['PC パネル · Issue comment', 'PC パネル · PR draft (submit にチェック)', 'PC パネル · Review replies', 'PC パネル · Draft (a ai draft)'];
+    return { kinds: labels.map((label, i) => ({ label, i, submit: i === 1 })) };
+  }
+}
+</script>
+</body>
+</html>

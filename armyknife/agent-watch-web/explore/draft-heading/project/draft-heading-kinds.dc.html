@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>Draft review · kinds</title>
+<title>Draft heading · kinds</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -15,14 +15,14 @@ body{margin:0}
 </helmet>
 <div style="width: 2620px; height: 936px; display: flex; gap: 20px; background: #0a0a0a; color: #a1a1aa; font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif; font-size: 12.5px">
 <sc-for list="{{kinds}}" as="k" hint-placeholder-count="4">
-<section style="width: 640px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700; color: #a1a1aa">{{k.label}}</h2><div style="width: 640px; height: 900px"><dc-import name="DraftPanel" option="a" doc="{{k.i}}" hint-size="640px,900px"></dc-import></div></section>
+<section style="width: 640px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700; color: #a1a1aa">{{k.label}}</h2><div style="width: 640px; height: 900px"><dc-import name="DraftPanel" heading="kind" doc="{{k.i}}" hint-size="640px,900px"></dc-import></div></section>
 </sc-for>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":2620,"height":936}}'>
 class Component extends DCLogic {
   renderVals() {
-    const labels = ['PR draft · a ai pr-draft', 'Issue comment · a gh issue-agent', 'Review replies · a gh pr-review', 'Draft · a ai draft'];
+    const labels = ['Issue comment · a gh issue-agent', 'PR draft · a ai pr-draft', 'Review replies · a gh pr-review', 'Draft · a ai draft'];
     return { kinds: labels.map((label, i) => ({ label, i })) };
   }
 }

@@ -1,0 +1,81 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-20T09:00:00Z"
+  },
+  "title": "explore: draft の本文の読み方",
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-19T17:16:47Z"
+    }
+  ],
+  "pages": [
+    { "id": "options", "name": "案" },
+    { "id": "parts", "name": "部品" }
+  ],
+  "boards": {
+    "draft-reading-current.dc.html": { "x": 0, "y": 0, "w": 1850, "h": 936, "title": "今 · 細い 2 列", "page": "options" },
+    "draft-reading-toggle.dc.html": { "x": 0, "y": 1300, "w": 2260, "h": 936, "title": "A · Preview / Edit の 1 列", "page": "options" },
+    "draft-reading-full.dc.html": { "x": 0, "y": 2600, "w": 3310, "h": 936, "title": "B · 全幅で読む", "page": "options" },
+    "draft-reading-entry.dc.html": { "x": 0, "y": 3900, "w": 1850, "h": 936, "title": "C · パネルと全幅の入口", "page": "options" },
+    "DraftPanel.dc.html": { "x": 0, "y": 0, "w": 640, "h": 900, "title": "DraftPanel", "page": "parts" },
+    "DraftFocus.dc.html": { "x": 720, "y": 0, "w": 800, "h": 900, "title": "DraftFocus", "page": "parts" },
+    "Conversation.dc.html": { "x": 1600, "y": 0, "w": 880, "h": 900, "title": "Conversation", "page": "parts" },
+    "Nav.dc.html": { "x": 2560, "y": 0, "w": 240, "h": 900, "title": "Nav", "page": "parts" },
+    "StatusBand.dc.html": { "x": 0, "y": 1020, "w": 760, "h": 60, "title": "StatusBand", "page": "parts" },
+    "SessionRow.dc.html": { "x": 840, "y": 1020, "w": 460, "h": 76, "title": "SessionRow", "page": "parts" },
+    "Quota.dc.html": { "x": 1380, "y": 1020, "w": 240, "h": 140, "title": "Quota", "page": "parts" },
+    "SessionUsage.dc.html": { "x": 1700, "y": 1020, "w": 672, "h": 40, "title": "SessionUsage", "page": "parts" },
+    "ConfirmDialog.dc.html": { "x": 2452, "y": 1020, "w": 380, "h": 200, "title": "ConfirmDialog", "page": "parts" }
+  },
+  "order": [
+    "draft-reading-current.dc.html",
+    "draft-reading-toggle.dc.html",
+    "draft-reading-full.dc.html",
+    "draft-reading-entry.dc.html",
+    "DraftPanel.dc.html",
+    "DraftFocus.dc.html",
+    "Conversation.dc.html",
+    "Nav.dc.html",
+    "StatusBand.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "SessionUsage.dc.html",
+    "ConfirmDialog.dc.html"
+  ],
+  "notes": {
+    "about": {
+      "x": 0, "y": -1100, "w": 640, "page": "options",
+      "text": "前提\n- 対象は会話の状況パネルの Review タブ。エディタで開いている draft を読んで直す\n- 例は PR のレビューへの返信 (2 スレッド)。issue へのコメント、PR draft、ただの draft (a ai draft) でも本文の扱いは同じ\n- このキャンバスは本文の読み方だけを比べる。見出し、draft の切り替え、承認の操作は今のまま (draft は 1 つ)\n- データはすべて架空"
+    },
+    "current": { "kind": "title1", "x": 0, "y": -260, "maxW": 1850, "page": "options", "text": "今 · 生テキストとプレビューが細い 2 列に並ぶ" },
+    "toggle": { "kind": "title1", "x": 0, "y": 1040, "maxW": 2260, "page": "options", "text": "A · Preview と Edit を切り替える 1 列" },
+    "full": { "kind": "title1", "x": 0, "y": 2340, "maxW": 3310, "page": "options", "text": "B · 会話の列を置き換えて全幅で読む" },
+    "entry": { "kind": "title1", "x": 0, "y": 3640, "maxW": 1850, "page": "options", "text": "C · ふだんはパネル、長いときだけ全幅" },
+    "currentNote": {
+      "x": 1930, "y": 0, "w": 460, "page": "options",
+      "text": "今\n- PC では Edit / Preview のボタンを押しても何も変わらず、生テキストとプレビューが細い 2 列に並ぶ\n- スマホは生テキストだけ"
+    },
+    "toggleNote": {
+      "x": 2340, "y": 1300, "w": 460, "page": "options",
+      "text": "A · Preview / Edit\n- 本文は 1 列で Preview と Edit を切り替える。開いたときは Preview\n- パネルの幅をすべて使える\n- 今からの変更が一番小さい"
+    },
+    "fullNote": {
+      "x": 3390, "y": 2600, "w": 460, "page": "options",
+      "text": "B · 全幅\n- パネルには本文の冒頭と Read full width だけ。押すと会話の列を置き換えて、Markdown とプレビューを左右に並べる\n- 2 列が細くならない。‹ Conversation か Esc で会話に戻る\n- 承認と Finish はパネルに残る (パネルは細くなる)\n- スマホは全幅にする余地がないので Preview / Edit"
+    },
+    "entryNote": {
+      "x": 1930, "y": 3900, "w": 460, "page": "options",
+      "text": "C · パネル + 全幅の入口\n- ふだんはパネルで Preview / Edit の 1 列 (A と同じ)\n- 長い draft は Full width で B と同じ全幅の画面を開く\n- スマホは A と同じ"
+    }
+  }
+}

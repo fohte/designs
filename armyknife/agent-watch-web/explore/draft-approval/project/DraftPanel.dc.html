@@ -24,53 +24,6 @@ body{margin:0}
 <button type="button" aria-label="Close session status panel" title="Close session status panel" style="flex: none; margin-left: auto; align-self: center; width: {{closeSize}}; height: {{closeSize}}; padding: 0; border: 0; background: #0f0f0f; color: #a1a1aa; font-size: 18px">×</button>
 </div>
 
-<sc-if value="{{isCurrent}}" hint-placeholder-val="{{ false }}">
-<article role="tabpanel" style="flex: 1; min-height: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; padding: 16px; color: #d4d4d8; font-size: 12px">
-<div style="flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 16px; overflow: hidden">
-<section aria-label="Document metadata" style="flex: none; display: flex; flex-direction: column; gap: 10px">
-<h2 style="margin: 0; color: #fafafa; font-size: 12px; font-weight: 600">Frontmatter</h2>
-<dl style="display: flex; flex-direction: column; gap: 8px; margin: 0">
-<div style="display: grid; grid-template-columns: minmax(72px, 30%) minmax(0, 1fr); gap: 10px"><dt style="color: #8b8b94; font-weight: 500">title</dt><dd style="margin: 0; display: flex; align-items: center"><input aria-label="title" value="{{doc.title}}" style="width: 100%; min-height: 36px; box-sizing: border-box; padding: 6px 8px; border: 1px solid #3f3f46; border-radius: 6px; background: #141414; color: #d4d4d8; font-family: inherit; font-size: {{curInputFs}}"></dd></div>
-<div style="display: grid; grid-template-columns: 1fr; gap: 6px">
-<h3 style="margin: 0; color: #fafafa; font-size: 12px; font-weight: 500">steps</h3>
-<dl style="display: flex; flex-direction: column; gap: 7px; margin: 0 0 0 10px; padding-left: 10px; border-left: 1px solid #1a1a1a">
-<div style="display: grid; grid-template-columns: minmax(72px, 30%) minmax(0, 1fr); gap: 10px"><dt style="color: #8b8b94; font-weight: 500; overflow-wrap: anywhere">ready-for-translation</dt><dd style="margin: 0; display: flex; align-items: center"><input type="checkbox" aria-label="ready-for-translation" style="width: 20px; height: 20px; margin: 0; accent-color: #60a5fa"></dd></div>
-<div style="display: grid; grid-template-columns: minmax(72px, 30%) minmax(0, 1fr); gap: 10px"><dt style="color: #8b8b94; font-weight: 500">submit</dt><dd style="margin: 0; display: flex; align-items: center"><input type="checkbox" aria-label="submit" style="width: 20px; height: 20px; margin: 0; accent-color: #60a5fa"></dd></div>
-</dl>
-</div>
-</dl>
-</section>
-<section aria-label="Document body" style="flex: 1; min-height: 0; display: flex; flex-direction: column">
-<div style="flex: none; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px">
-<h2 style="margin: 0; color: #fafafa; font-size: 12px; font-weight: 600">Body</h2>
-<div aria-label="Body view" style="display: flex; gap: 4px">
-<button type="button" aria-pressed="true" style="min-height: 36px; padding: 0 10px; border: 1px solid #60a5fa; border-radius: 6px; background: #141414; color: #fafafa; font-family: inherit; font-size: 12px">Edit</button>
-<button type="button" aria-pressed="false" style="min-height: 36px; padding: 0 10px; border: 1px solid #3f3f46; border-radius: 6px; background: #141414; color: #d4d4d8; font-family: inherit; font-size: 12px">Preview</button>
-</div>
-</div>
-<div style="flex: 1; min-height: 0; display: grid; grid-template-columns: {{curCols}}; gap: 12px">
-<pre aria-label="Markdown body" style="margin: 0; min-width: 0; overflow: hidden; padding: 12px; border: 1px solid #1a1a1a; border-radius: 8px; background: #141414; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{curEditorFs}}; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere">{{doc.raw}}</pre>
-<sc-if value="{{curShowPreview}}" hint-placeholder-val="{{ true }}">
-<div style="min-width: 0; overflow: hidden; padding: 12px; border: 1px solid #1a1a1a; border-radius: 8px; background: #141414; color: #d4d4d8; font-size: 13px">
-<sc-for list="{{doc.blocks}}" as="b" hint-placeholder-count="4">
-<sc-if value="{{b.h}}" hint-placeholder-val="{{ false }}"><h4 style="margin: 0 0 6px; color: #fafafa; font-size: 14px">{{b.text}}</h4></sc-if>
-<sc-if value="{{b.p}}" hint-placeholder-val="{{ true }}"><p style="margin: 0 0 10px">{{b.text}}</p></sc-if>
-<sc-if value="{{b.li}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 4px; padding-left: 14px; text-indent: -12px">· {{b.text}}</p></sc-if>
-<sc-if value="{{b.quote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 10px; padding-left: 10px; border-left: 2px solid #3f3f46; color: #a1a1aa">{{b.text}}</p></sc-if>
-</sc-for>
-</div>
-</sc-if>
-</div>
-</section>
-</div>
-<footer style="flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px solid #1a1a1a">
-<span aria-live="polite" style="color: #8b8b94"></span>
-<button type="button" style="margin-left: auto; min-height: 36px; padding: 0 10px; border: 1px solid #3f3f46; border-radius: 6px; background: #141414; color: #d4d4d8; font-family: inherit; font-size: 12px">Save</button>
-<button type="button" style="min-height: 36px; padding: 0 10px; border: 1px solid #60a5fa; border-radius: 6px; background: #141414; color: #fafafa; font-family: inherit; font-size: 12px">Finish review</button>
-</footer>
-</article>
-</sc-if>
-
 <sc-if value="{{isList}}" hint-placeholder-val="{{ false }}">
 <section role="tabpanel" aria-label="Drafts waiting for review" style="flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden">
 <h2 style="flex: none; margin: 0; padding: 14px {{padX}} 8px; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">WAITING FOR YOUR REVIEW <span style="margin-left: 6px; font-family: 'JetBrains Mono', monospace">4</span></h2>
@@ -83,17 +36,17 @@ body{margin:0}
 </span>
 <span style="font-size: {{titleFs}}; font-weight: 700; color: #fafafa; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{r.title}}</span>
 <span style="font-size: {{metaFs}}; color: #a1a1aa; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{r.excerpt}}</span>
-<span style="display: flex; align-items: center; gap: 10px; font-size: {{metaFs}}; color: #8b8b94"><span>{{r.approvalSummary}}</span><sc-if value="{{showOpenWide}}" hint-placeholder-val="{{ false }}"><span style="margin-left: auto; display: inline-flex; align-items: center; gap: 5px; color: #d4d4d8"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M9 21H3v-6"></path><path d="M21 3l-7 7"></path><path d="M3 21l7-7"></path></svg>Open full width</span></sc-if><sc-if value="{{showChevron}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="margin-left: auto; color: #a1a1aa; font-size: 18px">›</span></sc-if></span>
+<span style="display: flex; align-items: center; gap: 10px; font-size: {{metaFs}}; color: #8b8b94"><span>{{r.approvalSummary}}</span><span aria-hidden="true" style="margin-left: auto; color: #a1a1aa; font-size: 18px">›</span></span>
 </button>
 </sc-for>
-<p style="flex: none; margin: auto 0 0; padding: 10px {{padX}}; border-top: 1px solid #2a2a2a; color: #8b8b94; font-size: {{metaFs}}">{{listFoot}}</p>
+<p style="flex: none; margin: auto 0 0; padding: 10px {{padX}}; border-top: 1px solid #2a2a2a; color: #8b8b94; font-size: {{metaFs}}">In the editor now: 1 · Queued: 3</p>
 </section>
 </sc-if>
 
 <sc-if value="{{isDetail}}" hint-placeholder-val="{{ true }}">
-<article role="tabpanel" aria-label="{{doc.kind}} {{doc.where}}" style="position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column">
+<article role="tabpanel" aria-label="Draft" style="position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column">
 
-<sc-if value="{{swTabs}}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{swTabs}}" hint-placeholder-val="{{ false }}">
 <div role="tablist" aria-label="Drafts" style="flex: none; display: flex; overflow: hidden; border-bottom: 1px solid #2a2a2a; background: #0c0c0c">
 <sc-for list="{{docs}}" as="r" hint-placeholder-count="4">
 <button type="button" role="tab" aria-selected="{{r.selectedStr}}" style="flex: none; max-width: {{chipMaxW}}; min-height: {{chipH}}; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 1px; padding: 0 14px; border: 0; border-right: 1px solid #1a1a1a; border-bottom: 2px solid {{r.underline}}; background: {{r.chipBg}}; color: {{r.chipColor}}; font-family: inherit; text-align: left">
@@ -119,6 +72,7 @@ body{margin:0}
 </div>
 </sc-if>
 
+<sc-if value="{{headKind}}" hint-placeholder-val="{{ false }}">
 <header style="flex: none; display: flex; flex-direction: column; gap: 6px; padding: 12px {{padX}}; border-bottom: 1px solid #1a1a1a">
 <div style="display: flex; align-items: center; gap: 8px; min-width: 0; font-size: {{metaFs}}">
 <span style="flex: none; padding: 0 6px; border: 1px solid #3f3f46; color: #fafafa; line-height: 1.6">{{doc.kind}}</span>
@@ -133,8 +87,31 @@ body{margin:0}
 </sc-if>
 <sc-if value="{{doc.hasNote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: {{metaFs}}; color: #a1a1aa">{{doc.note}}</p></sc-if>
 </header>
+</sc-if>
 
-<sc-if value="{{apToggles}}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{showFm}}" hint-placeholder-val="{{ true }}">
+<section aria-label="Document metadata" style="flex: none; display: flex; flex-direction: column; gap: 10px; padding: 16px 16px 0; color: #d4d4d8; font-size: 12px">
+<h2 style="margin: 0; color: #fafafa; font-size: 12px; font-weight: 600">Frontmatter</h2>
+<dl style="display: flex; flex-direction: column; gap: 8px; margin: 0">
+<sc-if value="{{fmTitle}}" hint-placeholder-val="{{ true }}"><div style="display: grid; grid-template-columns: minmax(72px, 30%) minmax(0, 1fr); gap: 10px"><dt style="color: #8b8b94; font-weight: 500">title</dt><dd style="margin: 0; display: flex; align-items: center"><input aria-label="title" value="{{doc.title}}" style="width: 100%; min-height: 36px; box-sizing: border-box; padding: 6px 8px; border: 1px solid #3f3f46; border-radius: 6px; background: #141414; color: #d4d4d8; font-family: inherit; font-size: {{curInputFs}}"></dd></div></sc-if>
+<sc-for list="{{doc.fmTop}}" as="a" hint-placeholder-count="0">
+<div style="display: grid; grid-template-columns: minmax(72px, 30%) minmax(0, 1fr); gap: 10px"><dt style="color: #8b8b94; font-weight: 500">{{a.name}}</dt><dd style="margin: 0; display: flex; align-items: center"><input type="checkbox" checked="{{a.on}}" aria-label="{{a.name}}" style="width: 20px; height: 20px; margin: 0; accent-color: #60a5fa"></dd></div>
+</sc-for>
+<sc-if value="{{doc.hasSteps}}" hint-placeholder-val="{{ true }}">
+<div style="display: grid; grid-template-columns: 1fr; gap: 6px">
+<h3 style="margin: 0; color: #fafafa; font-size: 12px; font-weight: 500">steps</h3>
+<dl style="display: flex; flex-direction: column; gap: 7px; margin: 0 0 0 10px; padding-left: 10px; border-left: 1px solid #1a1a1a">
+<sc-for list="{{doc.fmSteps}}" as="a" hint-placeholder-count="2">
+<div style="display: grid; grid-template-columns: minmax(72px, 30%) minmax(0, 1fr); gap: 10px"><dt style="color: #8b8b94; font-weight: 500; overflow-wrap: anywhere">{{a.name}}</dt><dd style="margin: 0; display: flex; align-items: center"><input type="checkbox" checked="{{a.on}}" aria-label="{{a.name}}" style="width: 20px; height: 20px; margin: 0; accent-color: #60a5fa"></dd></div>
+</sc-for>
+</dl>
+</div>
+</sc-if>
+</dl>
+</section>
+</sc-if>
+
+<sc-if value="{{apExplained}}" hint-placeholder-val="{{ false }}">
 <section aria-label="Approval" style="flex: none; padding: 8px {{padX}} 10px; border-bottom: 1px solid #1a1a1a">
 <h3 style="margin: 0; height: 26px; display: flex; align-items: center; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">WHEN YOU FINISH</h3>
 <sc-for list="{{doc.approvals}}" as="a" hint-placeholder-count="2">
@@ -150,10 +127,37 @@ body{margin:0}
 </section>
 </sc-if>
 
+<sc-if value="{{rdPanel}}" hint-placeholder-val="{{ true }}">
+<section aria-label="Document body" style="flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 16px; color: #d4d4d8; font-size: 12px">
+<div style="flex: none; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px">
+<h2 style="margin: 0; color: #fafafa; font-size: 12px; font-weight: 600">Body</h2>
+<div aria-label="Body view" style="display: flex; gap: 4px">
+<button type="button" aria-pressed="true" style="min-height: 36px; padding: 0 10px; border: 1px solid #60a5fa; border-radius: 6px; background: #141414; color: #fafafa; font-family: inherit; font-size: 12px">Edit</button>
+<button type="button" aria-pressed="false" style="min-height: 36px; padding: 0 10px; border: 1px solid #3f3f46; border-radius: 6px; background: #141414; color: #d4d4d8; font-family: inherit; font-size: 12px">Preview</button>
+</div>
+</div>
+<div style="flex: 1; min-height: 0; display: grid; grid-template-columns: {{curCols}}; gap: 12px">
+<pre aria-label="Markdown body" style="margin: 0; min-width: 0; overflow: hidden; padding: 12px; border: 1px solid #1a1a1a; border-radius: 8px; background: #141414; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{curEditorFs}}; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere">{{doc.raw}}</pre>
+<sc-if value="{{curShowPreview}}" hint-placeholder-val="{{ true }}">
+<div style="min-width: 0; overflow: hidden; padding: 12px; border: 1px solid #1a1a1a; border-radius: 8px; background: #141414; color: #d4d4d8; font-size: 13px">
+<sc-for list="{{doc.blocks}}" as="b" hint-placeholder-count="4">
+<sc-if value="{{b.h}}" hint-placeholder-val="{{ false }}"><h4 style="margin: 0 0 6px; color: #fafafa; font-size: 14px">{{b.text}}</h4></sc-if>
+<sc-if value="{{b.p}}" hint-placeholder-val="{{ true }}"><p style="margin: 0 0 10px">{{b.text}}</p></sc-if>
+<sc-if value="{{b.li}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 4px; padding-left: 14px; text-indent: -12px">· {{b.text}}</p></sc-if>
+<sc-if value="{{b.quote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 10px; padding-left: 10px; border-left: 2px solid #3f3f46; color: #a1a1aa">{{b.text}}</p></sc-if>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{rdToggle}}" hint-placeholder-val="{{ false }}">
 <section aria-label="Body" style="flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 8px {{padX}} 12px">
 <div style="flex: none; height: {{segRowH}}; display: flex; align-items: center; gap: 8px">
 <h3 style="margin: 0; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">BODY</h3>
-<div role="group" aria-label="Body view" style="margin-left: auto; display: flex">
+<sc-if value="{{showWideBtn}}" hint-placeholder-val="{{ false }}"><button type="button" style="margin-left: auto; height: {{segH}}; display: inline-flex; align-items: center; gap: 5px; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M9 21H3v-6"></path><path d="M21 3l-7 7"></path><path d="M3 21l7-7"></path></svg>Full width</button></sc-if>
+<div role="group" aria-label="Body view" style="margin-left: {{segMl}}; display: flex">
 <button type="button" aria-pressed="{{previewOnStr}}" style="height: {{segH}}; padding: 0 12px; border: 1px solid {{previewBorder}}; background: {{previewBg}}; color: {{previewColor}}; font-family: inherit; font-size: 12px">Preview</button>
 <button type="button" aria-pressed="{{editOnStr}}" style="height: {{segH}}; margin-left: -1px; padding: 0 12px; border: 1px solid {{editBorder}}; background: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 12px">Edit</button>
 </div>
@@ -172,8 +176,26 @@ body{margin:0}
 <pre aria-label="Markdown body" style="flex: 1; min-height: 0; margin: 6px 0 0; overflow: hidden; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{editorFs}}; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere">{{doc.raw}}</pre>
 </sc-if>
 </section>
+</sc-if>
 
-<sc-if value="{{apToggles}}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{rdFull}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Body" style="flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 10px; padding: 8px {{padX}} 12px">
+<h3 style="flex: none; margin: 0; height: 32px; display: flex; align-items: center; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">BODY</h3>
+<p style="margin: 0; color: #d4d4d8; font-size: 13px">{{doc.excerpt}}</p>
+<sc-if value="{{wideClosed}}" hint-placeholder-val="{{ true }}"><button type="button" style="align-self: flex-start; height: 32px; display: inline-flex; align-items: center; gap: 6px; padding: 0 14px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M9 21H3v-6"></path><path d="M21 3l-7 7"></path><path d="M3 21l7-7"></path></svg>Read full width</button></sc-if>
+<sc-if value="{{wide}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; display: flex; align-items: center; gap: 8px; color: #8b8b94; font-size: 12px"><span aria-hidden="true" style="width: 7px; height: 7px; background: #fafafa"></span>Open full width beside the panel · Esc closes it</p></sc-if>
+</section>
+</sc-if>
+
+<sc-if value="{{apCurrent}}" hint-placeholder-val="{{ true }}">
+<footer style="flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 12px 16px {{curFootPadB}}; border-top: 1px solid #1a1a1a">
+<span aria-live="polite" style="color: #8b8b94"></span>
+<button type="button" style="margin-left: auto; min-height: 36px; padding: 0 10px; border: 1px solid #3f3f46; border-radius: 6px; background: #141414; color: #d4d4d8; font-family: inherit; font-size: 12px">Save</button>
+<button type="button" style="min-height: 36px; padding: 0 10px; border: 1px solid #60a5fa; border-radius: 6px; background: #141414; color: #fafafa; font-family: inherit; font-size: 12px">Finish review</button>
+</footer>
+</sc-if>
+
+<sc-if value="{{apExplained}}" hint-placeholder-val="{{ false }}">
 <footer style="flex: none; display: flex; align-items: center; gap: 8px; padding: 10px {{padX}} {{footPadB}}; border-top: 1px solid #2a2a2a; background: #0f0f0f">
 <span aria-live="polite" style="min-width: 0; color: #8b8b94; font-size: {{metaFs}}; white-space: nowrap">{{saveState}}</span>
 <button type="button" style="margin-left: auto; height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Save</button>
@@ -208,29 +230,49 @@ body{margin:0}
 </sc-if>
 </aside>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["current","a","b","c"],"default":"a"},"phone":{"editor":"boolean","default":false},"doc":{"editor":"int","min":0,"max":3,"default":0},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"screen":{"editor":"enum","options":["auto","list","detail"],"default":"auto"},"submit":{"editor":"boolean","default":false},"menuOpen":{"editor":"boolean","default":false},"$preview":{"width":640,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"heading":{"editor":"enum","options":["none","kind"],"default":"none"},"switcher":{"editor":"enum","options":["none","tabs","stepper","list"],"default":"none"},"reading":{"editor":"enum","options":["panel","toggle","full","entry"],"default":"panel"},"wide":{"editor":"boolean","default":false},"approval":{"editor":"enum","options":["current","explained","buttons"],"default":"current"},"phone":{"editor":"boolean","default":false},"doc":{"editor":"int","min":0,"max":3,"default":0},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"screen":{"editor":"enum","options":["auto","list","detail"],"default":"auto"},"submit":{"editor":"boolean","default":false},"menuOpen":{"editor":"boolean","default":false},"$preview":{"width":640,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
-    const option = this.props.option ?? 'a';
+    // Every prop defaults to how the app is today: no heading, one draft, the two-column body, bare frontmatter checkboxes.
+    const heading = this.props.heading ?? 'none';
+    const switcher = this.props.switcher ?? 'none';
+    const approval = this.props.approval ?? 'current';
     const phone = this.props.phone ?? false;
+    // The panel already fills a phone screen, so full width has nothing to widen there.
+    const reading0 = this.props.reading ?? 'panel';
+    const reading = phone && (reading0 === 'full' || reading0 === 'entry') ? 'toggle' : reading0;
+    const wide = reading === 'full' && (this.props.wide ?? false);
     const di = Math.min(3, Math.max(0, this.props.doc ?? 0));
     const view = this.props.view ?? 'preview';
     const submit = this.props.submit ?? false;
-    const cur = option === 'current';
     const screenProp = this.props.screen ?? 'auto';
-    const screen = screenProp !== 'auto' ? screenProp : option === 'c' && !phone ? 'list' : 'detail';
-    const menuOpen = option === 'b' && !phone && (this.props.menuOpen ?? false);
-    const isList = !cur && screen === 'list';
-    const isDetail = !cur && !isList;
-    const sw = !isDetail ? 'none' : option === 'a' ? 'tabs' : option === 'b' && !phone ? 'pager' : 'back';
-    const buttons = option === 'b';
+    const screen = switcher === 'none' ? 'detail' : screenProp !== 'auto' ? screenProp : switcher === 'list' ? 'list' : 'detail';
+    const isList = screen === 'list';
+    const isDetail = !isList;
+    const sw = switcher === 'none' ? 'none' : switcher === 'tabs' ? 'tabs' : switcher === 'stepper' && !phone ? 'pager' : 'back';
+    const menuOpen = sw === 'pager' && (this.props.menuOpen ?? false);
+    const headKind = heading === 'kind';
 
     const IN = '#fbbf24';
     const Q = '#71717a';
     const D = [
       {
+        kind: 'Issue comment', where: 'example/web-app #412', short: '#412',
+        title: '#412 配信が 4 件目から届かない', titleEditable: false, state: 'In editor', stateLong: 'In the editor · 3m', stateDot: IN,
+        note: 'New comment on this issue',
+        excerpt: '再現手順を足します。',
+        approvalSummary: 'Not approved yet',
+        approvals: [{ label: 'Post the comment', key: 'submit', help: 'Approve it. After you finish, the session posts it to #412.', on: 'submit' }],
+        finishOn: 'Finish and post', finishOff: 'Finish and send back',
+        bButtons: [{ label: 'Send back', title: 'Close the editor without approving. The session reads your edits and revises the comment.' }],
+        bPrimary: 'Post comment',
+        bHelp: 'Each button saves and closes the editor. Post comment sets submit. Send back returns your edits to the session.',
+        raw: '再現手順を足します。\n\n1. 送信先を応答の遅いサーバーにする\n2. 通知を 10 件続けて送る\n3. 4 件目から届かない',
+        blocks: [['p', '再現手順を足します。'], ['li', '1. 送信先を応答の遅いサーバーにする'], ['li', '2. 通知を 10 件続けて送る'], ['li', '3. 4 件目から届かない']]
+      },
+      {
         kind: 'PR draft', where: 'example/web-app · feature/retry-limit', short: 'feature/retry-limit',
-        title: '再送の上限を設定で変えられるようにする', titleEditable: true, titleLabel: 'PR title', state: 'In editor', stateLong: 'In the editor · 3m', stateDot: IN,
+        title: '再送の上限を設定で変えられるようにする', titleEditable: true, titleLabel: 'PR title', state: 'Queued', stateLong: 'Queued for the editor · 2m', stateDot: Q,
         note: '',
         excerpt: 'Why: 再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。',
         approvalSummary: 'Not approved yet',
@@ -246,20 +288,6 @@ class Component extends DCLogic {
         blocks: [['h', 'Why'], ['p', '再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。'], ['h', 'What'], ['li', '上限を RETRY_LIMIT で変えられるようにする'], ['li', '既定値は 3 回のまま']]
       },
       {
-        kind: 'Issue comment', where: 'example/web-app #412', short: '#412',
-        title: '#412 配信が 4 件目から届かない', titleEditable: false, state: 'Queued', stateLong: 'Queued for the editor · 2m', stateDot: Q,
-        note: 'New comment on this issue',
-        excerpt: '再現手順を足します。',
-        approvalSummary: 'Not approved yet',
-        approvals: [{ label: 'Post the comment', key: 'submit', help: 'Approve it. After you finish, the session posts it to #412.', on: 'submit' }],
-        finishOn: 'Finish and post', finishOff: 'Finish and send back',
-        bButtons: [{ label: 'Send back', title: 'Close the editor without approving. The session reads your edits and revises the comment.' }],
-        bPrimary: 'Post comment',
-        bHelp: 'Each button saves and closes the editor. Post comment sets submit. Send back returns your edits to the session.',
-        raw: '再現手順を足します。\n\n1. 送信先を応答の遅いサーバーにする\n2. 通知を 10 件続けて送る\n3. 4 件目から届かない',
-        blocks: [['p', '再現手順を足します。'], ['li', '1. 送信先を応答の遅いサーバーにする'], ['li', '2. 通知を 10 件続けて送る'], ['li', '3. 4 件目から届かない']]
-      },
-      {
         kind: 'Review replies', where: 'example/web-app PR #2049', short: 'PR #2049',
         title: '#2049 配信前のチェックを追加する', titleEditable: false, state: 'Queued', stateLong: 'Queued for the editor · 1m', stateDot: Q,
         note: 'Replies to 2 threads · pulled 09:12',
@@ -270,8 +298,8 @@ class Component extends DCLogic {
         bButtons: [{ label: 'Send back', title: 'Close the editor without approving. The session reads your edits and revises the replies.' }],
         bPrimary: 'Post replies',
         bHelp: 'Each button saves and closes the editor. Post replies sets submit. Send back returns your edits to the session.',
-        raw: '### src/preflight.ts:42\n\n> この判定は null も通しますか?\n\n通しません。手前で弾いています。',
-        blocks: [['h', 'src/preflight.ts:42'], ['quote', 'この判定は null も通しますか?'], ['p', '通しません。手前で弾いています。']]
+        raw: '### src/preflight.ts:42\n\n> この判定は null も通しますか?\n\n通しません。手前で弾いています。\n\n### src/preflight.ts:57\n\n> 失敗したときのログはどこに出ますか?\n\n送信ログに理由と一緒に出します。',
+        blocks: [['h', 'src/preflight.ts:42'], ['quote', 'この判定は null も通しますか?'], ['p', '通しません。手前で弾いています。'], ['h', 'src/preflight.ts:57'], ['quote', '失敗したときのログはどこに出ますか?'], ['p', '送信ログに理由と一緒に出します。']]
       },
       {
         kind: 'Draft', where: 'docs/retry-plan.md', short: 'retry-plan.md',
@@ -290,13 +318,19 @@ class Component extends DCLogic {
       }
     ].map((x, i) => {
       const sel = i === di;
+      const approvals = x.approvals.map((a) => ({ ...a, on: a.on === 'submit' ? submit : a.on }));
+      // Today's frontmatter shows the raw keys, nesting steps.* under "steps".
+      const fmSteps = approvals.filter((a) => a.key.startsWith('steps.')).map((a) => ({ name: a.key.slice(6), on: a.on }));
       return {
         ...x,
         n: String(i + 1),
         titleStatic: !x.titleEditable,
         hasNote: !!x.note,
-        noApproval: x.approvals.length === 0,
-        approvals: x.approvals.map((a) => ({ ...a, on: a.on === 'submit' ? submit : a.on })),
+        noApproval: approvals.length === 0,
+        approvals,
+        fmSteps,
+        hasSteps: fmSteps.length > 0,
+        fmTop: approvals.filter((a) => !a.key.startsWith('steps.')).map((a) => ({ name: a.key, on: a.on })),
         blocks: x.blocks.map(([t, text]) => ({ h: t === 'h', p: t === 'p', li: t === 'li', quote: t === 'quote', text })),
         bButtons: x.bButtons.map((b, j) => ({ ...b, ml: j === 0 && !phone ? 'auto' : '0' })),
         selectedStr: sel ? 'true' : 'false',
@@ -309,8 +343,11 @@ class Component extends DCLogic {
     });
     const doc = D[di];
     const hasApprovals = doc.approvals.length > 0;
+    const apCurrent = approval === 'current';
+    // With the kind heading, the PR title moves out of the frontmatter into the heading.
+    const fmTitle = apCurrent && doc.titleEditable && !headKind;
 
-    const tabs = [['Running', '2', '#60a5fa'], ['Tasks', '13', '#8b8b94'], ['Tree', '1', '#fbbf24'], ['Review', cur ? '' : '4', '#fbbf24'], ['Decisions', '1', '#fbbf24']]
+    const tabs = [['Running', '2', '#60a5fa'], ['Tasks', '13', '#8b8b94'], ['Tree', '1', '#fbbf24'], ['Review', switcher === 'none' ? '' : '4', '#fbbf24'], ['Decisions', '1', '#fbbf24']]
       .map(([label, count, countColor]) => {
         const on = label === 'Review';
         return { label, count, countColor, selected: on ? 'true' : 'false', color: on ? '#fafafa' : '#a1a1aa', weight: on ? 700 : 400, underline: on ? '#fafafa' : 'transparent' };
@@ -325,11 +362,6 @@ class Component extends DCLogic {
       closeSize: phone ? '44px' : '28px',
       closePad: phone ? '0' : '10px',
       padX: phone ? '16px' : '18px',
-      isCurrent: cur,
-      curCols: phone ? '1fr' : 'minmax(0, 1fr) minmax(0, 1fr)',
-      curShowPreview: !phone,
-      curInputFs: phone ? '16px' : '12px',
-      curEditorFs: phone ? '16px' : '13px',
       isList,
       isDetail,
       docs: D,
@@ -342,14 +374,27 @@ class Component extends DCLogic {
       menuOpenStr: menuOpen ? 'true' : 'false',
       menuBorder: menuOpen ? '#a1a1aa' : '#3f3f46',
       menuBg: menuOpen ? '#262626' : 'transparent',
-      showOpenWide: option === 'c' && !phone,
-      showChevron: phone,
-      listFoot: option === 'c' && !phone ? 'Opens beside the conversation, full width. Esc returns here.' : 'In the editor now: 1 · Queued: 3',
+      headKind,
+      showFm: apCurrent && (fmTitle || hasApprovals),
+      fmTitle,
+      apCurrent,
+      apExplained: approval === 'explained',
+      apButtons: approval === 'buttons',
+      rdPanel: reading === 'panel',
+      rdToggle: reading === 'toggle' || reading === 'entry',
+      rdFull: reading === 'full',
+      showWideBtn: reading === 'entry',
+      segMl: reading === 'entry' ? '0' : 'auto',
+      wide,
+      wideClosed: !wide,
+      curCols: phone ? '1fr' : 'minmax(0, 1fr) minmax(0, 1fr)',
+      curShowPreview: !phone,
+      curInputFs: phone ? '16px' : '12px',
+      curEditorFs: phone ? '16px' : '13px',
+      curFootPadB: phone ? '24px' : '16px',
       rowPad: phone ? '12px 16px' : '12px 18px',
       chipMaxW: phone ? '160px' : '180px',
       chipH: phone ? '52px' : '46px',
-      apToggles: !buttons,
-      apButtons: buttons,
       phoneNot: !phone,
       bFlex: phone ? '1 1 auto' : '0 0 auto',
       bPrimaryMl: doc.bButtons.length === 0 && !phone ? 'auto' : '0',

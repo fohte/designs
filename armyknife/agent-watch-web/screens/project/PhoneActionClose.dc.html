@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Phone: close running in the background</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; background: #0a0a0a">
+<dc-import name="PhoneInbox" close="closing" activity="{{ activity }}" hint-size="390px,844px"></dc-import>
+<div style="position: absolute; z-index: 10; left: 12px; right: 12px; bottom: 30px"><dc-import name="ToastStack" items="{{ toasts }}" phone="{{ true }}" hint-size="100%,72px"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      activity: { count: '1', tone: 'running' },
+      toasts: [{ result: 'closing', session: 'アラートの送り先を決める' }]
+    };
+  }
+}
+</script>
+</body>
+</html>

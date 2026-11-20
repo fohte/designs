@@ -64,6 +64,12 @@ class Component extends DCLogic {
           '↵ で送り、Esc で止め、⌥↑ / ⌥↓ で自分のメッセージをたどります。',
           '返信欄の下に status line と同じ並びで engine、model (effort)、context、5h / 7d の quota (7d 76% → 92% の形で、今の使用率と窓の終わりの予測。色はナビと同じ)、バージョンを出します。表示だけで、押しても何も起きません。iPhone では折り返します。'
         ] },
+        { title: '確認したあとの実行', items: [
+          'Merge と Close session… は確認ダイアログで確定するとすぐダイアログを閉じ、裏で実行します。実行中もほかの操作や別のセッションへの移動ができます。',
+          '押した場所に結果を出します。Merge (ヘッダーと PR の一覧) は Merging… から Merged、Already merged、Queued (マージキュー)、Failed と Retry のどれかに変わります。Inbox の行は Closing… になり、閉じたら消え、失敗したら Close failed と Retry を出します。',
+          'トーストを返信欄の上 (PC は右下) に重ねます。成功は自動で消え、失敗は Retry と Details を付けて残します。',
+          '一度実行するとナビの quota の上 (iPhone はヘッダー) に Activity が出て、実行中を青、失敗を赤の数で示し、一覧を開けます。会話にも Merged PR #2049 · 12:03 の形で 1 行残します。'
+        ] },
         { title: '返事を待つカード', items: [
           'Question、Permission、Proposal、To-do の 4 種類です。返事を待っている間は黄色の枠で囲みます。',
           'セッションが止まらずに決めたことは Decision として灰色の行で出し、あとから OK か Change… で返します。'

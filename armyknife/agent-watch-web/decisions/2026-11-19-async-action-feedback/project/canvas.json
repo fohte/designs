@@ -1,0 +1,128 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-19T12:14:19Z"
+  },
+  "title": "Feedback for background actions",
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
+  "boards": {
+    "async-action-feedback-current.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "Current · PC · Merge 中", "page": "options" },
+    "async-action-feedback-current-failure.dc.html": { "x": 1520, "y": 0, "w": 1440, "h": 900, "title": "Current · PC · 失敗", "page": "options" },
+    "async-action-feedback-current-phone.dc.html": { "x": 6080, "y": 0, "w": 390, "h": 844, "title": "Current · iPhone · Merge 中", "page": "options" },
+    "async-action-feedback-a-running.dc.html": { "x": 0, "y": 1300, "w": 1440, "h": 900, "title": "A · PC · 実行中 (2 件)", "page": "options" },
+    "async-action-feedback-a-success.dc.html": { "x": 1520, "y": 1300, "w": 1440, "h": 900, "title": "A · PC · 成功", "page": "options" },
+    "async-action-feedback-a-failure.dc.html": { "x": 3040, "y": 1300, "w": 1440, "h": 900, "title": "A · PC · 失敗", "page": "options" },
+    "async-action-feedback-a-away.dc.html": { "x": 4560, "y": 1300, "w": 1440, "h": 900, "title": "A · PC · 別のセッションへ移ったあと", "page": "options" },
+    "async-action-feedback-a-phone-running.dc.html": { "x": 6080, "y": 1300, "w": 390, "h": 844, "title": "A · iPhone · 実行中", "page": "options" },
+    "async-action-feedback-a-phone-success.dc.html": { "x": 6550, "y": 1300, "w": 390, "h": 844, "title": "A · iPhone · 成功", "page": "options" },
+    "async-action-feedback-a-phone-failure.dc.html": { "x": 7020, "y": 1300, "w": 390, "h": 844, "title": "A · iPhone · 失敗", "page": "options" },
+    "async-action-feedback-a-phone-close.dc.html": { "x": 7490, "y": 1300, "w": 390, "h": 844, "title": "A · iPhone · Close session のあと", "page": "options" },
+    "async-action-feedback-b-running.dc.html": { "x": 0, "y": 2600, "w": 1440, "h": 900, "title": "B · PC · 実行中 (2 件)", "page": "options" },
+    "async-action-feedback-b-success.dc.html": { "x": 1520, "y": 2600, "w": 1440, "h": 900, "title": "B · PC · 成功", "page": "options" },
+    "async-action-feedback-b-failure.dc.html": { "x": 3040, "y": 2600, "w": 1440, "h": 900, "title": "B · PC · 失敗", "page": "options" },
+    "async-action-feedback-b-away.dc.html": { "x": 4560, "y": 2600, "w": 1440, "h": 900, "title": "B · PC · 別のセッションへ移ったあと", "page": "options" },
+    "async-action-feedback-b-phone-running.dc.html": { "x": 6080, "y": 2600, "w": 390, "h": 844, "title": "B · iPhone · 実行中", "page": "options" },
+    "async-action-feedback-b-phone-success.dc.html": { "x": 6550, "y": 2600, "w": 390, "h": 844, "title": "B · iPhone · 成功", "page": "options" },
+    "async-action-feedback-b-phone-failure.dc.html": { "x": 7020, "y": 2600, "w": 390, "h": 844, "title": "B · iPhone · 失敗", "page": "options" },
+    "async-action-feedback-b-phone-close.dc.html": { "x": 7490, "y": 2600, "w": 390, "h": 844, "title": "B · iPhone · Close session のあと", "page": "options" },
+    "async-action-feedback-c-running.dc.html": { "x": 0, "y": 3900, "w": 1440, "h": 900, "title": "C · PC · 実行中 (2 件、Activity を開いたところ)", "page": "options" },
+    "async-action-feedback-c-success.dc.html": { "x": 1520, "y": 3900, "w": 1440, "h": 900, "title": "C · PC · 成功", "page": "options" },
+    "async-action-feedback-c-failure.dc.html": { "x": 3040, "y": 3900, "w": 1440, "h": 900, "title": "C · PC · 失敗 (Activity を開いたところ)", "page": "options" },
+    "async-action-feedback-c-away.dc.html": { "x": 4560, "y": 3900, "w": 1440, "h": 900, "title": "C · PC · 別のセッションへ移ったあと", "page": "options" },
+    "async-action-feedback-c-phone-running.dc.html": { "x": 6080, "y": 3900, "w": 390, "h": 844, "title": "C · iPhone · 実行中", "page": "options" },
+    "async-action-feedback-c-phone-success.dc.html": { "x": 6550, "y": 3900, "w": 390, "h": 844, "title": "C · iPhone · 成功", "page": "options" },
+    "async-action-feedback-c-phone-failure.dc.html": { "x": 7020, "y": 3900, "w": 390, "h": 844, "title": "C · iPhone · 失敗 (Activity を開いたところ)", "page": "options" },
+    "async-action-feedback-c-phone-close.dc.html": { "x": 7490, "y": 3900, "w": 390, "h": 844, "title": "C · iPhone · Close session のあと", "page": "options" },
+    "FeedbackDesk.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "FeedbackDesk", "page": "parts" },
+    "FeedbackPhone.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "FeedbackPhone", "page": "parts" },
+    "ConfirmDialog.dc.html": { "x": 1990, "y": 0, "w": 380, "h": 200, "title": "ConfirmDialog", "page": "parts" }
+  },
+  "order": [
+    "async-action-feedback-current.dc.html",
+    "async-action-feedback-current-failure.dc.html",
+    "async-action-feedback-current-phone.dc.html",
+    "async-action-feedback-a-running.dc.html",
+    "async-action-feedback-a-success.dc.html",
+    "async-action-feedback-a-failure.dc.html",
+    "async-action-feedback-a-away.dc.html",
+    "async-action-feedback-a-phone-running.dc.html",
+    "async-action-feedback-a-phone-success.dc.html",
+    "async-action-feedback-a-phone-failure.dc.html",
+    "async-action-feedback-a-phone-close.dc.html",
+    "async-action-feedback-b-running.dc.html",
+    "async-action-feedback-b-success.dc.html",
+    "async-action-feedback-b-failure.dc.html",
+    "async-action-feedback-b-away.dc.html",
+    "async-action-feedback-b-phone-running.dc.html",
+    "async-action-feedback-b-phone-success.dc.html",
+    "async-action-feedback-b-phone-failure.dc.html",
+    "async-action-feedback-b-phone-close.dc.html",
+    "async-action-feedback-c-running.dc.html",
+    "async-action-feedback-c-success.dc.html",
+    "async-action-feedback-c-failure.dc.html",
+    "async-action-feedback-c-away.dc.html",
+    "async-action-feedback-c-phone-running.dc.html",
+    "async-action-feedback-c-phone-success.dc.html",
+    "async-action-feedback-c-phone-failure.dc.html",
+    "async-action-feedback-c-phone-close.dc.html",
+    "FeedbackDesk.dc.html",
+    "FeedbackPhone.dc.html",
+    "ConfirmDialog.dc.html"
+  ],
+  "pages": [
+    { "id": "options", "name": "案" },
+    { "id": "parts", "name": "部品" }
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1", "x": 0, "y": -260, "maxW": 7880, "page": "options",
+      "text": "Current · 確定してもダイアログが開いたまま、終わるまで待つ"
+    },
+    "a": {
+      "kind": "title1", "x": 0, "y": 1040, "maxW": 7880, "page": "options",
+      "text": "A · トースト。右下に積み、成功は自動で消え、失敗は Retry つきで残る"
+    },
+    "b": {
+      "kind": "title1", "x": 0, "y": 2340, "maxW": 7880, "page": "options",
+      "text": "B · 押した場所に出す。Merge のボタンと Inbox の行が Merging… から Merged / Merge failed に変わる"
+    },
+    "c": {
+      "kind": "title1", "x": 0, "y": 3640, "maxW": 7880, "page": "options",
+      "text": "C · Activity にまとめる。進行中と結果を 1 か所に並べ、会話にも 1 行残す"
+    },
+    "about": {
+      "x": 3040, "y": 0, "w": 520, "page": "options",
+      "text": "前提\n- 困りごと: 確認ダイアログを出す操作 (PR の Merge、! コマンド、vibe mode、Close session) は、確定してから終わるまでダイアログが開いたまま待つ\n- どの案も、確定するとダイアログはすぐ閉じ、操作は裏で進む。ダイアログは共通部品 ConfirmDialog のまま\n- 例: 配信チェックの PR を確認する で PR #2049 を Merge し、続けて Inbox の e で アラートの送り先を決める を閉じた\n- PC は 実行中 / 成功 / 失敗 / 別のセッションへ移ったあと (Merge は失敗、Close は成功)\n- スマホは Merge の 実行中 / 成功 / 失敗 と、会話から Close session して Inbox に戻った直後\n- 状態の帯、SessionUsage などは省いている。データはすべて架空"
+    },
+    "combo": {
+      "x": 3640, "y": 0, "w": 620, "page": "options", "fill": "blue",
+      "text": "組み合わせ\n- 3 つは同時に使える。役割で分けると B = 押した場所での進行中と結果、A = 押した場所が見えないときの知らせ、C = あとから見返す記録\n- 候補: B + C の会話の 1 行 + A は失敗のときだけ。成功は B の表示と会話の 1 行で足りるので、隅にトーストを出さない\n- Close session は対象が Inbox から消えるので、B の Closing… のあとに結果を出す場所がない。A のトーストか C の Activity が要る\n- パレットから実行した操作も、押した場所がないので B だけでは足りない\n- C の Activity は、A のトーストを見逃したときの履歴としても足せる"
+    },
+    "aNote": {
+      "x": 7960, "y": 1300, "w": 460, "page": "options",
+      "text": "A · トースト\n+ 見慣れた形。どの画面にいても目に入るので、別のセッションへ移ったあとや、閉じたセッションの結果も出せる\n+ 複数の操作は積んで並べる\n- 押した場所から離れた隅に出るので、何の結果かを読む必要がある\n- 消えたあとは結果を見返せない\n- スマホでは入力欄の上をふさぐ"
+    },
+    "bNote": {
+      "x": 7960, "y": 2600, "w": 460, "page": "options",
+      "text": "B · 押した場所\n+ 押したボタンがそのまま結果になり、何の結果か迷わない\n+ 別のセッションへ移っても、Inbox の行に失敗が残る\n- Close session の成功は行が消えるだけで、見逃すと閉じたか分からない\n- スマホはシートが閉じると押した場所が消えるので、ヘッダーの下に帯を出す\n- パレットから実行した操作は出す場所がない"
+    },
+    "cNote": {
+      "x": 7960, "y": 3900, "w": 460, "page": "options",
+      "text": "C · Activity\n+ 進行中と結果を 1 か所で見返せる。閉じたセッションの結果も残る\n+ 会話の 1 行で、あとから読み返しても Merge したと分かる\n- 失敗に気づかせるのはバッジだけで、内容は Activity を開くまで分からない\n- Nav とスマホのヘッダーに置き場所が 1 つ増える"
+    }
+  },
+  "noteOrder": ["current", "a", "b", "c", "about", "combo", "aNote", "bNote", "cNote"],
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-19T12:14:19Z"
+    }
+  ]
+}

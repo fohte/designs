@@ -25,7 +25,7 @@ body{margin:0}
 </span>
 <div style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><strong style="color: #fafafa">{{title}}</strong><span style="min-width: 0; color: #a1a1aa; font-size: {{subFs}}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{session}}</span>
 <sc-if value="{{hasMsg}}" hint-placeholder-val="{{ false }}"><span style="color: #d4d4d8; font-size: {{subFs}}">{{msg}}</span></sc-if>
-<sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><div style="display: grid; grid-template-columns: {{actCols}}; gap: 8px; margin-top: 8px"><sc-if value="{{hasKeep}}" hint-placeholder-val="{{ false }}"><button type="button" style="grid-column: 1 / -1; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Close and keep worktree</button></sc-if><button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{retryBorder}}; background: {{retryBg}}; color: {{retryFg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{retryWeight}}; white-space: nowrap">Retry</button><button type="button" aria-label="Details in Activity" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{subFs}}; white-space: nowrap">Details</button></div></sc-if>
+<sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><div style="display: grid; grid-template-columns: {{actCols}}; gap: 8px; margin-top: 8px"><sc-if value="{{hasKeep}}" hint-placeholder-val="{{ false }}"><button type="button" style="grid-column: 1 / -1; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Close and keep worktree</button></sc-if><button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{retryBorder}}; background: {{retryBg}}; color: {{retryFg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{retryWeight}}; white-space: nowrap">Retry</button><sc-if value="{{hasDetails}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="Details in Activity" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{subFs}}; white-space: nowrap">Details</button></sc-if></div></sc-if>
 </div>
 <button type="button" aria-label="Dismiss" style="width: {{closeW}}; height: {{closeH}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #8b8b94"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
 <sc-if value="{{autoDismiss}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; left: 0; bottom: 0; width: 60%; height: 2px; background: #52525b"></span></sc-if>
@@ -92,11 +92,10 @@ class Component extends DCLogic {
     const c = a.checks ?? null;
     const n = (k, one, many) => k + ' ' + (k === 1 ? one : many);
     const files = c?.files ?? [], procs = c?.processes ?? [];
-    const short = (xs) => xs.slice(0, 3).join(' · ') + (xs.length > 3 ? ' · +' + (xs.length - 3) + ' more' : '');
     const checkItems = c ? [
-      { label: 'Uncommitted changes', detail: short(files), state: files.length ? n(files.length, 'file', 'files') : 'None' },
+      { label: 'Uncommitted changes', detail: files.join(' · '), state: files.length ? n(files.length, 'file', 'files') : 'None' },
       { label: 'Branch ' + c.branch, detail: c.merged ? '' : (c.reason ?? ''), state: c.merged ? 'Merged' : 'Not merged', ok: !!c.merged },
-      { label: 'Running processes', detail: short(procs), state: procs.length ? procs.length + ' running' : 'None' }
+      { label: 'Running processes', detail: procs.join(' · '), state: procs.length ? procs.length + ' running' : 'None' }
     ] : [];
     const left = [
       files.length ? n(files.length, 'uncommitted file', 'uncommitted files') : '',
@@ -108,6 +107,8 @@ class Component extends DCLogic {
     const hasKeep = !!c;
     const hasTerminal = files.length > 0 || procs.length > 0;
     return {
+      // A close failure without guard results has nothing more to show in Activity.
+      hasDetails: !(a.result === 'closeFailed' && !c),
       hasChecks: !!c, checkItems, path: c?.path ?? '', hasKeep, hasTerminal, hasRowMsg: !!msg && !c,
       retryBorder: hasKeep ? '#3f3f46' : '#fafafa', retryBg: hasKeep ? 'transparent' : '#fafafa', retryFg: hasKeep ? '#fafafa' : '#0a0a0a', retryWeight: hasKeep ? 400 : 700,
       // Phone: the buttons fill the row, Close and keep worktree on its own line, then Retry and Open in terminal side by side.

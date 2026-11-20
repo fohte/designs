@@ -88,7 +88,7 @@ body{margin:0}
 </footer>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"filter":{"editor":"enum","options":["none","chips","saving"],"default":"none"},"laterMenuOpen":{"editor":"boolean","default":false},"current":{"editor":"int","default":0},"$preview":{"width":460,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"filter":{"editor":"enum","options":["none","chips","saving"],"default":"none"},"laterMenuOpen":{"editor":"boolean","default":false},"current":{"editor":"int","default":0},"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"$preview":{"width":460,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const cur = this.props.current ?? 0;
@@ -103,6 +103,11 @@ class Component extends DCLogic {
       { status: 'Approve', title: 'ステージングの設定を書き換える', unread: false, age: '6m', preview: 'Bash の実行を許可してください。', role: 'development', engine: 'codex', taskRef: 'P2 #2052', taskTitle: '新しい設定を段階的に公開する', repo: 'example/service' },
       { status: 'Proposal', title: 'アラートの送り先を決める', unread: false, age: '12m', preview: '2 つの案から選んでください。', role: 'designer', engine: 'claude', taskRef: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/observability' }
     ];
+    // close: a confirmed close of the Proposal row running in the background. 'closed' takes the row out.
+    const close = this.props.close ?? 'none';
+    const proposal = rows[rows.length - 1];
+    if (close === 'closed') rows.pop();
+    else if (close !== 'none') Object.assign(proposal, { close, closeReason: 'The session did not stop within 10 s.' });
     const need = rows.filter((r) => !filtered || r.match).map((r, i) => ({
       ...r,
       current: i === cur ? 'true' : 'false',

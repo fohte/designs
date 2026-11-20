@@ -14,9 +14,9 @@ body{margin:0}
 </style>
 </helmet>
 <div style="width: 1440px; height: 900px; display: flex; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif">
-<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" hint-size="240px,900px"></dc-import></div>
-<div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" hint-size="460px,900px"></dc-import></div>
-<div style="flex: 1; min-width: 0"><dc-import name="Conversation" variant="working" tasks-open="{{ true }}" hint-size="100%,900px"></dc-import></div>
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" inbox-collapsed="{{ true }}" hint-size="240px,900px"></dc-import></div>
+<div style="flex: none; width: 560px"><dc-import name="Conversation" variant="working" panel-open="{{ true }}" hint-size="100%,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0"><dc-import name="StatusPanel" tab="tasks" linked="{{ true }}" hint-size="100%,900px"></dc-import></div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>

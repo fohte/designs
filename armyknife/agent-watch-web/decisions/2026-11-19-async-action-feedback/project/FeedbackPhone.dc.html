@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Phone: background action feedback</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<main style="position: relative; width: 390px; height: 844px; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.55">
+
+<sc-if value="{{isChat}}" hint-placeholder-val="{{ true }}">
+<header style="flex: none; display: grid; grid-template-columns: 44px 1fr auto; align-items: center; column-gap: 4px; padding: 6px 8px 6px 0; border-bottom: 1px solid #2a2a2a">
+<button type="button" aria-label="Back to Inbox" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
+<h1 style="margin: 0; min-width: 0; font-size: 15px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">配信チェックの PR を確認する</h1>
+<div style="display: flex; align-items: center; gap: 8px">
+<sc-if value="{{hasTray}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Background actions" aria-expanded="{{trayOpenStr}}" style="position: relative; width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg><span aria-hidden="true" style="position: absolute; top: 3px; right: 4px; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 1; color: {{trayColor}}">{{trayBadge}}</span></button></sc-if>
+<button type="button" aria-label="Open session status panel" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path><path d="m10 15-3-3 3-3"></path></svg></button>
+<button type="button" aria-label="More actions" aria-haspopup="menu" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid #3f3f46; background: transparent; color: #fafafa"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</div>
+<a href="#" style="grid-column: 1 / -1; min-width: 0; min-height: 24px; display: flex; align-items: center; gap: 6px; padding: 0 0 0 14px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa; text-decoration: none; white-space: nowrap"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">#2050 配信チェックを入れる</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: none">web-app</span></a>
+</header>
+<sc-if value="{{hasStrip}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="flex: none; display: flex; flex-direction: column; gap: 2px; padding: 10px 16px; border-bottom: 1px solid #2a2a2a; background: #141414; font-size: 13px">
+<div style="min-height: 28px; display: flex; align-items: center; gap: 8px; color: {{strip.color}}">
+<sc-if value="{{strip.spin}}" hint-placeholder-val="{{ true }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></sc-if>
+<sc-if value="{{strip.ok}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if>
+<sc-if value="{{strip.err}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
+<span style="min-width: 0">{{strip.text}}</span>
+<sc-if value="{{strip.retry}}" hint-placeholder-val="{{ false }}"><button type="button" style="margin-left: auto; min-width: 72px; min-height: 44px; padding: 0 14px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 13px; font-weight: 700">Retry</button></sc-if>
+</div>
+<sc-if value="{{strip.hasMsg}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa; font-size: 12.5px">{{strip.msg}}</span></sc-if>
+</div>
+</sc-if>
+<div aria-live="polite" style="flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; padding: 0 16px 16px">
+<article style="flex: none; align-self: flex-end; max-width: 92%; display: flex; flex-direction: column; gap: 4px">
+<div style="text-align: right; font-size: 12px; color: #8b8b94">You · 11:40</div>
+<div style="padding: 10px 14px; background: #1f1f1f">配信前のチェックを足して PR にして。</div>
+</article>
+<article style="flex: none; color: #d4d4d8">PR #2049 を開きました。宛先の形式、本文の長さ、送信の上限の 3 つを確かめます。CI はすべて通っています。</article>
+<sc-if value="{{hasSys}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="flex: none; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 13px; text-align: center">
+<div style="display: flex; align-items: center; gap: 8px; color: {{sys.color}}">
+<sc-if value="{{sys.spin}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></sc-if>
+<sc-if value="{{sys.ok}}" hint-placeholder-val="{{ true }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if>
+<sc-if value="{{sys.err}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
+<span>{{sys.text}}</span><span style="color: #8b8b94">{{sys.time}}</span>
+</div>
+<sc-if value="{{sys.hasMsg}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa; font-size: 12.5px">{{sys.msg}}</span></sc-if>
+<sc-if value="{{sys.retry}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-width: 88px; min-height: 44px; margin-top: 4px; padding: 0 14px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px">Retry</button></sc-if>
+</div>
+</sc-if>
+</div>
+<form style="flex: none; display: grid; grid-template-columns: 1fr 44px; gap: 8px; padding: 10px 12px 30px; border-top: 1px solid #2a2a2a; background: #141414">
+<textarea aria-label="Message" rows="1" placeholder="Message session" style="min-height: 44px; box-sizing: border-box; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: 16px; resize: none; outline: none"></textarea>
+<button type="submit" aria-label="Send message" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
+</form>
+</sc-if>
+
+<sc-if value="{{isInbox}}" hint-placeholder-val="{{ false }}">
+<header style="flex: none; display: flex; align-items: center; gap: 4px; padding: 8px 8px 0 16px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700"><span style="margin-right: 7px; color: #ef4444">&gt;</span>agent watch</span>
+<sc-if value="{{hasTray}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Background actions" style="margin-left: auto; height: 36px; display: inline-flex; align-items: center; gap: 5px; padding: 0 8px; border: 0; background: transparent; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: 11px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg><span style="color: #60a5fa">1</span></button></sc-if>
+<button type="button" aria-label="Open navigation" style="margin-left: {{navMargin}}; width: 36px; height: 36px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button>
+<button type="button" aria-label="Jump to" style="width: 36px; height: 36px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button>
+</header>
+<h1 style="margin: 4px 16px 6px; font-size: 26px; font-weight: 700">Inbox</h1>
+<h2 style="display: flex; align-items: center; gap: 8px; margin: 8px 0 0; padding: 0 16px 6px; font-size: 13px; font-weight: 700">Needs action <span style="font-family: 'JetBrains Mono', monospace; color: #fbbf24">4</span></h2>
+<ul style="list-style: none; margin: 0; padding: 0">
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="4">
+<li style="padding: 12px 16px; border-bottom: 1px solid #1f1f1f">
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0; opacity: {{r.op}}"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: {{r.dot}}"></span><span style="flex: none; font-size: 13px; color: {{r.dot}}">{{r.state}}</span><span style="min-width: 0; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{r.title}}</span><span style="flex: none; margin-left: auto; font-size: 12.5px; color: #8b8b94">{{r.age}}</span></div>
+<div style="margin-top: 2px; font-size: 13.5px; color: #a1a1aa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: {{r.op}}">{{r.preview}}</div>
+<sc-if value="{{r.busy}}" hint-placeholder-val="{{ false }}"><div role="status" style="margin-top: 6px; display: flex; align-items: center; gap: 8px; font-size: 13px; color: #a1a1aa"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>Closing session…</div></sc-if>
+</li>
+</sc-for>
+</ul>
+<div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>In progress</span><span style="font-family: 'JetBrains Mono', monospace; color: #60a5fa">5</span><span style="margin-left: auto; color: #52525b">›</span></div>
+<div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>Done</span><span style="font-family: 'JetBrains Mono', monospace; color: #8b8b94">3</span><span style="margin-left: auto; color: #52525b">›</span></div>
+</sc-if>
+
+<sc-if value="{{hasToast}}" hint-placeholder-val="{{ false }}">
+<div role="status" aria-live="polite" style="position: absolute; z-index: 10; left: 12px; right: 12px; bottom: {{toastBottom}}; overflow: hidden; box-sizing: border-box; display: grid; grid-template-columns: 16px 1fr 44px; column-gap: 10px; align-items: start; padding: 12px 0 12px 14px; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 40%); font-size: 14px">
+<span style="padding-top: 3px; color: {{toast.ic}}">
+<sc-if value="{{toast.spin}}" hint-placeholder-val="{{ true }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></sc-if>
+<sc-if value="{{toast.ok}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if>
+<sc-if value="{{toast.err}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
+</span>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><strong style="color: #fafafa; font-size: 14px">{{toast.title}}</strong><span style="color: #a1a1aa; font-size: 13px">{{toast.sub}}</span>
+<sc-if value="{{toast.hasActs}}" hint-placeholder-val="{{ false }}"><div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px"><sc-for list="{{toast.acts}}" as="a" hint-placeholder-count="2"><button type="button" style="min-height: 44px; padding: 0 12px; border: 1px solid {{a.border}}; background: {{a.bg}}; color: {{a.color}}; font-family: inherit; font-size: 13px; font-weight: {{a.weight}}">{{a.label}}</button></sc-for></div></sc-if>
+</div>
+<button type="button" aria-label="Dismiss" style="width: 44px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #8b8b94"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+<sc-if value="{{toast.bar}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; left: 0; bottom: 0; width: 60%; height: 2px; background: #52525b"></span></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{hasSheet}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; z-index: 20; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; background: rgba(0, 0, 0, 0.55)">
+<dc-import name="ConfirmDialog" form="sheet" head="Merge this pull request?" body="Merge PR #2049 using the confirmed head commit?" action="Merging…" cancel="Cancel" hint-size="100%,220px"></dc-import>
+</div>
+</sc-if>
+
+<sc-if value="{{trayOpen}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; z-index: 20; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; background: rgba(0, 0, 0, 0.55)">
+<section role="dialog" aria-modal="true" aria-label="Activity" style="display: flex; flex-direction: column; padding: 16px 0 30px; border-top: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 -12px 36px rgb(0 0 0 / 30%); color: #d4d4d8; font-size: 14px">
+<h2 style="margin: 0 16px 6px; color: #fafafa; font-size: 15px; font-weight: 700">Activity</h2>
+<ul style="list-style: none; margin: 0; padding: 0">
+<sc-for list="{{trayItems}}" as="t" hint-placeholder-count="2">
+<li style="display: grid; grid-template-columns: 16px 1fr auto; column-gap: 12px; padding: 12px 16px; border-top: 1px solid #2a2a2a">
+<span style="padding-top: 3px; color: {{t.ic}}">
+<sc-if value="{{t.ok}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if>
+<sc-if value="{{t.err}}" hint-placeholder-val="{{ true }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
+</span>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><strong style="color: #fafafa">{{t.title}}</strong><span style="color: #a1a1aa; font-size: 13px">{{t.sub}}</span>
+<sc-if value="{{t.hasMsg}}" hint-placeholder-val="{{ false }}"><span style="font-size: 13px">{{t.msg}}</span></sc-if>
+<sc-if value="{{t.retry}}" hint-placeholder-val="{{ false }}"><button type="button" style="justify-self: start; width: 96px; min-height: 44px; margin-top: 8px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 13px; font-weight: 700">Retry</button></sc-if>
+</div>
+<span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 12px">{{t.time}}</span>
+</li>
+</sc-for>
+</ul>
+</section>
+</div>
+</sc-if>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"option":{"editor":"enum","options":["now","a","b","c"],"default":"now"},"state":{"editor":"enum","options":["running","success","failure","close"],"default":"running"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const opt = this.props.option ?? 'now';
+    const st = this.props.state ?? 'running';
+    const now = opt === 'now', A = opt === 'a', B = opt === 'b', C = opt === 'c';
+    const run = st === 'running', ok = st === 'success', fail = st === 'failure', close = st === 'close';
+    const MERGE_ERR = 'Head branch was updated after you confirmed. Confirm the new head to merge.';
+    const IC = { spin: '#a1a1aa', ok: '#4ade80', err: '#f87171' };
+    const item = (kind, title, sub, extra) => {
+      const acts = (extra && extra.acts) || [];
+      const msg = (extra && extra.msg) || '';
+      return {
+        spin: kind === 'spin', ok: kind === 'ok', err: kind === 'err', ic: IC[kind],
+        color: kind === 'err' ? '#f87171' : '#a1a1aa',
+        title, text: title, sub: sub || '', msg, hasMsg: !!msg, time: (extra && extra.time) || '', bar: !!(extra && extra.bar),
+        retry: acts.includes('Retry'), hasActs: acts.length > 0,
+        acts: acts.map((l) => l === 'Retry'
+          ? { label: l, border: '#fafafa', bg: '#fafafa', color: '#0a0a0a', weight: '700' }
+          : { label: l, border: '#3f3f46', bg: 'transparent', color: '#d4d4d8', weight: '400' })
+      };
+    };
+
+    const toast = !A ? null : {
+      running: item('spin', 'Merging PR #2049', '配信チェックの PR を確認する'),
+      success: item('ok', 'Merged PR #2049', '配信チェックの PR を確認する', { bar: true }),
+      failure: item('err', 'Merge failed · PR #2049', MERGE_ERR, { acts: ['Retry', 'Details'] }),
+      close: item('spin', 'Closing session', 'アラートの送り先を決める')
+    }[st];
+
+    const strip = !B || close ? null : {
+      running: item('spin', 'Merging PR #2049…'),
+      success: item('ok', 'Merged PR #2049'),
+      failure: item('err', 'Merge of PR #2049 failed', '', { msg: MERGE_ERR, acts: ['Retry'] })
+    }[st];
+
+    const sys = !C || close ? null : {
+      running: item('spin', 'Merging PR #2049…'),
+      success: item('ok', 'Merged PR #2049', '', { time: '12:03' }),
+      failure: item('err', 'Merge of PR #2049 failed', '', { time: '12:03', msg: MERGE_ERR, acts: ['Retry'] })
+    }[st];
+
+    const rows = [
+      { state: 'Question', dot: '#fbbf24', title: '通知の再送処理を見直す', age: '8s', preview: '再試行は 3 回で止めてよいですか?' },
+      { state: 'Review', dot: '#fbbf24', title: '配信チェックの PR を確認する', age: '2m', preview: 'PR #2049 を見てください' },
+      { state: 'Error', dot: '#f87171', title: '統合テストの失敗を直す', age: '4m', preview: 'テストが 2 件失敗しました' },
+      { state: 'Proposal', dot: '#fbbf24', title: 'アラートの送り先を決める', age: '12m', preview: '2 つの案から選んでください', target: true }
+    ].map((r) => ({ ...r, busy: B && !!r.target, op: B && r.target ? '0.5' : '1' }));
+
+    const tray = { running: ['1', '#60a5fa'], success: ['', '#8b8b94'], failure: ['1', '#f87171'], close: ['1', '#60a5fa'] }[st];
+
+    return {
+      isChat: !close, isInbox: close,
+      hasStrip: !!strip, strip: strip || {},
+      hasSys: !!sys, sys: sys || {},
+      hasToast: !!toast, toast: toast || {}, toastBottom: close ? '24px' : '96px',
+      rows, navMargin: C ? '0' : 'auto',
+      hasTray: C, trayBadge: tray[0], trayColor: tray[1],
+      trayOpen: C && fail, trayOpenStr: C && fail ? 'true' : 'false',
+      trayItems: [
+        item('err', 'Merge failed · PR #2049', '配信チェックの PR を確認する', { time: '12:03', msg: MERGE_ERR, acts: ['Retry'] }),
+        item('ok', 'Merged PR #2041', '再送のログを整える', { time: '11:40' })
+      ],
+      hasSheet: now && run
+    };
+  }
+}
+</script>
+</body>
+</html>

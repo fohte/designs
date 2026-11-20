@@ -170,7 +170,7 @@ class Component extends DCLogic {
       closeConfirm: this.props.closeConfirm ?? false,
       // closeFail: CloseFailure's f for the close that just stopped; closeFailOpen shows it as a sheet.
       closeFail: this.props.closeFail ?? null,
-      closeFailOpen: !!this.props.closeFail && (this.props.closeFailOpen ?? false),
+      closeFailOpen: !!this.props.closeFail && (this.props.closeFailOpen ?? false) && !(this.props.closeFailBand ?? false),
       closeFailChecks: this.props.closeFailChecks ?? false,
       // closeFailBand: the failure replaces the status band instead of a sheet, and stays until the session closes.
       failBand: !!this.props.closeFail && (this.props.closeFailBand ?? false), noFailBand: !(this.props.closeFail && (this.props.closeFailBand ?? false)),

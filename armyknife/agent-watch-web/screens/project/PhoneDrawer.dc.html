@@ -50,8 +50,8 @@ body{margin:0}
 <script type="text/x-dc" data-dc-script data-props='{"activity":{"editor":null},"activityOpen":{"editor":"boolean","default":false},"activityItems":{"editor":null},"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
-    // activity: null hides the entry, as before any action ran. { count, tone: 'running' | 'failure' | 'idle' }.
-    const activity = this.props.activity ?? null;
+    // activity: { count, tone: 'running' | 'failure' | 'idle' }. Unset shows the idle entry after earlier actions finished.
+    const activity = this.props.activity ?? { count: 3, tone: 'idle' };
     return {
       hasActivity: !!activity, activity,
       activityOpen: this.props.activityOpen ?? false, activityItems: this.props.activityItems ?? [],

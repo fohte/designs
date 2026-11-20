@@ -230,10 +230,10 @@ body{margin:0}
 </sc-if>
 </aside>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"heading":{"editor":"enum","options":["none","kind"],"default":"none"},"switcher":{"editor":"enum","options":["none","tabs","stepper","list"],"default":"none"},"reading":{"editor":"enum","options":["panel","toggle","full","entry"],"default":"panel"},"wide":{"editor":"boolean","default":false},"approval":{"editor":"enum","options":["current","explained","buttons"],"default":"current"},"phone":{"editor":"boolean","default":false},"doc":{"editor":"int","min":0,"max":3,"default":0},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"screen":{"editor":"enum","options":["auto","list","detail"],"default":"auto"},"submit":{"editor":"boolean","default":false},"menuOpen":{"editor":"boolean","default":false},"$preview":{"width":640,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"heading":{"editor":"enum","options":["none","kind"],"default":"none"},"switcher":{"editor":"enum","options":["none","tabs","stepper","list"],"default":"none"},"reading":{"editor":"enum","options":["panel","toggle","full","entry"],"default":"panel"},"wide":{"editor":"boolean","default":false},"approval":{"editor":"enum","options":["current","explained","buttons"],"default":"current"},"phone":{"editor":"boolean","default":false},"doc":{"editor":"int","min":0,"max":3,"default":0},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"screen":{"editor":"enum","options":["auto","list","detail"],"default":"auto"},"submit":{"editor":"boolean","default":false},"translate":{"editor":"boolean","default":false},"menuOpen":{"editor":"boolean","default":false},"$preview":{"width":640,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
-    // Every prop defaults to how the app is today: no heading, one draft, the two-column body, bare frontmatter checkboxes.
+    // Unset props draw the baseline the options are compared against: no heading, one draft, the two-column body, bare frontmatter checkboxes.
     const heading = this.props.heading ?? 'none';
     const switcher = this.props.switcher ?? 'none';
     const approval = this.props.approval ?? 'current';
@@ -277,10 +277,10 @@ class Component extends DCLogic {
         excerpt: 'Why: 再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。',
         approvalSummary: 'Not approved yet',
         approvals: [
-          { label: 'Translate to English first', key: 'steps.ready-for-translation', help: 'The session translates the title and body to English, then asks you to review again. example/web-app takes PRs in English.', on: false },
+          { label: 'Translate to English first', key: 'steps.ready-for-translation', help: 'The session translates the title and body to English, then asks you to review again. example/web-app takes PRs in English.', on: !!this.props.translate },
           { label: 'Create the PR', key: 'steps.submit', help: 'Approve this draft. After you finish, the session creates the PR from it.', on: 'submit' }
         ],
-        finishOn: 'Finish and create PR', finishOff: 'Finish and send back',
+        finishOn: 'Finish and create PR', finishOff: 'Finish and send back', finishTranslate: 'Finish and translate',
         bButtons: [{ label: 'Send back', title: 'Close the editor without approving. The session reads your edits and revises the draft.' }, { label: 'Translate first', title: 'Sets steps.ready-for-translation' }],
         bPrimary: 'Create PR',
         bHelp: 'Each button saves and closes the editor. Create PR sets steps.submit. Send back returns your edits to the session.',
@@ -319,7 +319,7 @@ class Component extends DCLogic {
     ].map((x, i) => {
       const sel = i === di;
       const approvals = x.approvals.map((a) => ({ ...a, on: a.on === 'submit' ? submit : a.on }));
-      // Today's frontmatter shows the raw keys, nesting steps.* under "steps".
+      // The baseline frontmatter shows the raw keys, nesting steps.* under "steps".
       const fmSteps = approvals.filter((a) => a.key.startsWith('steps.')).map((a) => ({ name: a.key.slice(6), on: a.on }));
       return {
         ...x,
@@ -398,7 +398,8 @@ class Component extends DCLogic {
       phoneNot: !phone,
       bFlex: phone ? '1 1 auto' : '0 0 auto',
       bPrimaryMl: doc.bButtons.length === 0 && !phone ? 'auto' : '0',
-      finishLabel: hasApprovals ? (submit ? doc.finishOn : doc.finishOff) : doc.finishOn,
+      // ready-for-translation without submit hands the draft back for translation, not for revision.
+      finishLabel: hasApprovals ? (submit ? doc.finishOn : (this.props.translate && doc.finishTranslate) ? doc.finishTranslate : doc.finishOff) : doc.finishOn,
       saveState: submit ? 'Saved · 10:24' : 'Unsaved changes',
       checkCol: phone ? '20px' : '16px',
       checkSize: phone ? '20px' : '16px',

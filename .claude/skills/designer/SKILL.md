@@ -31,21 +31,24 @@ For each accepted request:
 2. Start a separate worktree for the request with Claude Code's `EnterWorktree` tool. Use a short task-specific name, and make all changes in that worktree. If `EnterWorktree` is denied, do not start; retry by running the designer skill with the Skill tool. If it is denied again, report the denial to the requester and wait for guidance.
 3. Follow this repository's instructions and use the installed `claude-design` skill for canvas work. Run `claude-design` commands directly from `~/.agents/skills/claude-design/scripts/artifact.mjs` and design-system commands from `~/.agents/skills/claude-design-system/scripts/artifact.mjs`, without `node`, outside Claude Code's sandbox. If the scripts are missing, follow the README's installation instructions. For canvas tasks, run the relevant `check` command and resolve reported problems before opening a PR.
 
-Resolve `vibe_mode` for each accepted request with `~/.agents/skills/delegate/references/vibe-policy.md` and save the initial result for the submit and merge checks below. When the initial result is `false`, use the normal flow without sending a fallback notification. Recheck the policy immediately before submitting a PR and immediately before merging; use the automatic path only when the initial result and the latest result are both `true`.
+Resolve `vibe_mode` for each accepted request with `~/.agents/skills/delegate/references/vibe-policy.md` from the root of this `designs` worktree. The policy checks `repo.vibe` for the current working directory, and PR submit and merge commands check the `designs` repository, not the assigned app repository. Save the initial result for the submit and merge checks below. When the initial result is `false`, use the normal flow without sending a fallback notification. Recheck the policy immediately before submitting a PR and immediately before merging; use the automatic path only when the initial result and the latest result are both `true`.
 
-If either policy check returns an error, retry that check once as `vibe-policy.md` requires. If the retry also errors, report the error to the PM session ID included in the design request with `a agent peer notify --message <MESSAGE> <PM_SESSION_ID>`; if the request came directly from the user, report it in this conversation. Stop without entering either workflow.
+If either policy check returns an error, retry that check once as `vibe-policy.md` requires. If the retry also errors, report the error in this conversation and stop without entering either workflow.
 
-Send a `<vibe-fallback>` only when the initial result was `true` and a later recheck returns `false`. Use the PM session ID included in the design request with `a agent peer notify --message <MESSAGE> <PM_SESSION_ID>`, or report it in this conversation for a direct user request. Keep the message specific to the designer's normal flow; do not mention Crit or editor review:
+Send a `<vibe-fallback>` only when the initial result was `true` and a later recheck returns `false`. Report the fallback to the user in this designer conversation. If the design request came from a PM, notify the PM session ID included in the request with `a agent peer notify --message <MESSAGE> <PM_SESSION_ID>`; include only the fact that the designer is switching to its normal flow, without asking the PM to restore vibe. The user must turn vibe back on in this designer session. Use a phase-specific fallback message:
 
 ```text
 <vibe-fallback>
 Branch: <git branch --show-current>
 判定結果: <不許可になった条件とコマンド出力>
-通常フロー (CI と review 指摘を解決した後、merge の to-do を登録してユーザーに merge を依頼する) に切り替える。vibe で進める必要がある場合は原因を直してから判定し直すよう連絡してほしい。
+<次のどちらかを入れる>
 </vibe-fallback>
 ```
 
-Do not look up a parent session.
+- Submit 前に切り替える場合: `通常フローに切り替え、create-pr の editor review と承認を経て PR を submit する。CI / review 対応後に merge の to-do を登録する。`
+- Merge 前に切り替える場合: `通常フローに切り替え、merge の to-do を登録してユーザーに merge を依頼する。`
+
+Do not look up a parent session. If the user later reports that vibe is enabled again, recheck both policy conditions from the `designs` worktree root. If both are `true`, resume the vibe flow at its current stage. Withdraw any merge to-do created during fallback with `a agent todo withdraw <SEQ> --comment <REASON>` first, and keep its sequence number so it can be withdrawn.
 
 ## Coordinate decisions and reviews with the user
 

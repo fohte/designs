@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Before Activity</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section role="dialog" aria-modal="{{modal}}" aria-labelledby="activity-title" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; padding: {{pad}}; border: 1px solid #3f3f46; border-width: {{borderW}}; background: #1f1f1f; box-shadow: {{shadow}}; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.5">
+<div style="display: flex; align-items: center; padding: {{headPad}}"><h2 id="activity-title" style="margin: 0; color: #fafafa; font-size: {{headFs}}; font-weight: 700">Activity</h2><button type="button" style="margin-left: auto; min-height: {{btnH}}; padding: 0 8px; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: {{btnFs}}">Clear finished</button></div>
+<sc-for list="{{items}}" as="t" hint-placeholder-count="3">
+<dc-import name="BeforeActionItem" a="{{ t }}" form="row" phone="{{ phone }}" hint-size="100%,64px"></dc-import>
+</sc-for>
+<sc-if value="{{phone}}" hint-placeholder-val="{{ false }}"><div style="display: grid; margin: 10px 16px 0"><button type="button" style="min-height: 44px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">Close</button></div></sc-if>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"items":{"editor":null},"phone":{"editor":"boolean","default":false},"$preview":{"width":400,"height":360}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const phone = this.props.phone ?? false;
+    // Newest first. Running and failed actions stay until they finish or you clear them.
+    return {
+      phone, modal: phone ? 'true' : 'false',
+      pad: phone ? '16px 0 max(30px, env(safe-area-inset-bottom))' : '6px 0',
+      borderW: phone ? '1px 0 0' : '1px',
+      shadow: phone ? '0 -12px 36px rgb(0 0 0 / 30%)' : '0 12px 36px rgb(0 0 0 / 30%)',
+      headPad: phone ? '0 8px 6px 16px' : '4px 6px 6px 14px',
+      headFs: phone ? '15px' : '13px', btnFs: phone ? '13px' : '12px', btnH: phone ? '44px' : '24px',
+      items: this.props.items ?? [
+        { result: 'mergeFailed', pr: 2049, session: '配信チェックの PR を確認する', reason: 'Head branch was updated after you confirmed. Confirm the new head to merge.', time: '12:03' },
+        { result: 'closed', session: 'アラートの送り先を決める', time: '12:02' },
+        { result: 'merged', pr: 2041, session: '再送のログを整える', time: '11:40' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

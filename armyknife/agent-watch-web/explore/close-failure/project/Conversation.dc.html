@@ -142,7 +142,8 @@ a{color:#ef4444}
 </div>
 </sc-if>
 <sc-if value="{{live}}" hint-placeholder-val="{{ true }}">
-<div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" label="{{bandLabel}}" detail="{{bandDetail}}" hint-size="100%,58px"></dc-import></div>
+<sc-if value="{{noFailBand}}" hint-placeholder-val="{{ true }}"><div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" label="{{bandLabel}}" detail="{{bandDetail}}" hint-size="100%,58px"></dc-import></div></sc-if>
+<sc-if value="{{failBand}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="CloseFailure" f="{{ closeFail }}" form="band" hint-size="100%,72px"></dc-import></div></sc-if>
 
 <form style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 12px auto 6px; border: 1px solid #3f3f46; background: #141414">
 <textarea aria-label="Message" rows="2" placeholder="{{placeholder}}" style="display: block; width: 100%; min-height: 54px; box-sizing: border-box; padding: 12px 14px 4px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; line-height: 1.6; resize: none"></textarea>
@@ -156,7 +157,7 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"closeState":{"editor":"enum","options":["idle","failed"],"default":"idle"},"closeFail":{"editor":null},"closeFailOpen":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"tasksOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"closeState":{"editor":"enum","options":["idle","failed"],"default":"idle"},"closeFail":{"editor":null},"closeFailOpen":{"editor":"boolean","default":false},"closeFailBand":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const variant = this.props.variant ?? 'question';
@@ -232,11 +233,14 @@ class Component extends DCLogic {
       showMenu: !(this.props.done ?? false),
       showDoneClose: this.props.done ?? false,
       // closeState 'failed': the last close of this session stopped; closeFail (CloseFailure's f) opens beside the control that started it.
+      // closeFailBand: instead, the failure replaces the status band and stays until the session closes, whichever control started it.
       ...(() => {
-        const failed = (this.props.closeState ?? 'idle') === 'failed';
+        const band = (this.props.closeState ?? 'idle') === 'failed' && !!this.props.closeFail && (this.props.closeFailBand ?? false);
+        const failed = (this.props.closeState ?? 'idle') === 'failed' && !band;
         const open = failed && !!this.props.closeFail && (this.props.closeFailOpen ?? false);
         const done = this.props.done ?? false;
         return {
+          failBand: band, noFailBand: !band,
           closeFailed: failed, closeFail: this.props.closeFail ?? null,
           closeText: failed ? 'Close failed' : 'Close',
           closeBorder: failed ? '#f87171' : '#2a2a2a', closeBg: failed && open ? '#262626' : 'transparent', closeColor: failed ? '#f87171' : '#d4d4d8',

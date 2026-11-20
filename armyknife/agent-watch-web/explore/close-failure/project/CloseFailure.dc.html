@@ -30,10 +30,25 @@ body{margin:0}
 <sc-if value="{{hasSession}}" hint-placeholder-val="{{ false }}"><span style="min-width: 0; color: #a1a1aa; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{session}}</span></sc-if>
 <sc-if value="{{hasLeft}}" hint-placeholder-val="{{ true }}"><div style="display: flex; flex-direction: column; gap: 2px; padding: 8px 10px; border: 1px solid #2a2a2a; background: #141414"><span style="color: #fafafa; font-size: 12px; font-weight: 700">{{label}}</span><code style="overflow-wrap: anywhere; color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{detail}}</code></div></sc-if>
 <p style="margin: 0; font-size: 12.5px">{{hint}}</p>
-<div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px">
-<sc-if value="{{hasTerminal}}" hint-placeholder-val="{{ false }}"><button type="button" style="margin-right: auto; height: 26px; padding: 0 10px; border: 0; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px; text-decoration: underline">Open in terminal</button></sc-if>
-<button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Retry</button>
-<sc-if value="{{keep}}" hint-placeholder-val="{{ true }}"><button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Close and keep worktree</button></sc-if>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px">
+<sc-if value="{{hasTerminal}}" hint-placeholder-val="{{ false }}"><button type="button" style="margin-right: auto; height: 26px; padding: 0 10px; white-space: nowrap; border: 0; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px; text-decoration: underline">Open in terminal</button></sc-if>
+<button type="button" style="height: 26px; padding: 0 10px; white-space: nowrap; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Retry</button>
+<sc-if value="{{keep}}" hint-placeholder-val="{{ true }}"><button type="button" style="height: 26px; padding: 0 10px; white-space: nowrap; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Close and keep worktree</button></sc-if>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{isBand}}" hint-placeholder-val="{{ false }}">
+<section role="alert" aria-label="Close failed" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: {{bandDir}}; align-items: {{bandAlign}}; gap: {{bandGap}}; padding: {{bandPad}}; border-top: 1px solid #f87171; background: #0f0f0f; color: #d4d4d8">
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="display: flex; align-items: center; gap: 8px; min-width: 0; color: #fafafa; font-size: {{fs}}; font-weight: 700"><span style="flex: none; display: inline-flex; color: #f87171"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></span><span style="flex: none; color: #f87171">Close failed</span><sc-if value="{{hasLeft}}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="flex: none; color: #71717a">·</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{label}}</span></sc-if></span>
+<sc-if value="{{hasLeft}}" hint-placeholder-val="{{ true }}"><code style="padding-left: 21px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">{{detail}}</code></sc-if>
+<span style="padding-left: 21px; color: #a1a1aa; font-size: {{subFs}}">{{hint}}</span>
+</div>
+<div style="flex: none; display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px">
+<sc-if value="{{hasTerminal}}" hint-placeholder-val="{{ false }}"><button type="button" style="flex: {{btnFlex}}; height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{subFs}}; white-space: nowrap">Open in terminal</button></sc-if>
+<button type="button" style="flex: {{btnFlex}}; height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{subFs}}; white-space: nowrap">Retry</button>
+<sc-if value="{{keep}}" hint-placeholder-val="{{ true }}"><button type="button" style="flex: {{keepFlex}}; height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Close and keep worktree</button></sc-if>
 </div>
 </section>
 </sc-if>
@@ -61,8 +76,8 @@ body{margin:0}
 <sc-if value="{{noKeep}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; color: #d4d4d8">{{hint}}</p></sc-if>
 <div style="display: flex; align-items: center; justify-content: flex-end; gap: 8px; margin-top: 4px">
 <span style="margin-right: auto; color: #8b8b94; font-size: 11.5px">↵ {{primary}} · Esc Cancel</span>
-<button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Cancel</button>
-<button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">{{primary}}</button>
+<button type="button" style="height: 26px; padding: 0 10px; white-space: nowrap; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Cancel</button>
+<button type="button" style="height: 26px; padding: 0 10px; white-space: nowrap; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">{{primary}}</button>
 </div>
 </section>
 </sc-if>
@@ -91,7 +106,7 @@ body{margin:0}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"f":{"editor":null},"form":{"editor":"enum","options":["left","popover","row","modal","sheet"],"default":"popover"},"phone":{"editor":"boolean","default":false},"checks":{"editor":"boolean","default":false},"$preview":{"width":400,"height":220}}'>
+<script type="text/x-dc" data-dc-script data-props='{"f":{"editor":null},"form":{"editor":"enum","options":["left","popover","row","modal","sheet","band"],"default":"popover"},"phone":{"editor":"boolean","default":false},"checks":{"editor":"boolean","default":false},"$preview":{"width":400,"height":220}}'>
 class Component extends DCLogic {
   renderVals() {
     // f.kind follows the close API's error code: dirty (dirty_worktree), unmerged (unmerged_worktree),
@@ -108,6 +123,11 @@ class Component extends DCLogic {
     const useChecks = this.props.checks ?? false;
     const keep = f.kind !== 'other';
     return {
+      // band: takes the place of the status band above the reply box of the session that failed to close.
+      isBand: form === 'band',
+      bandDir: phone ? 'column' : 'row', bandAlign: phone ? 'stretch' : 'center', bandGap: phone ? '10px' : '16px',
+      bandPad: phone ? '10px 12px' : '10px max(24px, calc((100% - 712px) / 2))',
+      btnH: phone ? '40px' : '30px', btnFlex: phone ? '1 1 0' : 'none', keepFlex: phone ? '1 1 100%' : 'none',
       isLeft: form === 'left', isPopover: form === 'popover', isRow: form === 'row', isModal: form === 'modal', isSheet: form === 'sheet',
       head: (form === 'modal' || useChecks) && keep ? 'The worktree cannot be deleted' : 'Close failed',
       session: f.session ?? '', hasSession: !!f.session,

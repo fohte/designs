@@ -75,7 +75,8 @@ body{margin:0}
 </sc-if>
 <sc-if value="{{live}}" hint-placeholder-val="{{ true }}">
 <sc-if value="{{toastsInline}}" hint-placeholder-val="{{ false }}"><div style="position: relative; z-index: 10; flex: none; height: 0"><div style="position: absolute; left: 12px; right: 12px; bottom: 8px"><dc-import name="ToastStack" items="{{ toasts }}" phone="{{ true }}" hint-size="100%,72px"></dc-import></div></div></sc-if>
-<div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" phone="{{ true }}" detail="{{bandDetail}}" hint-size="100%,110px"></dc-import></div>
+<sc-if value="{{noFailBand}}" hint-placeholder-val="{{ true }}"><div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" phone="{{ true }}" detail="{{bandDetail}}" hint-size="100%,110px"></dc-import></div></sc-if>
+<sc-if value="{{failBand}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="CloseFailure" f="{{ closeFail }}" form="band" phone="{{ true }}" hint-size="100%,150px"></dc-import></div></sc-if>
 <form style="flex: none; display: grid; grid-template-columns: 1fr 44px; gap: 8px; padding: 10px 12px 6px; border-top: 1px solid #2a2a2a; background: #141414">
 <textarea aria-label="Message" rows="1" placeholder="{{placeholder}}" style="min-height: 44px; box-sizing: border-box; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: 16px; resize: none; outline: none"></textarea>
 <button type="submit" aria-label="Send message" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
@@ -125,7 +126,7 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"activity":{"editor":null},"activityOpen":{"editor":"boolean","default":false},"activityItems":{"editor":null},"toasts":{"editor":null},"actionLine":{"editor":null},"closeFail":{"editor":null},"closeFailOpen":{"editor":"boolean","default":false},"closeFailChecks":{"editor":"boolean","default":false}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"activity":{"editor":null},"activityOpen":{"editor":"boolean","default":false},"activityItems":{"editor":null},"toasts":{"editor":null},"actionLine":{"editor":null},"closeFail":{"editor":null},"closeFailOpen":{"editor":"boolean","default":false},"closeFailBand":{"editor":"boolean","default":false},"closeFailChecks":{"editor":"boolean","default":false}}'>
 class Component extends DCLogic {
   renderVals() {
     const menuOpen = this.props.menuOpen ?? false;
@@ -171,7 +172,9 @@ class Component extends DCLogic {
       closeFail: this.props.closeFail ?? null,
       closeFailOpen: !!this.props.closeFail && (this.props.closeFailOpen ?? false),
       closeFailChecks: this.props.closeFailChecks ?? false,
-      menuFailDot: !!this.props.closeFail,
+      // closeFailBand: the failure replaces the status band instead of a sheet, and stays until the session closes.
+      failBand: !!this.props.closeFail && (this.props.closeFailBand ?? false), noFailBand: !(this.props.closeFail && (this.props.closeFailBand ?? false)),
+      menuFailDot: !!this.props.closeFail && !(this.props.closeFailBand ?? false),
       closeSession: { state: 'Question', dot: '#fbbf24', round: false, color: '#fbbf24', title: '通知の再送処理を見直す' },
       notDone: !(this.props.done ?? false),
       ended: ended !== 'no',

@@ -616,6 +616,14 @@
       "h": 44,
       "title": "ActivityButton",
       "page": "components"
+    },
+    "PhoneBoard.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Board",
+      "page": "board"
     }
   },
   "order": [
@@ -642,6 +650,7 @@
     "SessionUsage.dc.html",
     "StatusBand.dc.html",
     "Board.dc.html",
+    "PhoneBoard.dc.html",
     "Palette.dc.html",
     "PaletteQuery.dc.html",
     "PaletteNewSession.dc.html",
@@ -730,6 +739,13 @@
       "w": 420,
       "page": "components",
       "text": "ConfirmDialog: 確認ダイアログの共通部品。form で形を選ぶ\n- modal: Merge の確認 (確認ダイアログ)、閉じる前の確認 (Close session… を押したあと、Inbox の e、状態ごとの文言)\n- popover: 会話のヘッダーの vibe mode\n- sheet: iPhone の vibe mode、iPhone の閉じる前の確認\n- panel: ! コマンドの確認 (確認ダイアログ)"
+    },
+    "diffPhoneBoard": {
+      "x": 1990,
+      "y": 0,
+      "w": 420,
+      "page": "board",
+      "text": "新規: iPhone · Board\n- PC の Board と同じプロジェクトの列を、幅 300px のカードにして横に並べる。横に送って次の列を見る\n- 右に次の列の端が見え、上の点で今どの列かが分かる\n- ナビゲーションの Inbox / Board の切り替えから開く\n- 行は iPhone Inbox と同じ SessionRow の phone の大きさ"
     }
   },
   "v": 3,
@@ -751,6 +767,7 @@
     }
   ],
   "noteOrder": [
-    "confirmDialogUsers"
+    "confirmDialogUsers",
+    "diffPhoneBoard"
   ]
 }

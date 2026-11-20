@@ -29,10 +29,10 @@ body{margin:0}
 <div aria-hidden="true" style="flex: none; height: 14px; display: flex; justify-content: center; align-items: center; gap: 6px">
 <sc-for list="{{columns}}" as="col" hint-placeholder-count="4"><span style="width: 6px; height: 6px; background: {{col.dot}}"></span></sc-for>
 </div>
-<div style="flex: 1; min-height: 0; overflow: hidden; padding: 6px 0 16px">
-<div style="height: 100%; display: flex; align-items: flex-start; gap: 10px; margin-left: 16px">
+<div style="flex: 1; min-height: 0; overflow-x: auto; overflow-y: hidden; scroll-snap-type: x mandatory; scroll-padding-left: 16px; padding: 6px 0 16px">
+<div style="height: 100%; display: flex; align-items: flex-start; gap: 10px; padding: 0 16px; width: max-content">
 <sc-for list="{{columns}}" as="col" hint-placeholder-count="2">
-<section style="flex: none; width: 300px; max-height: 100%; overflow: hidden; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 12px; background: #111111">
+<section style="flex: none; width: 300px; max-height: 100%; overflow-y: auto; scroll-snap-align: start; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 12px; background: #111111">
 <header style="display: flex; flex-direction: column; gap: 1px">
 <h2 style="margin: 0; font-size: 17px; font-weight: 700">{{col.name}}</h2>
 <div style="font-size: 12.5px; font-weight: {{col.needWeight}}; color: {{col.needColor}}">{{col.need}}</div>
@@ -67,7 +67,6 @@ body{margin:0}
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
-    // The same projects as the PC Board, scrolled to the first column.
     const col = (name, repos, needs, working, more, done, i) => ({
       name, repos, needs, working, more, done,
       need: needs.length ? needs.length + ' need action' : 'Nothing needed',

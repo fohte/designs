@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Phone: command palette</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<main role="dialog" aria-modal="true" aria-label="Jump to" style="position: relative; width: 100%; height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.55">
+<header style="flex: none; min-height: 50px; display: flex; align-items: center; gap: 8px; padding: max(8px, env(safe-area-inset-top)) 8px 6px 16px; border-bottom: 1px solid #2a2a2a"><span aria-hidden="true" style="color: #8b8b94">⌕</span><span style="flex: 1; color: #8b8b94">Jump to</span><button type="button" style="height: 44px; padding: 0 8px; border: 0; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 16px">Cancel</button></header>
+<div style="flex: none; min-height: 52px; display: flex; align-items: center; gap: 8px; padding: 4px 16px; box-sizing: border-box; border-bottom: 1px solid #2a2a2a">
+<sc-if value="{{hasToken}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="{{tokenAria}}" style="flex: none; height: 32px; display: inline-flex; align-items: center; gap: 6px; padding: 0 8px; border: 0; background: #2a2a2e; color: #fafafa; font-family: inherit; font-size: 12px"><span style="font-family: 'JetBrains Mono', monospace">{{token.glyph}}</span>{{token.label}}<span aria-hidden="true" style="color: #a1a1aa">×</span></button></sc-if>
+<input aria-label="Jump to" value="{{query}}" placeholder="{{placeholder}}" style="flex: 1; min-width: 0; height: 44px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 16px">
+</div>
+<sc-if value="{{hasTabs}}" hint-placeholder-val="{{ false }}">
+<div role="tablist" aria-label="Scope" style="flex: none; height: 44px; display: flex; align-items: stretch; gap: 4px; padding: 0 8px; border-bottom: 1px solid #2a2a2a">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="5">
+<button type="button" role="tab" aria-selected="{{t.selected}}" style="min-width: 44px; padding: 0 8px; border: 0; border-bottom: 2px solid {{t.underline}}; background: transparent; color: {{t.color}}; font-family: inherit; font-size: 13px; font-weight: {{t.weight}}; white-space: nowrap">{{t.label}}</button>
+</sc-for>
+</div>
+</sc-if>
+<div role="listbox" style="flex: 1; min-height: 0; overflow: hidden; padding: 4px 0">
+<sc-for list="{{groups}}" as="g" hint-placeholder-count="3">
+<h2 style="height: 28px; display: flex; align-items: center; margin: 4px 0 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">{{g.title}}</h2>
+<sc-for list="{{g.items}}" as="it" hint-placeholder-count="3">
+<sc-if value="{{it.isSession}}" hint-placeholder-val="{{ true }}">
+<div role="option" aria-selected="{{it.selected}}"><dc-import name="SessionRow" s="{{ it }}" density="phone" hint-size="100%,62px"></dc-import></div>
+</sc-if>
+<sc-if value="{{it.isOther}}" hint-placeholder-val="{{ false }}">
+<div role="option" aria-selected="{{it.selected}}" style="min-height: 52px; box-sizing: border-box; display: grid; grid-template-columns: 16px 1fr; align-items: center; gap: 12px; padding: 6px 16px; background: {{it.bg}}">
+<span aria-hidden="true" style="color: #a1a1aa; text-align: center; font-family: 'JetBrains Mono', monospace">{{it.glyph}}</span>
+<div style="min-width: 0"><div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #fafafa">{{it.title}}</div><sc-if value="{{it.hasSub}}" hint-placeholder-val="{{ true }}"><div style="font-size: 12.5px; color: #a1a1aa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{it.sub}}</div></sc-if></div>
+</div>
+</sc-if>
+</sc-for>
+</sc-for>
+</div>
+<sc-if value="{{hasKeys}}" hint-placeholder-val="{{ false }}">
+<div role="toolbar" aria-label="Narrow to" style="flex: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 8px 16px max(30px, env(safe-area-inset-bottom)); border-top: 1px solid #2a2a2a; background: #0f0f0f">
+<sc-for list="{{keys}}" as="k" hint-placeholder-count="3">
+<button type="button" aria-pressed="{{k.pressed}}" style="height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 6px; border: 1px solid {{k.border}}; background: {{k.bg}}; color: #fafafa; font-family: inherit; font-size: 13px; white-space: nowrap"><span style="font-family: 'JetBrains Mono', monospace; font-size: 15px; color: {{k.glyphColor}}">{{k.glyph}}</span>{{k.label}}</button>
+</sc-for>
+</div>
+</sc-if>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["a","b"],"default":"a"},"scope":{"editor":"enum","options":["all","tasks","close"],"default":"all"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // a: scope tabs under the field, as on PC. b: no tabs; #, @ and > keys at the bottom put a scope token in the field.
+    const b = (this.props.variant ?? 'a') === 'b';
+    const scope = this.props.scope ?? 'all';
+    const tasks = scope === 'tasks';
+    const close = scope === 'close';
+    const active = tasks ? 'tasks' : close ? 'commands' : 'all';
+    const tabs = [['all', 'All'], ['sessions', 'Sessions'], ['tasks', 'tq tasks'], ['projects', 'Projects'], ['commands', 'Commands']]
+      .map(([id, label]) => {
+        const on = id === active;
+        return { label, selected: on ? 'true' : 'false', color: on ? '#fafafa' : '#a1a1aa', weight: on ? 700 : 400, underline: on ? '#fafafa' : 'transparent' };
+      });
+    const keys = [['tasks', '#', 'tq tasks'], ['projects', '@', 'Projects'], ['commands', '>', 'Commands']]
+      .map(([id, glyph, label]) => {
+        const on = id === active;
+        return { glyph, label, pressed: on ? 'true' : 'false', border: on ? '#a1a1aa' : '#3f3f46', bg: on ? '#262626' : '#161616', glyphColor: on ? '#fafafa' : '#a1a1aa' };
+      });
+    const token = tasks ? { glyph: '#', label: 'tq tasks' } : close ? { glyph: '>', label: 'Commands' } : null;
+    let first = true;
+    const pick = (o) => {
+      const on = first; first = false;
+      return { ...o, selected: on ? 'true' : 'false', bg: on ? '#2a2a2e' : 'transparent' };
+    };
+    const it = (glyph, title, sub) => pick({ isOther: true, isSession: false, glyph, title, sub, hasSub: !!sub });
+    const ses = (status, unread, title, age, role, engine, taskRef, taskTitle, repo) => {
+      const o = pick({ isSession: true, isOther: false, status, unread, title, age, role, engine, taskRef, taskTitle, repo });
+      return { ...o, pad: '8px 16px', bg: o.bg };
+    };
+    // Close this session acts on the chat the palette was opened from; only a Done session closes without asking.
+    const groups = close ? [
+      { title: 'COMMANDS', items: [
+        it('›', 'Close this session', '通知の再送処理を見直す · Question · Asks before closing'),
+        it('›', 'Close all done', 'Close every done session')
+      ] }
+    ] : tasks ? [
+      { title: 'TQ TASKS', items: [
+        it('#', '#2048 通知の信頼性を上げる', 'P1 · 3 sessions'),
+        it('#', '#2050 配信チェックを入れる', 'P2 · 1 session'),
+        it('#', '#2055 監視を整える', 'P3 · 2 sessions')
+      ] }
+    ] : [
+      { title: 'NEEDS ACTION', items: [
+        ses('Question', true, '通知の再送処理を見直す', '8s', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'service'),
+        ses('Review', true, '配信チェックの PR を確認する', '2m', '', 'codex', 'P2 #2050', '配信チェックを入れる', 'web-app'),
+        ses('Error', true, '統合テストの失敗を直す', '4m', 'debug-flow', 'claude', 'P1 #2052', 'テストを安定させる', 'service')
+      ] },
+      { title: 'RECENT', items: [
+        ses('Working', false, '配信メトリクスを追加する', '18s', 'development', 'codex', 'P3 #2055', '監視を整える', 'observability'),
+        ses('Done', false, '送信キューを分ける', '1h', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'service')
+      ] },
+      { title: 'COMMANDS', items: [
+        it('+', 'New session', 'Start Claude Code or Codex in a directory'),
+        it('›', 'Switch to Board', ''),
+        it('›', 'Close all done', '')
+      ] }
+    ];
+    // In a, typing # still works and moves to the tq tasks tab; the field then holds only what follows it.
+    const query = tasks ? '20' : close ? 'close' : '';
+    return {
+      hasTabs: !b, tabs, hasKeys: b, keys,
+      hasToken: b && !!token, token: token ?? {}, tokenAria: token ? 'Remove scope ' + token.label : '',
+      query, placeholder: 'Session, tq task, project or command',
+      groups
+    };
+  }
+}
+</script>
+</body>
+</html>

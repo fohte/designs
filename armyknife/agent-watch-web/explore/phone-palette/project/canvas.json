@@ -1,0 +1,66 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-11-21T00:00:00Z"},
+  "title": "phone-palette · iPhone のコマンドパレット",
+  "launch": {"view": "canvas", "page": "options"},
+  "pages": [{"id": "options", "name": "案"}, {"id": "parts", "name": "部品"}],
+  "boards": {
+    "phone-palette-current.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 900, "title": "PC · ⌘K · 開いた直後", "page": "options"},
+    "phone-palette-current-query.dc.html": {"x": 1520, "y": 0, "w": 1440, "h": 900, "title": "PC · ⌘K · # で tq タスクに絞る", "page": "options"},
+    "phone-palette-current-close.dc.html": {"x": 3040, "y": 0, "w": 1440, "h": 900, "title": "PC · コマンドパレット · Close this session", "page": "options"},
+    "PhoneInbox.dc.html": {"x": 4560, "y": 0, "w": 390, "h": 844, "title": "iPhone · Inbox (右上の ⌕ がパレットを開く)", "page": "options"},
+
+    "phone-palette-a-entry.dc.html": {"x": 0, "y": 1300, "w": 390, "h": 844, "title": "A · 会話のヘッダーに ⌕", "page": "options"},
+    "phone-palette-a-open.dc.html": {"x": 470, "y": 1300, "w": 390, "h": 844, "title": "A · 開いた直後", "page": "options"},
+    "phone-palette-a-tasks.dc.html": {"x": 940, "y": 1300, "w": 390, "h": 844, "title": "A · tq tasks タブで絞る", "page": "options"},
+    "phone-palette-a-close.dc.html": {"x": 1410, "y": 1300, "w": 390, "h": 844, "title": "A · Commands タブ · Close this session", "page": "options"},
+
+    "phone-palette-b-entry.dc.html": {"x": 0, "y": 2544, "w": 390, "h": 844, "title": "B · 会話の ⋯ メニューに Jump to…", "page": "options"},
+    "phone-palette-b-open.dc.html": {"x": 470, "y": 2544, "w": 390, "h": 844, "title": "B · 開いた直後", "page": "options"},
+    "phone-palette-b-tasks.dc.html": {"x": 940, "y": 2544, "w": 390, "h": 844, "title": "B · # キーで tq tasks に絞る", "page": "options"},
+    "phone-palette-b-close.dc.html": {"x": 1410, "y": 2544, "w": 390, "h": 844, "title": "B · > キー · Close this session", "page": "options"},
+
+    "phone-palette-confirm.dc.html": {"x": 0, "y": 3788, "w": 390, "h": 844, "title": "共通 · Close this session を選んだあと", "page": "options"},
+    "PhonePaletteNewSession.dc.html": {"x": 470, "y": 3788, "w": 390, "h": 844, "title": "共通 · New session (決定済み、変えない)", "page": "options"},
+
+    "Palette.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 900, "page": "parts"},
+    "Conversation.dc.html": {"x": 1520, "y": 0, "w": 880, "h": 900, "page": "parts"},
+    "InboxList.dc.html": {"x": 2480, "y": 0, "w": 460, "h": 900, "page": "parts"},
+    "Nav.dc.html": {"x": 3020, "y": 0, "w": 240, "h": 900, "page": "parts"},
+    "PhoneChat.dc.html": {"x": 3340, "y": 0, "w": 390, "h": 844, "page": "parts"},
+    "PhonePalette.dc.html": {"x": 3810, "y": 0, "w": 390, "h": 844, "page": "parts"},
+    "Quota.dc.html": {"x": 0, "y": 1020, "w": 240, "h": 140, "page": "parts"},
+    "SessionRow.dc.html": {"x": 320, "y": 1020, "w": 460, "h": 76, "page": "parts"},
+    "ActionItem.dc.html": {"x": 860, "y": 1020, "w": 360, "h": 110, "page": "parts"},
+    "ConfirmDialog.dc.html": {"x": 1300, "y": 1020, "w": 380, "h": 200, "page": "parts"},
+    "MergeButton.dc.html": {"x": 1760, "y": 1020, "w": 160, "h": 44, "page": "parts"},
+    "SessionUsage.dc.html": {"x": 2000, "y": 1020, "w": 672, "h": 40, "page": "parts"},
+    "StatusBand.dc.html": {"x": 2752, "y": 1020, "w": 760, "h": 60, "page": "parts"},
+    "ActivityButton.dc.html": {"x": 3592, "y": 1020, "w": 224, "h": 44, "page": "parts"},
+    "Activity.dc.html": {"x": 3896, "y": 1020, "w": 400, "h": 360, "page": "parts"},
+    "ToastStack.dc.html": {"x": 4376, "y": 1020, "w": 360, "h": 240, "page": "parts"}
+  },
+  "order": [
+    "phone-palette-current.dc.html", "phone-palette-current-query.dc.html", "phone-palette-current-close.dc.html", "PhoneInbox.dc.html",
+    "phone-palette-a-entry.dc.html", "phone-palette-a-open.dc.html", "phone-palette-a-tasks.dc.html", "phone-palette-a-close.dc.html",
+    "phone-palette-b-entry.dc.html", "phone-palette-b-open.dc.html", "phone-palette-b-tasks.dc.html", "phone-palette-b-close.dc.html",
+    "phone-palette-confirm.dc.html", "PhonePaletteNewSession.dc.html",
+    "Palette.dc.html", "Conversation.dc.html", "InboxList.dc.html", "Nav.dc.html", "PhoneChat.dc.html", "PhonePalette.dc.html",
+    "Quota.dc.html", "SessionRow.dc.html", "ActionItem.dc.html", "ConfirmDialog.dc.html", "MergeButton.dc.html", "SessionUsage.dc.html",
+    "StatusBand.dc.html", "ActivityButton.dc.html", "Activity.dc.html", "ToastStack.dc.html"
+  ],
+  "notes": {
+    "current": {"kind": "title1", "x": 0, "y": -260, "maxW": 4950, "page": "options", "text": "Current · PC のパレット。iPhone は Inbox の ⌕ と New session の流れだけある"},
+    "a": {"kind": "title1", "x": 0, "y": 1040, "maxW": 1800, "page": "options", "text": "A · 会話のヘッダーに ⌕、絞り込みは PC と同じタブ"},
+    "b": {"kind": "title1", "x": 0, "y": 2284, "maxW": 1800, "page": "options", "text": "B · 会話は ⋯ の奥、絞り込みは下の # @ > キー"},
+    "common": {"kind": "title1", "x": 0, "y": 3528, "maxW": 1800, "page": "options", "text": "共通 · 確認と New session"},
+    "about": {"x": 1960, "y": 0, "w": 520, "page": "options", "text": "前提\n- iPhone で足りないのは、開き方 (会話から)、開いた直後、tq タスクへの絞り込み、Close this session と確認\n- Inbox はすでに右上の ⌕ (Jump to) でパレットを開く。これはどの案も変えない\n- Close this session は開いている会話に効くので、会話から開いたときにだけ出る。Inbox から開いたときは出ない\n- 開くと全画面になり、入力欄にフォーカスしてキーボードが上がる。見出し、行、New session の流れは決定済みの iPhone のパレットに合わせた\n- データはすべて架空"},
+    "aNote": {"x": 1960, "y": 1300, "w": 460, "page": "options", "text": "A · ヘッダーの ⌕ + タブ\n+ Inbox と会話の両方で同じ ⌕ から開ける。見つけやすい\n+ タブは PC のタブそのもの。今どこに絞っているかが常に見える\n+ # を打っても tq tasks タブに切り替わる\n- 会話のヘッダーのボタンが 1 つ増え、PR があるときはタイトルが短くなる\n- タブの行のぶん一覧が 44px 低い"},
+    "bNote": {"x": 1960, "y": 2544, "w": 460, "page": "options", "text": "B · ⋯ の奥 + 下のキー\n+ 会話のヘッダーは今のまま\n+ キーは親指の届く下にあり、キーボードのすぐ上に乗る\n+ 絞り込みは入力欄のトークンになる。決定済みの New session の › トークンと同じ形。× か削除キーで外す\n+ PC の # @ > と同じ考え方\n- 会話から開くのに 2 タップ\n- Sessions だけに絞るキーはない (All の先頭がセッション)"},
+    "mix": {"x": 1960, "y": 3200, "w": 460, "page": "options", "fill": "blue", "text": "組み合わせ方\n開き方 (ヘッダーの ⌕ / ⋯ の奥) と絞り込み (タブ / 下のキー) は独立していて、A の開き方に B のキーのように組める"},
+    "commonNote": {"x": 940, "y": 3788, "w": 460, "page": "options", "text": "確認\n- Close this session を選ぶとパレットが閉じ、会話の上に今の確認シート (ConfirmDialog の sheet) が出る。⋯ メニューの Close session… と同じもの\n- Done のセッションは確認なしで閉じる\n\nNew session\n- 決定済みの流れのまま"}
+  },
+  "designSystems": [
+    {"title": "agent watch", "namespace": "agentwatch", "artifact": "armyknife/agent-watch-web/design-system", "version": null, "copiedAt": "2026-11-21T00:00:00Z"}
+  ]
+}

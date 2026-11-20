@@ -47,6 +47,8 @@ body{margin:0}
 <sc-if value="{{repoInline}}" hint-placeholder-val="{{ true }}"><span style="margin-left: auto"></span><span style="flex: none; font-family: 'JetBrains Mono', monospace">{{repo}}</span></sc-if>
 </span>
 <sc-if value="{{repoOwnLine}}" hint-placeholder-val="{{ false }}"><span style="display: flex; align-items: center; gap: 6px; font-size: {{metaSize}}; color: #8b8b94; white-space: nowrap"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; font-family: 'JetBrains Mono', monospace">{{repo}}</span></span></sc-if>
+<sc-if value="{{closing}}" hint-placeholder-val="{{ false }}"><span role="status" style="display: flex; align-items: center; gap: 6px; margin-top: 2px; font-size: {{previewSize}}; color: #a1a1aa"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>Closing…</span></sc-if>
+<sc-if value="{{closeFailed}}" hint-placeholder-val="{{ false }}"><span role="alert" style="display: flex; align-items: center; gap: 8px; margin-top: 2px; font-size: {{previewSize}}; color: #f87171"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Close failed · {{closeReason}}</span><button type="button" style="flex: none; margin-left: auto; min-height: {{retryH}}; padding: 0 10px; border: 1px solid #f87171; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">Retry</button></span></sc-if>
 </span>
 </div>
 </x-dc>
@@ -83,6 +85,9 @@ class Component extends DCLogic {
       engine: s.engine, hasEngine: !!s.engine, engineName: s.engine === 'codex' ? 'Codex' : s.engine === 'claude' ? 'Claude Code' : '',
       hasTask: !!s.taskRef, noTask: !s.taskRef, taskRef: s.taskRef ?? '', taskTitle: s.taskTitle ?? '',
       repo: s.repo, repoInline: !compact, repoOwnLine: compact,
+      // s.close: 'closing' | 'failed' while a confirmed close runs in the background; a closed session leaves the list.
+      closing: s.close === 'closing', closeFailed: s.close === 'failed', closeReason: s.closeReason ?? '',
+      retryH: density === 'phone' ? '44px' : '24px',
       // s.vibe: 'on' | 'inherited' | 'off'. A session whose repository does not allow vibe mode is 'off' here.
       vibeIcon: s.vibe === 'on' || s.vibe === 'inherited',
       vibeLabel: s.vibe === 'inherited' ? 'Vibe mode on, inherited from a parent session' : 'Vibe mode on',

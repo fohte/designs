@@ -480,6 +480,142 @@
       "h": 900,
       "title": "会話 · Done のセッション (ヘッダーの Close で確認なしに閉じる)",
       "page": "conversation"
+    },
+    "ActionItem.dc.html": {
+      "x": 4840,
+      "y": 0,
+      "w": 360,
+      "h": 110,
+      "title": "ActionItem",
+      "page": "components"
+    },
+    "ToastStack.dc.html": {
+      "x": 4840,
+      "y": 230,
+      "w": 360,
+      "h": 240,
+      "title": "ToastStack",
+      "page": "components"
+    },
+    "Activity.dc.html": {
+      "x": 4840,
+      "y": 590,
+      "w": 400,
+      "h": 360,
+      "title": "Activity",
+      "page": "components"
+    },
+    "MergeButton.dc.html": {
+      "x": 4840,
+      "y": 1070,
+      "w": 160,
+      "h": 44,
+      "title": "MergeButton",
+      "page": "components"
+    },
+    "ActionRunning.dc.html": {
+      "x": 0,
+      "y": 5540,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · Merge と Close を裏で実行中",
+      "page": "conversation"
+    },
+    "ActionSuccess.dc.html": {
+      "x": 2460,
+      "y": 5540,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · Merge と Close が成功",
+      "page": "conversation"
+    },
+    "ActionFailure.dc.html": {
+      "x": 4450,
+      "y": 5540,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · Merge と Close が失敗",
+      "page": "conversation"
+    },
+    "ActionQueued.dc.html": {
+      "x": 6440,
+      "y": 5540,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · マージキューに入った (PR の一覧を開いた状態)",
+      "page": "conversation"
+    },
+    "ActionAway.dc.html": {
+      "x": 7960,
+      "y": 5540,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · 別のセッションに移っている間に終わった",
+      "page": "conversation"
+    },
+    "ActionActivity.dc.html": {
+      "x": 9480,
+      "y": 5540,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · Activity を開いた",
+      "page": "conversation"
+    },
+    "PhoneActionRunning.dc.html": {
+      "x": 1520,
+      "y": 5540,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · PR の一覧から Merge して実行中",
+      "page": "conversation"
+    },
+    "PhoneActionSuccess.dc.html": {
+      "x": 3980,
+      "y": 5540,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Merge が成功",
+      "page": "conversation"
+    },
+    "PhoneActionFailure.dc.html": {
+      "x": 5970,
+      "y": 5540,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Merge が失敗",
+      "page": "conversation"
+    },
+    "PhoneActionClose.dc.html": {
+      "x": 1990,
+      "y": 5540,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Close を裏で実行中",
+      "page": "conversation"
+    },
+    "PhoneActionActivity.dc.html": {
+      "x": 11000,
+      "y": 5540,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Activity を開いた",
+      "page": "conversation"
+    },
+    "ActionCopy.dc.html": {
+      "x": 0,
+      "y": 6560,
+      "w": 1640,
+      "h": 1400,
+      "title": "確定したあとの結果 · 種類ごとの文言",
+      "page": "conversation"
+    },
+    "ActivityButton.dc.html": {
+      "x": 4840,
+      "y": 1234,
+      "w": 224,
+      "h": 44,
+      "title": "ActivityButton",
+      "page": "components"
     }
   },
   "order": [
@@ -542,7 +678,24 @@
     "CloseInbox.dc.html",
     "CloseCopy.dc.html",
     "ConfirmDialog.dc.html",
-    "ConversationDone.dc.html"
+    "ConversationDone.dc.html",
+    "ActionItem.dc.html",
+    "ToastStack.dc.html",
+    "Activity.dc.html",
+    "MergeButton.dc.html",
+    "ActionRunning.dc.html",
+    "ActionSuccess.dc.html",
+    "ActionFailure.dc.html",
+    "ActionQueued.dc.html",
+    "ActionAway.dc.html",
+    "ActionActivity.dc.html",
+    "PhoneActionRunning.dc.html",
+    "PhoneActionSuccess.dc.html",
+    "PhoneActionFailure.dc.html",
+    "PhoneActionClose.dc.html",
+    "PhoneActionActivity.dc.html",
+    "ActionCopy.dc.html",
+    "ActivityButton.dc.html"
   ],
   "pages": [
     {

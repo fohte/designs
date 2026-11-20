@@ -1,0 +1,145 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-11-21T09:00:00Z" },
+  "title": "iPhone Inbox actions",
+  "launch": { "view": "canvas", "page": "options" },
+  "pages": [
+    { "id": "options", "name": "案" },
+    { "id": "parts", "name": "部品" }
+  ],
+  "boards": {
+    "phone-inbox-actions-current.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "Current · PC · Later メニュー (L)", "page": "options" },
+    "phone-inbox-actions-current-close.dc.html": { "x": 1520, "y": 0, "w": 1440, "h": 900, "title": "Current · PC · Inbox で Review の行に e", "page": "options" },
+    "phone-inbox-actions-current-filter.dc.html": { "x": 3040, "y": 0, "w": 1440, "h": 900, "title": "Current · PC · Inbox の絞り込み (/)", "page": "options" },
+    "phone-inbox-actions-current-filtered.dc.html": { "x": 4560, "y": 0, "w": 1440, "h": 900, "title": "Current · PC · 絞り込んだ状態と Save view", "page": "options" },
+    "phone-inbox-actions-current-phone.dc.html": { "x": 6080, "y": 0, "w": 390, "h": 844, "title": "Current · iPhone · Inbox (どれもない)", "page": "options" },
+
+    "phone-inbox-actions-a-swipe.dc.html": { "x": 0, "y": 1300, "w": 390, "h": 844, "title": "A · 行を左にスワイプ", "page": "options" },
+    "phone-inbox-actions-a-later.dc.html": { "x": 470, "y": 1300, "w": 390, "h": 844, "title": "A · Later を押したあと", "page": "options" },
+    "phone-inbox-actions-a-close.dc.html": { "x": 940, "y": 1300, "w": 390, "h": 844, "title": "A · Close を押したあと", "page": "options" },
+
+    "phone-inbox-actions-b-menu.dc.html": { "x": 0, "y": 2600, "w": 390, "h": 844, "title": "B · 行を長押し", "page": "options" },
+    "phone-inbox-actions-b-later.dc.html": { "x": 470, "y": 2600, "w": 390, "h": 844, "title": "B · Later を押したあと", "page": "options" },
+    "phone-inbox-actions-b-close.dc.html": { "x": 940, "y": 2600, "w": 390, "h": 844, "title": "B · Close session… を押したあと", "page": "options" },
+
+    "phone-inbox-actions-c-entry.dc.html": { "x": 0, "y": 3900, "w": 390, "h": 844, "title": "C · 絞り込み欄", "page": "options" },
+    "phone-inbox-actions-c-typing.dc.html": { "x": 470, "y": 3900, "w": 390, "h": 844, "title": "C · 欄を押したあと (kind: を入力中)", "page": "options" },
+    "phone-inbox-actions-c-filtered.dc.html": { "x": 940, "y": 3900, "w": 390, "h": 844, "title": "C · 絞り込んだ状態", "page": "options" },
+    "phone-inbox-actions-c-save.dc.html": { "x": 1410, "y": 3900, "w": 390, "h": 844, "title": "C · Save view を押したあと", "page": "options" },
+
+    "phone-inbox-actions-d-entry.dc.html": { "x": 0, "y": 5200, "w": 390, "h": 844, "title": "D · 項目ごとのボタン", "page": "options" },
+    "phone-inbox-actions-d-sheet.dc.html": { "x": 470, "y": 5200, "w": 390, "h": 844, "title": "D · Kind を押したあと", "page": "options" },
+    "phone-inbox-actions-d-filtered.dc.html": { "x": 940, "y": 5200, "w": 390, "h": 844, "title": "D · 絞り込んだ状態", "page": "options" },
+    "phone-inbox-actions-d-save.dc.html": { "x": 1410, "y": 5200, "w": 390, "h": 844, "title": "D · Save view を押したあと", "page": "options" },
+
+    "PhoneInbox.dc.html": { "x": 0, "y": 0, "w": 390, "h": 844, "title": "PhoneInbox", "page": "parts" },
+    "PhoneInboxFilter.dc.html": { "x": 470, "y": 0, "w": 390, "h": 844, "title": "PhoneInboxFilter", "page": "parts" },
+    "PhoneRowMenu.dc.html": { "x": 940, "y": 0, "w": 390, "h": 250, "title": "PhoneRowMenu", "page": "parts" },
+    "PhoneLaterSheet.dc.html": { "x": 1410, "y": 0, "w": 390, "h": 420, "title": "PhoneLaterSheet", "page": "parts" },
+    "PhoneFilterSheet.dc.html": { "x": 1880, "y": 0, "w": 390, "h": 520, "title": "PhoneFilterSheet", "page": "parts" },
+    "PhoneSaveViewSheet.dc.html": { "x": 2350, "y": 0, "w": 390, "h": 300, "title": "PhoneSaveViewSheet", "page": "parts" },
+    "ConfirmDialog.dc.html": { "x": 2820, "y": 0, "w": 380, "h": 200, "title": "ConfirmDialog", "page": "parts" },
+    "SessionRow.dc.html": { "x": 3280, "y": 0, "w": 460, "h": 76, "title": "SessionRow", "page": "parts" },
+    "Activity.dc.html": { "x": 3820, "y": 0, "w": 400, "h": 360, "title": "Activity", "page": "parts" },
+    "ActivityButton.dc.html": { "x": 4300, "y": 0, "w": 224, "h": 44, "title": "ActivityButton", "page": "parts" },
+    "Nav.dc.html": { "x": 0, "y": 1100, "w": 240, "h": 900, "title": "Nav", "page": "parts" },
+    "InboxList.dc.html": { "x": 320, "y": 1100, "w": 460, "h": 900, "title": "InboxList", "page": "parts" },
+    "Conversation.dc.html": { "x": 860, "y": 1100, "w": 880, "h": 900, "title": "Conversation", "page": "parts" },
+    "Quota.dc.html": { "x": 1820, "y": 1100, "w": 240, "h": 140, "title": "Quota", "page": "parts" },
+    "SessionUsage.dc.html": { "x": 2140, "y": 1100, "w": 672, "h": 40, "title": "SessionUsage", "page": "parts" },
+    "StatusBand.dc.html": { "x": 2892, "y": 1100, "w": 760, "h": 60, "title": "StatusBand", "page": "parts" },
+    "ActionItem.dc.html": { "x": 3732, "y": 1100, "w": 360, "h": 110, "title": "ActionItem", "page": "parts" },
+    "MergeButton.dc.html": { "x": 4172, "y": 1100, "w": 160, "h": 44, "title": "MergeButton", "page": "parts" }
+  },
+  "order": [
+    "phone-inbox-actions-current.dc.html",
+    "phone-inbox-actions-current-close.dc.html",
+    "phone-inbox-actions-current-filter.dc.html",
+    "phone-inbox-actions-current-filtered.dc.html",
+    "phone-inbox-actions-current-phone.dc.html",
+    "phone-inbox-actions-a-swipe.dc.html",
+    "phone-inbox-actions-a-later.dc.html",
+    "phone-inbox-actions-a-close.dc.html",
+    "phone-inbox-actions-b-menu.dc.html",
+    "phone-inbox-actions-b-later.dc.html",
+    "phone-inbox-actions-b-close.dc.html",
+    "phone-inbox-actions-c-entry.dc.html",
+    "phone-inbox-actions-c-typing.dc.html",
+    "phone-inbox-actions-c-filtered.dc.html",
+    "phone-inbox-actions-c-save.dc.html",
+    "phone-inbox-actions-d-entry.dc.html",
+    "phone-inbox-actions-d-sheet.dc.html",
+    "phone-inbox-actions-d-filtered.dc.html",
+    "phone-inbox-actions-d-save.dc.html",
+    "PhoneInbox.dc.html",
+    "PhoneInboxFilter.dc.html",
+    "PhoneRowMenu.dc.html",
+    "PhoneLaterSheet.dc.html",
+    "PhoneFilterSheet.dc.html",
+    "PhoneSaveViewSheet.dc.html",
+    "ConfirmDialog.dc.html",
+    "SessionRow.dc.html",
+    "Activity.dc.html",
+    "ActivityButton.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "Conversation.dc.html",
+    "Quota.dc.html",
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html",
+    "ActionItem.dc.html",
+    "MergeButton.dc.html"
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1", "x": 0, "y": -260, "maxW": 6470, "page": "options",
+      "text": "Current · PC はキーボードで Later、Close、絞り込みができる。iPhone の Inbox にはどれもない"
+    },
+    "a": {
+      "kind": "title1", "x": 0, "y": 1040, "maxW": 1800, "page": "options",
+      "text": "行 A · 左にスワイプして Later と Close"
+    },
+    "b": {
+      "kind": "title1", "x": 0, "y": 2340, "maxW": 1800, "page": "options",
+      "text": "行 B · 長押しで操作のシート"
+    },
+    "c": {
+      "kind": "title1", "x": 0, "y": 3640, "maxW": 1800, "page": "options",
+      "text": "絞り込み C · PC の / と同じ入力欄"
+    },
+    "d": {
+      "kind": "title1", "x": 0, "y": 4940, "maxW": 1800, "page": "options",
+      "text": "絞り込み D · 項目ごとのボタンとシート"
+    },
+    "about": {
+      "x": 6560, "y": 0, "w": 520, "page": "options",
+      "text": "前提\n- 行の操作 (A / B) と絞り込み (C / D) は別々に選ぶ。どの組み合わせもできる\n- 行の操作の対象は Review の行。Later は PC の Later メニューと同じ 5 つの選択肢を下からのシートで出す (PhoneLaterSheet)\n- Close の確認は既存の ConfirmDialog のシート。文言は PC の e と同じ。閉じたあとの「閉じています / 失敗」は既存の PhoneActionClose のまま\n- Done の行は Close で確認なしに閉じる (PC と同じ)\n- 保存した view は既存のメニュー (PhoneDrawer) の VIEWS に並ぶ\n- データはすべて架空"
+    },
+    "aNote": {
+      "x": 1880, "y": 1300, "w": 460, "page": "options",
+      "text": "A · スワイプ\n+ iOS のメールと同じ操作で、片手で 2 手で済む\n+ 行を開かずに次々と片づけられる (PC の j/k + L/E に近い)\n- 見えないので、知らないと気づけない\n- 横スクロールする starred の帯や、戻るジェスチャーと混ざりやすい\n- Close は確認が要るので、最後までスワイプしても閉じない (Later の列もボタンを押すまで何もしない)"
+    },
+    "bNote": {
+      "x": 1880, "y": 2600, "w": 460, "page": "options",
+      "text": "B · 長押しのシート\n+ 会話画面の ⋯ メニューと同じ並び (Later、離して赤い Close session…) で、覚えることが少ない\n+ 操作を後から足しやすい (Star、Copy session ID など)\n- 長押しは A のスワイプ以上に見えない\n- シートを 2 段 (操作 → Later の時刻) たどるので手数が 1 つ多い"
+    },
+    "cNote": {
+      "x": 1880, "y": 3900, "w": 460, "page": "options",
+      "text": "C · 入力欄\n+ PC の / と同じ書き方 (project:web-app kind:review) がそのまま使え、文字で細かく絞れる\n+ 項目の切り替えは上のタブ、値はチェックで、打たなくても選べる\n+ 絞り込んだ状態は PC と同じチップ。× で 1 つずつ外せる\n- 欄を押すと画面全体が切り替わり、キーボードが値の一覧の下半分を隠す\n- 一番上に常に 44px の欄が増える"
+    },
+    "dNote": {
+      "x": 1880, "y": 5200, "w": 460, "page": "options",
+      "text": "D · 項目ごとのボタン\n+ キーボードを出さずに、押してチェックするだけで済む\n+ 絞り込んだ項目はボタン自体に値が入るので、どこが効いているか一目で分かる\n- 文字での絞り込み (task:#123 など) ができない。Project や Repo の値が多いときはシートに検索欄が要る\n- PC のチップと見た目が変わる"
+    }
+  },
+  "noteOrder": ["current", "a", "b", "c", "d", "about", "aNote", "bNote", "cNote", "dNote"],
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-21T09:00:00Z"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Close confirmation from Inbox e</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; display: flex; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" hint-size="240px,900px"></dc-import></div>
+<div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" current="{{ one }}" hint-size="460px,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0"><dc-import name="Conversation" variant="review" hint-size="100%,900px"></dc-import></div>
+<div style="position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0, 0, 0, 0.55)">
+<div style="width: 380px"><dc-import name="ConfirmDialog" form="modal" head="Close before reviewing?" body="It is waiting for your review of PR #2049. Closing ends the session; the PR stays open." action="Close session" keys="↵ Close · Esc Cancel" session="{{ session }}" hint-size="100%,200px"></dc-import></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { one: 1, session: { state: 'Review', dot: '#fbbf24', round: false, color: '#fbbf24', title: '配信チェックの PR を確認する' } };
+  }
+}
+</script>
+</body>
+</html>

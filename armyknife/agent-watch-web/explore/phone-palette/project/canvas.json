@@ -8,20 +8,37 @@
     "phone-palette-current.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 900, "title": "PC · ⌘K · 開いた直後", "page": "options"},
     "phone-palette-current-query.dc.html": {"x": 1520, "y": 0, "w": 1440, "h": 900, "title": "PC · ⌘K · # で tq タスクに絞る", "page": "options"},
     "phone-palette-current-close.dc.html": {"x": 3040, "y": 0, "w": 1440, "h": 900, "title": "PC · コマンドパレット · Close this session", "page": "options"},
-    "PhoneInbox.dc.html": {"x": 4560, "y": 0, "w": 390, "h": 844, "title": "iPhone · Inbox (右上の ⌕ がパレットを開く)", "page": "options"},
+    "PhoneInbox.dc.html": {"x": 4560, "y": 0, "w": 390, "h": 844, "title": "iPhone · Inbox (☰ でドロワー、⌕ でパレット)", "page": "options"},
+    "phone-palette-current-drawer.dc.html": {"x": 5030, "y": 0, "w": 390, "h": 844, "title": "iPhone · ドロワー (今は Inbox からだけ)", "page": "options"},
 
-    "phone-palette-a-entry.dc.html": {"x": 0, "y": 1300, "w": 390, "h": 844, "title": "A · 会話のヘッダーに ⌕", "page": "options"},
-    "phone-palette-a-open.dc.html": {"x": 470, "y": 1300, "w": 390, "h": 844, "title": "A · 開いた直後", "page": "options"},
-    "phone-palette-a-tasks.dc.html": {"x": 940, "y": 1300, "w": 390, "h": 844, "title": "A · tq tasks タブで絞る", "page": "options"},
-    "phone-palette-a-close.dc.html": {"x": 1410, "y": 1300, "w": 390, "h": 844, "title": "A · Commands タブ · Close this session", "page": "options"},
+    "phone-palette-swipe-chat.dc.html": {"x": 0, "y": 1300, "w": 390, "h": 844, "title": "A · 会話の左端から右へスワイプ", "page": "options"},
+    "phone-palette-swipe-drawer.dc.html": {"x": 470, "y": 1300, "w": 390, "h": 844, "title": "A · 会話の上にドロワー", "page": "options"},
 
-    "phone-palette-b-entry.dc.html": {"x": 0, "y": 2544, "w": 390, "h": 844, "title": "B · 会話の ⋯ メニューに Jump to…", "page": "options"},
-    "phone-palette-b-open.dc.html": {"x": 470, "y": 2544, "w": 390, "h": 844, "title": "B · 開いた直後", "page": "options"},
-    "phone-palette-b-tasks.dc.html": {"x": 940, "y": 2544, "w": 390, "h": 844, "title": "B · # キーで tq tasks に絞る", "page": "options"},
-    "phone-palette-b-close.dc.html": {"x": 1410, "y": 2544, "w": 390, "h": 844, "title": "B · > キー · Close this session", "page": "options"},
+    "phone-palette-menu-chat.dc.html": {"x": 0, "y": 2544, "w": 390, "h": 844, "title": "B · ‹ の場所の ☰ を押す", "page": "options"},
+    "phone-palette-menu-drawer.dc.html": {"x": 470, "y": 2544, "w": 390, "h": 844, "title": "B · 会話の上にドロワー", "page": "options"},
 
-    "phone-palette-confirm.dc.html": {"x": 0, "y": 3788, "w": 390, "h": 844, "title": "共通 · Close this session を選んだあと", "page": "options"},
-    "PhonePaletteNewSession.dc.html": {"x": 470, "y": 3788, "w": 390, "h": 844, "title": "共通 · New session (決定済み、変えない)", "page": "options"},
+    "phone-palette-c-drawer.dc.html": {"x": 0, "y": 3788, "w": 390, "h": 844, "title": "C · 会話から開いたドロワーの Jump to…", "page": "options"},
+    "phone-palette-c-open.dc.html": {"x": 470, "y": 3788, "w": 390, "h": 844, "title": "C · 全画面のパレット (開いた直後)", "page": "options"},
+    "phone-palette-c-close.dc.html": {"x": 940, "y": 3788, "w": 390, "h": 844, "title": "C · close と打つ · Close this session", "page": "options"},
+    "phone-palette-c-inbox-drawer.dc.html": {"x": 1500, "y": 3788, "w": 390, "h": 844, "title": "C · 比較: Inbox から開いたドロワー", "page": "options"},
+    "phone-palette-c-inbox-close.dc.html": {"x": 1970, "y": 3788, "w": 390, "h": 844, "title": "C · 比較: Inbox からは Close this session なし", "page": "options"},
+
+    "phone-palette-d-drawer.dc.html": {"x": 0, "y": 5032, "w": 390, "h": 844, "title": "D · 会話から開いたドロワーの入力欄", "page": "options"},
+    "phone-palette-d-open.dc.html": {"x": 470, "y": 5032, "w": 390, "h": 844, "title": "D · フォーカスでドロワーがパレットに", "page": "options"},
+    "phone-palette-d-close.dc.html": {"x": 940, "y": 5032, "w": 390, "h": 844, "title": "D · close と打つ · Close this session", "page": "options"},
+    "phone-palette-d-inbox-drawer.dc.html": {"x": 1500, "y": 5032, "w": 390, "h": 844, "title": "D · 比較: Inbox から開いたドロワー", "page": "options"},
+    "phone-palette-d-inbox-close.dc.html": {"x": 1970, "y": 5032, "w": 390, "h": 844, "title": "D · 比較: Inbox からは Close this session なし", "page": "options"},
+
+    "phone-palette-a-open.dc.html": {"x": 0, "y": 6276, "w": 390, "h": 844, "title": "タブ · 開いた直後", "page": "options"},
+    "phone-palette-a-tasks.dc.html": {"x": 470, "y": 6276, "w": 390, "h": 844, "title": "タブ · tq tasks タブで絞る", "page": "options"},
+    "phone-palette-a-close.dc.html": {"x": 940, "y": 6276, "w": 390, "h": 844, "title": "タブ · Commands タブ · Close this session", "page": "options"},
+
+    "phone-palette-b-open.dc.html": {"x": 0, "y": 7520, "w": 390, "h": 844, "title": "キー · 開いた直後", "page": "options"},
+    "phone-palette-b-tasks.dc.html": {"x": 470, "y": 7520, "w": 390, "h": 844, "title": "キー · # キーで tq tasks に絞る", "page": "options"},
+    "phone-palette-b-close.dc.html": {"x": 940, "y": 7520, "w": 390, "h": 844, "title": "キー · > キー · Close this session", "page": "options"},
+
+    "phone-palette-confirm.dc.html": {"x": 0, "y": 8764, "w": 390, "h": 844, "title": "共通 · Close this session を選んだあと", "page": "options"},
+    "PhonePaletteNewSession.dc.html": {"x": 470, "y": 8764, "w": 390, "h": 844, "title": "共通 · New session (決定済み、変えない)", "page": "options"},
 
     "Palette.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 900, "page": "parts"},
     "Conversation.dc.html": {"x": 1520, "y": 0, "w": 880, "h": 900, "page": "parts"},
@@ -29,6 +46,7 @@
     "Nav.dc.html": {"x": 3020, "y": 0, "w": 240, "h": 900, "page": "parts"},
     "PhoneChat.dc.html": {"x": 3340, "y": 0, "w": 390, "h": 844, "page": "parts"},
     "PhonePalette.dc.html": {"x": 3810, "y": 0, "w": 390, "h": 844, "page": "parts"},
+    "PhoneDrawer.dc.html": {"x": 4280, "y": 0, "w": 390, "h": 844, "page": "parts"},
     "Quota.dc.html": {"x": 0, "y": 1020, "w": 240, "h": 140, "page": "parts"},
     "SessionRow.dc.html": {"x": 320, "y": 1020, "w": 460, "h": 76, "page": "parts"},
     "ActionItem.dc.html": {"x": 860, "y": 1020, "w": 360, "h": 110, "page": "parts"},
@@ -41,24 +59,42 @@
     "ToastStack.dc.html": {"x": 4376, "y": 1020, "w": 360, "h": 240, "page": "parts"}
   },
   "order": [
-    "phone-palette-current.dc.html", "phone-palette-current-query.dc.html", "phone-palette-current-close.dc.html", "PhoneInbox.dc.html",
-    "phone-palette-a-entry.dc.html", "phone-palette-a-open.dc.html", "phone-palette-a-tasks.dc.html", "phone-palette-a-close.dc.html",
-    "phone-palette-b-entry.dc.html", "phone-palette-b-open.dc.html", "phone-palette-b-tasks.dc.html", "phone-palette-b-close.dc.html",
+    "phone-palette-current.dc.html", "phone-palette-current-query.dc.html", "phone-palette-current-close.dc.html", "PhoneInbox.dc.html", "phone-palette-current-drawer.dc.html",
+    "phone-palette-swipe-chat.dc.html", "phone-palette-swipe-drawer.dc.html",
+    "phone-palette-menu-chat.dc.html", "phone-palette-menu-drawer.dc.html",
+    "phone-palette-c-drawer.dc.html", "phone-palette-c-open.dc.html", "phone-palette-c-close.dc.html", "phone-palette-c-inbox-drawer.dc.html", "phone-palette-c-inbox-close.dc.html",
+    "phone-palette-d-drawer.dc.html", "phone-palette-d-open.dc.html", "phone-palette-d-close.dc.html", "phone-palette-d-inbox-drawer.dc.html", "phone-palette-d-inbox-close.dc.html",
+    "phone-palette-a-open.dc.html", "phone-palette-a-tasks.dc.html", "phone-palette-a-close.dc.html",
+    "phone-palette-b-open.dc.html", "phone-palette-b-tasks.dc.html", "phone-palette-b-close.dc.html",
     "phone-palette-confirm.dc.html", "PhonePaletteNewSession.dc.html",
-    "Palette.dc.html", "Conversation.dc.html", "InboxList.dc.html", "Nav.dc.html", "PhoneChat.dc.html", "PhonePalette.dc.html",
+    "Palette.dc.html", "Conversation.dc.html", "InboxList.dc.html", "Nav.dc.html", "PhoneChat.dc.html", "PhonePalette.dc.html", "PhoneDrawer.dc.html",
     "Quota.dc.html", "SessionRow.dc.html", "ActionItem.dc.html", "ConfirmDialog.dc.html", "MergeButton.dc.html", "SessionUsage.dc.html",
     "StatusBand.dc.html", "ActivityButton.dc.html", "Activity.dc.html", "ToastStack.dc.html"
   ],
   "notes": {
-    "current": {"kind": "title1", "x": 0, "y": -260, "maxW": 4950, "page": "options", "text": "Current · PC のパレット。iPhone は Inbox の ⌕ と New session の流れだけある"},
-    "a": {"kind": "title1", "x": 0, "y": 1040, "maxW": 1800, "page": "options", "text": "A · 会話のヘッダーに ⌕、絞り込みは PC と同じタブ"},
-    "b": {"kind": "title1", "x": 0, "y": 2284, "maxW": 1800, "page": "options", "text": "B · 会話は ⋯ の奥、絞り込みは下の # @ > キー"},
-    "common": {"kind": "title1", "x": 0, "y": 3528, "maxW": 1800, "page": "options", "text": "共通 · 確認と New session"},
-    "about": {"x": 1960, "y": 0, "w": 520, "page": "options", "text": "前提\n- iPhone で足りないのは、開き方 (会話から)、開いた直後、tq タスクへの絞り込み、Close this session と確認\n- Inbox はすでに右上の ⌕ (Jump to) でパレットを開く。これはどの案も変えない\n- Close this session は開いている会話に効くので、会話から開いたときにだけ出る。Inbox から開いたときは出ない\n- 開くと全画面になり、入力欄にフォーカスしてキーボードが上がる。見出し、行、New session の流れは決定済みの iPhone のパレットに合わせた\n- データはすべて架空"},
-    "aNote": {"x": 1960, "y": 1300, "w": 460, "page": "options", "text": "A · ヘッダーの ⌕ + タブ\n+ Inbox と会話の両方で同じ ⌕ から開ける。見つけやすい\n+ タブは PC のタブそのもの。今どこに絞っているかが常に見える\n+ # を打っても tq tasks タブに切り替わる\n- 会話のヘッダーのボタンが 1 つ増え、PR があるときはタイトルが短くなる\n- タブの行のぶん一覧が 44px 低い"},
-    "bNote": {"x": 1960, "y": 2544, "w": 460, "page": "options", "text": "B · ⋯ の奥 + 下のキー\n+ 会話のヘッダーは今のまま\n+ キーは親指の届く下にあり、キーボードのすぐ上に乗る\n+ 絞り込みは入力欄のトークンになる。決定済みの New session の › トークンと同じ形。× か削除キーで外す\n+ PC の # @ > と同じ考え方\n- 会話から開くのに 2 タップ\n- Sessions だけに絞るキーはない (All の先頭がセッション)"},
-    "mix": {"x": 1960, "y": 3200, "w": 460, "page": "options", "fill": "blue", "text": "組み合わせ方\n開き方 (ヘッダーの ⌕ / ⋯ の奥) と絞り込み (タブ / 下のキー) は独立していて、A の開き方に B のキーのように組める"},
-    "commonNote": {"x": 940, "y": 3788, "w": 460, "page": "options", "text": "確認\n- Close this session を選ぶとパレットが閉じ、会話の上に今の確認シート (ConfirmDialog の sheet) が出る。⋯ メニューの Close session… と同じもの\n- Done のセッションは確認なしで閉じる\n\nNew session\n- 決定済みの流れのまま"}
+    "current": {"kind": "title1", "x": 0, "y": -260, "maxW": 5420, "page": "options", "text": "Current · PC のパレットと、iPhone の Inbox とドロワー"},
+    "about": {"x": 5500, "y": 0, "w": 520, "page": "options", "text": "前提\n- パレットへはドロワーから行く。ドロワーをどの画面からでも開けるようにする。会話のトップバーには何も足さない\n- 問いは 3 つで、それぞれ独立している: 開き方 1 (会話からドロワーをどう出すか)、開き方 2 (ドロワーからパレットをどう出すか)、絞り込み (タブかキーか)\n- PC の Nav は上の行に ⌕ ⌘K を置いている。iPhone のドロワーも同じ上の位置に Jump to… を置く\n- Close this session は開いている会話に効くので、会話の上で開いたドロワーから行ったときにだけ出る。確認は今のシートのまま\n- Inbox の右上の ⌕ は今のまま残す\n- データはすべて架空"},
+
+    "a": {"kind": "title1", "x": 0, "y": 1040, "maxW": 1400, "page": "options", "text": "開き方 1 · A 会話の左端からスワイプでドロワー"},
+    "aNote": {"x": 940, "y": 1300, "w": 460, "page": "options", "text": "A · 左端スワイプ\n+ トップバーは今のまま。片手の親指で届く\n+ どの画面でも同じ操作で開く\n- 見えないので、知らないと気づけない\n- Safari では左端スワイプが「戻る」になる。ホーム画面に追加して開いたときだけ使える\n- コードブロックや表の横スクロールとぶつからないよう、左端の細い帯だけで受ける"},
+
+    "b": {"kind": "title1", "x": 0, "y": 2284, "maxW": 1400, "page": "options", "text": "開き方 1 · B ‹ の場所に ☰ (推奨: A のスワイプと併用)"},
+    "bNote": {"x": 940, "y": 2544, "w": 460, "page": "options", "text": "B · ‹ を ☰ に置き換える\n+ 見えるので気づける。トップバーのボタンの数は変わらない\n- Inbox の ☰ は右上にあり、位置がそろわない\n- Inbox に戻るのが 1 タップから 2 タップ (☰ → Inbox) になる\n\n組み合わせ\nB の ☰ と A のスワイプは両方入れられる。☰ で気づけて、慣れたらスワイプで開ける"},
+
+    "c": {"kind": "title1", "x": 0, "y": 3528, "maxW": 2900, "page": "options", "text": "開き方 2 · C ドロワーの Jump to… から全画面のパレット (推奨)"},
+    "cNote": {"x": 2440, "y": 3788, "w": 460, "page": "options", "text": "C · Jump to… → 全画面\n+ PC の Nav の ⌕ ⌘K と同じ位置、同じ動き\n+ パレットは決定済みの全画面のまま。幅があり、タブも New session の流れもそのまま使える\n- 会話からは ☰ → Jump to… の 2 タップ\n\nInbox から開いたときは close と打っても Close all done だけになる"},
+
+    "d": {"kind": "title1", "x": 0, "y": 4772, "maxW": 2900, "page": "options", "text": "開き方 2 · D ドロワーに打つとそのままパレットになる"},
+    "dNote": {"x": 2440, "y": 5032, "w": 460, "page": "options", "text": "D · ドロワーがパレットになる\n+ 画面が切り替わらず、右に元の会話が見えたまま\n+ 入力欄を押すとすぐ候補が出る\n- 幅 320px なので行が詰まり、タブは横スクロールになる\n- New session など全画面のパレットを前提にした流れとつながりにくい\n- PC (Nav から別のパレットが開く) と動きが違う\n- Cancel か入力を消すとドロワーに戻る"},
+
+    "fa": {"kind": "title1", "x": 0, "y": 6016, "maxW": 1900, "page": "options", "text": "絞り込み · A PC と同じタブ (推奨)"},
+    "faNote": {"x": 1410, "y": 6276, "w": 460, "page": "options", "text": "A · タブ\n+ PC のタブそのもの。今どこに絞っているかが常に見える\n+ # を打っても tq tasks タブに切り替わる\n- タブの行のぶん一覧が 44px 低い"},
+
+    "fb": {"kind": "title1", "x": 0, "y": 7260, "maxW": 1900, "page": "options", "text": "絞り込み · B 下の # @ > キーで入力欄にトークン"},
+    "fbNote": {"x": 1410, "y": 7520, "w": 460, "page": "options", "text": "B · 下のキー\n+ キーは親指の届く下にあり、キーボードのすぐ上に乗る\n+ 絞り込みは入力欄のトークンになる。決定済みの New session の › トークンと同じ形。× か削除キーで外す\n+ PC の # @ > と同じ考え方\n- Sessions だけに絞るキーはない (All の先頭がセッション)"},
+
+    "common": {"kind": "title1", "x": 0, "y": 8504, "maxW": 1400, "page": "options", "text": "共通 · 確認と New session"},
+    "commonNote": {"x": 940, "y": 8764, "w": 460, "page": "options", "text": "確認\n- Close this session を選ぶとパレットが閉じ、会話の上に今の確認シート (ConfirmDialog の sheet) が出る。⋯ メニューの Close session… と同じもの\n- Done のセッションは確認なしで閉じる\n\nNew session\n- 決定済みの流れのまま"}
   },
   "designSystems": [
     {"title": "agent watch", "namespace": "agentwatch", "artifact": "armyknife/agent-watch-web/design-system", "version": null, "copiedAt": "2026-11-21T00:00:00Z"}

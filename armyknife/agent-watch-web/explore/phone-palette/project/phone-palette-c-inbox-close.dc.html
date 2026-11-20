@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>A: search button in the chat header</title>
+<title>C: close typed, from Inbox</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -13,7 +13,7 @@
 body{margin:0}
 </style>
 </helmet>
-<div style="width: 390px; height: 844px; overflow: hidden; background: #0a0a0a"><dc-import name="PhoneChat" jump="header" jump-pressed="{{ true }}" hint-size="390px,844px"></dc-import></div>
+<div style="width: 390px; height: 844px; overflow: hidden; background: #0a0a0a"><dc-import name="PhonePalette" variant="a" scope="close" from="inbox" hint-size="390px,844px"></dc-import></div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {

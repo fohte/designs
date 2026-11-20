@@ -1,0 +1,66 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-11-21T12:00:00Z" },
+  "title": "explore: スマホの会話のトップバー",
+  "launch": { "view": "canvas", "page": "options" },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-21T12:00:00Z"
+    }
+  ],
+  "pages": [
+    { "id": "options", "name": "案" },
+    { "id": "parts", "name": "部品" }
+  ],
+  "boards": {
+    "phone-topbar-current.dc.html": { "x": 0, "y": 0, "w": 1620, "h": 880, "title": "Current · 右上にボタンが最大 4 つ", "page": "options" },
+    "phone-topbar-a.dc.html": { "x": 0, "y": 1240, "w": 1620, "h": 880, "title": "A · 戻る・タイトル・… だけ", "page": "options" },
+    "phone-topbar-b.dc.html": { "x": 0, "y": 2480, "w": 1620, "h": 880, "title": "B · 2 段にして、さかのぼると畳む", "page": "options" },
+    "phone-topbar-c.dc.html": { "x": 0, "y": 3720, "w": 1620, "h": 880, "title": "C · PR と Activity を下の状況の帯へ", "page": "options" },
+    "PhoneTopbar.dc.html": { "x": 0, "y": 0, "w": 390, "h": 844, "title": "PhoneTopbar", "page": "parts" },
+    "ActivityButton.dc.html": { "x": 470, "y": 0, "w": 224, "h": 44, "title": "ActivityButton", "page": "parts" },
+    "StatusBand.dc.html": { "x": 470, "y": 164, "w": 760, "h": 60, "title": "StatusBand", "page": "parts" },
+    "SessionUsage.dc.html": { "x": 470, "y": 344, "w": 672, "h": 40, "title": "SessionUsage", "page": "parts" }
+  },
+  "order": [
+    "phone-topbar-current.dc.html",
+    "phone-topbar-a.dc.html",
+    "phone-topbar-b.dc.html",
+    "phone-topbar-c.dc.html",
+    "PhoneTopbar.dc.html",
+    "ActivityButton.dc.html",
+    "StatusBand.dc.html",
+    "SessionUsage.dc.html"
+  ],
+  "notes": {
+    "current": { "kind": "title1", "x": 0, "y": -260, "maxW": 1620, "page": "options", "text": "Current · ヘッダー 81px、タイトルは約 100px" },
+    "optA": { "kind": "title1", "x": 0, "y": 980, "maxW": 1620, "page": "options", "text": "A · 戻る・タイトル・… だけにする" },
+    "optB": { "kind": "title1", "x": 0, "y": 2220, "maxW": 1620, "page": "options", "text": "B · 2 段にして、さかのぼると 2 段目を畳む" },
+    "optC": { "kind": "title1", "x": 0, "y": 3460, "maxW": 1620, "page": "options", "text": "C · PR と Activity を下の状況の帯へ移す" },
+    "inventory": {
+      "x": 1700, "y": 0, "w": 520, "fill": "yellow", "page": "options",
+      "text": "今のヘッダーにあるもの\n1 段目 (44px)\n- ‹ 戻る: 常に\n- ★: スター付きのとき\n- タイトル: 常に。入りきらないと … で切る\n- ⚡: vibe on は塗り、引き継ぎは線、off は出ない\n- Activity: 操作が走ったあと。数と色 (青=実行中、赤=失敗)\n- PR: PR があるとき。CI の点と数\n- 状況パネル: 常に\n- …: 常に (Vibe mode / Later / Close (done) / Starred / Copy session ID / Edit title / Close session…)\n2 段目 (24px)\n- 主の tq タスク · ディレクトリ: タスクがあるとき。+N はない (PC にはある)\n\nヘッダーの下には何もない。状況の帯 (StatusBand) は入力欄の上にある\n\n右上 4 つで 200px を取り、タイトルは約 100px (6〜7 文字) しか出ない\n\nデータはすべて架空"
+    },
+    "noteA": {
+      "x": 1700, "y": 1240, "w": 520, "fill": "yellow", "page": "options",
+      "text": "A の置き場所\n- ‹ / ★ / タイトル / ⚡: 1 段目のまま\n- タスク · ディレクトリ: タイトルの下の小さな 1 行。+N を足す\n- 状況パネル: ボタンをなくし、タイトルとタスクのまとまりを押すと開く (› で示す)\n- PR: … のメニューの先頭。CI の点と数を出す\n- Activity: … のメニューの 2 番目。失敗は赤\n- … の右上の点: Activity が失敗中は赤、実行中は青\n\nヘッダー 57px (-24px)、タイトル約 250px\n+ 一番低く、静か\n- PR の CI と Activity が 1 段奥に入る。点だけでは何が起きたか分からない\n- 状況パネルの入口がボタンに見えない"
+    },
+    "noteB": {
+      "x": 1700, "y": 2480, "w": 520, "fill": "yellow", "page": "options",
+      "text": "B の置き場所\n- 1 段目: ‹ / ★ / タイトル / ⚡ / …\n- 2 段目: タスク +N · ディレクトリ、Activity、PR、状況パネル (どれも 44px のまま)\n- 会話をさかのぼると 2 段目を畳み、下に戻すと出す\n\nヘッダー 101px (畳むと 57px)、タイトル約 250px\n+ 何も隠さず、今と同じ押し方のまま\n+ タイトルの幅が一番広がる\n- 開いているときは今より 20px 高い\n- 畳んだ間は PR と Activity が見えない"
+    },
+    "noteC": {
+      "x": 1700, "y": 3720, "w": 520, "fill": "yellow", "page": "options",
+      "text": "C の置き場所\n- ヘッダー: A と同じ (… に点は付けない、メニューも今のまま)\n- 状況パネル: タイトルとタスクのまとまりを押すと開く\n- PR / Activity: 入力欄の上の状況の帯の右端。親指で届く\n- 帯の状態 (Question / review / Working) は左に今のまま\n\nヘッダー 57px、タイトル約 250px\n+ PR と Activity が常に見えて、届きやすい\n+ 状態と結果が下の 1 か所にまとまる\n- 帯が出ないとき (idle) も、ボタンのために帯を残す必要がある\n- StatusBand の形を変える (PC と形がずれる)"
+    },
+    "drawer": {
+      "x": 1700, "y": 740, "w": 520, "fill": "gray", "page": "options",
+      "text": "ドロワーの入口は別のテーマで決める。どの案も ‹ 戻るの位置は変えず、ドロワー用の枠は取っていない"
+    }
+  },
+  "noteOrder": ["current", "optA", "optB", "optC", "inventory", "drawer", "noteA", "noteB", "noteC"]
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Vibe mode popover per state</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1848px; height: 2910px; box-sizing: border-box; display: grid; grid-template-columns: 880px 880px; gap: 40px; padding: 20px 24px; background: #050505; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+<sc-for list="{{states}}" as="st" hint-placeholder-count="5">
+<section style="display: flex; flex-direction: column; gap: 6px">
+<h2 style="margin: 0; font-size: 12.5px; font-weight: 700; color: #a1a1aa">{{st.label}}</h2>
+<dc-import name="BeforeConversation" variant="{{st.variant}}" vibe="{{st.vibe}}" vibe-open="{{ true }}" hint-size="880px,900px"></dc-import>
+</section>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1848,"height":2910}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      states: [
+        { label: 'on · このセッションで on にした', variant: 'working', vibe: 'on' },
+        { label: 'on · このセッションでも、親の「通知まわりの改修」でも on', variant: 'working', vibe: 'onParent' },
+        { label: 'on · 親の「通知まわりの改修」から引き継いでいる', variant: 'question', vibe: 'inherited' },
+        { label: 'off', variant: 'review', vibe: 'off' },
+        { label: '使えない · repo の設定が vibe mode を許可していない', variant: 'review', vibe: 'unavailable' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

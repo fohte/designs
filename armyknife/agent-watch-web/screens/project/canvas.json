@@ -362,7 +362,7 @@
       "page": "conversation"
     },
     "PhoneChatVibe.dc.html": {
-      "x": 8800,
+      "x": 10726,
       "y": 0,
       "w": 390,
       "h": 844,
@@ -616,6 +616,102 @@
       "h": 44,
       "title": "ActivityButton",
       "page": "components"
+    },
+    "before/BeforeVibePopover.dc.html": {
+      "x": 8798,
+      "y": 0,
+      "w": 1848,
+      "h": 2910,
+      "title": "Before · セッションのヘッダー · vibe mode のボタンを押したとき",
+      "page": "conversation"
+    },
+    "before/BeforePhoneChatVibe.dc.html": {
+      "x": 11196,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · vibe mode のシート",
+      "page": "conversation"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 5400,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "title": "Before · Conversation",
+      "page": "components"
+    },
+    "before/BeforePhoneChat.dc.html": {
+      "x": 6360,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "Before · PhoneChat",
+      "page": "components"
+    },
+    "before/BeforeConfirmDialog.dc.html": {
+      "x": 6830,
+      "y": 0,
+      "w": 380,
+      "h": 200,
+      "title": "Before · ConfirmDialog",
+      "page": "components"
+    },
+    "before/BeforeActionItem.dc.html": {
+      "x": 6830,
+      "y": 320,
+      "w": 360,
+      "h": 110,
+      "title": "Before · ActionItem",
+      "page": "components"
+    },
+    "before/BeforeToastStack.dc.html": {
+      "x": 6830,
+      "y": 550,
+      "w": 360,
+      "h": 240,
+      "title": "Before · ToastStack",
+      "page": "components"
+    },
+    "before/BeforeActivity.dc.html": {
+      "x": 6830,
+      "y": 910,
+      "w": 400,
+      "h": 360,
+      "title": "Before · Activity",
+      "page": "components"
+    },
+    "before/BeforeMergeButton.dc.html": {
+      "x": 6830,
+      "y": 1390,
+      "w": 160,
+      "h": 44,
+      "title": "Before · MergeButton",
+      "page": "components"
+    },
+    "before/BeforeActivityButton.dc.html": {
+      "x": 6830,
+      "y": 1554,
+      "w": 224,
+      "h": 44,
+      "title": "Before · ActivityButton",
+      "page": "components"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 7310,
+      "y": 0,
+      "w": 760,
+      "h": 60,
+      "title": "Before · StatusBand",
+      "page": "components"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 7310,
+      "y": 180,
+      "w": 672,
+      "h": 40,
+      "title": "Before · SessionUsage",
+      "page": "components"
     }
   },
   "order": [
@@ -695,7 +791,19 @@
     "PhoneActionClose.dc.html",
     "PhoneActionActivity.dc.html",
     "ActionCopy.dc.html",
-    "ActivityButton.dc.html"
+    "ActivityButton.dc.html",
+    "before/BeforeVibePopover.dc.html",
+    "before/BeforePhoneChatVibe.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforePhoneChat.dc.html",
+    "before/BeforeConfirmDialog.dc.html",
+    "before/BeforeActionItem.dc.html",
+    "before/BeforeToastStack.dc.html",
+    "before/BeforeActivity.dc.html",
+    "before/BeforeMergeButton.dc.html",
+    "before/BeforeActivityButton.dc.html",
+    "before/BeforeStatusBand.dc.html",
+    "before/BeforeSessionUsage.dc.html"
   ],
   "pages": [
     {
@@ -730,6 +838,20 @@
       "w": 420,
       "page": "components",
       "text": "ConfirmDialog: 確認ダイアログの共通部品。form で形を選ぶ\n- modal: Merge の確認 (確認ダイアログ)、閉じる前の確認 (Close session… を押したあと、Inbox の e、状態ごとの文言)\n- popover: 会話のヘッダーの vibe mode\n- sheet: iPhone の vibe mode、iPhone の閉じる前の確認\n- panel: ! コマンドの確認 (確認ダイアログ)"
+    },
+    "diffVibePopover": {
+      "x": 8798,
+      "y": -400,
+      "w": 600,
+      "page": "conversation",
+      "text": "Before との違い (PC の vibe mode ポップオーバー)\n- 「Sent to the session」とその下のセッションに送る文面をなくした\n- ボタンから and send を外した (Turn on and send → Turn on など)\n- 見出しと説明は変えていない"
+    },
+    "diffPhoneChatVibe": {
+      "x": 11196,
+      "y": -400,
+      "w": 390,
+      "page": "conversation",
+      "text": "Before との違い (iPhone の vibe mode シート)\n- 「Sent to the session」とその下のセッションに送る文面をなくした\n- ボタンから and send を外した (Turn on and send → Turn on など)\n- 見出しと説明は変えていない"
     }
   },
   "v": 3,
@@ -751,6 +873,8 @@
     }
   ],
   "noteOrder": [
-    "confirmDialogUsers"
+    "confirmDialogUsers",
+    "diffVibePopover",
+    "diffPhoneChatVibe"
   ]
 }

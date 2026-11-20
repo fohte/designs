@@ -33,7 +33,7 @@ For each accepted request:
 
 Resolve `vibe_mode` for each accepted request with `~/.agents/skills/delegate/references/vibe-policy.md` from the root of this `designs` worktree. The policy checks `repo.vibe` for the current working directory, and PR submit and merge commands check the `designs` repository, not the assigned app repository. Save the initial result for the submit and merge checks below. When the initial result is `false`, use the normal flow without sending a fallback notification. Recheck the policy immediately before submitting a PR and immediately before merging; use the automatic path only when the initial result and the latest result are both `true`.
 
-If either policy check returns an error, retry that check once as `vibe-policy.md` requires. If the retry also errors, report the error in this conversation and stop without entering either workflow.
+If either policy check returns an error, retry that check once as `vibe-policy.md` requires. If the retry also errors, report the error in this conversation and, for a PM request, notify the included PM session ID with the error using `a agent peer notify --message <MESSAGE> <PM_SESSION_ID>`. Stop without entering either workflow.
 
 Send a `<vibe-fallback>` only when the initial result was `true` and a later recheck returns `false`. Report the fallback to the user in this designer conversation. If the design request came from a PM, notify the PM session ID included in the request with `a agent peer notify --message <MESSAGE> <PM_SESSION_ID>`; include only the fact that the designer is switching to its normal flow, without asking the PM to restore vibe. The user must turn vibe back on in this designer session. Use a phase-specific fallback message:
 
@@ -45,7 +45,7 @@ Branch: <git branch --show-current>
 </vibe-fallback>
 ```
 
-- Submit 前に切り替える場合: `通常フローに切り替え、create-pr の editor review と承認を経て PR を submit する。CI / review 対応後に merge の to-do を登録する。`
+- Submit 前に切り替える場合: `通常フローに切り替え、create-pr の editor review と承認を経て PR を submit する。CI と review の指摘に対応した後、merge の to-do を登録する。`
 - Merge 前に切り替える場合: `通常フローに切り替え、merge の to-do を登録してユーザーに merge を依頼する。`
 
 Do not look up a parent session. If the user later reports that vibe is enabled again, recheck both policy conditions from the `designs` worktree root. If both are `true`, resume the vibe flow at its current stage. Withdraw any merge to-do created during fallback with `a agent todo withdraw <SEQ> --comment <REASON>` first, and keep its sequence number so it can be withdrawn.

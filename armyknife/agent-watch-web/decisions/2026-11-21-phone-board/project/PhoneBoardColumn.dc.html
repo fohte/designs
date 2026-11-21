@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Phone board column</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: {{pad}}; background: {{bg}}; border-top: {{borderTop}}; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.55">
+<header style="display: flex; flex-direction: column; gap: 1px">
+<sc-if value="{{showName}}" hint-placeholder-val="{{ true }}"><h2 style="margin: 0; font-size: 17px; font-weight: 700">{{col.name}}</h2></sc-if>
+<div style="font-size: 12.5px; font-weight: {{col.needWeight}}; color: {{col.needColor}}">{{col.need}}</div>
+<div style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8b8b94">{{col.repos}}</div>
+</header>
+<sc-if value="{{col.hasNeeds}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column">
+<h3 style="margin: 0 0 2px; font-size: 12.5px; font-weight: 700; color: #fbbf24">Needs action</h3>
+<sc-for list="{{col.needs}}" as="c" hint-placeholder-count="2">
+<div style="margin: {{rowMargin}}"><dc-import name="SessionRow" s="{{ c }}" density="phone" hint-size="100%,72px"></dc-import></div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{col.hasWorking}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column">
+<h3 style="margin: 0 0 2px; font-size: 12.5px; font-weight: 700; color: #60a5fa">In progress</h3>
+<sc-for list="{{col.working}}" as="c" hint-placeholder-count="2">
+<div style="margin: {{rowMargin}}"><dc-import name="SessionRow" s="{{ c }}" density="phone" hint-size="100%,72px"></dc-import></div>
+</sc-for>
+<sc-if value="{{col.hasMore}}" hint-placeholder-val="{{ false }}"><button type="button" style="align-self: flex-start; min-height: 44px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13px">{{col.more}} ›</button></sc-if>
+</div>
+</sc-if>
+<sc-if value="{{col.hasDone}}" hint-placeholder-val="{{ true }}">
+<div style="font-size: 13px; color: #8b8b94"><span style="color: #a1a1aa">✓ Done</span> · {{col.done}}</div>
+</sc-if>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"col":{"editor":null},"form":{"editor":"enum","options":["tab","section","card"],"default":"card"},"$preview":{"width":304,"height":560}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // tab: A, the project name is in the tab strip. section: B, one section of a single list. card: C, a narrow column like the PC board.
+    const form = this.props.form ?? 'card';
+    const n = (status, age, title, role, engine, taskRef, taskTitle) => ({ status, unread: true, age, title, role, engine, taskRef, taskTitle, repo: 'service' });
+    const col = this.props.col ?? {
+      name: 'service', repos: 'example/service', need: '2 need action', needColor: '#fbbf24', needWeight: 700,
+      needs: [n('Question', '8s', '通知の再送処理を見直す', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる'), n('Error', '4m', '統合テストの失敗を直す', 'debug-flow', 'claude', 'P1 #2052', 'テストを安定させる')],
+      working: [{ ...n('Working', '30s', '再送の記録を残す', 'development', 'codex', 'P1 #2048', '通知の信頼性を上げる'), unread: false }],
+      more: '', done: '送信キューを分ける and 2 more', hasNeeds: true, hasWorking: true, hasMore: false, hasDone: true
+    };
+    const F = {
+      tab: { pad: '12px 16px 16px', bg: 'transparent', borderTop: '0', row: '0 -16px' },
+      section: { pad: '16px 16px 12px', bg: 'transparent', borderTop: '1px solid #2a2a2a', row: '0 -16px' },
+      card: { pad: '12px', bg: '#111111', borderTop: '0', row: '0 -12px' }
+    }[form];
+    return { col, showName: form !== 'tab', pad: F.pad, bg: F.bg, borderTop: F.borderTop, rowMargin: F.row };
+  }
+}
+</script>
+</body>
+</html>

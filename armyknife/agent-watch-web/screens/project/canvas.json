@@ -770,6 +770,14 @@
       "h": 844,
       "title": "PhoneStatusPanel",
       "page": "components"
+    },
+    "PhoneBoard.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Board",
+      "page": "board"
     }
   },
   "order": [
@@ -797,6 +805,7 @@
     "SessionUsage.dc.html",
     "StatusBand.dc.html",
     "Board.dc.html",
+    "PhoneBoard.dc.html",
     "Palette.dc.html",
     "PaletteQuery.dc.html",
     "PaletteNewSession.dc.html",

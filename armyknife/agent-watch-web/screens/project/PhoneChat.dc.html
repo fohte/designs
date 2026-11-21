@@ -51,13 +51,11 @@ body{margin:0}
 <sc-for list="{{todoItems}}" as="t" hint-placeholder-count="2">
 <sc-if value="{{t.isText}}" hint-placeholder-val="{{ false }}"><article style="color: #d4d4d8">{{t.text}}</article></sc-if>
 <sc-if value="{{t.isFolded}}" hint-placeholder-val="{{ false }}">
-<article aria-label="User task, folded" style="display: flex; align-items: center; gap: 4px; border: 1px solid #2a2a2a; background: #111111">
-<button type="button" aria-expanded="false" style="flex: 1; min-width: 0; min-height: 48px; display: flex; flex-direction: column; justify-content: center; gap: 1px; padding: 6px 14px; border: 0; background: transparent; color: #fafafa; font-family: inherit; text-align: left"><span style="display: flex; align-items: center; gap: 6px; color: #a1a1aa; font-size: 12.5px; font-weight: 700">To-do · later<sc-if value="{{t.hasNote}}" hint-placeholder-val="{{ false }}"><span style="color: #8b8b94; font-weight: 400">· {{t.note}}</span></sc-if></span><span style="display: flex; align-items: center; gap: 8px; width: 100%"><strong style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 15px">{{t.title}}</strong><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-left: auto; color: #a1a1aa"><path d="m6 9 6 6 6-6"></path></svg></span></button>
-</article>
+<dc-import name="TodoCard" form="folded" phone="{{ true }}" title="{{t.title}}" added="{{ t.added }}" hint-size="100%,48px"></dc-import>
 </sc-if>
 <sc-if value="{{t.isFull}}" hint-placeholder-val="{{ true }}">
 <article aria-label="User task" style="border: 1px solid #2a2a2a; padding: 14px; display: flex; flex-direction: column; gap: 8px">
-<div style="display: flex; align-items: center; gap: 8px; min-height: 24px"><h2 style="margin: 0; color: #a1a1aa; font-size: 12.5px; font-weight: 700">To-do · pending</h2><button type="button" aria-label="Fold this to-do" aria-expanded="true" style="margin: -10px -10px -10px auto; width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"></path></svg></button></div>
+<dc-import name="TodoCard" form="header" phone="{{ true }}" hint-size="100%,24px"></dc-import>
 <h3 style="margin: 0; font-size: 17px; font-weight: 700">{{t.title}}</h3>
 <div style="font-size: 14px; color: #d4d4d8; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{t.detail}}</div>
 <button type="button" style="align-self: flex-start; min-height: 32px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13px">Show more</button>
@@ -157,12 +155,12 @@ class Component extends DCLogic {
     const st = this.props.state ?? 'question';
     const review = st === 'review';
     const todo = st === 'todo';
-    // todo: who folded the to-do that can only be checked when the situation comes up. folded: the user, with ⌃; added: the session, at todo add.
+    // todo: who folded the to-do that can only be checked when the situation comes up. folded: the user, with ⌃; added: the session, marked to check later when it added it.
     const tLater = { title: '通知の音を実機で確かめる' };
     const tNow = { title: '設定画面の音の一覧を見る', detail: 'ステージングで設定画面を開き、音の一覧に 5 つ並んでいるか見てください。' };
     const added = (this.props.todo ?? 'folded') === 'added';
     const todoItems = [
-      { isFolded: true, ...tLater, hasNote: added, note: 'added folded' },
+      { isFolded: true, ...tLater, added },
       { isText: true, text: '音の一覧はステージングでも見られます。こちらは今確かめてください。' },
       { isFull: true, ...tNow }
     ];

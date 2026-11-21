@@ -74,7 +74,7 @@ class Component extends DCLogic {
         ] },
         { title: '返事を待つカード', items: [
           'Question、Permission、Proposal、To-do の 4 種類です。返事を待っている間は黄色の枠で囲みます。',
-          'To-do は見出しの右の ⌃ で、To-do · later の見出しとタイトルだけの 1 行に畳めます。セッションが todo add で後で確かめる印を付けた to-do は、最初から畳んで added folded と添えます。行を押すと開きます。畳んだ to-do のセッションは Needs action とその数から外し、すぐ下の To-do later の行に件数と先頭のタイトルを出します。',
+          'To-do は見出しの右の ⌃ で、To-do · later の見出しとタイトルだけの 1 行に畳めます。セッションが登録時に後で確かめる印を付けた to-do は、最初から畳んで出し、added folded と添えます。行を押すと開きます。畳んでいない待ちの to-do が 1 つでもあるセッションは Needs action に残します。待ちの to-do が全部畳んであるセッションだけを Needs action とその数から外し、すぐ下の To-do later の行に件数と先頭のタイトルを出します。',
           'セッションが止まらずに決めたことは Decision として灰色の行で出し、あとから OK か Change… で返します。'
         ] },
         { title: '状況パネル', items: [

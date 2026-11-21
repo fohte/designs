@@ -107,7 +107,7 @@ body{margin:0}
 <div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">To-do</strong>Work the session asks you to do. The border follows its state.</div>
 <div style="display: flex; flex-direction: column; gap: 14px">
 <article style="border: 1px solid #2a2a2a; padding: 14px; display: flex; flex-direction: column; gap: 8px">
-<div style="display: flex; align-items: center; gap: 8px"><h2 style="margin: 0; color: #a1a1aa; font-size: 12px; font-weight: 700">To-do · pending</h2><button type="button" aria-label="Fold this to-do" title="Fold" aria-expanded="true" style="margin-left: auto; width: 28px; height: 26px; display: grid; place-items: center; padding: 0; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"></path></svg></button></div>
+<dc-import name="TodoCard" form="header" hint-size="100%,26px"></dc-import>
 <h3 style="margin: 0; font-size: 17px; font-weight: 700">ステージングで再送を試す</h3>
 <div style="font-size: 13px; color: #d4d4d8; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">送信先を一時的に止めて、3 回まで送り直してから諦めることを確かめてください。ログに試行回数が出ているかも見てください。終わったら結果をコメントに書いてください。</div>
 <button type="button" style="align-self: flex-start; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px">Show more</button>
@@ -122,14 +122,10 @@ body{margin:0}
 </sc-for>
 </div>
 
-<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">To-do, folded</strong>Folded with ⌃, or added folded by the session. The row opens the card. It leaves Needs action for To-do later.</div>
+<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">To-do, folded</strong>Folded with ⌃, or added folded by the session. The row opens the card. A session whose pending to-dos are all folded leaves Needs action for To-do later.</div>
 <div style="display: flex; flex-direction: column; gap: 14px">
-<article aria-label="User task, folded" style="display: flex; align-items: center; border: 1px solid #2a2a2a; background: #111111">
-<button type="button" aria-expanded="false" style="flex: 1; min-width: 0; height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 14px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; text-align: left"><span style="flex: none; color: #a1a1aa; font-size: 12px; font-weight: 700">To-do · later</span><strong style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">本番の再送を週明けに確かめる</strong><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-left: auto; color: #a1a1aa"><path d="m6 9 6 6 6-6"></path></svg></button>
-</article>
-<article aria-label="User task, folded" style="display: flex; align-items: center; border: 1px solid #2a2a2a; background: #111111">
-<button type="button" aria-expanded="false" style="flex: 1; min-width: 0; height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 14px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; text-align: left"><span style="flex: none; color: #a1a1aa; font-size: 12px; font-weight: 700">To-do · later</span><strong style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">通知を実機で受け取る</strong><span style="flex: none; color: #8b8b94; font-size: 12px">· added folded</span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-left: auto; color: #a1a1aa"><path d="m6 9 6 6 6-6"></path></svg></button>
-</article>
+<dc-import name="TodoCard" form="folded" title="本番の再送を週明けに確かめる" hint-size="100%,40px"></dc-import>
+<dc-import name="TodoCard" form="folded" title="通知を実機で受け取る" added="{{ true }}" hint-size="100%,40px"></dc-import>
 </div>
 </div>
 </x-dc>

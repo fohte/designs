@@ -529,6 +529,14 @@
       "title": "MergeButton",
       "page": "components"
     },
+    "TodoCard.dc.html": {
+      "x": 3956,
+      "y": 1620,
+      "w": 672,
+      "h": 40,
+      "title": "TodoCard",
+      "page": "components"
+    },
     "ActionRunning.dc.html": {
       "x": 0,
       "y": 14730,
@@ -987,6 +995,7 @@
     "ToastStack.dc.html",
     "Activity.dc.html",
     "MergeButton.dc.html",
+    "TodoCard.dc.html",
     "ActionRunning.dc.html",
     "ActionSuccess.dc.html",
     "ActionFailure.dc.html",
@@ -1231,14 +1240,14 @@
       "y": 19490,
       "w": 460,
       "page": "conversation",
-      "text": "新しい画面 (前の画面はない)\n- To-do カードの見出しの右に ⌃ を置き、押すと To-do · later の見出し、タイトル、⌄ の 1 行に畳む\n- セッションが todo add で後で確かめる印を付けた to-do は、最初から畳んで出し、added folded と添える\n- 畳んだ行を押すと元のカードに戻る"
+      "text": "新しい画面 (前の画面はない)\n- To-do カードの見出しの右に ⌃ を置き、押すと To-do · later の見出し、タイトル、⌄ の 1 行に畳む\n- セッションが登録時に後で確かめる印を付けた to-do は、最初から畳んで出し、added folded と添える\n- 畳んだ行を押すと元のカードに戻る"
     },
     "diffTodoLater": {
       "x": 1990,
       "y": 7200,
       "w": 460,
       "page": "inbox",
-      "text": "新しい画面 (前の画面はない)\n- 畳んだ to-do のセッションは Needs action から外し、Nav の Inbox の数にも入れない\n- Needs action のすぐ下に To-do later の 1 行を置き、件数と先頭のタイトルを出す。押すと開く\n- 畳んだ to-do がないときは出さない"
+      "text": "新しい画面 (前の画面はない)\n- 待ちの to-do が全部畳んであるセッションは Needs action から外し、Nav の Inbox の数にも入れない。畳んでいない待ちの to-do が 1 つでもあれば Needs action に残す\n- Needs action のすぐ下に To-do later の 1 行を置き、件数と先頭のタイトルを出す。押すと開く\n- 畳んだ to-do がないときは出さない"
     },
     "diffMain": {
       "x": 3040,

@@ -94,13 +94,11 @@ a{color:#ef4444}
 <sc-for list="{{todoItems}}" as="t" hint-placeholder-count="2">
 <sc-if value="{{t.isText}}" hint-placeholder-val="{{ false }}"><article style="flex: none; max-width: 100%; color: #d4d4d8">{{t.text}}</article></sc-if>
 <sc-if value="{{t.isFolded}}" hint-placeholder-val="{{ false }}">
-<article aria-label="User task, folded" style="flex: none; display: flex; align-items: center; gap: 8px; border: 1px solid #2a2a2a; background: #111111">
-<button type="button" aria-expanded="false" style="flex: 1; min-width: 0; height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 14px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; text-align: left"><span style="flex: none; color: #a1a1aa; font-size: 12px; font-weight: 700">To-do · later</span><strong style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{t.title}}</strong><sc-if value="{{t.hasNote}}" hint-placeholder-val="{{ false }}"><span style="flex: none; color: #8b8b94; font-size: 12px">· {{t.note}}</span></sc-if><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin-left: auto; color: #a1a1aa"><path d="m6 9 6 6 6-6"></path></svg></button>
-</article>
+<div style="flex: none"><dc-import name="TodoCard" form="folded" title="{{t.title}}" added="{{ t.added }}" hint-size="100%,40px"></dc-import></div>
 </sc-if>
 <sc-if value="{{t.isFull}}" hint-placeholder-val="{{ true }}">
 <article aria-label="User task" style="flex: none; border: 1px solid #2a2a2a; padding: 14px; display: flex; flex-direction: column; gap: 8px">
-<div style="display: flex; align-items: center; gap: 8px"><h2 style="margin: 0; color: #a1a1aa; font-size: 12px; font-weight: 700">To-do · pending</h2><button type="button" aria-label="Fold this to-do" title="Fold" aria-expanded="true" style="margin-left: auto; width: 28px; height: 26px; display: grid; place-items: center; padding: 0; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 15-6-6-6 6"></path></svg></button></div>
+<dc-import name="TodoCard" form="header" hint-size="100%,26px"></dc-import>
 <h3 style="margin: 0; font-size: 17px; font-weight: 700">{{t.title}}</h3>
 <div style="font-size: 13px; color: #d4d4d8; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{t.detail}}</div>
 <button type="button" style="align-self: flex-start; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px">Show more</button>
@@ -178,7 +176,7 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review","todo"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review","todo"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const variant = this.props.variant ?? 'question';
@@ -217,15 +215,15 @@ class Component extends DCLogic {
       review: { engine: 'codex', title: '配信チェックの PR を確認する', taskId: '', taskTitle: '', repo: 'example/web-app', userText: '配信チェックを足して PR にして。', assistantText: '配信前のチェックを', assistantCode: 'preflight()', assistantTail: 'にまとめて PR #2049 を作りました。crit で差分を見てください。', toolSummary: 'Edit preflight.ts · Read ×2 · Shell ×2', bandState: 'crit', bandLabel: '', bandDetail: 'crit · PR #2049 · 2m' },
       todo: { engine: 'claude', title: '通知の音を選べるようにする', taskId: 'P2 #3101', taskTitle: '通知の設定を増やす', repo: 'example/mobile-app', userText: '通知の音を選べるようにして。', assistantText: '通知の音を', assistantCode: 'sound', assistantTail: 'で選べるようにしました。シミュレーターでは鳴りました。実機で鳴るかは、次に通知が届いたときに確かめてください。', toolSummary: 'Edit notify.ts · Read ×2 · Shell ×1', bandState: 'idle', bandLabel: '', bandDetail: '' }
     }[variant] ?? {};
-    // todo: who folded the to-do that can only be checked when the situation comes up. folded: the user, with ⌃; added: the session, at todo add.
+    // todo: who folded the to-do that can only be checked when the situation comes up. folded: the user, with ⌃; added: the session, marked to check later when it added it.
     const tLater = { title: '通知の音を実機で確かめる' };
     const tNow = { title: '設定画面の音の一覧を見る', detail: 'ステージングで設定画面を開き、音の一覧に 5 つ並んでいるか見てください。' };
     const added = (this.props.todo ?? 'folded') === 'added';
-    const todoItems = [
-      { isFolded: true, ...tLater, hasNote: added, note: 'added folded' },
+    // todoNow: false leaves only the folded to-do pending, so the session sits under To-do later instead of Needs action.
+    const todoItems = [{ isFolded: true, ...tLater, added }].concat((this.props.todoNow ?? true) ? [
       { isText: true, text: '音の一覧はステージングでも見られます。こちらは今確かめてください。' },
       { isFull: true, ...tNow }
-    ];
+    ] : []);
     // vibe: 'on' | 'onParent' (on here and in an ancestor) | 'inherited' | 'off' | 'unavailable' (the repository's setting forbids it).
     const vibe = this.props.vibe ?? { question: 'inherited', working: 'on', review: 'off' }[variant] ?? 'off';
     const vibeOpen = this.props.vibeOpen ?? false;

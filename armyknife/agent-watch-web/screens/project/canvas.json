@@ -1034,6 +1034,414 @@
       "h": 844,
       "title": "iPhone · 状況パネル · Tasks · 主でないタスクに Make primary",
       "page": "status-panel"
+    },
+    "before/BeforeInbox.dc.html": {
+      "x": 3980,
+      "y": 1920,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Inbox と会話",
+      "page": "inbox"
+    },
+    "before/BeforeTaskLinks.dc.html": {
+      "x": 5500,
+      "y": 1920,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 1 つのセッションに tq タスクが複数 · +1 で状況パネルの Tasks を開く",
+      "page": "inbox"
+    },
+    "before/BeforeLater.dc.html": {
+      "x": 7850,
+      "y": 3240,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Later メニュー (L)",
+      "page": "inbox"
+    },
+    "before/BeforeInboxFilter.dc.html": {
+      "x": 9370,
+      "y": 3240,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Inbox の絞り込み (/)",
+      "page": "inbox"
+    },
+    "before/BeforeInboxFiltered.dc.html": {
+      "x": 10890,
+      "y": 3240,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 絞り込んだ状態と Save view",
+      "page": "inbox"
+    },
+    "before/BeforeNewSession.dc.html": {
+      "x": 3980,
+      "y": 4560,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 新しいセッション",
+      "page": "inbox"
+    },
+    "before/BeforeNewSessionPicker.dc.html": {
+      "x": 5500,
+      "y": 4560,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 新しいセッション · ディレクトリを選ぶ",
+      "page": "inbox"
+    },
+    "before/BeforeNewSessionModel.dc.html": {
+      "x": 3980,
+      "y": 5880,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 新しいセッション · モデルと effort を選ぶ",
+      "page": "inbox"
+    },
+    "before/BeforeNewSessionModelSwitch.dc.html": {
+      "x": 5500,
+      "y": 5880,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 新しいセッション · engine を変えてモデルが default に戻った",
+      "page": "inbox"
+    },
+    "before/BeforeBoard.dc.html": {
+      "x": 1990,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Board",
+      "page": "board"
+    },
+    "before/BeforePalette.dc.html": {
+      "x": 4560,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · ⌘K · 開いた直後",
+      "page": "palette"
+    },
+    "before/BeforePaletteNewSession.dc.html": {
+      "x": 3980,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コマンドパレット · 新しいセッション",
+      "page": "palette"
+    },
+    "before/BeforePaletteNewSessionModel.dc.html": {
+      "x": 5500,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コマンドパレット · モデルと effort を選ぶ",
+      "page": "palette"
+    },
+    "before/BeforeStatusRunning.dc.html": {
+      "x": 11940,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Running",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusTree.dc.html": {
+      "x": 13460,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tree",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusDecisions.dc.html": {
+      "x": 14980,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Decisions",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusReview.dc.html": {
+      "x": 16500,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Review",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusWebUi.dc.html": {
+      "x": 18020,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Web UI (crit)",
+      "page": "status-panel"
+    },
+    "before/BeforeStatusTasks.dc.html": {
+      "x": 19540,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 状況パネル · Tasks",
+      "page": "status-panel"
+    },
+    "before/BeforeVibeNotice.dc.html": {
+      "x": 1990,
+      "y": 6330,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · vibe mode を切り替えたあと · 会話にイベントとして出る",
+      "page": "conversation"
+    },
+    "before/BeforeConversationEnded.dc.html": {
+      "x": 3830,
+      "y": 4310,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 終わったセッション",
+      "page": "conversation"
+    },
+    "before/BeforeCloseMenu.dc.html": {
+      "x": 9010,
+      "y": 5020,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 会話のヘッダー · Done 以外は ⋯ に Close session…",
+      "page": "topbar"
+    },
+    "before/BeforeCloseConfirm.dc.html": {
+      "x": 10530,
+      "y": 5020,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Close session… を押したあと",
+      "page": "topbar"
+    },
+    "before/BeforeCloseInbox.dc.html": {
+      "x": 12050,
+      "y": 5020,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Inbox で Review の行に e",
+      "page": "topbar"
+    },
+    "before/BeforeConversationDone.dc.html": {
+      "x": 13570,
+      "y": 5020,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 会話 · Done のセッション (ヘッダーの Close で確認なしに閉じる)",
+      "page": "topbar"
+    },
+    "before/BeforeWebUiLink.dc.html": {
+      "x": 1990,
+      "y": 7650,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 会話の中の web UI のリンク · 後ろに開く先のタブ名",
+      "page": "conversation"
+    },
+    "before/BeforeTodoFolded.dc.html": {
+      "x": 1990,
+      "y": 8970,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · to-do を畳む · セッションが畳んで出した to-do と、⌃ のあるカード",
+      "page": "conversation"
+    },
+    "before/BeforeCodeCopy.dc.html": {
+      "x": 5970,
+      "y": 10290,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コードブロック · 長い行を横にスクロールしても帯は動かない",
+      "page": "conversation"
+    },
+    "before/BeforeCodeCopyCopied.dc.html": {
+      "x": 7490,
+      "y": 10290,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コードブロック · Copy を押した直後 (1.5 秒 ✓ Copied)",
+      "page": "conversation"
+    },
+    "before/BeforeCodeCopyUser.dc.html": {
+      "x": 9010,
+      "y": 10290,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コードブロック · 自分のメッセージの中のコードをコピー",
+      "page": "conversation"
+    },
+    "before/BeforeInboxTodoLater.dc.html": {
+      "x": 1990,
+      "y": 7200,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Needs action の下の To-do later",
+      "page": "inbox"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 1500,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 3010,
+      "y": 300,
+      "w": 240,
+      "h": 900,
+      "title": "BeforeNav",
+      "page": "components"
+    },
+    "before/BeforeInboxList.dc.html": {
+      "x": 0,
+      "y": 4180,
+      "w": 460,
+      "h": 900,
+      "title": "BeforeInboxList",
+      "page": "components"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 540,
+      "y": 4180,
+      "w": 880,
+      "h": 900,
+      "title": "BeforeConversation",
+      "page": "components"
+    },
+    "before/BeforeStatusPanel.dc.html": {
+      "x": 1500,
+      "y": 4180,
+      "w": 640,
+      "h": 900,
+      "title": "BeforeStatusPanel",
+      "page": "components"
+    },
+    "before/BeforeSessionRow.dc.html": {
+      "x": 2220,
+      "y": 4180,
+      "w": 460,
+      "h": 76,
+      "title": "BeforeSessionRow",
+      "page": "components"
+    },
+    "before/BeforeConfirmDialog.dc.html": {
+      "x": 2760,
+      "y": 4180,
+      "w": 380,
+      "h": 200,
+      "title": "BeforeConfirmDialog",
+      "page": "components"
+    },
+    "before/BeforeActivityButton.dc.html": {
+      "x": 3220,
+      "y": 4180,
+      "w": 224,
+      "h": 44,
+      "title": "BeforeActivityButton",
+      "page": "components"
+    },
+    "before/BeforeQuota.dc.html": {
+      "x": 3524,
+      "y": 4180,
+      "w": 240,
+      "h": 140,
+      "title": "BeforeQuota",
+      "page": "components"
+    },
+    "before/BeforeMergeButton.dc.html": {
+      "x": 3844,
+      "y": 4180,
+      "w": 160,
+      "h": 44,
+      "title": "BeforeMergeButton",
+      "page": "components"
+    },
+    "before/BeforeCodeBlock.dc.html": {
+      "x": 4084,
+      "y": 4180,
+      "w": 672,
+      "h": 160,
+      "title": "BeforeCodeBlock",
+      "page": "components"
+    },
+    "before/BeforeTodoCard.dc.html": {
+      "x": 4836,
+      "y": 4180,
+      "w": 672,
+      "h": 40,
+      "title": "BeforeTodoCard",
+      "page": "components"
+    },
+    "before/BeforeActionItem.dc.html": {
+      "x": 5588,
+      "y": 4180,
+      "w": 360,
+      "h": 110,
+      "title": "BeforeActionItem",
+      "page": "components"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 6028,
+      "y": 4180,
+      "w": 760,
+      "h": 60,
+      "title": "BeforeStatusBand",
+      "page": "components"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 6868,
+      "y": 4180,
+      "w": 672,
+      "h": 40,
+      "title": "BeforeSessionUsage",
+      "page": "components"
+    },
+    "before/BeforeCloseChecks.dc.html": {
+      "x": 7620,
+      "y": 4180,
+      "w": 408,
+      "h": 170,
+      "title": "BeforeCloseChecks",
+      "page": "components"
+    },
+    "ActivityEmpty.dc.html": {
+      "x": 0,
+      "y": 13304,
+      "w": 1440,
+      "h": 900,
+      "title": "Activity · 操作がまだないとき (数を出さず、ラベルを薄く)",
+      "page": "topbar"
+    },
+    "ActivityEmptyOpen.dc.html": {
+      "x": 1520,
+      "y": 13304,
+      "w": 1440,
+      "h": 900,
+      "title": "Activity · 操作がないときに開いた",
+      "page": "topbar"
+    },
+    "PhoneActivityEmpty.dc.html": {
+      "x": 3040,
+      "y": 13304,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーションの Activity · 操作がまだないとき",
+      "page": "topbar"
+    },
+    "PhoneActivityEmptyOpen.dc.html": {
+      "x": 3510,
+      "y": 13304,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 操作がないときに Activity を開いた",
+      "page": "topbar"
     }
   },
   "order": [
@@ -1166,7 +1574,58 @@
     "PhoneLaterSheet.dc.html",
     "PhoneSaveViewSheet.dc.html",
     "PhoneChatTasks.dc.html",
-    "PhoneStatusTasksMany.dc.html"
+    "PhoneStatusTasksMany.dc.html",
+    "before/BeforeInbox.dc.html",
+    "before/BeforeTaskLinks.dc.html",
+    "before/BeforeLater.dc.html",
+    "before/BeforeInboxFilter.dc.html",
+    "before/BeforeInboxFiltered.dc.html",
+    "before/BeforeNewSession.dc.html",
+    "before/BeforeNewSessionPicker.dc.html",
+    "before/BeforeNewSessionModel.dc.html",
+    "before/BeforeNewSessionModelSwitch.dc.html",
+    "before/BeforeBoard.dc.html",
+    "before/BeforePalette.dc.html",
+    "before/BeforePaletteNewSession.dc.html",
+    "before/BeforePaletteNewSessionModel.dc.html",
+    "before/BeforeStatusRunning.dc.html",
+    "before/BeforeStatusTree.dc.html",
+    "before/BeforeStatusDecisions.dc.html",
+    "before/BeforeStatusReview.dc.html",
+    "before/BeforeStatusWebUi.dc.html",
+    "before/BeforeStatusTasks.dc.html",
+    "before/BeforeVibeNotice.dc.html",
+    "before/BeforeConversationEnded.dc.html",
+    "before/BeforeCloseMenu.dc.html",
+    "before/BeforeCloseConfirm.dc.html",
+    "before/BeforeCloseInbox.dc.html",
+    "before/BeforeConversationDone.dc.html",
+    "before/BeforeWebUiLink.dc.html",
+    "before/BeforeTodoFolded.dc.html",
+    "before/BeforeCodeCopy.dc.html",
+    "before/BeforeCodeCopyCopied.dc.html",
+    "before/BeforeCodeCopyUser.dc.html",
+    "before/BeforeInboxTodoLater.dc.html",
+    "before/BeforeMain.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeInboxList.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforeStatusPanel.dc.html",
+    "before/BeforeSessionRow.dc.html",
+    "before/BeforeConfirmDialog.dc.html",
+    "before/BeforeActivityButton.dc.html",
+    "before/BeforeQuota.dc.html",
+    "before/BeforeMergeButton.dc.html",
+    "before/BeforeCodeBlock.dc.html",
+    "before/BeforeTodoCard.dc.html",
+    "before/BeforeActionItem.dc.html",
+    "before/BeforeStatusBand.dc.html",
+    "before/BeforeSessionUsage.dc.html",
+    "before/BeforeCloseChecks.dc.html",
+    "ActivityEmpty.dc.html",
+    "ActivityEmptyOpen.dc.html",
+    "PhoneActivityEmpty.dc.html",
+    "PhoneActivityEmptyOpen.dc.html"
   ],
   "pages": [
     {
@@ -1421,6 +1880,148 @@
       "maxW": 1330,
       "page": "status-panel",
       "text": "状況パネル · Tasks · iPhone で +N から開いたとき"
+    },
+    "beforeParts": {
+      "x": 0,
+      "y": 3880,
+      "text": "Before · 比較用の部品 (main のまま)",
+      "kind": "title1",
+      "maxW": 8028,
+      "page": "components"
+    },
+    "rowActivityEmpty": {
+      "x": 0,
+      "y": 13004,
+      "text": "Activity · 操作がないとき",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "topbar"
+    },
+    "diffActivityEmpty": {
+      "x": 3980,
+      "y": 13304,
+      "w": 460,
+      "page": "topbar",
+      "text": "新しい画面 (前の画面はない)\n- 操作がまだないときも Activity を出す。PC はナビ、iPhone はナビゲーションの quota の上\n- ボタンはラベルを薄く (#8b8b94) し、数は出さない\n- 開くと No recent activity. と Merge and Close results appear here. を出し、Clear finished は出さない"
+    },
+    "diffInbox": {
+      "x": 7020,
+      "y": 1920,
+      "w": 460,
+      "page": "inbox",
+      "text": "Activity の変更 (右の Before 2 枚が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffLater": {
+      "x": 12410,
+      "y": 3240,
+      "w": 460,
+      "page": "inbox",
+      "text": "Activity の変更 (右の Before 3 枚が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffNewSession": {
+      "x": 7020,
+      "y": 4560,
+      "w": 460,
+      "page": "inbox",
+      "text": "Activity の変更 (右の Before 2 枚が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffNewSessionModel": {
+      "x": 7020,
+      "y": 5880,
+      "w": 460,
+      "page": "inbox",
+      "text": "Activity の変更 (右の Before 2 枚が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffBoard": {
+      "x": 3510,
+      "y": 0,
+      "w": 460,
+      "page": "board",
+      "text": "Activity の変更 (右が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffPalette": {
+      "x": 6080,
+      "y": 300,
+      "w": 460,
+      "page": "palette",
+      "text": "Activity の変更 (右が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffPaletteNewSession": {
+      "x": 7020,
+      "y": 1620,
+      "w": 460,
+      "page": "palette",
+      "text": "Activity の変更 (右の Before 2 枚が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffStatusRunning": {
+      "x": 21060,
+      "y": 300,
+      "w": 460,
+      "page": "status-panel",
+      "text": "Activity の変更 (右の Before 6 枚が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffVibeNotice": {
+      "x": 3510,
+      "y": 6330,
+      "w": 460,
+      "page": "conversation",
+      "text": "Activity の変更 (右が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffConversationEnded": {
+      "x": 5350,
+      "y": 4310,
+      "w": 460,
+      "page": "conversation",
+      "text": "Activity の変更 (右が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffCloseMenu": {
+      "x": 15090,
+      "y": 5020,
+      "w": 460,
+      "page": "topbar",
+      "text": "Activity の変更 (右の Before 4 枚が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffWebUiLink": {
+      "x": 3510,
+      "y": 7650,
+      "w": 460,
+      "page": "conversation",
+      "text": "Activity の変更 (右が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffTodoFolded": {
+      "x": 3510,
+      "y": 8970,
+      "w": 460,
+      "page": "conversation",
+      "text": "Activity の変更 (右が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffCodeCopy": {
+      "x": 10530,
+      "y": 10290,
+      "w": 460,
+      "page": "conversation",
+      "text": "Activity の変更 (右の Before 3 枚が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffInboxTodoLater": {
+      "x": 3510,
+      "y": 7200,
+      "w": 460,
+      "page": "inbox",
+      "text": "Activity の変更 (右が前)\n- 操作がまだないときも、ナビの quota の上に Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
+    },
+    "diffMain": {
+      "x": 3040,
+      "y": 0,
+      "w": 460,
+      "page": "inbox",
+      "text": "仕様のまとめの変更 (右が前)\n- Activity は一度も実行していないときも出し、数を出さずに薄く示す\n- 開いたときの No recent activity. と Merge and Close results appear here. を書き足した"
+    },
+    "diffNav": {
+      "x": 3330,
+      "y": 300,
+      "w": 460,
+      "page": "components",
+      "text": "Nav の変更 (右が前)\n- activity を渡さないときも Activity を出す。ラベルは薄く (#8b8b94)、数は出さない (前は出さなかった)"
     }
   },
   "v": 3,

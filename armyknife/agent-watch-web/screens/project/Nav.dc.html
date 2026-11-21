@@ -51,9 +51,7 @@ body{margin:0}
 </section>
 </div>
 
-<sc-if value="{{hasActivity}}" hint-placeholder-val="{{ false }}">
 <div style="flex: none; margin: 8px 0"><dc-import name="ActivityButton" activity="{{ activity }}" form="desktop" open="{{ activityOpen }}" hint-size="100%,32px"></dc-import></div>
-</sc-if>
 <div style="flex: none"><dc-import name="Quota" hint-size="100%,140px"></dc-import></div>
 </nav>
 </x-dc>
@@ -64,12 +62,12 @@ class Component extends DCLogic {
     const collapsed = this.props.inboxCollapsed ?? false;
     const on = 'background: #3f3f46; color: #fafafa; font-weight: 700';
     const off = 'background: transparent; color: #a1a1aa; font-weight: 400';
-    // activity: null hides the entry, as before any action ran. { count, tone: 'running' | 'failure' | 'idle' }.
-    const activity = this.props.activity ?? null;
+    // activity: { count, tone: 'running' | 'failure' | 'idle' | 'empty' }. Unset is the muted entry without a count, as before any action ran.
+    const activity = this.props.activity ?? { count: '', tone: 'empty' };
     const activityOpen = this.props.activityOpen ?? false;
     return {
       inboxCount: this.props.inboxCount ?? 6,
-      hasActivity: !!activity, activity, activityOpen,
+      activity, activityOpen,
       inboxToggleLabel: collapsed ? 'Show Inbox' : 'Hide Inbox',
       inboxToggleArrow: collapsed ? 'm14 9 3 3-3 3' : 'm16 15-3-3 3-3',
       inboxOn: view === 'inbox' ? 'true' : 'false',

@@ -25,7 +25,7 @@ body{margin:0}
 </span>
 <div style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><strong style="color: #fafafa">{{title}}</strong><span style="min-width: 0; color: #a1a1aa; font-size: {{subFs}}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{session}}</span>
 <sc-if value="{{hasMsg}}" hint-placeholder-val="{{ false }}"><span style="color: #d4d4d8; font-size: {{subFs}}">{{msg}}</span></sc-if>
-<sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><div style="display: grid; grid-template-columns: {{actCols}}; gap: 8px; margin-top: 8px"><button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700">Retry</button><button type="button" aria-label="Details in Activity" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{subFs}}">Details</button></div></sc-if>
+<sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><div style="display: grid; grid-template-columns: {{actCols}}; gap: 8px; margin-top: 8px"><sc-if value="{{hasKeep}}" hint-placeholder-val="{{ false }}"><button type="button" style="grid-column: 1 / -1; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Close and keep worktree</button></sc-if><button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{retryBorder}}; background: {{retryBg}}; color: {{retryFg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{retryWeight}}; white-space: nowrap">Retry</button><sc-if value="{{hasDetails}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="Details in Activity" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{subFs}}; white-space: nowrap">Details</button></sc-if></div></sc-if>
 </div>
 <button type="button" aria-label="Dismiss" style="width: {{closeW}}; height: {{closeH}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #8b8b94"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
 <sc-if value="{{autoDismiss}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; left: 0; bottom: 0; width: 60%; height: 2px; background: #52525b"></span></sc-if>
@@ -41,8 +41,9 @@ body{margin:0}
 <sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
 </span>
 <div style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><strong style="color: #fafafa">{{title}}</strong><a href="#" style="min-width: 0; color: #a1a1aa; font-size: {{subFs}}; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{session}}</a>
-<sc-if value="{{hasMsg}}" hint-placeholder-val="{{ false }}"><span style="font-size: {{subFs}}">{{msg}}</span></sc-if>
-<sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><button type="button" style="align-self: flex-start; min-width: {{retryW}}; min-height: {{btnH}}; margin-top: 6px; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700">Retry</button></sc-if>
+<sc-if value="{{hasRowMsg}}" hint-placeholder-val="{{ false }}"><span style="font-size: {{subFs}}">{{msg}}</span></sc-if>
+<sc-if value="{{hasChecks}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; gap: 4px; margin-top: 6px"><dc-import name="CloseChecks" items="{{ checkItems }}" phone="{{ phone }}" hint-size="100%,150px"></dc-import><code style="overflow-wrap: anywhere; color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: {{pathFs}}">{{path}}</code></div></sc-if>
+<sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><div style="display: {{rowActDisplay}}; grid-template-columns: 1fr 1fr; flex-wrap: wrap; gap: 8px; margin-top: 6px"><sc-if value="{{hasKeep}}" hint-placeholder-val="{{ false }}"><button type="button" style="grid-column: 1 / -1; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Close and keep worktree</button></sc-if><button type="button" style="grid-column: {{retrySpan}}; min-width: {{retryW}}; min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{retryBorder}}; background: {{retryBg}}; color: {{retryFg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{retryWeight}}; white-space: nowrap">Retry</button><sc-if value="{{hasTerminal}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{subFs}}; white-space: nowrap">Open in terminal</button></sc-if></div></sc-if>
 </div>
 <span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 12px">{{time}}</span>
 </div>
@@ -60,7 +61,7 @@ body{margin:0}
 <span>{{lineText}}</span><sc-if value="{{hasTime}}" hint-placeholder-val="{{ true }}"><span style="color: #8b8b94">· {{time}}</span></sc-if>
 </div>
 <sc-if value="{{hasMsg}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa">{{msg}}</span></sc-if>
-<sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-width: {{retryW}}; min-height: {{lineBtnH}}; margin-top: 2px; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: {{subFs}}">Retry</button></sc-if>
+<sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 2px"><sc-if value="{{hasKeep}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-height: {{lineBtnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Close and keep worktree</button></sc-if><button type="button" style="min-width: {{retryW}}; min-height: {{lineBtnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: {{subFs}}; white-space: nowrap">Retry</button></div></sc-if>
 </div>
 </sc-if>
 
@@ -86,8 +87,33 @@ class Component extends DCLogic {
       closeFailed: { icon: 'err', title: 'Close failed', line: 'Close failed' }
     }[a.result];
     const IC = { spin: '#a1a1aa', ok: '#4ade80', done: '#a1a1aa', queue: '#60a5fa', err: '#f87171' };
-    const msg = a.reason ?? W.msg ?? '';
+    // a.checks: a close stopped by its guards, with all three results (the close API runs every guard):
+    // path, files (uncommitted), branch + merged + reason, processes ('pid name'). Without it, a.reason is the API's plain message.
+    const c = a.checks ?? null;
+    const n = (k, one, many) => k + ' ' + (k === 1 ? one : many);
+    const files = c?.files ?? [], procs = c?.processes ?? [];
+    const checkItems = c ? [
+      { label: 'Uncommitted changes', detail: files.join(' · '), state: files.length ? n(files.length, 'file', 'files') : 'None' },
+      { label: 'Branch ' + c.branch, detail: c.merged ? '' : (c.reason ?? ''), state: c.merged ? 'Merged' : 'Not merged', ok: !!c.merged },
+      { label: 'Running processes', detail: procs.join(' · '), state: procs.length ? procs.length + ' running' : 'None' }
+    ] : [];
+    const left = [
+      files.length ? n(files.length, 'uncommitted file', 'uncommitted files') : '',
+      c && !c.merged ? 'branch not merged' : '',
+      procs.length ? n(procs.length, 'running process', 'running processes') : ''
+    ].filter(Boolean);
+    // The toast and the conversation line show only this summary; the Activity row lists all three checks.
+    const msg = c ? 'Left in the worktree: ' + left.join(', ') : (a.reason ?? W.msg ?? '');
+    const hasKeep = !!c;
+    const hasTerminal = !!c?.path;
     return {
+      // A close failure without guard results has nothing more to show in Activity.
+      hasDetails: !(a.result === 'closeFailed' && !c),
+      hasChecks: !!c, checkItems, path: c?.path ?? '', hasKeep, hasTerminal, hasRowMsg: !!msg && !c,
+      retryBorder: hasKeep ? '#3f3f46' : '#fafafa', retryBg: hasKeep ? 'transparent' : '#fafafa', retryFg: hasKeep ? '#fafafa' : '#0a0a0a', retryWeight: hasKeep ? 400 : 700,
+      // Phone: the buttons fill the row, Close and keep worktree on its own line, then Retry and Open in terminal side by side.
+      rowActDisplay: phone && hasKeep ? 'grid' : 'flex', retrySpan: phone && hasKeep && !hasTerminal ? '1 / -1' : 'auto',
+      pathFs: phone ? '11px' : '10.5px',
       isToast: form === 'toast', isRow: form === 'row', isLine: form === 'line',
       spin: W.icon === 'spin', ok: W.icon === 'ok' || W.icon === 'done', queue: W.icon === 'queue', err: W.icon === 'err',
       ic: IC[W.icon],

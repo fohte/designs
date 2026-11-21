@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Phone: Later sheet</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section role="dialog" aria-modal="true" aria-label="Later" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; padding: 16px 0 max(30px, env(safe-area-inset-bottom)); border-top: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 -12px 36px rgb(0 0 0 / 30%); color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+<h2 style="margin: 0; padding: 0 16px; font-size: 15px; font-weight: 700">Later</h2>
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0; padding: 4px 16px 10px; font-size: 13px"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{s.radius}}; background: {{s.dot}}"></span><span style="flex: none; color: {{s.color}}">{{s.state}}</span><span style="min-width: 0; color: #d4d4d8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{s.title}}</span></div>
+<div role="menu" aria-label="Bring it back" style="display: flex; flex-direction: column; border-top: 1px solid #2a2a2a">
+<sc-for list="{{options}}" as="o" hint-placeholder-count="5">
+<button type="button" role="menuitem" style="min-height: 48px; display: flex; align-items: center; gap: 10px; padding: 0 16px; border: 0; border-bottom: 1px solid #2a2a2a; background: transparent; color: #fafafa; font-family: inherit; font-size: 15px; text-align: left"><span style="flex: 1">{{o.label}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #a1a1aa">{{o.when}}</span></button>
+</sc-for>
+</div>
+<p style="margin: 0; padding: 10px 16px 0; font-size: 12.5px; color: #8b8b94">New activity in the session also brings it back.</p>
+<div style="padding: 12px 16px 0"><button type="button" style="width: 100%; min-height: 44px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px">Cancel</button></div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"session":{"editor":null},"$preview":{"width":390,"height":420}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.props.session ?? { state: 'Review', dot: '#fbbf24', round: false, color: '#fbbf24', title: '配信チェックの PR を確認する' };
+    return {
+      s: { ...s, radius: s.round ? '50%' : '0' },
+      options: [
+        ['In 1 hour', '16:00'],
+        ['This evening', '19:00'],
+        ['Tomorrow', 'Mon 9:00'],
+        ['Next week', 'Mon 11/16'],
+        ['Until it changes', 'next activity']
+      ].map(([label, when]) => ({ label, when }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -842,30 +842,6 @@
       "h": 844,
       "title": "iPhone · web UI のリンクを押した · web UI だけのページを重ねる",
       "page": "conversation"
-    },
-    "before/BeforeCards.dc.html": {
-      "x": 9010,
-      "y": 300,
-      "w": 1440,
-      "h": 3200,
-      "title": "前の画面 · 返答を待つカード",
-      "page": "conversation"
-    },
-    "before/BeforePhoneCards.dc.html": {
-      "x": 10530,
-      "y": 300,
-      "w": 390,
-      "h": 3390,
-      "title": "前の画面 · iPhone · 返答を待つカード",
-      "page": "conversation"
-    },
-    "before/BeforeDeniedCard.dc.html": {
-      "x": 5400,
-      "y": 1620,
-      "w": 672,
-      "h": 200,
-      "title": "前の部品 · DeniedCard (前のカードの画面が使う)",
-      "page": "components"
     }
   },
   "order": [
@@ -974,10 +950,7 @@
     "WebUiLink.dc.html",
     "PhoneChatWebUiLink.dc.html",
     "WebUiFull.dc.html",
-    "PhoneWebUiFull.dc.html",
-    "before/BeforeCards.dc.html",
-    "before/BeforePhoneCards.dc.html",
-    "before/BeforeDeniedCard.dc.html"
+    "PhoneWebUiFull.dc.html"
   ],
   "pages": [
     {
@@ -1164,13 +1137,6 @@
       "maxW": 3900,
       "page": "conversation",
       "text": "会話の中の web UI のリンク · 開く先のタブ名と、押したあとの全画面"
-    },
-    "diffProposalLetters": {
-      "x": 11000,
-      "y": 300,
-      "w": 420,
-      "page": "conversation",
-      "text": "違い: proposal のカードから選択肢の記号を外した\n- 選択肢の見出しの前の「A · 」「B · 」を外し、見出しだけにした\n- 送るボタンを「Choose A」から「Choose」にした\n- 選んだあとの「chose A」も、記号でなく選んだ選択肢の見出しを出す (この canvas には選んだあとの画面がない)\n理由: canvas の案に付いた記号と、proposal が自動で付ける記号が別のものを指して紛らわしい"
     }
   },
   "v": 3,
@@ -1210,7 +1176,6 @@
     "rowActionMore",
     "rowPartsLayout",
     "rowPartsRows",
-    "rowPartsDialogs",
-    "diffProposalLetters"
+    "rowPartsDialogs"
   ]
 }

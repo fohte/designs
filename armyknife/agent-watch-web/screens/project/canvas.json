@@ -1035,6 +1035,46 @@
       "title": "iPhone · 状況パネル · Tasks · 主でないタスクに Make primary",
       "page": "status-panel"
     },
+    "ConversationUpdate.dc.html": {
+      "x": 0,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "PC · 返信を入力中に新しいバージョンが届いた",
+      "page": "app"
+    },
+    "ConversationUpdateToast.dc.html": {
+      "x": 1520,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "PC · Activity の toast と同時 (帯は上、toast は右下)",
+      "page": "app"
+    },
+    "PhoneChatUpdate.dc.html": {
+      "x": 3040,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 会話で入力中 (帯はヘッダーのすぐ下)",
+      "page": "app"
+    },
+    "PhoneInboxUpdate.dc.html": {
+      "x": 3510,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Inbox",
+      "page": "app"
+    },
+    "UpdateBand.dc.html": {
+      "x": 2864,
+      "y": 2240,
+      "w": 760,
+      "h": 40,
+      "title": "UpdateBand",
+      "page": "components"
+    },
     "ActivityEmpty.dc.html": {
       "x": 0,
       "y": 13304,
@@ -1199,6 +1239,11 @@
     "PhoneSaveViewSheet.dc.html",
     "PhoneChatTasks.dc.html",
     "PhoneStatusTasksMany.dc.html",
+    "ConversationUpdate.dc.html",
+    "ConversationUpdateToast.dc.html",
+    "PhoneChatUpdate.dc.html",
+    "PhoneInboxUpdate.dc.html",
+    "UpdateBand.dc.html",
     "ActivityEmpty.dc.html",
     "ActivityEmptyOpen.dc.html",
     "PhoneActivityEmpty.dc.html",
@@ -1228,6 +1273,10 @@
     {
       "id": "status-panel",
       "name": "右側のタブ"
+    },
+    {
+      "id": "app",
+      "name": "アプリ全体"
     },
     {
       "id": "components",
@@ -1375,7 +1424,7 @@
       "y": 1940,
       "text": "ダイアログ、通知、ボタン",
       "kind": "title1",
-      "maxW": 2784,
+      "maxW": 3624,
       "page": "components"
     },
     "rowCloseFailure": {
@@ -1457,6 +1506,14 @@
       "maxW": 1330,
       "page": "status-panel",
       "text": "状況パネル · Tasks · iPhone で +N から開いたとき"
+    },
+    "rowUpdateBand": {
+      "kind": "title1",
+      "x": 0,
+      "y": 0,
+      "maxW": 3900,
+      "page": "app",
+      "text": "新しいバージョンの通知 · 一番上の全幅の帯"
     },
     "rowActivityEmpty": {
       "x": 0,

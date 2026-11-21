@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Conversation while typing, with the update notice</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; display: flex; flex-direction: column; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+<sc-if value="{{band}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="UpdateNotice" form="band" hint-size="100%,36px"></dc-import></div></sc-if>
+<div style="flex: 1; min-height: 0; display: flex">
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" update="{{ nav }}" h="{{h}}" hint-size="240px,900px"></dc-import></div>
+<div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" current="{{ zero }}" h="{{h}}" hint-size="460px,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0"><dc-import name="Conversation" variant="question" draft="{{ true }}" h="{{h}}" hint-size="100%,900px"></dc-import></div>
+</div>
+<sc-if value="{{hasStack}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; right: 24px; bottom: 224px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" update="{{ card }}" hint-size="100%,150px"></dc-import></div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"update":{"editor":"enum","options":["none","nav","band","card"],"default":"none"},"toast":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const update = this.props.update ?? 'none';
+    const toast = this.props.toast ?? false;
+    const band = update === 'band';
+    return {
+      zero: 0,
+      band, nav: update === 'nav', card: update === 'card',
+      h: band ? '864px' : '900px',
+      hasStack: toast || update === 'card',
+      toasts: toast ? [{ result: 'merged', pr: 2049, session: '配信チェックの PR を確認する' }] : []
+    };
+  }
+}
+</script>
+</body>
+</html>

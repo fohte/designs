@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>Phone top bar · A ☰ in place of back</title>
+<title>Phone top bar · A title opens the status panel</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -13,10 +13,10 @@ body{margin:0}
 </style>
 </helmet>
 <div style="width: 1620px; height: 880px; display: flex; gap: 20px; background: #0a0a0a; color: #a1a1aa; font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif; font-size: 12.5px">
-<section style="width: 390px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700">Review · 長いタイトル · vibe on · PR あり</h2><div style="height: 844px"><dc-import name="PhoneTopbar" option="a" state="review" hint-size="390px,844px"></dc-import></div></section>
+<section style="width: 390px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700">Review · 長いタイトル · 右上は … だけ</h2><div style="height: 844px"><dc-import name="PhoneTopbar" option="a" state="review" hint-size="390px,844px"></dc-import></div></section>
 <section style="width: 390px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700">マージ失敗 · ☰ に赤い印</h2><div style="height: 844px"><dc-import name="PhoneTopbar" option="a" state="review" failed="{{ true }}" activity="{{ failure }}" hint-size="390px,844px"></dc-import></div></section>
 <section style="width: 390px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700">Question · vibe 引き継ぎ · PR なし</h2><div style="height: 844px"><dc-import name="PhoneTopbar" option="a" state="question" vibe="inherited" hint-size="390px,844px"></dc-import></div></section>
-<section style="width: 390px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700">… のメニュー (今と同じ)</h2><div style="height: 844px"><dc-import name="PhoneTopbar" option="a" state="review" failed="{{ true }}" activity="{{ failure }}" menu-open="{{ true }}" hint-size="390px,844px"></dc-import></div></section>
+<section style="width: 390px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700">☰ を押した状態 (どの案も同じナビ)</h2><div style="height: 844px"><dc-import name="PhoneTopbar" option="a" state="review" failed="{{ true }}" activity="{{ failure }}" nav-open="{{ true }}" hint-size="390px,844px"></dc-import></div></section>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1620,"height":880}}'>

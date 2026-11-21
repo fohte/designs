@@ -617,22 +617,6 @@
       "title": "ActivityButton",
       "page": "components"
     },
-    "before/BeforeMessageKinds.dc.html": {
-      "x": -1520,
-      "y": 0,
-      "w": 1440,
-      "h": 2300,
-      "title": "Before · 会話に出るメッセージ",
-      "page": "conversation"
-    },
-    "before/BeforeStatusBand.dc.html": {
-      "x": 1820,
-      "y": 1120,
-      "w": 760,
-      "h": 60,
-      "title": "Before · StatusBand",
-      "page": "components"
-    },
     "VibeNotice.dc.html": {
       "x": 9270,
       "y": 0,
@@ -729,9 +713,7 @@
     "ActionCopy.dc.html",
     "ActivityButton.dc.html",
     "VibeNotice.dc.html",
-    "PhoneChatVibeNotice.dc.html",
-    "before/BeforeMessageKinds.dc.html",
-    "before/BeforeStatusBand.dc.html"
+    "PhoneChatVibeNotice.dc.html"
   ],
   "pages": [
     {
@@ -766,30 +748,6 @@
       "w": 420,
       "page": "components",
       "text": "ConfirmDialog: 確認ダイアログの共通部品。form で形を選ぶ\n- modal: Merge の確認 (確認ダイアログ)、閉じる前の確認 (Close session… を押したあと、Inbox の e、状態ごとの文言)\n- popover: 会話のヘッダーの vibe mode\n- sheet: iPhone の vibe mode、iPhone の閉じる前の確認\n- panel: ! コマンドの確認 (確認ダイアログ)"
-    },
-    "diffMessageKinds": {
-      "x": -2000,
-      "y": 0,
-      "w": 400,
-      "page": "conversation",
-      "fill": "orange",
-      "text": "変更点 (右が変更前、さらに右が変更後)\n- Events に vibe mode の on と off を足した (Vibe mode turned on · 10:14 / Vibe mode turned off · 10:20)\n- Events の説明に「返信欄の外で行い、セッションに伝わる操作はイベントとして出し、You のメッセージにしない」を足した"
-    },
-    "diffVibeNotice": {
-      "x": 9270,
-      "y": 1040,
-      "w": 440,
-      "page": "conversation",
-      "fill": "orange",
-      "text": "新しい画面\n- vibe mode を off にしてから on にした会話。切り替えは You の吹き出しではなく、中央のイベントの行で出る\n- PC (左) と iPhone (右) で同じ\n- 確認ダイアログとシートは変えていない"
-    },
-    "diffStatusBand": {
-      "x": 1820,
-      "y": 1240,
-      "w": 400,
-      "page": "components",
-      "fill": "orange",
-      "text": "Before · StatusBand は変更前の「会話に出るメッセージ」が読み込むための写し。StatusBand は変えていない"
     }
   },
   "v": 3,
@@ -811,9 +769,6 @@
     }
   ],
   "noteOrder": [
-    "confirmDialogUsers",
-    "diffMessageKinds",
-    "diffVibeNotice",
-    "diffStatusBand"
+    "confirmDialogUsers"
   ]
 }

@@ -978,14 +978,6 @@
       "h": 844,
       "title": "iPhone · 状況パネル · Tasks · 主でないタスクに Make primary",
       "page": "status-panel"
-    },
-    "before/BeforeMain.dc.html": {
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 1500,
-      "title": "Before · 仕様のまとめ",
-      "page": "inbox"
     }
   },
   "order": [
@@ -1111,8 +1103,7 @@
     "PhoneLaterSheet.dc.html",
     "PhoneSaveViewSheet.dc.html",
     "PhoneChatTasks.dc.html",
-    "PhoneStatusTasksMany.dc.html",
-    "before/BeforeMain.dc.html"
+    "PhoneStatusTasksMany.dc.html"
   ],
   "pages": [
     {
@@ -1359,13 +1350,6 @@
       "maxW": 1330,
       "page": "status-panel",
       "text": "状況パネル · Tasks · iPhone で +N から開いたとき"
-    },
-    "diffMain": {
-      "x": 3040,
-      "y": 0,
-      "w": 360,
-      "page": "inbox",
-      "text": "状況パネルの節の Tasks の項目に「iPhone も同じで、+N を押すと状況パネルを全画面で開いて Tasks を選びます。」を足した"
     }
   },
   "v": 3,
@@ -1407,7 +1391,6 @@
     "rowPartsRows",
     "rowPartsDialogs",
     "rowPhoneTasks",
-    "rowPhoneStatusTasks",
-    "diffMain"
+    "rowPhoneStatusTasks"
   ]
 }

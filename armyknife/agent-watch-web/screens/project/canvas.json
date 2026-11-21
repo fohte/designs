@@ -672,14 +672,6 @@
       "h": 1700,
       "title": "Close の失敗 · 残っているものごとの文言",
       "page": "conversation"
-    },
-    "before/BeforeMain.dc.html": {
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 1500,
-      "title": "Before · 仕様のまとめ",
-      "page": "inbox"
     }
   },
   "order": [
@@ -766,8 +758,7 @@
     "CloseFailInbox.dc.html",
     "CloseFailActivity.dc.html",
     "PhoneCloseFailActivity.dc.html",
-    "CloseFailCopy.dc.html",
-    "before/BeforeMain.dc.html"
+    "CloseFailCopy.dc.html"
   ],
   "pages": [
     {
@@ -802,20 +793,6 @@
       "w": 420,
       "page": "components",
       "text": "ConfirmDialog: 確認ダイアログの共通部品。form で形を選ぶ\n- modal: Merge の確認 (確認ダイアログ)、閉じる前の確認 (Close session… を押したあと、Inbox の e、状態ごとの文言)\n- popover: 会話のヘッダーの vibe mode\n- sheet: iPhone の vibe mode、iPhone の閉じる前の確認\n- panel: ! コマンドの確認 (確認ダイアログ)"
-    },
-    "diffMain": {
-      "x": 3040,
-      "y": 0,
-      "w": 420,
-      "page": "inbox",
-      "text": "仕様のまとめの変更点 (左端が新しい仕様、その右の Before が前)\n- 確認したあとの実行に、Close の失敗の出し方を 1 項目足した: 3 つの確認を全部調べて返す、トーストと会話の 1 行は要約と Close and keep worktree、Activity は全部の結果と Open in terminal"
-    },
-    "diffCloseFailure": {
-      "x": 7020,
-      "y": 8080,
-      "w": 420,
-      "page": "conversation",
-      "text": "この行は新しく足した (前の画面はない)\n- Close の失敗を、どこから閉じてもトースト、会話の 1 行、Activity に出す\n- トーストと会話の 1 行: 残っているものの要約 (Left in the worktree: …)、Close and keep worktree、Retry (トーストは Details も)\n- Activity: CloseChecks で 3 つの確認 (ファイル、ブランチと PR、pid) を全部並べ、worktree のパス、Close and keep worktree、Retry、Open in terminal (変更かプロセスが残っているとき)\n- code のないエラーは今までどおりメッセージと Retry だけ\n- 部品: ActionItem に a.checks を足し、CloseChecks を追加。InboxList に closeReason を足した\n- ボタンの文字は折り返さない"
     }
   },
   "v": 3,

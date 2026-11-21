@@ -1074,14 +1074,6 @@
       "h": 40,
       "title": "UpdateBand",
       "page": "components"
-    },
-    "before/BeforeMain.dc.html": {
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 1500,
-      "title": "Before · 仕様のまとめ",
-      "page": "inbox"
     }
   },
   "order": [
@@ -1219,8 +1211,7 @@
     "ConversationUpdateToast.dc.html",
     "PhoneChatUpdate.dc.html",
     "PhoneInboxUpdate.dc.html",
-    "UpdateBand.dc.html",
-    "before/BeforeMain.dc.html"
+    "UpdateBand.dc.html"
   ],
   "pages": [
     {
@@ -1487,20 +1478,6 @@
       "maxW": 3900,
       "page": "app",
       "text": "新しいバージョンの通知 · 一番上の全幅の帯"
-    },
-    "diffUpdateBand": {
-      "x": 3980,
-      "y": 300,
-      "w": 520,
-      "page": "app",
-      "text": "この行はすべて新しい画面\n- 新しいバージョンがあるときだけ、PC は画面の一番上に全幅 36px、iPhone はヘッダーのすぐ下に 52px の帯を出す\n- Reload で再読み込み。× は次の更新まで出さない\n- 既存の画面の見た目は変えていない (Nav、InboxList、Conversation、PhoneChat、PhoneInbox に既定で off の引数を足しただけ)\n- 部品ページに UpdateBand を追加"
-    },
-    "diffMain": {
-      "x": 3040,
-      "y": 0,
-      "w": 520,
-      "page": "inbox",
-      "text": "仕様のまとめの変更点\n- 画面の構成に、新しいバージョンの通知の帯の項目を 1 つ追加 (自動では再読み込みしない、× で次の更新まで出さない)\n- 左が新しいもの、右の Before が今の main"
     }
   },
   "v": 3,

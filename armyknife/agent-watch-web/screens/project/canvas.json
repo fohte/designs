@@ -242,7 +242,7 @@
       "page": "status-panel"
     },
     "StatusTree.dc.html": {
-      "x": 1520,
+      "x": 1990,
       "y": 300,
       "w": 1440,
       "h": 900,
@@ -250,7 +250,7 @@
       "page": "status-panel"
     },
     "StatusDecisions.dc.html": {
-      "x": 3040,
+      "x": 3980,
       "y": 300,
       "w": 1440,
       "h": 900,
@@ -258,7 +258,7 @@
       "page": "status-panel"
     },
     "StatusReview.dc.html": {
-      "x": 4560,
+      "x": 5970,
       "y": 300,
       "w": 1440,
       "h": 900,
@@ -266,7 +266,7 @@
       "page": "status-panel"
     },
     "StatusWebUi.dc.html": {
-      "x": 6080,
+      "x": 7960,
       "y": 300,
       "w": 1440,
       "h": 900,
@@ -274,7 +274,7 @@
       "page": "status-panel"
     },
     "StatusTasks.dc.html": {
-      "x": 7600,
+      "x": 9950,
       "y": 300,
       "w": 1440,
       "h": 900,
@@ -714,6 +714,62 @@
       "w": 390,
       "h": 844,
       "page": "inbox"
+    },
+    "PhoneStatusRunning.dc.html": {
+      "x": 1520,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Running",
+      "page": "status-panel"
+    },
+    "PhoneStatusTree.dc.html": {
+      "x": 3510,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Tree",
+      "page": "status-panel"
+    },
+    "PhoneStatusDecisions.dc.html": {
+      "x": 5500,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Decisions",
+      "page": "status-panel"
+    },
+    "PhoneStatusReview.dc.html": {
+      "x": 7490,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Review",
+      "page": "status-panel"
+    },
+    "PhoneStatusWebUi.dc.html": {
+      "x": 9480,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Web UI (crit)",
+      "page": "status-panel"
+    },
+    "PhoneStatusTasks.dc.html": {
+      "x": 11470,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Tasks",
+      "page": "status-panel"
+    },
+    "PhoneStatusPanel.dc.html": {
+      "x": 2540,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneStatusPanel",
+      "page": "components"
     }
   },
   "order": [
@@ -753,6 +809,13 @@
     "StatusReview.dc.html",
     "StatusWebUi.dc.html",
     "StatusTasks.dc.html",
+    "PhoneStatusRunning.dc.html",
+    "PhoneStatusTree.dc.html",
+    "PhoneStatusDecisions.dc.html",
+    "PhoneStatusReview.dc.html",
+    "PhoneStatusWebUi.dc.html",
+    "PhoneStatusTasks.dc.html",
+    "PhoneStatusPanel.dc.html",
     "StatusPanel.dc.html",
     "MessageKinds.dc.html",
     "PhoneMessageKinds.dc.html",
@@ -895,7 +958,7 @@
       "y": 0,
       "text": "状況パネル · タブごと",
       "kind": "title1",
-      "maxW": 9040,
+      "maxW": 11860,
       "page": "status-panel"
     },
     "rowConversationMessages": {
@@ -959,7 +1022,7 @@
       "y": 0,
       "text": "画面の区画",
       "kind": "title1",
-      "maxW": 2460,
+      "maxW": 2930,
       "page": "components"
     },
     "rowPartsRows": {

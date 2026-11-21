@@ -44,8 +44,17 @@ body{margin:0}
 <div style="flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; padding: 0 16px 16px">
 <article style="align-self: flex-end; max-width: 92%; display: flex; flex-direction: column; gap: 4px">
 <div style="text-align: right; font-size: 12px; color: #8b8b94">You · 10:02</div>
-<div style="padding: 10px 14px; background: #1f1f1f">{{userText}}</div>
+<sc-if value="{{notCode}}" hint-placeholder-val="{{ true }}"><div style="padding: 10px 14px; background: #1f1f1f">{{userText}}</div></sc-if>
+<sc-if value="{{isCode}}" hint-placeholder-val="{{ false }}"><div style="min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 10px 14px; background: #1f1f1f"><div>{{userText}}</div><dc-import name="CodeBlock" code="err" phone="{{ true }}" copied="{{ cbErr.copied }}" scrolled="{{ cbErr.scrolled }}" hint-size="100%,66px"></dc-import></div></sc-if>
 </article>
+<sc-if value="{{isCode}}" hint-placeholder-val="{{ false }}">
+<article style="min-width: 0; display: flex; flex-direction: column; gap: 12px; color: #d4d4d8">
+<div>原因は <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">limit</code> が渡っていないことでした。<code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">retry()</code> を次のように直しました。</div>
+<dc-import name="CodeBlock" code="ts" phone="{{ true }}" copied="{{ cbTs.copied }}" scrolled="{{ cbTs.scrolled }}" hint-size="100%,126px"></dc-import>
+<div>ステージングでは次のコマンドで再送を試せます。</div>
+<dc-import name="CodeBlock" code="curl" phone="{{ true }}" copied="{{ cbCurl.copied }}" scrolled="{{ cbCurl.scrolled }}" hint-size="100%,72px"></dc-import>
+</article>
+</sc-if>
 <sc-if value="{{isTodo}}" hint-placeholder-val="{{ false }}">
 <article style="color: #d4d4d8">通知の音を <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">sound</code> で選べるようにしました。シミュレーターでは鳴りました。実機で鳴るかは、次に通知が届いたときに確かめてください。</article>
 <button type="button" aria-expanded="false" style="width: 100%; min-height: 44px; margin: -14px 0 -8px; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13px; text-align: left"><span style="flex: none; color: #d4d4d8; font-style: italic">Thought ×1</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Edit notify.ts · Read ×2 · Shell ×1</span><span aria-hidden="true" style="flex: none; color: #71717a">›</span></button>
@@ -150,13 +159,18 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"update":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"state":{"editor":"enum","options":["question","review","todo"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"update":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"state":{"editor":"enum","options":["question","review","todo","code"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
   renderVals() {
     const menuOpen = this.props.menuOpen ?? false;
     const st = this.props.state ?? 'question';
     const review = st === 'review';
-    const todo = st === 'todo';
+    // code: the conversation with code blocks; it reuses the todo header and band, no PR.
+    const code = st === 'code';
+    const todo = st === 'todo' || code;
+    const codeState = this.props.codeState ?? 'normal';
+    const target = { copied: 'ts', scrolled: 'curl', user: 'err' }[codeState] ?? '';
+    const cb = (k) => ({ copied: target === k && (codeState === 'copied' || codeState === 'user'), scrolled: codeState === 'scrolled' && k === 'curl' });
     // todo: who folded the to-do that can only be checked when the situation comes up. folded: the user, with ⌃; added: the session, marked to check later when it added it.
     const tLater = { title: '通知の音を実機で確かめる' };
     const tNow = { title: '設定画面の音の一覧を見る', detail: 'ステージングで設定画面を開き、音の一覧に 5 つ並んでいるか見てください。' };
@@ -219,12 +233,14 @@ class Component extends DCLogic {
       resumeFg: resuming ? '#a1a1aa' : '#0a0a0a',
       isQuestion: st === 'question',
       isReview: review,
-      isTodo: todo,
+      isTodo: todo && !code,
+      isCode: code, notCode: !code,
+      cbTs: cb('ts'), cbCurl: cb('curl'), cbErr: cb('err'),
       todoItems,
-      title: todo ? '通知の音を選べるようにする' : '通知の再送処理を見直す',
-      taskLine: todo ? '#3101 通知の設定を増やす' : '#2048 通知の信頼性を上げる',
-      repoName: todo ? 'mobile-app' : 'service',
-      userText: todo ? '通知の音を選べるようにして。' : '通知の再送処理を見直して。失敗したら何回か再試行したい。',
+      title: code ? '再送のテストが落ちる' : todo ? '通知の音を選べるようにする' : '通知の再送処理を見直す',
+      taskLine: code ? '#2060 通知の信頼性を上げる' : todo ? '#3101 通知の設定を増やす' : '#2048 通知の信頼性を上げる',
+      repoName: todo && !code ? 'mobile-app' : 'service',
+      userText: code ? 'テストが落ちます。見てください。' : todo ? '通知の音を選べるようにして。' : '通知の再送処理を見直して。失敗したら何回か再試行したい。',
       hasPr: review,
       prsOpen,
       prsOpenStr: prsOpen ? 'true' : 'false',

@@ -1,0 +1,467 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-22T09:00:00Z"
+  },
+  "title": "コードブロックのコピーボタン",
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
+  "pages": [
+    {
+      "id": "options",
+      "name": "ボタンの出し方"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "code-copy-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今の画面 · PC",
+      "page": "options"
+    },
+    "code-copy-current-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今の画面 · iPhone",
+      "page": "options"
+    },
+    "code-copy-a-normal.dc.html": {
+      "x": 0,
+      "y": 1320,
+      "w": 1440,
+      "h": 900,
+      "title": "A · 1 普段 · PC",
+      "page": "options"
+    },
+    "code-copy-a-normal-phone.dc.html": {
+      "x": 1520,
+      "y": 1320,
+      "w": 390,
+      "h": 844,
+      "title": "A · 1 普段 · iPhone",
+      "page": "options"
+    },
+    "code-copy-a-copied.dc.html": {
+      "x": 2070,
+      "y": 1320,
+      "w": 1440,
+      "h": 900,
+      "title": "A · 2 押した直後 · PC",
+      "page": "options"
+    },
+    "code-copy-a-copied-phone.dc.html": {
+      "x": 3590,
+      "y": 1320,
+      "w": 390,
+      "h": 844,
+      "title": "A · 2 押した直後 · iPhone",
+      "page": "options"
+    },
+    "code-copy-a-scrolled.dc.html": {
+      "x": 4140,
+      "y": 1320,
+      "w": 1440,
+      "h": 900,
+      "title": "A · 3 長い行を横にスクロール · PC",
+      "page": "options"
+    },
+    "code-copy-a-scrolled-phone.dc.html": {
+      "x": 5660,
+      "y": 1320,
+      "w": 390,
+      "h": 844,
+      "title": "A · 3 長い行を横にスクロール · iPhone",
+      "page": "options"
+    },
+    "code-copy-a-user.dc.html": {
+      "x": 6210,
+      "y": 1320,
+      "w": 1440,
+      "h": 900,
+      "title": "A · 4 自分のメッセージのコードをコピー · PC",
+      "page": "options"
+    },
+    "code-copy-a-user-phone.dc.html": {
+      "x": 7730,
+      "y": 1320,
+      "w": 390,
+      "h": 844,
+      "title": "A · 4 自分のメッセージのコードをコピー · iPhone",
+      "page": "options"
+    },
+    "code-copy-b-normal.dc.html": {
+      "x": 0,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "B · 1 普段 · PC",
+      "page": "options"
+    },
+    "code-copy-b-normal-phone.dc.html": {
+      "x": 1520,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "B · 1 普段 · iPhone",
+      "page": "options"
+    },
+    "code-copy-b-copied.dc.html": {
+      "x": 2070,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "B · 2 押した直後 · PC",
+      "page": "options"
+    },
+    "code-copy-b-copied-phone.dc.html": {
+      "x": 3590,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "B · 2 押した直後 · iPhone",
+      "page": "options"
+    },
+    "code-copy-b-scrolled.dc.html": {
+      "x": 4140,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "B · 3 長い行を横にスクロール · PC",
+      "page": "options"
+    },
+    "code-copy-b-scrolled-phone.dc.html": {
+      "x": 5660,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "B · 3 長い行を横にスクロール · iPhone",
+      "page": "options"
+    },
+    "code-copy-b-user.dc.html": {
+      "x": 6210,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "B · 4 自分のメッセージのコードをコピー · PC",
+      "page": "options"
+    },
+    "code-copy-b-user-phone.dc.html": {
+      "x": 7730,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "B · 4 自分のメッセージのコードをコピー · iPhone",
+      "page": "options"
+    },
+    "code-copy-c-normal.dc.html": {
+      "x": 0,
+      "y": 3960,
+      "w": 1440,
+      "h": 900,
+      "title": "C · 1 普段 · PC",
+      "page": "options"
+    },
+    "code-copy-c-normal-phone.dc.html": {
+      "x": 1520,
+      "y": 3960,
+      "w": 390,
+      "h": 844,
+      "title": "C · 1 普段 · iPhone",
+      "page": "options"
+    },
+    "code-copy-c-copied.dc.html": {
+      "x": 2070,
+      "y": 3960,
+      "w": 1440,
+      "h": 900,
+      "title": "C · 2 押した直後 · PC",
+      "page": "options"
+    },
+    "code-copy-c-copied-phone.dc.html": {
+      "x": 3590,
+      "y": 3960,
+      "w": 390,
+      "h": 844,
+      "title": "C · 2 押した直後 · iPhone",
+      "page": "options"
+    },
+    "code-copy-c-scrolled.dc.html": {
+      "x": 4140,
+      "y": 3960,
+      "w": 1440,
+      "h": 900,
+      "title": "C · 3 長い行を横にスクロール · PC",
+      "page": "options"
+    },
+    "code-copy-c-scrolled-phone.dc.html": {
+      "x": 5660,
+      "y": 3960,
+      "w": 390,
+      "h": 844,
+      "title": "C · 3 長い行を横にスクロール · iPhone",
+      "page": "options"
+    },
+    "code-copy-c-user.dc.html": {
+      "x": 6210,
+      "y": 3960,
+      "w": 1440,
+      "h": 900,
+      "title": "C · 4 自分のメッセージのコードをコピー · PC",
+      "page": "options"
+    },
+    "code-copy-c-user-phone.dc.html": {
+      "x": 7730,
+      "y": 3960,
+      "w": 390,
+      "h": 844,
+      "title": "C · 4 自分のメッセージのコードをコピー · iPhone",
+      "page": "options"
+    },
+    "Conversation.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "page": "parts"
+    },
+    "PhoneChat.dc.html": {
+      "x": 960,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "parts"
+    },
+    "CodeBlock.dc.html": {
+      "x": 1430,
+      "y": 0,
+      "w": 672,
+      "h": 140,
+      "page": "parts"
+    },
+    "Nav.dc.html": {
+      "x": 2182,
+      "y": 0,
+      "w": 240,
+      "h": 900,
+      "page": "parts"
+    },
+    "InboxList.dc.html": {
+      "x": 2502,
+      "y": 0,
+      "w": 460,
+      "h": 900,
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 0,
+      "y": 1020,
+      "w": 460,
+      "h": 76,
+      "page": "parts"
+    },
+    "Quota.dc.html": {
+      "x": 540,
+      "y": 1020,
+      "w": 240,
+      "h": 140,
+      "page": "parts"
+    },
+    "ActivityButton.dc.html": {
+      "x": 860,
+      "y": 1020,
+      "w": 224,
+      "h": 44,
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 1164,
+      "y": 1020,
+      "w": 672,
+      "h": 40,
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 1916,
+      "y": 1020,
+      "w": 760,
+      "h": 60,
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 2756,
+      "y": 1020,
+      "w": 380,
+      "h": 200,
+      "page": "parts"
+    },
+    "ActionItem.dc.html": {
+      "x": 0,
+      "y": 2040,
+      "w": 360,
+      "h": 110,
+      "page": "parts"
+    },
+    "ToastStack.dc.html": {
+      "x": 440,
+      "y": 2040,
+      "w": 360,
+      "h": 240,
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 880,
+      "y": 2040,
+      "w": 160,
+      "h": 44,
+      "page": "parts"
+    },
+    "TodoCard.dc.html": {
+      "x": 1120,
+      "y": 2040,
+      "w": 672,
+      "h": 40,
+      "page": "parts"
+    },
+    "CloseChecks.dc.html": {
+      "x": 1872,
+      "y": 2040,
+      "w": 408,
+      "h": 170,
+      "page": "parts"
+    }
+  },
+  "order": [
+    "code-copy-current.dc.html",
+    "code-copy-current-phone.dc.html",
+    "code-copy-a-normal.dc.html",
+    "code-copy-a-normal-phone.dc.html",
+    "code-copy-a-copied.dc.html",
+    "code-copy-a-copied-phone.dc.html",
+    "code-copy-a-scrolled.dc.html",
+    "code-copy-a-scrolled-phone.dc.html",
+    "code-copy-a-user.dc.html",
+    "code-copy-a-user-phone.dc.html",
+    "code-copy-b-normal.dc.html",
+    "code-copy-b-normal-phone.dc.html",
+    "code-copy-b-copied.dc.html",
+    "code-copy-b-copied-phone.dc.html",
+    "code-copy-b-scrolled.dc.html",
+    "code-copy-b-scrolled-phone.dc.html",
+    "code-copy-b-user.dc.html",
+    "code-copy-b-user-phone.dc.html",
+    "code-copy-c-normal.dc.html",
+    "code-copy-c-normal-phone.dc.html",
+    "code-copy-c-copied.dc.html",
+    "code-copy-c-copied-phone.dc.html",
+    "code-copy-c-scrolled.dc.html",
+    "code-copy-c-scrolled-phone.dc.html",
+    "code-copy-c-user.dc.html",
+    "code-copy-c-user-phone.dc.html",
+    "Conversation.dc.html",
+    "PhoneChat.dc.html",
+    "CodeBlock.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "ActivityButton.dc.html",
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html",
+    "ConfirmDialog.dc.html",
+    "ActionItem.dc.html",
+    "ToastStack.dc.html",
+    "MergeButton.dc.html",
+    "TodoCard.dc.html",
+    "CloseChecks.dc.html"
+  ],
+  "notes": {
+    "title-current": {
+      "x": 0,
+      "y": -300,
+      "text": "今の画面 · コードブロックにボタンがない",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "options"
+    },
+    "title-a": {
+      "x": 0,
+      "y": 1020,
+      "text": "A · 常に右上に出す",
+      "kind": "title1",
+      "maxW": 8120,
+      "page": "options"
+    },
+    "title-b": {
+      "x": 0,
+      "y": 2340,
+      "text": "B · PC は hover で出し、iPhone は常に出す",
+      "kind": "title1",
+      "maxW": 8120,
+      "page": "options"
+    },
+    "title-c": {
+      "x": 0,
+      "y": 3660,
+      "text": "C · ブロックの上に言語名と Copy の帯を置く",
+      "kind": "title1",
+      "maxW": 8120,
+      "page": "options"
+    },
+    "note-current": {
+      "x": -840,
+      "y": 0,
+      "w": 720,
+      "size": "l",
+      "fill": "gray",
+      "page": "options",
+      "text": "今の画面\n\nコードブロックにはコピーの手段がない。コピーするには長押しやドラッグで範囲を選ぶ。横に長い行はブロックの中で横にスクロールする。"
+    },
+    "note-a": {
+      "x": -840,
+      "y": 1320,
+      "w": 720,
+      "size": "l",
+      "fill": "blue",
+      "page": "options",
+      "text": "A · 常に右上に出す\n\n見えるもの: どのコードブロックにも右上に Copy session ID と同じ 26px のアイコンボタンがある (iPhone は 44px)。押すと 1.5 秒チェックに変わる。ボタンはブロックの右端に自分の列を持ち、コードはその左で横にスクロールするので、1 行目の文字にかぶらない。\n\n+ 探さなくても押せる。iPhone でも同じ動き\n- ブロックが多いと同じボタンが並んでうるさい\n- 右の列の分だけコードの幅が減る (iPhone で約 50px)"
+    },
+    "note-b": {
+      "x": -840,
+      "y": 2640,
+      "w": 720,
+      "size": "l",
+      "fill": "orange",
+      "page": "options",
+      "text": "B · PC は hover で出し、iPhone は常に出す\n\n見えるもの: PC ではポインターが乗ったブロックにだけボタンが出る。押した直後はポインターが乗ったままなのでチェックが見える。iPhone は hover がないので A と同じく常に出る。右の列は hover していなくても空けておき、出たときにコードがずれない。\n\n+ PC で読むときに画面が静か\n- PC ではボタンがあることに気づきにくい。キーボードでたどったとき用に focus でも出す必要がある\n- PC で空いた列が理由なく見える"
+    },
+    "note-c": {
+      "x": -840,
+      "y": 3960,
+      "w": 720,
+      "size": "l",
+      "fill": "green",
+      "page": "options",
+      "text": "C · ブロックの上に言語名と Copy の帯を置く\n\n見えるもの: どのブロックも上に帯があり、左に言語名 (ts, bash, text)、右に文字付きの Copy ボタン。押すと 1.5 秒 Copied に変わる。帯はスクロールしないので、長い行のコードとは重ならない。\n\n+ 文字があるので何のボタンか迷わない。コードの幅は減らない\n- ブロックごとに帯の高さが増える (PC 30px、iPhone 44px)\n- 2 行ほどの短いコードでは帯が目立つ"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-22T09:00:00Z"
+    }
+  ]
+}

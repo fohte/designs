@@ -1,0 +1,100 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-11-20T15:45:55Z" },
+  "title": "Phone board",
+  "launch": { "view": "canvas", "page": "options" },
+  "pages": [
+    { "id": "options", "name": "案" },
+    { "id": "parts", "name": "部品" }
+  ],
+  "boards": {
+    "phone-board-current.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "Current · PC · Board", "page": "options" },
+
+    "phone-board-a-top.dc.html": { "x": 0, "y": 1340, "w": 390, "h": 844, "title": "A · 開いたところ", "page": "options" },
+    "phone-board-a-more.dc.html": { "x": 470, "y": 1340, "w": 390, "h": 844, "title": "A · observability のタブ", "page": "options" },
+    "phone-board-a-quiet.dc.html": { "x": 940, "y": 1340, "w": 390, "h": 844, "title": "A · Hide quiet projects を外したところ", "page": "options" },
+
+    "phone-board-b-top.dc.html": { "x": 0, "y": 2624, "w": 390, "h": 844, "title": "B · 開いたところ", "page": "options" },
+    "phone-board-b-more.dc.html": { "x": 470, "y": 2624, "w": 390, "h": 844, "title": "B · observability まで下げたところ", "page": "options" },
+    "phone-board-b-quiet.dc.html": { "x": 940, "y": 2624, "w": 390, "h": 844, "title": "B · Hide quiet projects を外して末尾まで下げたところ", "page": "options" },
+
+    "phone-board-c-top.dc.html": { "x": 0, "y": 3908, "w": 390, "h": 844, "title": "C · 開いたところ", "page": "options" },
+    "phone-board-c-more.dc.html": { "x": 470, "y": 3908, "w": 390, "h": 844, "title": "C · observability まで送ったところ", "page": "options" },
+    "phone-board-c-quiet.dc.html": { "x": 940, "y": 3908, "w": 390, "h": 844, "title": "C · Hide quiet projects を外して末尾まで送ったところ", "page": "options" },
+
+    "phone-board-open.dc.html": { "x": 0, "y": 5192, "w": 390, "h": 844, "title": "共通 · 行を押して会話を開いたところ", "page": "options" },
+
+    "PhoneBoard.dc.html": { "x": 0, "y": 0, "w": 390, "h": 844, "title": "PhoneBoard", "page": "parts" },
+    "PhoneBoardColumn.dc.html": { "x": 470, "y": 0, "w": 304, "h": 560, "title": "PhoneBoardColumn", "page": "parts" },
+    "PhoneChat.dc.html": { "x": 854, "y": 0, "w": 390, "h": 844, "title": "PhoneChat", "page": "parts" },
+    "SessionRow.dc.html": { "x": 1324, "y": 0, "w": 460, "h": 76, "title": "SessionRow", "page": "parts" },
+    "Nav.dc.html": { "x": 1864, "y": 0, "w": 240, "h": 900, "title": "Nav", "page": "parts" },
+    "Quota.dc.html": { "x": 2184, "y": 0, "w": 240, "h": 140, "title": "Quota", "page": "parts" },
+    "ActivityButton.dc.html": { "x": 2504, "y": 0, "w": 224, "h": 44, "title": "ActivityButton", "page": "parts" },
+    "ActionItem.dc.html": { "x": 2808, "y": 0, "w": 360, "h": 110, "title": "ActionItem", "page": "parts" },
+    "Activity.dc.html": { "x": 3248, "y": 0, "w": 400, "h": 360, "title": "Activity", "page": "parts" },
+    "ConfirmDialog.dc.html": { "x": 3728, "y": 0, "w": 380, "h": 200, "title": "ConfirmDialog", "page": "parts" },
+    "MergeButton.dc.html": { "x": 4188, "y": 0, "w": 160, "h": 44, "title": "MergeButton", "page": "parts" },
+    "SessionUsage.dc.html": { "x": 4428, "y": 0, "w": 672, "h": 40, "title": "SessionUsage", "page": "parts" },
+    "StatusBand.dc.html": { "x": 5180, "y": 0, "w": 760, "h": 60, "title": "StatusBand", "page": "parts" },
+    "ToastStack.dc.html": { "x": 6020, "y": 0, "w": 360, "h": 240, "title": "ToastStack", "page": "parts" }
+  },
+  "order": [
+    "phone-board-current.dc.html",
+    "phone-board-a-top.dc.html",
+    "phone-board-a-more.dc.html",
+    "phone-board-a-quiet.dc.html",
+    "phone-board-b-top.dc.html",
+    "phone-board-b-more.dc.html",
+    "phone-board-b-quiet.dc.html",
+    "phone-board-c-top.dc.html",
+    "phone-board-c-more.dc.html",
+    "phone-board-c-quiet.dc.html",
+    "phone-board-open.dc.html",
+    "PhoneBoard.dc.html",
+    "PhoneBoardColumn.dc.html",
+    "PhoneChat.dc.html",
+    "SessionRow.dc.html",
+    "Nav.dc.html",
+    "Quota.dc.html",
+    "ActivityButton.dc.html",
+    "ActionItem.dc.html",
+    "Activity.dc.html",
+    "ConfirmDialog.dc.html",
+    "MergeButton.dc.html",
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html",
+    "ToastStack.dc.html"
+  ],
+  "notes": {
+    "current": { "kind": "title1", "x": 0, "y": -260, "maxW": 1440, "page": "options", "text": "Current · PC の Board。iPhone には Board がない" },
+    "a": { "kind": "title1", "x": 0, "y": 1100, "maxW": 1330, "page": "options", "text": "A · プロジェクトのタブで 1 列ずつ見る" },
+    "b": { "kind": "title1", "x": 0, "y": 2384, "maxW": 1330, "page": "options", "text": "B · 列をプロジェクトの見出しにして 1 本の縦リストにする" },
+    "c": { "kind": "title1", "x": 0, "y": 3668, "maxW": 1330, "page": "options", "text": "C · 細い列を横に並べ、横に送って見る" },
+    "common": { "kind": "title1", "x": 0, "y": 4952, "maxW": 1330, "page": "options", "text": "共通 · 行を押すと会話を開く" },
+    "about": {
+      "x": 1520, "y": 0, "w": 520, "page": "options",
+      "text": "前提\n- iPhone ではナビゲーションの Inbox / Board の切り替えから Board を開く\n- PC の Board と同じものを出す: プロジェクトごとの列 (手が要るものを先に)、列の中は Needs action → In progress (… more) → ✓ Done、Hide quiet projects\n- 行は iPhone Inbox と同じ SessionRow の phone の大きさ (押せる高さを確保)。プレビューは PC の Board と同じく出さない\n- データはすべて架空"
+    },
+    "aNote": {
+      "x": 1410, "y": 1340, "w": 460, "page": "options",
+      "text": "A · タブで 1 列ずつ\n+ 1 列を画面の幅いっぱいに使え、行が読みやすい\n+ タブに Needs action の数が出て、どこに手が要るか一目で分かる\n+ 左右のスワイプでとなりのタブへ移れる\n- 一度に見えるのは 1 プロジェクトだけ。全体を見渡すには タブを順に押す\n- プロジェクトが多いとタブが画面の外にはみ出し、横に送る必要がある"
+    },
+    "bNote": {
+      "x": 1410, "y": 2624, "w": 460, "page": "options",
+      "text": "B · 1 本の縦リスト\n+ 縦のスクロールだけで全部を見られ、iPhone Inbox と同じ操作になる\n+ 新しい操作 (タブ、横スクロール) を足さない\n- 列が並んでいる感じはなくなり、Inbox との違いが薄い\n- 上のプロジェクトの In progress が多いと、下のプロジェクトの Needs action が遠くなる\n- スクロールするとヘッダーが流れ、Hide quiet projects に戻るには上まで戻る"
+    },
+    "cNote": {
+      "x": 1410, "y": 3908, "w": 460, "page": "options",
+      "text": "C · 細い列を横に送る\n+ PC の Board と見た目がいちばん近い\n+ 右に次の列が少し見え、まだ列があると分かる。上の点で位置が分かる\n- 列が 300px と狭く、タスク名が切れやすい\n- 列の中の縦スクロールと、列を送る横スクロールが同じ画面に重なる\n- 列名だけ見て目当てのプロジェクトへ飛べない"
+    },
+    "commonNote": {
+      "x": 470, "y": 5192, "w": 460, "page": "options",
+      "text": "会話を開く\n- どの案でも、行を押すと iPhone の会話 (PhoneChat) を開く。会話そのものは変えない\n- 左上の戻るは Board に戻る (aria-label: Back to Board)。戻ると、開いたときのタブ / スクロール位置 / 送った列のまま\n- … more は今の PC と同じくボタンだけを描いた。押したときの挙動は PC にもまだない"
+    }
+  },
+  "noteOrder": ["current", "a", "b", "c", "common", "about", "aNote", "bNote", "cNote", "commonNote"],
+  "designSystems": [
+    { "title": "agent watch", "namespace": "agentwatch", "artifact": "armyknife/agent-watch-web/design-system", "version": null, "copiedAt": "2026-11-20T15:45:55Z" }
+  ]
+}

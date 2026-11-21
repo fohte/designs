@@ -67,7 +67,7 @@ a{color:#ef4444}
 <span style="position: relative; flex: none; margin: 0 0 10px 10px">
 <button type="button" aria-haspopup="dialog" aria-expanded="{{vibeOpenStr}}" style="height: 24px; display: inline-flex; align-items: center; gap: 6px; padding: 0 8px; border: 1px solid {{vibeBorder}}; background: {{vibeBg}}; color: {{vibeColor}}; font-family: inherit; font-size: 12px; white-space: nowrap"><sc-if value="{{vibeIcon}}" hint-placeholder-val="{{ true }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="{{zapFill}}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg></sc-if>{{vibeText}}<span aria-hidden="true" style="color: #8b8b94">▾</span></button>
 <sc-if value="{{vibeOpen}}" hint-placeholder-val="{{ false }}">
-<div style="position: absolute; z-index: 5; top: 30px; left: 0; width: 400px"><dc-import name="ConfirmDialog" form="popover" head="{{vibeHead}}" body="{{vibeBody}}" quote="{{ vibeQuote }}" action="{{vibeAction}}" cancel="{{vibeCancel}}" hint-size="100%,200px"></dc-import></div>
+<div style="position: absolute; z-index: 5; top: 30px; left: 0; width: 400px"><dc-import name="ConfirmDialog" form="popover" head="{{vibeHead}}" body="{{vibeBody}}" action="{{vibeAction}}" cancel="{{vibeCancel}}" hint-size="100%,200px"></dc-import></div>
 </sc-if>
 </span>
 </div>
@@ -193,11 +193,11 @@ class Component extends DCLogic {
     const vibeOn = vibe === 'on' || vibe === 'onParent' || vibe === 'inherited';
     const parent = '通知まわりの改修';
     const VB = {
-      on: { text: 'Vibe on', head: 'Vibe mode is on', body: 'This session may merge PRs and submit without human review in ' + V.repo + '. Its child sessions launched with --vibe inherit it.', send: 'Vibe mode is now off for this session. Wait for human review before merging PRs or submitting.', action: 'Turn off and send' },
-      inherited: { text: 'Vibe on · inherited', head: 'Vibe mode is on · inherited', body: 'Inherited from the parent session ' + parent + '. Turn it on here too to keep it on after that session turns it off.', send: 'Vibe mode is now on for this session too. In ' + V.repo + ' you may merge PRs and submit without waiting for human review.', action: 'Turn on here and send' },
-      off: { text: 'Vibe off', head: 'Vibe mode is off', body: 'Turn it on to let this session merge PRs and submit without human review in ' + V.repo + '. Its child sessions launched with --vibe inherit it.', send: 'Vibe mode is now on for this session. In ' + V.repo + ' you may merge PRs and submit without waiting for human review.', action: 'Turn on and send' },
-      onParent: { text: 'Vibe on', head: 'Vibe mode is on', body: 'Set on this session. ' + parent + ' also has it on, so after you turn it off here it stays on (inherited).', send: 'Vibe mode is now off for this session, but it stays on: it is inherited from the ancestor session ' + parent + '.', action: 'Turn off here and send' },
-      unavailable: { text: 'Vibe unavailable', head: 'Vibe mode is unavailable', body: V.repo + ' does not allow vibe mode, so it cannot be turned on here. Change the repository setting to allow it.', send: '', action: '' }
+      on: { text: 'Vibe on', head: 'Vibe mode is on', body: 'This session may merge PRs and submit without human review in ' + V.repo + '. Its child sessions launched with --vibe inherit it.', action: 'Turn off' },
+      inherited: { text: 'Vibe on · inherited', head: 'Vibe mode is on · inherited', body: 'Inherited from the parent session ' + parent + '. Turn it on here too to keep it on after that session turns it off.', action: 'Turn on here' },
+      off: { text: 'Vibe off', head: 'Vibe mode is off', body: 'Turn it on to let this session merge PRs and submit without human review in ' + V.repo + '. Its child sessions launched with --vibe inherit it.', action: 'Turn on' },
+      onParent: { text: 'Vibe on', head: 'Vibe mode is on', body: 'Set on this session. ' + parent + ' also has it on, so after you turn it off here it stays on (inherited).', action: 'Turn off here' },
+      unavailable: { text: 'Vibe unavailable', head: 'Vibe mode is unavailable', body: V.repo + ' does not allow vibe mode, so it cannot be turned on here. Change the repository setting to allow it.', action: '' }
     }[vibe];
     const ended = this.props.ended ?? 'no';
     const resuming = ended === 'resuming';
@@ -211,10 +211,9 @@ class Component extends DCLogic {
       menuBorder: menuOn ? '#a1a1aa' : '#2a2a2a',
       menuBg: menuOn ? '#262626' : 'transparent',
       ...V,
-      vibeText: VB.text, vibeHead: VB.head, vibeBody: VB.body, vibeSend: VB.send, vibeAction: VB.action,
+      vibeText: VB.text, vibeHead: VB.head, vibeBody: VB.body, vibeAction: VB.action,
       vibeOpen, vibeOpenStr: vibeOpen ? 'true' : 'false',
       vibeIcon: vibeOn, zapFill: vibe === 'on' || vibe === 'onParent' ? 'currentColor' : 'none',
-      vibeQuote: vibe === 'unavailable' ? null : { label: 'Sent to the session', text: VB.send },
       vibeCancel: vibe === 'unavailable' ? 'Close' : 'Cancel',
       vibeBorder: vibeOpen ? '#a1a1aa' : vibeOn ? '#71717a' : '#2a2a2a',
       vibeBg: vibeOpen ? '#262626' : 'transparent',

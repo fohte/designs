@@ -18,7 +18,7 @@ body{margin:0}
 <sc-if value="{{overChat}}" hint-placeholder-val="{{ false }}"><dc-import name="PhoneChat" nav="{{chatNav}}" hint-size="100%,844px"></dc-import></sc-if>
 <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.45)"></div>
 <nav role="dialog" aria-modal="true" aria-label="Navigation" style="position: absolute; top: 0; bottom: 0; left: 0; width: 320px; max-width: 86%; box-sizing: border-box; display: flex; flex-direction: column; padding: 8px 12px; background: #0f0f0f; box-shadow: 8px 0 24px rgba(0, 0, 0, 0.5)">
-<div style="height: 48px; flex: none; display: flex; align-items: center; padding: 0 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700"><span style="margin-right: 7px; color: #ef4444">&gt;</span>agent watch</div>
+<div style="height: 48px; flex: none; display: flex; align-items: center; padding: 0 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700"><span style="margin-right: 7px; color: #ef4444">&gt;</span>agent watch<sc-if value="{{hasPlain}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Jump to" aria-haspopup="dialog" style="margin-left: auto; margin-right: -4px; width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid {{plainBorder}}; background: {{plainBg}}; color: #d4d4d8"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button></sc-if></div>
 
 <sc-if value="{{hasButton}}" hint-placeholder-val="{{ false }}">
 <button type="button" aria-haspopup="dialog" style="flex: none; height: 44px; display: flex; align-items: center; gap: 10px; margin-bottom: 10px; padding: 0 12px; border: 1px solid {{fieldBorder}}; background: {{fieldBg}}; color: #a1a1aa; font-family: inherit; font-size: 15px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>Jump to…</button>
@@ -57,7 +57,7 @@ body{margin:0}
 </nav>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"over":{"editor":"enum","options":["inbox","chat"],"default":"inbox"},"chatNav":{"editor":"enum","options":["back","menu"],"default":"back"},"search":{"editor":"enum","options":["none","button","buttonPressed","input","typing"],"default":"none"},"scope":{"editor":"enum","options":["all","close"],"default":"all"},"$preview":{"width":390,"height":844}}'>
+<script type="text/x-dc" data-dc-script data-props='{"over":{"editor":"enum","options":["inbox","chat"],"default":"inbox"},"chatNav":{"editor":"enum","options":["back","menu"],"default":"back"},"search":{"editor":"enum","options":["none","button","buttonPressed","plain","plainPressed","input","typing"],"default":"none"},"scope":{"editor":"enum","options":["all","close"],"default":"all"},"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
     const over = this.props.over ?? 'inbox';
@@ -71,6 +71,10 @@ class Component extends DCLogic {
       from: over,
       hasButton: search === 'button' || search === 'buttonPressed',
       hasInput: search === 'input' || typing,
+      // plain: a bare ⌕ at the right of the top row, where the PC Nav puts ⌕ ⌘K.
+      hasPlain: search === 'plain' || search === 'plainPressed',
+      plainBorder: search === 'plainPressed' ? '#a1a1aa' : 'transparent',
+      plainBg: search === 'plainPressed' ? '#262626' : 'transparent',
       typing, notTyping: !typing, scope,
       query: typing && scope === 'close' ? 'close' : '',
       fieldBorder: search === 'buttonPressed' || typing ? '#a1a1aa' : '#2a2a2a',

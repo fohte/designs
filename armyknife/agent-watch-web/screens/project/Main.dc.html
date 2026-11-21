@@ -73,7 +73,7 @@ class Component extends DCLogic {
           'Merge と Close session… は確認ダイアログで確定するとすぐダイアログを閉じ、裏で実行します。実行中もほかの操作や別のセッションへの移動ができます。',
           '押した場所に結果を出します。Merge (ヘッダーと PR の一覧) は Merging… から Merged、Already merged、Queued (マージキュー)、Failed と Retry のどれかに変わります。Inbox の行は Closing… になり、閉じたら消え、失敗したら Close failed と Retry を出します。',
           'トーストを返信欄の上 (PC は右下) に重ねます。成功は自動で消え、失敗は Retry と Details を付けて残します。',
-          '一度実行するとナビの quota の上 (iPhone もナビゲーションの quota の上) に Activity が出て、実行中を青、失敗を赤の数で示し、一覧を開けます。iPhone では失敗があるあいだ、Inbox のナビゲーションのボタンに赤い印を付けます。会話にも Merged PR #2049 · 12:03 の形で 1 行残します。',
+          'ナビの quota の上 (iPhone もナビゲーションの quota の上) に Activity を置き、実行中を青、失敗を赤の数で示し、一覧を開けます。まだ一度も実行していないあいだは数を出さずに Activity を薄く示し、開くと No recent activity. と Merge and Close results appear here. を出します。iPhone では失敗があるあいだ、Inbox のナビゲーションのボタンに赤い印を付けます。会話にも Merged PR #2049 · 12:03 の形で 1 行残します。',
           'Close は、コミットしていない変更、merge していないブランチ、動いているプロセスの 3 つを全部調べてから失敗を返します。どこから閉じても、トーストと会話の 1 行には残っているものの要約と Close and keep worktree を、Activity には 3 つの確認の結果 (ファイル、PR、pid) を全部並べ、Open in terminal も置きます。'
         ] },
         { title: '返事を待つカード', items: [

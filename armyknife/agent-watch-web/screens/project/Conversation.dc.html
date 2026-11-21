@@ -90,6 +90,28 @@ a{color:#ef4444}
 <article style="flex: none; max-width: 100%; color: #d4d4d8">画面の案を canvas に描きました。<a href="{{webUrl}}" title="Open in the canvas tab" style="white-space: nowrap; color: #ef4444; text-decoration: underline; text-underline-offset: 2px">案のページ<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 5px; padding: 0 5px; background: #262626; color: #d4d4d8; font-size: 11.5px; line-height: 18px; vertical-align: 1px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path></svg>canvas</span></a> で比べてください。前提は <a href="https://docs.example.com/notify/preflight" target="_blank" rel="noopener noreferrer" style="color: #ef4444; text-decoration: underline; text-underline-offset: 2px">設計メモ</a> にあります。</article>
 </sc-if>
 
+<sc-if value="{{isTodo}}" hint-placeholder-val="{{ false }}">
+<sc-for list="{{todoItems}}" as="t" hint-placeholder-count="2">
+<sc-if value="{{t.isText}}" hint-placeholder-val="{{ false }}"><article style="flex: none; max-width: 100%; color: #d4d4d8">{{t.text}}</article></sc-if>
+<sc-if value="{{t.isFolded}}" hint-placeholder-val="{{ false }}">
+<div style="flex: none"><dc-import name="TodoCard" form="folded" title="{{t.title}}" added="{{ t.added }}" hint-size="100%,40px"></dc-import></div>
+</sc-if>
+<sc-if value="{{t.isFull}}" hint-placeholder-val="{{ true }}">
+<article aria-label="User task" style="flex: none; border: 1px solid #2a2a2a; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+<dc-import name="TodoCard" form="header" hint-size="100%,26px"></dc-import>
+<h3 style="margin: 0; font-size: 17px; font-weight: 700">{{t.title}}</h3>
+<div style="font-size: 13px; color: #d4d4d8; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{t.detail}}</div>
+<button type="button" style="align-self: flex-start; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px">Show more</button>
+<textarea aria-label="Comment" rows="2" placeholder="Comment (optional)" style="width: 100%; box-sizing: border-box; padding: 6px 8px; border: 1px solid #3f3f46; background: #141414; color: #fafafa; font-family: inherit; font-size: 13px; resize: none"></textarea>
+<div style="display: flex; gap: 8px">
+<button type="button" style="height: 28px; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Mark done</button>
+<button type="button" style="height: 28px; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Reject</button>
+</div>
+</article>
+</sc-if>
+</sc-for>
+</sc-if>
+
 <sc-if value="{{hasVibeEvents}}" hint-placeholder-val="{{ false }}">
 <sc-for list="{{vibeEvents}}" as="e" hint-placeholder-count="2">
 <div style="flex: none; text-align: center; font-size: 11px; color: #a1a1aa">{{e}}</div>
@@ -154,7 +176,7 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review"],"default":"question"},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review","todo"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const variant = this.props.variant ?? 'question';
@@ -169,7 +191,8 @@ class Component extends DCLogic {
     const P = {
       question: { main: pr(2047, '再送処理を retry() にまとめる', 'example/service', 'running'), others: [pr(61, '再送キューの設定を足す', 'example/infra', 'passed')] },
       working: { main: pr(2053, '配信メトリクスを記録する', 'example/service', 'running'), others: [] },
-      review: { main: pr(2049, '配信前のチェックを追加する', 'example/web-app', 'passed'), others: [] }
+      review: { main: pr(2049, '配信前のチェックを追加する', 'example/web-app', 'passed'), others: [] },
+      todo: { main: pr(3102, '通知の音を設定に足す', 'example/mobile-app', 'running'), others: [] }
     }[variant] ?? { main: pr(2047, '', '', 'running'), others: [] };
     if (this.props.ciFailing) P.main = { ...P.main, ...CI.failing };
     // mergeState: the merge confirmed on PR #mergeTarget (default: this branch's PR), shown on that PR's Merge until the PR refreshes.
@@ -189,8 +212,18 @@ class Component extends DCLogic {
     const V = {
       question: { engine: 'claude', title: '通知の再送処理を見直す', taskId: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', userText: '通知の再送処理を見直して。失敗したら何回か再試行したい。', assistantText: '再送処理を', assistantCode: 'retry()', assistantTail: 'にまとめました。上限の回数だけ決めてください。', toolSummary: 'Edit client.ts · Read ×3 · Shell ×1', bandState: 'question', bandLabel: '', bandDetail: '再試行は 3 回で止めてよいですか?' },
       working: { engine: 'codex', title: '配信メトリクスを追加する', taskId: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/service', userText: '配信の成功率と遅延をメトリクスに出して。', assistantText: '送信ごとに', assistantCode: 'delivery_latency_ms', assistantTail: 'を記録するようにしました。', toolSummary: 'Edit metrics.rs · Read ×4 · Shell ×2', bandState: 'working', bandLabel: 'Working · 18s', bandDetail: 'Bash  cargo test -p metrics' },
-      review: { engine: 'codex', title: '配信チェックの PR を確認する', taskId: '', taskTitle: '', repo: 'example/web-app', userText: '配信チェックを足して PR にして。', assistantText: '配信前のチェックを', assistantCode: 'preflight()', assistantTail: 'にまとめて PR #2049 を作りました。crit で差分を見てください。', toolSummary: 'Edit preflight.ts · Read ×2 · Shell ×2', bandState: 'crit', bandLabel: '', bandDetail: 'crit · PR #2049 · 2m' }
+      review: { engine: 'codex', title: '配信チェックの PR を確認する', taskId: '', taskTitle: '', repo: 'example/web-app', userText: '配信チェックを足して PR にして。', assistantText: '配信前のチェックを', assistantCode: 'preflight()', assistantTail: 'にまとめて PR #2049 を作りました。crit で差分を見てください。', toolSummary: 'Edit preflight.ts · Read ×2 · Shell ×2', bandState: 'crit', bandLabel: '', bandDetail: 'crit · PR #2049 · 2m' },
+      todo: { engine: 'claude', title: '通知の音を選べるようにする', taskId: 'P2 #3101', taskTitle: '通知の設定を増やす', repo: 'example/mobile-app', userText: '通知の音を選べるようにして。', assistantText: '通知の音を', assistantCode: 'sound', assistantTail: 'で選べるようにしました。シミュレーターでは鳴りました。実機で鳴るかは、次に通知が届いたときに確かめてください。', toolSummary: 'Edit notify.ts · Read ×2 · Shell ×1', bandState: 'idle', bandLabel: '', bandDetail: '' }
     }[variant] ?? {};
+    // todo: who folded the to-do that can only be checked when the situation comes up. folded: the user, with ⌃; added: the session, marked to check later when it added it.
+    const tLater = { title: '通知の音を実機で確かめる' };
+    const tNow = { title: '設定画面の音の一覧を見る', detail: 'ステージングで設定画面を開き、音の一覧に 5 つ並んでいるか見てください。' };
+    const added = (this.props.todo ?? 'folded') === 'added';
+    // todoNow: false leaves only the folded to-do pending, so the session sits under To-do later instead of Needs action.
+    const todoItems = [{ isFolded: true, ...tLater, added }].concat((this.props.todoNow ?? true) ? [
+      { isText: true, text: '音の一覧はステージングでも見られます。こちらは今確かめてください。' },
+      { isFull: true, ...tNow }
+    ] : []);
     // vibe: 'on' | 'onParent' (on here and in an ancestor) | 'inherited' | 'off' | 'unavailable' (the repository's setting forbids it).
     const vibe = this.props.vibe ?? { question: 'inherited', working: 'on', review: 'off' }[variant] ?? 'off';
     const vibeOpen = this.props.vibeOpen ?? false;
@@ -238,6 +271,8 @@ class Component extends DCLogic {
       resumeFg: resuming ? '#a1a1aa' : '#0a0a0a',
       isQuestion: q,
       isWorking: w,
+      isTodo: variant === 'todo',
+      todoItems,
       hasTasks: w,
       hasTask: !!V.taskId,
       choices: [

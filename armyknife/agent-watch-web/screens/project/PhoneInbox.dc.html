@@ -22,39 +22,109 @@ body{margin:0}
 <button type="button" aria-label="Jump to" style="width: 36px; height: 36px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button>
 </header>
 <h1 style="margin: 4px 16px 6px; font-size: 26px; font-weight: 700">Inbox</h1>
-<div style="height: 38px; display: flex; align-items: center; gap: 8px; padding: 0 16px; font-size: 10.5px; color: #8b8b94"><span>Filter by project, kind, tq task, repo</span><kbd style="padding: 0 5px; border: 1px solid #3f3f46; font-family: 'JetBrains Mono', monospace">/</kbd></div>
+<sc-if value="{{showEntry}}" hint-placeholder-val="{{ true }}">
+<div style="padding: 0 16px 6px"><button type="button" style="width: 100%; height: 44px; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 0 12px; border: 1px solid #2a2a2a; background: #141414; color: #8b8b94; font-family: inherit; font-size: 15px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"></path></svg><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Filter by project, kind, tq task, repo</span></button></div>
+</sc-if>
+<sc-if value="{{filtered}}" hint-placeholder-val="{{ false }}">
+<div aria-label="Active inbox filters" style="display: flex; gap: 6px; padding: 0 16px; overflow-x: auto; white-space: nowrap">
+<span style="flex: none; height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 6px; padding: 0 0 0 12px; background: #262626; font-size: 13.5px"><span style="color: #a1a1aa">Project</span><span style="font-weight: 700">web-app</span><button type="button" aria-label="Remove Project filter" style="width: 40px; height: 44px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 16px">×</button></span>
+<span style="flex: none; height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; gap: 6px; padding: 0 0 0 12px; background: #262626; font-size: 13.5px"><span style="color: #a1a1aa">Kind</span><span style="font-weight: 700">Question, Review</span><button type="button" aria-label="Remove Kind filter" style="width: 40px; height: 44px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 16px">×</button></span>
+<button type="button" style="flex: none; height: 44px; padding: 0 12px; border: 1px dashed #3f3f46; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13px">+ Filter</button>
+</div>
+<div style="display: flex; align-items: center; gap: 4px; padding: 4px 8px 0 16px; font-size: 13px">
+<span style="color: #a1a1aa">2 of 6</span>
+<button type="button" style="margin-left: auto; height: 44px; padding: 0 10px; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13px">Clear</button>
+<button type="button" aria-haspopup="dialog" style="height: 36px; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px">Save view</button>
+</div>
+</sc-if>
+<sc-if value="{{showEntry}}" hint-placeholder-val="{{ true }}">
 <div style="height: 36px; display: flex; align-items: center; gap: 6px; padding: 0 16px; overflow: hidden">
 <span style="flex: none; height: 26px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; background: #1f1f1f; font-size: 12.5px; white-space: nowrap"><span style="color: #fbbf24">★</span>通知の再送処理を見直す</span>
 <span style="flex: none; height: 26px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; background: #1f1f1f; font-size: 12.5px; white-space: nowrap"><span style="color: #fbbf24">★</span>配信ログの保存期間を決める</span>
 </div>
+</sc-if>
 <h2 style="display: flex; align-items: center; gap: 8px; margin: 8px 0 0; padding: 0 16px 6px; font-size: 13px; font-weight: 700">Needs action <span style="font-family: 'JetBrains Mono', monospace; color: #fbbf24">{{needCount}}</span></h2>
 <sc-for list="{{rows}}" as="r" hint-placeholder-count="4">
-<dc-import name="SessionRow" s="{{ r }}" density="phone" hint-size="100%,88px"></dc-import>
+<div style="position: relative; overflow: hidden">
+<sc-if value="{{r.swiped}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; top: 0; right: 0; bottom: 0; display: flex">
+<button type="button" aria-haspopup="dialog" style="width: 88px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0; border: 0; background: #3f3f46; color: #fafafa; font-family: inherit; font-size: 13px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>Later</button>
+<button type="button" aria-haspopup="dialog" style="width: 88px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0; border: 0; background: #b91c1c; color: #fafafa; font-family: inherit; font-size: 13px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>Close</button>
+</div>
+</sc-if>
+<div style="position: relative; transform: translateX({{r.shift}}); background: #0a0a0a"><dc-import name="SessionRow" s="{{ r }}" density="phone" hint-size="100%,88px"></dc-import></div>
+</div>
 </sc-for>
-<div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>◷ Later</span><span style="font-family: 'JetBrains Mono', monospace; color: #8b8b94">2</span><span style="margin-left: auto; color: #8b8b94">in 2h ›</span></div>
+<sc-if value="{{todoSection}}" hint-placeholder-val="{{ false }}">
+<button type="button" style="width: 100%; height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border: 0; border-top: 1px solid #2a2a2a; border-bottom: 1px solid #1f1f1f; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; text-align: left"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #a1a1aa"><rect width="18" height="18" x="3" y="3" rx="2"></rect></svg><span style="flex: none">To-do later</span><span style="flex: none; font-family: 'JetBrains Mono', monospace; color: #8b8b94">1</span><span style="min-width: 0; color: #8b8b94; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">通知の音を実機で確かめる</span><span style="flex: none; margin-left: auto; color: #8b8b94">›</span></button>
+</sc-if>
+<div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>◷ Later</span><span style="font-family: 'JetBrains Mono', monospace; color: #8b8b94">{{laterCount}}</span><span style="margin-left: auto; color: #8b8b94">{{laterNext}}</span></div>
+<sc-if value="{{showEntry}}" hint-placeholder-val="{{ true }}">
 <div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>In progress</span><span style="font-family: 'JetBrains Mono', monospace; color: #60a5fa">5</span><span style="margin-left: auto; color: #52525b">›</span></div>
-<div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>Done</span><span style="font-family: 'JetBrains Mono', monospace; color: #8b8b94">3</span><span style="color: #a1a1aa">◇ 2 to review ›</span><button type="button" style="margin-left: auto; height: 28px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Close all</button></div>
+</sc-if>
+<div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>Done</span><span style="font-family: 'JetBrains Mono', monospace; color: #8b8b94">{{doneCount}}</span><sc-if value="{{showEntry}}" hint-placeholder-val="{{ true }}"><span style="color: #a1a1aa">◇ 2 to review ›</span></sc-if><button type="button" style="margin-left: auto; height: 28px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px; opacity: {{closeAllOpacity}}">Close all</button></div>
+<sc-if value="{{sheetRowMenu}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 30; display: flex; flex-direction: column; justify-content: flex-end; background: rgba(0, 0, 0, 0.55)">
+<dc-import name="PhoneRowMenu" session="{{ target }}" hint-size="100%,250px"></dc-import>
+</div>
+</sc-if>
+<sc-if value="{{sheetLater}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 30; display: flex; flex-direction: column; justify-content: flex-end; background: rgba(0, 0, 0, 0.55)">
+<dc-import name="PhoneLaterSheet" session="{{ target }}" hint-size="100%,420px"></dc-import>
+</div>
+</sc-if>
+<sc-if value="{{sheetClose}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 30; display: flex; flex-direction: column; justify-content: flex-end; background: rgba(0, 0, 0, 0.55)">
+<dc-import name="ConfirmDialog" form="sheet" head="Close before reviewing?" body="It is waiting for your review of PR #2049. Closing ends the session; the PR stays open." action="Close session" session="{{ target }}" hint-size="100%,260px"></dc-import>
+</div>
+</sc-if>
+<sc-if value="{{sheetSaveView}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 30; display: flex; flex-direction: column; justify-content: flex-end; background: rgba(0, 0, 0, 0.55)">
+<dc-import name="PhoneSaveViewSheet" hint-size="100%,300px"></dc-import>
+</div>
+</sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"activity":{"editor":null},"$preview":{"width":390,"height":844}}'>
+<script type="text/x-dc" data-dc-script data-props='{"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"activity":{"editor":null},"todoLater":{"editor":"boolean","default":false},"filtered":{"editor":"boolean","default":false},"swipe":{"editor":"boolean","default":false},"sheet":{"editor":"enum","options":["none","rowMenu","later","close","saveView"],"default":"none"},"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
     // close: a confirmed close of the Proposal row running in the background. 'closed' takes the row out.
     const close = this.props.close ?? 'none';
     // activity: the drawer's Activity entry, { count, tone: 'running' | 'failure' | 'idle' } or null. Only a failure marks the navigation button: running and success already show in the toast.
     const failed = (this.props.activity ?? null)?.tone === 'failure';
-    const rows = this.rows();
+    const filtered = this.props.filtered ?? false;
+    // swipe: the row slid left inside itself; the screen's left edge is the browser's back gesture.
+    const swipe = this.props.swipe ?? false;
+    const sheet = this.props.sheet ?? 'none';
+    // The row actions and their sheets act on the Review row, the second row.
+    const target = 1;
+    const rowSheet = sheet === 'rowMenu' || sheet === 'later' || sheet === 'close';
+    let rows = this.rows();
     if (close === 'closed') rows.pop();
     else if (close !== 'none') Object.assign(rows[rows.length - 1], { close, closeReason: 'The session did not stop within 10 s.' });
+    rows = rows.map((r, i) => ({
+      ...r,
+      swiped: swipe && i === target,
+      shift: swipe && i === target ? '-176px' : '0',
+      bg: rowSheet && i === target ? '#1f1f1f' : 'transparent'
+    }));
+    if (filtered) rows = rows.filter((r) => r.match);
     return {
-      rows, needCount: close === 'closed' ? 5 : 6,
+      rows, needCount: filtered ? 2 : close === 'closed' ? 5 : 6,
+      showEntry: !filtered, filtered,
+      laterCount: filtered ? 0 : 2, laterNext: filtered ? '' : 'in 2h ›',
+      doneCount: filtered ? 0 : 3, closeAllOpacity: filtered ? 0.5 : 1,
+      sheetRowMenu: sheet === 'rowMenu', sheetLater: sheet === 'later', sheetClose: sheet === 'close', sheetSaveView: sheet === 'saveView',
+      target: { state: 'Review', dot: '#fbbf24', round: false, color: '#fbbf24', title: '配信チェックの PR を確認する' },
+      // todoLater: the to-dos folded for later, out of Needs action and its count.
+      todoSection: this.props.todoLater ?? false,
       failed, navAria: failed ? 'Open navigation, Activity has a failure' : 'Open navigation'
     };
   }
   rows() {
     return [
-        { status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', preview: '再試行は 3 回で止めてよいですか?', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'service', vibe: 'inherited' },
-        { status: 'Review', unread: true, title: '配信チェックの PR を確認する', age: '2m', preview: 'PR #2049 を見てください', role: '', engine: 'codex', taskRef: 'P2 #2050', taskTitle: '配信チェックを入れる', repo: 'web-app' },
+        { status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', preview: '再試行は 3 回で止めてよいですか?', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'service', vibe: 'inherited', match: true },
+        { status: 'Review', unread: true, title: '配信チェックの PR を確認する', age: '2m', preview: 'PR #2049 を見てください', role: '', engine: 'codex', taskRef: 'P2 #2050', taskTitle: '配信チェックを入れる', repo: 'web-app', match: true },
         { status: 'Error', unread: true, title: '統合テストの失敗を直す', age: '4m', preview: 'テストが 2 件失敗しました', role: 'debug-flow', engine: 'claude', taskRef: 'P1 #2052', taskTitle: 'テストを安定させる', repo: 'service' },
         { status: 'Proposal', title: 'アラートの送り先を決める', age: '12m', preview: '2 つの案から選んでください', role: 'designer', engine: 'claude', taskRef: 'P2 #2051', taskTitle: '監視を整える', repo: 'observability' }
     ];

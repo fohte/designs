@@ -985,48 +985,6 @@
       "kind": "title1",
       "maxW": 8930,
       "page": "conversation"
-    },
-    "diffPhoneMessageKinds": {
-      "x": 1520,
-      "y": 140,
-      "w": 390,
-      "page": "conversation",
-      "text": "新しい iPhone の画面\n- PC の MessageKinds に当たる"
-    },
-    "diffPhoneCards": {
-      "x": 3510,
-      "y": 140,
-      "w": 390,
-      "page": "conversation",
-      "text": "新しい iPhone の画面\n- PC の Cards に当たる"
-    },
-    "diffPhoneDialogs": {
-      "x": 3918,
-      "y": 5970,
-      "w": 390,
-      "page": "conversation",
-      "text": "新しい iPhone の画面\n- PC の Dialogs を iPhone の幅に移したもの。ConfirmDialog の sheet に code と details を足した"
-    },
-    "diffPhoneActionQueued": {
-      "x": 1520,
-      "y": 15890,
-      "w": 390,
-      "page": "conversation",
-      "text": "新しい iPhone の画面\n- PC の ActionQueued に当たる"
-    },
-    "diffPhoneActionAway": {
-      "x": 3510,
-      "y": 15890,
-      "w": 390,
-      "page": "conversation",
-      "text": "新しい iPhone の画面\n- PC の ActionAway に当たる"
-    },
-    "diffPhoneNewSessionModelSwitch": {
-      "x": 3510,
-      "y": 5720,
-      "w": 390,
-      "page": "inbox",
-      "text": "新しい iPhone の画面\n- PC の NewSessionModelSwitch に当たる"
     }
   },
   "v": 3,
@@ -1066,12 +1024,6 @@
     "rowActionMore",
     "rowPartsLayout",
     "rowPartsRows",
-    "rowPartsDialogs",
-    "diffPhoneMessageKinds",
-    "diffPhoneCards",
-    "diffPhoneDialogs",
-    "diffPhoneActionQueued",
-    "diffPhoneActionAway",
-    "diffPhoneNewSessionModelSwitch"
+    "rowPartsDialogs"
   ]
 }

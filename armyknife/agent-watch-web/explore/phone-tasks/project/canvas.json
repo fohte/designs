@@ -16,6 +16,10 @@
     "phone-tasks-c-one.dc.html": {"x": 0, "y": 3600, "w": 390, "h": 844, "title": "C · タスク 1 件 (4 件でもトップバーは同じ)", "page": "options"},
     "phone-tasks-c-menu.dc.html": {"x": 470, "y": 3600, "w": 390, "h": 844, "title": "C · ⋯ のメニューに Tasks 4", "page": "options"},
     "phone-tasks-c-open.dc.html": {"x": 940, "y": 3600, "w": 390, "h": 844, "title": "C · Tasks でシートを開いたところ", "page": "options"},
+    "phone-tasks-pc-many.dc.html": {"x": 0, "y": 4800, "w": 390, "h": 844, "title": "タスク 4 件: 主タスクの右に +3", "page": "options"},
+    "phone-tasks-pc-panel.dc.html": {"x": 470, "y": 4800, "w": 390, "h": 844, "title": "+3 で状況パネルの Tasks を開いたところ", "page": "options"},
+    "PhoneStatusPanel.dc.html": {"x": 940, "y": 0, "w": 390, "h": 844, "title": "PhoneStatusPanel", "page": "parts"},
+    "SessionRow.dc.html": {"x": 3956, "y": 964, "w": 460, "h": 76, "title": "SessionRow", "page": "parts"},
     "PhoneChat.dc.html": {"x": 0, "y": 0, "w": 390, "h": 844, "title": "PhoneChat", "page": "parts"},
     "PhoneTasksSheet.dc.html": {"x": 470, "y": 0, "w": 390, "h": 560, "title": "PhoneTasksSheet", "page": "parts"},
     "ActivityButton.dc.html": {"x": 0, "y": 964, "w": 224, "h": 44, "title": "ActivityButton", "page": "parts"},
@@ -27,12 +31,14 @@
     "Activity.dc.html": {"x": 3236, "y": 964, "w": 400, "h": 360, "title": "Activity", "page": "parts"},
     "MergeButton.dc.html": {"x": 3716, "y": 964, "w": 160, "h": 44, "title": "MergeButton", "page": "parts"}
   },
-  "order": ["phone-tasks-current.dc.html", "phone-tasks-a-one.dc.html", "phone-tasks-a-many.dc.html", "phone-tasks-a-open.dc.html", "phone-tasks-b-one.dc.html", "phone-tasks-b-many.dc.html", "phone-tasks-b-open.dc.html", "phone-tasks-c-one.dc.html", "phone-tasks-c-menu.dc.html", "phone-tasks-c-open.dc.html", "PhoneChat.dc.html", "PhoneTasksSheet.dc.html", "ActivityButton.dc.html", "ActionItem.dc.html", "ToastStack.dc.html", "StatusBand.dc.html", "SessionUsage.dc.html", "ConfirmDialog.dc.html", "Activity.dc.html", "MergeButton.dc.html"],
+  "order": ["phone-tasks-current.dc.html", "phone-tasks-a-one.dc.html", "phone-tasks-a-many.dc.html", "phone-tasks-a-open.dc.html", "phone-tasks-b-one.dc.html", "phone-tasks-b-many.dc.html", "phone-tasks-b-open.dc.html", "phone-tasks-c-one.dc.html", "phone-tasks-c-menu.dc.html", "phone-tasks-c-open.dc.html", "phone-tasks-pc-many.dc.html", "phone-tasks-pc-panel.dc.html", "PhoneChat.dc.html", "PhoneTasksSheet.dc.html", "PhoneStatusPanel.dc.html", "SessionRow.dc.html","ActivityButton.dc.html", "ActionItem.dc.html", "ToastStack.dc.html", "StatusBand.dc.html", "SessionUsage.dc.html", "ConfirmDialog.dc.html", "Activity.dc.html", "MergeButton.dc.html"],
   "notes": {
     "current": {"x": 470, "y": 0, "w": 360, "page": "options", "text": "今の iPhone のトップバーは、タイトルの下の行に主タスク (#2048 通知の信頼性を上げる · service) だけを出す。ほかのタスクがあることも、一覧への入り方もない。"},
     "optA": {"kind": "title1", "x": 0, "y": 900, "maxW": 1330, "page": "options", "text": "A · 主タスクの行の右に +N。押すと Tasks のシート"},
     "optB": {"kind": "title1", "x": 0, "y": 2100, "maxW": 1330, "page": "options", "text": "B · トップバーに Tasks ボタン (件数つき)。押すとシート"},
-    "optC": {"kind": "title1", "x": 0, "y": 3300, "maxW": 1330, "page": "options", "text": "C · トップバーは変えず、⋯ のメニューの Tasks からシート"}
+    "optC": {"kind": "title1", "x": 0, "y": 3300, "maxW": 1330, "page": "options", "text": "C · トップバーは変えず、⋯ のメニューの Tasks からシート"},
+    "optPc": {"kind": "title1", "x": 0, "y": 4500, "maxW": 1330, "page": "options", "text": "PC と同じ: +N で状況パネルの Tasks を開く"},
+    "optPcNote": {"x": 940, "y": 4800, "w": 360, "page": "options", "text": "良い点\n・PC と同じ動き\n・一覧と Make primary の置き場所が状況パネルだけ\n\n気になる点\n・全画面の状況パネルに切り替わる\n・戻るのに ‹ が 1 回要る"}
   },
-  "noteOrder": ["current", "optA", "optB", "optC"]
+  "noteOrder": ["current", "optA", "optB", "optC", "optPc", "optPcNote"]
 }

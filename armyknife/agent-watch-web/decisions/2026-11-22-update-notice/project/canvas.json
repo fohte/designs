@@ -94,7 +94,7 @@
   "notes": {
     "current": { "kind": "title1", "x": 0, "y": -260, "maxW": 3110, "page": "options", "text": "今の画面 · サーバーが再起動すると、入力中でもすぐ再読み込みされる" },
     "currentNote": { "x": 1990, "y": 0, "w": 520, "page": "options", "text": "今の画面\n- a update などでサーバーが再起動すると、instance id が変わったのを見てすぐ window.location.reload() する\n- 返信欄に打ちかけた文章 (この画面の下書き) は、その場で消える\n- PC には接続状態の表示がない。iPhone は Inbox の見出しに Connected · 22:00 がある" },
-    "about": { "x": 2590, "y": 0, "w": 520, "page": "options", "text": "どの案でも同じこと (決まっている)\n- 自動では再読み込みしない。新しいバージョンがあるときだけ知らせ、押すと再読み込みする\n- × で隠すと、次の更新まで出さない\n- 新しいバージョンのない再起動では何も出さない\n- Reload は送っていない下書きを捨てる。下書きを残すかは実装の詳細で、まだ決めていない。「下書きは保持されます」のような説明も出すか未定\n- iPhone で入力中はキーボードが出るが、ここには描いていない\n- データはすべて架空" },
+    "about": { "x": 2590, "y": 0, "w": 520, "page": "options", "text": "どの案でも同じこと (決まっている)\n- 自動では再読み込みしない。新しいバージョンがあるときだけ通知し、押すと再読み込みする\n- × で隠すと、次の更新まで出さない\n- 新しいバージョンのない再起動では何も出さない\n- Reload は送っていない下書きを捨てる。下書きを残すかは実装の詳細で、まだ決めていない。「下書きは保持されます」のような説明も出すか未定\n- iPhone で入力中はキーボードが出るが、ここには描いていない\n- データはすべて架空" },
 
     "a": { "kind": "title1", "x": 0, "y": 1040, "maxW": 4970, "page": "options", "text": "A · ヘッダーの小さなボタン (PC は Nav の一番上、iPhone は見出しの中)" },
     "aNote": { "x": 4450, "y": 1300, "w": 520, "page": "options", "text": "A · ヘッダーの小さなボタン\n見えるもの: PC は Nav のロゴの下に「↻ Update to v0.4.2  Reload  ×」の 1 行。iPhone の会話は見出し 2 行目の右に「↻ Update v0.4.2 ×」、Inbox は Connected · 22:00 の代わりに「↻ Update ×」\nReload: 押すと再読み込み。× は次の更新まで隠す\n下書き: Reload で消える。残すかは実装の詳細で、ボタンでは警告しない\n+ 何も動かさず、返信欄にも会話にも重ならない\n+ toast と離れているので重ならない\n- 小さく、Nav や見出しを見ていないと気づきにくい\n- iPhone の Inbox では、更新がある間は接続状態が見えない" },
@@ -103,7 +103,7 @@
     "bNote": { "x": 4450, "y": 2600, "w": 520, "page": "options", "text": "B · 一番上の帯\n見えるもの: PC は画面の一番上に全幅で高さ 36px の帯「A new version of agent watch, v0.4.2, is ready. Reload to use it.  Reload  ×」。iPhone は見出しのすぐ下に 52px の帯\nReload: 押すと再読み込み。× は帯を閉じ、次の更新まで出さない\n下書き: Reload で消える。残すかは実装の詳細で、帯では警告しない\n+ いちばん目立ち、見落としにくい\n+ toast とは上と下に分かれ、重ならない\n- 出た瞬間に画面全体が 36px (iPhone は 52px) 下にずれ、押そうとしていた場所がずれる\n- iPhone では会話と Inbox が帯の分だけ狭くなる" },
 
     "c": { "kind": "title1", "x": 0, "y": 3640, "maxW": 4970, "page": "options", "text": "C · Activity の toast と同じ場所に残るカード" },
-    "cNote": { "x": 4450, "y": 3900, "w": 520, "page": "options", "text": "C · toast の場所のカード\n見えるもの: PC は右下の toast の位置に「New version available / v0.4.2 · Reload to use it  Reload  ×」。iPhone の会話は状況の帯のすぐ上、Inbox は画面の下\nReload: 押すと再読み込み。× は次の更新まで出さない。toast と違い、自分では消えない\n下書き: Reload で消える。残すかは実装の詳細で、カードでは警告しない\n+ 知らせの出る場所が toast と同じで、覚えることが増えない\n+ 画面はずれない\n- toast と同時だと縦に積み上がる。カードは一番下の段に固定し、toast はその上に積む\n- iPhone では会話の最後 (Question のカードなど) にかぶる" }
+    "cNote": { "x": 4450, "y": 3900, "w": 520, "page": "options", "text": "C · toast の場所のカード\n見えるもの: PC は右下の toast の位置に「New version available / v0.4.2 · Reload to use it  Reload  ×」。iPhone の会話は状況の帯のすぐ上、Inbox は画面の下\nReload: 押すと再読み込み。× は次の更新まで出さない。toast と違い、自分では消えない\n下書き: Reload で消える。残すかは実装の詳細で、カードでは警告しない\n+ 通知の出る場所が toast と同じで、覚えることが増えない\n+ 画面はずれない\n- toast と同時だと縦に積み上がる。カードは一番下の段に固定し、toast はその上に積む\n- iPhone では会話の最後 (Question のカードなど) にかぶる" }
   },
   "designSystems": [
     { "title": "agent watch", "namespace": "agentwatch", "artifact": "armyknife/agent-watch-web/design-system", "version": null, "copiedAt": "2026-11-22T10:00:00Z" }

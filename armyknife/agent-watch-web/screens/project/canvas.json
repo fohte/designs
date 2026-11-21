@@ -978,6 +978,54 @@
       "h": 844,
       "title": "iPhone · 状況パネル · Tasks · 主でないタスクに Make primary",
       "page": "status-panel"
+    },
+    "ConversationUpdate.dc.html": {
+      "x": 0,
+      "y": 10290,
+      "w": 1440,
+      "h": 900,
+      "title": "PC · 返信を入力中に新しいバージョンが届いた",
+      "page": "conversation"
+    },
+    "ConversationUpdateToast.dc.html": {
+      "x": 1520,
+      "y": 10290,
+      "w": 1440,
+      "h": 900,
+      "title": "PC · Activity の toast と同時 (帯は上、toast は右下)",
+      "page": "conversation"
+    },
+    "PhoneChatUpdate.dc.html": {
+      "x": 3040,
+      "y": 10290,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 会話で入力中 (帯はヘッダーのすぐ下)",
+      "page": "conversation"
+    },
+    "PhoneInboxUpdate.dc.html": {
+      "x": 3510,
+      "y": 10290,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Inbox",
+      "page": "conversation"
+    },
+    "UpdateBand.dc.html": {
+      "x": 2864,
+      "y": 2240,
+      "w": 760,
+      "h": 40,
+      "title": "UpdateBand",
+      "page": "components"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 1500,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
     }
   },
   "order": [
@@ -1103,7 +1151,13 @@
     "PhoneLaterSheet.dc.html",
     "PhoneSaveViewSheet.dc.html",
     "PhoneChatTasks.dc.html",
-    "PhoneStatusTasksMany.dc.html"
+    "PhoneStatusTasksMany.dc.html",
+    "ConversationUpdate.dc.html",
+    "ConversationUpdateToast.dc.html",
+    "PhoneChatUpdate.dc.html",
+    "PhoneInboxUpdate.dc.html",
+    "UpdateBand.dc.html",
+    "before/BeforeMain.dc.html"
   ],
   "pages": [
     {
@@ -1276,7 +1330,7 @@
       "y": 1940,
       "text": "ダイアログ、通知、ボタン",
       "kind": "title1",
-      "maxW": 2784,
+      "maxW": 3624,
       "page": "components"
     },
     "rowCloseFailure": {
@@ -1350,6 +1404,28 @@
       "maxW": 1330,
       "page": "status-panel",
       "text": "状況パネル · Tasks · iPhone で +N から開いたとき"
+    },
+    "rowUpdateBand": {
+      "kind": "title1",
+      "x": 0,
+      "y": 9990,
+      "maxW": 3900,
+      "page": "conversation",
+      "text": "新しいバージョンの通知 · 一番上の全幅の帯"
+    },
+    "diffUpdateBand": {
+      "x": 3980,
+      "y": 10290,
+      "w": 520,
+      "page": "conversation",
+      "text": "この行はすべて新しい画面\n- 新しいバージョンがあるときだけ、PC は画面の一番上に全幅 36px、iPhone はヘッダーのすぐ下に 52px の帯を出す\n- Reload で再読み込み。× は次の更新まで出さない\n- 既存の画面の見た目は変えていない (Nav、InboxList、Conversation、PhoneChat、PhoneInbox に既定で off の引数を足しただけ)\n- 部品ページに UpdateBand を追加"
+    },
+    "diffMain": {
+      "x": 3040,
+      "y": 0,
+      "w": 520,
+      "page": "inbox",
+      "text": "仕様のまとめの変更点\n- 画面の構成に、新しいバージョンの通知の帯の項目を 1 つ追加 (自動では再読み込みしない、× で次の更新まで出さない)\n- 左が新しいもの、右の Before が今の main"
     }
   },
   "v": 3,

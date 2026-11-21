@@ -21,6 +21,7 @@ body{margin:0}
 <button type="button" aria-label="New session" style="width: 36px; height: 36px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></button>
 <button type="button" aria-label="Jump to" style="width: 36px; height: 36px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg></button>
 </header>
+<sc-if value="{{update}}" hint-placeholder-val="{{ false }}"><div style="margin-top: 8px; border-top: 1px solid #1e3a5f"><dc-import name="UpdateBand" phone="{{ true }}" hint-size="100%,52px"></dc-import></div></sc-if>
 <h1 style="margin: 4px 16px 6px; font-size: 26px; font-weight: 700">Inbox</h1>
 <sc-if value="{{showEntry}}" hint-placeholder-val="{{ true }}">
 <div style="padding: 0 16px 6px"><button type="button" style="width: 100%; height: 44px; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 0 12px; border: 1px solid #2a2a2a; background: #141414; color: #8b8b94; font-family: inherit; font-size: 15px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"></path></svg><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Filter by project, kind, tq task, repo</span></button></div>
@@ -85,7 +86,7 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"activity":{"editor":null},"todoLater":{"editor":"boolean","default":false},"filtered":{"editor":"boolean","default":false},"swipe":{"editor":"boolean","default":false},"sheet":{"editor":"enum","options":["none","rowMenu","later","close","saveView"],"default":"none"},"$preview":{"width":390,"height":844}}'>
+<script type="text/x-dc" data-dc-script data-props='{"update":{"editor":"boolean","default":false},"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"activity":{"editor":null},"todoLater":{"editor":"boolean","default":false},"filtered":{"editor":"boolean","default":false},"swipe":{"editor":"boolean","default":false},"sheet":{"editor":"enum","options":["none","rowMenu","later","close","saveView"],"default":"none"},"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
     // close: a confirmed close of the Proposal row running in the background. 'closed' takes the row out.
@@ -110,6 +111,8 @@ class Component extends DCLogic {
     }));
     if (filtered) rows = rows.filter((r) => r.match);
     return {
+      // update: a new version is ready; the band sits right under the header.
+      update: this.props.update ?? false,
       rows, needCount: filtered ? 2 : close === 'closed' ? 5 : 6,
       showEntry: !filtered, filtered,
       laterCount: filtered ? 0 : 2, laterNext: filtered ? '' : 'in 2h ›',

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Close failed from the conversation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; display: flex; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" activity="{{ activity }}" hint-size="240px,900px"></dc-import></div>
+<div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" current="{{ one }}" hint-size="460px,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0"><dc-import name="Conversation" variant="review" done="{{ true }}" action-line="{{ line }}" hint-size="100%,900px"></dc-import></div>
+<div style="position: absolute; z-index: 10; right: 24px; bottom: 224px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,220px"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const checks = { path: '~/src/example/web-app/.worktrees/delivery-check', files: ['docs/overview.svg', 'docs/overview.png'], branch: 'feature/delivery-check', merged: false, reason: 'PR #2049 is still open', processes: [] };
+    return {
+      one: 1,
+      activity: { count: '1', tone: 'failure' },
+      line: { result: 'closeFailed', checks, time: '12:03' },
+      toasts: [{ result: 'closeFailed', session: '配信チェックの PR を確認する', checks }]
+    };
+  }
+}
+</script>
+</body>
+</html>

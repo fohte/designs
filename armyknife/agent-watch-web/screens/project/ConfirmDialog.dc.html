@@ -47,7 +47,7 @@ body{margin:0}
 </sc-if>
 
 <sc-if value="{{isSheet}}" hint-placeholder-val="{{ false }}">
-<section role="dialog" aria-modal="true" aria-label="{{head}}" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 18px 16px max(30px, env(safe-area-inset-bottom)); border-top: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 -12px 36px rgb(0 0 0 / 30%); color: #d4d4d8; font-size: 14px">
+<section role="dialog" aria-modal="true" aria-label="{{head}}" style="width: 100%; max-height: calc(100vh - 52px); overflow-y: auto; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 18px 16px max(30px, env(safe-area-inset-bottom)); border-top: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 -12px 36px rgb(0 0 0 / 30%); color: #d4d4d8; font-size: 14px">
 <h2 style="margin: 0; color: #fafafa; font-size: 15px; font-weight: 700">{{head}}</h2>
 <sc-if value="{{hasSession}}" hint-placeholder-val="{{ false }}"><div style="display: flex; align-items: center; gap: 8px; min-width: 0; font-size: 13px"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{s.radius}}; background: {{s.dot}}"></span><span style="flex: none; color: {{s.color}}">{{s.state}}</span><span style="min-width: 0; color: #fafafa; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{s.title}}</span></div></sc-if>
 <p style="margin: 0">{{body}}</p>

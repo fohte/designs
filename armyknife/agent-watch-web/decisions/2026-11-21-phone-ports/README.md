@@ -4,7 +4,7 @@ PC と iPhone の画面は 1 対 1 で描く。screens には、iPhone 版のな
 
 ## 変えたこと
 
-- 6 つの PC の画面の右に、それぞれの iPhone 版を足した。中身は PC と同じで、iPhone の部品と寸法 (本文 15px、押せるところは高さ 44px か 48px、ダイアログは下からのシート) に合わせただけ。
+- 6 つの PC の画面の右に、それぞれの iPhone 版 (`screens/` の PhoneMessageKinds、PhoneCards、PhoneDialogs、PhoneActionQueued、PhoneActionAway、PhoneNewSessionModelSwitch) を足した。状態は PC と同じで、iPhone の部品と寸法 (本文 15px、押せるところは高さ 44px か 48px、ダイアログは下からのシート) に合わせただけ。
 - 状態を並べた PC の画面 (MessageKinds、Cards、Dialogs) は、同じ状態を幅 390px で縦に並べた 1 枚にした。
 - ConfirmDialog の sheet に、modal と panel にあった code (コミットのハッシュ) と details (作業ディレクトリとコマンド) を足した。iPhone の Merge の確認と ! コマンドの確認に使う。
 

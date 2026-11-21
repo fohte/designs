@@ -515,7 +515,7 @@
     },
     "ActionRunning.dc.html": {
       "x": 0,
-      "y": 12420,
+      "y": 14540,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · Merge と Close を裏で実行中",
@@ -523,7 +523,7 @@
     },
     "ActionSuccess.dc.html": {
       "x": 2460,
-      "y": 12420,
+      "y": 14540,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · Merge と Close が成功",
@@ -531,7 +531,7 @@
     },
     "ActionFailure.dc.html": {
       "x": 4450,
-      "y": 12420,
+      "y": 14540,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · Merge と Close が失敗",
@@ -539,7 +539,7 @@
     },
     "ActionQueued.dc.html": {
       "x": 0,
-      "y": 13740,
+      "y": 15860,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · マージキューに入った (PR の一覧を開いた状態)",
@@ -547,7 +547,7 @@
     },
     "ActionAway.dc.html": {
       "x": 1520,
-      "y": 13740,
+      "y": 15860,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · 別のセッションに移っている間に終わった",
@@ -555,7 +555,7 @@
     },
     "ActionActivity.dc.html": {
       "x": 3040,
-      "y": 13740,
+      "y": 15860,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · Activity を開いた",
@@ -563,7 +563,7 @@
     },
     "PhoneActionRunning.dc.html": {
       "x": 1520,
-      "y": 12420,
+      "y": 14540,
       "w": 390,
       "h": 844,
       "title": "iPhone · PR の一覧から Merge して実行中",
@@ -571,7 +571,7 @@
     },
     "PhoneActionSuccess.dc.html": {
       "x": 3980,
-      "y": 12420,
+      "y": 14540,
       "w": 390,
       "h": 844,
       "title": "iPhone · Merge が成功",
@@ -579,7 +579,7 @@
     },
     "PhoneActionFailure.dc.html": {
       "x": 5970,
-      "y": 12420,
+      "y": 14540,
       "w": 390,
       "h": 844,
       "title": "iPhone · Merge が失敗",
@@ -587,7 +587,7 @@
     },
     "PhoneActionClose.dc.html": {
       "x": 1990,
-      "y": 12420,
+      "y": 14540,
       "w": 390,
       "h": 844,
       "title": "iPhone · Close を裏で実行中",
@@ -595,7 +595,7 @@
     },
     "PhoneActionActivity.dc.html": {
       "x": 4560,
-      "y": 13740,
+      "y": 15860,
       "w": 390,
       "h": 844,
       "title": "iPhone · Activity を開いた",
@@ -603,7 +603,7 @@
     },
     "ActionCopy.dc.html": {
       "x": 5030,
-      "y": 13740,
+      "y": 15860,
       "w": 1640,
       "h": 1400,
       "title": "確定したあとの結果 · 種類ごとの文言",
@@ -627,7 +627,7 @@
     },
     "CloseFailConversation.dc.html": {
       "x": 0,
-      "y": 8080,
+      "y": 12420,
       "w": 1440,
       "h": 900,
       "title": "Close が失敗 · 会話から閉じた (Done の Close、⋯ の Close session…、⌘K の Close this session)",
@@ -635,7 +635,7 @@
     },
     "PhoneCloseFail.dc.html": {
       "x": 1520,
-      "y": 8080,
+      "y": 12420,
       "w": 390,
       "h": 844,
       "title": "iPhone · Close が失敗",
@@ -643,7 +643,7 @@
     },
     "CloseFailInbox.dc.html": {
       "x": 1990,
-      "y": 8080,
+      "y": 12420,
       "w": 1440,
       "h": 900,
       "title": "Close が失敗 · Inbox の e で、開いていないセッションを閉じた",
@@ -651,7 +651,7 @@
     },
     "CloseFailActivity.dc.html": {
       "x": 3510,
-      "y": 8080,
+      "y": 12420,
       "w": 1440,
       "h": 900,
       "title": "Close が失敗 · Details で Activity を開いた (3 つの確認を全部並べる)",
@@ -659,7 +659,7 @@
     },
     "PhoneCloseFailActivity.dc.html": {
       "x": 5030,
-      "y": 8080,
+      "y": 12420,
       "w": 390,
       "h": 844,
       "title": "iPhone · Close が失敗して Activity を開いた",
@@ -667,7 +667,7 @@
     },
     "CloseFailCopy.dc.html": {
       "x": 5500,
-      "y": 8080,
+      "y": 12420,
       "w": 1440,
       "h": 1700,
       "title": "Close の失敗 · 残っているものごとの文言",
@@ -892,7 +892,7 @@
     },
     "rowActionResult": {
       "x": 0,
-      "y": 12120,
+      "y": 14240,
       "text": "Merge と Close を裏で実行 · 実行中、成功、失敗",
       "kind": "title1",
       "maxW": 6360,
@@ -900,7 +900,7 @@
     },
     "rowActionMore": {
       "x": 0,
-      "y": 13440,
+      "y": 15560,
       "text": "Merge と Close を裏で実行 · キュー、別セッション、Activity、文言",
       "kind": "title1",
       "maxW": 6670,
@@ -929,6 +929,14 @@
       "kind": "title1",
       "maxW": 2784,
       "page": "components"
+    },
+    "rowCloseFailure": {
+      "x": 0,
+      "y": 12120,
+      "text": "セッションを閉じる · Close の失敗",
+      "kind": "title1",
+      "maxW": 8930,
+      "page": "conversation"
     }
   },
   "v": 3,
@@ -963,6 +971,7 @@
     "rowHeaderPrs",
     "rowHeaderVibe",
     "rowCloseSession",
+    "rowCloseFailure",
     "rowActionResult",
     "rowActionMore",
     "rowPartsLayout",

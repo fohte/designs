@@ -64,6 +64,9 @@ body{margin:0}
 <sc-if value="{{isReview}}" hint-placeholder-val="{{ false }}">
 <article style="color: #d4d4d8">再送処理を <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">retry()</code> にまとめて PR #2050 を作りました。crit で差分を見てください。</article>
 <button type="button" aria-expanded="false" style="width: 100%; min-height: 44px; margin: -14px 0 0; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13px; text-align: left"><span style="flex: none; color: #d4d4d8; font-style: italic">Thought ×2</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Edit client.ts · Read ×3 · Shell ×2</span><span aria-hidden="true" style="flex: none; color: #71717a">›</span></button>
+<sc-if value="{{webUiLink}}" hint-placeholder-val="{{ false }}">
+<article style="color: #d4d4d8">画面の案を canvas に描きました。<a href="{{webUrl}}" style="white-space: nowrap; color: #ef4444; text-decoration: underline; text-underline-offset: 2px">案のページ<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 5px; padding: 0 5px; background: #262626; color: #d4d4d8; font-size: 12.5px; line-height: 20px; vertical-align: 1px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path></svg>canvas</span></a> で比べてください。前提は <a href="https://docs.example.com/notify/preflight" target="_blank" rel="noopener noreferrer" style="color: #ef4444; text-decoration: underline; text-underline-offset: 2px">設計メモ</a> にあります。</article>
+</sc-if>
 <sc-if value="{{hasVibeEvents}}" hint-placeholder-val="{{ false }}">
 <sc-for list="{{vibeEvents}}" as="e" hint-placeholder-count="2">
 <div style="text-align: center; font-size: 11px; color: #a1a1aa">{{e}}</div>
@@ -122,7 +125,7 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"vibeEvents":{"editor":null}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false}}'>
 class Component extends DCLogic {
   renderVals() {
     const menuOpen = this.props.menuOpen ?? false;
@@ -146,6 +149,9 @@ class Component extends DCLogic {
     const mergeState = this.props.mergeState ?? 'idle';
     const toasts = this.props.toasts ?? [];
     return {
+      // webUiLink: a message whose link points at a registered web UI; the chip names the tab it opens in.
+      webUiLink: this.props.webUiLink ?? false,
+      webUrl: 'http://127.0.0.1:4720/design/k3x9/#page-options',
       toasts, toastsOverSheet: toasts.length > 0 && prsOpen, toastsInline: toasts.length > 0 && !prsOpen,
       actionLine: this.props.actionLine ?? null, hasActionLine: !!this.props.actionLine,
       // vibeEvents: lines like 'Vibe mode turned on · 10:14'. The switch reaches the session as a message but draws as an event, not as You.

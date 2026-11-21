@@ -810,6 +810,46 @@
       "h": 844,
       "title": "iPhone · ナビゲーションの Activity (quota の上)",
       "page": "conversation"
+    },
+    "WebUiLink.dc.html": {
+      "x": 0,
+      "y": 18170,
+      "w": 1440,
+      "h": 900,
+      "title": "会話の中の web UI のリンク · 後ろに開く先のタブ名",
+      "page": "conversation"
+    },
+    "PhoneChatWebUiLink.dc.html": {
+      "x": 1520,
+      "y": 18170,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 会話の中の web UI のリンク",
+      "page": "conversation"
+    },
+    "WebUiFull.dc.html": {
+      "x": 1990,
+      "y": 18170,
+      "w": 1440,
+      "h": 900,
+      "title": "web UI のリンクを押した · web UI を全画面で開く",
+      "page": "conversation"
+    },
+    "PhoneWebUiFull.dc.html": {
+      "x": 3510,
+      "y": 18170,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · web UI のリンクを押した · web UI だけのページを重ねる",
+      "page": "conversation"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 1500,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
     }
   },
   "order": [
@@ -914,7 +954,12 @@
     "CloseFailInbox.dc.html",
     "CloseFailActivity.dc.html",
     "PhoneCloseFailActivity.dc.html",
-    "CloseFailCopy.dc.html"
+    "CloseFailCopy.dc.html",
+    "WebUiLink.dc.html",
+    "PhoneChatWebUiLink.dc.html",
+    "WebUiFull.dc.html",
+    "PhoneWebUiFull.dc.html",
+    "before/BeforeMain.dc.html"
   ],
   "pages": [
     {
@@ -1093,6 +1138,28 @@
       "kind": "title1",
       "maxW": 8930,
       "page": "conversation"
+    },
+    "rowWebUiLink": {
+      "kind": "title1",
+      "x": 0,
+      "y": 17870,
+      "maxW": 3900,
+      "page": "conversation",
+      "text": "会話の中の web UI のリンク · 開く先のタブ名と、押したあとの全画面"
+    },
+    "diffWebUiLink": {
+      "x": 3980,
+      "y": 18170,
+      "w": 480,
+      "page": "conversation",
+      "text": "この PR で足した画面\n- 会話の中の web UI のリンク (PC / iPhone): URL が登録済みの web UI の URL なら、リンクの後ろに開く先のタブ名のチップ (canvas) を出す。ふつうのリンク (設計メモ) はそのまま\n- 押したあと (PC): crit の Review in crit と同じく、その web UI のタブを全画面で開く。タブの列は出さない。↙ で状況パネルの中に戻り、× で閉じる\n- 押したあと (iPhone): タブのない web UI だけのページを会話の上に重ねる。戻るで会話へ\n- 会話のリンクからはブラウザの新しいタブを開かない。新しいタブへは web UI のヘッダーの URL (PC) と ↗ (iPhone) から開く\n\n既存の画面の見た目は変えていない"
+    },
+    "diffMain": {
+      "x": 3040,
+      "y": 0,
+      "w": 520,
+      "page": "inbox",
+      "text": "変更点 (左が変更後、右が変更前)\n- 会話: web UI のリンクの項目を足した。登録済みの web UI の URL のリンクは後ろに開く先のタブ名のチップを出す。押すと crit と同じく watch-web の中でそのタブを全画面で開き、iPhone は web UI だけのページを重ねる。ブラウザの新しいタブへは web UI のヘッダーからだけ開く"
     }
   },
   "v": 3,

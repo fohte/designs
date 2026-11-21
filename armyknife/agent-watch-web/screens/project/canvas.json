@@ -842,30 +842,6 @@
       "h": 844,
       "title": "iPhone · web UI のリンクを押した · web UI だけのページを重ねる",
       "page": "conversation"
-    },
-    "before/BeforePhoneWebUiFull.dc.html": {
-      "x": 3980,
-      "y": 18170,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · web UI のリンクを押した · web UI だけのページを重ねる",
-      "page": "conversation"
-    },
-    "before/BeforePhoneStatusPanel.dc.html": {
-      "x": 0,
-      "y": 2720,
-      "w": 390,
-      "h": 844,
-      "title": "Before · PhoneStatusPanel",
-      "page": "components"
-    },
-    "before/BeforeSessionRow.dc.html": {
-      "x": 470,
-      "y": 2720,
-      "w": 460,
-      "h": 76,
-      "title": "Before · SessionRow",
-      "page": "components"
     }
   },
   "order": [
@@ -974,10 +950,7 @@
     "WebUiLink.dc.html",
     "PhoneChatWebUiLink.dc.html",
     "WebUiFull.dc.html",
-    "PhoneWebUiFull.dc.html",
-    "before/BeforePhoneWebUiFull.dc.html",
-    "before/BeforePhoneStatusPanel.dc.html",
-    "before/BeforeSessionRow.dc.html"
+    "PhoneWebUiFull.dc.html"
   ],
   "pages": [
     {
@@ -1164,13 +1137,6 @@
       "maxW": 3900,
       "page": "conversation",
       "text": "会話の中の web UI のリンク · 開く先のタブ名と、押したあとの全画面"
-    },
-    "diffPhoneWebUiFull": {
-      "x": 4450,
-      "y": 18170,
-      "w": 460,
-      "page": "conversation",
-      "text": "Before (左) からの違い\n- 左上の ‹ (Back to the conversation) をなくした\n- 名前と URL を左端から 16px の余白で始める\n- 右上に ↗ (Open in a new tab) と × (Close web UI) を並べ、× で会話に戻る\n- 状況パネル (タブのあるページ) の ‹ は変えていない"
     }
   },
   "v": 3,

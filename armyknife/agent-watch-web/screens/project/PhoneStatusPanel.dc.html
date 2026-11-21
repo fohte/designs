@@ -144,15 +144,18 @@ test retry::backs_off ... ok</pre>
 </section>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"canvasTab":{"editor":"boolean","default":false},"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit","canvas"],"default":"running"},"linked":{"editor":"boolean","default":false},"full":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
+<script type="text/x-dc" data-dc-script data-props='{"canvasTab":{"editor":"boolean","default":false},"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit","canvas"],"default":"running"},"linked":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"full":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
     // A full-screen page pushed over the conversation; the back button returns to it.
     const tab = this.props.tab ?? 'running';
     const linked = this.props.linked ?? false;
+    // tasks many: opened from the conversation's +3; the tasks that are not primary are emphasized so the one to switch to stands out.
+    const many = (this.props.tasks ?? 'one') === 'many';
+    const mt = (no, title, meta, primary) => ({ no, title, meta, primary, make: !primary, bg: primary ? 'transparent' : '#1f1f1f', bar: primary ? 'none' : 'inset 2px 0 0 #60a5fa' });
     const T = [
       ['running', 'Running', '2', '#60a5fa'],
-      ['tasks', 'Tasks', linked ? '14' : '13', '#8b8b94'],
+      ['tasks', 'Tasks', many ? '16' : linked ? '14' : '13', '#8b8b94'],
       ['tree', 'Tree', '1', '#fbbf24'],
       ['review', 'Review', '', '#8b8b94'],
       ['decisions', 'Decisions', '1', '#fbbf24'],
@@ -188,7 +191,9 @@ class Component extends DCLogic {
       tabs,
       isRunning: tab === 'running',
       isTasks: tab === 'tasks',
-      openTasks: linked
+      openTasks: many
+        ? [mt('#2048', '通知の信頼性を上げる', 'P1 · service', true), mt('#2051', '配信ログを見直す', 'P2 · service', false), mt('#2055', '監視を整える', 'P3 · service', false), mt('#2057', '送信の失敗を記録する', 'P2 · web-app', false)]
+        : linked
         ? [{ no: '#2055', title: '監視を整える', meta: 'P3 · service', primary: true, make: false, bg: 'transparent', bar: 'none' }, { no: '#2051', title: '配信ログを見直す', meta: 'P2 · service', primary: false, make: true, bg: '#1f1f1f', bar: 'inset 2px 0 0 #60a5fa' }]
         : [{ no: '#2048', title: '通知の信頼性を上げる', meta: 'P1 · service', primary: true, make: false, bg: 'transparent', bar: 'none' }],
       doneTasks: [['#2047', '再送の上限を設定に出す', '1h'], ['#2046', '送信キューを分ける', '2h'], ['#2043', '失敗時の記録を残す', '1d'], ['#2041', '再送のテストを足す', '2d']]

@@ -1,8 +1,14 @@
 {
   "v": 3,
-  "createdOnFiles": { "v": 1, "at": "2026-11-21T12:00:00Z" },
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-21T12:00:00Z"
+  },
   "title": "explore: スマホの会話のトップバー",
-  "launch": { "view": "canvas", "page": "options" },
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
   "designSystems": [
     {
       "title": "agent watch",
@@ -13,18 +19,80 @@
     }
   ],
   "pages": [
-    { "id": "options", "name": "案" },
-    { "id": "parts", "name": "部品" }
+    {
+      "id": "options",
+      "name": "案"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
   ],
   "boards": {
-    "phone-topbar-current.dc.html": { "x": 0, "y": 0, "w": 1620, "h": 880, "title": "Current · 右上にボタンが最大 4 つ", "page": "options" },
-    "phone-topbar-a.dc.html": { "x": 0, "y": 1240, "w": 1620, "h": 880, "title": "A · ‹ を ☰ にする", "page": "options" },
-    "phone-topbar-b.dc.html": { "x": 0, "y": 2480, "w": 1620, "h": 880, "title": "B · A + PR を状況パネルのボタンにまとめる", "page": "options" },
-    "phone-topbar-c.dc.html": { "x": 0, "y": 3720, "w": 1620, "h": 880, "title": "C · A + タイトルを押すと状況パネル", "page": "options" },
-    "PhoneTopbar.dc.html": { "x": 0, "y": 0, "w": 390, "h": 844, "title": "PhoneTopbar", "page": "parts" },
-    "ActivityButton.dc.html": { "x": 470, "y": 0, "w": 224, "h": 44, "title": "ActivityButton", "page": "parts" },
-    "StatusBand.dc.html": { "x": 470, "y": 164, "w": 760, "h": 60, "title": "StatusBand", "page": "parts" },
-    "SessionUsage.dc.html": { "x": 470, "y": 344, "w": 672, "h": 40, "title": "SessionUsage", "page": "parts" }
+    "phone-topbar-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1620,
+      "h": 880,
+      "title": "Current · 右上にボタンが最大 4 つ",
+      "page": "options"
+    },
+    "phone-topbar-a.dc.html": {
+      "x": 0,
+      "y": 1240,
+      "w": 1620,
+      "h": 880,
+      "title": "A · ‹ を ☰ にする",
+      "page": "options"
+    },
+    "phone-topbar-b.dc.html": {
+      "x": 0,
+      "y": 2480,
+      "w": 1620,
+      "h": 880,
+      "title": "B · A + PR を状況パネルのボタンにまとめる",
+      "page": "options"
+    },
+    "phone-topbar-c.dc.html": {
+      "x": 0,
+      "y": 3720,
+      "w": 1620,
+      "h": 880,
+      "title": "C · A + タイトルを押すと状況パネル",
+      "page": "options"
+    },
+    "PhoneTopbar.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneTopbar",
+      "page": "parts"
+    },
+    "ActivityButton.dc.html": {
+      "x": 470,
+      "y": 0,
+      "w": 224,
+      "h": 44,
+      "title": "ActivityButton",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 470,
+      "y": 164,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 470,
+      "y": 344,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    }
   },
   "order": [
     "phone-topbar-current.dc.html",
@@ -37,30 +105,88 @@
     "SessionUsage.dc.html"
   ],
   "notes": {
-    "current": { "kind": "title1", "x": 0, "y": -260, "maxW": 1620, "page": "options", "text": "Current · ヘッダー 81px、タイトルは約 100px" },
-    "optA": { "kind": "title1", "x": 0, "y": 980, "maxW": 1620, "page": "options", "text": "A · ‹ 戻るを ☰ にして、どこからでもナビを開く" },
-    "optB": { "kind": "title1", "x": 0, "y": 2220, "maxW": 1620, "page": "options", "text": "B · A に加えて、PR を状況パネルのボタンにまとめる" },
-    "optC": { "kind": "title1", "x": 0, "y": 3460, "maxW": 1620, "page": "options", "text": "C · A に加えて、状況パネルはタイトルを押して開く" },
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1620,
+      "page": "options",
+      "text": "Current · ヘッダー 81px、タイトルは約 100px"
+    },
+    "optA": {
+      "kind": "title1",
+      "x": 0,
+      "y": 980,
+      "maxW": 1620,
+      "page": "options",
+      "text": "A · ‹ 戻るを ☰ にして、どこからでもナビを開く"
+    },
+    "optB": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2220,
+      "maxW": 1620,
+      "page": "options",
+      "text": "B · A に加えて、PR を状況パネルのボタンにまとめる"
+    },
+    "optC": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3460,
+      "maxW": 1620,
+      "page": "options",
+      "text": "C · A に加えて、状況パネルはタイトルを押して開く"
+    },
     "inventory": {
-      "x": 1700, "y": 0, "w": 520, "fill": "yellow", "page": "options",
+      "x": 1700,
+      "y": 0,
+      "w": 520,
+      "fill": "yellow",
+      "page": "options",
       "text": "今のヘッダーにあるもの\n1 段目 (44px)\n- ‹ 戻る: 常に\n- ★: スター付きのとき\n- タイトル: 常に。入りきらないと … で切る\n- ⚡: vibe on は塗り、引き継ぎは線、off は出ない\n- Activity: 操作が走ったあと (phone-activity の決定でナビへ移るので、どの案にも出さない)\n- PR: PR があるとき。CI の点と数\n- 状況パネル: 常に\n- …: 常に\n2 段目 (24px)\n- 主の tq タスク · ディレクトリ: タスクがあるとき。+N はない (header-tasks の決定どおり、どの案も変えない)\n\n今は右上 4 つで 200px を取り、タイトルは約 100px。Activity が抜けるだけで右上は 3 つ、タイトルは約 150px\n\nデータはすべて架空"
     },
     "activityGone": {
-      "x": 1700, "y": 640, "w": 520, "fill": "gray", "page": "options",
-      "text": "phone-activity の決定で Activity はナビの quota の上だけに移る。ここの Current はその前の今の画面で、比べるために残している"
+      "x": 1700,
+      "y": 640,
+      "w": 520,
+      "fill": "gray",
+      "page": "options",
+      "text": "phone-activity の決定で Activity はナビの quota の上だけに移る。A / B / C では ☰ からナビを開いて Activity の一覧に入る。ここの Current はその前の今の画面で、比べるために残している"
     },
     "noteA": {
-      "x": 1700, "y": 1240, "w": 520, "fill": "yellow", "page": "options",
-      "text": "A の置き場所\n- ☰: ‹ 戻るの位置。押すとナビのドロワー。Activity の失敗中は赤い印 (Inbox の ☰ と同じ)\n- ★ / タイトル / ⚡ / PR / 状況パネル / …: 今のまま\n- Inbox へは ☰ → Inbox、または左端からのスワイプで戻る\n\nヘッダー 81px、右上 3 つ、タイトル約 150px\n+ 今からの差が一番小さい\n+ どの画面でも左上を押せばナビが開く\n- タイトルは今の 1.5 倍どまり\n- Inbox へ戻るのが 1 回多い"
+      "x": 1700,
+      "y": 1240,
+      "w": 520,
+      "fill": "yellow",
+      "page": "options",
+      "text": "A の置き場所\n- ☰: ‹ 戻るの位置。押すとナビのドロワー。Activity の失敗中は赤い印 (phone-activity の決定で Inbox の ☰ に付けるものと同じ)\n- ★ / タイトル / ⚡ / PR / 状況パネル / …: 今のまま\n- Inbox へは ☰ → Inbox、または左端からのスワイプで戻る\n\nヘッダー 81px、右上 3 つ、タイトル約 150px\n+ 今からの差が一番小さい\n+ どの画面でも左上を押せばナビが開く\n- タイトルは今の 1.5 倍どまり\n- Inbox へ戻るのが 1 回多い"
     },
     "noteB": {
-      "x": 1700, "y": 2480, "w": 520, "fill": "yellow", "page": "options",
+      "x": 1700,
+      "y": 2480,
+      "w": 520,
+      "fill": "yellow",
+      "page": "options",
       "text": "B の置き場所\n- ☰: A と同じ\n- PR: 状況パネルのボタンに CI の点と数を出す。パネルの先頭に PR の一覧を足す\n- …: 今のまま\n\nヘッダー 81px、右上 2 つ、タイトル約 200px\n+ PR の CI はヘッダーで見えたまま\n+ PR の有無でボタンの数が変わらない\n- PR を開くのが 1 回多い (パネル → PR)\n- 状況パネルに PR の欄を足す必要がある (PC の形とずれる)\n\nC と重ねられる"
     },
     "noteC": {
-      "x": 1700, "y": 3720, "w": 520, "fill": "yellow", "page": "options",
+      "x": 1700,
+      "y": 3720,
+      "w": 520,
+      "fill": "yellow",
+      "page": "options",
       "text": "C の置き場所\n- ☰: A と同じ\n- 状況パネル: ボタンをなくし、タイトルを押すと開く (› で示す)\n- PR / …: 今のまま\n- タスクの行は今のままで、押すと tq タスクを開く\n\nヘッダー 81px、右上 2 つ (PR なしは 1 つ)、タイトル約 180px (PR なしは約 230px)\n+ PR は今と同じ 1 回で開ける\n+ パネルの中は変えない\n- 状況パネルの入口がボタンに見えにくい\n\nB と重ねると右上は … だけ、タイトル約 230px (右端の画面)"
     }
   },
-  "noteOrder": ["current", "optA", "optB", "optC", "inventory", "activityGone", "noteA", "noteB", "noteC"]
+  "noteOrder": [
+    "current",
+    "optA",
+    "optB",
+    "optC",
+    "inventory",
+    "activityGone",
+    "noteA",
+    "noteB",
+    "noteC"
+  ]
 }

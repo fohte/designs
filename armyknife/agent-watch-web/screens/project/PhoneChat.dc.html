@@ -102,7 +102,7 @@ body{margin:0}
 
 <sc-if value="{{vibeOpen}}" hint-placeholder-val="{{ false }}">
 <div style="position: absolute; inset: 0; z-index: 30; display: flex; flex-direction: column; justify-content: flex-end; background: rgba(0, 0, 0, 0.55)">
-<dc-import name="ConfirmDialog" form="sheet" head="{{vibeHead}}" body="{{vibeBody}}" quote="{{ vibeQuote }}" action="{{vibeAction}}" cancel="{{vibeCancel}}" hint-size="100%,300px"></dc-import>
+<dc-import name="ConfirmDialog" form="sheet" head="{{vibeHead}}" body="{{vibeBody}}" action="{{vibeAction}}" cancel="{{vibeCancel}}" hint-size="100%,300px"></dc-import>
 </div>
 </sc-if>
 
@@ -131,11 +131,11 @@ class Component extends DCLogic {
     const repo = 'example/service';
     const parent = '通知まわりの改修';
     const VB = {
-      on: { text: 'Vibe on', sub: '', head: 'Vibe mode is on', body: 'This session may merge PRs and submit without human review in ' + repo + '. Its child sessions launched with --vibe inherit it.', send: 'Vibe mode is now off for this session. Wait for human review before merging PRs or submitting.', action: 'Turn off and send' },
-      inherited: { text: 'Vibe on · inherited', sub: 'from ' + parent, head: 'Vibe mode is on · inherited', body: 'Inherited from the parent session ' + parent + '. Turn it on here too to keep it on after that session turns it off.', send: 'Vibe mode is now on for this session too. In ' + repo + ' you may merge PRs and submit without waiting for human review.', action: 'Turn on here and send' },
-      off: { text: 'Vibe off', sub: '', head: 'Vibe mode is off', body: 'Turn it on to let this session merge PRs and submit without human review in ' + repo + '. Its child sessions launched with --vibe inherit it.', send: 'Vibe mode is now on for this session. In ' + repo + ' you may merge PRs and submit without waiting for human review.', action: 'Turn on and send' },
-      onParent: { text: 'Vibe on', sub: 'also on in ' + parent, head: 'Vibe mode is on', body: 'Set on this session. ' + parent + ' also has it on, so after you turn it off here it stays on (inherited).', send: 'Vibe mode is now off for this session, but it stays on: it is inherited from the ancestor session ' + parent + '.', action: 'Turn off here and send' },
-      unavailable: { text: 'Vibe unavailable', sub: repo + ' does not allow it', head: 'Vibe mode is unavailable', body: repo + ' does not allow vibe mode, so it cannot be turned on here. Change the repository setting to allow it.', send: '', action: '' }
+      on: { text: 'Vibe on', sub: '', head: 'Vibe mode is on', body: 'This session may merge PRs and submit without human review in ' + repo + '. Its child sessions launched with --vibe inherit it.', action: 'Turn off' },
+      inherited: { text: 'Vibe on · inherited', sub: 'from ' + parent, head: 'Vibe mode is on · inherited', body: 'Inherited from the parent session ' + parent + '. Turn it on here too to keep it on after that session turns it off.', action: 'Turn on here' },
+      off: { text: 'Vibe off', sub: '', head: 'Vibe mode is off', body: 'Turn it on to let this session merge PRs and submit without human review in ' + repo + '. Its child sessions launched with --vibe inherit it.', action: 'Turn on' },
+      onParent: { text: 'Vibe on', sub: 'also on in ' + parent, head: 'Vibe mode is on', body: 'Set on this session. ' + parent + ' also has it on, so after you turn it off here it stays on (inherited).', action: 'Turn off here' },
+      unavailable: { text: 'Vibe unavailable', sub: repo + ' does not allow it', head: 'Vibe mode is unavailable', body: repo + ' does not allow vibe mode, so it cannot be turned on here. Change the repository setting to allow it.', action: '' }
     }[vibe];
     const ended = this.props.ended ?? 'no';
     const resuming = ended === 'resuming';
@@ -150,7 +150,7 @@ class Component extends DCLogic {
       activityItems: this.props.activityItems ?? [],
       toasts, toastsOverSheet: toasts.length > 0 && prsOpen, toastsInline: toasts.length > 0 && !prsOpen,
       actionLine: this.props.actionLine ?? null, hasActionLine: !!this.props.actionLine,
-      vibeText: VB.text, vibeSub: VB.sub, vibeHead: VB.head, vibeBody: VB.body, vibeSend: VB.send, vibeAction: VB.action,
+      vibeText: VB.text, vibeSub: VB.sub, vibeHead: VB.head, vibeBody: VB.body, vibeAction: VB.action,
       cMark: vibeOn,
       zapShown: vibe !== 'unavailable', zapOffShown: vibe === 'unavailable',
       zapColor: vibeOn || vibeOpen ? '#fafafa' : '#71717a',
@@ -158,7 +158,6 @@ class Component extends DCLogic {
       menuState: { on: 'On', onParent: 'On', inherited: 'On · inherited', off: 'Off', unavailable: 'Unavailable' }[vibe],
       vibeOpen, vibeOpenStr: vibeOpen ? 'true' : 'false',
       zapFill: vibe === 'on' || vibe === 'onParent' ? 'currentColor' : 'none',
-      vibeQuote: vibe === 'unavailable' ? null : { label: 'Sent to the session', text: VB.send },
       vibeCancel: vibe === 'unavailable' ? 'Close' : 'Cancel',
       closeConfirm: this.props.closeConfirm ?? false,
       closeSession: { state: 'Question', dot: '#fbbf24', round: false, color: '#fbbf24', title: '通知の再送処理を見直す' },

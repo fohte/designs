@@ -24,7 +24,7 @@ body{margin:0}
 <button type="button" aria-label="Open session status panel" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid #3f3f46; background: transparent; color: #60a5fa"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path><path d="m10 15-3-3 3-3"></path></svg></button>
 <button type="button" aria-label="More actions" aria-haspopup="menu" aria-expanded="{{menuOpenStr}}" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 1px solid {{menuBorder}}; background: {{menuBg}}; color: #fafafa"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
 </div>
-<div style="grid-column: 1 / -1; min-width: 0; min-height: {{lineH}}; display: flex; align-items: center; gap: 8px; padding: 0 0 0 14px"><a href="#" style="min-width: 0; display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa; text-decoration: none; white-space: nowrap"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">#2048 通知の信頼性を上げる</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: none">service</span></a><sc-if value="{{showMore}}" hint-placeholder-val="{{ false }}"><button type="button" aria-haspopup="dialog" aria-expanded="{{tasksOpenStr}}" aria-label="3 more tasks for this session" style="flex: none; height: 36px; min-width: 44px; padding: 0 10px; border: 1px solid {{tasksBorder}}; background: {{tasksBg}}; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">+3</button></sc-if></div>
+<div style="grid-column: 1 / -1; min-width: 0; min-height: {{lineH}}; display: flex; align-items: center; gap: 8px; padding: 0 0 0 14px"><a href="#" style="min-width: 0; display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa; text-decoration: none; white-space: nowrap"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">#2048 通知の信頼性を上げる</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: none">service</span></a><sc-if value="{{showMore}}" hint-placeholder-val="{{ false }}"><button type="button" aria-haspopup="dialog" aria-expanded="{{tasksOpenStr}}" aria-label="3 more tasks for this session" style="flex: none; height: 36px; min-width: 44px; padding: {{morePad}}; border: {{moreBorder}}; background: {{moreBg}}; color: {{moreColor}}; font-family: 'JetBrains Mono', monospace; font-size: {{moreSize}}; text-align: {{moreAlign}}">+3</button></sc-if></div>
 </header>
 <sc-if value="{{menuOpen}}">
 <div role="menu" aria-label="Session actions" lang="en" style="position: absolute; top: {{menuTop}}; right: 8px; z-index: 20; width: 248px; display: flex; flex-direction: column; border: 1px solid #2a2a2a; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%)">
@@ -127,7 +127,7 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"activity":{"editor":null},"activityOpen":{"editor":"boolean","default":false},"activityItems":{"editor":null},"toasts":{"editor":null},"actionLine":{"editor":null},"taskOpt":{"editor":"enum","options":["current","a","b","c"],"default":"current"},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"tasksOpen":{"editor":"boolean","default":false}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"activity":{"editor":null},"activityOpen":{"editor":"boolean","default":false},"activityItems":{"editor":null},"toasts":{"editor":null},"actionLine":{"editor":null},"taskOpt":{"editor":"enum","options":["current","a","b","c","pc"],"default":"current"},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"tasksOpen":{"editor":"boolean","default":false}}'>
 class Component extends DCLogic {
   renderVals() {
     const menuOpen = this.props.menuOpen ?? false;
@@ -153,13 +153,18 @@ class Component extends DCLogic {
     const activity = this.props.activity ?? null;
     const activityOpen = this.props.activityOpen ?? false;
     const toasts = this.props.toasts ?? [];
-    // taskOpt: current = the primary task line only; a = +N on that line; b = a tasks button in the top bar; c = Tasks in the actions menu.
+    // taskOpt: current = the primary task line only; a = +N on that line; b = a tasks button in the top bar; c = Tasks in the actions menu; pc = +N drawn as the PC header's +N.
     const taskOpt = this.props.taskOpt ?? 'current';
     const manyTasks = (this.props.tasks ?? 'one') === 'many';
     const tasksOpen = this.props.tasksOpen ?? false;
-    const showMore = taskOpt === 'a' && manyTasks;
+    const pcMore = taskOpt === 'pc';
+    const showMore = (taskOpt === 'a' || pcMore) && manyTasks;
     return {
-      showMore, showChip: taskOpt === 'b' && manyTasks, menuTasks: taskOpt === 'c',
+      showMore,
+      // pc: borderless grey text like the PC header's +N; the 44px-wide hit area stays, the text sits at its left edge.
+      morePad: pcMore ? '0 6px' : '0 10px', moreBorder: pcMore ? '0' : '1px solid ' + (tasksOpen ? '#a1a1aa' : '#3f3f46'),
+      moreBg: pcMore ? 'transparent' : tasksOpen ? '#262626' : 'transparent', moreColor: pcMore ? '#8b8b94' : '#d4d4d8',
+      moreSize: pcMore ? '12px' : '11.5px', moreAlign: pcMore ? 'left' : 'center', showChip: taskOpt === 'b' && manyTasks, menuTasks: taskOpt === 'c',
       taskCount: manyTasks ? '4' : '1', taskCountKey: manyTasks ? 'many' : 'one',
       lineH: showMore ? '36px' : '24px', menuTop: showMore ? '96px' : '84px',
       tasksOpen, tasksOpenStr: tasksOpen ? 'true' : 'false',

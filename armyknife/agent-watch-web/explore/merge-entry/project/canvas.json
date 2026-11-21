@@ -308,6 +308,86 @@
       "title": "C · iPhone · マージできる PR が 2 つ",
       "page": "options"
     },
+    "merge-entry-ac-ready.dc.html": {
+      "x": 0,
+      "y": 5200,
+      "w": 1440,
+      "h": 900,
+      "title": "A+C · PC · マージできる (PR 一覧を開いた)",
+      "page": "options"
+    },
+    "merge-entry-ac-ready-phone.dc.html": {
+      "x": 1520,
+      "y": 5200,
+      "w": 390,
+      "h": 844,
+      "title": "A+C · iPhone · マージできる (PR 一覧を開いた)",
+      "page": "options"
+    },
+    "merge-entry-ac-merging.dc.html": {
+      "x": 1990,
+      "y": 5200,
+      "w": 1440,
+      "h": 900,
+      "title": "A+C · PC · マージ中",
+      "page": "options"
+    },
+    "merge-entry-ac-merging-phone.dc.html": {
+      "x": 3510,
+      "y": 5200,
+      "w": 390,
+      "h": 844,
+      "title": "A+C · iPhone · マージ中",
+      "page": "options"
+    },
+    "merge-entry-ac-failed.dc.html": {
+      "x": 3980,
+      "y": 5200,
+      "w": 1440,
+      "h": 900,
+      "title": "A+C · PC · マージに失敗",
+      "page": "options"
+    },
+    "merge-entry-ac-failed-phone.dc.html": {
+      "x": 5500,
+      "y": 5200,
+      "w": 390,
+      "h": 844,
+      "title": "A+C · iPhone · マージに失敗",
+      "page": "options"
+    },
+    "merge-entry-ac-merged.dc.html": {
+      "x": 5970,
+      "y": 5200,
+      "w": 1440,
+      "h": 900,
+      "title": "A+C · PC · マージ済み",
+      "page": "options"
+    },
+    "merge-entry-ac-merged-phone.dc.html": {
+      "x": 7490,
+      "y": 5200,
+      "w": 390,
+      "h": 844,
+      "title": "A+C · iPhone · マージ済み",
+      "page": "options"
+    },
+    "merge-entry-ac-two.dc.html": {
+      "x": 7960,
+      "y": 5200,
+      "w": 1440,
+      "h": 900,
+      "title": "A+C · PC · マージできる PR が 2 つ",
+      "page": "options"
+    },
+    "merge-entry-ac-two-phone.dc.html": {
+      "x": 9480,
+      "y": 5200,
+      "w": 390,
+      "h": 844,
+      "title": "A+C · iPhone · マージできる PR が 2 つ",
+      "page": "options"
+    },
     "PrButton.dc.html": {
       "x": 0,
       "y": 0,
@@ -506,6 +586,16 @@
     "merge-entry-c-merged-phone.dc.html",
     "merge-entry-c-two.dc.html",
     "merge-entry-c-two-phone.dc.html",
+    "merge-entry-ac-ready.dc.html",
+    "merge-entry-ac-ready-phone.dc.html",
+    "merge-entry-ac-merging.dc.html",
+    "merge-entry-ac-merging-phone.dc.html",
+    "merge-entry-ac-failed.dc.html",
+    "merge-entry-ac-failed-phone.dc.html",
+    "merge-entry-ac-merged.dc.html",
+    "merge-entry-ac-merged-phone.dc.html",
+    "merge-entry-ac-two.dc.html",
+    "merge-entry-ac-two-phone.dc.html",
     "PrButton.dc.html",
     "MergeSplit.dc.html",
     "MergeBand.dc.html",
@@ -587,6 +677,21 @@
       "w": 520,
       "page": "options",
       "text": "C · 入力欄の上の帯\n見えるもの: マージできる PR があると、入力欄の上に「Ready to merge · #2050 … Merge」の帯を出す。状態は帯の見出しとボタンが Merging… / Merge failed と Retry / Merged と変わる。ヘッダーは PR ボタンだけ。PR 一覧は状態を見るだけで Merge はない\nマージできる PR が 2 つなら帯に 2 行並ぶ (右端のボード)\nClose: Done の Close はヘッダーに残す。Merge と離れ、ぶつからない\n+ PC と iPhone で同じ場所、同じ大きさのボタン。iPhone でも押しやすい\n+ 失敗の理由を帯に書ける\n- Question や crit レビューの帯と同時だと縦に積み、会話が狭くなる\n- マージできる PR が多いと帯が高くなる\n- PR 一覧を開いても Merge がない"
+    },
+    "acTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 4940,
+      "maxW": 10470,
+      "page": "options",
+      "text": "A+C · PR ボタンの印と、返信欄の上の帯"
+    },
+    "acNote": {
+      "x": 9950,
+      "y": 5200,
+      "w": 520,
+      "page": "options",
+      "text": "A+C · PR ボタンの印と帯\n見えるもの: ヘッダーは A と同じ PR ボタンだけで、右上の印で状態を出す。PC では小さいボタンの角だと見えにくいので、マージ中・失敗・マージ済みの印はアイコンの右に並べ、ボタンが少し広がる。iPhone は角に黒い丸を敷いて載せる (青の回転 = マージ中、赤い ! と赤枠 = 失敗、緑の ✓ = マージ済み。マージできるときは今と同じ緑の点)。Merge は C と同じ返信欄の上の帯だけ。帯は Ready to merge と Merge、Merging…、Merge failed と Retry、Merged と変わる\nPR 一覧 (PC のポップオーバー、iPhone のシート) は見るだけで、Merge を置かない。Merge の入口を帯の 1 つにするため。一覧の行には状態を文字で出す (マージできるボードで開いた)\nマージできる PR が 2 つなら帯に 2 行並ぶ (右端のボード)\nClose: Done の Close はヘッダーに残す。Merge と離れ、ぶつからない\n+ Merge の入口が 1 つ。PC と iPhone で同じ場所、同じ大きさのボタン\n+ 帯を見ていなくても、ヘッダーの印で状態が分かる\n+ 失敗の理由を帯に書ける\n- Question や crit レビューの帯と同時だと縦に積み、会話が狭くなる\n- マージできる PR が多いと帯が高くなる\n- PR 一覧を開いても Merge がない"
     }
   },
   "designSystems": [

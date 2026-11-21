@@ -275,6 +275,38 @@
       "h": 900,
       "title": "Board",
       "page": "parts"
+    },
+    "merge-toast-f.dc.html": {
+      "x": 0,
+      "y": 7800,
+      "w": 1440,
+      "h": 900,
+      "title": "F · D のまま (送信ボタンに重なる)",
+      "page": "options"
+    },
+    "merge-toast-g.dc.html": {
+      "x": 1520,
+      "y": 7800,
+      "w": 1440,
+      "h": 900,
+      "title": "G · 返信欄が右下にあるときは、その上に上げる",
+      "page": "options"
+    },
+    "merge-toast-g-panel.dc.html": {
+      "x": 3040,
+      "y": 7800,
+      "w": 1440,
+      "h": 900,
+      "title": "G · 右のパネルを開いているときは角",
+      "page": "options"
+    },
+    "merge-toast-h.dc.html": {
+      "x": 4560,
+      "y": 7800,
+      "w": 1440,
+      "h": 900,
+      "title": "H · toast は角のまま、返信欄を上に上げる",
+      "page": "options"
     }
   },
   "order": [
@@ -292,6 +324,10 @@
     "merge-toast-d-board.dc.html",
     "merge-toast-e.dc.html",
     "merge-toast-e-panel.dc.html",
+    "merge-toast-f.dc.html",
+    "merge-toast-g.dc.html",
+    "merge-toast-g-panel.dc.html",
+    "merge-toast-h.dc.html",
     "MergeScene.dc.html",
     "Nav.dc.html",
     "InboxList.dc.html",
@@ -407,6 +443,38 @@
       "page": "options",
       "fill": "pink",
       "text": "E\n- toast の場所は D と同じ (画面全体の右下の角)\n- 会話の最後の Merging PR #2049… の 1 行をなくす。実行中を見せるのはヘッダーの Merging… と toast だけ\n\n良い点\n- 同じことが 2 か所に出ない\n- 会話の最後に操作の行が増えない\n\n悪い点\n- D と同じく、右のパネルを閉じていると送信ボタンを隠す\n- toast を × で閉じたり、時間が経って消えたりすると、会話に結果が残らない。あとから見返すのは Activity だけになる (async-action-feedback で決めた「会話に結果を 1 行残す」を変えることになる)\n\niPhone は変わらない"
+    },
+    "fgh": {
+      "kind": "title1",
+      "x": 0,
+      "y": 7540,
+      "maxW": 6000,
+      "page": "options",
+      "text": "D のあと · 返信欄との重なり (F / G / H)"
+    },
+    "fNote": {
+      "x": 6080,
+      "y": 7800,
+      "w": 520,
+      "page": "options",
+      "fill": "gray",
+      "text": "F · D のまま\n- toast はいつも画面の右下の角 (右と下から 16px)\n- 右のパネルを閉じた会話では、返信欄の送信ボタン、⌥↑ / ⌥↓ My messages、使用量の行の右端を隠す。× で閉じれば見える\n\n良い点\n- 決まりが 1 つだけで、画面のつくりに左右されない\n- 何も動かない\n\n悪い点\n- Merging の間、送信ボタンを押すには先に × で閉じる必要がある (↵ で送ることはできる)"
+    },
+    "gNote": {
+      "x": 6640,
+      "y": 7800,
+      "w": 520,
+      "page": "options",
+      "fill": "blue",
+      "text": "G · 返信欄が右下にあるときだけ上げる\n- toast の右端はいつも画面の右から 16px\n- 右のパネルを閉じた会話のように、返信欄が画面の右下にあるときは、返信欄とその上の帯 (Review in crit) の上に上げる\n- 右のパネルを開いているとき、Inbox で会話がないとき、Board では角 (下から 16px)\n\n良い点\n- 送信ボタンも Review in crit も隠さない\n\n悪い点\n- 画面によって toast の高さが変わる\n- 上げた位置では、会話の最後の Merging PR #2049… の 1 行と最新の行に重なる\n- 返信欄や帯の高さが変わるたびに、位置を合わせ直す必要がある"
+    },
+    "hNote": {
+      "x": 7200,
+      "y": 7800,
+      "w": 520,
+      "page": "options",
+      "fill": "green",
+      "text": "H · toast は角のまま、返信欄を上げる\n- toast はいつも画面の右下の角 (右と下から 16px)\n- 右のパネルを閉じた会話で toast が出ている間は、会話の欄の下に toast の高さ分 (92px) の余白を空ける。帯、返信欄、使用量の行がその分上がる\n- toast が全部消えたら余白もなくなり、元の位置に戻る\n\n良い点\n- toast は本当の角から動かない\n- 送信ボタン、帯、会話の最後の 1 行のどれも隠さない\n\n悪い点\n- toast が出るたび、消えるたびに返信欄が 92px 上下する。入力中だと打つ場所が動く\n- toast が 2 つ以上重なると、空ける余白も増える\n- 会話の見える範囲が狭くなる"
     }
   },
   "designSystems": [

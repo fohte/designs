@@ -27,7 +27,7 @@ a{color:#ef4444}
 <button type="button" aria-label="{{panelLabel}}" title="{{panelLabel}}" aria-expanded="{{panelOpenStr}}" style="min-width: 32px; height: 26px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 10px; border: 1px solid {{panelBorder}}; background: {{panelBg}}; color: {{panelColor}}; font-family: inherit; font-size: 12px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path><path d="{{panelArrow}}"></path></svg><sc-if value="{{hasTasks}}" hint-placeholder-val="{{ false }}"><span style="color: #60a5fa">2</span></sc-if></button>
 <button type="button" aria-label="Remove from Starred" title="Remove from Starred" aria-pressed="true" style="min-width: 26px; height: 26px; padding: 0 4px; border: 1px solid #2a2a2a; background: transparent; color: #fbbf24; font-size: 16px; line-height: 1">★</button>
 <span style="position: relative; display: inline-flex">
-<sc-if value="{{prIcon}}" hint-placeholder-val="{{ true }}"><dc-import name="PrButton" badge="{{prBadge}}" open="{{ prsOpen }}" count="{{ prCount }}" aria="{{prAria}}" hint-size="30px,26px"></dc-import></sc-if>
+<sc-if value="{{prIcon}}" hint-placeholder-val="{{ true }}"><dc-import name="PrButton" badge="{{prBadge}}" open="{{ prsOpen }}" count="{{ prCount }}" aria="{{prAria}}" large="{{ largeMark }}" hint-size="30px,26px"></dc-import></sc-if>
 <sc-if value="{{prSplit}}" hint-placeholder-val="{{ false }}"><dc-import name="MergeSplit" state="{{splitState}}" num="{{ pr.num }}" open="{{ prsOpen }}" hint-size="150px,26px"></dc-import></sc-if>
 <sc-if value="{{prsOpen}}" hint-placeholder-val="{{ false }}">
 <section role="dialog" aria-label="Pull requests from this session" style="position: absolute; z-index: 5; top: 32px; right: 0; width: 480px; box-sizing: border-box; padding: 6px 0; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%); color: #d4d4d8; font-size: 13px">
@@ -191,7 +191,7 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review","todo","code"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"entry":{"editor":"enum","options":["current","a","b","c"],"default":"current"},"prSet":{"editor":"enum","options":["screen","one","two"],"default":"screen"},"actionLine":{"editor":null},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review","todo","code"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"entry":{"editor":"enum","options":["current","a","b","c","ac"],"default":"current"},"prSet":{"editor":"enum","options":["screen","one","two"],"default":"screen"},"actionLine":{"editor":null},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
   renderVals() {
     const variant = this.props.variant ?? 'question';
@@ -240,7 +240,7 @@ class Component extends DCLogic {
       return { ...r, showMerge, showMeta: !showMerge, meta, metaColor: ms ? ms[1] : '#8b8b94' };
     };
     const ms = P.main.mergeState;
-    const prBadge = entry === 'a' && { merging: 'merging', failed: 'mergeFailed', merged: 'merged', alreadyMerged: 'merged' }[ms]
+    const prBadge = (entry === 'a' || entry === 'ac') && { merging: 'merging', failed: 'mergeFailed', merged: 'merged', alreadyMerged: 'merged' }[ms]
       || (ms === 'merged' || ms === 'alreadyMerged' ? 'none' : P.main.kind);
     const done = this.props.done ?? false;
     const q = variant === 'question';
@@ -316,7 +316,7 @@ class Component extends DCLogic {
       menuRedClose: !done, menuDoneClose: done,
       prIcon: !splitSingle, prSplit: splitSingle, prBadge,
       splitState: { alreadyMerged: 'merged', queued: 'merging' }[ms] ?? ms,
-      mergeBand: entry === 'c' && P.main.can, twoPrs: prSet === 'two',
+      mergeBand: (entry === 'c' || entry === 'ac') && P.main.can, twoPrs: prSet === 'two', largeMark: entry === 'ac',
       resuming,
       notResuming: !resuming,
       endedHint: resuming ? 'Resuming…' : 'Resume it to keep talking',

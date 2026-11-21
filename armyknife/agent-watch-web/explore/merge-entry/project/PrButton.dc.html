@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>PR button with merge state badge</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<button type="button" aria-haspopup="dialog" aria-expanded="{{openStr}}" aria-label="{{aria}}" title="{{aria}}" style="position: relative; width: {{w}}; height: {{h}}; box-sizing: border-box; display: grid; place-items: center; padding: 0; border: 1px solid {{border}}; background: {{bg}}; color: #fafafa">
+<svg width="{{icon}}" height="{{icon}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg>
+<sc-if value="{{isDot}}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: {{dotAt}}; right: {{dotAt}}; width: {{dot}}; height: {{dot}}; background: {{dotColor}}"></span></sc-if>
+<sc-if value="{{isSpin}}" hint-placeholder-val="{{ false }}"><svg width="{{mark}}" height="{{mark}}" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="3.5" stroke-linecap="round" aria-hidden="true" style="position: absolute; top: {{markAt}}; right: {{markAt}}"><circle cx="12" cy="12" r="9" stroke="#3f3f46"></circle><path d="M21 12a9 9 0 0 0-9-9"></path></svg></sc-if>
+<sc-if value="{{isFail}}" hint-placeholder-val="{{ false }}"><svg width="{{mark}}" height="{{mark}}" viewBox="0 0 24 24" fill="#f87171" stroke="#0a0a0a" stroke-width="3" stroke-linecap="round" aria-hidden="true" style="position: absolute; top: {{markAt}}; right: {{markAt}}"><circle cx="12" cy="12" r="11" stroke="none"></circle><line x1="12" x2="12" y1="6.5" y2="13"></line><line x1="12" x2="12.01" y1="17.5" y2="17.5"></line></svg></sc-if>
+<sc-if value="{{isDone}}" hint-placeholder-val="{{ false }}"><svg width="{{mark}}" height="{{mark}}" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; top: {{markAt}}; right: {{markAt}}"><path d="M20 6 9 17l-5-5"></path></svg></sc-if>
+<span aria-hidden="true" style="position: absolute; right: {{countR}}; bottom: {{countB}}; font-family: 'JetBrains Mono', monospace; font-size: {{countFs}}; line-height: 1; color: #a1a1aa">{{count}}</span>
+</button>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"badge":{"editor":"enum","options":["passed","running","failing","merging","mergeFailed","merged","none"],"default":"passed"},"phone":{"editor":"boolean","default":false},"open":{"editor":"boolean","default":false},"count":{"editor":"int","default":1},"aria":{"editor":null},"$preview":{"width":44,"height":44}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const b = this.props.badge ?? 'passed';
+    const phone = this.props.phone ?? false;
+    const open = this.props.open ?? false;
+    const fail = b === 'mergeFailed';
+    return {
+      isDot: b === 'passed' || b === 'running' || b === 'failing',
+      dotColor: { passed: '#4ade80', running: '#fbbf24', failing: '#f87171' }[b] ?? '#4ade80',
+      isSpin: b === 'merging', isFail: fail, isDone: b === 'merged',
+      aria: this.props.aria ?? 'PR #2050, open, CI passed',
+      openStr: open ? 'true' : 'false',
+      border: fail ? '#f87171' : open ? '#a1a1aa' : phone ? '#3f3f46' : '#2a2a2a',
+      bg: open ? '#262626' : 'transparent',
+      count: this.props.count ?? 1,
+      w: phone ? '44px' : '30px', h: phone ? '44px' : '26px', icon: phone ? '18' : '14',
+      dot: phone ? '7px' : '5px', dotAt: phone ? '5px' : '3px',
+      mark: phone ? '13' : '10', markAt: phone ? '3px' : '1px',
+      countR: phone ? '3px' : '2px', countB: phone ? '2px' : '1px', countFs: phone ? '10px' : '9px'
+    };
+  }
+}
+</script>
+</body>
+</html>

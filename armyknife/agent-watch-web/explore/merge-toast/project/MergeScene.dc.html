@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Merge running, PC</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; display: flex; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+<sc-if value="{{closed}}" hint-placeholder-val="{{ true }}">
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" activity="{{ activity }}" hint-size="240px,900px"></dc-import></div>
+<div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" current="{{ current }}" hint-size="460px,900px"></dc-import></div>
+<div style="position: relative; flex: 1; min-width: 0">
+<dc-import name="Conversation" variant="{{ variant }}" merge-state="{{ mergeState }}" action-line="{{ line }}" hint-size="100%,900px"></dc-import>
+<sc-if value="{{atPane}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; right: 24px; bottom: {{paneBottom}}; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,72px"></dc-import></div></sc-if>
+<sc-if value="{{atTop}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; right: 24px; top: {{topOffset}}; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,72px"></dc-import></div></sc-if>
+</div>
+</sc-if>
+<sc-if value="{{panel}}" hint-placeholder-val="{{ false }}">
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" inbox-collapsed="{{ true }}" activity="{{ activity }}" hint-size="240px,900px"></dc-import></div>
+<div style="position: relative; flex: none; width: 560px">
+<dc-import name="Conversation" variant="{{ variant }}" panel-open="{{ true }}" merge-state="{{ mergeState }}" action-line="{{ line }}" hint-size="100%,900px"></dc-import>
+<sc-if value="{{atPane}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; right: 24px; bottom: {{paneBottom}}; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,72px"></dc-import></div></sc-if>
+<sc-if value="{{atTop}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; right: 24px; top: {{topOffset}}; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,72px"></dc-import></div></sc-if>
+</div>
+<div style="flex: 1; min-width: 0; border-left: 1px solid #2a2a2a"><dc-import name="StatusPanel" tab="{{ tab }}" hint-size="100%,900px"></dc-import></div>
+</sc-if>
+<sc-if value="{{atWindow}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; right: 24px; bottom: 128px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,72px"></dc-import></div></sc-if>
+<sc-if value="{{board}}" hint-placeholder-val="{{ false }}"><div style="flex: 1; min-width: 0"><dc-import name="Board" hint-size="1440px,900px"></dc-import></div></sc-if>
+<sc-if value="{{atCorner}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; right: 16px; bottom: 16px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,72px"></dc-import></div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"panel":{"editor":"boolean","default":false},"tab":{"editor":"enum","options":["tree","decisions"],"default":"tree"},"toast":{"editor":"enum","options":["window","corner","pane","top","none"],"default":"window"},"away":{"editor":"boolean","default":false},"screen":{"editor":"enum","options":["inbox","board"],"default":"inbox"},"endLine":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const panel = this.props.panel ?? false;
+    const toast = this.props.toast ?? 'window';
+    // away: the merge was confirmed in another session, and the user has since opened this one.
+    const away = this.props.away ?? false;
+    const merging = { result: 'merging', pr: 2049, session: '配信チェックの PR を確認する' };
+    const board = (this.props.screen ?? 'inbox') === 'board';
+    const endLine = this.props.endLine ?? true;
+    return {
+      board,
+      panel: panel && !board,
+      closed: !panel && !board,
+      tab: this.props.tab ?? 'tree',
+      current: away ? 0 : 1,
+      variant: away ? 'question' : 'review',
+      mergeState: away ? 'idle' : 'merging',
+      line: away || !endLine ? null : merging,
+      atCorner: toast === 'corner',
+      activity: { count: '1', tone: 'running' },
+      toasts: [merging],
+      atWindow: toast === 'window',
+      atPane: toast === 'pane',
+      atTop: toast === 'top',
+      // Just above the status band over the composer, so the toast never covers what you type.
+      // The open panel narrows the pane, so the usage line under the composer wraps and the band sits higher.
+      paneBottom: panel ? '247px' : '228px',
+      // Just below the session header, under the header's Merging… button.
+      topOffset: '88px'
+    };
+  }
+}
+</script>
+</body>
+</html>

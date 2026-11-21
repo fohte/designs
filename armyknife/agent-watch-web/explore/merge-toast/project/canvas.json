@@ -1,0 +1,421 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-22T12:00:00Z"
+  },
+  "title": "Merge toast",
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
+  "pages": [
+    {
+      "id": "options",
+      "name": "案"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "merge-toast-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今の画面 · 右のパネルを閉じている",
+      "page": "options"
+    },
+    "merge-toast-current-panel.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今の画面 · 右のパネル (Tree) を開いている",
+      "page": "options"
+    },
+    "merge-toast-a.dc.html": {
+      "x": 0,
+      "y": 1300,
+      "w": 1440,
+      "h": 900,
+      "title": "A · 右のパネルを閉じている",
+      "page": "options"
+    },
+    "merge-toast-a-panel.dc.html": {
+      "x": 1520,
+      "y": 1300,
+      "w": 1440,
+      "h": 900,
+      "title": "A · 右のパネル (Tree) を開いている",
+      "page": "options"
+    },
+    "merge-toast-b.dc.html": {
+      "x": 0,
+      "y": 2600,
+      "w": 1440,
+      "h": 900,
+      "title": "B · 右のパネルを閉じている (toast なし)",
+      "page": "options"
+    },
+    "merge-toast-b-panel.dc.html": {
+      "x": 1520,
+      "y": 2600,
+      "w": 1440,
+      "h": 900,
+      "title": "B · 右のパネル (Tree) を開いている (toast なし)",
+      "page": "options"
+    },
+    "merge-toast-b-away.dc.html": {
+      "x": 3040,
+      "y": 2600,
+      "w": 1440,
+      "h": 900,
+      "title": "B · 別のセッションに移ったら toast を出す",
+      "page": "options"
+    },
+    "merge-toast-c.dc.html": {
+      "x": 0,
+      "y": 3900,
+      "w": 1440,
+      "h": 900,
+      "title": "C · 右のパネルを閉じている",
+      "page": "options"
+    },
+    "merge-toast-c-panel.dc.html": {
+      "x": 1520,
+      "y": 3900,
+      "w": 1440,
+      "h": 900,
+      "title": "C · 右のパネル (Tree) を開いている",
+      "page": "options"
+    },
+    "MergeScene.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "MergeScene",
+      "page": "parts"
+    },
+    "Nav.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 240,
+      "h": 900,
+      "title": "Nav",
+      "page": "parts"
+    },
+    "InboxList.dc.html": {
+      "x": 1840,
+      "y": 0,
+      "w": 460,
+      "h": 900,
+      "title": "InboxList",
+      "page": "parts"
+    },
+    "Conversation.dc.html": {
+      "x": 2380,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "parts"
+    },
+    "StatusPanel.dc.html": {
+      "x": 3340,
+      "y": 0,
+      "w": 640,
+      "h": 900,
+      "title": "StatusPanel",
+      "page": "parts"
+    },
+    "ToastStack.dc.html": {
+      "x": 0,
+      "y": 1120,
+      "w": 360,
+      "h": 240,
+      "title": "ToastStack",
+      "page": "parts"
+    },
+    "ActionItem.dc.html": {
+      "x": 440,
+      "y": 1120,
+      "w": 360,
+      "h": 110,
+      "title": "ActionItem",
+      "page": "parts"
+    },
+    "CloseChecks.dc.html": {
+      "x": 880,
+      "y": 1120,
+      "w": 408,
+      "h": 170,
+      "title": "CloseChecks",
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 1368,
+      "y": 1120,
+      "w": 380,
+      "h": 200,
+      "title": "ConfirmDialog",
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 1828,
+      "y": 1120,
+      "w": 160,
+      "h": 44,
+      "title": "MergeButton",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 2068,
+      "y": 1120,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 2820,
+      "y": 1120,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    },
+    "TodoCard.dc.html": {
+      "x": 3660,
+      "y": 1120,
+      "w": 672,
+      "h": 40,
+      "title": "TodoCard",
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 0,
+      "y": 1560,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "parts"
+    },
+    "Quota.dc.html": {
+      "x": 540,
+      "y": 1560,
+      "w": 240,
+      "h": 140,
+      "title": "Quota",
+      "page": "parts"
+    },
+    "ActivityButton.dc.html": {
+      "x": 860,
+      "y": 1560,
+      "w": 224,
+      "h": 44,
+      "title": "ActivityButton",
+      "page": "parts"
+    },
+    "CodeBlock.dc.html": {
+      "x": 1164,
+      "y": 1560,
+      "w": 672,
+      "h": 160,
+      "title": "CodeBlock",
+      "page": "parts"
+    },
+    "merge-toast-d.dc.html": {
+      "x": 0,
+      "y": 5200,
+      "w": 1440,
+      "h": 900,
+      "title": "D · 右のパネルを閉じている",
+      "page": "options"
+    },
+    "merge-toast-d-panel.dc.html": {
+      "x": 1520,
+      "y": 5200,
+      "w": 1440,
+      "h": 900,
+      "title": "D · 右のパネル (Tree) を開いている",
+      "page": "options"
+    },
+    "merge-toast-d-board.dc.html": {
+      "x": 3040,
+      "y": 5200,
+      "w": 1440,
+      "h": 900,
+      "title": "D · Board を開いている",
+      "page": "options"
+    },
+    "merge-toast-e.dc.html": {
+      "x": 0,
+      "y": 6500,
+      "w": 1440,
+      "h": 900,
+      "title": "E · 右のパネルを閉じている (会話の最後の 1 行なし)",
+      "page": "options"
+    },
+    "merge-toast-e-panel.dc.html": {
+      "x": 1520,
+      "y": 6500,
+      "w": 1440,
+      "h": 900,
+      "title": "E · 右のパネル (Tree) を開いている (会話の最後の 1 行なし)",
+      "page": "options"
+    },
+    "Board.dc.html": {
+      "x": 0,
+      "y": 2000,
+      "w": 1440,
+      "h": 900,
+      "title": "Board",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "merge-toast-current.dc.html",
+    "merge-toast-current-panel.dc.html",
+    "merge-toast-a.dc.html",
+    "merge-toast-a-panel.dc.html",
+    "merge-toast-b.dc.html",
+    "merge-toast-b-panel.dc.html",
+    "merge-toast-b-away.dc.html",
+    "merge-toast-c.dc.html",
+    "merge-toast-c-panel.dc.html",
+    "merge-toast-d.dc.html",
+    "merge-toast-d-panel.dc.html",
+    "merge-toast-d-board.dc.html",
+    "merge-toast-e.dc.html",
+    "merge-toast-e-panel.dc.html",
+    "MergeScene.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "Conversation.dc.html",
+    "StatusPanel.dc.html",
+    "ToastStack.dc.html",
+    "ActionItem.dc.html",
+    "CloseChecks.dc.html",
+    "ConfirmDialog.dc.html",
+    "MergeButton.dc.html",
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html",
+    "TodoCard.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "ActivityButton.dc.html",
+    "CodeBlock.dc.html",
+    "Board.dc.html"
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 2960,
+      "page": "options",
+      "text": "今の画面 · Merging の toast が画面の右下から 128px 上に浮く"
+    },
+    "currentNote": {
+      "x": 3040,
+      "y": 0,
+      "w": 520,
+      "page": "options",
+      "fill": "gray",
+      "text": "今の画面\n- toast は画面全体の右端から 24px、下から 128px に固定で出る\n- 右のパネルを閉じていると、返信欄の上の帯 (Review in crit) と返信欄に重なる\n- 右のパネル (Tree / Decisions) を開くと、パネルの一覧の上に浮き、どの線にも揃っていない\n- 会話の最後にも Merging PR #2049 の 1 行が出て、同じことが 2 か所に出る\n- iPhone は変わらない (返信欄の上に出る)"
+    },
+    "a": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1040,
+      "maxW": 2960,
+      "page": "options",
+      "text": "A · toast を会話の欄の右下、返信欄の上に揃える"
+    },
+    "aNote": {
+      "x": 3040,
+      "y": 1300,
+      "w": 520,
+      "page": "options",
+      "fill": "blue",
+      "text": "A\n- toast を画面全体ではなく会話の欄の中に置く。右端は返信欄の右端に、下端は返信欄の上の帯の上に揃える\n- 右のパネルを開いても閉じても同じ場所に出る\n- 会話の最後の 1 行は残す\n\n良い点\n- 右のパネルの上に出ない\n- 返信欄と揃い、置き場所に理由がある\n\n悪い点\n- 会話の最後の 1 行と toast に同じ Merging PR #2049 が並ぶ\n- 会話の最新の行を toast が隠す\n\niPhone は変わらない"
+    },
+    "b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2340,
+      "maxW": 4480,
+      "page": "options",
+      "text": "B · 会話を開いている間は Merge の toast を出さない"
+    },
+    "bNote": {
+      "x": 4560,
+      "y": 2600,
+      "w": 520,
+      "page": "options",
+      "fill": "green",
+      "text": "B\n- Merge したセッションを開いている間は toast を出さない。ヘッダーの Merging… と会話の最後の 1 行で足りる\n- 別のセッションや Board に移ったら toast を出す。出す場所は A と同じ (会話の欄の右下、返信欄の上)\n- 失敗したときは、開いていても toast を出す (Retry と Details を押せるように)\n\n良い点\n- 同じことが 2 か所に出ない\n- 開いている会話の上に何も浮かない\n\n悪い点\n- 会話を上にスクロールしていると、結果はヘッダーの Merge のボタンでしか分からない\n- 開いているかどうかで toast の出方が変わる\n\niPhone も同じ規則にできるが、この案では変えない"
+    },
+    "c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3640,
+      "maxW": 2960,
+      "page": "options",
+      "text": "C · toast をヘッダーの下、Merging… のボタンの下に出す"
+    },
+    "cNote": {
+      "x": 3040,
+      "y": 3900,
+      "w": 520,
+      "page": "options",
+      "fill": "purple",
+      "text": "C\n- toast を会話の欄の右上、ヘッダーのすぐ下に出す。押した Merge のボタンの真下になる\n- 新しいバージョンの帯は画面の一番上なので、帯が出ると toast も一緒に下がり、重ならない\n- 会話の最後の 1 行は残す\n- Board など会話の欄がない画面では、その画面のヘッダーの下の右端に出す\n\n良い点\n- 押した場所のすぐそばに結果が出る\n- 返信欄と最新の行を隠さない\n\n悪い点\n- 返信欄を見ているときは目に入りにくい\n- Inbox の行から Close したときは、押した場所から遠い\n\niPhone は変わらない"
+    },
+    "d": {
+      "kind": "title1",
+      "x": 0,
+      "y": 4940,
+      "maxW": 4480,
+      "page": "options",
+      "text": "D · toast は常に画面の右下の角 (右と下から 16px)"
+    },
+    "e": {
+      "kind": "title1",
+      "x": 0,
+      "y": 6240,
+      "maxW": 2960,
+      "page": "options",
+      "text": "E · D と同じ位置にし、会話の最後の 1 行をなくす"
+    },
+    "dNote": {
+      "x": 4560,
+      "y": 5200,
+      "w": 520,
+      "page": "options",
+      "fill": "orange",
+      "text": "D\n- toast は画面全体の右下の角 (右と下から 16px) に出す。右のパネルの開閉や、Inbox / Board / 会話のどの画面でも同じ場所\n- 会話の最後の Merging PR #2049… の 1 行は残す\n\n良い点\n- 画面全体への通知として、いつも同じ場所に出る。どの画面のどの線とも揃える必要がない\n- 右のパネルを開いているときは、パネルの下の空いた所に収まり、何も隠さない (fold の説明は左端なので見える)\n- Board でも何も隠さない\n\n悪い点\n- 右のパネルを閉じていると、返信欄の右下 (送信ボタン、⌥↑ / ⌥↓ My messages) と、その下の使用量の行の右端を隠す。Merging の間は送信ボタンを押せない\n- 会話を開いていると、同じ Merging PR #2049 が 1 行と toast の 2 か所に出る\n\niPhone は変わらない"
+    },
+    "eNote": {
+      "x": 3040,
+      "y": 6500,
+      "w": 520,
+      "page": "options",
+      "fill": "pink",
+      "text": "E\n- toast の場所は D と同じ (画面全体の右下の角)\n- 会話の最後の Merging PR #2049… の 1 行をなくす。実行中を見せるのはヘッダーの Merging… と toast だけ\n\n良い点\n- 同じことが 2 か所に出ない\n- 会話の最後に操作の行が増えない\n\n悪い点\n- D と同じく、右のパネルを閉じていると送信ボタンを隠す\n- toast を × で閉じたり、時間が経って消えたりすると、会話に結果が残らない。あとから見返すのは Activity だけになる (async-action-feedback で決めた「会話に結果を 1 行残す」を変えることになる)\n\niPhone は変わらない"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-15T10:37:15Z"
+    }
+  ]
+}

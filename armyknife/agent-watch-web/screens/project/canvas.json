@@ -700,7 +700,7 @@
       "x": 3510,
       "y": 300,
       "w": 390,
-      "h": 3390,
+      "h": 3590,
       "page": "conversation"
     },
     "PhoneDialogs.dc.html": {
@@ -842,6 +842,70 @@
       "h": 844,
       "title": "iPhone · web UI のリンクを押した · web UI だけのページを重ねる",
       "page": "conversation"
+    },
+    "TodoFolded.dc.html": {
+      "x": 0,
+      "y": 19490,
+      "w": 1440,
+      "h": 900,
+      "title": "to-do を畳む · セッションが畳んで出した to-do と、⌃ のあるカード",
+      "page": "conversation"
+    },
+    "PhoneChatTodoFolded.dc.html": {
+      "x": 1520,
+      "y": 19490,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · to-do を畳む",
+      "page": "conversation"
+    },
+    "InboxTodoLater.dc.html": {
+      "x": 0,
+      "y": 7200,
+      "w": 1440,
+      "h": 900,
+      "title": "Needs action の下の To-do later",
+      "page": "inbox"
+    },
+    "PhoneInboxTodoLater.dc.html": {
+      "x": 1520,
+      "y": 7200,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Needs action の下の To-do later",
+      "page": "inbox"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 1500,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
+    },
+    "before/BeforeCards.dc.html": {
+      "x": 4920,
+      "y": 300,
+      "w": 1440,
+      "h": 3200,
+      "title": "Before · 返答を待つカード",
+      "page": "conversation"
+    },
+    "before/BeforePhoneCards.dc.html": {
+      "x": 6440,
+      "y": 300,
+      "w": 390,
+      "h": 3390,
+      "title": "Before · iPhone の返答を待つカード",
+      "page": "conversation"
+    },
+    "before/BeforeDeniedCard.dc.html": {
+      "x": 3204,
+      "y": 1620,
+      "w": 672,
+      "h": 200,
+      "title": "BeforeDeniedCard",
+      "page": "components"
     }
   },
   "order": [
@@ -950,7 +1014,15 @@
     "WebUiLink.dc.html",
     "PhoneChatWebUiLink.dc.html",
     "WebUiFull.dc.html",
-    "PhoneWebUiFull.dc.html"
+    "PhoneWebUiFull.dc.html",
+    "TodoFolded.dc.html",
+    "PhoneChatTodoFolded.dc.html",
+    "InboxTodoLater.dc.html",
+    "PhoneInboxTodoLater.dc.html",
+    "before/BeforeMain.dc.html",
+    "before/BeforeCards.dc.html",
+    "before/BeforePhoneCards.dc.html",
+    "before/BeforeDeniedCard.dc.html"
   ],
   "pages": [
     {
@@ -1055,7 +1127,7 @@
       "y": 3810,
       "text": "会話 · 返信欄の上の帯、終わったセッション",
       "kind": "title1",
-      "maxW": 3750,
+      "maxW": 3430,
       "page": "conversation"
     },
     "rowHeaderPrs": {
@@ -1137,6 +1209,50 @@
       "maxW": 3900,
       "page": "conversation",
       "text": "会話の中の web UI のリンク · 開く先のタブ名と、押したあとの全画面"
+    },
+    "rowTodoFolded": {
+      "kind": "title1",
+      "x": 0,
+      "y": 19190,
+      "maxW": 2450,
+      "page": "conversation",
+      "text": "後で確かめる to-do · タイトルだけの 1 行に畳む"
+    },
+    "rowTodoLater": {
+      "kind": "title1",
+      "x": 0,
+      "y": 6900,
+      "maxW": 2450,
+      "page": "inbox",
+      "text": "Inbox · 畳んだ to-do は To-do later に出す"
+    },
+    "diffTodoFolded": {
+      "x": 1990,
+      "y": 19490,
+      "w": 460,
+      "page": "conversation",
+      "text": "新しい画面 (前の画面はない)\n- To-do カードの見出しの右に ⌃ を置き、押すと To-do · later の見出し、タイトル、⌄ の 1 行に畳む\n- セッションが todo add で後で確かめる印を付けた to-do は、最初から畳んで出し、added folded と添える\n- 畳んだ行を押すと元のカードに戻る"
+    },
+    "diffTodoLater": {
+      "x": 1990,
+      "y": 7200,
+      "w": 460,
+      "page": "inbox",
+      "text": "新しい画面 (前の画面はない)\n- 畳んだ to-do のセッションは Needs action から外し、Nav の Inbox の数にも入れない\n- Needs action のすぐ下に To-do later の 1 行を置き、件数と先頭のタイトルを出す。押すと開く\n- 畳んだ to-do がないときは出さない"
+    },
+    "diffMain": {
+      "x": 3040,
+      "y": 0,
+      "w": 460,
+      "page": "inbox",
+      "text": "仕様のまとめの変更 (左が前)\n- 返事を待つカードに、to-do を畳むことと To-do later の項目を足した"
+    },
+    "diffCards": {
+      "x": 6910,
+      "y": 300,
+      "w": 460,
+      "page": "conversation",
+      "text": "返答を待つカードの変更 (Before の 2 枚が前、左の Cards と PhoneCards が今)\n- To-do · pending の見出しの右に ⌃ (Fold) を足した\n- To-do の下に To-do, folded を足した。ユーザーが畳んだ行と、セッションが畳んで出した added folded の行"
     }
   },
   "v": 3,

@@ -31,12 +31,15 @@ body{margin:0}
 <sc-for list="{{rows}}" as="r" hint-placeholder-count="4">
 <dc-import name="SessionRow" s="{{ r }}" density="phone" hint-size="100%,88px"></dc-import>
 </sc-for>
+<sc-if value="{{todoSection}}" hint-placeholder-val="{{ false }}">
+<button type="button" style="width: 100%; height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border: 0; border-top: 1px solid #2a2a2a; border-bottom: 1px solid #1f1f1f; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; text-align: left"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #a1a1aa"><rect width="18" height="18" x="3" y="3" rx="2"></rect></svg><span style="flex: none">To-do later</span><span style="flex: none; font-family: 'JetBrains Mono', monospace; color: #8b8b94">1</span><span style="min-width: 0; color: #8b8b94; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">通知の音を実機で確かめる</span><span style="flex: none; margin-left: auto; color: #8b8b94">›</span></button>
+</sc-if>
 <div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>◷ Later</span><span style="font-family: 'JetBrains Mono', monospace; color: #8b8b94">2</span><span style="margin-left: auto; color: #8b8b94">in 2h ›</span></div>
 <div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>In progress</span><span style="font-family: 'JetBrains Mono', monospace; color: #60a5fa">5</span><span style="margin-left: auto; color: #52525b">›</span></div>
 <div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>Done</span><span style="font-family: 'JetBrains Mono', monospace; color: #8b8b94">3</span><span style="color: #a1a1aa">◇ 2 to review ›</span><button type="button" style="margin-left: auto; height: 28px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Close all</button></div>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"activity":{"editor":null},"$preview":{"width":390,"height":844}}'>
+<script type="text/x-dc" data-dc-script data-props='{"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"activity":{"editor":null},"todoLater":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
     // close: a confirmed close of the Proposal row running in the background. 'closed' takes the row out.
@@ -48,6 +51,8 @@ class Component extends DCLogic {
     else if (close !== 'none') Object.assign(rows[rows.length - 1], { close, closeReason: 'The session did not stop within 10 s.' });
     return {
       rows, needCount: close === 'closed' ? 5 : 6,
+      // todoLater: the to-dos folded for later, out of Needs action and its count.
+      todoSection: this.props.todoLater ?? false,
       failed, navAria: failed ? 'Open navigation, Activity has a failure' : 'Open navigation'
     };
   }

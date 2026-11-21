@@ -72,6 +72,56 @@ body{margin:0}
 </div>
 </sc-if>
 
+<sc-if value="{{typed}}" hint-placeholder-val="{{ false }}">
+<div style="flex: none; height: 56px; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 0 12px 0 {{padX}}; background: #141414; border-bottom: 1px solid #2a2a2a">
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column"><strong style="font-size: {{headKindFs}}">{{doc.kind}}</strong><span style="font-family: 'JetBrains Mono', monospace; font-size: {{headWhereFs}}; color: #8b8b94; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{doc.where}}</span></div>
+<sc-if value="{{showWideIcon}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="Open full width" title="Open full width" style="width: 28px; height: 28px; padding: 0; border: 0; background: transparent; color: #a1a1aa">⛶</button></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{typedFm}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Frontmatter" style="flex: none; display: flex; flex-direction: column; padding: 8px {{padX}} 14px; border-bottom: 1px solid #2a2a2a; color: #d4d4d8; font-size: {{bodyFs}}">
+<h3 style="flex: none; margin: 0; height: {{segRowH}}; display: flex; align-items: center; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">FRONTMATTER</h3>
+<sc-if value="{{showIssue}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 12px; padding-top: 6px">
+<label style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: {{metaFs}}; color: #8b8b94">Title</span><textarea value="{{doc.title}}" style="display: block; width: 100%; height: {{titleAreaH}}; box-sizing: border-box; padding: 6px 8px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: {{titleInputFs}}; font-weight: 700; line-height: 1.4; resize: none"></textarea></label>
+<dl style="margin: 0; display: grid; grid-template-columns: {{fmLabelCol}} minmax(0, 1fr); align-items: start; gap: 10px 12px; font-size: {{metaFs}}">
+<dt style="min-height: {{chipH2}}; display: flex; align-items: center; color: #8b8b94">Labels</dt>
+<dd style="margin: 0; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<sc-for list="{{doc.labels}}" as="l" hint-placeholder-count="2"><span style="height: {{chipH2}}; box-sizing: border-box; display: inline-flex; align-items: center; gap: 2px; padding: 0 0 0 8px; border: 1px solid #3f3f46; background: #161616; color: #fafafa">{{l.name}}<button type="button" aria-label="{{l.remove}}" style="width: {{xSize}}; height: 100%; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span></sc-for>
+<input aria-label="Add label" placeholder="Add label" value="{{labelQuery}}" style="width: {{addInputW}}; height: {{chipH2}}; box-sizing: border-box; padding: 0 8px; border: 1px solid {{addBorder}}; outline: none; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: {{addInputFs}}">
+</div>
+<sc-if value="{{suggestOpen}}" hint-placeholder-val="{{ true }}">
+<div role="listbox" aria-label="Label suggestions" style="width: {{suggestW}}; max-width: 100%; box-sizing: border-box; padding: 4px 0; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%)">
+<sc-for list="{{doc.labelSuggest}}" as="o" hint-placeholder-count="2"><div role="option" aria-selected="{{o.sel}}" style="min-height: {{optH}}; box-sizing: border-box; display: flex; align-items: center; padding: 0 10px; background: {{o.bg}}; color: #fafafa">{{o.name}}</div></sc-for>
+</div>
+</sc-if>
+</dd>
+<dt style="min-height: {{chipH2}}; display: flex; align-items: center; color: #8b8b94">Assignees</dt>
+<dd style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<sc-for list="{{doc.assignees}}" as="a" hint-placeholder-count="1"><span style="height: {{chipH2}}; box-sizing: border-box; display: inline-flex; align-items: center; gap: 6px; padding: 0 0 0 4px; border: 1px solid #3f3f46; background: #161616; color: #fafafa"><span aria-hidden="true" style="width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; background: #27272a; font-size: 10.5px; font-weight: 700">{{a.initial}}</span>{{a.name}}<button type="button" aria-label="{{a.remove}}" style="width: {{xSize}}; height: 100%; margin-left: -4px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span></sc-for>
+<button type="button" style="height: {{chipH2}}; padding: 0 10px; border: 1px dashed #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{metaFs}}">+ Add assignee</button>
+</dd>
+<dt style="min-height: {{chipH2}}; display: flex; align-items: center; color: #8b8b94">Parent issue</dt>
+<dd style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<span style="flex: 1 1 220px; min-width: 0; height: {{chipH2}}; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 0 0 8px; border: 1px solid #3f3f46; background: #0a0a0a"><a href="#" style="flex: none; color: #93c5fd; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">{{doc.parent.ref}}</a><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #a1a1aa">{{doc.parent.title}}</span><button type="button" aria-label="Clear parent issue" style="flex: none; width: {{xSize}}; height: 100%; margin-left: auto; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span>
+<button type="button" style="height: {{chipH2}}; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{metaFs}}">Set parent</button>
+</dd>
+<dt style="min-height: {{chipH2}}; display: flex; align-items: center; color: #8b8b94">Sub-issues</dt>
+<dd style="margin: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px">
+<sc-for list="{{doc.subIssues}}" as="s" hint-placeholder-count="2"><span style="width: 100%; height: {{chipH2}}; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 0 0 8px; border: 1px solid #3f3f46; background: #0a0a0a"><a href="#" style="flex: none; color: #93c5fd; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">{{s.ref}}</a><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #a1a1aa">{{s.title}}</span><button type="button" aria-label="{{s.remove}}" style="flex: none; width: {{xSize}}; height: 100%; margin-left: auto; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span></sc-for>
+<button type="button" style="height: {{chipH2}}; padding: 0 10px; border: 1px dashed #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{metaFs}}">+ Add sub-issue</button>
+</dd>
+</dl>
+</div>
+</sc-if>
+<sc-if value="{{showPrTitle}}" hint-placeholder-val="{{ false }}">
+<label style="display: flex; flex-direction: column; gap: 4px; padding-top: 6px"><span style="font-size: {{metaFs}}; color: #8b8b94">Title</span><textarea value="{{doc.title}}" style="display: block; width: 100%; height: {{titleAreaH}}; box-sizing: border-box; padding: 6px 8px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: {{titleInputFs}}; font-weight: 700; line-height: 1.4; resize: none"></textarea></label>
+</sc-if>
+</section>
+</sc-if>
+
 <sc-if value="{{headKind}}" hint-placeholder-val="{{ false }}">
 <header style="flex: none; display: flex; flex-direction: column; gap: 6px; padding: 12px {{padX}}; border-bottom: 1px solid #1a1a1a">
 <div style="display: flex; align-items: center; gap: 8px; min-width: 0; font-size: {{metaFs}}">
@@ -194,41 +244,6 @@ body{margin:0}
 </sc-for>
 </div>
 </sc-if>
-<sc-if value="{{showIssue}}" hint-placeholder-val="{{ false }}">
-<div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #2a2a2a">
-<label style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: {{metaFs}}; color: #8b8b94">Title</span><textarea value="{{doc.title}}" style="display: block; width: 100%; height: {{titleAreaH}}; box-sizing: border-box; padding: 6px 8px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: {{titleInputFs}}; font-weight: 700; line-height: 1.4; resize: none"></textarea></label>
-<dl style="margin: 0; display: grid; grid-template-columns: {{fmLabelCol}} minmax(0, 1fr); align-items: start; gap: 10px 12px; font-size: {{metaFs}}">
-<dt style="min-height: {{chipH2}}; display: flex; align-items: center; color: #8b8b94">Labels</dt>
-<dd style="margin: 0; display: flex; flex-direction: column; gap: 6px">
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
-<sc-for list="{{doc.labels}}" as="l" hint-placeholder-count="2"><span style="height: {{chipH2}}; box-sizing: border-box; display: inline-flex; align-items: center; gap: 2px; padding: 0 0 0 8px; border: 1px solid #3f3f46; background: #161616; color: #fafafa">{{l.name}}<button type="button" aria-label="{{l.remove}}" style="width: {{xSize}}; height: 100%; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span></sc-for>
-<input aria-label="Add label" value="{{doc.labelQuery}}" style="width: {{addInputW}}; height: {{chipH2}}; box-sizing: border-box; padding: 0 8px; border: 1px solid #fafafa; outline: none; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: {{addInputFs}}">
-</div>
-<div role="listbox" aria-label="Label suggestions" style="width: {{suggestW}}; max-width: 100%; box-sizing: border-box; padding: 4px 0; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%)">
-<sc-for list="{{doc.labelSuggest}}" as="o" hint-placeholder-count="2"><div role="option" aria-selected="{{o.sel}}" style="min-height: {{optH}}; box-sizing: border-box; display: flex; align-items: center; padding: 0 10px; background: {{o.bg}}; color: #fafafa">{{o.name}}</div></sc-for>
-</div>
-</dd>
-<dt style="min-height: {{chipH2}}; display: flex; align-items: center; color: #8b8b94">Assignees</dt>
-<dd style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
-<sc-for list="{{doc.assignees}}" as="a" hint-placeholder-count="1"><span style="height: {{chipH2}}; box-sizing: border-box; display: inline-flex; align-items: center; gap: 6px; padding: 0 0 0 4px; border: 1px solid #3f3f46; background: #161616; color: #fafafa"><span aria-hidden="true" style="width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; background: #27272a; font-size: 10.5px; font-weight: 700">{{a.initial}}</span>{{a.name}}<button type="button" aria-label="{{a.remove}}" style="width: {{xSize}}; height: 100%; margin-left: -4px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span></sc-for>
-<button type="button" style="height: {{chipH2}}; padding: 0 10px; border: 1px dashed #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{metaFs}}">+ Add assignee</button>
-</dd>
-<dt style="min-height: {{chipH2}}; display: flex; align-items: center; color: #8b8b94">Parent issue</dt>
-<dd style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
-<span style="flex: 1 1 220px; min-width: 0; height: {{chipH2}}; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 0 0 8px; border: 1px solid #3f3f46; background: #0a0a0a"><a href="#" style="flex: none; color: #93c5fd; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">{{doc.parent.ref}}</a><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #a1a1aa">{{doc.parent.title}}</span><button type="button" aria-label="Clear parent issue" style="flex: none; width: {{xSize}}; height: 100%; margin-left: auto; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span>
-<button type="button" style="height: {{chipH2}}; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{metaFs}}">Set parent</button>
-</dd>
-<dt style="min-height: {{chipH2}}; display: flex; align-items: center; color: #8b8b94">Sub-issues</dt>
-<dd style="margin: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px">
-<sc-for list="{{doc.subIssues}}" as="s" hint-placeholder-count="2"><span style="width: 100%; height: {{chipH2}}; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 0 0 8px; border: 1px solid #3f3f46; background: #0a0a0a"><a href="#" style="flex: none; color: #93c5fd; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">{{s.ref}}</a><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #a1a1aa">{{s.title}}</span><button type="button" aria-label="{{s.remove}}" style="flex: none; width: {{xSize}}; height: 100%; margin-left: auto; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span></sc-for>
-<button type="button" style="height: {{chipH2}}; padding: 0 10px; border: 1px dashed #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{metaFs}}">+ Add sub-issue</button>
-</dd>
-</dl>
-</div>
-</sc-if>
-<sc-if value="{{showPrTitle}}" hint-placeholder-val="{{ false }}">
-<label style="display: flex; flex-direction: column; gap: 4px; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #2a2a2a"><span style="font-size: {{metaFs}}; color: #8b8b94">Title</span><textarea value="{{doc.title}}" style="display: block; width: 100%; height: {{titleAreaH}}; box-sizing: border-box; padding: 6px 8px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: {{titleInputFs}}; font-weight: 700; line-height: 1.4; resize: none"></textarea></label>
-</sc-if>
 <sc-if value="{{showBlocks}}" hint-placeholder-val="{{ true }}">
 <sc-for list="{{doc.blocks}}" as="b" hint-placeholder-count="4">
 <sc-if value="{{b.h}}" hint-placeholder-val="{{ false }}"><h4 style="margin: 4px 0 6px; color: #fafafa; font-size: {{h4Fs}}">{{b.text}}</h4></sc-if>
@@ -240,7 +255,7 @@ body{margin:0}
 </div>
 </sc-if>
 <sc-if value="{{isEdit}}" hint-placeholder-val="{{ false }}">
-<pre aria-label="Markdown body" style="flex: 1; min-height: 0; margin: 6px 0 0; overflow: hidden; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{editorFs}}; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere">{{doc.raw}}</pre>
+<pre aria-label="Markdown body" style="flex: 1; min-height: 0; margin: 6px 0 0; overflow: hidden; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{editorFs}}; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere">{{editRaw}}</pre>
 </sc-if>
 </section>
 </sc-if>
@@ -480,7 +495,7 @@ class Component extends DCLogic {
     const hasApprovals = doc.approvals.length > 0;
     const apCurrent = approval === 'current';
     // With the kind heading, the PR title moves out of the frontmatter into the heading.
-    // typed moves the PR title into Preview, above the rendered body.
+    // typed moves the PR title into the typed Frontmatter fields.
     const fmTitle = apCurrent && doc.titleEditable && !headKind && !typed;
 
     const tabs = [['Running', '2', '#60a5fa'], ['Tasks', '13', '#8b8b94'], ['Tree', '1', '#fbbf24'], ['Review', switcher === 'none' ? '' : '4', '#fbbf24'], ['Decisions', '1', '#fbbf24']]
@@ -513,7 +528,19 @@ class Component extends DCLogic {
       menuBorder: menuOpen ? '#a1a1aa' : '#3f3f46',
       menuBg: menuOpen ? '#262626' : 'transparent',
       headKind,
-      showFm: apCurrent && (fmTitle || hasApprovals),
+      // typed draws the frontmatter as fields above the body; approval is decided by the footer, not a submit checkbox.
+      showFm: apCurrent && !typed && (fmTitle || hasApprovals),
+      typed,
+      typedFm: typed && (!!doc.labels || doc.titleEditable),
+      showWideIcon: typed && !phone,
+      headKindFs: phone ? '14px' : '13px',
+      // The open suggestions would push the body below the fold on a phone.
+      suggestOpen: !phone,
+      labelQuery: phone ? '' : doc.labelQuery,
+      addBorder: phone ? '#3f3f46' : '#fafafa',
+      headWhereFs: phone ? '12px' : '10.5px',
+      // The frontmatter has its own fields, so Edit holds only the body.
+      editRaw: typed ? doc.raw.replace(/^---\n[\s\S]*?\n---\n\n/, '') : doc.raw,
       fmTitle,
       apCurrent,
       apExplained: approval === 'explained',
@@ -521,8 +548,8 @@ class Component extends DCLogic {
       rdPanel: reading === 'panel',
       rdToggle: reading === 'toggle' || reading === 'entry',
       rdFull: reading === 'full',
-      showWideBtn: reading === 'entry',
-      segMl: reading === 'entry' ? '0' : 'auto',
+      showWideBtn: reading === 'entry' && !typed,
+      segMl: reading === 'entry' && !typed ? '0' : 'auto',
       wide,
       wideClosed: !wide,
       curCols: phone ? '1fr' : 'minmax(0, 1fr) minmax(0, 1fr)',

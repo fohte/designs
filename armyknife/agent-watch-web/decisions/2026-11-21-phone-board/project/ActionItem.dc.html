@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Background action</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.5">
+
+<sc-if value="{{isToast}}" hint-placeholder-val="{{ true }}">
+<div style="position: relative; overflow: hidden; box-sizing: border-box; display: grid; grid-template-columns: 16px 1fr {{closeW}}; column-gap: 10px; align-items: start; padding: 12px {{toastPadR}} 12px 14px; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 30%)">
+<span style="padding-top: 2px; color: {{ic}}">
+<sc-if value="{{spin}}" hint-placeholder-val="{{ true }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></sc-if>
+<sc-if value="{{ok}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if>
+<sc-if value="{{queue}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></sc-if>
+<sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
+</span>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><strong style="color: #fafafa">{{title}}</strong><span style="min-width: 0; color: #a1a1aa; font-size: {{subFs}}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{session}}</span>
+<sc-if value="{{hasMsg}}" hint-placeholder-val="{{ false }}"><span style="color: #d4d4d8; font-size: {{subFs}}">{{msg}}</span></sc-if>
+<sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><div style="display: grid; grid-template-columns: {{actCols}}; gap: 8px; margin-top: 8px"><button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700">Retry</button><button type="button" aria-label="Details in Activity" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{subFs}}">Details</button></div></sc-if>
+</div>
+<button type="button" aria-label="Dismiss" style="width: {{closeW}}; height: {{closeH}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #8b8b94"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+<sc-if value="{{autoDismiss}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; left: 0; bottom: 0; width: 60%; height: 2px; background: #52525b"></span></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{isRow}}" hint-placeholder-val="{{ false }}">
+<div style="box-sizing: border-box; display: grid; grid-template-columns: 16px 1fr auto; column-gap: {{gap}}; padding: {{rowPad}}; border-top: 1px solid #2a2a2a; color: #d4d4d8">
+<span style="padding-top: 2px; color: {{ic}}">
+<sc-if value="{{spin}}" hint-placeholder-val="{{ true }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></sc-if>
+<sc-if value="{{ok}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if>
+<sc-if value="{{queue}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></sc-if>
+<sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
+</span>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><strong style="color: #fafafa">{{title}}</strong><a href="#" style="min-width: 0; color: #a1a1aa; font-size: {{subFs}}; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{session}}</a>
+<sc-if value="{{hasMsg}}" hint-placeholder-val="{{ false }}"><span style="font-size: {{subFs}}">{{msg}}</span></sc-if>
+<sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><button type="button" style="align-self: flex-start; min-width: {{retryW}}; min-height: {{btnH}}; margin-top: 6px; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700">Retry</button></sc-if>
+</div>
+<span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 12px">{{time}}</span>
+</div>
+</sc-if>
+
+<sc-if value="{{isLine}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: {{subFs}}; text-align: center">
+<div style="display: flex; align-items: center; gap: 8px; color: {{lineColor}}">
+<span style="display: inline-flex; color: {{ic}}">
+<sc-if value="{{spin}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></sc-if>
+<sc-if value="{{ok}}" hint-placeholder-val="{{ true }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if>
+<sc-if value="{{queue}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></sc-if>
+<sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
+</span>
+<span>{{lineText}}</span><sc-if value="{{hasTime}}" hint-placeholder-val="{{ true }}"><span style="color: #8b8b94">· {{time}}</span></sc-if>
+</div>
+<sc-if value="{{hasMsg}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa">{{msg}}</span></sc-if>
+<sc-if value="{{err}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-width: {{retryW}}; min-height: {{lineBtnH}}; margin-top: 2px; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: {{subFs}}">Retry</button></sc-if>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"a":{"editor":null},"form":{"editor":"enum","options":["toast","row","line"],"default":"toast"},"phone":{"editor":"boolean","default":false},"$preview":{"width":360,"height":110}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // a.result: merging | merged | alreadyMerged | queued | mergeFailed | closing | closed | closeFailed.
+    const a = this.props.a ?? { result: 'mergeFailed', pr: 2049, session: '配信チェックの PR を確認する', reason: 'Head branch was updated after you confirmed. Confirm the new head to merge.', time: '12:03' };
+    const form = this.props.form ?? 'toast';
+    const phone = this.props.phone ?? false;
+    const pr = 'PR #' + a.pr;
+    // title: toast and Activity. line: the one line in the conversation.
+    const W = {
+      merging: { icon: 'spin', title: 'Merging ' + pr, line: 'Merging ' + pr + '…' },
+      merged: { icon: 'ok', title: 'Merged ' + pr, line: 'Merged ' + pr },
+      alreadyMerged: { icon: 'done', title: pr + ' was already merged', line: pr + ' was already merged' },
+      queued: { icon: 'queue', title: 'Added ' + pr + ' to the merge queue', line: 'Added ' + pr + ' to the merge queue', msg: 'It merges when the queue’s checks pass.' },
+      mergeFailed: { icon: 'err', title: 'Merge failed · ' + pr, line: 'Merge of ' + pr + ' failed' },
+      closing: { icon: 'spin', title: 'Closing session', line: 'Closing session…' },
+      closed: { icon: 'ok', title: 'Closed session', line: 'Closed session' },
+      closeFailed: { icon: 'err', title: 'Close failed', line: 'Close failed' }
+    }[a.result];
+    const IC = { spin: '#a1a1aa', ok: '#4ade80', done: '#a1a1aa', queue: '#60a5fa', err: '#f87171' };
+    const msg = a.reason ?? W.msg ?? '';
+    return {
+      isToast: form === 'toast', isRow: form === 'row', isLine: form === 'line',
+      spin: W.icon === 'spin', ok: W.icon === 'ok' || W.icon === 'done', queue: W.icon === 'queue', err: W.icon === 'err',
+      ic: IC[W.icon],
+      lineColor: W.icon === 'err' ? '#f87171' : '#a1a1aa',
+      title: W.title, lineText: W.line, session: a.session ?? '',
+      msg, hasMsg: !!msg,
+      time: a.time ?? '', hasTime: !!a.time,
+      // Running toasts stay until they finish; failures stay until dismissed; the rest leave on their own.
+      autoDismiss: W.icon === 'ok' || W.icon === 'done' || W.icon === 'queue',
+      fs: phone ? '14px' : '13px', subFs: phone ? '13px' : '12px',
+      btnH: phone ? '44px' : '26px', lineBtnH: phone ? '44px' : '24px', retryW: phone ? '88px' : '0',
+      actCols: phone ? '1fr 1fr' : 'max-content max-content',
+      closeW: phone ? '44px' : '22px', closeH: phone ? '32px' : '22px', toastPadR: phone ? '0' : '10px',
+      gap: phone ? '12px' : '10px', rowPad: phone ? '12px 16px' : '10px 14px'
+    };
+  }
+}
+</script>
+</body>
+</html>

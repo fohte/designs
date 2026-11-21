@@ -61,6 +61,7 @@ class Component extends DCLogic {
           'PR の一覧では、マージできる PR の行に Merge を出し、マージできない行にはその理由を出します。',
           'Done のセッションは PC ではヘッダーの Close、iPhone では ⋯ のメニューの Close ですぐ閉じます。それ以外はヘッダーの ⋯ (iPhone は ⋯ のメニューの一番下) の赤い Close session… から閉じ、Merge と同じ中央の確認ダイアログ (iPhone は下からのシート) を出します。確認の文言は状態ごとに変えます。',
           '返信欄の上に、会話欄の幅いっぱいの帯で今の状態を出します。状態と詳細 (質問の文、実行中のコマンド、タスク名) を 1 行にまとめ、はみ出た詳細は … で切ります。帯を押すと詳細を全部出し、質問と permission では会話の中のカードに戻ります。crit のレビュー待ちだけは 2 行の帯にし、Review in crit で crit を全画面で開きます。止まっているときは帯を出しません。',
+          'メッセージの中のリンクの URL が登録済みの web UI の URL なら、リンクの後ろに開く先のタブ名のチップ (canvas など) を出します。押すと crit と同じく、そのタブを watch-web の中で全画面で開き、↙ で状況パネルに戻ります。iPhone は web UI だけのページを会話の上に重ねます。ブラウザの新しいタブへは、web UI のヘッダーの URL (iPhone は ↗) からだけ開きます。',
           '↵ で送り、Esc で止め、⌥↑ / ⌥↓ で自分のメッセージをたどります。',
           '返信欄の下に status line と同じ並びで engine、model (effort)、context、5h / 7d の quota (7d 76% → 92% の形で、今の使用率と窓の終わりの予測。色はナビと同じ)、バージョンを出します。表示だけで、押しても何も起きません。iPhone では折り返します。'
         ] },
@@ -68,10 +69,12 @@ class Component extends DCLogic {
           'Merge と Close session… は確認ダイアログで確定するとすぐダイアログを閉じ、裏で実行します。実行中もほかの操作や別のセッションへの移動ができます。',
           '押した場所に結果を出します。Merge (ヘッダーと PR の一覧) は Merging… から Merged、Already merged、Queued (マージキュー)、Failed と Retry のどれかに変わります。Inbox の行は Closing… になり、閉じたら消え、失敗したら Close failed と Retry を出します。',
           'トーストを返信欄の上 (PC は右下) に重ねます。成功は自動で消え、失敗は Retry と Details を付けて残します。',
-          '一度実行するとナビの quota の上 (iPhone はヘッダー) に Activity が出て、実行中を青、失敗を赤の数で示し、一覧を開けます。会話にも Merged PR #2049 · 12:03 の形で 1 行残します。'
+          '一度実行するとナビの quota の上 (iPhone もナビゲーションの quota の上) に Activity が出て、実行中を青、失敗を赤の数で示し、一覧を開けます。iPhone では失敗があるあいだ、Inbox のナビゲーションのボタンに赤い印を付けます。会話にも Merged PR #2049 · 12:03 の形で 1 行残します。',
+          'Close は、コミットしていない変更、merge していないブランチ、動いているプロセスの 3 つを全部調べてから失敗を返します。どこから閉じても、トーストと会話の 1 行には残っているものの要約と Close and keep worktree を、Activity には 3 つの確認の結果 (ファイル、PR、pid) を全部並べ、Open in terminal も置きます。'
         ] },
         { title: '返事を待つカード', items: [
           'Question、Permission、Proposal、To-do の 4 種類です。返事を待っている間は黄色の枠で囲みます。',
+          'To-do は見出しの右の ⌃ で、To-do · later の見出しとタイトルだけの 1 行に畳めます。セッションが登録時に後で確かめる印を付けた to-do は、最初から畳んで出し、added folded と添えます。行を押すと開きます。畳んでいない待ちの to-do が 1 つでもあるセッションは Needs action に残します。待ちの to-do が全部畳んであるセッションだけを Needs action とその数から外し、すぐ下の To-do later の行に件数と先頭のタイトルを出します。',
           'セッションが止まらずに決めたことは Decision として灰色の行で出し、あとから OK か Change… で返します。'
         ] },
         { title: '状況パネル', items: [

@@ -42,7 +42,7 @@
       "y": 1200,
       "w": 390,
       "h": 844,
-      "title": "タスク 1 件",
+      "title": "A · タスク 1 件",
       "page": "options"
     },
     "phone-tasks-a-many.dc.html": {
@@ -50,7 +50,7 @@
       "y": 1200,
       "w": 390,
       "h": 844,
-      "title": "タスク 4 件: 主タスクの右に +3",
+      "title": "A · タスク 4 件: 主タスクの右に +3",
       "page": "options"
     },
     "phone-tasks-a-open.dc.html": {
@@ -58,7 +58,7 @@
       "y": 1200,
       "w": 390,
       "h": 844,
-      "title": "+3 で Tasks のシートを開いたところ",
+      "title": "A · +3 で Tasks のシートを開いたところ",
       "page": "options"
     },
     "phone-tasks-b-one.dc.html": {
@@ -66,7 +66,7 @@
       "y": 2400,
       "w": 390,
       "h": 844,
-      "title": "タスク 1 件",
+      "title": "B · タスク 1 件",
       "page": "options"
     },
     "phone-tasks-b-many.dc.html": {
@@ -74,7 +74,7 @@
       "y": 2400,
       "w": 390,
       "h": 844,
-      "title": "タスク 4 件: PR の左に Tasks ボタン",
+      "title": "B · タスク 4 件: PR の左に Tasks ボタン",
       "page": "options"
     },
     "phone-tasks-b-open.dc.html": {
@@ -82,7 +82,7 @@
       "y": 2400,
       "w": 390,
       "h": 844,
-      "title": "Tasks ボタンでシートを開いたところ",
+      "title": "B · Tasks ボタンでシートを開いたところ",
       "page": "options"
     },
     "phone-tasks-c-one.dc.html": {
@@ -90,7 +90,7 @@
       "y": 3600,
       "w": 390,
       "h": 844,
-      "title": "タスク 1 件 (4 件でもトップバーは同じ)",
+      "title": "C · タスク 1 件 (4 件でもトップバーは同じ)",
       "page": "options"
     },
     "phone-tasks-c-menu.dc.html": {
@@ -98,7 +98,7 @@
       "y": 3600,
       "w": 390,
       "h": 844,
-      "title": "⋯ のメニューに Tasks 4",
+      "title": "C · ⋯ のメニューに Tasks 4",
       "page": "options"
     },
     "phone-tasks-c-open.dc.html": {
@@ -106,7 +106,7 @@
       "y": 3600,
       "w": 390,
       "h": 844,
-      "title": "Tasks でシートを開いたところ",
+      "title": "C · Tasks でシートを開いたところ",
       "page": "options"
     },
     "phone-tasks-pc-many.dc.html": {
@@ -114,7 +114,7 @@
       "y": 4800,
       "w": 390,
       "h": 844,
-      "title": "タスク 4 件: 主タスクの右に +3",
+      "title": "D · タスク 4 件: 主タスクの右に +3",
       "page": "options"
     },
     "phone-tasks-pc-panel.dc.html": {
@@ -122,7 +122,7 @@
       "y": 4800,
       "w": 390,
       "h": 844,
-      "title": "+3 で状況パネルの Tasks を開いたところ",
+      "title": "D · +3 で状況パネルの Tasks を開いたところ",
       "page": "options"
     },
     "PhoneStatusPanel.dc.html": {
@@ -262,7 +262,7 @@
       "y": 900,
       "maxW": 1330,
       "page": "options",
-      "text": "主タスクの行の右に +N。押すと Tasks のシート"
+      "text": "A · 主タスクの行の右に +N。押すと Tasks のシート"
     },
     "optB": {
       "kind": "title1",
@@ -270,7 +270,7 @@
       "y": 2100,
       "maxW": 1330,
       "page": "options",
-      "text": "トップバーに Tasks ボタン (件数つき)。押すとシート"
+      "text": "B · トップバーに Tasks ボタン (件数つき)。押すとシート"
     },
     "optC": {
       "kind": "title1",
@@ -278,7 +278,7 @@
       "y": 3300,
       "maxW": 1330,
       "page": "options",
-      "text": "トップバーは変えず、⋯ のメニューの Tasks からシート"
+      "text": "C · トップバーは変えず、⋯ のメニューの Tasks からシート"
     },
     "optPc": {
       "kind": "title1",
@@ -286,7 +286,7 @@
       "y": 4500,
       "maxW": 1330,
       "page": "options",
-      "text": "PC と同じ: +N で状況パネルの Tasks を開く"
+      "text": "D · PC と同じ: +N で状況パネルの Tasks を開く"
     },
     "optPcNote": {
       "x": 940,

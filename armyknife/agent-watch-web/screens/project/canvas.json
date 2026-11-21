@@ -962,6 +962,22 @@
       "h": 300,
       "title": "PhoneSaveViewSheet",
       "page": "components"
+    },
+    "PhoneChatTasks.dc.html": {
+      "x": 0,
+      "y": 12040,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · tq タスクが 4 件 · 主タスクの右に +3 (押すと状況パネルの Tasks)",
+      "page": "topbar"
+    },
+    "PhoneStatusTasksMany.dc.html": {
+      "x": 0,
+      "y": 2940,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Tasks · 主でないタスクに Make primary",
+      "page": "status-panel"
     }
   },
   "order": [
@@ -1085,7 +1101,9 @@
     "PhoneInboxSaveView.dc.html",
     "PhoneRowMenu.dc.html",
     "PhoneLaterSheet.dc.html",
-    "PhoneSaveViewSheet.dc.html"
+    "PhoneSaveViewSheet.dc.html",
+    "PhoneChatTasks.dc.html",
+    "PhoneStatusTasksMany.dc.html"
   ],
   "pages": [
     {
@@ -1316,6 +1334,22 @@
       "kind": "title1",
       "maxW": 1330,
       "page": "components"
+    },
+    "rowPhoneTasks": {
+      "kind": "title1",
+      "x": 0,
+      "y": 11740,
+      "maxW": 1330,
+      "page": "topbar",
+      "text": "ヘッダー · tq タスクが複数 · iPhone も +N で状況パネルの Tasks を開く"
+    },
+    "rowPhoneStatusTasks": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2640,
+      "maxW": 1330,
+      "page": "status-panel",
+      "text": "状況パネル · Tasks · iPhone で +N から開いたとき"
     }
   },
   "v": 3,
@@ -1355,6 +1389,8 @@
     "rowActionMore",
     "rowPartsLayout",
     "rowPartsRows",
-    "rowPartsDialogs"
+    "rowPartsDialogs",
+    "rowPhoneTasks",
+    "rowPhoneStatusTasks"
   ]
 }

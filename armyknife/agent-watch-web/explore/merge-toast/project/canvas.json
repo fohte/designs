@@ -307,6 +307,46 @@
       "h": 900,
       "title": "H · toast は角のまま、返信欄を上に上げる",
       "page": "options"
+    },
+    "merge-toast-i.dc.html": {
+      "x": 0,
+      "y": 9100,
+      "w": 1440,
+      "h": 900,
+      "title": "I · 右のパネルを閉じている",
+      "page": "options"
+    },
+    "merge-toast-i-panel.dc.html": {
+      "x": 1520,
+      "y": 9100,
+      "w": 1440,
+      "h": 900,
+      "title": "I · 右のパネル (Tree) を開いている",
+      "page": "options"
+    },
+    "merge-toast-i-board.dc.html": {
+      "x": 3040,
+      "y": 9100,
+      "w": 1440,
+      "h": 900,
+      "title": "I · Board を開いている",
+      "page": "options"
+    },
+    "merge-toast-i-band.dc.html": {
+      "x": 4560,
+      "y": 9100,
+      "w": 1440,
+      "h": 900,
+      "title": "I · 新しいバージョンの帯が出ている",
+      "page": "options"
+    },
+    "UpdateBand.dc.html": {
+      "x": 1520,
+      "y": 2000,
+      "w": 760,
+      "h": 40,
+      "title": "UpdateBand",
+      "page": "parts"
     }
   },
   "order": [
@@ -328,6 +368,10 @@
     "merge-toast-g.dc.html",
     "merge-toast-g-panel.dc.html",
     "merge-toast-h.dc.html",
+    "merge-toast-i.dc.html",
+    "merge-toast-i-panel.dc.html",
+    "merge-toast-i-board.dc.html",
+    "merge-toast-i-band.dc.html",
     "MergeScene.dc.html",
     "Nav.dc.html",
     "InboxList.dc.html",
@@ -345,7 +389,8 @@
     "Quota.dc.html",
     "ActivityButton.dc.html",
     "CodeBlock.dc.html",
-    "Board.dc.html"
+    "Board.dc.html",
+    "UpdateBand.dc.html"
   ],
   "notes": {
     "current": {
@@ -475,6 +520,22 @@
       "page": "options",
       "fill": "green",
       "text": "H · toast は角のまま、返信欄を上げる\n- toast はいつも画面の右下の角 (右と下から 16px)\n- 右のパネルを閉じた会話で toast が出ている間は、会話の欄の下に toast の高さ分 (92px) の余白を空ける。帯、返信欄、使用量の行がその分上がる\n- toast が全部消えたら余白もなくなり、元の位置に戻る\n\n良い点\n- toast は本当の角から動かない\n- 送信ボタン、帯、会話の最後の 1 行のどれも隠さない\n\n悪い点\n- toast が出るたび、消えるたびに返信欄が 92px 上下する。入力中だと打つ場所が動く\n- toast が 2 つ以上重なると、空ける余白も増える\n- 会話の見える範囲が狭くなる"
+    },
+    "i": {
+      "kind": "title1",
+      "x": 0,
+      "y": 8840,
+      "maxW": 6000,
+      "page": "options",
+      "text": "I · toast は常に画面の右上"
+    },
+    "iNote": {
+      "x": 6080,
+      "y": 9100,
+      "w": 520,
+      "page": "options",
+      "fill": "teal",
+      "text": "I · toast は常に画面の右上\n- 画面全体の右から 16px、上から 84px に固定する。どの画面でも、右のパネルを開いていても同じ場所\n- 84px は会話のヘッダー (76px、一番高い上の行) の下に 8px 空けた位置。56px (Board やパネルのタブの下) にすると、会話のヘッダーの Vibe off に重なる\n- 新しいバージョンの帯 (36px) が出ているときは、帯の分だけ下がって 120px になる\n- 会話の最後の Merging PR #2049… の 1 行は残す\n\n隠すもの (ボタンは隠さない)\n- 右のパネルを閉じた会話: 会話の上の方の空いた所。ヘッダーのボタンにも返信欄にも重ならない\n- 右のパネルを開いているとき: Tree の上の 2 行の右側 (行の名前の末尾と経過時間)。タブと × は見える\n- Board: 一番右の列の見出し\n\n良い点\n- 返信欄、送信ボタン、Review in crit を隠さない\n- 押した Merging… のボタンの近くに出る\n- 帯と toast が同じ右上でも、上下に並んで重ならない\n\n悪い点\n- 返信欄を見ているときは目に入りにくい\n- toast が増えると下に伸び、右のパネルの一覧や会話をさらに隠す\n\niPhone は変わらない"
     }
   },
   "designSystems": [

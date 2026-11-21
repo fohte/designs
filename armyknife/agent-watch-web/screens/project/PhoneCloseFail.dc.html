@@ -13,7 +13,7 @@ body{margin:0}
 </style>
 </helmet>
 <div style="width: 390px; height: 844px; overflow: hidden; background: #0a0a0a">
-<dc-import name="PhoneChat" state="review" done="{{ true }}" activity="{{ activity }}" toasts="{{ toasts }}" action-line="{{ line }}" hint-size="390px,844px"></dc-import>
+<dc-import name="PhoneChat" state="review" done="{{ true }}" toasts="{{ toasts }}" action-line="{{ line }}" hint-size="390px,844px"></dc-import>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
@@ -21,7 +21,6 @@ class Component extends DCLogic {
   renderVals() {
     const checks = { path: '~/src/example/service/.worktrees/retry-backoff', files: ['src/retry.ts', 'src/retry.test.ts', 'src/backoff.ts', 'src/config.ts'], branch: 'feature/retry-backoff', merged: false, reason: 'PR #64 is still open', processes: ['48213 node'] };
     return {
-      activity: { count: '1', tone: 'failure' },
       line: { result: 'closeFailed', checks, time: '12:03' },
       toasts: [{ result: 'closeFailed', session: '通知の再送処理を見直す', checks }]
     };

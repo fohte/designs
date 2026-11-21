@@ -610,15 +610,15 @@
       "page": "conversation"
     },
     "PhoneActionActivity.dc.html": {
-      "x": 5500,
+      "x": 6440,
       "y": 16050,
       "w": 390,
       "h": 844,
-      "title": "iPhone · Activity を開いた",
+      "title": "iPhone · ナビゲーションから Activity を開いた",
       "page": "conversation"
     },
     "ActionCopy.dc.html": {
-      "x": 5970,
+      "x": 6910,
       "y": 16050,
       "w": 1640,
       "h": 1400,
@@ -678,7 +678,7 @@
       "y": 12610,
       "w": 390,
       "h": 844,
-      "title": "iPhone · Close が失敗して Activity を開いた",
+      "title": "iPhone · Close が失敗してナビゲーションから Activity を開いた",
       "page": "conversation"
     },
     "CloseFailCopy.dc.html": {
@@ -794,6 +794,22 @@
       "h": 844,
       "title": "iPhone · Board",
       "page": "board"
+    },
+    "PhoneActionInbox.dc.html": {
+      "x": 5500,
+      "y": 16050,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Merge が失敗したあと Inbox に戻った (ナビゲーションのボタンに赤い印)",
+      "page": "conversation"
+    },
+    "PhoneActionDrawer.dc.html": {
+      "x": 5970,
+      "y": 16050,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーションの Activity (quota の上)",
+      "page": "conversation"
     }
   },
   "order": [
@@ -887,6 +903,8 @@
     "PhoneActionSuccess.dc.html",
     "PhoneActionFailure.dc.html",
     "PhoneActionClose.dc.html",
+    "PhoneActionInbox.dc.html",
+    "PhoneActionDrawer.dc.html",
     "PhoneActionActivity.dc.html",
     "ActionCopy.dc.html",
     "ActivityButton.dc.html",
@@ -1041,7 +1059,7 @@
       "y": 15750,
       "text": "Merge と Close を裏で実行 · キュー、別セッション、Activity、文言",
       "kind": "title1",
-      "maxW": 7610,
+      "maxW": 8550,
       "page": "conversation"
     },
     "rowPartsLayout": {

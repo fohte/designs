@@ -26,7 +26,7 @@
       "page": "inbox"
     },
     "InboxFilter.dc.html": {
-      "x": 1520,
+      "x": 3400,
       "y": 3240,
       "w": 1440,
       "h": 900,
@@ -34,7 +34,7 @@
       "page": "inbox"
     },
     "InboxFiltered.dc.html": {
-      "x": 3040,
+      "x": 5390,
       "y": 3240,
       "w": 1440,
       "h": 900,
@@ -882,6 +882,86 @@
       "h": 844,
       "title": "iPhone · Needs action の下の To-do later",
       "page": "inbox"
+    },
+    "PhoneInboxSwipe.dc.html": {
+      "x": 1520,
+      "y": 3240,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 行の中で左にスワイプ (Later と Close が出る)",
+      "page": "inbox"
+    },
+    "PhoneInboxRowMenu.dc.html": {
+      "x": 1990,
+      "y": 3240,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 行を長押し",
+      "page": "inbox"
+    },
+    "PhoneInboxLater.dc.html": {
+      "x": 2460,
+      "y": 3240,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Later を押したあと",
+      "page": "inbox"
+    },
+    "PhoneInboxClose.dc.html": {
+      "x": 2930,
+      "y": 3240,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Close を押したあと",
+      "page": "inbox"
+    },
+    "PhoneInboxFilter.dc.html": {
+      "x": 4920,
+      "y": 3240,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 絞り込みの欄を押したあと (kind: を入力中)",
+      "page": "inbox"
+    },
+    "PhoneInboxFiltered.dc.html": {
+      "x": 6910,
+      "y": 3240,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 絞り込んだ状態",
+      "page": "inbox"
+    },
+    "PhoneInboxSaveView.dc.html": {
+      "x": 7380,
+      "y": 3240,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Save view を押したあと",
+      "page": "inbox"
+    },
+    "PhoneRowMenu.dc.html": {
+      "x": 0,
+      "y": 3340,
+      "w": 390,
+      "h": 250,
+      "title": "PhoneRowMenu",
+      "page": "components"
+    },
+    "PhoneLaterSheet.dc.html": {
+      "x": 470,
+      "y": 3340,
+      "w": 390,
+      "h": 420,
+      "title": "PhoneLaterSheet",
+      "page": "components"
+    },
+    "PhoneSaveViewSheet.dc.html": {
+      "x": 940,
+      "y": 3340,
+      "w": 390,
+      "h": 300,
+      "title": "PhoneSaveViewSheet",
+      "page": "components"
     }
   },
   "order": [
@@ -995,7 +1075,17 @@
     "TodoFolded.dc.html",
     "PhoneChatTodoFolded.dc.html",
     "InboxTodoLater.dc.html",
-    "PhoneInboxTodoLater.dc.html"
+    "PhoneInboxTodoLater.dc.html",
+    "PhoneInboxSwipe.dc.html",
+    "PhoneInboxRowMenu.dc.html",
+    "PhoneInboxLater.dc.html",
+    "PhoneInboxClose.dc.html",
+    "PhoneInboxFilter.dc.html",
+    "PhoneInboxFiltered.dc.html",
+    "PhoneInboxSaveView.dc.html",
+    "PhoneRowMenu.dc.html",
+    "PhoneLaterSheet.dc.html",
+    "PhoneSaveViewSheet.dc.html"
   ],
   "pages": [
     {
@@ -1033,7 +1123,7 @@
       "y": 2240,
       "w": 420,
       "page": "components",
-      "text": "ConfirmDialog: 確認ダイアログの共通部品。form で形を選ぶ\n- modal: Merge の確認 (確認ダイアログ)、閉じる前の確認 (Close session… を押したあと、Inbox の e、状態ごとの文言)\n- popover: 会話のヘッダーの vibe mode\n- sheet: iPhone の vibe mode、iPhone の閉じる前の確認、iPhone の Merge の確認、iPhone の ! コマンドの確認\n- panel: ! コマンドの確認 (確認ダイアログ)"
+      "text": "ConfirmDialog: 確認ダイアログの共通部品。form で形を選ぶ\n- modal: Merge の確認 (確認ダイアログ)、閉じる前の確認 (Close session… を押したあと、Inbox の e、状態ごとの文言)\n- popover: 会話のヘッダーの vibe mode\n- sheet: iPhone の vibe mode、iPhone の閉じる前の確認 (会話の ⋯ と Inbox の行の Close)、iPhone の Merge の確認、iPhone の ! コマンドの確認\n- panel: ! コマンドの確認 (確認ダイアログ)"
     },
     "rowInboxConversation": {
       "x": 0,
@@ -1046,9 +1136,9 @@
     "rowInboxLaterFilter": {
       "x": 0,
       "y": 2940,
-      "text": "Inbox · Later と絞り込み",
+      "text": "Inbox · Later、閉じる、絞り込み · iPhone は行の中のスワイプか長押しと、/ と同じ絞り込みの欄",
       "kind": "title1",
-      "maxW": 4480,
+      "maxW": 7770,
       "page": "inbox"
     },
     "rowNewSession": {
@@ -1218,6 +1308,14 @@
       "kind": "title1",
       "maxW": 1910,
       "page": "status-panel"
+    },
+    "rowPartsPhoneInbox": {
+      "x": 0,
+      "y": 3040,
+      "text": "iPhone の Inbox のシート",
+      "kind": "title1",
+      "maxW": 1330,
+      "page": "components"
     }
   },
   "v": 3,

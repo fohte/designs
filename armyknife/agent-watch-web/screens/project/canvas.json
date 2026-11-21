@@ -369,6 +369,22 @@
       "title": "iPhone · vibe mode のシート",
       "page": "conversation"
     },
+    "VibeNotice.dc.html": {
+      "x": 2398,
+      "y": 7520,
+      "w": 1440,
+      "h": 900,
+      "title": "vibe mode を切り替えたあと · 会話にイベントとして出る",
+      "page": "conversation"
+    },
+    "PhoneChatVibeNotice.dc.html": {
+      "x": 3918,
+      "y": 7520,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · vibe mode を切り替えたあと",
+      "page": "conversation"
+    },
     "ConversationEnded.dc.html": {
       "x": 1370,
       "y": 4110,
@@ -859,6 +875,8 @@
     "VibePopover.dc.html",
     "ConversationPrs.dc.html",
     "PhoneChatVibe.dc.html",
+    "VibeNotice.dc.html",
+    "PhoneChatVibeNotice.dc.html",
     "DeniedCard.dc.html",
     "PaletteClose.dc.html",
     "CloseMenu.dc.html",
@@ -1017,7 +1035,7 @@
       "y": 7220,
       "text": "ヘッダー · vibe mode",
       "kind": "title1",
-      "maxW": 2318,
+      "maxW": 4308,
       "page": "conversation"
     },
     "rowCloseSession": {

@@ -48,6 +48,11 @@ body{margin:0}
 <sc-if value="{{isQuestion}}" hint-placeholder-val="{{ true }}">
 <article style="color: #d4d4d8">再送処理を <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">retry()</code> にまとめました。上限の回数だけ決めてください。</article>
 <button type="button" aria-expanded="false" style="width: 100%; min-height: 44px; margin: -14px 0 -8px; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13px; text-align: left"><span style="flex: none; color: #d4d4d8; font-style: italic">Thought ×1</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Edit client.ts · Read ×3 · Shell ×1</span><span aria-hidden="true" style="flex: none; color: #71717a">›</span></button>
+<sc-if value="{{hasVibeEvents}}" hint-placeholder-val="{{ false }}">
+<sc-for list="{{vibeEvents}}" as="e" hint-placeholder-count="2">
+<div style="text-align: center; font-size: 11px; color: #a1a1aa">{{e}}</div>
+</sc-for>
+</sc-if>
 <article style="border: 1px solid #fbbf24">
 <h2 style="margin: 0; padding: 10px 14px 4px; color: #fbbf24; font-size: 12.5px; font-weight: 700">Question</h2>
 <div style="padding: 0 14px 10px; font-size: 15px">再試行は 3 回で止めてよいですか?</div>
@@ -59,6 +64,11 @@ body{margin:0}
 <sc-if value="{{isReview}}" hint-placeholder-val="{{ false }}">
 <article style="color: #d4d4d8">再送処理を <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">retry()</code> にまとめて PR #2050 を作りました。crit で差分を見てください。</article>
 <button type="button" aria-expanded="false" style="width: 100%; min-height: 44px; margin: -14px 0 0; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13px; text-align: left"><span style="flex: none; color: #d4d4d8; font-style: italic">Thought ×2</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Edit client.ts · Read ×3 · Shell ×2</span><span aria-hidden="true" style="flex: none; color: #71717a">›</span></button>
+<sc-if value="{{hasVibeEvents}}" hint-placeholder-val="{{ false }}">
+<sc-for list="{{vibeEvents}}" as="e" hint-placeholder-count="2">
+<div style="text-align: center; font-size: 11px; color: #a1a1aa">{{e}}</div>
+</sc-for>
+</sc-if>
 </sc-if>
 <sc-if value="{{hasActionLine}}" hint-placeholder-val="{{ false }}">
 <dc-import name="ActionItem" a="{{ actionLine }}" form="line" phone="{{ true }}" hint-size="100%,24px"></dc-import>
@@ -112,7 +122,7 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"state":{"editor":"enum","options":["question","review"],"default":"question"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"vibeEvents":{"editor":null}}'>
 class Component extends DCLogic {
   renderVals() {
     const menuOpen = this.props.menuOpen ?? false;
@@ -138,6 +148,8 @@ class Component extends DCLogic {
     return {
       toasts, toastsOverSheet: toasts.length > 0 && prsOpen, toastsInline: toasts.length > 0 && !prsOpen,
       actionLine: this.props.actionLine ?? null, hasActionLine: !!this.props.actionLine,
+      // vibeEvents: lines like 'Vibe mode turned on · 10:14'. The switch reaches the session as a message but draws as an event, not as You.
+      vibeEvents: this.props.vibeEvents ?? [], hasVibeEvents: (this.props.vibeEvents ?? []).length > 0,
       vibeText: VB.text, vibeSub: VB.sub, vibeHead: VB.head, vibeBody: VB.body, vibeAction: VB.action,
       cMark: vibeOn,
       zapShown: vibe !== 'unavailable', zapOffShown: vibe === 'unavailable',

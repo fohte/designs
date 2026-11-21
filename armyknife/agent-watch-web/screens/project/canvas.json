@@ -701,7 +701,7 @@
       "x": 1520,
       "y": 300,
       "w": 390,
-      "h": 2800,
+      "h": 2960,
       "page": "conversation"
     },
     "PhoneCards.dc.html": {
@@ -866,6 +866,62 @@
       "h": 844,
       "title": "iPhone · to-do を畳む",
       "page": "conversation"
+    },
+    "CodeCopy.dc.html": {
+      "x": 0,
+      "y": 10290,
+      "w": 1440,
+      "h": 900,
+      "title": "コードブロック · 長い行を横にスクロールしても帯は動かない",
+      "page": "conversation"
+    },
+    "PhoneChatCodeCopy.dc.html": {
+      "x": 1520,
+      "y": 10290,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · コードブロックの帯 (44px)",
+      "page": "conversation"
+    },
+    "CodeCopyCopied.dc.html": {
+      "x": 1990,
+      "y": 10290,
+      "w": 1440,
+      "h": 900,
+      "title": "コードブロック · Copy を押した直後 (1.5 秒 ✓ Copied)",
+      "page": "conversation"
+    },
+    "PhoneChatCodeCopyCopied.dc.html": {
+      "x": 3510,
+      "y": 10290,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Copy を押した直後",
+      "page": "conversation"
+    },
+    "CodeCopyUser.dc.html": {
+      "x": 3980,
+      "y": 10290,
+      "w": 1440,
+      "h": 900,
+      "title": "コードブロック · 自分のメッセージの中のコードをコピー",
+      "page": "conversation"
+    },
+    "PhoneChatCodeCopyUser.dc.html": {
+      "x": 5500,
+      "y": 10290,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 自分のメッセージの中のコードをコピー",
+      "page": "conversation"
+    },
+    "CodeBlock.dc.html": {
+      "x": 5328,
+      "y": 1620,
+      "w": 672,
+      "h": 160,
+      "title": "CodeBlock",
+      "page": "components"
     },
     "InboxTodoLater.dc.html": {
       "x": 0,
@@ -1090,6 +1146,13 @@
     "PhoneWebUiFull.dc.html",
     "TodoFolded.dc.html",
     "PhoneChatTodoFolded.dc.html",
+    "CodeCopy.dc.html",
+    "PhoneChatCodeCopy.dc.html",
+    "CodeCopyCopied.dc.html",
+    "PhoneChatCodeCopyCopied.dc.html",
+    "CodeCopyUser.dc.html",
+    "PhoneChatCodeCopyUser.dc.html",
+    "CodeBlock.dc.html",
     "InboxTodoLater.dc.html",
     "PhoneInboxTodoLater.dc.html",
     "PhoneInboxSwipe.dc.html",
@@ -1302,6 +1365,14 @@
       "maxW": 2450,
       "page": "conversation",
       "text": "後で確かめる to-do · タイトルだけの 1 行に畳む"
+    },
+    "rowCodeCopy": {
+      "kind": "title1",
+      "x": 0,
+      "y": 9990,
+      "maxW": 5890,
+      "page": "conversation",
+      "text": "コードブロック · 言語名と Copy の帯"
     },
     "rowTodoLater": {
       "kind": "title1",

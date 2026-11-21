@@ -14,7 +14,7 @@ body{margin:0}
 a{color:#ef4444}
 </style>
 </helmet>
-<div style="width: 390px; height: 2800px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 40px 16px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.55">
+<div style="width: 390px; height: 2960px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px; padding: 40px 16px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.55">
 
 <div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">User</strong>Right-aligned, max 92%.</div>
 <article style="align-self: flex-end; max-width: 92%; display: flex; flex-direction: column; gap: 4px; margin-bottom: 24px">
@@ -22,10 +22,10 @@ a{color:#ef4444}
 <div style="padding: 10px 14px; background: #1f1f1f">通知の再送処理を見直して。</div>
 </article>
 
-<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Assistant</strong>Markdown with no bubble.</div>
+<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Assistant</strong>Markdown with no bubble. A code block has a bar with its language and Copy.</div>
 <article style="color: #d4d4d8; margin-bottom: 24px">
 <p style="margin: 0 0 10px">再送処理を <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">retry()</code> にまとめました。詳しくは <a href="#" style="text-decoration: underline">設計メモ</a> を見てください。</p>
-<pre style="margin: 0; padding: 10px 12px; overflow-x: auto; background: #131313; border: 1px solid #262626; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #d4d4d8">const delay = base * 2 ** attempt;</pre>
+<dc-import name="CodeBlock" code="delay" phone="{{ true }}" hint-size="100%,90px"></dc-import>
 </article>
 
 <div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Narration</strong>The session's progress report between tool calls. In the body, told from the reply only by dimmer text.</div>
@@ -95,8 +95,7 @@ a{color:#ef4444}
 
 <div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">! commands</strong>Commands in a reply run on a button press. Buttons are 44px tall.</div>
 <article style="display: flex; flex-direction: column; gap: 8px; margin-bottom: 24px; color: #d4d4d8">
-<pre style="margin: 0; padding: 10px 12px; overflow-x: auto; background: #131313; border: 1px solid #262626; font-family: 'JetBrains Mono', monospace; font-size: 12.5px">!cargo test -p service
-!cargo clippy</pre>
+<dc-import name="CodeBlock" code="bang" phone="{{ true }}" hint-size="100%,110px"></dc-import>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12.5px">
 <button type="button" style="min-height: 44px; padding: 0 12px; border: 1px solid #3f3f46; background: #1f1f1f; color: #d4d4d8; font-family: inherit; font-size: 12.5px">Run command 1</button>
 <button type="button" style="min-height: 44px; padding: 0 12px; border: 1px solid #3f3f46; background: #1f1f1f; color: #d4d4d8; font-family: inherit; font-size: 12.5px">Run all</button>
@@ -128,7 +127,7 @@ a{color:#ef4444}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":2800}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":2960}}'>
 class Component extends DCLogic {
   renderVals() {
     const ok = { isTool: true, mark: '✓', color: '#a1a1aa', markLabel: 'Succeeded' };

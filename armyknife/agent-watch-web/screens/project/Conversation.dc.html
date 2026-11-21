@@ -79,10 +79,21 @@ a{color:#ef4444}
 
 <article style="flex: none; align-self: flex-end; max-width: 80%; display: flex; flex-direction: column; gap: 4px">
 <div style="display: flex; justify-content: flex-end; gap: 8px; font-size: 12px; color: #8b8b94">You · 10:02</div>
-<div style="padding: 10px 14px; background: #1f1f1f; color: #fafafa">{{userText}}</div>
+<sc-if value="{{notCode}}" hint-placeholder-val="{{ true }}"><div style="padding: 10px 14px; background: #1f1f1f; color: #fafafa">{{userText}}</div></sc-if>
+<sc-if value="{{isCode}}" hint-placeholder-val="{{ false }}"><div style="min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 10px 14px; background: #1f1f1f; color: #fafafa"><div>{{userText}}</div><dc-import name="CodeBlock" code="err" hovered="{{ cbErr.hovered }}" copied="{{ cbErr.copied }}" scrolled="{{ cbErr.scrolled }}" hint-size="100%,66px"></dc-import></div></sc-if>
 </article>
 
+<sc-if value="{{notCode}}" hint-placeholder-val="{{ true }}">
 <article style="flex: none; max-width: 100%; color: #d4d4d8">{{assistantText}} <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">{{assistantCode}}</code> {{assistantTail}}</article>
+</sc-if>
+<sc-if value="{{isCode}}" hint-placeholder-val="{{ false }}">
+<article style="flex: none; max-width: 100%; display: flex; flex-direction: column; gap: 12px; color: #d4d4d8">
+<div>原因は <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">limit</code> が渡っていないことでした。<code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">retry()</code> を次のように直しました。</div>
+<dc-import name="CodeBlock" code="ts" hovered="{{ cbTs.hovered }}" copied="{{ cbTs.copied }}" scrolled="{{ cbTs.scrolled }}" hint-size="100%,126px"></dc-import>
+<div>ステージングでは次のコマンドで再送を試せます。</div>
+<dc-import name="CodeBlock" code="curl" hovered="{{ cbCurl.hovered }}" copied="{{ cbCurl.copied }}" scrolled="{{ cbCurl.scrolled }}" hint-size="100%,72px"></dc-import>
+</article>
+</sc-if>
 
 <details style="flex: none; width: 100%; margin-top: -8px; font-size: 12.5px; color: #a1a1aa"><summary style="display: flex; gap: 6px; list-style: none"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{toolSummary}}</span><span style="color: #71717a">›</span></summary></details>
 
@@ -176,7 +187,7 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review","todo"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review","todo","code"],"default":"question"},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"$preview":{"width":880,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const variant = this.props.variant ?? 'question';
@@ -192,7 +203,8 @@ class Component extends DCLogic {
       question: { main: pr(2047, '再送処理を retry() にまとめる', 'example/service', 'running'), others: [pr(61, '再送キューの設定を足す', 'example/infra', 'passed')] },
       working: { main: pr(2053, '配信メトリクスを記録する', 'example/service', 'running'), others: [] },
       review: { main: pr(2049, '配信前のチェックを追加する', 'example/web-app', 'passed'), others: [] },
-      todo: { main: pr(3102, '通知の音を設定に足す', 'example/mobile-app', 'running'), others: [] }
+      todo: { main: pr(3102, '通知の音を設定に足す', 'example/mobile-app', 'running'), others: [] },
+      code: { main: pr(2061, '再送の上限を retry() に渡す', 'example/service', 'running'), others: [] }
     }[variant] ?? { main: pr(2047, '', '', 'running'), others: [] };
     if (this.props.ciFailing) P.main = { ...P.main, ...CI.failing };
     // mergeState: the merge confirmed on PR #mergeTarget (default: this branch's PR), shown on that PR's Merge until the PR refreshes.
@@ -215,6 +227,11 @@ class Component extends DCLogic {
       review: { engine: 'codex', title: '配信チェックの PR を確認する', taskId: '', taskTitle: '', repo: 'example/web-app', userText: '配信チェックを足して PR にして。', assistantText: '配信前のチェックを', assistantCode: 'preflight()', assistantTail: 'にまとめて PR #2049 を作りました。crit で差分を見てください。', toolSummary: 'Edit preflight.ts · Read ×2 · Shell ×2', bandState: 'crit', bandLabel: '', bandDetail: 'crit · PR #2049 · 2m' },
       todo: { engine: 'claude', title: '通知の音を選べるようにする', taskId: 'P2 #3101', taskTitle: '通知の設定を増やす', repo: 'example/mobile-app', userText: '通知の音を選べるようにして。', assistantText: '通知の音を', assistantCode: 'sound', assistantTail: 'で選べるようにしました。シミュレーターでは鳴りました。実機で鳴るかは、次に通知が届いたときに確かめてください。', toolSummary: 'Edit notify.ts · Read ×2 · Shell ×1', bandState: 'idle', bandLabel: '', bandDetail: '' }
     }[variant] ?? {};
+    if (variant === 'code') Object.assign(V, { engine: 'claude', title: '再送のテストが落ちる', taskId: 'P2 #2060', taskTitle: '通知の信頼性を上げる', repo: 'example/service', userText: 'テストが落ちます。見てください。', toolSummary: 'Edit retry.ts · Read ×2 · Shell ×1', bandState: 'idle', bandLabel: '', bandDetail: '' });
+    // codeState: which code block the pointer is on and was just copied. scrolled: the long block scrolled sideways; user: the block in your own message copied.
+    const codeState = this.props.codeState ?? 'normal';
+    const target = { copied: 'ts', user: 'err' }[codeState] ?? '';
+    const cb = (k) => ({ hovered: target === k, copied: target === k && (codeState === 'copied' || codeState === 'user'), scrolled: codeState === 'scrolled' && k === 'curl' });
     // todo: who folded the to-do that can only be checked when the situation comes up. folded: the user, with ⌃; added: the session, marked to check later when it added it.
     const tLater = { title: '通知の音を実機で確かめる' };
     const tNow = { title: '設定画面の音の一覧を見る', detail: 'ステージングで設定画面を開き、音の一覧に 5 つ並んでいるか見てください。' };
@@ -245,6 +262,8 @@ class Component extends DCLogic {
     return {
       // webUiLink: a message whose link points at a registered web UI; the chip names the tab it opens in.
       webUiLink: this.props.webUiLink ?? false,
+      isCode: variant === 'code', notCode: variant !== 'code',
+      cbTs: cb('ts'), cbCurl: cb('curl'), cbErr: cb('err'),
       webUrl: 'http://127.0.0.1:4720/design/k3x9/#page-options',
       menuOpen,
       menuOpenStr: menuOpen ? 'true' : 'false',

@@ -16,7 +16,7 @@ body{margin:0}
 <aside aria-label="Session status" style="position: relative; width: 100%; height: {{rootH}}; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; background: #0f0f0f; border-left: {{rootBorder}}; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
 
 <div style="flex: none; height: {{tabsH}}; box-sizing: border-box; display: flex; align-items: stretch; gap: 8px; padding: 0 {{closePad}} 0 {{padX}}; border-bottom: 1px solid #2a2a2a">
-<div role="tablist" aria-label="Session status" style="flex: 1; min-width: 0; display: flex; align-items: stretch; gap: 16px; overflow: hidden">
+<div role="tablist" aria-label="Session status" style="flex: 1; min-width: 0; display: flex; align-items: stretch; gap: {{tabGap}}; overflow: hidden">
 <sc-for list="{{tabs}}" as="t" hint-placeholder-count="5">
 <button type="button" role="tab" aria-selected="{{t.selected}}" style="flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; border-bottom: 2px solid {{t.underline}}; background: transparent; color: {{t.color}}; font-family: inherit; font-size: {{tabFs}}; font-weight: {{t.weight}}; white-space: nowrap">{{t.label}}<span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: {{t.countColor}}">{{t.count}}</span></button>
 </sc-for>
@@ -164,12 +164,59 @@ body{margin:0}
 </div>
 <sc-if value="{{isPreview}}" hint-placeholder-val="{{ true }}">
 <div style="flex: 1; min-height: 0; overflow: hidden; padding-top: 6px; color: #d4d4d8; font-size: {{bodyFs}}">
+<sc-if value="{{showThreads}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<sc-for list="{{doc.threads}}" as="t" hint-placeholder-count="2">
+<article aria-label="{{t.path}}" style="border: 1px solid #2a2a2a; background: #0a0a0a">
+<header style="display: flex; align-items: center; gap: 8px; padding: 4px 6px 4px 10px; border-bottom: 1px solid #1f1f1f">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"></path><path d="M14 3v5h5"></path></svg>
+<span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #fafafa">{{t.path}}</span>
+<label style="flex: none; margin-left: auto; min-height: {{segRowH}}; display: inline-flex; align-items: center; gap: 6px; padding: 0 6px; color: #d4d4d8; font-size: {{metaFs}}"><input type="checkbox" checked="{{t.resolved}}" style="width: {{checkSize}}; height: {{checkSize}}; margin: 0; accent-color: #fafafa">Resolve</label>
+</header>
+<div aria-label="Diff" style="padding: 4px 0; overflow: hidden; border-bottom: 1px solid #1f1f1f; font-family: 'JetBrains Mono', monospace; font-size: {{diffFs}}; line-height: 1.6">
+<sc-for list="{{t.diff}}" as="d" hint-placeholder-count="5">
+<div style="padding: 0 10px 0 8px; border-left: 2px solid {{d.mark}}; background: {{d.bg}}; color: {{d.color}}; white-space: pre; overflow: hidden; text-overflow: ellipsis">{{d.text}}</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 10px">
+<sc-for list="{{t.comments}}" as="c" hint-placeholder-count="1">
+<div style="display: flex; align-items: flex-start; gap: 8px">
+<span aria-hidden="true" style="flex: none; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; background: #27272a; color: #fafafa; font-size: 11px; font-weight: 700">{{c.initial}}</span>
+<div style="flex: 1; min-width: 0; padding: 6px 10px; border: 1px solid #2a2a2a; background: #161616">
+<p style="margin: 0 0 2px; font-size: {{metaFs}}; color: #a1a1aa"><strong style="color: #fafafa">{{c.author}}</strong> · <time datetime="{{c.iso}}">{{c.time}}</time></p>
+<p style="margin: 0; color: #d4d4d8">{{c.body}}</p>
+</div>
+</div>
+</sc-for>
+<label style="display: flex; flex-direction: column; gap: 4px; padding-left: 32px"><span style="font-size: {{metaFs}}; color: #a1a1aa">Your reply</span><input value="{{t.reply}}" style="width: 100%; min-height: {{inputH}}; box-sizing: border-box; padding: 4px 8px; border: 1px solid #3f3f46; background: #0f0f0f; color: #fafafa; font-family: inherit; font-size: {{replyFs}}"></label>
+</div>
+</article>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{showIssue}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid #2a2a2a">
+<h3 style="margin: 0; color: #fafafa; font-size: {{issueTitleFs}}; line-height: 1.4">{{doc.title}}</h3>
+<dl style="margin: 0; display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: start; gap: 8px 12px; font-size: {{metaFs}}">
+<dt style="color: #8b8b94">Labels</dt>
+<dd style="margin: 0; display: flex; flex-wrap: wrap; gap: 6px"><sc-for list="{{doc.labels}}" as="l" hint-placeholder-count="2"><span style="padding: 0 8px; border: 1px solid #3f3f46; background: #161616; color: #fafafa; line-height: 1.7">{{l.name}}</span></sc-for></dd>
+<dt style="color: #8b8b94">Assignees</dt>
+<dd style="margin: 0; display: flex; flex-wrap: wrap; gap: 10px"><sc-for list="{{doc.assignees}}" as="a" hint-placeholder-count="1"><span style="display: inline-flex; align-items: center; gap: 6px; color: #fafafa"><span aria-hidden="true" style="width: 20px; height: 20px; display: inline-flex; align-items: center; justify-content: center; background: #27272a; font-size: 10.5px; font-weight: 700">{{a.initial}}</span>{{a.name}}</span></sc-for></dd>
+<dt style="color: #8b8b94">Parent issue</dt>
+<dd style="margin: 0"><a href="#" style="color: #93c5fd">{{doc.parent.ref}}</a> <span style="color: #a1a1aa">{{doc.parent.title}}</span></dd>
+<dt style="color: #8b8b94">Sub-issues</dt>
+<dd style="margin: 0; display: flex; flex-direction: column; gap: 2px"><sc-for list="{{doc.subIssues}}" as="s" hint-placeholder-count="2"><span><a href="#" style="color: #93c5fd">{{s.ref}}</a> <span style="color: #a1a1aa">{{s.title}}</span></span></sc-for></dd>
+</dl>
+</div>
+</sc-if>
+<sc-if value="{{showBlocks}}" hint-placeholder-val="{{ true }}">
 <sc-for list="{{doc.blocks}}" as="b" hint-placeholder-count="4">
 <sc-if value="{{b.h}}" hint-placeholder-val="{{ false }}"><h4 style="margin: 4px 0 6px; color: #fafafa; font-size: {{h4Fs}}">{{b.text}}</h4></sc-if>
 <sc-if value="{{b.p}}" hint-placeholder-val="{{ true }}"><p style="margin: 0 0 10px">{{b.text}}</p></sc-if>
 <sc-if value="{{b.li}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 4px; padding-left: 14px; text-indent: -12px">· {{b.text}}</p></sc-if>
 <sc-if value="{{b.quote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 10px; padding-left: 10px; border-left: 2px solid #3f3f46; color: #a1a1aa">{{b.text}}</p></sc-if>
 </sc-for>
+</sc-if>
 </div>
 </sc-if>
 <sc-if value="{{isEdit}}" hint-placeholder-val="{{ false }}">
@@ -230,7 +277,7 @@ body{margin:0}
 </sc-if>
 </aside>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"heading":{"editor":"enum","options":["none","kind"],"default":"none"},"switcher":{"editor":"enum","options":["none","tabs","stepper","list"],"default":"none"},"reading":{"editor":"enum","options":["panel","toggle","full","entry"],"default":"panel"},"wide":{"editor":"boolean","default":false},"approval":{"editor":"enum","options":["current","explained","buttons"],"default":"current"},"phone":{"editor":"boolean","default":false},"doc":{"editor":"int","min":0,"max":3,"default":0},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"screen":{"editor":"enum","options":["auto","list","detail"],"default":"auto"},"submit":{"editor":"boolean","default":false},"translate":{"editor":"boolean","default":false},"menuOpen":{"editor":"boolean","default":false},"$preview":{"width":640,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"heading":{"editor":"enum","options":["none","kind"],"default":"none"},"switcher":{"editor":"enum","options":["none","tabs","stepper","list"],"default":"none"},"reading":{"editor":"enum","options":["panel","toggle","full","entry"],"default":"panel"},"wide":{"editor":"boolean","default":false},"approval":{"editor":"enum","options":["current","explained","buttons"],"default":"current"},"phone":{"editor":"boolean","default":false},"doc":{"editor":"int","min":0,"max":4,"default":0},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"screen":{"editor":"enum","options":["auto","list","detail"],"default":"auto"},"submit":{"editor":"boolean","default":false},"translate":{"editor":"boolean","default":false},"menuOpen":{"editor":"boolean","default":false},"typed":{"editor":"boolean","default":false},"$preview":{"width":640,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     // Unset props draw the baseline the options are compared against: no heading, one draft, the two-column body, bare frontmatter checkboxes.
@@ -242,7 +289,10 @@ class Component extends DCLogic {
     const reading0 = this.props.reading ?? 'panel';
     const reading = phone && (reading0 === 'full' || reading0 === 'entry') ? 'toggle' : reading0;
     const wide = reading === 'full' && (this.props.wide ?? false);
-    const di = Math.min(3, Math.max(0, this.props.doc ?? 0));
+    // doc 4 is an issue file (a gh issue-agent); it is not one of the drafts in the queue.
+    const di = Math.min(4, Math.max(0, this.props.doc ?? 0));
+    // typed: Preview draws each draft type in its own form; Edit shows the file as the session wrote it.
+    const typed = this.props.typed ?? false;
     const view = this.props.view ?? 'preview';
     const submit = this.props.submit ?? false;
     const screenProp = this.props.screen ?? 'auto';
@@ -299,7 +349,25 @@ class Component extends DCLogic {
         bPrimary: 'Post replies',
         bHelp: 'Each button saves and closes the editor. Post replies sets submit. Send back returns your edits to the session.',
         raw: '### src/preflight.ts:42\n\n> この判定は null も通しますか?\n\n通しません。手前で弾いています。\n\n### src/preflight.ts:57\n\n> 失敗したときのログはどこに出ますか?\n\n送信ログに理由と一緒に出します。',
-        blocks: [['h', 'src/preflight.ts:42'], ['quote', 'この判定は null も通しますか?'], ['p', '通しません。手前で弾いています。'], ['h', 'src/preflight.ts:57'], ['quote', '失敗したときのログはどこに出ますか?'], ['p', '送信ログに理由と一緒に出します。']]
+        blocks: [['h', 'src/preflight.ts:42'], ['quote', 'この判定は null も通しますか?'], ['p', '通しません。手前で弾いています。'], ['h', 'src/preflight.ts:57'], ['quote', '失敗したときのログはどこに出ますか?'], ['p', '送信ログに理由と一緒に出します。']],
+        // The threads file a gh pr-review reply pull writes; diff lines start with ' ', '+', '-' or '@@', and '>' marks the commented line.
+        threads: [
+          {
+            id: 'RT_fx01', path: 'src/preflight.ts:42', resolved: false,
+            diff: ['@@ -39,5 +39,7 @@ export function preflight(msg) {', '   const target = msg.target;', "-  if (!target) return fail('no target');", '>+  if (target == null) {', "+    return fail('no target');", '+  }'],
+            comments: [{ author: '@hina-k', iso: '2026-01-15T10:30:00Z', body: 'この判定は null も通しますか?' }],
+            reply: '通しません。手前で弾いています。'
+          },
+          {
+            id: 'RT_fx02', path: 'src/preflight.ts:57', resolved: true,
+            diff: ['@@ -55,4 +57,6 @@ export function preflight(msg) {', '   } catch (e) {', ">+    log.warn('preflight failed', e);", '+    return fail(String(e));', '   }'],
+            comments: [
+              { author: '@hina-k', iso: '2026-01-15T10:34:00Z', body: '失敗したときのログはどこに出ますか?' },
+              { author: '@ren-o', iso: '2026-01-15T11:02:00Z', body: '送信ログと同じ場所だと追いやすいです。' }
+            ],
+            reply: '送信ログに理由と一緒に出します。'
+          }
+        ]
       },
       {
         kind: 'Draft', where: 'docs/retry-plan.md', short: 'retry-plan.md',
@@ -315,6 +383,24 @@ class Component extends DCLogic {
         bHelp: 'Saves and closes the editor. The session reads the file again.',
         raw: '# 再送の設計メモ\n\n- 上限は設定で変える\n- 待ち時間は倍ずつ伸ばす',
         blocks: [['h', '再送の設計メモ'], ['li', '上限は設定で変える'], ['li', '待ち時間は倍ずつ伸ばす']]
+      },
+      {
+        kind: 'Issue', where: 'example/web-app #418', short: '#418',
+        title: '設定画面から再送の上限を変えられるようにする', titleEditable: false, state: 'In editor', stateLong: 'In the editor · 1m', stateDot: IN,
+        note: 'Edit this issue',
+        excerpt: '再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。',
+        approvalSummary: 'Not approved yet',
+        approvals: [{ label: 'Update the issue', key: 'submit', help: 'Approve it. After you finish, the session updates #418.', on: 'submit' }],
+        finishOn: 'Finish and update', finishOff: 'Finish and send back',
+        bButtons: [{ label: 'Send back', title: 'Close the editor without approving. The session reads your edits and revises the issue.' }],
+        bPrimary: 'Update issue',
+        bHelp: 'Each button saves and closes the editor. Update issue sets submit. Send back returns your edits to the session.',
+        labels: [{ name: 'enhancement' }, { name: 'settings' }],
+        assignees: [{ name: 'hina-k', initial: 'H' }],
+        parent: { ref: 'example/web-app#400', title: '再送の仕組みを見直す' },
+        subIssues: [{ ref: 'example/web-app#419', title: '上限の入力欄を足す' }, { ref: 'example/web-app#420', title: '上限を API に渡す' }],
+        raw: '---\ntitle: 設定画面から再送の上限を変えられるようにする\nlabels:\n  - enhancement\n  - settings\nassignees:\n  - hina-k\nparentIssue: example/web-app#400\nsubIssues:\n  - example/web-app#419\n  - example/web-app#420\n---\n\n## 背景\n\n再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。\n\n## やること\n\n- 設定画面に再送の上限の入力欄を足す\n- 既定値は 3 回のまま',
+        blocks: [['h', '背景'], ['p', '再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。'], ['h', 'やること'], ['li', '設定画面に再送の上限の入力欄を足す'], ['li', '既定値は 3 回のまま']]
       }
     ].map((x, i) => {
       const sel = i === di;
@@ -332,6 +418,32 @@ class Component extends DCLogic {
         hasSteps: fmSteps.length > 0,
         fmTop: approvals.filter((a) => !a.key.startsWith('steps.')).map((a) => ({ name: a.key, on: a.on })),
         blocks: x.blocks.map(([t, text]) => ({ h: t === 'h', p: t === 'p', li: t === 'li', quote: t === 'quote', text })),
+        ...(typed && x.threads ? {
+          raw: x.threads.map((t) => [
+            '<!-- thread: ' + t.id + ' path: ' + t.path + ' -->',
+            '- [' + (t.resolved ? 'x' : ' ') + '] resolve',
+            '<!-- diff -->', ...t.diff.map((d) => d.replace(/^>/, '')), '<!-- /diff -->',
+            ...t.comments.flatMap((c) => ['<!-- comment: ' + c.author + ' ' + c.iso + ' -->', c.body, '<!-- /comment -->']),
+            t.reply
+          ].join('\n')).join('\n\n'),
+          threads: x.threads.map((t) => ({
+            ...t,
+            diff: t.diff.map((d0) => {
+              const hit = d0.startsWith('>');
+              const text = hit ? d0.slice(1) : d0;
+              const add = text.startsWith('+');
+              const del = text.startsWith('-');
+              const hunk = text.startsWith('@@');
+              return {
+                text,
+                mark: hit ? '#fbbf24' : 'transparent',
+                bg: hit ? '#33290a' : add ? '#0f2418' : del ? '#2a1215' : 'transparent',
+                color: hunk ? '#8b8b94' : add ? '#bbf7d0' : del ? '#fecaca' : '#d4d4d8'
+              };
+            }),
+            comments: t.comments.map((c) => ({ ...c, initial: c.author.slice(1, 2).toUpperCase(), time: c.iso.slice(0, 10) + ' ' + c.iso.slice(11, 16) }))
+          }))
+        } : {}),
         bButtons: x.bButtons.map((b, j) => ({ ...b, ml: j === 0 && !phone ? 'auto' : '0' })),
         selectedStr: sel ? 'true' : 'false',
         underline: sel ? '#fafafa' : 'transparent',
@@ -357,6 +469,8 @@ class Component extends DCLogic {
       tabs,
       rootH: phone ? '844px' : '900px',
       rootBorder: phone ? '0' : '1px solid #2a2a2a',
+      // 16px cuts the Decisions count off at phone width.
+      tabGap: phone ? '12px' : '16px',
       tabsH: phone ? '52px' : '48px',
       tabFs: phone ? '13px' : '12.5px',
       closeSize: phone ? '44px' : '28px',
@@ -364,9 +478,9 @@ class Component extends DCLogic {
       padX: phone ? '16px' : '18px',
       isList,
       isDetail,
-      docs: D,
+      docs: D.slice(0, 4),
       doc,
-      pos: (di + 1) + ' / ' + D.length,
+      pos: (di + 1) + ' / ' + '4',
       swTabs: sw === 'tabs',
       swPager: sw === 'pager',
       swBack: sw === 'back',
@@ -416,6 +530,12 @@ class Component extends DCLogic {
       h4Fs: phone ? '16px' : '15px',
       editorFs: phone ? '16px' : '12.5px',
       isPreview: preview,
+      showThreads: typed && !!doc.threads,
+      showIssue: typed && !!doc.labels,
+      showBlocks: !(typed && doc.threads),
+      diffFs: phone ? '12px' : '11.5px',
+      replyFs: phone ? '16px' : '13px',
+      issueTitleFs: phone ? '18px' : '17px',
       isEdit: !preview,
       previewOnStr: preview ? 'true' : 'false',
       editOnStr: preview ? 'false' : 'true',

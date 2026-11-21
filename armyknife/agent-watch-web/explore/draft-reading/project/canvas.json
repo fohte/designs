@@ -19,29 +19,153 @@
     }
   ],
   "pages": [
-    { "id": "options", "name": "案" },
-    { "id": "parts", "name": "部品" }
+    {
+      "id": "options",
+      "name": "案"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
   ],
   "boards": {
-    "draft-reading-current.dc.html": { "x": 0, "y": 0, "w": 1850, "h": 936, "title": "今 · 細い 2 列", "page": "options" },
-    "draft-reading-toggle.dc.html": { "x": 0, "y": 1300, "w": 2260, "h": 936, "title": "A · Preview / Edit の 1 列", "page": "options" },
-    "draft-reading-full.dc.html": { "x": 0, "y": 2600, "w": 3310, "h": 936, "title": "B · 全幅で読む", "page": "options" },
-    "draft-reading-entry.dc.html": { "x": 0, "y": 3900, "w": 1850, "h": 936, "title": "C · パネルと全幅の入口", "page": "options" },
-    "DraftPanel.dc.html": { "x": 0, "y": 0, "w": 640, "h": 900, "title": "DraftPanel", "page": "parts" },
-    "DraftFocus.dc.html": { "x": 720, "y": 0, "w": 800, "h": 900, "title": "DraftFocus", "page": "parts" },
-    "Conversation.dc.html": { "x": 1600, "y": 0, "w": 880, "h": 900, "title": "Conversation", "page": "parts" },
-    "Nav.dc.html": { "x": 2560, "y": 0, "w": 240, "h": 900, "title": "Nav", "page": "parts" },
-    "StatusBand.dc.html": { "x": 0, "y": 1020, "w": 760, "h": 60, "title": "StatusBand", "page": "parts" },
-    "SessionRow.dc.html": { "x": 840, "y": 1020, "w": 460, "h": 76, "title": "SessionRow", "page": "parts" },
-    "Quota.dc.html": { "x": 1380, "y": 1020, "w": 240, "h": 140, "title": "Quota", "page": "parts" },
-    "SessionUsage.dc.html": { "x": 1700, "y": 1020, "w": 672, "h": 40, "title": "SessionUsage", "page": "parts" },
-    "ConfirmDialog.dc.html": { "x": 2452, "y": 1020, "w": 380, "h": 200, "title": "ConfirmDialog", "page": "parts" }
+    "draft-reading-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1850,
+      "h": 936,
+      "title": "今 · 細い 2 列",
+      "page": "options"
+    },
+    "draft-reading-toggle.dc.html": {
+      "x": 0,
+      "y": 1300,
+      "w": 2260,
+      "h": 936,
+      "title": "Preview / Edit の 1 列",
+      "page": "options"
+    },
+    "draft-reading-full.dc.html": {
+      "x": 0,
+      "y": 2600,
+      "w": 3310,
+      "h": 936,
+      "title": "全幅で読む",
+      "page": "options"
+    },
+    "draft-reading-entry.dc.html": {
+      "x": 0,
+      "y": 3900,
+      "w": 1850,
+      "h": 936,
+      "title": "パネルと全幅の入口",
+      "page": "options"
+    },
+    "DraftPanel.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 640,
+      "h": 900,
+      "title": "DraftPanel",
+      "page": "parts"
+    },
+    "DraftFocus.dc.html": {
+      "x": 720,
+      "y": 0,
+      "w": 800,
+      "h": 900,
+      "title": "DraftFocus",
+      "page": "parts"
+    },
+    "Conversation.dc.html": {
+      "x": 1600,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "parts"
+    },
+    "Nav.dc.html": {
+      "x": 2560,
+      "y": 0,
+      "w": 240,
+      "h": 900,
+      "title": "Nav",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 0,
+      "y": 1020,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 840,
+      "y": 1020,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "parts"
+    },
+    "Quota.dc.html": {
+      "x": 1380,
+      "y": 1020,
+      "w": 240,
+      "h": 140,
+      "title": "Quota",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 1700,
+      "y": 1020,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 2452,
+      "y": 1020,
+      "w": 380,
+      "h": 200,
+      "title": "ConfirmDialog",
+      "page": "parts"
+    },
+    "draft-reading-typed-threads.dc.html": {
+      "x": 0,
+      "y": 5200,
+      "w": 1850,
+      "h": 936,
+      "title": "種類ごと · レビューへの返信",
+      "page": "options"
+    },
+    "draft-reading-typed-issue.dc.html": {
+      "x": 1930,
+      "y": 5200,
+      "w": 1850,
+      "h": 936,
+      "title": "種類ごと · issue",
+      "page": "options"
+    },
+    "draft-reading-typed-pr.dc.html": {
+      "x": 3860,
+      "y": 5200,
+      "w": 1850,
+      "h": 936,
+      "title": "種類ごと · PR draft",
+      "page": "options"
+    }
   },
   "order": [
     "draft-reading-current.dc.html",
     "draft-reading-toggle.dc.html",
     "draft-reading-full.dc.html",
     "draft-reading-entry.dc.html",
+    "draft-reading-typed-threads.dc.html",
+    "draft-reading-typed-issue.dc.html",
+    "draft-reading-typed-pr.dc.html",
     "DraftPanel.dc.html",
     "DraftFocus.dc.html",
     "Conversation.dc.html",
@@ -54,28 +178,86 @@
   ],
   "notes": {
     "about": {
-      "x": 0, "y": -1100, "w": 640, "page": "options",
+      "x": 0,
+      "y": -1100,
+      "w": 640,
+      "page": "options",
       "text": "前提\n- 対象は会話の状況パネルの Review タブ。エディタで開いている draft を読んで直す\n- 例は PR のレビューへの返信 (2 スレッド)。issue へのコメント、PR draft、ただの draft (a ai draft) でも本文の扱いは同じ\n- このキャンバスは本文の読み方だけを比べる。見出し、draft の切り替え、承認の操作は今のまま (draft は 1 つ)\n- データはすべて架空"
     },
-    "current": { "kind": "title1", "x": 0, "y": -260, "maxW": 1850, "page": "options", "text": "今 · 生テキストとプレビューが細い 2 列に並ぶ" },
-    "toggle": { "kind": "title1", "x": 0, "y": 1040, "maxW": 2260, "page": "options", "text": "A · Preview と Edit を切り替える 1 列" },
-    "full": { "kind": "title1", "x": 0, "y": 2340, "maxW": 3310, "page": "options", "text": "B · 会話の列を置き換えて全幅で読む" },
-    "entry": { "kind": "title1", "x": 0, "y": 3640, "maxW": 1850, "page": "options", "text": "C · ふだんはパネル、長いときだけ全幅" },
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1850,
+      "page": "options",
+      "text": "今 · 生テキストとプレビューが細い 2 列に並ぶ"
+    },
+    "toggle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1040,
+      "maxW": 2260,
+      "page": "options",
+      "text": "Preview と Edit を切り替える 1 列"
+    },
+    "full": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2340,
+      "maxW": 3310,
+      "page": "options",
+      "text": "会話の列を置き換えて全幅で読む"
+    },
+    "entry": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3640,
+      "maxW": 1850,
+      "page": "options",
+      "text": "ふだんはパネル、長いときだけ全幅"
+    },
     "currentNote": {
-      "x": 1930, "y": 0, "w": 460, "page": "options",
+      "x": 1930,
+      "y": 0,
+      "w": 460,
+      "page": "options",
       "text": "今\n- PC では Edit / Preview のボタンを押しても何も変わらず、生テキストとプレビューが細い 2 列に並ぶ\n- スマホは生テキストだけ"
     },
     "toggleNote": {
-      "x": 2340, "y": 1300, "w": 460, "page": "options",
-      "text": "A · Preview / Edit\n- 本文は 1 列で Preview と Edit を切り替える。開いたときは Preview\n- パネルの幅をすべて使える\n- 今からの変更が一番小さい"
+      "x": 2340,
+      "y": 1300,
+      "w": 460,
+      "page": "options",
+      "text": "Preview / Edit\n- 本文は 1 列で Preview と Edit を切り替える。開いたときは Preview\n- パネルの幅をすべて使える\n- 今からの変更が一番小さい"
     },
     "fullNote": {
-      "x": 3390, "y": 2600, "w": 460, "page": "options",
-      "text": "B · 全幅\n- パネルには本文の冒頭と Read full width だけ。押すと会話の列を置き換えて、Markdown とプレビューを左右に並べる\n- 2 列が細くならない。‹ Conversation か Esc で会話に戻る\n- 承認と Finish はパネルに残る (パネルは細くなる)\n- スマホは全幅にする余地がないので Preview / Edit"
+      "x": 3390,
+      "y": 2600,
+      "w": 460,
+      "page": "options",
+      "text": "全幅\n- パネルには本文の冒頭と Read full width だけ。押すと会話の列を置き換えて、Markdown とプレビューを左右に並べる\n- 2 列が細くならない。‹ Conversation か Esc で会話に戻る\n- 承認と Finish はパネルに残る (パネルは細くなる)\n- スマホは全幅にする余地がないので Preview / Edit"
     },
     "entryNote": {
-      "x": 1930, "y": 3900, "w": 460, "page": "options",
-      "text": "C · パネル + 全幅の入口\n- ふだんはパネルで Preview / Edit の 1 列 (A と同じ)\n- 長い draft は Full width で B と同じ全幅の画面を開く\n- スマホは A と同じ"
+      "x": 1930,
+      "y": 3900,
+      "w": 460,
+      "page": "options",
+      "text": "パネル + 全幅の入口\n- ふだんはパネルで Preview / Edit の 1 列\n- 長い draft は Full width で、会話の列を置き換える全幅の画面を開く\n- スマホは Preview / Edit の 1 列"
+    },
+    "typed": {
+      "kind": "title1",
+      "x": 0,
+      "y": 4940,
+      "maxW": 5710,
+      "page": "options",
+      "text": "種類ごとに読める形で出す"
+    },
+    "typedNote": {
+      "x": 5790,
+      "y": 5200,
+      "w": 460,
+      "page": "options",
+      "text": "種類ごとに読める形で出す\n- 読み方はパネルの Preview / Edit の 1 列と Full width の入口のまま。Preview の中身を draft の種類ごとに変える\n- レビューへの返信: スレッドごとのカード。file:line、コメントされた行に印をつけた diff、レビュアーのコメント (名前と時刻)、返信の入力欄、Resolve のチェック\n- issue: frontmatter を欄にする。Title は見出し、Labels はチップ、Assignees は名前、Parent issue と Sub-issues はリンク。その下に本文\n- PR draft: 今までどおり Markdown のプレビュー\n- Edit はどれもファイルをそのまま出す\n\n良い点\n- <!-- thread --> や YAML を頭の中で読み解かずに済む\n- 返信と Resolve をどのスレッドに書いているかが分かる\n\n気になる点\n- 種類ごとに読み取りと描き方を持つので、ファイルの形式が変わるたびに追従が要る\n- Preview の欄で直した内容をファイルに書き戻すか、Edit でだけ直すかを決める必要がある"
     }
   }
 }

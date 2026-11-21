@@ -19,40 +19,149 @@
     }
   ],
   "pages": [
-    { "id": "options", "name": "案" },
-    { "id": "parts", "name": "部品" }
+    {
+      "id": "options",
+      "name": "案"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
   ],
   "boards": {
-    "draft-approval-current.dc.html": { "x": 0, "y": 0, "w": 3030, "h": 936, "title": "今 · 説明のないチェックボックス", "page": "options" },
-    "draft-approval-explained.dc.html": { "x": 0, "y": 1300, "w": 3030, "h": 936, "title": "A · 説明つきチェックボックス", "page": "options" },
-    "draft-approval-buttons.dc.html": { "x": 0, "y": 2600, "w": 3030, "h": 936, "title": "B · 終わり方のボタン", "page": "options" },
-    "DraftPanel.dc.html": { "x": 0, "y": 0, "w": 640, "h": 900, "title": "DraftPanel", "page": "parts" }
+    "draft-approval-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 3030,
+      "h": 936,
+      "title": "今 · 説明のないチェックボックス",
+      "page": "options"
+    },
+    "draft-approval-explained.dc.html": {
+      "x": 0,
+      "y": 1300,
+      "w": 3030,
+      "h": 936,
+      "title": "説明つきチェックボックス",
+      "page": "options"
+    },
+    "draft-approval-buttons.dc.html": {
+      "x": 0,
+      "y": 2600,
+      "w": 3030,
+      "h": 936,
+      "title": "終わり方のボタン",
+      "page": "options"
+    },
+    "DraftPanel.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 640,
+      "h": 900,
+      "title": "DraftPanel",
+      "page": "parts"
+    },
+    "draft-approval-direct.dc.html": {
+      "x": 0,
+      "y": 3900,
+      "w": 4260,
+      "h": 936,
+      "title": "押したらそのまま実行するボタン",
+      "page": "options"
+    },
+    "draft-approval-direct-en-1.dc.html": {
+      "x": 4340,
+      "y": 3900,
+      "w": 1050,
+      "h": 936,
+      "title": "英語で PR を書く repo · 1 日本語の draft を承認",
+      "page": "options"
+    },
+    "draft-approval-direct-en-2.dc.html": {
+      "x": 5470,
+      "y": 3900,
+      "w": 1050,
+      "h": 936,
+      "title": "英語で PR を書く repo · 2 英語の draft で Create PR",
+      "page": "options"
+    }
   },
   "order": [
     "draft-approval-current.dc.html",
     "draft-approval-explained.dc.html",
     "draft-approval-buttons.dc.html",
+    "draft-approval-direct.dc.html",
+    "draft-approval-direct-en-1.dc.html",
+    "draft-approval-direct-en-2.dc.html",
     "DraftPanel.dc.html"
   ],
   "notes": {
     "about": {
-      "x": 0, "y": -1100, "w": 640, "page": "options",
+      "x": 0,
+      "y": -1100,
+      "w": 640,
+      "page": "options",
       "text": "前提\n- 対象は会話の状況パネルの Review タブ。エディタで開いている draft を読んで承認する\n- 承認の項目は draft の種類ごとに違う。issue へのコメントと PR のレビューへの返信は submit だけ、PR draft は submit と ready-for-translation、ただの draft (a ai draft) は承認がない\n- このキャンバスは承認の操作だけを比べる。見出し、draft の切り替え、本文の読み方は今のまま\n- Finish はエディタを閉じる。submit が false のまま閉じると、セッションは編集内容を読んで直す (差し戻し)\n- データはすべて架空"
     },
-    "current": { "kind": "title1", "x": 0, "y": -260, "maxW": 3030, "page": "options", "text": "今 · frontmatter のキーが説明のないチェックボックスで並ぶ" },
-    "explained": { "kind": "title1", "x": 0, "y": 1040, "maxW": 3030, "page": "options", "text": "A · チェックボックスに説明をつけ、Finish の名前が選んだ結果に合わせて変わる" },
-    "buttons": { "kind": "title1", "x": 0, "y": 2340, "maxW": 3030, "page": "options", "text": "B · 終わり方をボタンで選ぶ" },
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 3030,
+      "page": "options",
+      "text": "今 · frontmatter のキーが説明のないチェックボックスで並ぶ"
+    },
+    "explained": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1040,
+      "maxW": 3030,
+      "page": "options",
+      "text": "チェックボックスに説明をつけ、Finish の名前が選んだ結果に合わせて変わる"
+    },
+    "buttons": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2340,
+      "maxW": 3030,
+      "page": "options",
+      "text": "終わり方をボタンで選ぶ"
+    },
     "currentNote": {
-      "x": 3110, "y": 0, "w": 460, "page": "options",
+      "x": 3110,
+      "y": 0,
+      "w": 460,
+      "page": "options",
       "text": "今\n- frontmatter のキー (submit、steps.ready-for-translation) が説明のないチェックボックスで並ぶ\n- チェックすると何が起きるか、チェックせずに Finish review するとどうなるかが分からない\n- Draft (a ai draft) は承認がなく、Save と Finish review だけ"
     },
     "explainedNote": {
-      "x": 3110, "y": 1300, "w": 460, "page": "options",
-      "text": "A · 説明つき\n- 各チェックボックスに、終わったときに何が起きるかの説明をつけ、キー名は小さく残す\n- Finish のボタン名がチェックに合わせて変わる。Issue comment と Review replies は Finish and post、PR draft は Finish and create PR、チェックなしは Finish and send back\n- Translate to English first は英語で PR を書く repo の PR draft にだけ出る\n- Draft は承認がなく Finish だけ"
+      "x": 3110,
+      "y": 1300,
+      "w": 460,
+      "page": "options",
+      "text": "説明つき\n- 各チェックボックスに、終わったときに何が起きるかの説明をつけ、キー名は小さく残す\n- Finish のボタン名がチェックに合わせて変わる。Issue comment と Review replies は Finish and post、PR draft は Finish and create PR、チェックなしは Finish and send back\n- Translate to English first は英語で PR を書く repo の PR draft にだけ出る\n- Draft は承認がなく Finish だけ"
     },
     "buttonsNote": {
-      "x": 3110, "y": 2600, "w": 460, "page": "options",
-      "text": "B · ボタン\n- チェックボックスをなくし、終わり方をボタンで選ぶ。どれも保存してエディタを閉じる\n- ボタンは種類ごと: Issue comment は Send back / Post comment、Review replies は Send back / Post replies、PR draft は Send back / Translate first / Create PR、Draft は Finish だけ\n- Translate first は英語で PR を書く repo のときだけ\n- 押す前に結果が分かり、チェックして Finish の 2 手が 1 手になる"
+      "x": 3110,
+      "y": 2600,
+      "w": 460,
+      "page": "options",
+      "text": "ボタン\n- チェックボックスをなくし、終わり方をボタンで選ぶ。どれも保存してエディタを閉じる\n- ボタンは種類ごと: Issue comment は Send back / Post comment、Review replies は Send back / Post replies、PR draft は Send back / Translate first / Create PR、Draft は Finish だけ\n- Translate first は英語で PR を書く repo のときだけ\n- 押す前に結果が分かり、チェックして Finish の 2 手が 1 手になる"
+    },
+    "direct": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3640,
+      "maxW": 6520,
+      "page": "options",
+      "text": "押したらそのまま実行するボタン · 翻訳は選択肢でなく順番の 1 段目"
+    },
+    "directNote": {
+      "x": 6600,
+      "y": 3900,
+      "w": 460,
+      "page": "options",
+      "text": "押したらそのまま実行するボタン\n- ボタンは書いてあるとおりにすぐ実行する。Post comment はその場でコメントを投稿し、Create PR はその場で PR を作る\n- Send back は今までどおり、編集内容をセッションに返して直してもらう\n- 英語で PR を書く repo の PR draft は 2 段: 日本語の draft で Approve for translation → セッションが英語に訳す → 英語の draft で Create PR。上に 1 Review · 2 Translate · 3 Create PR を出し、選ぶものではないと分かるようにする\n- 日本語で PR を書く repo は Create PR の 1 段だけ\n\n良い点\n- 1 回押せばボタンの名前どおりのことが起きる\n- 翻訳が必ず通る段だと分かる\n\n気になる点\n- 押したあとに取り消せない。投稿や PR 作成の前に確認を挟むか、押したあと数秒 Undo を出すかを決める必要がある"
     }
   }
 }

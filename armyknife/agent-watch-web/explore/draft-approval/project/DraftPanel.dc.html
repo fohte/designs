@@ -16,7 +16,7 @@ body{margin:0}
 <aside aria-label="Session status" style="position: relative; width: 100%; height: {{rootH}}; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; background: #0f0f0f; border-left: {{rootBorder}}; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
 
 <div style="flex: none; height: {{tabsH}}; box-sizing: border-box; display: flex; align-items: stretch; gap: 8px; padding: 0 {{closePad}} 0 {{padX}}; border-bottom: 1px solid #2a2a2a">
-<div role="tablist" aria-label="Session status" style="flex: 1; min-width: 0; display: flex; align-items: stretch; gap: 16px; overflow: hidden">
+<div role="tablist" aria-label="Session status" style="flex: 1; min-width: 0; display: flex; align-items: stretch; gap: {{tabGap}}; overflow: hidden">
 <sc-for list="{{tabs}}" as="t" hint-placeholder-count="5">
 <button type="button" role="tab" aria-selected="{{t.selected}}" style="flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; border-bottom: 2px solid {{t.underline}}; background: transparent; color: {{t.color}}; font-family: inherit; font-size: {{tabFs}}; font-weight: {{t.weight}}; white-space: nowrap">{{t.label}}<span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: {{t.countColor}}">{{t.count}}</span></button>
 </sc-for>
@@ -216,6 +216,26 @@ body{margin:0}
 </footer>
 </sc-if>
 
+<sc-if value="{{apDirect}}" hint-placeholder-val="{{ false }}">
+<footer style="flex: none; display: flex; flex-direction: column; gap: 10px; padding: 10px {{padX}} {{footPadB}}; border-top: 1px solid #2a2a2a; background: #0f0f0f">
+<sc-if value="{{hasStages}}" hint-placeholder-val="{{ false }}">
+<ol aria-label="Steps to create the PR" style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12px">
+<sc-for list="{{stageSteps}}" as="s" hint-placeholder-count="3">
+<li aria-current="{{s.current}}" style="display: inline-flex; align-items: center; gap: 6px; color: {{s.color}}; font-weight: {{s.weight}}"><span style="width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid {{s.border}}; background: {{s.bg}}; color: {{s.numColor}}; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{s.n}}</span>{{s.label}}<span aria-hidden="true" style="display: {{s.sep}}; margin-left: 2px; color: #52525b">—</span></li>
+</sc-for>
+</ol>
+</sc-if>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<sc-if value="{{phoneNot}}" hint-placeholder-val="{{ true }}"><button type="button" style="height: {{btnH}}; padding: 0 12px; border: 0; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Save</button></sc-if>
+<sc-for list="{{doc.bButtons}}" as="bb" hint-placeholder-count="1">
+<button type="button" title="{{bb.title}}" style="flex: {{bFlex}}; height: {{btnH}}; padding: 0 12px; margin-left: {{bb.ml}}; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">{{bb.label}}</button>
+</sc-for>
+<button type="button" style="flex: {{bFlex}}; height: {{btnH}}; padding: 0 14px; margin-left: {{bPrimaryMl}}; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">{{doc.dPrimary}}</button>
+</div>
+<p style="margin: 0; color: #8b8b94; font-size: 11.5px">{{doc.dHelp}}</p>
+</footer>
+</sc-if>
+
 <sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
 <div role="listbox" aria-label="Drafts" style="position: absolute; z-index: 5; top: 40px; left: 52px; right: 52px; box-sizing: border-box; padding: 4px 0; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%)">
 <sc-for list="{{docs}}" as="r" hint-placeholder-count="4">
@@ -230,7 +250,7 @@ body{margin:0}
 </sc-if>
 </aside>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"heading":{"editor":"enum","options":["none","kind"],"default":"none"},"switcher":{"editor":"enum","options":["none","tabs","stepper","list"],"default":"none"},"reading":{"editor":"enum","options":["panel","toggle","full","entry"],"default":"panel"},"wide":{"editor":"boolean","default":false},"approval":{"editor":"enum","options":["current","explained","buttons"],"default":"current"},"phone":{"editor":"boolean","default":false},"doc":{"editor":"int","min":0,"max":3,"default":0},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"screen":{"editor":"enum","options":["auto","list","detail"],"default":"auto"},"submit":{"editor":"boolean","default":false},"translate":{"editor":"boolean","default":false},"menuOpen":{"editor":"boolean","default":false},"$preview":{"width":640,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"heading":{"editor":"enum","options":["none","kind"],"default":"none"},"switcher":{"editor":"enum","options":["none","tabs","stepper","list"],"default":"none"},"reading":{"editor":"enum","options":["panel","toggle","full","entry"],"default":"panel"},"wide":{"editor":"boolean","default":false},"approval":{"editor":"enum","options":["current","explained","buttons","direct"],"default":"current"},"stage":{"editor":"int","min":0,"max":2,"default":0},"phone":{"editor":"boolean","default":false},"doc":{"editor":"int","min":0,"max":3,"default":0},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"screen":{"editor":"enum","options":["auto","list","detail"],"default":"auto"},"submit":{"editor":"boolean","default":false},"translate":{"editor":"boolean","default":false},"menuOpen":{"editor":"boolean","default":false},"$preview":{"width":640,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     // Unset props draw the baseline the options are compared against: no heading, one draft, the two-column body, bare frontmatter checkboxes.
@@ -245,6 +265,8 @@ class Component extends DCLogic {
     const di = Math.min(3, Math.max(0, this.props.doc ?? 0));
     const view = this.props.view ?? 'preview';
     const submit = this.props.submit ?? false;
+    // stage 1/2: a PR draft in a repo that takes PRs in English (approve the Japanese draft, then the translation). 0: a repo that takes PRs in Japanese.
+    const stage = Math.min(2, Math.max(0, this.props.stage ?? 0));
     const screenProp = this.props.screen ?? 'auto';
     const screen = switcher === 'none' ? 'detail' : screenProp !== 'auto' ? screenProp : switcher === 'list' ? 'list' : 'detail';
     const isList = screen === 'list';
@@ -267,6 +289,8 @@ class Component extends DCLogic {
         bButtons: [{ label: 'Send back', title: 'Close the editor without approving. The session reads your edits and revises the comment.' }],
         bPrimary: 'Post comment',
         bHelp: 'Each button saves and closes the editor. Post comment sets submit. Send back returns your edits to the session.',
+        dPrimary: 'Post comment',
+        dHelp: 'Post comment posts it to #412 right away. Send back returns your edits to the session.',
         raw: '再現手順を足します。\n\n1. 送信先を応答の遅いサーバーにする\n2. 通知を 10 件続けて送る\n3. 4 件目から届かない',
         blocks: [['p', '再現手順を足します。'], ['li', '1. 送信先を応答の遅いサーバーにする'], ['li', '2. 通知を 10 件続けて送る'], ['li', '3. 4 件目から届かない']]
       },
@@ -284,8 +308,24 @@ class Component extends DCLogic {
         bButtons: [{ label: 'Send back', title: 'Close the editor without approving. The session reads your edits and revises the draft.' }, { label: 'Translate first', title: 'Sets steps.ready-for-translation' }],
         bPrimary: 'Create PR',
         bHelp: 'Each button saves and closes the editor. Create PR sets steps.submit. Send back returns your edits to the session.',
+        ...(approval === 'direct' && stage === 0 ? { where: 'example/handbook · feature/retry-limit' } : {}),
+        ...(approval === 'direct' && stage === 2 ? {
+          title: 'Make the retry limit configurable',
+          excerpt: 'Why: The retry limit is fixed at 3, which is too few for slow destinations.'
+        } : {}),
+        dPrimary: stage === 1 ? 'Approve for translation' : 'Create PR',
+        dHelp: stage === 1
+          ? 'The session translates the title and body to English right away. You review the English draft next, then create the PR.'
+          : stage === 2
+            ? 'Create PR creates the PR on example/web-app right away. Send back returns your edits to the session.'
+            : 'Create PR creates the PR on example/handbook right away. Send back returns your edits to the session.',
         raw: '## Why\n\n再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。\n\n## What\n\n- 上限を `RETRY_LIMIT` で変えられるようにする\n- 既定値は 3 回のまま',
-        blocks: [['h', 'Why'], ['p', '再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。'], ['h', 'What'], ['li', '上限を RETRY_LIMIT で変えられるようにする'], ['li', '既定値は 3 回のまま']]
+        blocks: [['h', 'Why'], ['p', '再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。'], ['h', 'What'], ['li', '上限を RETRY_LIMIT で変えられるようにする'], ['li', '既定値は 3 回のまま']],
+        // Stage 2 shows the English translation the session wrote after stage 1.
+        ...(approval === 'direct' && stage === 2 ? {
+          raw: '## Why\n\nThe retry limit is fixed at 3, which is too few for slow destinations.\n\n## What\n\n- Make the limit configurable with `RETRY_LIMIT`\n- Keep the default at 3',
+          blocks: [['h', 'Why'], ['p', 'The retry limit is fixed at 3, which is too few for slow destinations.'], ['h', 'What'], ['li', 'Make the limit configurable with RETRY_LIMIT'], ['li', 'Keep the default at 3']]
+        } : {})
       },
       {
         kind: 'Review replies', where: 'example/web-app PR #2049', short: 'PR #2049',
@@ -298,6 +338,8 @@ class Component extends DCLogic {
         bButtons: [{ label: 'Send back', title: 'Close the editor without approving. The session reads your edits and revises the replies.' }],
         bPrimary: 'Post replies',
         bHelp: 'Each button saves and closes the editor. Post replies sets submit. Send back returns your edits to the session.',
+        dPrimary: 'Post replies',
+        dHelp: 'Post replies posts them on PR #2049 right away. Send back returns your edits to the session.',
         raw: '### src/preflight.ts:42\n\n> この判定は null も通しますか?\n\n通しません。手前で弾いています。\n\n### src/preflight.ts:57\n\n> 失敗したときのログはどこに出ますか?\n\n送信ログに理由と一緒に出します。',
         blocks: [['h', 'src/preflight.ts:42'], ['quote', 'この判定は null も通しますか?'], ['p', '通しません。手前で弾いています。'], ['h', 'src/preflight.ts:57'], ['quote', '失敗したときのログはどこに出ますか?'], ['p', '送信ログに理由と一緒に出します。']]
       },
@@ -313,6 +355,8 @@ class Component extends DCLogic {
         bButtons: [],
         bPrimary: 'Finish',
         bHelp: 'Saves and closes the editor. The session reads the file again.',
+        dPrimary: 'Finish',
+        dHelp: 'Finish saves and closes the editor. The session reads the file again.',
         raw: '# 再送の設計メモ\n\n- 上限は設定で変える\n- 待ち時間は倍ずつ伸ばす',
         blocks: [['h', '再送の設計メモ'], ['li', '上限は設定で変える'], ['li', '待ち時間は倍ずつ伸ばす']]
       }
@@ -332,7 +376,8 @@ class Component extends DCLogic {
         hasSteps: fmSteps.length > 0,
         fmTop: approvals.filter((a) => !a.key.startsWith('steps.')).map((a) => ({ name: a.key, on: a.on })),
         blocks: x.blocks.map(([t, text]) => ({ h: t === 'h', p: t === 'p', li: t === 'li', quote: t === 'quote', text })),
-        bButtons: x.bButtons.map((b, j) => ({ ...b, ml: j === 0 && !phone ? 'auto' : '0' })),
+        // Translate first is a stage of the direct option, not a button beside Create PR.
+        bButtons: (approval === 'direct' ? x.bButtons.filter((b) => b.label !== 'Translate first') : x.bButtons).map((b, j) => ({ ...b, ml: j === 0 && !phone ? 'auto' : '0' })),
         selectedStr: sel ? 'true' : 'false',
         underline: sel ? '#fafafa' : 'transparent',
         chipBg: sel ? '#141414' : 'transparent',
@@ -357,6 +402,8 @@ class Component extends DCLogic {
       tabs,
       rootH: phone ? '844px' : '900px',
       rootBorder: phone ? '0' : '1px solid #2a2a2a',
+      // 16px cuts the Decisions count off at phone width.
+      tabGap: phone ? '12px' : '16px',
       tabsH: phone ? '52px' : '48px',
       tabFs: phone ? '13px' : '12.5px',
       closeSize: phone ? '44px' : '28px',
@@ -380,6 +427,22 @@ class Component extends DCLogic {
       apCurrent,
       apExplained: approval === 'explained',
       apButtons: approval === 'buttons',
+      apDirect: approval === 'direct',
+      hasStages: approval === 'direct' && di === 1 && stage > 0,
+      stageSteps: ['Review', 'Translate', 'Create PR'].map((label, i) => {
+        // Stage 1 is step 1; stage 2 is step 3, after the translation ran.
+        const cur = stage === 1 ? 0 : 2;
+        const done = i < cur;
+        const on = i === cur;
+        return {
+          n: done ? '✓' : String(i + 1), label,
+          current: on ? 'step' : 'false',
+          color: on ? '#fafafa' : '#a1a1aa', weight: on ? 700 : 400,
+          border: on ? '#fafafa' : done ? '#a1a1aa' : '#3f3f46',
+          bg: on ? '#fafafa' : 'transparent', numColor: on ? '#0a0a0a' : '#a1a1aa',
+          sep: i < 2 ? 'inline' : 'none'
+        };
+      }),
       rdPanel: reading === 'panel',
       rdToggle: reading === 'toggle' || reading === 'entry',
       rdFull: reading === 'full',

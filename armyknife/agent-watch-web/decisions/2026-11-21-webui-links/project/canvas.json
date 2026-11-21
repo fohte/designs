@@ -1,0 +1,508 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-21T06:48:50Z"
+  },
+  "title": "会話の中の web UI のリンク",
+  "launch": {
+    "view": "canvas",
+    "page": "mark"
+  },
+  "pages": [
+    {
+      "id": "mark",
+      "name": "見分け方"
+    },
+    {
+      "id": "open",
+      "name": "押したときの動き"
+    },
+    {
+      "id": "newtab",
+      "name": "新しいタブで開く手段"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "webui-links-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今の画面 · PC",
+      "page": "mark"
+    },
+    "webui-links-current-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今の画面 · iPhone",
+      "page": "mark"
+    },
+    "webui-links-mark-none.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "見分けない · PC",
+      "page": "mark"
+    },
+    "webui-links-mark-none-phone.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "見分けない · iPhone",
+      "page": "mark"
+    },
+    "webui-links-mark-icon.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "パネルのアイコンを付ける · PC",
+      "page": "mark"
+    },
+    "webui-links-mark-icon-phone.dc.html": {
+      "x": 1520,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "パネルのアイコンを付ける · iPhone",
+      "page": "mark"
+    },
+    "webui-links-mark-name.dc.html": {
+      "x": 0,
+      "y": 3840,
+      "w": 1440,
+      "h": 900,
+      "title": "web UI の名前を添える · PC",
+      "page": "mark"
+    },
+    "webui-links-mark-name-phone.dc.html": {
+      "x": 1520,
+      "y": 3840,
+      "w": 390,
+      "h": 844,
+      "title": "web UI の名前を添える · iPhone",
+      "page": "mark"
+    },
+    "webui-links-open-panel.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネルで開く · PC",
+      "page": "open"
+    },
+    "webui-links-open-panel-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "状況パネルで開く · iPhone",
+      "page": "open"
+    },
+    "webui-links-open-full.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "web UI を全画面で開く · PC",
+      "page": "open"
+    },
+    "webui-links-open-full-phone.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "web UI を全画面で開く · iPhone",
+      "page": "open"
+    },
+    "webui-links-newtab-header.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "web UI のヘッダーから開く · PC",
+      "page": "newtab"
+    },
+    "webui-links-newtab-header-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "web UI のヘッダーから開く · iPhone",
+      "page": "newtab"
+    },
+    "webui-links-newtab-modifier.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "⌘ クリック・長押しで開く · PC",
+      "page": "newtab"
+    },
+    "webui-links-newtab-modifier-phone.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "⌘ クリック・長押しで開く · iPhone",
+      "page": "newtab"
+    },
+    "webui-links-newtab-button.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "リンクの横にボタンを出す · PC",
+      "page": "newtab"
+    },
+    "webui-links-newtab-button-phone.dc.html": {
+      "x": 1520,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "リンクの横にボタンを出す · iPhone",
+      "page": "newtab"
+    },
+    "Conversation.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "parts"
+    },
+    "StatusPanel.dc.html": {
+      "x": 960,
+      "y": 0,
+      "w": 640,
+      "h": 900,
+      "title": "StatusPanel",
+      "page": "parts"
+    },
+    "Nav.dc.html": {
+      "x": 1680,
+      "y": 0,
+      "w": 240,
+      "h": 900,
+      "title": "Nav",
+      "page": "parts"
+    },
+    "PhoneChat.dc.html": {
+      "x": 2000,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneChat",
+      "page": "parts"
+    },
+    "PhoneStatusPanel.dc.html": {
+      "x": 2470,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneStatusPanel",
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 2940,
+      "y": 0,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "parts"
+    },
+    "Quota.dc.html": {
+      "x": 3480,
+      "y": 0,
+      "w": 240,
+      "h": 140,
+      "title": "Quota",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 3800,
+      "y": 0,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 4552,
+      "y": 0,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 5392,
+      "y": 0,
+      "w": 380,
+      "h": 200,
+      "title": "ConfirmDialog",
+      "page": "parts"
+    },
+    "ActionItem.dc.html": {
+      "x": 5852,
+      "y": 0,
+      "w": 360,
+      "h": 110,
+      "title": "ActionItem",
+      "page": "parts"
+    },
+    "CloseChecks.dc.html": {
+      "x": 6292,
+      "y": 0,
+      "w": 408,
+      "h": 170,
+      "title": "CloseChecks",
+      "page": "parts"
+    },
+    "ToastStack.dc.html": {
+      "x": 6780,
+      "y": 0,
+      "w": 360,
+      "h": 240,
+      "title": "ToastStack",
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 7220,
+      "y": 0,
+      "w": 160,
+      "h": 44,
+      "title": "MergeButton",
+      "page": "parts"
+    },
+    "ActivityButton.dc.html": {
+      "x": 7460,
+      "y": 0,
+      "w": 224,
+      "h": 44,
+      "title": "ActivityButton",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "webui-links-current.dc.html",
+    "webui-links-current-phone.dc.html",
+    "webui-links-mark-none.dc.html",
+    "webui-links-mark-none-phone.dc.html",
+    "webui-links-mark-icon.dc.html",
+    "webui-links-mark-icon-phone.dc.html",
+    "webui-links-mark-name.dc.html",
+    "webui-links-mark-name-phone.dc.html",
+    "webui-links-open-panel.dc.html",
+    "webui-links-open-panel-phone.dc.html",
+    "webui-links-open-full.dc.html",
+    "webui-links-open-full-phone.dc.html",
+    "webui-links-newtab-header.dc.html",
+    "webui-links-newtab-header-phone.dc.html",
+    "webui-links-newtab-modifier.dc.html",
+    "webui-links-newtab-modifier-phone.dc.html",
+    "webui-links-newtab-button.dc.html",
+    "webui-links-newtab-button-phone.dc.html",
+    "Conversation.dc.html",
+    "StatusPanel.dc.html",
+    "Nav.dc.html",
+    "PhoneChat.dc.html",
+    "PhoneStatusPanel.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html",
+    "ConfirmDialog.dc.html",
+    "ActionItem.dc.html",
+    "CloseChecks.dc.html",
+    "ToastStack.dc.html",
+    "MergeButton.dc.html",
+    "ActivityButton.dc.html"
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1910,
+      "page": "mark",
+      "text": "今の画面 · web UI の URL も、ふつうのリンクと同じく新しいブラウザのタブで開く"
+    },
+    "currentNote": {
+      "x": 1990,
+      "y": 0,
+      "w": 520,
+      "page": "mark",
+      "text": "前提\n- 会話の中のリンクの URL が、登録済みの web UI (a agent web-ui add) の URL なら、押すとそのセッションの状況パネルの web UI タブで開く\n- 例の web UI は canvas。URL はページ指定つき (#page-options) の架空の値\n- 例のメッセージには web UI のリンク「案のページ」と、ふつうのリンク「設計メモ」を並べた\n- 問いは 3 つで、ページごとに分けた: 見分け方 / 押したときの動き / 新しいタブで開く手段。どの問いの案も、ほかの問いの案と組み合わせられる\n- データはすべて架空"
+    },
+    "markNone": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 1910,
+      "page": "mark",
+      "text": "見分けない · web UI のリンクもふつうのリンクと同じ見た目"
+    },
+    "markNoneNote": {
+      "x": 1990,
+      "y": 1280,
+      "w": 460,
+      "page": "mark",
+      "text": "見分けない\n+ 足すものがなく、会話の見た目が今と変わらない\n- 押すまで、どこで開くか分からない。新しいタブを期待して押すと、パネルが開いて驚く\n- 設計メモのようなふつうのリンクと区別できない"
+    },
+    "markIcon": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2300,
+      "maxW": 1910,
+      "page": "mark",
+      "text": "パネルのアイコンを付ける · リンクの後ろに状況パネルの形を出す"
+    },
+    "markIconNote": {
+      "x": 1990,
+      "y": 2560,
+      "w": 460,
+      "page": "mark",
+      "text": "パネルのアイコンを付ける\n+ 小さく、文の流れをほとんど崩さない\n+ ヘッダーの状況パネルのボタンと同じ形で、パネルで開くと結びつく\n- どの web UI のタブで開くかは分からない。crit と canvas のように web UI が複数あると区別できない\n- 形の意味は、覚えるまで伝わりにくい\n\nweb UI の名前を添える案と重ねられる (その案はアイコンも含む)"
+    },
+    "markName": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3580,
+      "maxW": 1910,
+      "page": "mark",
+      "text": "web UI の名前を添える · リンクの後ろに開く先のタブ名を出す"
+    },
+    "markNameNote": {
+      "x": 1990,
+      "y": 3840,
+      "w": 460,
+      "page": "mark",
+      "text": "web UI の名前を添える\n+ 開く先のタブ名が出るので、どのリンクがどのタブに行くか分かる。「どれがどれかわからない」に直接効く\n+ web UI が複数あっても区別できる\n- 文の中の文字が増え、リンクが多いメッセージは騒がしくなる\n- 名前の長い web UI だと行が折り返しやすい"
+    },
+    "markRec": {
+      "x": 1990,
+      "y": 4500,
+      "w": 460,
+      "fill": "green",
+      "page": "mark",
+      "text": "推奨 · web UI の名前を添える\nユーザーの困りごとは「どれがどれか」なので、開く先の名前まで見せる。ほかのページの画面もこの見た目で描いた"
+    },
+    "openPanel": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1910,
+      "page": "open",
+      "text": "状況パネルで開く · パネルを開いて web UI のタブを選び、その URL を読み込む"
+    },
+    "openPanelNote": {
+      "x": 1990,
+      "y": 0,
+      "w": 460,
+      "page": "open",
+      "text": "状況パネルで開く\n- PC: パネルが閉じていれば開く。開いていれば web UI のタブに切り替えるだけ\n- iPhone: 状況パネルのページを web UI のタブで開く。戻ると会話の同じ位置に戻る\n+ PC では会話を読みながら確かめられる\n+ 今の状況パネルと web UI タブをそのまま使い、新しい画面がない\n+ 広く見たいときは今の ⛶ で全画面にできる\n- PC のパネル幅では canvas が窮屈\n- タブで開いていたページは置き換わる"
+    },
+    "openRec": {
+      "x": 1990,
+      "y": 640,
+      "w": 460,
+      "fill": "green",
+      "page": "open",
+      "text": "推奨 · 状況パネルで開く\n会話と並べて見られ、新しい画面を足さない。全画面は今ある ⛶ に任せる"
+    },
+    "openFull": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 1910,
+      "page": "open",
+      "text": "web UI を全画面で開く · web UI だけを画面いっぱいに出す"
+    },
+    "openFullNote": {
+      "x": 1990,
+      "y": 1280,
+      "w": 460,
+      "page": "open",
+      "text": "web UI を全画面で開く\n- PC: web UI の ⛶ と同じ全画面で開く。↙ で状況パネルの中に戻り、× で閉じる\n- iPhone: タブのない web UI だけのページを重ねる。戻るで会話へ\n+ canvas を広く見られる\n- 会話が隠れ、読みながら比べられない\n- PC では押すたびに画面全体が切り替わる\n- iPhone はほかのタブに移るには一度戻る"
+    },
+    "newtabAbout": {
+      "x": 2530,
+      "y": 0,
+      "w": 460,
+      "page": "newtab",
+      "text": "このページの画面\n- どの案でも、ふつうのクリック / タップは押したときの動きのページのとおり web UI タブで開く\n- web UI のヘッダーの URL (PC) と ↗ (iPhone) は今もあるので、どの案を選んでも残る"
+    },
+    "newtabHeader": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1910,
+      "page": "newtab",
+      "text": "web UI のヘッダーから開く · リンクは変えず、開いた後のヘッダーから新しいタブへ"
+    },
+    "newtabHeaderNote": {
+      "x": 1990,
+      "y": 0,
+      "w": 460,
+      "page": "newtab",
+      "text": "web UI のヘッダーから開く\n- PC: ヘッダーの URL を押す。iPhone: ヘッダーの ↗ を押す\n+ 何も足さない。今あるものだけで済む\n- 一度パネルで開いてからでないと新しいタブにできない。読み込みが 2 回になる\n- 会話のリンクから直接は開けない"
+    },
+    "newtabModifier": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 1910,
+      "page": "newtab",
+      "text": "⌘ クリック・長押しで開く · PC は ⌘ クリック、iPhone は長押しのシートから"
+    },
+    "newtabModifierNote": {
+      "x": 1990,
+      "y": 1280,
+      "w": 460,
+      "page": "newtab",
+      "text": "⌘ クリック・長押しで開く\n- PC: ホバーのツールチップで ⌘ クリックを知らせる\n- iPhone: 長押しでシートを出し、web UI タブ / 新しいタブ / Copy link を選ぶ\n+ PC はブラウザの約束どおり。href を本物の URL にしておけば ⌘ クリックと中クリックがそのまま効く\n+ ふつうのクリックの動きも見た目も変えない\n- 知らないと気づけない。PC はツールチップ頼み\n- iPhone は OS の長押しメニューを止めて、アプリのシートを出す必要がある"
+    },
+    "newtabRec": {
+      "x": 1990,
+      "y": 1920,
+      "w": 460,
+      "fill": "green",
+      "page": "newtab",
+      "text": "推奨 · ⌘ クリック・長押しで開く\n会話の見た目を増やさず、会話のリンクから直接新しいタブにできる。web UI のヘッダーから開く手段も残るので組み合わせになる"
+    },
+    "newtabButton": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2300,
+      "maxW": 1910,
+      "page": "newtab",
+      "text": "リンクの横にボタンを出す · 新しいタブで開く ↗ をリンクの横に置く"
+    },
+    "newtabButtonNote": {
+      "x": 1990,
+      "y": 2560,
+      "w": 460,
+      "page": "newtab",
+      "text": "リンクの横にボタンを出す\n- PC: リンクにホバーしたときだけ ↗ を出す。iPhone: ↗ を常に出す\n+ 見れば分かり、押す先が 2 つ並ぶ\n- 文の中の部品が増え、名前のチップと並ぶと重い\n- iPhone では 44px の押せる範囲が前後の行にかかる\n- PC はホバーでしか出ないので、結局気づきにくい"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-21T06:48:50Z"
+    }
+  ]
+}

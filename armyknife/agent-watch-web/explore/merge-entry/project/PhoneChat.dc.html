@@ -228,9 +228,9 @@ class Component extends DCLogic {
       };
       const groups = [{ name: 'This branch', rows: [row(2050, '再送処理を retry() にまとめる', 'example/service', mergeState)] }];
       if (two) groups.push({ name: 'Opened elsewhere', rows: [row(64, '再送キューの上限を設定に出す', 'example/infra', 'idle')] });
-      const badge = (entry === 'a' || entry === 'ac') && { merging: 'merging', failed: 'mergeFailed', merged: 'merged' }[mergeState] || (mergeState === 'merged' ? 'none' : 'passed');
+      const badge = (entry === 'a' || entry === 'ac') && { merging: 'merging', failed: 'mergeFailed', merged: entry === 'a' && 'merged' }[mergeState] || (mergeState === 'merged' ? 'none' : 'passed');
       return {
-        groups, split, badge, count: two ? 2 : 1, ms: mergeState, band: entry === 'c' || entry === 'ac', large: entry === 'ac',
+        groups, split, badge, count: two ? 2 : 1, ms: mergeState, band: entry === 'c' || entry === 'ac' && mergeState !== 'merged', large: entry === 'ac',
         aria: 'PR #2050 再送処理を retry() にまとめる, ' + (mergeState === 'merged' ? 'merged' : 'open, CI passed') + (two ? '. 1 more PR from this session' : '')
       };
     })();

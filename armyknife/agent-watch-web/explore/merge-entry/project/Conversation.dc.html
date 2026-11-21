@@ -240,7 +240,7 @@ class Component extends DCLogic {
       return { ...r, showMerge, showMeta: !showMerge, meta, metaColor: ms ? ms[1] : '#8b8b94' };
     };
     const ms = P.main.mergeState;
-    const prBadge = (entry === 'a' || entry === 'ac') && { merging: 'merging', failed: 'mergeFailed', merged: 'merged', alreadyMerged: 'merged' }[ms]
+    const prBadge = (entry === 'a' || entry === 'ac') && { merging: 'merging', failed: 'mergeFailed', merged: entry === 'a' && 'merged', alreadyMerged: entry === 'a' && 'merged' }[ms]
       || (ms === 'merged' || ms === 'alreadyMerged' ? 'none' : P.main.kind);
     const done = this.props.done ?? false;
     const q = variant === 'question';
@@ -316,7 +316,7 @@ class Component extends DCLogic {
       menuRedClose: !done, menuDoneClose: done,
       prIcon: !splitSingle, prSplit: splitSingle, prBadge,
       splitState: { alreadyMerged: 'merged', queued: 'merging' }[ms] ?? ms,
-      mergeBand: (entry === 'c' || entry === 'ac') && P.main.can, twoPrs: prSet === 'two', largeMark: entry === 'ac',
+      mergeBand: (entry === 'c' || entry === 'ac' && ms !== 'merged') && P.main.can, twoPrs: prSet === 'two', largeMark: entry === 'ac',
       resuming,
       notResuming: !resuming,
       endedHint: resuming ? 'Resuming…' : 'Resume it to keep talking',

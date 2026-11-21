@@ -257,7 +257,7 @@
       "y": 5200,
       "w": 460,
       "page": "options",
-      "text": "種類ごとに読める形で出す\n- 読み方はパネルの Preview / Edit の 1 列と Full width の入口のまま。Preview の中身を draft の種類ごとに変える\n- レビューへの返信: スレッドごとのカード。file:line、コメントされた行に印をつけた diff、レビュアーのコメント (名前と時刻)、返信の入力欄、Resolve のチェック\n- issue: frontmatter を欄にする。Title は見出し、Labels はチップ、Assignees は名前、Parent issue と Sub-issues はリンク。その下に本文\n- PR draft: 今までどおり Markdown のプレビュー\n- Edit はどれもファイルをそのまま出す\n\n良い点\n- <!-- thread --> や YAML を頭の中で読み解かずに済む\n- 返信と Resolve をどのスレッドに書いているかが分かる\n\n気になる点\n- 種類ごとに読み取りと描き方を持つので、ファイルの形式が変わるたびに追従が要る\n- Preview の欄で直した内容をファイルに書き戻すか、Edit でだけ直すかを決める必要がある"
+      "text": "種類ごとに読める形で出す\n- 読み方はパネルの Preview / Edit の 1 列と Full width の入口のまま。Preview の中身を draft の種類ごとに変える\n- レビューへの返信: スレッドごとのカード。file:line、コメントされた行に印をつけた diff、レビュアーのコメント (名前と時刻)、返信の入力欄、Resolve のチェック\n- issue: frontmatter を入力欄にする。Title は入力欄、Labels と Assignees は × で外せるチップと追加ボタン、Parent issue は × で外せる欄と Set parent、Sub-issues は × で外せる行と追加ボタン。その下に本文\n- PR draft: frontmatter の title を本文のプレビューの上の入力欄にする。スマホでは 2 行まで折り返す\n- Preview の欄で直した内容は、そのファイルの frontmatter に書き戻す\n- Edit はどれもファイルをそのまま出す\n\n良い点\n- <!-- thread --> や YAML を頭の中で読み解かずに済む\n- YAML を書かずに Labels や Sub-issues を直せる\n- 返信と Resolve をどのスレッドに書いているかが分かる\n\n気になる点\n- 種類ごとに読み取りと描き方と書き戻しを持つので、ファイルの形式が変わるたびに追従が要る"
     }
   }
 }

@@ -1,0 +1,187 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-21T11:00:55Z"
+  },
+  "title": "すぐに確かめられない to-do を畳む",
+  "launch": {
+    "view": "canvas",
+    "page": "fold"
+  },
+  "pages": [
+    { "id": "fold", "name": "畳み方" },
+    { "id": "look", "name": "畳んだカードの見た目" },
+    { "id": "list", "name": "一覧での扱い" },
+    { "id": "parts", "name": "部品" }
+  ],
+  "boards": {
+    "todo-collapse-current.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "今の画面 · PC", "page": "fold" },
+    "todo-collapse-current-phone.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "今の画面 · iPhone", "page": "fold" },
+    "todo-collapse-fold-chevron.dc.html": { "x": 0, "y": 1280, "w": 1440, "h": 900, "title": "カードのボタンで畳む · PC", "page": "fold" },
+    "todo-collapse-fold-chevron-phone.dc.html": { "x": 1520, "y": 1280, "w": 390, "h": 844, "title": "カードのボタンで畳む · iPhone", "page": "fold" },
+    "todo-collapse-fold-later.dc.html": { "x": 0, "y": 2560, "w": 1440, "h": 900, "title": "Check later ボタンで畳む · PC", "page": "fold" },
+    "todo-collapse-fold-later-phone.dc.html": { "x": 1520, "y": 2560, "w": 390, "h": 844, "title": "Check later ボタンで畳む · iPhone", "page": "fold" },
+    "todo-collapse-fold-agent.dc.html": { "x": 0, "y": 3840, "w": 1440, "h": 900, "title": "エージェントが畳んで出す · PC", "page": "fold" },
+    "todo-collapse-fold-agent-phone.dc.html": { "x": 1520, "y": 3840, "w": 390, "h": 844, "title": "エージェントが畳んで出す · iPhone", "page": "fold" },
+    "todo-collapse-look-title.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "タイトルだけの 1 行 · PC", "page": "look" },
+    "todo-collapse-look-title-phone.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "タイトルだけの 1 行 · iPhone", "page": "look" },
+    "todo-collapse-look-done.dc.html": { "x": 0, "y": 1280, "w": 1440, "h": 900, "title": "タイトルと Mark done の 1 行 · PC", "page": "look" },
+    "todo-collapse-look-done-phone.dc.html": { "x": 1520, "y": 1280, "w": 390, "h": 844, "title": "タイトルと Mark done の 1 行 · iPhone", "page": "look" },
+    "todo-collapse-list-current.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 900, "title": "今の画面 · PC", "page": "list" },
+    "todo-collapse-list-current-phone.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "今の画面 · iPhone", "page": "list" },
+    "todo-collapse-list-count.dc.html": { "x": 0, "y": 1280, "w": 1440, "h": 900, "title": "待ちとして数え続ける · PC", "page": "list" },
+    "todo-collapse-list-count-phone.dc.html": { "x": 1520, "y": 1280, "w": 390, "h": 844, "title": "待ちとして数え続ける · iPhone", "page": "list" },
+    "todo-collapse-list-later.dc.html": { "x": 0, "y": 2560, "w": 1440, "h": 900, "title": "Later にまとめる · PC", "page": "list" },
+    "todo-collapse-list-later-phone.dc.html": { "x": 1520, "y": 2560, "w": 390, "h": 844, "title": "Later にまとめる · iPhone", "page": "list" },
+    "todo-collapse-list-section.dc.html": { "x": 0, "y": 3840, "w": 1440, "h": 900, "title": "畳んだ区分を置く · PC", "page": "list" },
+    "todo-collapse-list-section-phone.dc.html": { "x": 1520, "y": 3840, "w": 390, "h": 844, "title": "畳んだ区分を置く · iPhone", "page": "list" },
+    "Conversation.dc.html": { "x": 0, "y": 0, "w": 880, "h": 900, "title": "Conversation", "page": "parts" },
+    "Nav.dc.html": { "x": 960, "y": 0, "w": 240, "h": 900, "title": "Nav", "page": "parts" },
+    "InboxList.dc.html": { "x": 1280, "y": 0, "w": 460, "h": 900, "title": "InboxList", "page": "parts" },
+    "PhoneChat.dc.html": { "x": 1820, "y": 0, "w": 390, "h": 844, "title": "PhoneChat", "page": "parts" },
+    "PhoneInbox.dc.html": { "x": 2290, "y": 0, "w": 390, "h": 844, "title": "PhoneInbox", "page": "parts" },
+    "SessionRow.dc.html": { "x": 2760, "y": 0, "w": 460, "h": 76, "title": "SessionRow", "page": "parts" },
+    "Quota.dc.html": { "x": 3300, "y": 0, "w": 240, "h": 140, "title": "Quota", "page": "parts" },
+    "SessionUsage.dc.html": { "x": 3620, "y": 0, "w": 672, "h": 40, "title": "SessionUsage", "page": "parts" },
+    "StatusBand.dc.html": { "x": 4372, "y": 0, "w": 760, "h": 60, "title": "StatusBand", "page": "parts" },
+    "ConfirmDialog.dc.html": { "x": 5212, "y": 0, "w": 380, "h": 200, "title": "ConfirmDialog", "page": "parts" },
+    "ActionItem.dc.html": { "x": 5672, "y": 0, "w": 360, "h": 110, "title": "ActionItem", "page": "parts" },
+    "CloseChecks.dc.html": { "x": 6112, "y": 0, "w": 408, "h": 170, "title": "CloseChecks", "page": "parts" },
+    "ToastStack.dc.html": { "x": 6600, "y": 0, "w": 360, "h": 240, "title": "ToastStack", "page": "parts" },
+    "MergeButton.dc.html": { "x": 7040, "y": 0, "w": 160, "h": 44, "title": "MergeButton", "page": "parts" },
+    "ActivityButton.dc.html": { "x": 7280, "y": 0, "w": 224, "h": 44, "title": "ActivityButton", "page": "parts" }
+  },
+  "order": [
+    "todo-collapse-current.dc.html",
+    "todo-collapse-current-phone.dc.html",
+    "todo-collapse-fold-chevron.dc.html",
+    "todo-collapse-fold-chevron-phone.dc.html",
+    "todo-collapse-fold-later.dc.html",
+    "todo-collapse-fold-later-phone.dc.html",
+    "todo-collapse-fold-agent.dc.html",
+    "todo-collapse-fold-agent-phone.dc.html",
+    "todo-collapse-look-title.dc.html",
+    "todo-collapse-look-title-phone.dc.html",
+    "todo-collapse-look-done.dc.html",
+    "todo-collapse-look-done-phone.dc.html",
+    "todo-collapse-list-current.dc.html",
+    "todo-collapse-list-current-phone.dc.html",
+    "todo-collapse-list-count.dc.html",
+    "todo-collapse-list-count-phone.dc.html",
+    "todo-collapse-list-later.dc.html",
+    "todo-collapse-list-later-phone.dc.html",
+    "todo-collapse-list-section.dc.html",
+    "todo-collapse-list-section-phone.dc.html",
+    "Conversation.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "PhoneChat.dc.html",
+    "PhoneInbox.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html",
+    "ConfirmDialog.dc.html",
+    "ActionItem.dc.html",
+    "CloseChecks.dc.html",
+    "ToastStack.dc.html",
+    "MergeButton.dc.html",
+    "ActivityButton.dc.html"
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1", "x": 0, "y": -260, "maxW": 1910, "page": "fold",
+      "text": "今の画面 · to-do はいつも全部の大きさで出る"
+    },
+    "currentNote": {
+      "x": 1990, "y": 0, "w": 520, "page": "fold",
+      "text": "前提\n- to-do カードは見出し、タイトル、説明の 2 行と Show more、コメント欄、Mark done / Reject をいつも出す\n- 例の to-do「通知の音を実機で確かめる」は、次に通知が届くまで確かめられない。その間もカードが会話の下を占める\n- 問いは 3 つで、ページごとに分けた: 畳み方 / 畳んだカードの見た目 / 一覧での扱い\n- 畳んだ見た目は、このページではタイトルだけの 1 行で描いた (見た目のページの案に差し替えられる)\n- スワイプで畳む案は入れない (ブラウザの戻る操作と重なる)\n- データはすべて架空"
+    },
+    "foldChevron": {
+      "kind": "title1", "x": 0, "y": 1020, "maxW": 1910, "page": "fold",
+      "text": "ユーザーがカードのボタンで畳む · 見出しの右の ⌃ で畳み、畳んだ行を押すと開く"
+    },
+    "foldChevronNote": {
+      "x": 1990, "y": 1280, "w": 460, "page": "fold",
+      "text": "カードのボタンで畳む\n- 上の行は畳んだ後の to-do。下のカードは畳む前で、見出しの右に ⌃ がある\n- 畳んだ行を押すと元のカードに戻る。書きかけのコメントは残す\n+ どの to-do でも、ユーザーが自分の都合で畳める\n+ ボタンが小さく、カードの見た目をほとんど変えない\n- 「後で確かめる」という意味は伝わらず、ただ隠しただけに見える\n- 一覧の扱いを変えるなら、畳むことが「後で」の意味を持つと決める必要がある\n\nエージェントが畳んで出す案と組み合わせられる"
+    },
+    "foldLater": {
+      "kind": "title1", "x": 0, "y": 2300, "maxW": 1910, "page": "fold",
+      "text": "「後で確かめる」ボタンで畳む · Mark done / Reject の横の Check later で畳む"
+    },
+    "foldLaterNote": {
+      "x": 1990, "y": 2560, "w": 460, "page": "fold",
+      "text": "Check later ボタンで畳む\n- Mark done / Reject と並べて Check later を置く。押すとその場で 1 行に畳む\n- 畳んだ行を押すと元のカードに戻る\n+ 「今は確かめられない」という意図をはっきり残せる。一覧で待ちから外す根拠になる\n+ 3 つの答え方が並び、見つけやすい\n- ボタンが 1 つ増え、iPhone では 3 つ並んで窮屈\n- セッションの Later (L) と名前が近い。to-do 側は戻る時刻を持たないので、Later ではなく Check later とした\n\nエージェントが畳んで出す案と組み合わせられる"
+    },
+    "foldAgent": {
+      "kind": "title1", "x": 0, "y": 3580, "maxW": 1910, "page": "fold",
+      "text": "エージェントが登録時に畳んだ状態で出す · todo add に後で確かめる印を付ける"
+    },
+    "foldAgentNote": {
+      "x": 1990, "y": 3840, "w": 460, "page": "fold",
+      "text": "エージェントが畳んで出す\n- a agent todo add が後で確かめる印を受け取り、カードは最初から 1 行で出る。行に added folded と添える\n- ユーザーは行を押せば開ける\n+ 実機での確認のように、登録した時点で後回しと分かっている to-do は最初から邪魔にならない\n+ ユーザーの操作が要らない\n- エージェントの判断に頼る。印を付け忘れると今と同じになる\n- 畳んで出たことに気づかず、見落とすおそれがある\n- ユーザーが自分で畳む手段がないので、ほかの案のどれかと組み合わせる前提"
+    },
+    "lookAbout": {
+      "x": 1990, "y": -260, "w": 460, "page": "look",
+      "text": "このページの画面\n- 今の画面は畳み方のページの先頭にある\n- どちらの案でも、行の左側 (見出しとタイトル) を押すと元のカードに戻る\n- iPhone の行は 48px 以上の高さにした"
+    },
+    "lookTitle": {
+      "kind": "title1", "x": 0, "y": -260, "maxW": 1910, "page": "look",
+      "text": "タイトルだけの 1 行 · To-do · later の見出し、タイトル、⌄"
+    },
+    "lookTitleNote": {
+      "x": 1990, "y": 0, "w": 460, "page": "look",
+      "text": "タイトルだけの 1 行\n- 行全体が 1 つのボタンで、押すと開く\n+ いちばん小さく、会話の流れを邪魔しない\n+ Decision の閉じた行と同じ形で、会話の中で見慣れている\n- 終わらせるには一度開く。確かめた後は 2 手かかる"
+    },
+    "lookDone": {
+      "kind": "title1", "x": 0, "y": 1020, "maxW": 1910, "page": "look",
+      "text": "タイトルと Mark done を残した 1 行 · 開かずに終わらせられる"
+    },
+    "lookDoneNote": {
+      "x": 1990, "y": 1280, "w": 460, "page": "look",
+      "text": "タイトルと Mark done の 1 行\n- 行の左は開くボタン、右に Mark done を置く\n+ 確かめた後、開かずに 1 手で終わらせられる\n- コメントなしで終わりやすい。結果を書いてほしい to-do では返ってくる情報が減る\n- 行に白いボタンがあり、畳んだのに目立つ\n- Reject は開かないと押せない"
+    },
+    "listCurrent": {
+      "kind": "title1", "x": 0, "y": -260, "maxW": 1910, "page": "list",
+      "text": "今の画面 · to-do を待つセッションは Needs action に並び、数に入る"
+    },
+    "listCurrentNote": {
+      "x": 1990, "y": 0, "w": 460, "page": "list",
+      "text": "前提\n- to-do を待つセッションは Todo (□) として Needs action に並び、Nav の Inbox の数にも入る\n- 例では「通知の音を選べるようにする」のセッションが to-do「通知の音を実機で確かめる」を待っている\n- 案の画面の会話は、畳んだ to-do をタイトルだけの 1 行で描いた\n- ◷ Later は今もある、セッションを時刻まで後回しにする区分"
+    },
+    "listCount": {
+      "kind": "title1", "x": 0, "y": 1020, "maxW": 1910, "page": "list",
+      "text": "待ちとして数え続ける · 畳んでも Needs action に残り、プレビューに later と出す"
+    },
+    "listCountNote": {
+      "x": 1990, "y": 1280, "w": 460, "page": "list",
+      "text": "待ちとして数え続ける\n- 畳むのは会話の中の見た目だけ。行のプレビューを To-do · later: … にして薄くする\n+ 一覧の仕組みを変えない\n+ 忘れにくい\n- Inbox の数が減らず、すぐ動ける待ちと混ざる。困りごとの半分が残る"
+    },
+    "listLater": {
+      "kind": "title1", "x": 0, "y": 2300, "maxW": 1910, "page": "list",
+      "text": "待ちの数から外し、Later にまとめる · 今の ◷ Later の区分に入れる"
+    },
+    "listLaterNote": {
+      "x": 1990, "y": 2560, "w": 460, "page": "list",
+      "text": "Later にまとめる\n- 畳んだ to-do のセッションを Needs action から外し、◷ Later に入れる。PC は Later を開いた状態で描いた\n- iPhone は Later の行に incl. 1 to-do と添える\n+ 新しい区分を足さず、「後で見る」ものが 1 か所に集まる\n+ Inbox の数が減る\n- Later は時刻が来ると戻るが、to-do は戻る時刻がない。同じ区分で戻り方が違う\n- Next back 19:00 の表示と合わない"
+    },
+    "listSection": {
+      "kind": "title1", "x": 0, "y": 3580, "maxW": 1910, "page": "list",
+      "text": "待ちの一覧の下に畳んだ区分を置く · Needs action の下に To-do later を 1 行で出す"
+    },
+    "listSectionNote": {
+      "x": 1990, "y": 3840, "w": 460, "page": "list",
+      "text": "畳んだ区分を置く\n- Needs action から外し、その直下に閉じた区分 To-do later を置く。行に件数と先頭のタイトルを出し、押すと開く\n+ Inbox の数が減り、すぐ動ける待ちだけが並ぶ\n+ Later と混ざらず、戻る時刻がないことと矛盾しない\n+ Needs action のすぐ下なので、見落としにくい\n- 区分が 1 つ増える\n- 件数が 0 のときは区分ごと出さない、などの決めごとが要る"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-21T11:00:55Z"
+    }
+  ]
+}

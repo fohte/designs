@@ -49,10 +49,12 @@ class Component extends DCLogic {
         { title: 'Inbox', items: [
           'Needs action を tq の優先度順に並べ、未読は太字で示します。',
           'Later に回したもの、In progress (先頭 2 件)、Done を下に続けます。Done は Close all でまとめて閉じます。',
-          'j / k で移動し、L で Later、E で閉じます。E は Done 以外の行でも効き、閉じる前に確認を出します。'
+          'j / k で移動し、L で Later、E で閉じます。E は Done 以外の行でも効き、閉じる前に確認を出します。',
+          'iPhone では行の中で左にスワイプすると Later と Close が出て、行を長押しすると Later と赤い Close session… のシートが出ます。画面の端からのスワイプはブラウザの戻る操作なので使いません。Later は PC と同じ選択肢を下からのシートで出し、Close は Done 以外なら PC の E と同じ文言の確認シートを出します。'
         ] },
         { title: '絞り込み', items: [
           '/ で絞り込みのダイアログを開き、project / kind / task / repo / engine で選びます。',
+          'iPhone では Inbox の見出しの下に絞り込みの欄を常に置き、押すと PC の / と同じ書き方で打てる全画面に切り替わります。上のタブで項目を選び、値はチェックでも選べます。',
           '絞り込みはチップで出し、Save view で名前を付けてナビの VIEWS に残せます。'
         ] },
         { title: '会話', items: [

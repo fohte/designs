@@ -981,35 +981,35 @@
     },
     "ConversationUpdate.dc.html": {
       "x": 0,
-      "y": 10290,
+      "y": 300,
       "w": 1440,
       "h": 900,
       "title": "PC · 返信を入力中に新しいバージョンが届いた",
-      "page": "conversation"
+      "page": "app"
     },
     "ConversationUpdateToast.dc.html": {
       "x": 1520,
-      "y": 10290,
+      "y": 300,
       "w": 1440,
       "h": 900,
       "title": "PC · Activity の toast と同時 (帯は上、toast は右下)",
-      "page": "conversation"
+      "page": "app"
     },
     "PhoneChatUpdate.dc.html": {
       "x": 3040,
-      "y": 10290,
+      "y": 300,
       "w": 390,
       "h": 844,
       "title": "iPhone · 会話で入力中 (帯はヘッダーのすぐ下)",
-      "page": "conversation"
+      "page": "app"
     },
     "PhoneInboxUpdate.dc.html": {
       "x": 3510,
-      "y": 10290,
+      "y": 300,
       "w": 390,
       "h": 844,
       "title": "iPhone · Inbox",
-      "page": "conversation"
+      "page": "app"
     },
     "UpdateBand.dc.html": {
       "x": 2864,
@@ -1183,6 +1183,10 @@
     {
       "id": "status-panel",
       "name": "右側のタブ"
+    },
+    {
+      "id": "app",
+      "name": "アプリ全体"
     },
     {
       "id": "components",
@@ -1408,16 +1412,16 @@
     "rowUpdateBand": {
       "kind": "title1",
       "x": 0,
-      "y": 9990,
+      "y": 0,
       "maxW": 3900,
-      "page": "conversation",
+      "page": "app",
       "text": "新しいバージョンの通知 · 一番上の全幅の帯"
     },
     "diffUpdateBand": {
       "x": 3980,
-      "y": 10290,
+      "y": 300,
       "w": 520,
-      "page": "conversation",
+      "page": "app",
       "text": "この行はすべて新しい画面\n- 新しいバージョンがあるときだけ、PC は画面の一番上に全幅 36px、iPhone はヘッダーのすぐ下に 52px の帯を出す\n- Reload で再読み込み。× は次の更新まで出さない\n- 既存の画面の見た目は変えていない (Nav、InboxList、Conversation、PhoneChat、PhoneInbox に既定で off の引数を足しただけ)\n- 部品ページに UpdateBand を追加"
     },
     "diffMain": {

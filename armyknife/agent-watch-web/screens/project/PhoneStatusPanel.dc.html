@@ -143,7 +143,7 @@ test retry::backs_off ... ok</pre>
 </section>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit","canvas"],"default":"running"},"linked":{"editor":"boolean","default":false},"full":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
+<script type="text/x-dc" data-dc-script data-props='{"canvasTab":{"editor":"boolean","default":false},"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit","canvas"],"default":"running"},"linked":{"editor":"boolean","default":false},"full":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
     // A full-screen page pushed over the conversation; the back button returns to it.
@@ -156,8 +156,8 @@ class Component extends DCLogic {
       ['review', 'Review', '', '#8b8b94'],
       ['decisions', 'Decisions', '1', '#fbbf24'],
       ['crit', 'crit', '', '#8b8b94'],
-      // The canvas web UI is registered only in the session that opens a canvas link.
-      ...(tab === 'canvas' ? [['canvas', 'canvas', '', '#8b8b94']] : [])
+      // canvasTab: the session has registered a canvas web UI, so its tab stays while another tab is selected.
+      ...(tab === 'canvas' || (this.props.canvasTab ?? false) ? [['canvas', 'canvas', '', '#8b8b94']] : [])
     ];
     const tabs = T.map(([id, label, count, countColor]) => {
       const on = id === tab;

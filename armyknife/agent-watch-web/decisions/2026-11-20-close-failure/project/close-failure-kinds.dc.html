@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Close failure · kinds</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1440px; height: 820px; box-sizing: border-box; display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: auto auto auto; gap: 24px 24px; align-content: start; padding: 40px; background: #0a0a0a; color: #a1a1aa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 12px">
+<sc-for list="{{kinds}}" as="k" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; color: #fafafa; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 700">{{k.code}}</h2>
+<span style="color: #8b8b94">ポップオーバー (B)</span>
+<dc-import name="CloseFailure" f="{{ k.f }}" form="popover" hint-size="100%,220px"></dc-import>
+<span style="margin-top: 8px; color: #8b8b94">トースト (A)</span>
+<dc-import name="ActionItem" a="{{ k.toast }}" form="toast" hint-size="100%,170px"></dc-import>
+<span style="margin-top: 8px; color: #8b8b94">Inbox の行 (B)</span>
+<div style="padding: 8px 14px; border: 1px solid #1a1a1a"><dc-import name="CloseFailure" f="{{ k.f }}" form="row" hint-size="100%,80px"></dc-import></div>
+</div>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":820}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const session = 'アラートの送り先を決める';
+    const fs = [
+      { code: 'dirty_worktree', f: { kind: 'dirty', path: '~/src/example/observability/.worktrees/alert-routing' } },
+      { code: 'unmerged_worktree', f: { kind: 'unmerged', branch: 'feature/alert-routing', reason: 'PR #2056 is still open' } },
+      { code: 'worktree_process_guard', f: { kind: 'process', processes: ['48213 node', '48250 vite'] } },
+      { code: 'code なし', f: { kind: 'other', message: 'The session did not stop within 10 s.' } }
+    ];
+    return {
+      kinds: fs.map((k) => ({ ...k, toast: { result: 'closeFailed', session, left: k.f } }))
+    };
+  }
+}
+</script>
+</body>
+</html>

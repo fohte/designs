@@ -923,38 +923,6 @@
       "title": "CodeBlock",
       "page": "components"
     },
-    "before/BeforeMessageKinds.dc.html": {
-      "x": -1990,
-      "y": 300,
-      "w": 1440,
-      "h": 2300,
-      "title": "Before · 会話に出るメッセージ",
-      "page": "conversation"
-    },
-    "before/BeforePhoneMessageKinds.dc.html": {
-      "x": -470,
-      "y": 300,
-      "w": 390,
-      "h": 2800,
-      "title": "Before · iPhone · メッセージの種類",
-      "page": "conversation"
-    },
-    "before/BeforeMain.dc.html": {
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 1500,
-      "title": "Before · 仕様のまとめ",
-      "page": "inbox"
-    },
-    "before/BeforeStatusBand.dc.html": {
-      "x": 0,
-      "y": 4180,
-      "w": 760,
-      "h": 60,
-      "title": "BeforeStatusBand",
-      "page": "components"
-    },
     "InboxTodoLater.dc.html": {
       "x": 0,
       "y": 7200,
@@ -1185,10 +1153,6 @@
     "CodeCopyUser.dc.html",
     "PhoneChatCodeCopyUser.dc.html",
     "CodeBlock.dc.html",
-    "before/BeforeMessageKinds.dc.html",
-    "before/BeforePhoneMessageKinds.dc.html",
-    "before/BeforeMain.dc.html",
-    "before/BeforeStatusBand.dc.html",
     "InboxTodoLater.dc.html",
     "PhoneInboxTodoLater.dc.html",
     "PhoneInboxSwipe.dc.html",
@@ -1409,38 +1373,6 @@
       "maxW": 5890,
       "page": "conversation",
       "text": "コードブロック · 言語名と Copy の帯"
-    },
-    "diffCodeCopyNew": {
-      "x": 5970,
-      "y": 10290,
-      "w": 420,
-      "fill": "yellow",
-      "page": "conversation",
-      "text": "新しい行\n\nこの行は全部新しく足した。\n\n- アシスタントのメッセージの中のコードブロック (ts と、横に長い bash)\n- 長い行を横にスクロールしても、上の帯 (言語名と Copy) は動かずコードに重ならない\n- Copy を押した直後は 1.5 秒 ✓ Copied\n- 自分のメッセージの吹き出しの中のコードブロック (text)\n- 帯の高さは PC 30px、iPhone 44px"
-    },
-    "diffMessageKinds": {
-      "x": -2490,
-      "y": 300,
-      "w": 420,
-      "fill": "yellow",
-      "page": "conversation",
-      "text": "会話に出るメッセージ · 前と今の違い\n\n左の 2 つが前、右の 2 つが今。\n\n- Assistant のコードブロックの上に帯が付いた。左に ts、右に Copy\n- ! commands のコードブロックにも同じ帯が付いた。左は text\n- コードに色が付いた (CodeBlock の部品に揃えた)\n- Assistant の説明に「A code block has a bar with its language and Copy.」を足した\n- iPhone は帯の分だけ伸びたので、ボードの高さを 2800px から 2960px にした"
-    },
-    "diffMain": {
-      "x": 3040,
-      "y": 0,
-      "w": 420,
-      "fill": "yellow",
-      "page": "inbox",
-      "text": "仕様のまとめ · 前と今の違い\n\n左が今、右が前。\n\n- 会話の節に、コードブロックの帯 (言語名と Copy、押すと 1.5 秒 ✓ Copied、PC 30px / iPhone 44px、横にスクロールしない) の 1 項目を足した"
-    },
-    "beforeParts": {
-      "kind": "title1",
-      "x": 0,
-      "y": 3880,
-      "maxW": 840,
-      "page": "components",
-      "text": "Before · 前の部品"
     },
     "rowTodoLater": {
       "kind": "title1",

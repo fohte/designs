@@ -1234,6 +1234,22 @@
       "h": 852,
       "title": "StatusBody",
       "page": "components"
+    },
+    "StatusReviewPreview.dc.html": {
+      "x": 0,
+      "y": 4500,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Review · Preview",
+      "page": "status-panel"
+    },
+    "PhoneStatusReviewPreview.dc.html": {
+      "x": 1520,
+      "y": 4500,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Review · Preview",
+      "page": "status-panel"
     }
   },
   "order": [
@@ -1391,7 +1407,9 @@
     "RunPc.dc.html",
     "RunPhone.dc.html",
     "StatusBody.dc.html",
-    "StatusTabs.dc.html"
+    "StatusTabs.dc.html",
+    "StatusReviewPreview.dc.html",
+    "PhoneStatusReviewPreview.dc.html"
   ],
   "pages": [
     {
@@ -1440,7 +1458,7 @@
       "y": 1620,
       "text": "Inbox と会話 · tq タスクが複数のとき",
       "kind": "title1",
-      "maxW": 6020,
+      "maxW": 3900,
       "page": "inbox"
     },
     "rowInboxLaterFilter": {
@@ -1488,7 +1506,7 @@
       "y": 0,
       "text": "状況パネル · タブごと",
       "kind": "title1",
-      "maxW": 4540,
+      "maxW": 11860,
       "page": "status-panel"
     },
     "rowConversationMessages": {
@@ -1621,10 +1639,10 @@
     },
     "rowWebUiFull": {
       "x": 0,
-      "y": 6540,
+      "y": 1320,
       "text": "web UI のリンクを押したあと · web UI を全画面で開く",
       "kind": "title1",
-      "maxW": 4540,
+      "maxW": 1910,
       "page": "status-panel"
     },
     "rowPartsPhoneInbox": {
@@ -1646,8 +1664,8 @@
     "rowPhoneStatusTasks": {
       "kind": "title1",
       "x": 0,
-      "y": 7980,
-      "maxW": 1520,
+      "y": 2640,
+      "maxW": 1330,
       "page": "status-panel",
       "text": "状況パネル · Tasks · iPhone で +N から開いたとき"
     },
@@ -1682,6 +1700,14 @@
       "maxW": 1910,
       "page": "components",
       "text": "Run command の画面"
+    },
+    "rowReviewPreview": {
+      "x": 0,
+      "y": 4200,
+      "text": "状況パネル · Review · Preview を選んだとき",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "status-panel"
     }
   },
   "v": 3,
@@ -1723,6 +1749,7 @@
     "rowPartsRows",
     "rowPartsDialogs",
     "rowPhoneTasks",
-    "rowPhoneStatusTasks"
+    "rowPhoneStatusTasks",
+    "rowReviewPreview"
   ]
 }

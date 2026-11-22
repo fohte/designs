@@ -8,7 +8,7 @@ Session status の各タブ (Running、Tasks、Tree、Review、Decisions、Web U
 - Tree: PC の 3 行 (題名 / role とタスク / リポジトリ) に寄せる。iPhone の 2 行ではタスク名がリポジトリ名に押されて途切れていた。
 - Tasks: 終わったタスクも、進行中と同じ 2 行にする。
 - Decisions: iPhone の形 (OK と Change… を横 2 列、送り先はボタンの下) に寄せる。
-- Review: iPhone の形 (項目名は上、Edit と Preview の切り替え、Save と Finish review は横 2 列) に寄せる。PC で編集と表示を左右に並べる形はやめる。
+- Review: iPhone の形 (項目名は上、Edit と Preview の切り替え、Save と Finish review は横 2 列) に寄せる。PC で編集と表示を左右に並べる形はやめる。Preview を選んだ状態も PC と iPhone で並べる。
 - Running と Web UI: Output ボタンの枠と、新しいタブで開くアイコンをそろえる。
 
 ## 残した違い

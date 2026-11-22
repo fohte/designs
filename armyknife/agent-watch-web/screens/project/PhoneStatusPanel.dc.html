@@ -26,11 +26,11 @@ body{margin:0}
 </header>
 
 <sc-if value="{{tabbed}}" hint-placeholder-val="{{ true }}"><dc-import name="StatusTabs" tab="{{tab}}" size="phone" canvas-tab="{{canvasTab}}" linked="{{linked}}" tasks="{{tasks}}" hint-size="100%,45px"></dc-import></sc-if>
-<div style="position: relative; flex: 1; min-height: 0"><dc-import name="StatusBody" tab="{{tab}}" size="phone" linked="{{linked}}" tasks="{{tasks}}" full="{{full}}" hint-size="100%,742px"></dc-import></div>
+<div style="position: relative; flex: 1; min-height: 0"><dc-import name="StatusBody" tab="{{tab}}" size="phone" linked="{{linked}}" tasks="{{tasks}}" full="{{full}}" preview="{{preview}}" hint-size="100%,742px"></dc-import></div>
 </section>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"canvasTab":{"editor":"boolean","default":false},"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit","canvas"],"default":"running"},"linked":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"full":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
+<script type="text/x-dc" data-dc-script data-props='{"canvasTab":{"editor":"boolean","default":false},"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit","canvas"],"default":"running"},"linked":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"full":{"editor":"boolean","default":false},"preview":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
     // A full-screen page pushed over the conversation; the back button returns to it.
@@ -40,7 +40,7 @@ class Component extends DCLogic {
     // full: only the web UI, pushed over the conversation by a web UI link; the × returns to the conversation.
     const full = this.props.full ?? false;
     return {
-      tab, full,
+      tab, full, preview: this.props.preview ?? false,
       canvasTab: this.props.canvasTab ?? false,
       linked: this.props.linked ?? false,
       // tasks many: opened from the conversation's +3; the tasks that are not primary are emphasized so the one to switch to stands out.

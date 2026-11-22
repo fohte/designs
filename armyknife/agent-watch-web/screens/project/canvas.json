@@ -242,40 +242,40 @@
       "page": "status-panel"
     },
     "StatusTree.dc.html": {
-      "x": 0,
-      "y": 1320,
+      "x": 1990,
+      "y": 300,
       "w": 1440,
       "h": 900,
       "title": "状況パネル · Tree",
       "page": "status-panel"
     },
     "StatusDecisions.dc.html": {
-      "x": 0,
-      "y": 2340,
+      "x": 3980,
+      "y": 300,
       "w": 1440,
       "h": 900,
       "title": "状況パネル · Decisions",
       "page": "status-panel"
     },
     "StatusReview.dc.html": {
-      "x": 0,
-      "y": 3360,
+      "x": 5970,
+      "y": 300,
       "w": 1440,
       "h": 900,
       "title": "状況パネル · Review",
       "page": "status-panel"
     },
     "StatusWebUi.dc.html": {
-      "x": 0,
-      "y": 4380,
+      "x": 7960,
+      "y": 300,
       "w": 1440,
       "h": 900,
       "title": "状況パネル · Web UI (crit)",
       "page": "status-panel"
     },
     "StatusTasks.dc.html": {
-      "x": 0,
-      "y": 5400,
+      "x": 9950,
+      "y": 300,
       "w": 1440,
       "h": 900,
       "title": "状況パネル · Tasks",
@@ -748,40 +748,40 @@
       "page": "status-panel"
     },
     "PhoneStatusTree.dc.html": {
-      "x": 1520,
-      "y": 1320,
+      "x": 3510,
+      "y": 300,
       "w": 390,
       "h": 844,
       "title": "iPhone · 状況パネル · Tree",
       "page": "status-panel"
     },
     "PhoneStatusDecisions.dc.html": {
-      "x": 1520,
-      "y": 2340,
+      "x": 5500,
+      "y": 300,
       "w": 390,
       "h": 844,
       "title": "iPhone · 状況パネル · Decisions",
       "page": "status-panel"
     },
     "PhoneStatusReview.dc.html": {
-      "x": 1520,
-      "y": 3360,
+      "x": 7490,
+      "y": 300,
       "w": 390,
       "h": 844,
       "title": "iPhone · 状況パネル · Review",
       "page": "status-panel"
     },
     "PhoneStatusWebUi.dc.html": {
-      "x": 1520,
-      "y": 4380,
+      "x": 9480,
+      "y": 300,
       "w": 390,
       "h": 844,
       "title": "iPhone · 状況パネル · Web UI (crit)",
       "page": "status-panel"
     },
     "PhoneStatusTasks.dc.html": {
-      "x": 1520,
-      "y": 5400,
+      "x": 11470,
+      "y": 300,
       "w": 390,
       "h": 844,
       "title": "iPhone · 状況パネル · Tasks",
@@ -837,7 +837,7 @@
     },
     "WebUiFull.dc.html": {
       "x": 0,
-      "y": 6840,
+      "y": 1620,
       "w": 1440,
       "h": 900,
       "title": "web UI のリンクを押した · web UI を全画面で開く",
@@ -845,7 +845,7 @@
     },
     "PhoneWebUiFull.dc.html": {
       "x": 1520,
-      "y": 6840,
+      "y": 1620,
       "w": 390,
       "h": 844,
       "title": "iPhone · web UI のリンクを押した · web UI だけのページを重ねる",
@@ -1029,7 +1029,7 @@
     },
     "PhoneStatusTasksMany.dc.html": {
       "x": 0,
-      "y": 8280,
+      "y": 2940,
       "w": 390,
       "h": 844,
       "title": "iPhone · 状況パネル · Tasks · 主でないタスクに Make primary",
@@ -1107,126 +1107,6 @@
       "title": "iPhone · 操作がないときに Activity を開いた",
       "page": "topbar"
     },
-    "before/BeforeStatusRunning.dc.html": {
-      "x": 1990,
-      "y": 300,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · 状況パネル · Running",
-      "page": "status-panel"
-    },
-    "before/BeforePhoneStatusRunning.dc.html": {
-      "x": 3510,
-      "y": 300,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · 状況パネル · Running",
-      "page": "status-panel"
-    },
-    "before/BeforeStatusTree.dc.html": {
-      "x": 1990,
-      "y": 1320,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · 状況パネル · Tree",
-      "page": "status-panel"
-    },
-    "before/BeforePhoneStatusTree.dc.html": {
-      "x": 3510,
-      "y": 1320,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · 状況パネル · Tree",
-      "page": "status-panel"
-    },
-    "before/BeforeStatusDecisions.dc.html": {
-      "x": 1990,
-      "y": 2340,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · 状況パネル · Decisions",
-      "page": "status-panel"
-    },
-    "before/BeforePhoneStatusDecisions.dc.html": {
-      "x": 3510,
-      "y": 2340,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · 状況パネル · Decisions",
-      "page": "status-panel"
-    },
-    "before/BeforeStatusReview.dc.html": {
-      "x": 1990,
-      "y": 3360,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · 状況パネル · Review",
-      "page": "status-panel"
-    },
-    "before/BeforePhoneStatusReview.dc.html": {
-      "x": 3510,
-      "y": 3360,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · 状況パネル · Review",
-      "page": "status-panel"
-    },
-    "before/BeforeStatusWebUi.dc.html": {
-      "x": 1990,
-      "y": 4380,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · 状況パネル · Web UI (crit)",
-      "page": "status-panel"
-    },
-    "before/BeforePhoneStatusWebUi.dc.html": {
-      "x": 3510,
-      "y": 4380,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · 状況パネル · Web UI (crit)",
-      "page": "status-panel"
-    },
-    "before/BeforeStatusTasks.dc.html": {
-      "x": 1990,
-      "y": 5400,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · 状況パネル · Tasks",
-      "page": "status-panel"
-    },
-    "before/BeforePhoneStatusTasks.dc.html": {
-      "x": 3510,
-      "y": 5400,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · 状況パネル · Tasks",
-      "page": "status-panel"
-    },
-    "before/BeforeWebUiFull.dc.html": {
-      "x": 1990,
-      "y": 6840,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · web UI を全画面で開く",
-      "page": "status-panel"
-    },
-    "before/BeforePhoneStatusTasksMany.dc.html": {
-      "x": 470,
-      "y": 8280,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · Tasks · 主でないタスクに Make primary",
-      "page": "status-panel"
-    },
-    "before/BeforeTaskLinks.dc.html": {
-      "x": 3980,
-      "y": 1920,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · 1 つのセッションに tq タスクが複数 · +1 で状況パネルの Tasks を開く",
-      "page": "inbox"
-    },
     "StatusTabs.dc.html": {
       "x": 3010,
       "y": 300,
@@ -1241,126 +1121,6 @@
       "w": 640,
       "h": 852,
       "title": "StatusBody",
-      "page": "components"
-    },
-    "before/BeforeNav.dc.html": {
-      "x": 0,
-      "y": 4300,
-      "w": 240,
-      "h": 900,
-      "title": "Before · Nav",
-      "page": "components"
-    },
-    "before/BeforeConversation.dc.html": {
-      "x": 320,
-      "y": 4300,
-      "w": 880,
-      "h": 900,
-      "title": "Before · Conversation",
-      "page": "components"
-    },
-    "before/BeforeStatusPanel.dc.html": {
-      "x": 1280,
-      "y": 4300,
-      "w": 640,
-      "h": 900,
-      "title": "Before · StatusPanel",
-      "page": "components"
-    },
-    "before/BeforePhoneStatusPanel.dc.html": {
-      "x": 2000,
-      "y": 4300,
-      "w": 390,
-      "h": 844,
-      "title": "Before · PhoneStatusPanel",
-      "page": "components"
-    },
-    "before/BeforeSessionRow.dc.html": {
-      "x": 2470,
-      "y": 4300,
-      "w": 460,
-      "h": 76,
-      "title": "Before · SessionRow",
-      "page": "components"
-    },
-    "before/BeforeQuota.dc.html": {
-      "x": 3010,
-      "y": 4300,
-      "w": 240,
-      "h": 140,
-      "title": "Before · Quota",
-      "page": "components"
-    },
-    "before/BeforeSessionUsage.dc.html": {
-      "x": 3330,
-      "y": 4300,
-      "w": 672,
-      "h": 40,
-      "title": "Before · SessionUsage",
-      "page": "components"
-    },
-    "before/BeforeStatusBand.dc.html": {
-      "x": 4082,
-      "y": 4300,
-      "w": 760,
-      "h": 60,
-      "title": "Before · StatusBand",
-      "page": "components"
-    },
-    "before/BeforeCodeBlock.dc.html": {
-      "x": 4922,
-      "y": 4300,
-      "w": 672,
-      "h": 160,
-      "title": "Before · CodeBlock",
-      "page": "components"
-    },
-    "before/BeforeConfirmDialog.dc.html": {
-      "x": 5674,
-      "y": 4300,
-      "w": 380,
-      "h": 200,
-      "title": "Before · ConfirmDialog",
-      "page": "components"
-    },
-    "before/BeforeActionItem.dc.html": {
-      "x": 6134,
-      "y": 4300,
-      "w": 360,
-      "h": 110,
-      "title": "Before · ActionItem",
-      "page": "components"
-    },
-    "before/BeforeMergeButton.dc.html": {
-      "x": 6574,
-      "y": 4300,
-      "w": 160,
-      "h": 44,
-      "title": "Before · MergeButton",
-      "page": "components"
-    },
-    "before/BeforeActivityButton.dc.html": {
-      "x": 6814,
-      "y": 4300,
-      "w": 224,
-      "h": 44,
-      "title": "Before · ActivityButton",
-      "page": "components"
-    },
-    "before/BeforeCloseChecks.dc.html": {
-      "x": 7118,
-      "y": 4300,
-      "w": 408,
-      "h": 170,
-      "title": "Before · CloseChecks",
-      "page": "components"
-    },
-    "before/BeforeTodoCard.dc.html": {
-      "x": 7606,
-      "y": 4300,
-      "w": 672,
-      "h": 40,
-      "title": "Before · TodoCard",
       "page": "components"
     }
   },
@@ -1505,37 +1265,7 @@
     "PhoneActivityEmpty.dc.html",
     "PhoneActivityEmptyOpen.dc.html",
     "StatusBody.dc.html",
-    "StatusTabs.dc.html",
-    "before/BeforeActionItem.dc.html",
-    "before/BeforeActivityButton.dc.html",
-    "before/BeforeCloseChecks.dc.html",
-    "before/BeforeCodeBlock.dc.html",
-    "before/BeforeConfirmDialog.dc.html",
-    "before/BeforeConversation.dc.html",
-    "before/BeforeMergeButton.dc.html",
-    "before/BeforeNav.dc.html",
-    "before/BeforePhoneStatusDecisions.dc.html",
-    "before/BeforePhoneStatusPanel.dc.html",
-    "before/BeforePhoneStatusReview.dc.html",
-    "before/BeforePhoneStatusRunning.dc.html",
-    "before/BeforePhoneStatusTasks.dc.html",
-    "before/BeforePhoneStatusTasksMany.dc.html",
-    "before/BeforePhoneStatusTree.dc.html",
-    "before/BeforePhoneStatusWebUi.dc.html",
-    "before/BeforeQuota.dc.html",
-    "before/BeforeSessionRow.dc.html",
-    "before/BeforeSessionUsage.dc.html",
-    "before/BeforeStatusBand.dc.html",
-    "before/BeforeStatusDecisions.dc.html",
-    "before/BeforeStatusPanel.dc.html",
-    "before/BeforeStatusReview.dc.html",
-    "before/BeforeStatusRunning.dc.html",
-    "before/BeforeStatusTasks.dc.html",
-    "before/BeforeStatusTree.dc.html",
-    "before/BeforeStatusWebUi.dc.html",
-    "before/BeforeTaskLinks.dc.html",
-    "before/BeforeTodoCard.dc.html",
-    "before/BeforeWebUiFull.dc.html"
+    "StatusTabs.dc.html"
   ],
   "pages": [
     {
@@ -1810,84 +1540,6 @@
       "kind": "title1",
       "maxW": 3900,
       "page": "topbar"
-    },
-    "diffStatusRunning": {
-      "x": 3980,
-      "y": 300,
-      "w": 560,
-      "text": "PC と iPhone の違い (Before)\n- 行の間隔、見出しの高さ、Output ボタンの枠の色と角の丸みが別々に書かれていた\n\n変更\n- PC と iPhone が同じ部品 StatusBody を読み込む\n- Output ボタンは角なし、枠 #3f3f46 にそろえた\n- iPhone の Output ボタンは指で押せる 44px に (以前は 32px)",
-      "page": "status-panel"
-    },
-    "diffStatusTree": {
-      "x": 3980,
-      "y": 1320,
-      "w": 560,
-      "text": "PC と iPhone の違い (Before)\n- PC は 3 行 (タイトル / role・タスク / repo)、iPhone は 2 行 (タイトル / role・タスクと repo を同じ行)\n- iPhone は行の間に区切り線があり、タスク名が repo に押されて途切れていた\n\n変更\n- 両方とも 3 行・区切り線なしにそろえた (狭い PC の右パネルでもタスク名が切れない)\n- 同じ SessionRow を、iPhone は文字の大きい compact-phone で使う\n- ← / → fold. はキーボードのある PC だけ",
-      "page": "status-panel"
-    },
-    "diffStatusDecisions": {
-      "x": 3980,
-      "y": 2340,
-      "w": 560,
-      "text": "PC と iPhone の違い (Before)\n- PC は OK / Change… を縦に並べ、送り先を Change… のボタン内に書いていた\n- iPhone は横 2 列で、送り先はボタンの下\n- 説明文: PC は下に固定、iPhone はリストの最後\n\n変更\n- 両方とも横 2 列、送り先はボタンの下にそろえた\n- 説明文は両方とも下に固定。PC はキー操作、iPhone はタップの説明\n- PC だけボタンに Y / C のキーを出す",
-      "page": "status-panel"
-    },
-    "diffStatusReview": {
-      "x": 3980,
-      "y": 3360,
-      "w": 560,
-      "text": "PC と iPhone の違い (Before)\n- PC は項目名が左、入力欄が右。Edit / Preview は枠のボタンで、編集と表示を左右に並べていた\n- iPhone は項目名が上、Edit / Preview は切り替え、Save / Finish review は横 2 列\n\n変更\n- 両方とも iPhone の形にそろえた: 項目名は上、切り替えで 1 面ずつ、Save / Finish review は横 2 列\n- 入力欄の角の丸みをなくした (PC 6px → 0)",
-      "page": "status-panel"
-    },
-    "diffStatusWebUi": {
-      "x": 3980,
-      "y": 4380,
-      "w": 560,
-      "text": "PC と iPhone の違い (Before)\n- PC は URL 自体が新しいタブで開くリンクで、⛶ と × は文字\n- iPhone は URL の横に新しいタブで開くアイコン\n\n変更\n- 両方とも URL は文字だけ、新しいタブで開くアイコン、閉じる × を同じアイコンで出す\n- ⛶ (全幅で開く) は PC だけ。iPhone のタブはすでに画面の幅いっぱい",
-      "page": "status-panel"
-    },
-    "diffStatusTasks": {
-      "x": 3980,
-      "y": 5400,
-      "w": 560,
-      "text": "PC と iPhone の違い (Before)\n- 完了したタスク: PC は 1 行 (番号・タイトル・経過時間・Make primary)、iPhone は経過時間が 2 行目\n\n変更\n- 両方とも 2 行 (タイトル / 経過時間) にそろえた。進行中のタスク (タイトル / P と repo) と同じ形\n- 文字の大きさとボタンの高さ (PC 30px / iPhone 44px) 以外は同じ部品 StatusBody",
-      "page": "status-panel"
-    },
-    "diffWebUiFull": {
-      "x": 3510,
-      "y": 6840,
-      "w": 560,
-      "text": "変更\n- PC: 右上に新しいタブで開くアイコンが増え、↙ と × はアイコンになった (Web UI タブの見出しと同じ部品)\n- iPhone (PhoneWebUiFull) は見た目が変わらないので Before なし。全画面の見出しは iPhone の画面遷移の一部なので PhoneStatusPanel に残した",
-      "page": "status-panel"
-    },
-    "diffPhoneStatusTasksMany": {
-      "x": 940,
-      "y": 8280,
-      "w": 520,
-      "text": "変更\n- 見た目はほぼ同じ。PC と同じ部品 StatusBody から描くようになった\n- 行の高さは 60px / 56px → どちらも 56px 以上",
-      "page": "status-panel"
-    },
-    "diffTaskLinks": {
-      "x": 5500,
-      "y": 1920,
-      "w": 520,
-      "text": "変更\n- 状況パネルの Tasks を iPhone と同じ部品で描く\n- 完了したタスクは 2 行 (タイトル / 経過時間) になった",
-      "page": "inbox"
-    },
-    "diffStatusParts": {
-      "x": 3730,
-      "y": 300,
-      "w": 520,
-      "text": "StatusTabs と StatusBody は PC の StatusPanel と iPhone の PhoneStatusPanel が同じものを読み込む。size=desktop / phone で変わるのは文字の大きさ、ボタンの高さ、iPhone のタブの横スクロール、キー操作の表示だけ",
-      "page": "components"
-    },
-    "beforeParts": {
-      "x": 0,
-      "y": 4000,
-      "text": "Before の部品",
-      "kind": "title1",
-      "maxW": 8240,
-      "page": "components"
     }
   },
   "v": 3,

@@ -37,11 +37,12 @@ body{margin:0}
 <sc-if value="{{board}}" hint-placeholder-val="{{ false }}"><div style="flex: 1; min-width: 0"><dc-import name="Board" hint-size="1440px,900px"></dc-import></div></sc-if>
 </div>
 <sc-if value="{{atWindow}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; right: 24px; bottom: 128px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,72px"></dc-import></div></sc-if>
+<sc-if value="{{atBottomLeft}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; left: 16px; bottom: 16px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,72px"></dc-import></div></sc-if>
 <sc-if value="{{atTopRight}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; right: 16px; top: {{topRight}}; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,72px"></dc-import></div></sc-if>
 <sc-if value="{{atCorner}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; right: 16px; bottom: {{cornerBottom}}; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,72px"></dc-import></div></sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"panel":{"editor":"boolean","default":false},"tab":{"editor":"enum","options":["tree","decisions"],"default":"tree"},"toast":{"editor":"enum","options":["window","corner","above","reserve","topright","pane","top","none"],"default":"window"},"band":{"editor":"boolean","default":false},"away":{"editor":"boolean","default":false},"screen":{"editor":"enum","options":["inbox","board"],"default":"inbox"},"endLine":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"panel":{"editor":"boolean","default":false},"tab":{"editor":"enum","options":["tree","decisions"],"default":"tree"},"toast":{"editor":"enum","options":["window","corner","above","reserve","topright","bottomleft","pane","top","none"],"default":"window"},"band":{"editor":"boolean","default":false},"stack":{"editor":"boolean","default":false},"away":{"editor":"boolean","default":false},"screen":{"editor":"enum","options":["inbox","board"],"default":"inbox"},"endLine":{"editor":"boolean","default":true},"$preview":{"width":1440,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const panel = this.props.panel ?? false;
@@ -70,10 +71,12 @@ class Component extends DCLogic {
       band,
       rowH: band ? '864px' : '900px',
       atTopRight: toast === 'topright',
+      atBottomLeft: toast === 'bottomleft',
       // 8px below the conversation header (76px, the tallest top row), so it never meets the header's Vibe button. Moves down with the update band.
       topRight: band ? '120px' : '84px',
       activity: { count: '1', tone: 'running' },
-      toasts: [merging],
+      // stack: an older Close result above the newer Merging toast (newest at the bottom).
+      toasts: this.props.stack ? [{ result: 'closed', session: 'アラートの送り先を決める' }, merging] : [merging],
       atWindow: toast === 'window',
       atPane: toast === 'pane',
       atTop: toast === 'top',

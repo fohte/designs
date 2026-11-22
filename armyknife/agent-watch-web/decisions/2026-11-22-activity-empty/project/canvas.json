@@ -1,0 +1,370 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-21T17:03:04Z"
+  },
+  "title": "Activity が空のとき",
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
+  "pages": [
+    {
+      "id": "options",
+      "name": "案"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "activity-empty-current-pc.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC · 操作がないとき: ボタンが出ない",
+      "page": "options"
+    },
+    "activity-empty-current-pc-count.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC · 参考: 操作があるとき (2 running)",
+      "page": "options"
+    },
+    "activity-empty-current-phone.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone · 操作がないとき: ナビゲーションにボタンが出ない",
+      "page": "options"
+    },
+    "activity-empty-current-phone-count.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone · 参考: 操作があるとき",
+      "page": "options"
+    },
+    "activity-empty-a-pc.dc.html": {
+      "x": 0,
+      "y": 1400,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · ナビに Activity (件数なし)",
+      "page": "options"
+    },
+    "activity-empty-a-pc-open.dc.html": {
+      "x": 1520,
+      "y": 1400,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · 開いたところ: 空の Activity",
+      "page": "options"
+    },
+    "activity-empty-a-phone.dc.html": {
+      "x": 3040,
+      "y": 1400,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · ナビゲーションに Activity (件数なし)",
+      "page": "options"
+    },
+    "activity-empty-a-phone-open.dc.html": {
+      "x": 3510,
+      "y": 1400,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · 開いたところ: 空の Activity",
+      "page": "options"
+    },
+    "activity-empty-b-pc.dc.html": {
+      "x": 0,
+      "y": 2800,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · ナビに Activity 0",
+      "page": "options"
+    },
+    "activity-empty-b-pc-open.dc.html": {
+      "x": 1520,
+      "y": 2800,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · 開いたところ: 空の Activity",
+      "page": "options"
+    },
+    "activity-empty-b-phone.dc.html": {
+      "x": 3040,
+      "y": 2800,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · ナビゲーションに Activity 0",
+      "page": "options"
+    },
+    "activity-empty-b-phone-open.dc.html": {
+      "x": 3510,
+      "y": 2800,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · 開いたところ: 空の Activity",
+      "page": "options"
+    },
+    "PhoneInbox.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Inbox",
+      "page": "parts"
+    },
+    "PhoneDrawer.dc.html": {
+      "x": 470,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーション",
+      "page": "parts"
+    },
+    "Nav.dc.html": {
+      "x": 940,
+      "y": 0,
+      "w": 240,
+      "h": 900,
+      "title": "Nav",
+      "page": "parts"
+    },
+    "InboxList.dc.html": {
+      "x": 1260,
+      "y": 0,
+      "w": 460,
+      "h": 900,
+      "title": "InboxList",
+      "page": "parts"
+    },
+    "Conversation.dc.html": {
+      "x": 1800,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 0,
+      "y": 1020,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "parts"
+    },
+    "Quota.dc.html": {
+      "x": 540,
+      "y": 1020,
+      "w": 240,
+      "h": 140,
+      "title": "Quota",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 860,
+      "y": 1020,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 1612,
+      "y": 1020,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 0,
+      "y": 1300,
+      "w": 380,
+      "h": 200,
+      "title": "ConfirmDialog",
+      "page": "parts"
+    },
+    "ActionItem.dc.html": {
+      "x": 460,
+      "y": 1300,
+      "w": 360,
+      "h": 110,
+      "title": "ActionItem",
+      "page": "parts"
+    },
+    "Activity.dc.html": {
+      "x": 900,
+      "y": 1300,
+      "w": 400,
+      "h": 360,
+      "title": "Activity",
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 1380,
+      "y": 1300,
+      "w": 160,
+      "h": 44,
+      "title": "MergeButton",
+      "page": "parts"
+    },
+    "TodoCard.dc.html": {
+      "x": 1620,
+      "y": 1300,
+      "w": 672,
+      "h": 40,
+      "title": "TodoCard",
+      "page": "parts"
+    },
+    "ActivityButton.dc.html": {
+      "x": 2372,
+      "y": 1300,
+      "w": 224,
+      "h": 44,
+      "title": "ActivityButton",
+      "page": "parts"
+    },
+    "CloseChecks.dc.html": {
+      "x": 0,
+      "y": 1780,
+      "w": 408,
+      "h": 170,
+      "title": "CloseChecks",
+      "page": "parts"
+    },
+    "CodeBlock.dc.html": {
+      "x": 488,
+      "y": 1780,
+      "w": 672,
+      "h": 160,
+      "title": "CodeBlock",
+      "page": "parts"
+    },
+    "PhoneRowMenu.dc.html": {
+      "x": 1240,
+      "y": 1780,
+      "w": 390,
+      "h": 250,
+      "title": "PhoneRowMenu",
+      "page": "parts"
+    },
+    "PhoneLaterSheet.dc.html": {
+      "x": 1710,
+      "y": 1780,
+      "w": 390,
+      "h": 420,
+      "title": "PhoneLaterSheet",
+      "page": "parts"
+    },
+    "PhoneSaveViewSheet.dc.html": {
+      "x": 2180,
+      "y": 1780,
+      "w": 390,
+      "h": 300,
+      "title": "PhoneSaveViewSheet",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "activity-empty-current-pc.dc.html",
+    "activity-empty-current-pc-count.dc.html",
+    "activity-empty-current-phone.dc.html",
+    "activity-empty-current-phone-count.dc.html",
+    "activity-empty-a-pc.dc.html",
+    "activity-empty-a-pc-open.dc.html",
+    "activity-empty-a-phone.dc.html",
+    "activity-empty-a-phone-open.dc.html",
+    "activity-empty-b-pc.dc.html",
+    "activity-empty-b-pc-open.dc.html",
+    "activity-empty-b-phone.dc.html",
+    "activity-empty-b-phone-open.dc.html",
+    "PhoneInbox.dc.html",
+    "PhoneDrawer.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "Conversation.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html",
+    "ConfirmDialog.dc.html",
+    "ActionItem.dc.html",
+    "Activity.dc.html",
+    "MergeButton.dc.html",
+    "TodoCard.dc.html",
+    "ActivityButton.dc.html",
+    "CloseChecks.dc.html",
+    "CodeBlock.dc.html",
+    "PhoneRowMenu.dc.html",
+    "PhoneLaterSheet.dc.html",
+    "PhoneSaveViewSheet.dc.html"
+  ],
+  "notes": {
+    "titleCurrent": {
+      "kind": "title1",
+      "x": 0,
+      "y": -300,
+      "maxW": 4360,
+      "page": "options",
+      "text": "今の画面 · 操作がないと Activity は出ない"
+    },
+    "titleA": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1100,
+      "maxW": 4360,
+      "page": "options",
+      "text": "A · 件数なしでボタンだけ出す"
+    },
+    "titleB": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2500,
+      "maxW": 4360,
+      "page": "options",
+      "text": "B · 0 を出す"
+    },
+    "noteCurrent": {
+      "x": 3980,
+      "y": 0,
+      "w": 380,
+      "page": "options",
+      "text": "今\n・Merge や Close を一度も実行していない (または Clear finished で全部消した) と、PC のナビにも iPhone のナビゲーションにも Activity がない\n・1 件目を実行すると quota の上に急に現れる\n・どこで結果を見るのかを、実行する前に知る手段がない"
+    },
+    "noteA": {
+      "x": 3980,
+      "y": 1400,
+      "w": 380,
+      "page": "options",
+      "text": "見えるもの\n・quota の上に、文字を薄くした Activity だけが常にある\n・開くと No recent activity. と「Merge and Close results appear here.」。Clear finished は出さない\n\n良い点\n・置き場所がいつも同じで、結果を見る所が先に分かる\n・件数の欄がないので、数字が出たら何かあった、と読める\n\n気になる点\n・いつもある分、ナビの下が 1 行ぶん常に埋まる"
+    },
+    "noteB": {
+      "x": 3980,
+      "y": 2800,
+      "w": 380,
+      "page": "options",
+      "text": "見えるもの\n・quota の上に、薄い Activity と薄い 0 が常にある\n・開いたときは A と同じ\n\n良い点\n・件数の欄の位置が変わらず、数が増えたときに文字がずれない\n・空であることが数で読める\n\n気になる点\n・何もないことを数で示す分、A より目に入るものが 1 つ多い"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-21T17:03:04Z"
+    }
+  ]
+}

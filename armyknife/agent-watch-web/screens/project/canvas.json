@@ -1074,6 +1074,38 @@
       "h": 40,
       "title": "UpdateBand",
       "page": "components"
+    },
+    "ActivityEmpty.dc.html": {
+      "x": 0,
+      "y": 13304,
+      "w": 1440,
+      "h": 900,
+      "title": "Activity · 操作がまだないとき (数を出さず、ラベルを薄く)",
+      "page": "topbar"
+    },
+    "ActivityEmptyOpen.dc.html": {
+      "x": 1520,
+      "y": 13304,
+      "w": 1440,
+      "h": 900,
+      "title": "Activity · 操作がないときに開いた",
+      "page": "topbar"
+    },
+    "PhoneActivityEmpty.dc.html": {
+      "x": 3040,
+      "y": 13304,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーションの Activity · 操作がまだないとき",
+      "page": "topbar"
+    },
+    "PhoneActivityEmptyOpen.dc.html": {
+      "x": 3510,
+      "y": 13304,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 操作がないときに Activity を開いた",
+      "page": "topbar"
     }
   },
   "order": [
@@ -1211,7 +1243,11 @@
     "ConversationUpdateToast.dc.html",
     "PhoneChatUpdate.dc.html",
     "PhoneInboxUpdate.dc.html",
-    "UpdateBand.dc.html"
+    "UpdateBand.dc.html",
+    "ActivityEmpty.dc.html",
+    "ActivityEmptyOpen.dc.html",
+    "PhoneActivityEmpty.dc.html",
+    "PhoneActivityEmptyOpen.dc.html"
   ],
   "pages": [
     {
@@ -1478,6 +1514,14 @@
       "maxW": 3900,
       "page": "app",
       "text": "新しいバージョンの通知 · 一番上の全幅の帯"
+    },
+    "rowActivityEmpty": {
+      "x": 0,
+      "y": 13004,
+      "text": "Activity · 操作がないとき",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "topbar"
     }
   },
   "v": 3,

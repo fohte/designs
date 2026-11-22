@@ -176,6 +176,7 @@ a{color:#ef4444}
 </sc-if>
 </div>
 
+<sc-if value="{{hasMergeBand}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="MergeBand" prs="{{ mergeBand }}" hint-size="100%,58px"></dc-import></div></sc-if>
 <sc-if value="{{ended}}" hint-placeholder-val="{{ false }}">
 <div role="status" style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); min-height: 56px; margin: 12px auto 6px; display: flex; align-items: center; gap: 12px; padding: 0 10px 0 14px; border: 1px solid #3f3f46; background: #141414">
 <span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #71717a"></span>
@@ -185,7 +186,6 @@ a{color:#ef4444}
 </div>
 </sc-if>
 <sc-if value="{{live}}" hint-placeholder-val="{{ true }}">
-<sc-if value="{{hasMergeBand}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="MergeBand" prs="{{ mergeBand }}" hint-size="100%,58px"></dc-import></div></sc-if>
 <div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" label="{{bandLabel}}" detail="{{bandDetail}}" hint-size="100%,58px"></dc-import></div>
 
 <form style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 12px auto 6px; border: 1px solid #3f3f46; background: #141414">

@@ -61,7 +61,7 @@ class Component extends DCLogic {
         { title: '会話', items: [
           'メッセージは最大 672px の列に中央寄せで並べます。返事を待つカードも会話の中に出します (composer の上には固定しません)。',
           'ヘッダーに主の tq タスク、repo、親セッション、PR、ターミナルで開くボタンを置きます。ヘッダーには Merge を置かず、PR のボタンの印でマージの状態を出します (マージ中は青の回転、失敗は赤の ! と赤枠。PC ではアイコンの右に並べ、iPhone は角に載せる)。マージ済みでは印を出しません。',
-          'Merge の入口は返信欄の上の帯 1 つです。マージできる PR があると Ready to merge と Merge を出し、Merging…、Merge failed と Retry に変わります。マージできる PR が複数なら行を重ね、Question や crit の帯とは縦に積みます。マージ済みでは帯を出しません。PR の一覧 (PC はポップオーバー、iPhone はシート) は見るだけで、各行に CI の結果、マージできない理由、Merging… や Merged などの状態を文字で出します。',
+          'Merge の入口は返信欄の上の帯 1 つです。マージできる PR があると Ready to merge と Merge を出し、Merging…、Merge failed と Retry に変わります。マージできる PR が複数なら行を重ね、Question や crit の帯とは縦に積みます。終わったセッションでも This session has ended の上に出し、マージ済みでは帯を出しません。PR の一覧 (PC はポップオーバー、iPhone はシート) は見るだけで、各行に CI の結果、マージできない理由、Merging… や Merged などの状態を文字で出します。',
           'Done のセッションは PC ではヘッダーの Close、iPhone では ⋯ のメニューの Close ですぐ閉じます。それ以外はヘッダーの ⋯ (iPhone は ⋯ のメニューの一番下) の赤い Close session… から閉じ、Merge と同じ中央の確認ダイアログ (iPhone は下からのシート) を出します。確認の文言は状態ごとに変えます。',
           '返信欄の上に、会話欄の幅いっぱいの帯で今の状態を出します。状態と詳細 (質問の文、実行中のコマンド、タスク名) を 1 行にまとめ、はみ出た詳細は … で切ります。帯を押すと詳細を全部出し、質問と permission では会話の中のカードに戻ります。crit のレビュー待ちだけは 2 行の帯にし、Review in crit で crit を全画面で開きます。止まっているときは帯を出しません。',
           'メッセージの中のリンクの URL が登録済みの web UI の URL なら、リンクの後ろに開く先のタブ名のチップ (canvas など) を出します。押すと crit と同じく、そのタブを watch-web の中で全画面で開き、↙ で状況パネルに戻ります。iPhone は web UI だけのページを会話の上に重ねます。ブラウザの新しいタブへは、web UI のヘッダーの URL (iPhone は ↗) からだけ開きます。',

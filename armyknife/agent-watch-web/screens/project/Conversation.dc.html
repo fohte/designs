@@ -27,19 +27,18 @@ a{color:#ef4444}
 <button type="button" aria-label="{{panelLabel}}" title="{{panelLabel}}" aria-expanded="{{panelOpenStr}}" style="min-width: 32px; height: 26px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 10px; border: 1px solid {{panelBorder}}; background: {{panelBg}}; color: {{panelColor}}; font-family: inherit; font-size: 12px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path><path d="{{panelArrow}}"></path></svg><sc-if value="{{hasTasks}}" hint-placeholder-val="{{ false }}"><span style="color: #60a5fa">2</span></sc-if></button>
 <button type="button" aria-label="Remove from Starred" title="Remove from Starred" aria-pressed="true" style="min-width: 26px; height: 26px; padding: 0 4px; border: 1px solid #2a2a2a; background: transparent; color: #fbbf24; font-size: 16px; line-height: 1">★</button>
 <span style="position: relative; display: inline-flex">
-<button type="button" aria-haspopup="dialog" aria-expanded="{{prsOpenStr}}" aria-label="{{prAria}}" title="{{prAria}}" style="position: relative; width: 30px; height: 26px; box-sizing: border-box; display: grid; place-items: center; padding: 0; border: 1px solid {{prBorder}}; background: {{prBg}}; color: #fafafa"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg><span aria-hidden="true" style="position: absolute; top: 3px; right: 3px; width: 5px; height: 5px; background: {{pr.dot}}"></span><span aria-hidden="true" style="position: absolute; right: 2px; bottom: 1px; font-family: 'JetBrains Mono', monospace; font-size: 9px; line-height: 1; color: #a1a1aa">{{prCount}}</span></button>
+<dc-import name="PrButton" badge="{{prBadge}}" open="{{ prsOpen }}" count="{{ prCount }}" aria="{{prAria}}" hint-size="30px,26px"></dc-import>
 <sc-if value="{{prsOpen}}" hint-placeholder-val="{{ false }}">
 <section role="dialog" aria-label="Pull requests from this session" style="position: absolute; z-index: 5; top: 32px; right: 0; width: 480px; box-sizing: border-box; padding: 6px 0; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%); color: #d4d4d8; font-size: 13px">
 <sc-for list="{{prGroups}}" as="g" hint-placeholder-count="2">
 <h3 style="margin: 0; padding: 8px 14px 4px; color: #8b8b94; font-size: 11.5px; font-weight: 400">{{g.name}}</h3>
 <sc-for list="{{g.rows}}" as="r" hint-placeholder-count="1">
-<div style="display: grid; grid-template-columns: 7px 1fr auto; align-items: center; column-gap: 10px; padding: 6px 14px; color: {{r.color}}"><span role="img" aria-label="{{r.ci}}" title="{{r.ci}}" style="width: 7px; height: 7px; background: {{r.dot}}"></span><a href="#" style="min-width: 0; display: grid; color: inherit; text-decoration: none"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">#{{r.num}}</span> {{r.title}}</span><span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{r.repo}}</span></a><sc-if value="{{r.showMerge}}" hint-placeholder-val="{{ false }}"><dc-import name="MergeButton" state="{{r.mergeState}}" num="{{ r.num }}" form="row" hint-size="64px,26px"></dc-import></sc-if><sc-if value="{{r.showMeta}}" hint-placeholder-val="{{ true }}"><span style="color: {{r.metaColor}}; font-size: 12px; white-space: nowrap">{{r.meta}}</span></sc-if></div>
+<div style="display: grid; grid-template-columns: 7px 1fr auto; align-items: center; column-gap: 10px; padding: 6px 14px; color: {{r.color}}"><span role="img" aria-label="{{r.ci}}" title="{{r.ci}}" style="width: 7px; height: 7px; background: {{r.dot}}"></span><a href="#" style="min-width: 0; display: grid; color: inherit; text-decoration: none"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">#{{r.num}}</span> {{r.title}}</span><span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{r.repo}}</span></a><span style="color: {{r.metaColor}}; font-size: 12px; white-space: nowrap">{{r.meta}}</span></div>
 </sc-for>
 </sc-for>
 </section>
 </sc-if>
 </span>
-<sc-if value="{{headerMerge}}" hint-placeholder-val="{{ true }}"><dc-import name="MergeButton" state="{{mergeState}}" num="{{ pr.num }}" form="header" hint-size="64px,26px"></dc-import></sc-if>
 <sc-if value="{{showMenu}}" hint-placeholder-val="{{ true }}">
 <span style="position: relative; display: inline-flex">
 <button type="button" aria-label="More actions" title="More actions" aria-haspopup="menu" aria-expanded="{{menuOpenStr}}" style="width: 28px; height: 26px; display: grid; place-items: center; padding: 0; border: 1px solid {{menuBorder}}; background: {{menuBg}}; color: #d4d4d8"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
@@ -173,6 +172,7 @@ a{color:#ef4444}
 </div>
 </sc-if>
 <sc-if value="{{live}}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{hasMergeBand}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="MergeBand" prs="{{ mergeBand }}" hint-size="100%,58px"></dc-import></div></sc-if>
 <div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" label="{{bandLabel}}" detail="{{bandDetail}}" hint-size="100%,58px"></dc-import></div>
 
 <form style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 12px auto 6px; border: 1px solid #3f3f46; background: #141414">
@@ -199,16 +199,16 @@ class Component extends DCLogic {
       passed: { dot: '#4ade80', ci: 'CI passed', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI passed', can: true, why: '' },
       failing: { dot: '#f87171', ci: 'CI failing', meta: 'Open', metaColor: '#a1a1aa', color: '#fafafa', word: 'open, CI failing', can: false, why: 'CI failing' }
     };
-    const pr = (num, title, repo, kind) => ({ num, title, repo, ...CI[kind] });
+    const pr = (num, title, repo, kind) => ({ num, title, repo, kind, ...CI[kind] });
     const P = {
-      question: { main: pr(2047, '再送処理を retry() にまとめる', 'example/service', 'running'), others: [pr(61, '再送キューの設定を足す', 'example/infra', 'passed')] },
+      question: { main: pr(2047, '再送処理を retry() にまとめる', 'example/service', 'running'), others: [pr(61, '再送キューの設定を足す', 'example/infra', 'running')] },
       working: { main: pr(2053, '配信メトリクスを記録する', 'example/service', 'running'), others: [] },
       review: { main: pr(2049, '配信前のチェックを追加する', 'example/web-app', 'passed'), others: [] },
       todo: { main: pr(3102, '通知の音を設定に足す', 'example/mobile-app', 'running'), others: [] },
       code: { main: pr(2061, '再送の上限を retry() に渡す', 'example/service', 'running'), others: [] }
     }[variant] ?? { main: pr(2047, '', '', 'running'), others: [] };
-    if (this.props.ciFailing) P.main = { ...P.main, ...CI.failing };
-    // mergeState: the merge confirmed on PR #mergeTarget (default: this branch's PR), shown on that PR's Merge until the PR refreshes.
+    if (this.props.ciFailing) P.main = { ...P.main, kind: 'failing', ...CI.failing };
+    // mergeState: the merge confirmed on PR #mergeTarget (default: this branch's PR), shown on the merge band and that PR's row until the PR refreshes.
     const mergeState = this.props.mergeState ?? 'idle';
     const mergeTarget = this.props.mergeTarget ?? P.main.num;
     const withMerge = (r) => {
@@ -218,7 +218,20 @@ class Component extends DCLogic {
     };
     P.main = withMerge(P.main);
     P.others = P.others.map(withMerge);
-    const row = (r) => ({ ...r, showMerge: r.can, showMeta: !r.can, meta: r.can ? r.meta : r.why, metaColor: r.can ? r.metaColor : '#8b8b94' });
+    // The list only shows each PR's state; the band above the composer is the one place to merge.
+    const MS = { merging: ['Merging…', '#a1a1aa'], failed: ['Merge failed', '#f87171'], merged: ['✓ Merged', '#4ade80'], alreadyMerged: ['Already merged', '#a1a1aa'], queued: ['Queued', '#60a5fa'] };
+    const row = (r) => {
+      const ms = MS[r.mergeState];
+      return { ...r, meta: ms ? ms[0] : r.can ? 'CI passed' : r.why, metaColor: ms ? ms[1] : '#8b8b94' };
+    };
+    const all = [P.main].concat(P.others);
+    const mergeBand = all.filter(r => r.can && r.mergeState !== 'merged' && r.mergeState !== 'alreadyMerged')
+      .map(r => ({ num: r.num, title: r.title, state: r.mergeState, reason: this.props.actionLine?.reason }));
+    const ms = P.main.mergeState;
+    // A failed or running merge of any of the session's PRs shows on the PR button; a merged PR leaves no mark.
+    const prBadge = all.some(r => r.mergeState === 'failed') ? 'mergeFailed'
+      : all.some(r => r.mergeState === 'merging' || r.mergeState === 'queued') ? 'merging'
+      : ms === 'merged' || ms === 'alreadyMerged' ? 'none' : P.main.kind;
     const morePrs = P.others.length;
     const q = variant === 'question';
     const w = variant === 'working';
@@ -312,12 +325,9 @@ class Component extends DCLogic {
       hasMorePrs: morePrs > 0,
       prsOpen,
       prCount: morePrs + 1,
-      prsOpenStr: prsOpen ? 'true' : 'false',
-      prBorder: prsOpen ? '#a1a1aa' : '#2a2a2a',
-      prBg: prsOpen ? '#262626' : 'transparent',
+      prBadge,
       prAria: 'PR #' + P.main.num + ' ' + P.main.title + ', ' + P.main.word + (morePrs > 0 ? '. ' + morePrs + ' more PR from this session' : ''),
-      headerMerge: P.main.can,
-      mergeState: P.main.mergeState,
+      mergeBand, hasMergeBand: mergeBand.length > 0,
       actionLine: this.props.actionLine ?? null,
       hasActionLine: !!this.props.actionLine,
       // vibeEvents: lines like 'Vibe mode turned on · 10:14'. The switch reaches the session as a message but draws as an event, not as You.

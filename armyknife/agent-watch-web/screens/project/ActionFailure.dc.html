@@ -17,7 +17,7 @@ body{margin:0}
 <div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" activity="{{ activity }}" hint-size="240px,900px"></dc-import></div>
 <div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" current="{{ one }}" close="failed" hint-size="460px,900px"></dc-import></div>
 <div style="flex: 1; min-width: 0"><dc-import name="Conversation" variant="review" merge-state="failed" action-line="{{ line }}" hint-size="100%,900px"></dc-import></div>
-<div style="position: absolute; z-index: 10; right: 24px; bottom: 224px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,300px"></dc-import></div>
+<div style="position: absolute; z-index: 10; left: 16px; bottom: 16px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,300px"></dc-import></div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>

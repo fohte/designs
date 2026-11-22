@@ -23,6 +23,7 @@ body{margin:0}
 class Component extends DCLogic {
   renderVals() {
     // Newest at the bottom, nearest the edge it slides in from.
+    // PC: one stack for the whole window, 16px from its left and bottom edges on every screen, 360px wide; it may cover the Nav and lists under it. Phone: above the composer.
     return {
       phone: this.props.phone ?? false,
       items: this.props.items ?? [

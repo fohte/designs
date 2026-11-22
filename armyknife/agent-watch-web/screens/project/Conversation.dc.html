@@ -74,7 +74,7 @@ a{color:#ef4444}
 </div>
 </header>
 
-<div aria-live="polite" style="flex: 1; min-height: 0; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; overflow: hidden; padding: 24px max(24px, calc((100% - 672px) / 2))">
+<div aria-live="polite" style="flex: 1; min-height: 0; box-sizing: border-box; display: flex; flex-direction: column; justify-content: {{scrollJustify}}; gap: 14px; overflow: hidden; padding: 24px max(24px, calc((100% - 672px) / 2))">
 <div style="display: flex; align-items: center; gap: 10px; margin-top: auto; font-size: 11px; color: #a1a1aa; white-space: nowrap"><span style="flex: 1; height: 1px; background: #1a1a1a"></span><span>Conversation</span><span style="flex: 1; height: 1px; background: #1a1a1a"></span></div>
 
 <article style="flex: none; align-self: flex-end; max-width: 80%; display: flex; flex-direction: column; gap: 4px">
@@ -159,6 +159,19 @@ a{color:#ef4444}
 <details style="flex: none; width: 100%; margin-top: -8px; font-size: 12.5px; color: #a1a1aa"><summary style="display: flex; gap: 6px; list-style: none"><span style="flex: none; color: #d4d4d8; font-style: italic">Thought ×2</span><span aria-hidden="true" style="flex: none">·</span><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Edit metrics.rs · Read ×2</span><span style="color: #71717a">›</span></summary></details>
 </sc-if>
 
+<sc-if value="{{hasBang}}" hint-placeholder-val="{{ false }}">
+<article style="flex: none; max-width: 100%; display: flex; flex-direction: column; gap: 8px; color: #d4d4d8">
+<div>差分を見る to-do を登録しておくなら、次を実行してください。</div>
+<dc-import name="CodeBlock" code="agent" hint-size="100%,72px"></dc-import>
+<div style="display: flex; align-items: center; gap: 8px; font-size: 12px"><button type="button" aria-disabled="{{bang.busy}}" style="height: 26px; padding: 0 10px; border: 1px solid #3f3f46; background: #1f1f1f; color: #d4d4d8; font-family: inherit; font-size: 12px; opacity: {{bang.dim}}">{{bang.label}}</button><sc-if value="{{bang.hasMsg}}" hint-placeholder-val="{{ false }}"><span role="status" style="color: {{bang.msgColor}}">{{bang.msg}}</span></sc-if></div>
+</article>
+<sc-if value="{{bang.hasResult}}" hint-placeholder-val="{{ false }}">
+<article style="flex: none; align-self: flex-end; max-width: 80%; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: flex-end; gap: 8px; font-size: 12px; color: #8b8b94">You · 12:03</div>
+<pre style="margin: 0; padding: 10px 14px; background: #1f1f1f; outline: {{bang.outline}}; outline-offset: 2px; color: #fafafa; font-family: inherit; font-size: 13px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere">{{bang.result}}</pre>
+</article>
+</sc-if>
+</sc-if>
 <sc-if value="{{hasActionLine}}" hint-placeholder-val="{{ false }}">
 <div style="flex: none"><dc-import name="ActionItem" a="{{ actionLine }}" form="line" hint-size="100%,24px"></dc-import></div>
 </sc-if>
@@ -188,8 +201,26 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review","todo","code"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review","todo","code"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
+  // bang: the ! command in the last reply. '' (none) | idle | running | succeeded | failed | timedOut.
+  // The server sends each run's result to the session as your message; bangHighlight outlines it (Show output landed there).
+  bangVals() {
+    const s = this.props.bang ?? '';
+    const cmd = 'a agent todo add --title "差分を crit で見る"';
+    const where = ' in ~/src/example/web-app.\n\nCommand:\n$ ' + cmd + '\n\n';
+    const B = {
+      idle: { label: 'Run command 1' },
+      running: { label: 'Running…', busy: true },
+      succeeded: { label: 'Succeeded', msg: 'Completed', color: '#4ade80', result: 'Command exited with code 0' + where + 'stdout:\nAdded to-do #3\n\nstderr:\n(empty)' },
+      failed: { label: 'Failed', msg: 'Failed (exit code 1)', color: '#f87171', result: 'Command exited with code 1' + where + 'stdout:\n(empty)\n\nstderr:\nerror: no tq task is linked to this session' },
+      timedOut: { label: 'Failed', msg: 'Timed out', color: '#f87171', result: 'Command timed out after 30 seconds' + where + 'stdout:\n(empty)\n\nstderr:\nwaiting for the tq server to respond…' }
+    }[s] ?? null;
+    return {
+      hasBang: !!B,
+      bang: B ? { label: B.label, busy: B.busy ? 'true' : 'false', dim: B.busy ? '0.5' : '1', hasMsg: !!B.msg, msg: B.msg ?? '', msgColor: B.color ?? '#a1a1aa', hasResult: !!B.result, result: B.result ?? '', outline: this.props.bangHighlight ? '2px solid #60a5fa' : 'none' } : {}
+    };
+  }
   renderVals() {
     const variant = this.props.variant ?? 'question';
     const panelOpen = this.props.panelOpen ?? false;
@@ -318,6 +349,7 @@ class Component extends DCLogic {
       prAria: 'PR #' + P.main.num + ' ' + P.main.title + ', ' + P.main.word + (morePrs > 0 ? '. ' + morePrs + ' more PR from this session' : ''),
       headerMerge: P.main.can,
       mergeState: P.main.mergeState,
+      ...this.bangVals(), scrollJustify: this.props.bang ? "flex-end" : "flex-start",
       actionLine: this.props.actionLine ?? null,
       hasActionLine: !!this.props.actionLine,
       // vibeEvents: lines like 'Vibe mode turned on · 10:14'. The switch reaches the session as a message but draws as an event, not as You.

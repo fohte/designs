@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Status panel: Review drafts</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<aside aria-label="Session status" style="position: relative; width: 100%; height: {{rootH}}; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; background: #0f0f0f; border-left: {{rootBorder}}; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+
+<div style="flex: none; height: {{tabsH}}; box-sizing: border-box; display: flex; align-items: stretch; gap: 8px; padding: 0 {{closePad}} 0 {{padX}}; border-bottom: 1px solid #2a2a2a">
+<div role="tablist" aria-label="Session status" style="flex: 1; min-width: 0; display: flex; align-items: stretch; gap: {{tabGap}}; overflow: hidden">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="5">
+<button type="button" role="tab" aria-selected="{{t.selected}}" style="flex: none; display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; border-bottom: 2px solid {{t.underline}}; background: transparent; color: {{t.color}}; font-family: inherit; font-size: {{tabFs}}; font-weight: {{t.weight}}; white-space: nowrap">{{t.label}}<span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: {{t.countColor}}">{{t.count}}</span></button>
+</sc-for>
+</div>
+<button type="button" aria-label="Close session status panel" title="Close session status panel" style="flex: none; margin-left: auto; align-self: center; width: {{closeSize}}; height: {{closeSize}}; padding: 0; border: 0; background: #0f0f0f; color: #a1a1aa; font-size: 18px">×</button>
+</div>
+
+<sc-if value="{{isList}}" hint-placeholder-val="{{ false }}">
+<section role="tabpanel" aria-label="Drafts waiting for review" style="flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden">
+<h2 style="flex: none; margin: 0; padding: 14px {{padX}} 8px; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">WAITING FOR YOUR REVIEW <span style="margin-left: 6px; font-family: 'JetBrains Mono', monospace">4</span></h2>
+<sc-for list="{{docs}}" as="r" hint-placeholder-count="4">
+<button type="button" style="flex: none; width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 4px; padding: {{rowPad}}; border: 0; border-top: 1px solid #1f1f1f; background: transparent; color: #fafafa; font-family: inherit; text-align: left">
+<span style="display: flex; align-items: center; gap: 8px; min-width: 0; font-size: {{metaFs}}">
+<span style="flex: none; padding: 0 6px; border: 1px solid #3f3f46; color: #fafafa; line-height: 1.6">{{r.kind}}</span>
+<span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{r.where}}</span>
+<span style="flex: none; margin-left: auto; display: inline-flex; align-items: center; gap: 6px; color: #8b8b94"><span aria-hidden="true" style="width: 7px; height: 7px; background: {{r.stateDot}}"></span>{{r.state}}</span>
+</span>
+<span style="font-size: {{titleFs}}; font-weight: 700; color: #fafafa; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{r.title}}</span>
+<span style="font-size: {{metaFs}}; color: #a1a1aa; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{r.excerpt}}</span>
+<span style="display: flex; align-items: center; gap: 10px; font-size: {{metaFs}}; color: #8b8b94"><span>{{r.approvalSummary}}</span><span aria-hidden="true" style="margin-left: auto; color: #a1a1aa; font-size: 18px">›</span></span>
+</button>
+</sc-for>
+<p style="flex: none; margin: auto 0 0; padding: 10px {{padX}}; border-top: 1px solid #2a2a2a; color: #8b8b94; font-size: {{metaFs}}">In the editor now: 1 · Queued: 3</p>
+</section>
+</sc-if>
+
+<sc-if value="{{isDetail}}" hint-placeholder-val="{{ true }}">
+<article role="tabpanel" aria-label="Draft" style="position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column">
+
+<sc-if value="{{swTabs}}" hint-placeholder-val="{{ false }}">
+<div role="tablist" aria-label="Drafts" style="flex: none; display: flex; overflow: hidden; border-bottom: 1px solid #2a2a2a; background: #0c0c0c">
+<sc-for list="{{docs}}" as="r" hint-placeholder-count="4">
+<button type="button" role="tab" aria-selected="{{r.selectedStr}}" style="flex: none; max-width: {{chipMaxW}}; min-height: {{chipH}}; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 1px; padding: 0 14px; border: 0; border-right: 1px solid #1a1a1a; border-bottom: 2px solid {{r.underline}}; background: {{r.chipBg}}; color: {{r.chipColor}}; font-family: inherit; text-align: left">
+<span style="display: flex; align-items: center; gap: 6px; font-size: {{metaFs}}; font-weight: {{r.chipWeight}}; white-space: nowrap"><span aria-hidden="true" style="width: 6px; height: 6px; background: {{r.stateDot}}"></span>{{r.kind}}</span>
+<span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #a1a1aa">{{r.short}}</span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{swPager}}" hint-placeholder-val="{{ false }}">
+<div style="flex: none; height: 44px; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 {{padX}}; border-bottom: 1px solid #2a2a2a; background: #0c0c0c">
+<button type="button" aria-label="Previous draft" style="width: 28px; height: 28px; padding: 0; border: 1px solid #3f3f46; background: transparent; color: #71717a; font-size: 15px" disabled>‹</button>
+<button type="button" aria-haspopup="listbox" aria-expanded="{{menuOpenStr}}" style="flex: 1; min-width: 0; height: 28px; display: flex; align-items: center; gap: 8px; padding: 0 10px; border: 1px solid {{menuBorder}}; background: {{menuBg}}; color: #fafafa; font-family: inherit; font-size: 12.5px; text-align: left"><span style="flex: none; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">{{pos}}</span><span style="flex: none; font-weight: 700">{{doc.kind}}</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">{{doc.short}}</span><span aria-hidden="true" style="margin-left: auto; color: #a1a1aa">▾</span></button>
+<button type="button" aria-label="Next draft" style="width: 28px; height: 28px; padding: 0; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-size: 15px">›</button>
+</div>
+</sc-if>
+
+<sc-if value="{{swBack}}" hint-placeholder-val="{{ false }}">
+<div style="flex: none; height: 48px; box-sizing: border-box; display: flex; align-items: center; gap: 4px; padding: 0 {{padX}} 0 4px; border-bottom: 1px solid #2a2a2a; background: #0c0c0c">
+<button type="button" style="height: 44px; display: inline-flex; align-items: center; gap: 2px; padding: 0 10px 0 4px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>Drafts</button>
+<span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a1a1aa">{{pos}}</span>
+</div>
+</sc-if>
+
+<sc-if value="{{typed}}" hint-placeholder-val="{{ false }}">
+<div style="flex: none; height: 56px; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 0 12px 0 {{padX}}; background: #141414; border-bottom: 1px solid #2a2a2a">
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column"><strong style="font-size: {{headKindFs}}">{{doc.kind}}</strong><span style="font-family: 'JetBrains Mono', monospace; font-size: {{headWhereFs}}; color: #8b8b94; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{doc.where}}</span></div>
+<sc-if value="{{showWideIcon}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="Open full width" title="Open full width" style="width: 28px; height: 28px; padding: 0; border: 0; background: transparent; color: #a1a1aa">⛶</button></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{typedFm}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Frontmatter" style="flex: none; display: flex; flex-direction: column; padding: 8px {{padX}} 14px; border-bottom: 1px solid #2a2a2a; color: #d4d4d8; font-size: {{bodyFs}}">
+<h3 style="flex: none; margin: 0; height: {{segRowH}}; display: flex; align-items: center; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">FRONTMATTER</h3>
+<sc-if value="{{showIssue}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 12px; padding-top: 6px">
+<label style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: {{metaFs}}; color: #8b8b94">Title</span><textarea value="{{doc.title}}" style="display: block; width: 100%; height: {{titleAreaH}}; box-sizing: border-box; padding: 6px 8px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: {{titleInputFs}}; font-weight: 700; line-height: 1.4; resize: none"></textarea></label>
+<dl style="margin: 0; display: grid; grid-template-columns: {{fmLabelCol}} minmax(0, 1fr); align-items: start; gap: 10px 12px; font-size: {{metaFs}}">
+<dt style="min-height: {{chipH2}}; display: flex; align-items: center; color: #8b8b94">Labels</dt>
+<dd style="margin: 0; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<sc-for list="{{doc.labels}}" as="l" hint-placeholder-count="2"><span style="height: {{chipH2}}; box-sizing: border-box; display: inline-flex; align-items: center; gap: 2px; padding: 0 0 0 8px; border: 1px solid #3f3f46; background: #161616; color: #fafafa">{{l.name}}<button type="button" aria-label="{{l.remove}}" style="width: {{xSize}}; height: 100%; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span></sc-for>
+<input aria-label="Add label" placeholder="Add label" value="{{labelQuery}}" style="width: {{addInputW}}; height: {{chipH2}}; box-sizing: border-box; padding: 0 8px; border: 1px solid {{addBorder}}; outline: none; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: {{addInputFs}}">
+</div>
+<sc-if value="{{suggestOpen}}" hint-placeholder-val="{{ true }}">
+<div role="listbox" aria-label="Label suggestions" style="width: {{suggestW}}; max-width: 100%; box-sizing: border-box; padding: 4px 0; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%)">
+<sc-for list="{{doc.labelSuggest}}" as="o" hint-placeholder-count="2"><div role="option" aria-selected="{{o.sel}}" style="min-height: {{optH}}; box-sizing: border-box; display: flex; align-items: center; padding: 0 10px; background: {{o.bg}}; color: #fafafa">{{o.name}}</div></sc-for>
+</div>
+</sc-if>
+</dd>
+<dt style="min-height: {{chipH2}}; display: flex; align-items: center; color: #8b8b94">Assignees</dt>
+<dd style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<sc-for list="{{doc.assignees}}" as="a" hint-placeholder-count="1"><span style="height: {{chipH2}}; box-sizing: border-box; display: inline-flex; align-items: center; gap: 6px; padding: 0 0 0 4px; border: 1px solid #3f3f46; background: #161616; color: #fafafa"><span aria-hidden="true" style="width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; background: #27272a; font-size: 10.5px; font-weight: 700">{{a.initial}}</span>{{a.name}}<button type="button" aria-label="{{a.remove}}" style="width: {{xSize}}; height: 100%; margin-left: -4px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span></sc-for>
+<button type="button" style="height: {{chipH2}}; padding: 0 10px; border: 1px dashed #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{metaFs}}">+ Add assignee</button>
+</dd>
+<dt style="min-height: {{chipH2}}; display: flex; align-items: center; color: #8b8b94">Parent issue</dt>
+<dd style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<span style="flex: 1 1 220px; min-width: 0; height: {{chipH2}}; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 0 0 8px; border: 1px solid #3f3f46; background: #0a0a0a"><a href="#" style="flex: none; color: #93c5fd; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">{{doc.parent.ref}}</a><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #a1a1aa">{{doc.parent.title}}</span><button type="button" aria-label="Clear parent issue" style="flex: none; width: {{xSize}}; height: 100%; margin-left: auto; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span>
+<button type="button" style="height: {{chipH2}}; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{metaFs}}">Set parent</button>
+</dd>
+<dt style="min-height: {{chipH2}}; display: flex; align-items: center; color: #8b8b94">Sub-issues</dt>
+<dd style="margin: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px">
+<sc-for list="{{doc.subIssues}}" as="s" hint-placeholder-count="2"><span style="width: 100%; height: {{chipH2}}; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 0 0 8px; border: 1px solid #3f3f46; background: #0a0a0a"><a href="#" style="flex: none; color: #93c5fd; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">{{s.ref}}</a><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #a1a1aa">{{s.title}}</span><button type="button" aria-label="{{s.remove}}" style="flex: none; width: {{xSize}}; height: 100%; margin-left: auto; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span></sc-for>
+<button type="button" style="height: {{chipH2}}; padding: 0 10px; border: 1px dashed #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{metaFs}}">+ Add sub-issue</button>
+</dd>
+</dl>
+</div>
+</sc-if>
+<sc-if value="{{showPrTitle}}" hint-placeholder-val="{{ false }}">
+<label style="display: flex; flex-direction: column; gap: 4px; padding-top: 6px"><span style="font-size: {{metaFs}}; color: #8b8b94">Title</span><textarea value="{{doc.title}}" style="display: block; width: 100%; height: {{titleAreaH}}; box-sizing: border-box; padding: 6px 8px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: {{titleInputFs}}; font-weight: 700; line-height: 1.4; resize: none"></textarea></label>
+</sc-if>
+</section>
+</sc-if>
+
+<sc-if value="{{headKind}}" hint-placeholder-val="{{ false }}">
+<header style="flex: none; display: flex; flex-direction: column; gap: 6px; padding: 12px {{padX}}; border-bottom: 1px solid #1a1a1a">
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0; font-size: {{metaFs}}">
+<span style="flex: none; padding: 0 6px; border: 1px solid #3f3f46; color: #fafafa; line-height: 1.6">{{doc.kind}}</span>
+<span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{doc.where}}</span>
+<span style="flex: none; margin-left: auto; display: inline-flex; align-items: center; gap: 6px; color: #8b8b94"><span aria-hidden="true" style="width: 7px; height: 7px; background: {{doc.stateDot}}"></span>{{doc.stateLong}}</span>
+</div>
+<sc-if value="{{doc.titleEditable}}" hint-placeholder-val="{{ true }}">
+<label style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 11px; color: #8b8b94">{{doc.titleLabel}} <code style="font-family: 'JetBrains Mono', monospace; color: #8b8b94">title</code></span><input value="{{doc.title}}" style="width: 100%; min-height: {{inputH}}; box-sizing: border-box; padding: 4px 8px; border: 1px solid #2a2a2a; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: {{titleInputFs}}; font-weight: 700"></label>
+</sc-if>
+<sc-if value="{{doc.titleStatic}}" hint-placeholder-val="{{ false }}">
+<h2 style="margin: 0; font-size: {{titleFs}}; font-weight: 700; color: #fafafa">{{doc.title}}</h2>
+</sc-if>
+<sc-if value="{{doc.hasNote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: {{metaFs}}; color: #a1a1aa">{{doc.note}}</p></sc-if>
+</header>
+</sc-if>
+
+<sc-if value="{{showFm}}" hint-placeholder-val="{{ true }}">
+<section aria-label="Document metadata" style="flex: none; display: flex; flex-direction: column; gap: 10px; padding: 16px 16px 0; color: #d4d4d8; font-size: 12px">
+<h2 style="margin: 0; color: #fafafa; font-size: 12px; font-weight: 600">Frontmatter</h2>
+<dl style="display: flex; flex-direction: column; gap: 8px; margin: 0">
+<sc-if value="{{fmTitle}}" hint-placeholder-val="{{ true }}"><div style="display: grid; grid-template-columns: minmax(72px, 30%) minmax(0, 1fr); gap: 10px"><dt style="color: #8b8b94; font-weight: 500">title</dt><dd style="margin: 0; display: flex; align-items: center"><input aria-label="title" value="{{doc.title}}" style="width: 100%; min-height: 36px; box-sizing: border-box; padding: 6px 8px; border: 1px solid #3f3f46; border-radius: 6px; background: #141414; color: #d4d4d8; font-family: inherit; font-size: {{curInputFs}}"></dd></div></sc-if>
+<sc-for list="{{doc.fmTop}}" as="a" hint-placeholder-count="0">
+<div style="display: grid; grid-template-columns: minmax(72px, 30%) minmax(0, 1fr); gap: 10px"><dt style="color: #8b8b94; font-weight: 500">{{a.name}}</dt><dd style="margin: 0; display: flex; align-items: center"><input type="checkbox" checked="{{a.on}}" aria-label="{{a.name}}" style="width: 20px; height: 20px; margin: 0; accent-color: #60a5fa"></dd></div>
+</sc-for>
+<sc-if value="{{doc.hasSteps}}" hint-placeholder-val="{{ true }}">
+<div style="display: grid; grid-template-columns: 1fr; gap: 6px">
+<h3 style="margin: 0; color: #fafafa; font-size: 12px; font-weight: 500">steps</h3>
+<dl style="display: flex; flex-direction: column; gap: 7px; margin: 0 0 0 10px; padding-left: 10px; border-left: 1px solid #1a1a1a">
+<sc-for list="{{doc.fmSteps}}" as="a" hint-placeholder-count="2">
+<div style="display: grid; grid-template-columns: minmax(72px, 30%) minmax(0, 1fr); gap: 10px"><dt style="color: #8b8b94; font-weight: 500; overflow-wrap: anywhere">{{a.name}}</dt><dd style="margin: 0; display: flex; align-items: center"><input type="checkbox" checked="{{a.on}}" aria-label="{{a.name}}" style="width: 20px; height: 20px; margin: 0; accent-color: #60a5fa"></dd></div>
+</sc-for>
+</dl>
+</div>
+</sc-if>
+</dl>
+</section>
+</sc-if>
+
+<sc-if value="{{apExplained}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Approval" style="flex: none; padding: 8px {{padX}} 10px; border-bottom: 1px solid #1a1a1a">
+<h3 style="margin: 0; height: 26px; display: flex; align-items: center; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">WHEN YOU FINISH</h3>
+<sc-for list="{{doc.approvals}}" as="a" hint-placeholder-count="2">
+<label style="display: grid; grid-template-columns: {{checkCol}} 1fr; align-items: start; gap: 10px; padding: 6px 0">
+<input type="checkbox" checked="{{a.on}}" style="width: {{checkSize}}; height: {{checkSize}}; margin: 2px 0 0; accent-color: #fafafa">
+<span style="display: flex; flex-direction: column; gap: 1px; min-width: 0">
+<span style="display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap"><strong style="font-size: {{labelFs}}; color: #fafafa">{{a.label}}</strong><code style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">{{a.key}}</code></span>
+<span style="font-size: {{metaFs}}; color: #a1a1aa">{{a.help}}</span>
+</span>
+</label>
+</sc-for>
+<sc-if value="{{doc.noApproval}}" hint-placeholder-val="{{ false }}"><p style="margin: 2px 0 0; font-size: {{metaFs}}; color: #a1a1aa">{{doc.noApprovalText}}</p></sc-if>
+</section>
+</sc-if>
+
+<sc-if value="{{rdPanel}}" hint-placeholder-val="{{ true }}">
+<section aria-label="Document body" style="flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 16px; color: #d4d4d8; font-size: 12px">
+<div style="flex: none; display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px">
+<h2 style="margin: 0; color: #fafafa; font-size: 12px; font-weight: 600">Body</h2>
+<div aria-label="Body view" style="display: flex; gap: 4px">
+<button type="button" aria-pressed="true" style="min-height: 36px; padding: 0 10px; border: 1px solid #60a5fa; border-radius: 6px; background: #141414; color: #fafafa; font-family: inherit; font-size: 12px">Edit</button>
+<button type="button" aria-pressed="false" style="min-height: 36px; padding: 0 10px; border: 1px solid #3f3f46; border-radius: 6px; background: #141414; color: #d4d4d8; font-family: inherit; font-size: 12px">Preview</button>
+</div>
+</div>
+<div style="flex: 1; min-height: 0; display: grid; grid-template-columns: {{curCols}}; gap: 12px">
+<pre aria-label="Markdown body" style="margin: 0; min-width: 0; overflow: hidden; padding: 12px; border: 1px solid #1a1a1a; border-radius: 8px; background: #141414; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{curEditorFs}}; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere">{{doc.raw}}</pre>
+<sc-if value="{{curShowPreview}}" hint-placeholder-val="{{ true }}">
+<div style="min-width: 0; overflow: hidden; padding: 12px; border: 1px solid #1a1a1a; border-radius: 8px; background: #141414; color: #d4d4d8; font-size: 13px">
+<sc-for list="{{doc.blocks}}" as="b" hint-placeholder-count="4">
+<sc-if value="{{b.h}}" hint-placeholder-val="{{ false }}"><h4 style="margin: 0 0 6px; color: #fafafa; font-size: 14px">{{b.text}}</h4></sc-if>
+<sc-if value="{{b.p}}" hint-placeholder-val="{{ true }}"><p style="margin: 0 0 10px">{{b.text}}</p></sc-if>
+<sc-if value="{{b.li}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 4px; padding-left: 14px; text-indent: -12px">· {{b.text}}</p></sc-if>
+<sc-if value="{{b.quote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 10px; padding-left: 10px; border-left: 2px solid #3f3f46; color: #a1a1aa">{{b.text}}</p></sc-if>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</section>
+</sc-if>
+
+<sc-if value="{{rdToggle}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Body" style="flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 8px {{padX}} 12px">
+<div style="flex: none; height: {{segRowH}}; display: flex; align-items: center; gap: 8px">
+<h3 style="margin: 0; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">BODY</h3>
+<sc-if value="{{showWideBtn}}" hint-placeholder-val="{{ false }}"><button type="button" style="margin-left: auto; height: {{segH}}; display: inline-flex; align-items: center; gap: 5px; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M9 21H3v-6"></path><path d="M21 3l-7 7"></path><path d="M3 21l7-7"></path></svg>Full width</button></sc-if>
+<div role="group" aria-label="Body view" style="margin-left: {{segMl}}; display: flex">
+<button type="button" aria-pressed="{{previewOnStr}}" style="height: {{segH}}; padding: 0 12px; border: 1px solid {{previewBorder}}; background: {{previewBg}}; color: {{previewColor}}; font-family: inherit; font-size: 12px">Preview</button>
+<button type="button" aria-pressed="{{editOnStr}}" style="height: {{segH}}; margin-left: -1px; padding: 0 12px; border: 1px solid {{editBorder}}; background: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: 12px">Edit</button>
+</div>
+</div>
+<sc-if value="{{isPreview}}" hint-placeholder-val="{{ true }}">
+<div style="flex: 1; min-height: 0; overflow: hidden; padding-top: 6px; color: #d4d4d8; font-size: {{bodyFs}}">
+<sc-if value="{{showThreads}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<sc-for list="{{doc.threads}}" as="t" hint-placeholder-count="2">
+<article aria-label="{{t.path}}" style="border: 1px solid #2a2a2a; background: #0a0a0a">
+<header style="display: flex; align-items: center; gap: 8px; padding: 4px 6px 4px 10px; border-bottom: 1px solid #1f1f1f">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"></path><path d="M14 3v5h5"></path></svg>
+<span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #fafafa">{{t.path}}</span>
+<label style="flex: none; margin-left: auto; min-height: {{segRowH}}; display: inline-flex; align-items: center; gap: 6px; padding: 0 6px; color: #d4d4d8; font-size: {{metaFs}}"><input type="checkbox" checked="{{t.resolved}}" style="width: {{checkSize}}; height: {{checkSize}}; margin: 0; accent-color: #fafafa">Resolve</label>
+</header>
+<div aria-label="Diff" style="padding: 4px 0; overflow: hidden; border-bottom: 1px solid #1f1f1f; font-family: 'JetBrains Mono', monospace; font-size: {{diffFs}}; line-height: 1.6">
+<sc-for list="{{t.diff}}" as="d" hint-placeholder-count="5">
+<div style="padding: 0 10px 0 8px; border-left: 2px solid {{d.mark}}; background: {{d.bg}}; color: {{d.color}}; white-space: pre; overflow: hidden; text-overflow: ellipsis">{{d.text}}</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 10px">
+<sc-for list="{{t.comments}}" as="c" hint-placeholder-count="1">
+<div style="display: flex; align-items: flex-start; gap: 8px">
+<span aria-hidden="true" style="flex: none; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; background: #27272a; color: #fafafa; font-size: 11px; font-weight: 700">{{c.initial}}</span>
+<div style="flex: 1; min-width: 0; padding: 6px 10px; border: 1px solid #2a2a2a; background: #161616">
+<p style="margin: 0 0 2px; font-size: {{metaFs}}; color: #a1a1aa"><strong style="color: #fafafa">{{c.author}}</strong> · <time datetime="{{c.iso}}">{{c.time}}</time></p>
+<p style="margin: 0; color: #d4d4d8">{{c.body}}</p>
+</div>
+</div>
+</sc-for>
+<label style="display: flex; flex-direction: column; gap: 4px; padding-left: 32px"><span style="font-size: {{metaFs}}; color: #a1a1aa">Your reply</span><input value="{{t.reply}}" style="width: 100%; min-height: {{inputH}}; box-sizing: border-box; padding: 4px 8px; border: 1px solid #3f3f46; background: #0f0f0f; color: #fafafa; font-family: inherit; font-size: {{replyFs}}"></label>
+</div>
+</article>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{showBlocks}}" hint-placeholder-val="{{ true }}">
+<sc-for list="{{doc.blocks}}" as="b" hint-placeholder-count="4">
+<sc-if value="{{b.h}}" hint-placeholder-val="{{ false }}"><h4 style="margin: 4px 0 6px; color: #fafafa; font-size: {{h4Fs}}">{{b.text}}</h4></sc-if>
+<sc-if value="{{b.p}}" hint-placeholder-val="{{ true }}"><p style="margin: 0 0 10px">{{b.text}}</p></sc-if>
+<sc-if value="{{b.li}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 4px; padding-left: 14px; text-indent: -12px">· {{b.text}}</p></sc-if>
+<sc-if value="{{b.quote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 10px; padding-left: 10px; border-left: 2px solid #3f3f46; color: #a1a1aa">{{b.text}}</p></sc-if>
+</sc-for>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{isEdit}}" hint-placeholder-val="{{ false }}">
+<pre aria-label="Markdown body" style="flex: 1; min-height: 0; margin: 6px 0 0; overflow: hidden; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{editorFs}}; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere">{{editRaw}}</pre>
+</sc-if>
+</section>
+</sc-if>
+
+<sc-if value="{{rdFull}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Body" style="flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 10px; padding: 8px {{padX}} 12px">
+<h3 style="flex: none; margin: 0; height: 32px; display: flex; align-items: center; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">BODY</h3>
+<p style="margin: 0; color: #d4d4d8; font-size: 13px">{{doc.excerpt}}</p>
+<sc-if value="{{wideClosed}}" hint-placeholder-val="{{ true }}"><button type="button" style="align-self: flex-start; height: 32px; display: inline-flex; align-items: center; gap: 6px; padding: 0 14px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M9 21H3v-6"></path><path d="M21 3l-7 7"></path><path d="M3 21l7-7"></path></svg>Read full width</button></sc-if>
+<sc-if value="{{wide}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; display: flex; align-items: center; gap: 8px; color: #8b8b94; font-size: 12px"><span aria-hidden="true" style="width: 7px; height: 7px; background: #fafafa"></span>Open full width beside the panel · Esc closes it</p></sc-if>
+</section>
+</sc-if>
+
+<sc-if value="{{apCurrent}}" hint-placeholder-val="{{ true }}">
+<footer style="flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 12px 16px {{curFootPadB}}; border-top: 1px solid #1a1a1a">
+<span aria-live="polite" style="color: #8b8b94"></span>
+<button type="button" style="margin-left: auto; min-height: 36px; padding: 0 10px; border: 1px solid #3f3f46; border-radius: 6px; background: #141414; color: #d4d4d8; font-family: inherit; font-size: 12px">Save</button>
+<button type="button" style="min-height: 36px; padding: 0 10px; border: 1px solid #60a5fa; border-radius: 6px; background: #141414; color: #fafafa; font-family: inherit; font-size: 12px">Finish review</button>
+</footer>
+</sc-if>
+
+<sc-if value="{{apExplained}}" hint-placeholder-val="{{ false }}">
+<footer style="flex: none; display: flex; align-items: center; gap: 8px; padding: 10px {{padX}} {{footPadB}}; border-top: 1px solid #2a2a2a; background: #0f0f0f">
+<span aria-live="polite" style="min-width: 0; color: #8b8b94; font-size: {{metaFs}}; white-space: nowrap">{{saveState}}</span>
+<button type="button" style="margin-left: auto; height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Save</button>
+<button type="button" style="height: {{btnH}}; padding: 0 14px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">{{finishLabel}}</button>
+</footer>
+</sc-if>
+
+<sc-if value="{{apButtons}}" hint-placeholder-val="{{ false }}">
+<footer style="flex: none; display: flex; flex-direction: column; gap: 8px; padding: 10px {{padX}} {{footPadB}}; border-top: 1px solid #2a2a2a; background: #0f0f0f">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<sc-if value="{{phoneNot}}" hint-placeholder-val="{{ true }}"><button type="button" style="height: {{btnH}}; padding: 0 12px; border: 0; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Save</button></sc-if>
+<sc-for list="{{doc.bButtons}}" as="bb" hint-placeholder-count="2">
+<button type="button" title="{{bb.title}}" style="flex: {{bFlex}}; height: {{btnH}}; padding: 0 12px; margin-left: {{bb.ml}}; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">{{bb.label}}</button>
+</sc-for>
+<button type="button" style="flex: {{bFlex}}; height: {{btnH}}; padding: 0 14px; margin-left: {{bPrimaryMl}}; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">{{doc.bPrimary}}</button>
+</div>
+<p style="margin: 0; color: #8b8b94; font-size: 11.5px">{{doc.bHelp}}</p>
+</footer>
+</sc-if>
+
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<div role="listbox" aria-label="Drafts" style="position: absolute; z-index: 5; top: 40px; left: 52px; right: 52px; box-sizing: border-box; padding: 4px 0; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%)">
+<sc-for list="{{docs}}" as="r" hint-placeholder-count="4">
+<div role="option" aria-selected="{{r.selectedStr}}" style="display: flex; flex-direction: column; gap: 2px; padding: 7px 12px; background: {{r.optBg}}">
+<span style="display: flex; align-items: center; gap: 8px; font-size: 12px"><span style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{r.n}}</span><span style="font-weight: 700; color: #fafafa">{{r.kind}}</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">{{r.where}}</span><span style="margin-left: auto; display: inline-flex; align-items: center; gap: 6px; color: #a1a1aa; font-size: 11.5px"><span aria-hidden="true" style="width: 6px; height: 6px; background: {{r.stateDot}}"></span>{{r.state}}</span></span>
+<span style="padding-left: 20px; font-size: 12.5px; color: #d4d4d8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{r.title}}</span>
+</div>
+</sc-for>
+</div>
+</sc-if>
+</article>
+</sc-if>
+</aside>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"heading":{"editor":"enum","options":["none","kind"],"default":"none"},"switcher":{"editor":"enum","options":["none","tabs","stepper","list"],"default":"none"},"reading":{"editor":"enum","options":["panel","toggle","full","entry"],"default":"panel"},"wide":{"editor":"boolean","default":false},"approval":{"editor":"enum","options":["current","explained","buttons"],"default":"current"},"phone":{"editor":"boolean","default":false},"doc":{"editor":"int","min":0,"max":4,"default":0},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"screen":{"editor":"enum","options":["auto","list","detail"],"default":"auto"},"submit":{"editor":"boolean","default":false},"translate":{"editor":"boolean","default":false},"menuOpen":{"editor":"boolean","default":false},"typed":{"editor":"boolean","default":false},"$preview":{"width":640,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // Unset props draw the baseline the options are compared against: no heading, one draft, the two-column body, bare frontmatter checkboxes.
+    const heading = this.props.heading ?? 'none';
+    const switcher = this.props.switcher ?? 'none';
+    const approval = this.props.approval ?? 'current';
+    const phone = this.props.phone ?? false;
+    // The panel already fills a phone screen, so full width has nothing to widen there.
+    const reading0 = this.props.reading ?? 'panel';
+    const reading = phone && (reading0 === 'full' || reading0 === 'entry') ? 'toggle' : reading0;
+    const wide = reading === 'full' && (this.props.wide ?? false);
+    // doc 4 is an issue file (a gh issue-agent); it is not one of the drafts in the queue.
+    const di = Math.min(4, Math.max(0, this.props.doc ?? 0));
+    // typed: Preview draws each draft type in its own form; Edit shows the file as the session wrote it.
+    const typed = this.props.typed ?? false;
+    const view = this.props.view ?? 'preview';
+    const submit = this.props.submit ?? false;
+    const screenProp = this.props.screen ?? 'auto';
+    const screen = switcher === 'none' ? 'detail' : screenProp !== 'auto' ? screenProp : switcher === 'list' ? 'list' : 'detail';
+    const isList = screen === 'list';
+    const isDetail = !isList;
+    const sw = switcher === 'none' ? 'none' : switcher === 'tabs' ? 'tabs' : switcher === 'stepper' && !phone ? 'pager' : 'back';
+    const menuOpen = sw === 'pager' && (this.props.menuOpen ?? false);
+    const headKind = heading === 'kind';
+
+    const IN = '#fbbf24';
+    const Q = '#71717a';
+    const D = [
+      {
+        kind: 'Issue comment', where: 'example/web-app #412', short: '#412',
+        title: '#412 配信が 4 件目から届かない', titleEditable: false, state: 'In editor', stateLong: 'In the editor · 3m', stateDot: IN,
+        note: 'New comment on this issue',
+        excerpt: '再現手順を足します。',
+        approvalSummary: 'Not approved yet',
+        approvals: [{ label: 'Post the comment', key: 'submit', help: 'Approve it. After you finish, the session posts it to #412.', on: 'submit' }],
+        finishOn: 'Finish and post', finishOff: 'Finish and send back',
+        bButtons: [{ label: 'Send back', title: 'Close the editor without approving. The session reads your edits and revises the comment.' }],
+        bPrimary: 'Post comment',
+        bHelp: 'Each button saves and closes the editor. Post comment sets submit. Send back returns your edits to the session.',
+        raw: '再現手順を足します。\n\n1. 送信先を応答の遅いサーバーにする\n2. 通知を 10 件続けて送る\n3. 4 件目から届かない',
+        blocks: [['p', '再現手順を足します。'], ['li', '1. 送信先を応答の遅いサーバーにする'], ['li', '2. 通知を 10 件続けて送る'], ['li', '3. 4 件目から届かない']]
+      },
+      {
+        kind: 'PR draft', where: 'example/web-app · feature/retry-limit', short: 'feature/retry-limit',
+        title: '再送の上限を設定で変えられるようにする', titleEditable: true, titleLabel: 'PR title', state: 'Queued', stateLong: 'Queued for the editor · 2m', stateDot: Q,
+        note: '',
+        excerpt: 'Why: 再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。',
+        approvalSummary: 'Not approved yet',
+        approvals: [
+          { label: 'Translate to English first', key: 'steps.ready-for-translation', help: 'The session translates the title and body to English, then asks you to review again. example/web-app takes PRs in English.', on: !!this.props.translate },
+          { label: 'Create the PR', key: 'steps.submit', help: 'Approve this draft. After you finish, the session creates the PR from it.', on: 'submit' }
+        ],
+        finishOn: 'Finish and create PR', finishOff: 'Finish and send back', finishTranslate: 'Finish and translate',
+        bButtons: [{ label: 'Send back', title: 'Close the editor without approving. The session reads your edits and revises the draft.' }, { label: 'Translate first', title: 'Sets steps.ready-for-translation' }],
+        bPrimary: 'Create PR',
+        bHelp: 'Each button saves and closes the editor. Create PR sets steps.submit. Send back returns your edits to the session.',
+        raw: '## Why\n\n再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。\n\n## What\n\n- 上限を `RETRY_LIMIT` で変えられるようにする\n- 既定値は 3 回のまま',
+        blocks: [['h', 'Why'], ['p', '再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。'], ['h', 'What'], ['li', '上限を RETRY_LIMIT で変えられるようにする'], ['li', '既定値は 3 回のまま']]
+      },
+      {
+        kind: 'Review replies', where: 'example/web-app PR #2049', short: 'PR #2049',
+        title: '#2049 配信前のチェックを追加する', titleEditable: false, state: 'Queued', stateLong: 'Queued for the editor · 1m', stateDot: Q,
+        note: 'Replies to 2 threads · pulled 09:12',
+        excerpt: 'src/preflight.ts:42 · 通しません。手前で弾いています。',
+        approvalSummary: 'Not approved yet',
+        approvals: [{ label: 'Post the replies', key: 'submit', help: 'Approve them. After you finish, the session posts the replies on PR #2049.', on: 'submit' }],
+        finishOn: 'Finish and post', finishOff: 'Finish and send back',
+        bButtons: [{ label: 'Send back', title: 'Close the editor without approving. The session reads your edits and revises the replies.' }],
+        bPrimary: 'Post replies',
+        bHelp: 'Each button saves and closes the editor. Post replies sets submit. Send back returns your edits to the session.',
+        raw: '### src/preflight.ts:42\n\n> この判定は null も通しますか?\n\n通しません。手前で弾いています。\n\n### src/preflight.ts:57\n\n> 失敗したときのログはどこに出ますか?\n\n送信ログに理由と一緒に出します。',
+        blocks: [['h', 'src/preflight.ts:42'], ['quote', 'この判定は null も通しますか?'], ['p', '通しません。手前で弾いています。'], ['h', 'src/preflight.ts:57'], ['quote', '失敗したときのログはどこに出ますか?'], ['p', '送信ログに理由と一緒に出します。']],
+        // The threads file a gh pr-review reply pull writes; diff lines start with ' ', '+', '-' or '@@', and '>' marks the commented line.
+        threads: [
+          {
+            id: 'RT_fx01', path: 'src/preflight.ts:42', resolved: false,
+            diff: ['@@ -39,5 +39,7 @@ export function preflight(msg) {', '   const target = msg.target;', "-  if (!target) return fail('no target');", '>+  if (target == null) {', "+    return fail('no target');", '+  }'],
+            comments: [{ author: '@hina-k', iso: '2026-01-15T10:30:00Z', body: 'この判定は null も通しますか?' }],
+            reply: '通しません。手前で弾いています。'
+          },
+          {
+            id: 'RT_fx02', path: 'src/preflight.ts:57', resolved: true,
+            diff: ['@@ -55,4 +57,6 @@ export function preflight(msg) {', '   } catch (e) {', ">+    log.warn('preflight failed', e);", '+    return fail(String(e));', '   }'],
+            comments: [
+              { author: '@hina-k', iso: '2026-01-15T10:34:00Z', body: '失敗したときのログはどこに出ますか?' },
+              { author: '@ren-o', iso: '2026-01-15T11:02:00Z', body: '送信ログと同じ場所だと追いやすいです。' }
+            ],
+            reply: '送信ログに理由と一緒に出します。'
+          }
+        ]
+      },
+      {
+        kind: 'Draft', where: 'docs/retry-plan.md', short: 'retry-plan.md',
+        title: 'retry-plan.md', titleEditable: false, state: 'Queued', stateLong: 'Queued for the editor · 1m', stateDot: Q,
+        note: '',
+        excerpt: '再送の設計メモ',
+        approvalSummary: 'Nothing to approve',
+        approvals: [],
+        noApprovalText: 'Nothing to approve. After you finish, the session reads the file again.',
+        finishOn: 'Finish', finishOff: 'Finish',
+        bButtons: [],
+        bPrimary: 'Finish',
+        bHelp: 'Saves and closes the editor. The session reads the file again.',
+        raw: '# 再送の設計メモ\n\n- 上限は設定で変える\n- 待ち時間は倍ずつ伸ばす',
+        blocks: [['h', '再送の設計メモ'], ['li', '上限は設定で変える'], ['li', '待ち時間は倍ずつ伸ばす']]
+      },
+      {
+        kind: 'Issue', where: 'example/web-app #418', short: '#418',
+        title: '設定画面から再送の上限を変えられるようにする', titleEditable: false, state: 'In editor', stateLong: 'In the editor · 1m', stateDot: IN,
+        note: 'Edit this issue',
+        excerpt: '再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。',
+        approvalSummary: 'Not approved yet',
+        approvals: [{ label: 'Update the issue', key: 'submit', help: 'Approve it. After you finish, the session updates #418.', on: 'submit' }],
+        finishOn: 'Finish and update', finishOff: 'Finish and send back',
+        bButtons: [{ label: 'Send back', title: 'Close the editor without approving. The session reads your edits and revises the issue.' }],
+        bPrimary: 'Update issue',
+        bHelp: 'Each button saves and closes the editor. Update issue sets submit. Send back returns your edits to the session.',
+        labels: [{ name: 'enhancement', remove: 'Remove label enhancement' }, { name: 'settings', remove: 'Remove label settings' }],
+        // Add label is drawn open, mid-typing, to show the frontmatter fields are editable.
+        labelQuery: 'se',
+        labelSuggest: [{ name: 'security', sel: 'true', bg: '#2a2a2e' }, { name: 'server', sel: 'false', bg: 'transparent' }],
+        assignees: [{ name: 'hina-k', initial: 'H', remove: 'Remove assignee hina-k' }],
+        parent: { ref: 'example/web-app#400', title: '再送の仕組みを見直す' },
+        subIssues: [{ ref: 'example/web-app#419', title: '上限の入力欄を足す', remove: 'Remove sub-issue example/web-app#419' }, { ref: 'example/web-app#420', title: '上限を API に渡す', remove: 'Remove sub-issue example/web-app#420' }],
+        raw: '---\ntitle: 設定画面から再送の上限を変えられるようにする\nlabels:\n  - enhancement\n  - settings\nassignees:\n  - hina-k\nparentIssue: example/web-app#400\nsubIssues:\n  - example/web-app#419\n  - example/web-app#420\n---\n\n## 背景\n\n再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。\n\n## やること\n\n- 設定画面に再送の上限の入力欄を足す\n- 既定値は 3 回のまま',
+        blocks: [['h', '背景'], ['p', '再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。'], ['h', 'やること'], ['li', '設定画面に再送の上限の入力欄を足す'], ['li', '既定値は 3 回のまま']]
+      }
+    ].map((x, i) => {
+      const sel = i === di;
+      const approvals = x.approvals.map((a) => ({ ...a, on: a.on === 'submit' ? submit : a.on }));
+      // The baseline frontmatter shows the raw keys, nesting steps.* under "steps".
+      const fmSteps = approvals.filter((a) => a.key.startsWith('steps.')).map((a) => ({ name: a.key.slice(6), on: a.on }));
+      return {
+        ...x,
+        n: String(i + 1),
+        titleStatic: !x.titleEditable,
+        hasNote: !!x.note,
+        noApproval: approvals.length === 0,
+        approvals,
+        fmSteps,
+        hasSteps: fmSteps.length > 0,
+        fmTop: approvals.filter((a) => !a.key.startsWith('steps.')).map((a) => ({ name: a.key, on: a.on })),
+        blocks: x.blocks.map(([t, text]) => ({ h: t === 'h', p: t === 'p', li: t === 'li', quote: t === 'quote', text })),
+        ...(typed && x.threads ? {
+          raw: x.threads.map((t) => [
+            '<!-- thread: ' + t.id + ' path: ' + t.path + ' -->',
+            '- [' + (t.resolved ? 'x' : ' ') + '] resolve',
+            '<!-- diff -->', ...t.diff.map((d) => d.replace(/^>/, '')), '<!-- /diff -->',
+            ...t.comments.flatMap((c) => ['<!-- comment: ' + c.author + ' ' + c.iso + ' -->', c.body, '<!-- /comment -->']),
+            t.reply
+          ].join('\n')).join('\n\n'),
+          threads: x.threads.map((t) => ({
+            ...t,
+            diff: t.diff.map((d0) => {
+              const hit = d0.startsWith('>');
+              const text = hit ? d0.slice(1) : d0;
+              const add = text.startsWith('+');
+              const del = text.startsWith('-');
+              const hunk = text.startsWith('@@');
+              return {
+                text,
+                mark: hit ? '#fbbf24' : 'transparent',
+                bg: hit ? '#33290a' : add ? '#0f2418' : del ? '#2a1215' : 'transparent',
+                color: hunk ? '#8b8b94' : add ? '#bbf7d0' : del ? '#fecaca' : '#d4d4d8'
+              };
+            }),
+            comments: t.comments.map((c) => ({ ...c, initial: c.author.slice(1, 2).toUpperCase(), time: c.iso.slice(0, 10) + ' ' + c.iso.slice(11, 16) }))
+          }))
+        } : {}),
+        bButtons: x.bButtons.map((b, j) => ({ ...b, ml: j === 0 && !phone ? 'auto' : '0' })),
+        selectedStr: sel ? 'true' : 'false',
+        underline: sel ? '#fafafa' : 'transparent',
+        chipBg: sel ? '#141414' : 'transparent',
+        chipColor: sel ? '#fafafa' : '#a1a1aa',
+        chipWeight: sel ? 700 : 400,
+        optBg: sel ? '#2a2a2e' : 'transparent'
+      };
+    });
+    const doc = D[di];
+    const hasApprovals = doc.approvals.length > 0;
+    const apCurrent = approval === 'current';
+    // With the kind heading, the PR title moves out of the frontmatter into the heading.
+    // typed moves the PR title into the typed Frontmatter fields.
+    const fmTitle = apCurrent && doc.titleEditable && !headKind && !typed;
+
+    const tabs = [['Running', '2', '#60a5fa'], ['Tasks', '13', '#8b8b94'], ['Tree', '1', '#fbbf24'], ['Review', switcher === 'none' ? '' : '4', '#fbbf24'], ['Decisions', '1', '#fbbf24']]
+      .map(([label, count, countColor]) => {
+        const on = label === 'Review';
+        return { label, count, countColor, selected: on ? 'true' : 'false', color: on ? '#fafafa' : '#a1a1aa', weight: on ? 700 : 400, underline: on ? '#fafafa' : 'transparent' };
+      });
+    const preview = view === 'preview';
+    return {
+      tabs,
+      rootH: phone ? '844px' : '900px',
+      rootBorder: phone ? '0' : '1px solid #2a2a2a',
+      // 16px cuts the Decisions count off at phone width.
+      tabGap: phone ? '12px' : '16px',
+      tabsH: phone ? '52px' : '48px',
+      tabFs: phone ? '13px' : '12.5px',
+      closeSize: phone ? '44px' : '28px',
+      closePad: phone ? '0' : '10px',
+      padX: phone ? '16px' : '18px',
+      isList,
+      isDetail,
+      docs: D.slice(0, 4),
+      doc,
+      pos: (di + 1) + ' / ' + '4',
+      swTabs: sw === 'tabs',
+      swPager: sw === 'pager',
+      swBack: sw === 'back',
+      menuOpen,
+      menuOpenStr: menuOpen ? 'true' : 'false',
+      menuBorder: menuOpen ? '#a1a1aa' : '#3f3f46',
+      menuBg: menuOpen ? '#262626' : 'transparent',
+      headKind,
+      // typed draws the frontmatter as fields above the body; approval is decided by the footer, not a submit checkbox.
+      showFm: apCurrent && !typed && (fmTitle || hasApprovals),
+      typed,
+      typedFm: typed && (!!doc.labels || doc.titleEditable),
+      showWideIcon: typed && !phone,
+      headKindFs: phone ? '14px' : '13px',
+      // The open suggestions would push the body below the fold on a phone.
+      suggestOpen: !phone,
+      labelQuery: phone ? '' : doc.labelQuery,
+      addBorder: phone ? '#3f3f46' : '#fafafa',
+      headWhereFs: phone ? '12px' : '10.5px',
+      // The frontmatter has its own fields, so Edit holds only the body.
+      editRaw: typed ? doc.raw.replace(/^---\n[\s\S]*?\n---\n\n/, '') : doc.raw,
+      fmTitle,
+      apCurrent,
+      apExplained: approval === 'explained',
+      apButtons: approval === 'buttons',
+      rdPanel: reading === 'panel',
+      rdToggle: reading === 'toggle' || reading === 'entry',
+      rdFull: reading === 'full',
+      showWideBtn: reading === 'entry' && !typed,
+      segMl: reading === 'entry' && !typed ? '0' : 'auto',
+      wide,
+      wideClosed: !wide,
+      curCols: phone ? '1fr' : 'minmax(0, 1fr) minmax(0, 1fr)',
+      curShowPreview: !phone,
+      curInputFs: phone ? '16px' : '12px',
+      curEditorFs: phone ? '16px' : '13px',
+      curFootPadB: phone ? '24px' : '16px',
+      rowPad: phone ? '12px 16px' : '12px 18px',
+      chipMaxW: phone ? '160px' : '180px',
+      chipH: phone ? '52px' : '46px',
+      phoneNot: !phone,
+      bFlex: phone ? '1 1 auto' : '0 0 auto',
+      bPrimaryMl: doc.bButtons.length === 0 && !phone ? 'auto' : '0',
+      // ready-for-translation without submit hands the draft back for translation, not for revision.
+      finishLabel: hasApprovals ? (submit ? doc.finishOn : (this.props.translate && doc.finishTranslate) ? doc.finishTranslate : doc.finishOff) : doc.finishOn,
+      saveState: submit ? 'Saved · 10:24' : 'Unsaved changes',
+      checkCol: phone ? '20px' : '16px',
+      checkSize: phone ? '20px' : '16px',
+      labelFs: phone ? '14px' : '13px',
+      metaFs: phone ? '12.5px' : '12px',
+      titleFs: phone ? '16px' : '15px',
+      titleInputFs: phone ? '16px' : '14px',
+      inputH: phone ? '40px' : '32px',
+      segRowH: phone ? '44px' : '32px',
+      segH: phone ? '36px' : '26px',
+      btnH: phone ? '44px' : '30px',
+      footPadB: phone ? '24px' : '10px',
+      bodyFs: phone ? '15px' : '14px',
+      h4Fs: phone ? '16px' : '15px',
+      editorFs: phone ? '16px' : '12.5px',
+      isPreview: preview,
+      showThreads: typed && !!doc.threads,
+      showIssue: typed && !!doc.labels,
+      showBlocks: !(typed && doc.threads),
+      diffFs: phone ? '12px' : '11.5px',
+      replyFs: phone ? '16px' : '13px',
+      showPrTitle: typed && doc.titleEditable,
+      // Two lines on a phone so a long title wraps instead of being cut.
+      titleAreaH: phone ? '66px' : '36px',
+      fmLabelCol: phone ? '84px' : '96px',
+      chipH2: phone ? '36px' : '28px',
+      xSize: phone ? '32px' : '24px',
+      addInputW: phone ? '96px' : '120px',
+      addInputFs: phone ? '16px' : '12px',
+      suggestW: phone ? '100%' : '200px',
+      optH: phone ? '40px' : '30px',
+      isEdit: !preview,
+      previewOnStr: preview ? 'true' : 'false',
+      editOnStr: preview ? 'false' : 'true',
+      previewBorder: preview ? '#a1a1aa' : '#3f3f46',
+      previewBg: preview ? '#262626' : 'transparent',
+      previewColor: preview ? '#fafafa' : '#a1a1aa',
+      editBorder: preview ? '#3f3f46' : '#a1a1aa',
+      editBg: preview ? 'transparent' : '#262626',
+      editColor: preview ? '#a1a1aa' : '#fafafa'
+    };
+  }
+}
+</script>
+</body>
+</html>

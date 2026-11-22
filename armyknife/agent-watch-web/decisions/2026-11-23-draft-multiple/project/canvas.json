@@ -1,0 +1,79 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-20T09:00:00Z"
+  },
+  "title": "explore: 複数の draft の切り替え",
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-19T17:16:47Z"
+    }
+  ],
+  "pages": [
+    { "id": "options", "name": "案" },
+    { "id": "parts", "name": "部品" }
+  ],
+  "boards": {
+    "draft-multiple-current.dc.html": { "x": 0, "y": 0, "w": 1850, "h": 936, "title": "今 · 1 つだけ出る", "page": "options" },
+    "draft-multiple-tabs.dc.html": { "x": 0, "y": 1300, "w": 1850, "h": 936, "title": "A · draft ごとのタブ", "page": "options" },
+    "draft-multiple-stepper.dc.html": { "x": 0, "y": 2600, "w": 2260, "h": 936, "title": "B · 1 / 4 と前後送り", "page": "options" },
+    "draft-multiple-list.dc.html": { "x": 0, "y": 3900, "w": 2260, "h": 936, "title": "C · 一覧から開く", "page": "options" },
+    "DraftPanel.dc.html": { "x": 0, "y": 0, "w": 640, "h": 900, "title": "DraftPanel", "page": "parts" },
+    "Conversation.dc.html": { "x": 720, "y": 0, "w": 880, "h": 900, "title": "Conversation", "page": "parts" },
+    "Nav.dc.html": { "x": 1680, "y": 0, "w": 240, "h": 900, "title": "Nav", "page": "parts" },
+    "StatusBand.dc.html": { "x": 0, "y": 1020, "w": 760, "h": 60, "title": "StatusBand", "page": "parts" },
+    "SessionRow.dc.html": { "x": 840, "y": 1020, "w": 460, "h": 76, "title": "SessionRow", "page": "parts" },
+    "Quota.dc.html": { "x": 1380, "y": 1020, "w": 240, "h": 140, "title": "Quota", "page": "parts" },
+    "SessionUsage.dc.html": { "x": 1700, "y": 1020, "w": 672, "h": 40, "title": "SessionUsage", "page": "parts" },
+    "ConfirmDialog.dc.html": { "x": 2452, "y": 1020, "w": 380, "h": 200, "title": "ConfirmDialog", "page": "parts" }
+  },
+  "order": [
+    "draft-multiple-current.dc.html",
+    "draft-multiple-tabs.dc.html",
+    "draft-multiple-stepper.dc.html",
+    "draft-multiple-list.dc.html",
+    "DraftPanel.dc.html",
+    "Conversation.dc.html",
+    "Nav.dc.html",
+    "StatusBand.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "SessionUsage.dc.html",
+    "ConfirmDialog.dc.html"
+  ],
+  "notes": {
+    "about": {
+      "x": 0, "y": -1100, "w": 640, "page": "options",
+      "text": "前提\n- 対象は会話の状況パネルの Review タブ。エディタで開いている draft を読んで承認する\n- 例: 1 つのセッションが draft を 4 つ開いている。issue へのコメント (エディタに出ている)、PR draft、PR のレビューへの返信、ただの draft (後の 3 つはエディタの順番待ち)\n- このキャンバスは draft の切り替えだけを比べる。見出し、本文の読み方、承認の操作は今のまま\n- 今のサーバーはセッションごとに draft を 1 つしか返さない。案はサーバーが全部返す前提\n- 順番待ちの draft を watch-web から承認してよいかは未決。案では読めて承認もできる形で描いた\n- データはすべて架空"
+    },
+    "current": { "kind": "title1", "x": 0, "y": -260, "maxW": 1850, "page": "options", "text": "今 · draft を複数開いていても 1 つしか出ない" },
+    "tabs": { "kind": "title1", "x": 0, "y": 1040, "maxW": 1850, "page": "options", "text": "A · Review タブの中に draft ごとのタブを並べる" },
+    "stepper": { "kind": "title1", "x": 0, "y": 2340, "maxW": 2260, "page": "options", "text": "B · 1 / 4 のボタンで一覧を開き、‹ › で前後へ" },
+    "list": { "kind": "title1", "x": 0, "y": 3640, "maxW": 2260, "page": "options", "text": "C · パネルは一覧だけ、押すと開く" },
+    "currentNote": {
+      "x": 1930, "y": 0, "w": 460, "page": "options",
+      "text": "今\n- draft を 4 つ開いていても 1 つしか出ない\n- ほかに draft があることも分からない"
+    },
+    "tabsNote": {
+      "x": 1930, "y": 1300, "w": 460, "page": "options",
+      "text": "A · タブ\n- Review タブの下に draft ごとのタブ。種類と対象を短く出す\n- 黄色の点がエディタに出ているもの、灰色が順番待ち\n- Review タブに draft の数 (4) を出す\n- 4 つを超えるとタブが横にはみ出す"
+    },
+    "stepperNote": {
+      "x": 2340, "y": 2600, "w": 460, "page": "options",
+      "text": "B · 前後送り\n- 1 / 4 と種類を出したボタンで一覧を開く。‹ › で前後へ\n- draft が増えても 1 行のまま\n- スマホは一覧 → 詳細の 2 画面"
+    },
+    "listNote": {
+      "x": 2340, "y": 3900, "w": 460, "page": "options",
+      "text": "C · 一覧\n- パネルは一覧 (種類、対象、タイトル、本文の冒頭、承認したか)。押すとパネルの中で開き、‹ Drafts で戻る\n- 全部を見渡せるが、ほかの draft へは一度一覧に戻る\n- 全幅で開く形は draft-reading で比べる"
+    }
+  }
+}

@@ -1106,6 +1106,118 @@
       "h": 844,
       "title": "iPhone · 操作がないときに Activity を開いた",
       "page": "topbar"
+    },
+    "RunCommandRunning.dc.html": {
+      "x": 0,
+      "y": 11910,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · 押すとダイアログを閉じ、トーストで実行中を示す",
+      "page": "conversation"
+    },
+    "PhoneRunCommandRunning.dc.html": {
+      "x": 1520,
+      "y": 11910,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 実行中",
+      "page": "conversation"
+    },
+    "RunCommandSucceeded.dc.html": {
+      "x": 1990,
+      "y": 11910,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · 成功 (トーストは自動で消える)",
+      "page": "conversation"
+    },
+    "PhoneRunCommandSucceeded.dc.html": {
+      "x": 3510,
+      "y": 11910,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 成功",
+      "page": "conversation"
+    },
+    "RunCommandFailed.dc.html": {
+      "x": 3980,
+      "y": 11910,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · 失敗 (Show output を置く)",
+      "page": "conversation"
+    },
+    "PhoneRunCommandFailed.dc.html": {
+      "x": 5500,
+      "y": 11910,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 失敗",
+      "page": "conversation"
+    },
+    "RunCommandTimedOut.dc.html": {
+      "x": 5970,
+      "y": 11910,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · 30 秒で時間切れ",
+      "page": "conversation"
+    },
+    "PhoneRunCommandTimedOut.dc.html": {
+      "x": 7490,
+      "y": 11910,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 時間切れ",
+      "page": "conversation"
+    },
+    "RunCommandOutput.dc.html": {
+      "x": 7960,
+      "y": 11910,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · Show output を押した (結果のメッセージを枠で示す)",
+      "page": "conversation"
+    },
+    "PhoneRunCommandOutput.dc.html": {
+      "x": 9480,
+      "y": 11910,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Show output を押した",
+      "page": "conversation"
+    },
+    "RunCommandActivity.dc.html": {
+      "x": 9950,
+      "y": 11910,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · Activity の行",
+      "page": "conversation"
+    },
+    "PhoneRunCommandActivity.dc.html": {
+      "x": 11470,
+      "y": 11910,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Activity の行",
+      "page": "conversation"
+    },
+    "RunPc.dc.html": {
+      "x": 0,
+      "y": 4360,
+      "w": 1440,
+      "h": 900,
+      "title": "RunPc",
+      "page": "components"
+    },
+    "RunPhone.dc.html": {
+      "x": 1520,
+      "y": 4360,
+      "w": 390,
+      "h": 844,
+      "title": "RunPhone",
+      "page": "components"
     }
   },
   "order": [
@@ -1247,7 +1359,21 @@
     "ActivityEmpty.dc.html",
     "ActivityEmptyOpen.dc.html",
     "PhoneActivityEmpty.dc.html",
-    "PhoneActivityEmptyOpen.dc.html"
+    "PhoneActivityEmptyOpen.dc.html",
+    "RunCommandRunning.dc.html",
+    "PhoneRunCommandRunning.dc.html",
+    "RunCommandSucceeded.dc.html",
+    "PhoneRunCommandSucceeded.dc.html",
+    "RunCommandFailed.dc.html",
+    "PhoneRunCommandFailed.dc.html",
+    "RunCommandTimedOut.dc.html",
+    "PhoneRunCommandTimedOut.dc.html",
+    "RunCommandOutput.dc.html",
+    "PhoneRunCommandOutput.dc.html",
+    "RunCommandActivity.dc.html",
+    "PhoneRunCommandActivity.dc.html",
+    "RunPc.dc.html",
+    "RunPhone.dc.html"
   ],
   "pages": [
     {
@@ -1522,6 +1648,22 @@
       "kind": "title1",
       "maxW": 3900,
       "page": "topbar"
+    },
+    "rowRunCommand": {
+      "kind": "title1",
+      "x": 0,
+      "y": 11610,
+      "maxW": 11860,
+      "page": "conversation",
+      "text": "Run command · toast で結果を出す"
+    },
+    "rowPartsRunCommand": {
+      "kind": "title1",
+      "x": 0,
+      "y": 4060,
+      "maxW": 1910,
+      "page": "components",
+      "text": "Run command の画面"
     }
   },
   "v": 3,

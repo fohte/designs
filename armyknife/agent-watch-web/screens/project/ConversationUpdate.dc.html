@@ -20,13 +20,13 @@ body{margin:0}
 <div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" current="{{ zero }}" h="864px" hint-size="460px,864px"></dc-import></div>
 <div style="flex: 1; min-width: 0"><dc-import name="Conversation" variant="question" draft="{{ true }}" h="864px" hint-size="100%,864px"></dc-import></div>
 </div>
-<sc-if value="{{toast}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; right: 24px; bottom: 224px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,72px"></dc-import></div></sc-if>
+<sc-if value="{{toast}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; left: 16px; bottom: 16px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,72px"></dc-import></div></sc-if>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"toast":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
-    // toast: an Activity toast arrives while the band is up; the band stays at the top, the toast at the bottom right.
+    // toast: an Activity toast arrives while the band is up; the band stays at the top, the toast at the bottom left.
     const toast = this.props.toast ?? false;
     return {
       zero: 0, toast,

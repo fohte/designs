@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Status panel tabs</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; flex: none; display: flex; align-items: center; overflow: hidden; background: #0f0f0f; border-bottom: 1px solid #2a2a2a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+<div role="tablist" aria-label="Session status" style="flex: none; display: flex; gap: {{gap}}; width: max-content; padding: 0 {{padX}}; transform: translateX({{shift}})">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="6">
+<button type="button" role="tab" aria-selected="{{t.selected}}" style="height: {{tabH}}; display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; border-bottom: 2px solid {{t.underline}}; background: transparent; color: {{t.color}}; font-family: inherit; font-size: {{fs}}; font-weight: {{t.weight}}; white-space: nowrap">{{t.label}}<span style="font-family: 'JetBrains Mono', monospace; font-size: {{countFs}}; color: {{t.countColor}}">{{t.count}}</span></button>
+</sc-for>
+</div>
+<sc-if value="{{close}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="Close session status panel" title="Close session status panel" style="margin: 0 10px 0 auto; width: 28px; height: 28px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #a1a1aa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></sc-if>
+<sc-if value="{{moreRight}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 0; right: 0; bottom: 2px; width: 40px; background: linear-gradient(to right, transparent, #0f0f0f)"></span></sc-if>
+<sc-if value="{{moreLeft}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 0; left: 0; bottom: 2px; width: 40px; background: linear-gradient(to left, transparent, #0f0f0f)"></span></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit","canvas"],"default":"running"},"size":{"editor":"enum","options":["desktop","phone"],"default":"desktop"},"canvasTab":{"editor":"boolean","default":false},"linked":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"$preview":{"width":640,"height":49}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // The tab bar of the session status panel, shared by the PC right panel and the iPhone page.
+    const tab = this.props.tab ?? 'running';
+    const phone = (this.props.size ?? 'desktop') === 'phone';
+    const linked = this.props.linked ?? false;
+    const many = (this.props.tasks ?? 'one') === 'many';
+    const canvas = tab === 'canvas';
+    const tabs = [
+      ['running', 'Running', '2', '#60a5fa'],
+      ['tasks', 'Tasks', many ? '16' : linked ? '14' : '13', '#8b8b94'],
+      ['tree', 'Tree', '1', '#fbbf24'],
+      ['review', 'Review', '', '#8b8b94'],
+      ['decisions', 'Decisions', '1', '#fbbf24'],
+      ['crit', 'crit', '', '#8b8b94'],
+      // canvasTab: the session has registered a canvas web UI, so its tab stays while another tab is selected.
+      ...(canvas || (this.props.canvasTab ?? false) ? [['canvas', 'canvas', '', '#8b8b94']] : [])
+    ].map(([id, label, count, countColor]) => {
+      const on = id === tab;
+      return { label, count, countColor, selected: on ? 'true' : 'false', color: on ? '#fafafa' : '#a1a1aa', weight: on ? 700 : 400, underline: on ? '#fafafa' : 'transparent' };
+    });
+    // The iPhone is too narrow for every tab: the bar scrolls sideways and the last tabs are drawn scrolled into view.
+    const late = phone && (tab === 'decisions' || tab === 'crit' || canvas);
+    return {
+      tabs,
+      tabH: phone ? '44px' : '47px', fs: phone ? '14px' : '12.5px', countFs: phone ? '12.5px' : '11.5px',
+      // Wider gaps on the iPhone keep each tab a separate finger target.
+      gap: phone ? '22px' : '16px', padX: phone ? '16px' : '18px',
+      shift: canvas && phone ? '-134px' : late ? '-118px' : '0',
+      // On the iPhone the panel is a page of its own, closed by the back button in its header.
+      close: !phone,
+      moreRight: phone && !late, moreLeft: late
+    };
+  }
+}
+</script>
+</body>
+</html>

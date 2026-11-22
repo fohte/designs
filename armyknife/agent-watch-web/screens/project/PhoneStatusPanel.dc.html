@@ -25,12 +25,12 @@ body{margin:0}
 <button type="button" aria-label="Close web UI" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></sc-if>
 </header>
 
-<sc-if value="{{tabbed}}" hint-placeholder-val="{{ true }}"><dc-import name="StatusTabs" tab="{{tab}}" size="phone" canvas-tab="{{canvasTab}}" linked="{{linked}}" tasks="{{tasks}}" hint-size="100%,45px"></dc-import></sc-if>
-<div style="position: relative; flex: 1; min-height: 0"><dc-import name="StatusBody" tab="{{tab}}" size="phone" linked="{{linked}}" tasks="{{tasks}}" full="{{full}}" preview="{{preview}}" hint-size="100%,742px"></dc-import></div>
+<sc-if value="{{tabbed}}" hint-placeholder-val="{{ true }}"><dc-import name="StatusTabs" tab="{{tab}}" size="phone" canvas-tab="{{canvasTab}}" linked="{{linked}}" tasks="{{tasks}}" many="{{many}}" hint-size="100%,45px"></dc-import></sc-if>
+<div style="position: relative; flex: 1; min-height: 0"><dc-import name="StatusBody" tab="{{tab}}" size="phone" linked="{{linked}}" tasks="{{tasks}}" full="{{full}}" draft="{{draft}}" many="{{many}}" view="{{view}}" stage="{{stage}}" hint-size="100%,742px"></dc-import></div>
 </section>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"canvasTab":{"editor":"boolean","default":false},"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit","canvas"],"default":"running"},"linked":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"full":{"editor":"boolean","default":false},"preview":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
+<script type="text/x-dc" data-dc-script data-props='{"canvasTab":{"editor":"boolean","default":false},"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit","canvas"],"default":"running"},"linked":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"full":{"editor":"boolean","default":false},"draft":{"editor":"int","min":0,"max":4,"default":1},"many":{"editor":"boolean","default":false},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"stage":{"editor":"int","min":0,"max":2,"default":0},"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
     // A full-screen page pushed over the conversation; the back button returns to it.
@@ -40,7 +40,8 @@ class Component extends DCLogic {
     // full: only the web UI, pushed over the conversation by a web UI link; the × returns to the conversation.
     const full = this.props.full ?? false;
     return {
-      tab, full, preview: this.props.preview ?? false,
+      tab, full,
+      draft: this.props.draft ?? 1, many: this.props.many ?? false, view: this.props.view ?? 'preview', stage: this.props.stage ?? 0,
       canvasTab: this.props.canvasTab ?? false,
       linked: this.props.linked ?? false,
       // tasks many: opened from the conversation's +3; the tasks that are not primary are emphasized so the one to switch to stands out.

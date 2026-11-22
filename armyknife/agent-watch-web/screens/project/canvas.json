@@ -1106,6 +1106,310 @@
       "h": 844,
       "title": "iPhone · 操作がないときに Activity を開いた",
       "page": "topbar"
+    },
+    "RunCommandRunning.dc.html": {
+      "x": 0,
+      "y": 11910,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · 押すとダイアログを閉じ、トーストで実行中を示す",
+      "page": "conversation"
+    },
+    "PhoneRunCommandRunning.dc.html": {
+      "x": 1520,
+      "y": 11910,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 実行中",
+      "page": "conversation"
+    },
+    "RunCommandSucceeded.dc.html": {
+      "x": 1990,
+      "y": 11910,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · 成功 (トーストは自動で消える)",
+      "page": "conversation"
+    },
+    "PhoneRunCommandSucceeded.dc.html": {
+      "x": 3510,
+      "y": 11910,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 成功",
+      "page": "conversation"
+    },
+    "RunCommandFailed.dc.html": {
+      "x": 3980,
+      "y": 11910,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · 失敗 (Show output を置く)",
+      "page": "conversation"
+    },
+    "PhoneRunCommandFailed.dc.html": {
+      "x": 5500,
+      "y": 11910,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 失敗",
+      "page": "conversation"
+    },
+    "RunCommandTimedOut.dc.html": {
+      "x": 5970,
+      "y": 11910,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · 30 秒で時間切れ",
+      "page": "conversation"
+    },
+    "PhoneRunCommandTimedOut.dc.html": {
+      "x": 7490,
+      "y": 11910,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 時間切れ",
+      "page": "conversation"
+    },
+    "RunCommandOutput.dc.html": {
+      "x": 7960,
+      "y": 11910,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · Show output を押した (結果のメッセージを枠で示す)",
+      "page": "conversation"
+    },
+    "PhoneRunCommandOutput.dc.html": {
+      "x": 9480,
+      "y": 11910,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Show output を押した",
+      "page": "conversation"
+    },
+    "RunCommandActivity.dc.html": {
+      "x": 9950,
+      "y": 11910,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · Activity の行",
+      "page": "conversation"
+    },
+    "PhoneRunCommandActivity.dc.html": {
+      "x": 11470,
+      "y": 11910,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Activity の行",
+      "page": "conversation"
+    },
+    "RunPc.dc.html": {
+      "x": 0,
+      "y": 4360,
+      "w": 1440,
+      "h": 900,
+      "title": "RunPc",
+      "page": "components"
+    },
+    "RunPhone.dc.html": {
+      "x": 1520,
+      "y": 4360,
+      "w": 390,
+      "h": 844,
+      "title": "RunPhone",
+      "page": "components"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 1500,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
+    },
+    "before/BeforeActivityEmptyOpen.dc.html": {
+      "x": 3980,
+      "y": 13304,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Activity · 操作がないときに開いた",
+      "page": "topbar"
+    },
+    "before/BeforePhoneActivityEmptyOpen.dc.html": {
+      "x": 5500,
+      "y": 13304,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · 操作がないときに Activity を開いた",
+      "page": "topbar"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 0,
+      "y": 5980,
+      "w": 240,
+      "h": 900,
+      "title": "Before · Nav",
+      "page": "components"
+    },
+    "before/BeforeInboxList.dc.html": {
+      "x": 320,
+      "y": 5980,
+      "w": 460,
+      "h": 900,
+      "title": "Before · InboxList",
+      "page": "components"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 860,
+      "y": 5980,
+      "w": 880,
+      "h": 900,
+      "title": "Before · Conversation",
+      "page": "components"
+    },
+    "before/BeforeActivity.dc.html": {
+      "x": 1820,
+      "y": 5980,
+      "w": 400,
+      "h": 360,
+      "title": "Before · Activity",
+      "page": "components"
+    },
+    "before/BeforePhoneDrawer.dc.html": {
+      "x": 2300,
+      "y": 5980,
+      "w": 390,
+      "h": 844,
+      "title": "Before · PhoneDrawer",
+      "page": "components"
+    },
+    "before/BeforePhoneInbox.dc.html": {
+      "x": 2770,
+      "y": 5980,
+      "w": 390,
+      "h": 844,
+      "title": "Before · PhoneInbox",
+      "page": "components"
+    },
+    "before/BeforeSessionRow.dc.html": {
+      "x": 3240,
+      "y": 5980,
+      "w": 460,
+      "h": 76,
+      "title": "Before · SessionRow",
+      "page": "components"
+    },
+    "before/BeforeActivityButton.dc.html": {
+      "x": 3780,
+      "y": 5980,
+      "w": 224,
+      "h": 44,
+      "title": "Before · ActivityButton",
+      "page": "components"
+    },
+    "before/BeforeQuota.dc.html": {
+      "x": 4084,
+      "y": 5980,
+      "w": 240,
+      "h": 140,
+      "title": "Before · Quota",
+      "page": "components"
+    },
+    "before/BeforeMergeButton.dc.html": {
+      "x": 4404,
+      "y": 5980,
+      "w": 160,
+      "h": 44,
+      "title": "Before · MergeButton",
+      "page": "components"
+    },
+    "before/BeforeConfirmDialog.dc.html": {
+      "x": 4644,
+      "y": 5980,
+      "w": 380,
+      "h": 200,
+      "title": "Before · ConfirmDialog",
+      "page": "components"
+    },
+    "before/BeforeCodeBlock.dc.html": {
+      "x": 5104,
+      "y": 5980,
+      "w": 672,
+      "h": 160,
+      "title": "Before · CodeBlock",
+      "page": "components"
+    },
+    "before/BeforeTodoCard.dc.html": {
+      "x": 0,
+      "y": 7000,
+      "w": 672,
+      "h": 40,
+      "title": "Before · TodoCard",
+      "page": "components"
+    },
+    "before/BeforeActionItem.dc.html": {
+      "x": 752,
+      "y": 7000,
+      "w": 360,
+      "h": 110,
+      "title": "Before · ActionItem",
+      "page": "components"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 1192,
+      "y": 7000,
+      "w": 760,
+      "h": 60,
+      "title": "Before · StatusBand",
+      "page": "components"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 2032,
+      "y": 7000,
+      "w": 672,
+      "h": 40,
+      "title": "Before · SessionUsage",
+      "page": "components"
+    },
+    "before/BeforeCloseChecks.dc.html": {
+      "x": 2784,
+      "y": 7000,
+      "w": 408,
+      "h": 170,
+      "title": "Before · CloseChecks",
+      "page": "components"
+    },
+    "before/BeforeUpdateBand.dc.html": {
+      "x": 3272,
+      "y": 7000,
+      "w": 760,
+      "h": 40,
+      "title": "Before · UpdateBand",
+      "page": "components"
+    },
+    "before/BeforePhoneRowMenu.dc.html": {
+      "x": 4112,
+      "y": 7000,
+      "w": 390,
+      "h": 250,
+      "title": "Before · PhoneRowMenu",
+      "page": "components"
+    },
+    "before/BeforePhoneLaterSheet.dc.html": {
+      "x": 4582,
+      "y": 7000,
+      "w": 390,
+      "h": 420,
+      "title": "Before · PhoneLaterSheet",
+      "page": "components"
+    },
+    "before/BeforePhoneSaveViewSheet.dc.html": {
+      "x": 5052,
+      "y": 7000,
+      "w": 390,
+      "h": 300,
+      "title": "Before · PhoneSaveViewSheet",
+      "page": "components"
     }
   },
   "order": [
@@ -1247,7 +1551,45 @@
     "ActivityEmpty.dc.html",
     "ActivityEmptyOpen.dc.html",
     "PhoneActivityEmpty.dc.html",
-    "PhoneActivityEmptyOpen.dc.html"
+    "PhoneActivityEmptyOpen.dc.html",
+    "RunCommandRunning.dc.html",
+    "PhoneRunCommandRunning.dc.html",
+    "RunCommandSucceeded.dc.html",
+    "PhoneRunCommandSucceeded.dc.html",
+    "RunCommandFailed.dc.html",
+    "PhoneRunCommandFailed.dc.html",
+    "RunCommandTimedOut.dc.html",
+    "PhoneRunCommandTimedOut.dc.html",
+    "RunCommandOutput.dc.html",
+    "PhoneRunCommandOutput.dc.html",
+    "RunCommandActivity.dc.html",
+    "PhoneRunCommandActivity.dc.html",
+    "RunPc.dc.html",
+    "RunPhone.dc.html",
+    "before/BeforeMain.dc.html",
+    "before/BeforeActivityEmptyOpen.dc.html",
+    "before/BeforePhoneActivityEmptyOpen.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeInboxList.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforeActivity.dc.html",
+    "before/BeforePhoneDrawer.dc.html",
+    "before/BeforePhoneInbox.dc.html",
+    "before/BeforeSessionRow.dc.html",
+    "before/BeforeActivityButton.dc.html",
+    "before/BeforeQuota.dc.html",
+    "before/BeforeMergeButton.dc.html",
+    "before/BeforeConfirmDialog.dc.html",
+    "before/BeforeCodeBlock.dc.html",
+    "before/BeforeTodoCard.dc.html",
+    "before/BeforeActionItem.dc.html",
+    "before/BeforeStatusBand.dc.html",
+    "before/BeforeSessionUsage.dc.html",
+    "before/BeforeCloseChecks.dc.html",
+    "before/BeforeUpdateBand.dc.html",
+    "before/BeforePhoneRowMenu.dc.html",
+    "before/BeforePhoneLaterSheet.dc.html",
+    "before/BeforePhoneSaveViewSheet.dc.html"
   ],
   "pages": [
     {
@@ -1522,6 +1864,51 @@
       "kind": "title1",
       "maxW": 3900,
       "page": "topbar"
+    },
+    "rowRunCommand": {
+      "kind": "title1",
+      "x": 0,
+      "y": 11610,
+      "maxW": 11860,
+      "page": "conversation",
+      "text": "Run command · toast で結果を出す"
+    },
+    "rowPartsRunCommand": {
+      "kind": "title1",
+      "x": 0,
+      "y": 4060,
+      "maxW": 1910,
+      "page": "components",
+      "text": "Run command の画面"
+    },
+    "beforeParts": {
+      "kind": "title1",
+      "x": 0,
+      "y": 5680,
+      "maxW": 6000,
+      "page": "components",
+      "text": "Before の部品 (この PR の前の部品。Before の画面が読み込む)"
+    },
+    "diffRunCommand": {
+      "x": 11940,
+      "y": 11910,
+      "w": 440,
+      "page": "conversation",
+      "text": "新しい行\n・! コマンドの Run command を押すとダイアログを閉じ、Merge と Close と同じトースト、Activity、会話の最後の 1 行で結果を出す\n・PC のトーストは画面の左下 (left 16、bottom 16)。ほかの行の PC のトーストは右下のまま\n・成功は自動で消える。失敗と時間切れは Show output だけを置き、押すと会話の結果のメッセージまでスクロールして枠で示す\n・部品: ActionItem に running / succeeded / commandFailed / timedOut、Conversation と PhoneChat に ! コマンドのメッセージ (bang)、CodeBlock に agent を足した。今の画面の見た目は変わらない"
+    },
+    "diffMain": {
+      "x": 3040,
+      "y": 0,
+      "w": 440,
+      "page": "inbox",
+      "text": "変更点\n・「確認したあとの実行」に ! コマンドの項目を足した\n・Activity の空のときの文言を Merge, Close and command results appear here. にした"
+    },
+    "diffActivityEmpty": {
+      "x": 5970,
+      "y": 13304,
+      "w": 440,
+      "page": "topbar",
+      "text": "変更点: 開いたときの 2 行目を Merge and Close results appear here. から Merge, Close and command results appear here. にした。! コマンドの結果も Activity に出るため"
     }
   },
   "v": 3,

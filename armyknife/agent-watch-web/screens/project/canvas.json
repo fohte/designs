@@ -1218,6 +1218,38 @@
       "h": 844,
       "title": "RunPhone",
       "page": "components"
+    },
+    "StatusTabs.dc.html": {
+      "x": 3010,
+      "y": 300,
+      "w": 640,
+      "h": 49,
+      "title": "StatusTabs",
+      "page": "components"
+    },
+    "StatusBody.dc.html": {
+      "x": 3010,
+      "y": 429,
+      "w": 640,
+      "h": 852,
+      "title": "StatusBody",
+      "page": "components"
+    },
+    "StatusReviewPreview.dc.html": {
+      "x": 0,
+      "y": 4500,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Review · Preview",
+      "page": "status-panel"
+    },
+    "PhoneStatusReviewPreview.dc.html": {
+      "x": 1520,
+      "y": 4500,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Review · Preview",
+      "page": "status-panel"
     }
   },
   "order": [
@@ -1373,7 +1405,11 @@
     "RunCommandActivity.dc.html",
     "PhoneRunCommandActivity.dc.html",
     "RunPc.dc.html",
-    "RunPhone.dc.html"
+    "RunPhone.dc.html",
+    "StatusBody.dc.html",
+    "StatusTabs.dc.html",
+    "StatusReviewPreview.dc.html",
+    "PhoneStatusReviewPreview.dc.html"
   ],
   "pages": [
     {
@@ -1534,7 +1570,7 @@
       "y": 0,
       "text": "画面の区画",
       "kind": "title1",
-      "maxW": 2930,
+      "maxW": 3650,
       "page": "components"
     },
     "rowPartsRows": {
@@ -1664,6 +1700,14 @@
       "maxW": 1910,
       "page": "components",
       "text": "Run command の画面"
+    },
+    "rowReviewPreview": {
+      "x": 0,
+      "y": 4200,
+      "text": "状況パネル · Review · Preview を選んだとき",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "status-panel"
     }
   },
   "v": 3,
@@ -1705,6 +1749,7 @@
     "rowPartsRows",
     "rowPartsDialogs",
     "rowPhoneTasks",
-    "rowPhoneStatusTasks"
+    "rowPhoneStatusTasks",
+    "rowReviewPreview"
   ]
 }

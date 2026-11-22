@@ -13,7 +13,7 @@
 body{margin:0}
 </style>
 </helmet>
-<div style="width: 1440px; height: 2580px; box-sizing: border-box; padding: 72px 96px; display: flex; flex-direction: column; gap: 40px; background: #0a0a0a; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.7">
+<div style="width: 1440px; height: 2640px; box-sizing: border-box; padding: 72px 96px; display: flex; flex-direction: column; gap: 40px; background: #0a0a0a; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.7">
 <header>
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #fafafa"><span style="margin-right: 10px; color: #ef4444">&gt;</span>agent watch</div>
 <h1 style="margin: 12px 0 0; font-size: 32px; font-weight: 700; color: #fafafa">いまの画面の仕様</h1>
@@ -31,7 +31,7 @@ body{margin:0}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2580}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":2640}}'>
 class Component extends DCLogic {
   renderVals() {
     return {
@@ -73,8 +73,9 @@ class Component extends DCLogic {
           'Merge と Close session… は確認ダイアログで確定するとすぐダイアログを閉じ、裏で実行します。実行中もほかの操作や別のセッションへの移動ができます。',
           '押した場所に結果を出します。Merge の帯は Merging… になり、失敗したら Merge failed と Retry を出し、マージできたら消えます。PR の一覧の行は Merged、Already merged、Queued (マージキュー)、Merge failed のどれかになります。Inbox の行は Closing… になり、閉じたら消え、失敗したら Close failed と Retry を出します。',
           'トーストは画面全体への通知です。PC はどの画面でも画面の左下 (左と下から 16px) に、iPhone は返信欄の上に重ね、2 つ以上は上に積みます。成功は自動で消え、失敗は Retry と Details を付けて残します。',
-          'ナビの quota の上 (iPhone もナビゲーションの quota の上) に Activity を置き、実行中を青、失敗を赤の数で示し、一覧を開けます。まだ一度も実行していないあいだは数を出さずに Activity を薄く示し、開くと No recent activity. と Merge and Close results appear here. を出します。iPhone では失敗があるあいだ、Inbox のナビゲーションのボタンに赤い印を付けます。会話にも Merged PR #2049 · 12:03 の形で 1 行残します。',
-          'Close は、コミットしていない変更、merge していないブランチ、動いているプロセスの 3 つを全部調べてから失敗を返します。どこから閉じても、トーストと会話の 1 行には残っているものの要約と Close and keep worktree を、Activity には 3 つの確認の結果 (ファイル、PR、pid) を全部並べ、Open in terminal も置きます。'
+          'ナビの quota の上 (iPhone もナビゲーションの quota の上) に Activity を置き、実行中を青、失敗を赤の数で示し、一覧を開けます。まだ一度も実行していないあいだは数を出さずに Activity を薄く示し、開くと No recent activity. と Merge, Close and command results appear here. を出します。iPhone では失敗があるあいだ、Inbox のナビゲーションのボタンに赤い印を付けます。会話にも Merged PR #2049 · 12:03 の形で 1 行残します。',
+          'Close は、コミットしていない変更、merge していないブランチ、動いているプロセスの 3 つを全部調べてから失敗を返します。どこから閉じても、トーストと会話の 1 行には残っているものの要約と Close and keep worktree を、Activity には 3 つの確認の結果 (ファイル、PR、pid) を全部並べ、Open in terminal も置きます。',
+          'メッセージの ! コマンドも、確認ダイアログで Run command を押すとすぐダイアログを閉じ、裏で実行します。トースト (2 行目はコマンド)、Activity、会話の最後の 1 行に Running command から Ran command、Command failed · exit 1、Command timed out (30 秒で止めます) のどれかを出します。失敗のトーストと Activity の行には Show output だけを置き、押すとそのセッションの会話で、サーバーが送った結果のメッセージ (終了コードと stdout / stderr) までスクロールして枠で示します。やり直すときは、メッセージのボタンをもう一度押します。'
         ] },
         { title: '返事を待つカード', items: [
           'Question、Permission、Proposal、To-do の 4 種類です。返事を待っている間は黄色の枠で囲みます。',

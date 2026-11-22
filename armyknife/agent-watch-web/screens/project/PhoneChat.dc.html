@@ -106,6 +106,19 @@ body{margin:0}
 </sc-for>
 </sc-if>
 </sc-if>
+<sc-if value="{{hasBang}}" hint-placeholder-val="{{ false }}">
+<article style="min-width: 0; display: flex; flex-direction: column; gap: 8px; color: #d4d4d8">
+<div>差分を見る to-do を登録しておくなら、次を実行してください。</div>
+<dc-import name="CodeBlock" code="agent" phone="{{ true }}" hint-size="100%,72px"></dc-import>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px"><button type="button" aria-disabled="{{bang.busy}}" style="min-height: 44px; padding: 0 12px; border: 1px solid #3f3f46; background: #1f1f1f; color: #d4d4d8; font-family: inherit; font-size: 12.5px; opacity: {{bang.dim}}">{{bang.label}}</button><sc-if value="{{bang.hasMsg}}" hint-placeholder-val="{{ false }}"><span role="status" style="color: {{bang.msgColor}}">{{bang.msg}}</span></sc-if></div>
+</article>
+<sc-if value="{{bang.hasResult}}" hint-placeholder-val="{{ false }}">
+<article style="align-self: flex-end; max-width: 92%; display: flex; flex-direction: column; gap: 4px">
+<div style="text-align: right; font-size: 12px; color: #8b8b94">You · 12:03</div>
+<pre style="margin: 0; padding: 10px 14px; background: #1f1f1f; outline: {{bang.outline}}; outline-offset: 2px; color: #fafafa; font-family: inherit; font-size: 14px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere">{{bang.result}}</pre>
+</article>
+</sc-if>
+</sc-if>
 <sc-if value="{{hasActionLine}}" hint-placeholder-val="{{ false }}">
 <dc-import name="ActionItem" a="{{ actionLine }}" form="line" phone="{{ true }}" hint-size="100%,24px"></dc-import>
 </sc-if>
@@ -160,8 +173,26 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"update":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"state":{"editor":"enum","options":["question","review","todo","code"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"update":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"state":{"editor":"enum","options":["question","review","todo","code"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
+  // bang: the ! command in the last reply. '' (none) | idle | running | succeeded | failed | timedOut.
+  // The server sends each run's result to the session as your message; bangHighlight outlines it (Show output landed there).
+  bangVals() {
+    const s = this.props.bang ?? '';
+    const cmd = 'a agent todo add --title "差分を crit で見る"';
+    const where = ' in ~/src/example/service.\n\nCommand:\n$ ' + cmd + '\n\n';
+    const B = {
+      idle: { label: 'Run command 1' },
+      running: { label: 'Running…', busy: true },
+      succeeded: { label: 'Succeeded', msg: 'Completed', color: '#4ade80', result: 'Command exited with code 0' + where + 'stdout:\nAdded to-do #3\n\nstderr:\n(empty)' },
+      failed: { label: 'Failed', msg: 'Failed (exit code 1)', color: '#f87171', result: 'Command exited with code 1' + where + 'stdout:\n(empty)\n\nstderr:\nerror: no tq task is linked to this session' },
+      timedOut: { label: 'Failed', msg: 'Timed out', color: '#f87171', result: 'Command timed out after 30 seconds' + where + 'stdout:\n(empty)\n\nstderr:\nwaiting for the tq server to respond…' }
+    }[s] ?? null;
+    return {
+      hasBang: !!B,
+      bang: B ? { label: B.label, busy: B.busy ? 'true' : 'false', dim: B.busy ? '0.5' : '1', hasMsg: !!B.msg, msg: B.msg ?? '', msgColor: B.color ?? '#a1a1aa', hasResult: !!B.result, result: B.result ?? '', outline: this.props.bangHighlight ? '2px solid #60a5fa' : 'none' } : {}
+    };
+  }
   renderVals() {
     const menuOpen = this.props.menuOpen ?? false;
     const st = this.props.state ?? 'question';
@@ -213,6 +244,7 @@ class Component extends DCLogic {
       webUiLink: this.props.webUiLink ?? false,
       webUrl: 'http://127.0.0.1:4720/design/k3x9/#page-options',
       toasts, toastsOverSheet: toasts.length > 0 && prsOpen, toastsInline: toasts.length > 0 && !prsOpen,
+      ...this.bangVals(),
       actionLine: this.props.actionLine ?? null, hasActionLine: !!this.props.actionLine,
       // vibeEvents: lines like 'Vibe mode turned on · 10:14'. The switch reaches the session as a message but draws as an event, not as You.
       vibeEvents: this.props.vibeEvents ?? [], hasVibeEvents: (this.props.vibeEvents ?? []).length > 0,

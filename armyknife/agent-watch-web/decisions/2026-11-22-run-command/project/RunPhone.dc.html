@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Run command on iPhone</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+<sc-if value="{{chat}}" hint-placeholder-val="{{ true }}"><dc-import name="PhoneChat" state="review" bang="{{ bang }}" bang-highlight="{{ highlight }}" toasts="{{ toasts }}" action-line="{{ line }}" hint-size="390px,844px"></dc-import></sc-if>
+<sc-if value="{{open}}" hint-placeholder-val="{{ false }}"><dc-import name="PhoneDrawer" activity="{{ activity }}" activity-open="{{ open }}" activity-items="{{ rows }}" hint-size="390px,844px"></dc-import></sc-if>
+<sc-if value="{{isDialog}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; z-index: 20; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; background: rgb(0 0 0 / 55%)">
+<dc-import name="ConfirmDialog" form="sheet" head="Run agent command?" body="Review the command and working directory before it runs." action="Run command" pending="{{ true }}" pending-label="Running command…" details="{{ details }}" hint-size="100%,420px"></dc-import>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"opt":{"editor":"enum","options":["current","a","b","c"],"default":"a"},"state":{"editor":"enum","options":["running","succeeded","failed","failedLine","timedOut","activity"],"default":"running"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const opt = this.props.opt ?? 'a';
+    // failedLine: a failure after its toast was dismissed, so the line at the conversation's end shows (the toast covers it).
+    const dismissed = this.props.state === 'failedLine';
+    const state = dismissed ? 'failed' : (this.props.state ?? 'running');
+    const cmd = 'a agent todo add --title "差分を crit で見る"';
+    const session = '通知の再送処理を見直す';
+    // Per option: the toast's second line and a failure's buttons.
+    const O = { a: { sub: 'command', fail: 'retryDetails' }, b: { sub: 'session', fail: 'details' }, c: { sub: 'command', fail: 'output' } }[opt] ?? {};
+    const result = { running: 'running', succeeded: 'succeeded', failed: 'commandFailed', timedOut: 'timedOut', activity: 'commandFailed' }[state];
+    const main = { result, cmd, session, exit: 1, ...O };
+    // Option C keeps the output in the conversation, so its rows carry none.
+    const out = (text) => opt === 'c' ? {} : { output: text, outputLabel: 'stderr · last lines' };
+    const rows = [
+      { result: 'running', cmd: 'a agent proposal add --title "通知の文言を選ぶ"', session: '通知の文言を決める', time: '12:05', ...O },
+      { result: 'timedOut', cmd: 'a agent todo add --title "実機で音を確かめる"', session: '通知の音を選べるようにする', time: '12:04', ...O, ...out('waiting for the tq server to respond…') },
+      { ...main, time: '12:03', ...out('error: no tq task is linked to this session') },
+      { result: 'succeeded', cmd: 'a agent todo add --title "ログの保存期間を決める"', session: '配信ログの保存期間を決める', time: '12:01', ...O }
+    ];
+    const isDialog = opt === 'current';
+    const open = state === 'activity';
+    return {
+      isDialog, open, chat: !open,
+      bang: isDialog ? 'running' : state,
+      highlight: opt === 'c' && state === 'failed' && !dismissed,
+      activity: { count: '2', tone: 'failure' },
+      line: isDialog ? null : { ...main, time: state === 'running' ? '' : '12:03' },
+      toasts: isDialog || open || dismissed ? [] : [main],
+      rows,
+      details: [
+        { term: 'Working directory', value: '~/src/example/service' },
+        { term: 'Command', value: cmd, block: true }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

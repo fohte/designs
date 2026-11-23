@@ -17,17 +17,23 @@ body{margin:0}
 <header style="{{headerStyle}}">
 <sc-if value="{{phone}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Back to Inbox" style="flex: none; width: 44px; height: 44px; margin-left: -14px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button></sc-if>
 <h1 style="flex: none; margin: 0; font-size: 15px">New session</h1>
-<button type="button" aria-haspopup="dialog" aria-expanded="{{dirOpen}}" style="{{dirStyle}}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{dirLabel}}</span><sc-if value="{{chips}}" hint-placeholder-val="{{ false }}"><kbd style="flex: none; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">⌥D</kbd></sc-if><sc-if value="{{alt}}" hint-placeholder-val="{{ false }}"><kbd style="flex: none; min-width: 16px; height: 16px; display: inline-grid; place-items: center; padding: 0 3px; box-sizing: border-box; background: #fafafa; color: #0a0a0a; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700">D</kbd></sc-if><span aria-hidden="true" style="flex: none">▾</span></button>
+<button type="button" aria-haspopup="dialog" aria-expanded="{{dirOpen}}" style="{{dirStyle}}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{dirLabel}}</span><sc-if value="{{chips}}" hint-placeholder-val="{{ false }}"><kbd style="flex: none; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">d</kbd></sc-if><sc-if value="{{alt}}" hint-placeholder-val="{{ false }}"><kbd style="flex: none; min-width: 16px; height: 16px; display: inline-grid; place-items: center; padding: 0 3px; box-sizing: border-box; background: #fafafa; color: #0a0a0a; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700">d</kbd></sc-if><span aria-hidden="true" style="flex: none">▾</span></button>
 </header>
 <div style="flex: 1; display: grid; place-items: center; padding: 24px; color: #8b8b94; font-size: 13px; text-align: center">The conversation opens here when the session starts.</div>
 <div style="{{composerStyle}}">
 <div style="position: relative; border: 1px solid {{boxBorder}}; background: #0f0f0f">
 <textarea aria-label="First message" placeholder="First message (optional)" style="display: block; width: 100%; height: 72px; box-sizing: border-box; padding: 10px 12px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: {{inputSize}}; resize: none" value="{{message}}"></textarea>
 <sc-if value="{{caret}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; left: {{caretLeft}}; top: 13px; width: 1px; height: 17px; background: #fafafa"></span></sc-if>
+<sc-if value="{{slashOpen}}" hint-placeholder-val="{{ false }}"><div role="listbox" aria-label="Session options and skills" style="position: absolute; left: -1px; right: -1px; bottom: calc(100% - 4px); z-index: 10; box-sizing: border-box; padding: 4px; background: #141414; border: 1px solid #3f3f46; box-shadow: 0 8px 24px rgb(0 0 0 / 35%)">
+<sc-if value="{{slashHasOpts}}" hint-placeholder-val="{{ true }}"><div style="height: 24px; display: flex; align-items: center; padding: 0 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">SESSION</div></sc-if>
+<sc-for list="{{slashOpts}}" as="o" hint-placeholder-count="4"><div role="option" aria-selected="{{o.active}}" style="min-height: {{slashRowH}}; box-sizing: border-box; display: flex; align-items: center; gap: 12px; padding: 4px 10px; background: {{o.bg}}"><span style="flex: none; width: 124px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #fafafa">{{o.cmd}}</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; color: #a1a1aa">{{o.desc}}</span></div></sc-for>
+<sc-if value="{{slashHasSkills}}" hint-placeholder-val="{{ true }}"><div style="height: 24px; display: flex; align-items: center; margin-top: 2px; padding: 0 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">SKILLS</div></sc-if>
+<sc-for list="{{slashSkills}}" as="o" hint-placeholder-count="2"><div role="option" aria-selected="false" style="min-height: {{slashRowH}}; box-sizing: border-box; display: flex; align-items: center; gap: 12px; padding: 4px 10px"><span style="flex: none; width: 124px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #fafafa">{{o.cmd}}</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12px; color: #a1a1aa">{{o.desc}}</span></div></sc-for>
+</div></sc-if>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 6px 8px">
-<button type="button" aria-haspopup="menu" aria-expanded="{{engineOpen}}" style="{{engineStyle}}">{{engineLabel}}<sc-if value="{{chips}}" hint-placeholder-val="{{ false }}"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">⌥E</kbd></sc-if><sc-if value="{{alt}}" hint-placeholder-val="{{ false }}"><kbd style="min-width: 16px; height: 16px; display: inline-grid; place-items: center; padding: 0 3px; box-sizing: border-box; background: #fafafa; color: #0a0a0a; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700">E</kbd></sc-if> ▾</button>
-<button type="button" aria-haspopup="dialog" aria-label="Model and reasoning effort" aria-expanded="{{modelOpen}}" style="{{modelStyle}}"><sc-if value="{{pc}}" hint-placeholder-val="{{ true }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M15 2v2"></path><path d="M15 20v2"></path><path d="M2 15h2"></path><path d="M2 9h2"></path><path d="M20 15h2"></path><path d="M20 9h2"></path><path d="M9 2v2"></path><path d="M9 20v2"></path></svg></sc-if><span style="color: #a1a1aa">{{modelName}}</span><span aria-hidden="true" style="color: #71717a">·</span><span style="color: #a1a1aa">{{effortName}}</span><span style="font-size: 11px; color: #8b8b94">default</span><sc-if value="{{chips}}" hint-placeholder-val="{{ false }}"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">⌥M</kbd></sc-if><sc-if value="{{alt}}" hint-placeholder-val="{{ false }}"><kbd style="min-width: 16px; height: 16px; display: inline-grid; place-items: center; padding: 0 3px; box-sizing: border-box; background: #fafafa; color: #0a0a0a; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700">M</kbd></sc-if> ▾</button>
-<button type="button" aria-pressed="{{worktree}}" style="{{wtStyle}}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg> New worktree<sc-if value="{{worktree}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="color: #fafafa">✓</span></sc-if><sc-if value="{{chips}}" hint-placeholder-val="{{ false }}"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">⌥W</kbd></sc-if><sc-if value="{{alt}}" hint-placeholder-val="{{ false }}"><kbd style="min-width: 16px; height: 16px; display: inline-grid; place-items: center; padding: 0 3px; box-sizing: border-box; background: #fafafa; color: #0a0a0a; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700">W</kbd></sc-if></button>
+<button type="button" aria-haspopup="menu" aria-expanded="{{engineOpen}}" style="{{engineStyle}}">{{engineLabel}}<sc-if value="{{chips}}" hint-placeholder-val="{{ false }}"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">e</kbd></sc-if><sc-if value="{{alt}}" hint-placeholder-val="{{ false }}"><kbd style="min-width: 16px; height: 16px; display: inline-grid; place-items: center; padding: 0 3px; box-sizing: border-box; background: #fafafa; color: #0a0a0a; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700">e</kbd></sc-if> ▾</button>
+<button type="button" aria-haspopup="dialog" aria-label="Model and reasoning effort" aria-expanded="{{modelOpen}}" style="{{modelStyle}}"><sc-if value="{{pc}}" hint-placeholder-val="{{ true }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="16" height="16" x="4" y="4" rx="2"></rect><rect width="6" height="6" x="9" y="9" rx="1"></rect><path d="M15 2v2"></path><path d="M15 20v2"></path><path d="M2 15h2"></path><path d="M2 9h2"></path><path d="M20 15h2"></path><path d="M20 9h2"></path><path d="M9 2v2"></path><path d="M9 20v2"></path></svg></sc-if><span style="color: #a1a1aa">{{modelName}}</span><span aria-hidden="true" style="color: #71717a">·</span><span style="color: #a1a1aa">{{effortName}}</span><span style="font-size: 11px; color: #8b8b94">default</span><sc-if value="{{chips}}" hint-placeholder-val="{{ false }}"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">m</kbd></sc-if><sc-if value="{{alt}}" hint-placeholder-val="{{ false }}"><kbd style="min-width: 16px; height: 16px; display: inline-grid; place-items: center; padding: 0 3px; box-sizing: border-box; background: #fafafa; color: #0a0a0a; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700">m</kbd></sc-if> ▾</button>
+<button type="button" aria-pressed="{{worktree}}" style="{{wtStyle}}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg> New worktree<sc-if value="{{worktree}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="color: #fafafa">✓</span></sc-if><sc-if value="{{chips}}" hint-placeholder-val="{{ false }}"><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #8b8b94">w</kbd></sc-if><sc-if value="{{alt}}" hint-placeholder-val="{{ false }}"><kbd style="min-width: 16px; height: 16px; display: inline-grid; place-items: center; padding: 0 3px; box-sizing: border-box; background: #fafafa; color: #0a0a0a; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700">w</kbd></sc-if></button>
 <span role="status" style="flex: 1 1 0; min-width: 0; line-height: 1.3; text-align: right; font-size: 12px; color: #8b8b94">{{status}}</span>
 <button type="button" style="{{startStyle}}">Start ↵</button>
 </div>
@@ -57,12 +63,12 @@ body{margin:0}
 </div></sc-if>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"keys":{"editor":"enum","options":["approved","a","b","c"],"default":"c"},"hints":{"editor":"enum","options":["none","line","chips","alt"],"default":"line"},"focus":{"editor":"enum","options":["none","message","dir","engine","model","worktree","start"],"default":"message"},"menu":{"editor":"enum","options":["none","dir","engine","model"],"default":"none"},"dir":{"editor":"boolean","default":true},"codex":{"editor":"boolean","default":false},"worktree":{"editor":"boolean","default":false},"query":{"editor":"text","default":""},"typed":{"editor":"boolean","default":true},"w":{"editor":null},"h":{"editor":null},"$preview":{"width":740,"height":520}}'>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"keys":{"editor":"enum","options":["approved","a","b","c"],"default":"b"},"hints":{"editor":"enum","options":["none","line","chips","row"],"default":"line"},"slash":{"editor":"text","default":""},"slashList":{"editor":"boolean","default":true},"focus":{"editor":"enum","options":["none","message","dir","engine","model","worktree","start"],"default":"message"},"menu":{"editor":"enum","options":["none","dir","engine","model"],"default":"none"},"dir":{"editor":"boolean","default":true},"codex":{"editor":"boolean","default":false},"worktree":{"editor":"boolean","default":false},"query":{"editor":"text","default":""},"typed":{"editor":"boolean","default":true},"w":{"editor":null},"h":{"editor":null},"$preview":{"width":740,"height":520}}'>
 class Component extends DCLogic {
   renderVals() {
     const p = this.props;
     const phone = (p.form ?? 'pc') === 'phone';
-    const keys = p.keys ?? 'c';
+    const keys = p.keys ?? 'b';
     const hints = phone ? 'none' : (p.hints ?? 'line');
     const focus = p.focus ?? 'message';
     const menu = p.menu ?? 'none';
@@ -79,15 +85,31 @@ class Component extends DCLogic {
       engine: [['↑↓', 'Move'], ['↵', 'Choose'], ['Esc', 'Back']],
       model: [['↑↓', 'Model'], ['←→', 'Effort'], ['↵', 'Done'], ['Esc', 'Back']]
     };
+    const slash = p.slash ?? '';
+    const inRow = ['engine', 'model', 'worktree', 'start'].includes(focus);
     const baseLines = {
       approved: [['↵', 'Start'], ['⇧↵ / ⌥↵', 'New line']],
-      a: [['↵', 'Start'], ['⇧↵ / ⌥↵', 'New line'], ['↑↓', 'Engine'], ['⌥M', 'Model · effort'], ['⌥W', 'Worktree'], ['⌫', 'Change directory']],
-      b: [['↵', 'Start'], ['⇧↵ / ⌥↵', 'New line'], ['Tab', 'Next field'], ['←→ / Space', 'Change'], ['Esc', 'Close']],
-      c: [['↵', 'Start'], ['⇧↵ / ⌥↵', 'New line'], ['⌥D', 'Directory'], ['⌥E', 'Engine'], ['⌥M', 'Model'], ['⌥W', 'Worktree'], ['Esc', 'Close']]
+      a: [['↵', 'Start'], ['⇧↵ / ⌥↵', 'New line'], ['Tab', 'Next field'], ['←→ / Space', 'Change'], ['Esc', 'Close']],
+      b: inRow
+        ? [['d', 'Directory'], ['e', 'Engine'], ['m', 'Model'], ['w', 'Worktree'], ['←→', 'Move'], ['⇧Tab / Esc', 'Message']]
+        : [['↵', 'Start'], ['⇧↵ / ⌥↵', 'New line'], ['Tab', 'Options'], ['Esc', 'Close']],
+      c: slash && (p.slashList ?? true)
+        ? [['↑↓', 'Move'], ['↵ / Tab', 'Choose'], ['Esc', 'Close list']]
+        : [['↵', 'Start'], ['⇧↵ / ⌥↵', 'New line'], ['/', 'Options and skills'], ['Esc', 'Close']]
     };
     const items = (menu !== 'none' && keys !== 'approved' ? menuLines[menu] : baseLines[keys]) || [];
     const typed = p.typed ?? true;
-    const message = typed ? '配信ログの保存期間を設定ファイルに出したい' : '';
+    const message = slash || (typed ? '配信ログの保存期間を設定ファイルに出したい' : '');
+    const opts = [
+      { cmd: '/dir', desc: 'Choose a directory' },
+      { cmd: '/engine', desc: 'Claude Code or Codex' },
+      { cmd: '/model', desc: 'Model and reasoning effort' },
+      { cmd: '/worktree', desc: 'New worktree on / off' }
+    ].filter((o) => o.cmd.startsWith(slash)).map((o, i) => ({ ...o, active: i === 0, bg: i === 0 ? '#0a0a0a' : 'transparent' }));
+    const skills = [
+      { cmd: '/review', desc: 'Review the current branch' },
+      { cmd: '/release-notes', desc: 'Draft release notes from merged PRs' }
+    ].filter((o) => o.cmd.startsWith(slash));
     return {
       phone,
       pc: !phone,
@@ -120,9 +142,15 @@ class Component extends DCLogic {
       boxBorder: focus === 'message' && menu === 'none' ? '#a1a1aa' : '#52525b',
       message,
       caret: focus === 'message' && menu === 'none',
-      caretLeft: !typed ? '12px' : (phone ? '349px' : '286px'),
+      caretLeft: slash ? (13 + slash.length * 7.5) + 'px' : (!typed ? '12px' : (phone ? '349px' : '286px')),
       chips: hints === 'chips',
-      alt: hints === 'alt',
+      alt: hints === 'row' && inRow,
+      slashOpen: !!slash && menu === 'none' && (p.slashList ?? true),
+      slashOpts: opts,
+      slashSkills: skills,
+      slashHasOpts: opts.length > 0,
+      slashHasSkills: skills.length > 0,
+      slashRowH: phone ? '44px' : '36px',
       line: hints === 'line',
       lineItems: items.map(([k, label]) => ({ k, label })),
       query: p.query ?? '',

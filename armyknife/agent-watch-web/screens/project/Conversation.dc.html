@@ -171,6 +171,13 @@ a{color:#ef4444}
 </article>
 </sc-if>
 </sc-if>
+<sc-if value="{{hasTimeline}}" hint-placeholder-val="{{ false }}">
+<sc-for list="{{timeline}}" as="t" hint-placeholder-count="3">
+<sc-if value="{{t.isLine}}" hint-placeholder-val="{{ true }}"><div style="flex: none"><dc-import name="ActionItem" a="{{ t.line }}" form="line" hint-size="100%,24px"></dc-import></div></sc-if>
+<sc-if value="{{t.isYou}}" hint-placeholder-val="{{ false }}"><article style="flex: none; align-self: flex-end; max-width: 80%; display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: flex-end; gap: 8px; font-size: 12px; color: #8b8b94">You · {{t.time}}</div><div style="padding: 10px 14px; background: #1f1f1f; color: #fafafa">{{t.you}}</div></article></sc-if>
+<sc-if value="{{t.isText}}" hint-placeholder-val="{{ false }}"><article style="flex: none; max-width: 100%; color: #d4d4d8">{{t.text}}</article></sc-if>
+</sc-for>
+</sc-if>
 <sc-if value="{{hasActionLine}}" hint-placeholder-val="{{ false }}">
 <div style="flex: none"><dc-import name="ActionItem" a="{{ actionLine }}" form="line" hint-size="100%,24px"></dc-import></div>
 </sc-if>
@@ -201,7 +208,7 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review","drafts","todo","code"],"default":"question"},"draftsDetail":{"editor":null},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review","drafts","todo","code"],"default":"question"},"draftsDetail":{"editor":null},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
   // bang: the ! command in the last reply. '' (none) | idle | running | succeeded | failed | timedOut.
   // The server sends each run's result to the session as your message; bangHighlight outlines it (Show output landed there).
@@ -305,6 +312,7 @@ class Component extends DCLogic {
     const menuOn = menu !== 'closed';
     // draft: the composer holds an unsent message, as while typing.
     const draft = this.props.draft ?? false;
+    const timeline = (this.props.timeline ?? []).map((t) => ({ ...t, isLine: !!t.line, isYou: !!t.you, isText: !!t.text }));
     return {
       hasDraft: draft, noDraft: !draft, sendOpacity: draft ? '1' : '0.5',
       // h: shorter when the update band takes the top of the window.
@@ -358,9 +366,11 @@ class Component extends DCLogic {
       prBadge,
       prAria: 'PR #' + P.main.num + ' ' + P.main.title + ', ' + P.main.word + (morePrs > 0 ? '. ' + morePrs + ' more PR from this session' : ''),
       mergeBand, hasMergeBand: mergeBand.length > 0,
-      ...this.bangVals(), scrollJustify: this.props.bang ? "flex-end" : "flex-start",
+      ...this.bangVals(), scrollJustify: this.props.bang || timeline.length ? "flex-end" : "flex-start",
       actionLine: this.props.actionLine ?? null,
       hasActionLine: !!this.props.actionLine,
+      // timeline: entries after the reply above, oldest first: { line } (a result line where its action started), { you, time } or { text }.
+      timeline, hasTimeline: timeline.length > 0,
       // vibeEvents: lines like 'Vibe mode turned on · 10:14'. The switch reaches the session as a message but draws as an event, not as You.
       vibeEvents: this.props.vibeEvents ?? [],
       hasVibeEvents: (this.props.vibeEvents ?? []).length > 0,

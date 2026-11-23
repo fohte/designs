@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<title>構成モード (PC)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#0a0a0a}
+a{color:#ef4444;text-decoration:none}a:hover{text-decoration:underline}
+.m{font-family:'JetBrains Mono','IBM Plex Mono',ui-monospace,monospace}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+input{font:inherit}
+kbd{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;border:1px solid #2a2a2a;border-radius:2px;padding:0 4px;color:#a1a1aa;background:#141414}
+</style>
+</helmet>
+<div style="min-height: 920px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; display: flex; flex-direction: column">
+
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 8px 16px; min-height: 48px; box-sizing: border-box; border-bottom: 1px solid #2a2a2a">
+  <a href="Articles.dc.html" class="m" style="color: #fafafa; font-weight: 700; font-size: 14px; display: flex; gap: 6px; align-items: center"><span style="color: #ef4444">&gt;</span>blog-writer</a>
+  <span style="font-size: 13px; color: #a1a1aa; flex: 1 1 240px; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">記事 / SQLite を CRDT で同期する個人用 PWA を作った</span>
+  <div role="tablist" aria-label="表示" style="display: flex; border: 1px solid #2a2a2a; font-size: 13px">
+    <a href="Main.dc.html" role="tab" aria-selected="false" style="padding: 5px 14px; color: #a1a1aa">本文</a>
+    <button role="tab" aria-selected="true" style="padding: 5px 14px; background: #fafafa; color: #0a0a0a; font-weight: 700">構成</button>
+  </div>
+  <span class="m" style="font-size: 12px; color: #a1a1aa"><kbd>⌘⇧O</kbd> で切り替え</span>
+  <span class="m" style="font-size: 12px; color: #a1a1aa">● 同期済み</span>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; flex: 1 1 auto; align-items: stretch">
+
+  <main style="flex: 999 1 600px; min-width: 0; display: flex; justify-content: center; padding: 40px 32px 80px; box-sizing: border-box">
+    <div style="width: 100%; max-width: 720px; display: flex; flex-direction: column; gap: 4px">
+      <h1 style="margin: 0 0 6px; font-size: 26px; line-height: 1.45">SQLite を CRDT で同期する個人用 PWA を作った</h1>
+      <p style="margin: 0 0 20px; font-size: 12px; color: #a1a1aa">見出しだけを表示しています。ここで書いた行は、そのまま本文の見出しになります。段落は畳まれているだけで消えません。</p>
+
+      <div style="display: flex; align-items: baseline; gap: 10px; padding: 4px 0; font-size: 18px; font-weight: 700"><span class="m" style="color: #ef4444; font-weight: 400; font-size: 13px; width: 32px">##</span><span style="flex: 1">はじめに</span><span class="m" style="font-size: 11px; font-weight: 400; color: #a1a1aa">段落 2</span></div>
+
+      <div style="display: flex; align-items: baseline; gap: 10px; padding: 4px 0; font-size: 18px; font-weight: 700"><span class="m" style="color: #ef4444; font-weight: 400; font-size: 13px; width: 32px">##</span><span style="flex: 1">なぜ CRDT か</span><span class="m" style="font-size: 11px; font-weight: 400; color: #a1a1aa">段落 1 · メモ 2</span></div>
+      <div style="display: flex; align-items: baseline; gap: 10px; padding: 3px 0 3px 32px; font-size: 16px"><span class="m" style="color: #ef4444; font-size: 12px; width: 32px">###</span><span style="flex: 1">競合の選択を出したくない</span><span class="m" style="font-size: 11px; color: #a1a1aa">段落 2 · メモ 1</span></div>
+      <div style="display: flex; align-items: baseline; gap: 10px; padding: 3px 0 3px 32px; font-size: 16px"><span class="m" style="color: #ef4444; font-size: 12px; width: 32px">###</span><span style="flex: 1">サーバーを単純に保つ</span><span class="m" style="font-size: 11px; color: #a1a1aa">段落 1</span></div>
+      <div style="display: flex; align-items: baseline; gap: 10px; padding: 3px 0 3px 32px; font-size: 16px; background: #141414"><span class="m" style="color: #ef4444; font-size: 12px; width: 32px">###</span><span style="flex: 1">LWW と比べて楽だったこと<span style="display: inline-block; width: 1px; height: 1.1em; background: #fafafa; vertical-align: text-bottom; margin-left: 1px" aria-hidden="true"></span></span><span class="m" style="font-size: 11px; color: #a1a1aa">新規</span></div>
+      <div style="display: flex; align-items: baseline; gap: 10px; padding: 3px 0 3px 64px; font-size: 15px; color: #a1a1aa"><span class="m" style="color: #ef4444; font-size: 11px; width: 32px">####</span><span style="flex: 1">ダイアログを作らなくて済んだ</span></div>
+      <div style="display: flex; align-items: baseline; gap: 10px; padding: 3px 0 3px 64px; font-size: 15px; color: #a1a1aa"><span class="m" style="color: #ef4444; font-size: 11px; width: 32px">####</span><span style="flex: 1">オフラインのテストが単純になった</span></div>
+
+      <div style="margin: 6px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; border: 1px solid #2a2a2a; background: #141414; padding: 8px 12px; font-size: 12px; color: #a1a1aa">
+        <span style="flex: 1 1 360px">「### 依存の固定」を消しました。配下の段落 2 つは「### サーバーを単純に保つ」の末尾に移りました。</span>
+        <button style="border: 1px solid #2a2a2a; padding: 3px 10px; color: #fafafa">元に戻す <kbd>⌘Z</kbd></button>
+      </div>
+
+      <div style="display: flex; align-items: baseline; gap: 10px; padding: 4px 0; font-size: 18px; font-weight: 700"><span class="m" style="color: #ef4444; font-weight: 400; font-size: 13px; width: 32px">##</span><span style="flex: 1">実装</span><span class="m" style="font-size: 11px; font-weight: 400; color: #a1a1aa">段落 1</span></div>
+      <div style="display: flex; align-items: baseline; gap: 10px; padding: 3px 0 3px 32px; font-size: 16px"><span class="m" style="color: #ef4444; font-size: 12px; width: 32px">###</span><span style="flex: 1">変更の記録</span><span class="m" style="font-size: 11px; color: #a1a1aa">空</span></div>
+      <div style="display: flex; align-items: baseline; gap: 10px; padding: 3px 0 3px 32px; font-size: 16px"><span class="m" style="color: #ef4444; font-size: 12px; width: 32px">###</span><span style="flex: 1">同期の手順</span><span class="m" style="font-size: 11px; color: #a1a1aa">空</span></div>
+      <div style="display: flex; align-items: baseline; gap: 10px; padding: 4px 0; font-size: 18px; font-weight: 700"><span class="m" style="color: #ef4444; font-weight: 400; font-size: 13px; width: 32px">##</span><span style="flex: 1">計測</span><span class="m" style="font-size: 11px; font-weight: 400; color: #a1a1aa">空</span></div>
+      <div style="display: flex; align-items: baseline; gap: 10px; padding: 3px 0 3px 32px; font-size: 16px; color: #4ade80; border: 1px dashed #4ade80"><span class="m" style="font-size: 12px; width: 32px">+ ###</span><span style="flex: 1">計測の条件</span><button aria-label="追加案を却下" style="width: 28px; color: #a1a1aa">✕</button><button aria-label="追加案を採用" style="width: 28px; color: #fafafa">✓</button></div>
+      <div style="display: flex; align-items: baseline; gap: 10px; padding: 4px 0; font-size: 18px; font-weight: 700"><span class="m" style="color: #ef4444; font-weight: 400; font-size: 13px; width: 32px">##</span><span style="flex: 1">まとめ</span><span class="m" style="font-size: 11px; font-weight: 400; color: #a1a1aa">空</span></div>
+      <div style="display: flex; align-items: baseline; gap: 10px; padding: 4px 0; font-size: 18px; color: #71717a"><span class="m" style="font-size: 13px; width: 32px">##</span><span style="flex: 1">Enter で次の見出し</span></div>
+    </div>
+  </main>
+
+  <aside aria-label="構成モードの操作とメモ" style="flex: 1 1 340px; max-width: 380px; box-sizing: border-box; border-left: 1px solid #2a2a2a; display: flex; flex-direction: column">
+    <section style="padding: 18px; border-bottom: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 10px">
+      <h2 style="margin: 0; font-size: 12px; font-weight: 700; color: #a1a1aa">アウトライナーと同じ操作</h2>
+      <dl style="margin: 0; display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 12px; font-size: 13px; line-height: 1.6">
+        <dt><kbd>⏎</kbd></dt><dd style="margin: 0">同じ階層に次の見出し</dd>
+        <dt><kbd>Tab</kbd></dt><dd style="margin: 0">1 段下げる (## → ###)</dd>
+        <dt><kbd>⇧Tab</kbd></dt><dd style="margin: 0">1 段上げる</dd>
+        <dt><kbd>⌥↑</kbd><kbd>⌥↓</kbd></dt><dd style="margin: 0">配下ごと上下に移動</dd>
+        <dt><kbd>⌫</kbd></dt><dd style="margin: 0">空の行で押すと見出しを消す</dd>
+        <dt><kbd>⌘⏎</kbd></dt><dd style="margin: 0">本文に切り替えてその見出しの下へ</dd>
+      </dl>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">見出しを消しても段落は消えず、1 つ上の見出しの末尾に移る。採用していたメモは未整理に戻る。どれも <kbd>⌘Z</kbd> 1 回で戻る。</p>
+    </section>
+
+    <div style="padding: 14px 14px 10px; display: flex; flex-direction: column; gap: 6px">
+      <span style="font-size: 12px; font-weight: 700; color: #a1a1aa">メモ <span class="m" style="font-weight: 400">未整理 6</span></span>
+      <span style="font-size: 11px; color: #a1a1aa">見出しの行へドラッグするか、<kbd>A</kbd> で採用</span>
+    </div>
+    <ul style="list-style: none; margin: 0; padding: 0 6px; display: flex; flex-direction: column; font-size: 14px; line-height: 1.6">
+      <li style="display: flex; gap: 8px; padding: 8px; border-bottom: 1px solid #1f1f1f"><span style="color: #71717a" aria-hidden="true">⋮⋮</span><span style="flex: 1">iPhone の Safari で IndexedDB が消える条件を書く</span></li>
+      <li style="display: flex; gap: 8px; padding: 8px; border-bottom: 1px solid #1f1f1f"><span style="color: #71717a" aria-hidden="true">⋮⋮</span><span style="flex: 1">ベンチの数字は取り直す</span></li>
+      <li style="display: flex; gap: 8px; padding: 8px; border-bottom: 1px solid #1f1f1f"><span style="color: #71717a" aria-hidden="true">⋮⋮</span><span style="flex: 1">変更ログの流れを図にしたい</span></li>
+      <li style="display: flex; gap: 8px; padding: 8px"><span style="color: #71717a" aria-hidden="true">⋮⋮</span><span style="flex: 1">書き出しは PR にしたい</span></li>
+    </ul>
+  </aside>
+</div>
+
+<footer class="m" style="display: flex; flex-wrap: wrap; gap: 8px 20px; align-items: center; padding: 7px 16px; border-top: 1px solid #2a2a2a; font-size: 11px; color: #a1a1aa">
+  <span>端末に保存済み · 同期済み 23:02</span>
+  <span>見出し 14 · 空のセクション 5</span>
+  <span style="flex: 1"></span>
+  <span><kbd>⌘⇧O</kbd> 本文へ</span>
+  <span><kbd>⌘J</kbd> 依頼</span>
+</footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":920}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+
+
+</body></html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<title>メモの採用</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#0a0a0a}
+a{color:#ef4444;text-decoration:none}a:hover{text-decoration:underline}
+.m{font-family:'JetBrains Mono','IBM Plex Mono',ui-monospace,monospace}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+input{font:inherit}
+kbd{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;border:1px solid #2a2a2a;border-radius:2px;padding:0 4px;color:#a1a1aa;background:#141414}
+</style>
+</helmet>
+<div style="width: 1280px; min-height: 1000px; box-sizing: border-box; padding: 40px 48px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; display: flex; flex-direction: column; gap: 24px">
+  <div style="display: flex; align-items: baseline; gap: 16px">
+    <h1 style="margin: 0; font-size: 22px; font-weight: 700"><span class="m" style="color: #ef4444">&gt; </span>メモの採用</h1>
+    <span style="font-size: 13px; color: #a1a1aa">「採用」ボタンかキー <kbd>A</kbd> で開く。ドラッグで構成の見出しに落としても同じ結果になる</span>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start">
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">01 採用先を選ぶ</h2>
+      <div style="display: flex; gap: 8px; align-items: flex-start; padding: 8px; background: #141414; font-size: 14px; line-height: 1.6"><span style="color: #71717a" aria-hidden="true">⋮⋮</span><span style="flex: 1">LWW と比べてどこが楽だったか</span><span style="font-size: 12px; border: 1px solid #fafafa; padding: 1px 8px">採用</span></div>
+      <div role="dialog" aria-label="採用先" style="border: 1px solid #a1a1aa; background: #141414; display: flex; flex-direction: column">
+        <div style="padding: 12px; border-bottom: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 12px; font-weight: 700; color: #a1a1aa">新しい見出しとして</span>
+          <div style="display: flex; gap: 6px; font-size: 12px">
+            <button class="m" style="border: 1px solid #2a2a2a; padding: 3px 8px; color: #a1a1aa">##</button>
+            <button class="m" style="border: 1px solid #fafafa; padding: 3px 8px">###</button>
+            <span style="flex: 1"></span>
+            <span style="color: #a1a1aa; align-self: center">位置: ## なぜ CRDT か の末尾</span>
+          </div>
+          <button style="text-align: left; padding: 7px 10px; background: #1f1f1f; font-size: 13px"><span class="m" style="color: #ef4444">### </span>LWW と比べてどこが楽だったか <kbd>⏎</kbd></button>
+        </div>
+        <div style="padding: 12px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-size: 12px; font-weight: 700; color: #a1a1aa">既存の見出しに採用</span>
+          <label for="ma-q" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">見出しを絞り込む</label>
+          <input id="ma-q" placeholder="見出しを絞り込む" style="background: #0a0a0a; border: 1px solid #2a2a2a; color: #fafafa; padding: 6px 8px; font-size: 13px; outline: none">
+          <ul style="list-style: none; margin: 0; padding: 0; font-size: 13px; line-height: 1.6">
+            <li><button style="width: 100%; text-align: left; padding: 5px 8px"><span class="m" style="color: #ef4444; font-size: 11px">## </span>なぜ CRDT か</button></li>
+            <li><button style="width: 100%; text-align: left; padding: 5px 8px 5px 24px"><span class="m" style="color: #ef4444; font-size: 11px">### </span>競合の選択を出したくない</button></li>
+            <li><button style="width: 100%; text-align: left; padding: 5px 8px 5px 24px"><span class="m" style="color: #ef4444; font-size: 11px">### </span>サーバーを単純に保つ</button></li>
+            <li><button style="width: 100%; text-align: left; padding: 5px 8px"><span class="m" style="color: #ef4444; font-size: 11px">## </span>実装</button></li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">既定値は、いまカーソルがある見出しの配下に、1 段下の見出しとして足す。タッチ端末でもこの 2 択だけで完結する。</p>
+    </section>
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">02 採用した後</h2>
+      <div style="display: flex; flex-direction: column; gap: 4px; font-size: 14px; line-height: 1.6">
+        <div style="display: flex; gap: 8px; padding: 8px; border-bottom: 1px solid #1f1f1f"><span class="m" style="color: #a1a1aa">[x]</span><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span>LWW と比べてどこが楽だったか</span><a href="#" class="m" style="font-size: 11px">→ ### LWW との違い</a></span></div>
+        <div style="display: flex; gap: 8px; padding: 8px"><span class="m" style="color: #a1a1aa">[x]</span><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span>競合ダイアログが嫌だった</span><a href="#" class="m" style="font-size: 11px">→ ### 競合の選択を出したくない</a></span></div>
+      </div>
+      <div style="border-top: 1px solid #2a2a2a; padding-top: 12px; display: flex; flex-direction: column; gap: 6px; font-size: 13px">
+        <span style="font-size: 11px; color: #a1a1aa">構成側</span>
+        <div style="display: flex; gap: 8px; padding: 6px 8px 6px 24px; background: #1f1f1f"><span class="m" style="color: #ef4444; font-size: 11px">###</span><span style="flex: 1">LWW との違い</span><span class="m" style="font-size: 11px; color: #a1a1aa">メモ 1</span></div>
+        <div style="padding: 8px 8px 8px 24px; border: 1px solid #2a2a2a; font-size: 12px; line-height: 1.7; color: #a1a1aa; display: flex; flex-direction: column; gap: 4px">
+          <span>メモ 1 件 (見出しの右の数字から開く)</span>
+          <span style="color: #fafafa">· LWW と比べてどこが楽だったか</span>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">見出しを「LWW との違い」に直しても、メモの文は元のまま。どちらを直しても対応は外れない。採用済みは TODO の完了と同じく一覧の下へ畳む。</p>
+    </section>
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">03 ドラッグで採用 (PC)</h2>
+      <div style="display: flex; flex-direction: column; gap: 2px; font-size: 13px">
+        <div style="display: flex; gap: 8px; padding: 6px 8px"><span class="m" style="color: #ef4444; font-size: 11px">##</span>なぜ CRDT か</div>
+        <div style="display: flex; gap: 8px; padding: 5px 7px 5px 23px; border: 1px solid #fafafa"><span class="m" style="color: #ef4444; font-size: 11px">###</span><span style="flex: 1">競合の選択を出したくない</span><span style="font-size: 11px; color: #a1a1aa">ここに採用</span></div>
+        <div style="height: 2px; background: #fafafa; margin: 4px 0 4px 24px" aria-hidden="true"></div>
+        <div style="display: flex; gap: 8px; padding: 6px 8px 6px 24px"><span class="m" style="color: #ef4444; font-size: 11px">###</span>サーバーを単純に保つ</div>
+      </div>
+      <div style="align-self: flex-end; transform: rotate(-1.5deg); border: 1px solid #a1a1aa; background: #141414; padding: 6px 10px; font-size: 13px">LWW と比べてどこが楽だったか</div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">見出しの上に落とすとその見出しに採用、見出しの間の線に落とすと新しい見出しとして追加。線の字下げ位置で階層を決める。</p>
+
+      <h2 class="m" style="margin: 12px 0 0; font-size: 12px; color: #a1a1aa; font-weight: 400">04 採用先の見出しを消したとき</h2>
+      <div style="display: flex; gap: 8px; padding: 8px; font-size: 14px; line-height: 1.6; border: 1px solid #2a2a2a"><span style="color: #71717a" aria-hidden="true">⋮⋮</span><span style="flex: 1; display: flex; flex-direction: column; gap: 2px"><span>cr-sqlite のバージョン固定の話</span><span style="font-size: 11px; color: #a1a1aa">採用先「### 依存の固定」が消えたので未整理に戻しました</span></span></div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">見出し行を消したときだけ外れる。<kbd>⌘Z</kbd> で見出しを戻すと採用も戻る。</p>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1000}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+
+
+</body></html>

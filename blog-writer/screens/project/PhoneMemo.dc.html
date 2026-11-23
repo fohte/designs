@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<title>メモと採用 (iPhone)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#0a0a0a}
+a{color:#ef4444;text-decoration:none}a:hover{text-decoration:underline}
+.m{font-family:'JetBrains Mono','IBM Plex Mono',ui-monospace,monospace}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+input{font:inherit}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; display: flex; flex-direction: column; position: relative">
+  <header style="display: flex; align-items: center; gap: 8px; padding: 0 8px 0 18px; height: 52px; border-bottom: 1px solid #2a2a2a; flex: none">
+    <span style="flex: 1; font-size: 16px; font-weight: 700">メモ</span>
+    <a href="PhoneEditor.dc.html" style="height: 44px; padding: 0 12px; display: flex; align-items: center; color: #fafafa; font-size: 14px">閉じる</a>
+  </header>
+
+  <div style="display: flex; gap: 6px; padding: 12px 18px; font-size: 13px; flex: none">
+    <button style="height: 36px; padding: 0 12px; border: 1px solid #fafafa">未整理 7</button>
+    <button style="height: 36px; padding: 0 12px; border: 1px solid #2a2a2a; color: #a1a1aa">採用済み 4</button>
+    <button style="height: 36px; padding: 0 12px; border: 1px solid #2a2a2a; color: #a1a1aa">見送り 1</button>
+  </div>
+
+  <ul style="list-style: none; margin: 0; padding: 0; font-size: 15px; line-height: 1.6; flex: 1; overflow: hidden; opacity: .45">
+    <li style="display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 8px 0 18px; border-bottom: 1px solid #1f1f1f"><span style="flex: 1">iPhone の Safari で IndexedDB が消える条件を書く</span><span style="width: 44px; text-align: center; color: #a1a1aa">⋯</span></li>
+    <li style="display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 8px 0 18px; border-bottom: 1px solid #1f1f1f"><span style="flex: 1">LWW と比べてどこが楽だったか</span><span style="width: 44px; text-align: center; color: #a1a1aa">⋯</span></li>
+    <li style="display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 8px 0 18px; border-bottom: 1px solid #1f1f1f"><span style="flex: 1">cr-sqlite のバージョン固定の話</span><span style="width: 44px; text-align: center; color: #a1a1aa">⋯</span></li>
+    <li style="display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 8px 0 18px; border-bottom: 1px solid #1f1f1f"><span style="flex: 1">ベンチの数字は取り直す</span><span style="width: 44px; text-align: center; color: #a1a1aa">⋯</span></li>
+  </ul>
+
+  <div role="dialog" aria-label="採用先" style="position: absolute; left: 0; right: 0; bottom: 0; border-top: 1px solid #a1a1aa; background: #141414; padding: 16px 0 28px; display: flex; flex-direction: column; gap: 4px">
+    <div style="padding: 0 18px 10px; display: flex; flex-direction: column; gap: 4px">
+      <span style="font-size: 12px; color: #a1a1aa">このメモを採用</span>
+      <span style="font-size: 15px; font-weight: 700">LWW と比べてどこが楽だったか</span>
+    </div>
+    <button style="display: flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 18px; text-align: left; background: #1f1f1f; font-size: 15px"><span style="flex: 1">新しい見出しとして追加</span><span class="m" style="font-size: 12px; color: #a1a1aa">### なぜ CRDT か の末尾</span></button>
+    <span style="padding: 12px 18px 4px; font-size: 12px; color: #a1a1aa">既存の見出しに採用</span>
+    <button style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 18px; text-align: left; font-size: 15px"><span class="m" style="color: #ef4444; font-size: 12px">##</span>なぜ CRDT か</button>
+    <button style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 18px 0 38px; text-align: left; font-size: 15px"><span class="m" style="color: #ef4444; font-size: 12px">###</span>競合の選択を出したくない</button>
+    <button style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 18px 0 38px; text-align: left; font-size: 15px"><span class="m" style="color: #ef4444; font-size: 12px">###</span>サーバーを単純に保つ</button>
+    <button style="display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 18px; text-align: left; font-size: 15px"><span class="m" style="color: #ef4444; font-size: 12px">##</span>実装</button>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 12px 18px 0">
+      <button style="height: 44px; border: 1px solid #2a2a2a; font-size: 14px; color: #a1a1aa">見送りにする</button>
+      <button style="height: 44px; border: 1px solid #2a2a2a; font-size: 14px">キャンセル</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+
+
+</body></html>

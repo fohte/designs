@@ -55,7 +55,8 @@ class Component extends DCLogic {
     const run = all ? (this.props.run ?? 'idle') : 'idle';
     const n = (s) => prs.filter(p => p.state === s).length;
     const ready = n('ready'), failed = n('failed'), merged = n('merged'), busy = n('merging') + n('queued');
-    const stop = prs.find(p => p.state === 'failed');
+    // A list without a failed PR can still be previewed as stopped from the editor.
+    const stop = prs.find(p => p.state === 'failed') ?? prs[0];
     const allMerged = merged === prs.length;
     let label, ic, icon, red = false;
     if (run === 'running') { label = 'Merging ' + (merged + Math.max(busy, 1)) + ' of ' + prs.length + '…'; ic = '#60a5fa'; icon = 'spin'; }

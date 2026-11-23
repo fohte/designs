@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Q1: under the reply that made the PR, rewritten in place</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: {{w}}; height: {{h}}; display: flex; align-items: flex-start; gap: 24px; background: #0a0a0a; color: #a1a1aa; font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif; font-size: 12.5px">
+<section style="width: 880px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700">PC · Ready to merge (CI が通り、その場で書き換わった)</h2><div style="height: 900px; overflow: hidden"><dc-import name="Conversation" variant="question" feed="{{ full }}" badge="passed" pr-count="{{ 1 }}" hint-size="880px,900px"></dc-import></div></section>
+<section style="width: 390px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700">iPhone · Ready to merge</h2><div style="height: 844px; overflow: hidden"><dc-import name="PhoneChat" h="844px" state="review" feed="{{ full }}" badge="passed" pr-count="{{ 1 }}" hint-size="390px,844px"></dc-import></div></section>
+<div style="flex: none; display: grid; grid-template-columns: repeat({{cols}}, 1126px); gap: 32px 32px; align-items: start">
+<sc-for list="{{states}}" as="s" hint-placeholder-count="2">
+<section style="display: flex; flex-direction: column; gap: 10px"><h2 style="margin: 0; font-size: 12.5px; font-weight: 700">{{s.name}}</h2>
+<div style="display: flex; align-items: flex-start; gap: 16px">
+<div style="width: 720px; flex: none; box-sizing: border-box; padding: 16px 24px; border: 1px solid #2a2a2a"><dc-import name="MergeFeed" items="{{ s.items }}" hint-size="100%,200px"></dc-import></div>
+<div style="width: 390px; flex: none; box-sizing: border-box; padding: 16px; border: 1px solid #2a2a2a"><dc-import name="MergeFeed" items="{{ s.items }}" phone="{{ true }}" hint-size="100%,240px"></dc-import></div>
+</div>
+</section>
+</sc-for>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":4760,"height":1300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const pr = { num: 2050, title: '再送キューの上限を設定に出す' };
+    const made = [
+      { say: '再送キューの上限を設定に出して PR #2050 を作りました。CI が通ればマージできます。' },
+      { tools: 'Edit retry.ts · Edit config.ts · Shell ×2' }
+    ];
+    const later = { you: '待ち時間はどう決めてる?', time: '10:09' };
+    const e = (state, time, note) => ({ entry: { ...pr, state, time, note } });
+    const reason = 'Base branch was modified. Retry to merge again';
+    const full = [
+      { you: '通知の再送処理を見直して。上限は設定で変えられるようにしたい。', time: '10:02' },
+      ...made, e('ready', '10:14'), later,
+      { say: '1 秒から倍にしていき、上限の 3 回目で 4 秒待ちます。上限を 5 回にすると最後は 16 秒です。' },
+      { tools: 'Read retry.ts ×2' },
+      { you: '5 回で 16 秒ならそれでいい。設定の既定値は 3 のままにしておいて。', time: '10:12' },
+      { say: '既定値は 3 のままです。ほかに直すところはありません。' }
+    ];
+    // The entry stays where the PR was made; results of a merge still land at the bottom, as now.
+    const states = [
+      { name: 'PR ができた直後 · CI 待ち (Merge はまだない)', items: [...made, e('waiting', '10:05'), later] },
+      { name: 'Ready to merge · CI が通ると同じ行が変わる', items: [...made, e('ready', '10:14'), later] },
+      { name: 'Merging…', items: [...made, e('merging', '10:15'), later] },
+      { name: 'Queued', items: [...made, e('queued', '10:15'), later] },
+      { name: 'Merge failed + Retry · 結果の行は今どおり一番下にも出る', items: [...made, e('failed', '10:15', reason), later, { say: '既定値は 3 のままです。' }, { action: { result: 'mergeFailed', pr: 2050, reason, time: '10:15' } }] },
+      { name: 'Merged · 結果の行は一番下', items: [...made, e('merged', '10:16'), later, { say: '既定値は 3 のままです。' }, { action: { result: 'merged', pr: 2050, time: '10:16' } }] },
+      { name: 'head が更新された · 同じ行が CI 待ちに戻る', items: [...made, e('headUpdated', '10:20', 'The session pushed 1 commit at 10:20.'), later] }
+    ];
+    return { full, states, cols: 3, w: '4760px', h: '1300px' };
+  }
+}
+</script>
+</body>
+</html>

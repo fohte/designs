@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Conversation timeline with merge entries</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; padding: {{pad}}; background: #0a0a0a; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
+<sc-for list="{{rows}}" as="it" hint-placeholder-count="3">
+<sc-if value="{{it.isYou}}" hint-placeholder-val="{{ false }}"><article style="align-self: flex-end; max-width: {{youW}}; display: flex; flex-direction: column; gap: 4px"><div style="text-align: right; font-size: 12px; color: #8b8b94">You · {{it.time}}</div><div style="padding: 10px 14px; background: #1f1f1f; color: #fafafa">{{it.text}}</div></article></sc-if>
+<sc-if value="{{it.isSay}}" hint-placeholder-val="{{ true }}"><article style="max-width: 100%">{{it.text}}</article></sc-if>
+<sc-if value="{{it.isTools}}" hint-placeholder-val="{{ false }}"><div style="margin-top: -8px; display: flex; gap: 6px; font-size: {{toolFs}}; color: #a1a1aa"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{it.text}}</span><span style="color: #71717a">›</span></div></sc-if>
+<sc-if value="{{it.isEntry}}" hint-placeholder-val="{{ false }}"><div style="margin-top: {{it.mt}}"><dc-import name="MergeEntry" form="{{form}}" size="{{it.e.size}}" state="{{it.e.state}}" num="{{ it.e.num }}" title="{{it.e.title}}" repo="{{it.e.repo}}" time="{{it.e.time}}" note="{{it.e.note}}" framed="{{ it.e.framed }}" hint-size="100%,64px"></dc-import></div></sc-if>
+<sc-if value="{{it.isGroup}}" hint-placeholder-val="{{ false }}"><dc-import name="MergeGroup" form="{{form}}" prs="{{ it.g.prs }}" open="{{ it.g.open }}" mode="{{it.g.mode}}" run="{{it.g.run}}" time="{{it.g.time}}" hint-size="100%,64px"></dc-import></sc-if>
+<sc-if value="{{it.isAction}}" hint-placeholder-val="{{ false }}"><dc-import name="ActionItem" a="{{ it.a }}" form="line" phone="{{ phone }}" hint-size="100%,24px"></dc-import></sc-if>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"items":{"editor":null},"phone":{"editor":"boolean","default":false},"pad":{"editor":null},"$preview":{"width":672,"height":300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // items: { you, time } | { say } | { tools } | { entry: MergeEntry props } | { group: MergeGroup props } | { action: ActionItem a }, oldest first.
+    const items = this.props.items ?? [
+      { say: '再送キューの上限を設定に出して PR #2050 を作りました。' },
+      { tools: 'Edit retry.ts · Shell ×2' },
+      { entry: { state: 'ready', num: 2050, title: '再送キューの上限を設定に出す', time: '12:01' } }
+    ];
+    const phone = this.props.phone ?? false;
+    // Consecutive framed rows sit 6px apart, as one list.
+    const rows = items.map((x, i) => ({
+      mt: x.entry?.framed && items[i - 1]?.entry?.framed ? '-8px' : '0',
+      isYou: x.you !== undefined, isSay: x.say !== undefined, isTools: x.tools !== undefined,
+      isEntry: !!x.entry, isGroup: !!x.group, isAction: !!x.action,
+      text: x.you ?? x.say ?? x.tools ?? '', time: x.time ?? '',
+      e: x.entry ? { size: x.entry.framed ? 'row' : 'card', repo: 'example/service', time: '', note: '', title: '', framed: false, ...x.entry } : {},
+      g: x.group ? { open: false, mode: 'list', run: 'idle', time: '', ...x.group } : {},
+      a: x.action ?? null
+    }));
+    return {
+      rows, phone, form: phone ? 'phone' : 'pc',
+      pad: this.props.pad ?? '0',
+      fs: phone ? '15px' : '14px', toolFs: phone ? '13px' : '12.5px', youW: phone ? '92%' : '80%'
+    };
+  }
+}
+</script>
+</body>
+</html>

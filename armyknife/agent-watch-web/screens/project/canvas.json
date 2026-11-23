@@ -536,14 +536,14 @@
       "page": "board"
     },
     "PhoneCards.dc.html": {
-      "x": 5490,
+      "x": 3510,
       "y": 300,
       "w": 390,
       "h": 3590,
       "page": "conversation"
     },
     "PhoneChat.dc.html": {
-      "x": 5960,
+      "x": 3980,
       "y": 300,
       "w": 390,
       "h": 844,
@@ -623,7 +623,7 @@
       "page": "conversation"
     },
     "PhoneChatReview.dc.html": {
-      "x": 6430,
+      "x": 4450,
       "y": 300,
       "w": 390,
       "h": 844,
@@ -774,7 +774,7 @@
       "page": "inbox"
     },
     "PhoneInboxTodoLater.dc.html": {
-      "x": 3500,
+      "x": 1520,
       "y": 9040,
       "w": 390,
       "h": 844,
@@ -1378,214 +1378,6 @@
       "h": 844,
       "title": "iPhone · 長いタイトル · 2 行まで折り返し、3 行目から … で切る",
       "page": "topbar"
-    },
-    "before/BeforeCards.dc.html": {
-      "x": 3510,
-      "y": 300,
-      "w": 1440,
-      "h": 3200,
-      "title": "Before · 返答を待つカード",
-      "page": "conversation"
-    },
-    "before/BeforePhoneInboxTodoLater.dc.html": {
-      "x": 3970,
-      "y": 9040,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · Needs action の下の To-do later",
-      "page": "inbox"
-    },
-    "before/BeforeInboxTodoLater.dc.html": {
-      "x": 1520,
-      "y": 9040,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · Needs action の下の To-do later",
-      "page": "inbox"
-    },
-    "before/BeforeMain.dc.html": {
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 3400,
-      "title": "Before · 仕様のまとめ",
-      "page": "inbox"
-    },
-    "before/BeforeActionItem.dc.html": {
-      "x": 0,
-      "y": 5860,
-      "w": 360,
-      "h": 110,
-      "title": "BeforeActionItem",
-      "page": "components"
-    },
-    "before/BeforeActivityButton.dc.html": {
-      "x": 440,
-      "y": 5860,
-      "w": 224,
-      "h": 44,
-      "title": "BeforeActivityButton",
-      "page": "components"
-    },
-    "before/BeforeCloseChecks.dc.html": {
-      "x": 744,
-      "y": 5860,
-      "w": 408,
-      "h": 170,
-      "title": "BeforeCloseChecks",
-      "page": "components"
-    },
-    "before/BeforeCodeBlock.dc.html": {
-      "x": 1232,
-      "y": 5860,
-      "w": 672,
-      "h": 160,
-      "title": "BeforeCodeBlock",
-      "page": "components"
-    },
-    "before/BeforeConfirmDialog.dc.html": {
-      "x": 1984,
-      "y": 5860,
-      "w": 380,
-      "h": 200,
-      "title": "BeforeConfirmDialog",
-      "page": "components"
-    },
-    "before/BeforeConversation.dc.html": {
-      "x": 2444,
-      "y": 5860,
-      "w": 880,
-      "h": 900,
-      "title": "BeforeConversation",
-      "page": "components"
-    },
-    "before/BeforeDeniedCard.dc.html": {
-      "x": 3404,
-      "y": 5860,
-      "w": 672,
-      "h": 200,
-      "title": "BeforeDeniedCard",
-      "page": "components"
-    },
-    "before/BeforeInboxList.dc.html": {
-      "x": 4156,
-      "y": 5860,
-      "w": 460,
-      "h": 900,
-      "title": "BeforeInboxList",
-      "page": "components"
-    },
-    "before/BeforeMergeBand.dc.html": {
-      "x": 4696,
-      "y": 5860,
-      "w": 760,
-      "h": 60,
-      "title": "BeforeMergeBand",
-      "page": "components"
-    },
-    "before/BeforeMergeButton.dc.html": {
-      "x": 5536,
-      "y": 5860,
-      "w": 160,
-      "h": 44,
-      "title": "BeforeMergeButton",
-      "page": "components"
-    },
-    "before/BeforeNav.dc.html": {
-      "x": 0,
-      "y": 6880,
-      "w": 240,
-      "h": 900,
-      "title": "BeforeNav",
-      "page": "components"
-    },
-    "before/BeforePhoneInbox.dc.html": {
-      "x": 320,
-      "y": 6880,
-      "w": 390,
-      "h": 844,
-      "title": "BeforePhoneInbox",
-      "page": "components"
-    },
-    "before/BeforePhoneLaterSheet.dc.html": {
-      "x": 790,
-      "y": 6880,
-      "w": 390,
-      "h": 420,
-      "title": "BeforePhoneLaterSheet",
-      "page": "components"
-    },
-    "before/BeforePhoneRowMenu.dc.html": {
-      "x": 1260,
-      "y": 6880,
-      "w": 390,
-      "h": 250,
-      "title": "BeforePhoneRowMenu",
-      "page": "components"
-    },
-    "before/BeforePhoneSaveViewSheet.dc.html": {
-      "x": 1730,
-      "y": 6880,
-      "w": 390,
-      "h": 300,
-      "title": "BeforePhoneSaveViewSheet",
-      "page": "components"
-    },
-    "before/BeforePrButton.dc.html": {
-      "x": 2200,
-      "y": 6880,
-      "w": 44,
-      "h": 44,
-      "title": "BeforePrButton",
-      "page": "components"
-    },
-    "before/BeforeQuota.dc.html": {
-      "x": 2324,
-      "y": 6880,
-      "w": 240,
-      "h": 140,
-      "title": "BeforeQuota",
-      "page": "components"
-    },
-    "before/BeforeSessionRow.dc.html": {
-      "x": 2644,
-      "y": 6880,
-      "w": 460,
-      "h": 76,
-      "title": "BeforeSessionRow",
-      "page": "components"
-    },
-    "before/BeforeSessionUsage.dc.html": {
-      "x": 3184,
-      "y": 6880,
-      "w": 672,
-      "h": 40,
-      "title": "BeforeSessionUsage",
-      "page": "components"
-    },
-    "before/BeforeStatusBand.dc.html": {
-      "x": 3936,
-      "y": 6880,
-      "w": 760,
-      "h": 60,
-      "title": "BeforeStatusBand",
-      "page": "components"
-    },
-    "before/BeforeTodoCard.dc.html": {
-      "x": 4776,
-      "y": 6880,
-      "w": 672,
-      "h": 40,
-      "title": "BeforeTodoCard",
-      "page": "components"
-    },
-    "before/BeforeUpdateBand.dc.html": {
-      "x": 0,
-      "y": 7900,
-      "w": 760,
-      "h": 40,
-      "title": "BeforeUpdateBand",
-      "page": "components"
     }
   },
   "order": [
@@ -1761,33 +1553,7 @@
     "PhoneStatusReviewEnglish.dc.html",
     "StatusReviewFull.dc.html",
     "MergeButton.dc.html",
-    "PhoneChatLongTitle.dc.html",
-    "before/BeforeCards.dc.html",
-    "before/BeforePhoneInboxTodoLater.dc.html",
-    "before/BeforeInboxTodoLater.dc.html",
-    "before/BeforeMain.dc.html",
-    "before/BeforeActionItem.dc.html",
-    "before/BeforeActivityButton.dc.html",
-    "before/BeforeCloseChecks.dc.html",
-    "before/BeforeCodeBlock.dc.html",
-    "before/BeforeConfirmDialog.dc.html",
-    "before/BeforeConversation.dc.html",
-    "before/BeforeDeniedCard.dc.html",
-    "before/BeforeInboxList.dc.html",
-    "before/BeforeMergeBand.dc.html",
-    "before/BeforeMergeButton.dc.html",
-    "before/BeforeNav.dc.html",
-    "before/BeforePhoneInbox.dc.html",
-    "before/BeforePhoneLaterSheet.dc.html",
-    "before/BeforePhoneRowMenu.dc.html",
-    "before/BeforePhoneSaveViewSheet.dc.html",
-    "before/BeforePrButton.dc.html",
-    "before/BeforeQuota.dc.html",
-    "before/BeforeSessionRow.dc.html",
-    "before/BeforeSessionUsage.dc.html",
-    "before/BeforeStatusBand.dc.html",
-    "before/BeforeTodoCard.dc.html",
-    "before/BeforeUpdateBand.dc.html"
+    "PhoneChatLongTitle.dc.html"
   ],
   "pages": [
     {
@@ -2086,42 +1852,6 @@
       "maxW": 1910,
       "page": "conversation",
       "text": "会話の中の web UI のリンク · 開く先のタブ名"
-    },
-    "diffCards": {
-      "x": 5030,
-      "y": 300,
-      "w": 380,
-      "text": "変更点\n- To-do, folded の説明文を同じ決まりに書き換えた",
-      "page": "conversation"
-    },
-    "diffPhoneInboxTodoLater": {
-      "x": 4440,
-      "y": 9040,
-      "w": 380,
-      "text": "変更点\n- To-do later の行をなくした\n- In progress の行に 1 to-do later と添えた",
-      "page": "inbox"
-    },
-    "diffInboxTodoLater": {
-      "x": 3040,
-      "y": 9040,
-      "w": 380,
-      "text": "変更点\n- Needs action の下の To-do later の 1 行をなくした\n- 畳んだ to-do だけのセッションを In progress の先頭に、To-do · later のプレビュー付きで出した\n- 会話の返信欄の上を Working の帯にして、まだ動いていることを示した",
-      "page": "inbox"
-    },
-    "diffMain": {
-      "x": 3040,
-      "y": 0,
-      "w": 380,
-      "text": "変更点\n- To-do の説明: 畳んだ to-do だけのセッションは Needs action から外し、元の区分 (In progress、Later、Done) に出す",
-      "page": "inbox"
-    },
-    "beforeParts": {
-      "x": 0,
-      "y": 5560,
-      "text": "Before · 変更前のボードが読み込む部品",
-      "kind": "title1",
-      "maxW": 6000,
-      "page": "components"
     }
   },
   "v": 3,

@@ -285,7 +285,7 @@ class Component extends DCLogic {
       { isText: true, text: '音の一覧はステージングでも見られます。こちらは今確かめてください。' },
       { isFull: true, ...tNow }
     ] : []);
-    // todoRunning: the session keeps working after it added the folded to-do, as its row in In progress shows.
+    // todoRunning: the session is still working while its only pending to-do is folded, matching its row in In progress.
     if (variant === 'todo' && (this.props.todoRunning ?? false)) Object.assign(V, { bandState: 'working', bandLabel: 'Working · 12s', bandDetail: 'Bash  npm test -- notify' });
     // vibe: 'on' | 'onParent' (on here and in an ancestor) | 'inherited' | 'off' | 'unavailable' (the repository's setting forbids it).
     const vibe = this.props.vibe ?? { question: 'inherited', working: 'on', review: 'off' }[variant] ?? 'off';

@@ -326,7 +326,7 @@
       "y": 9040,
       "w": 1440,
       "h": 900,
-      "title": "Needs action の下の To-do later",
+      "title": "畳んだ to-do だけのセッションは In progress に出す",
       "page": "inbox"
     },
     "Later.dc.html": {
@@ -794,7 +794,7 @@
       "y": 9040,
       "w": 390,
       "h": 844,
-      "title": "iPhone · Needs action の下の To-do later",
+      "title": "iPhone · 畳んだ to-do だけのセッションは In progress に出す",
       "page": "inbox"
     },
     "PhoneInboxUpdate.dc.html": {
@@ -1837,7 +1837,7 @@
       "y": 8740,
       "maxW": 2450,
       "page": "inbox",
-      "text": "Inbox · 畳んだ to-do は To-do later に出す"
+      "text": "Inbox · 畳んだ to-do だけのセッションは元の区分に出す"
     },
     "rowUpdateBand": {
       "kind": "title1",

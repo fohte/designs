@@ -56,12 +56,9 @@ body{margin:0}
 <div style="position: relative; transform: translateX({{r.shift}}); background: #0a0a0a"><dc-import name="SessionRow" s="{{ r }}" density="phone" hint-size="100%,88px"></dc-import></div>
 </div>
 </sc-for>
-<sc-if value="{{todoSection}}" hint-placeholder-val="{{ false }}">
-<button type="button" style="width: 100%; height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border: 0; border-top: 1px solid #2a2a2a; border-bottom: 1px solid #1f1f1f; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; text-align: left"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #a1a1aa"><rect width="18" height="18" x="3" y="3" rx="2"></rect></svg><span style="flex: none">To-do later</span><span style="flex: none; font-family: 'JetBrains Mono', monospace; color: #8b8b94">1</span><span style="min-width: 0; color: #8b8b94; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">通知の音を実機で確かめる</span><span style="flex: none; margin-left: auto; color: #8b8b94">›</span></button>
-</sc-if>
 <div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>◷ Later</span><span style="font-family: 'JetBrains Mono', monospace; color: #8b8b94">{{laterCount}}</span><span style="margin-left: auto; color: #8b8b94">{{laterNext}}</span></div>
 <sc-if value="{{showEntry}}" hint-placeholder-val="{{ true }}">
-<div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>In progress</span><span style="font-family: 'JetBrains Mono', monospace; color: #60a5fa">5</span><span style="margin-left: auto; color: #52525b">›</span></div>
+<div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>In progress</span><span style="font-family: 'JetBrains Mono', monospace; color: #60a5fa">{{workingCount}}</span><sc-if value="{{todoLater}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa">1 to-do later</span></sc-if><span style="margin-left: auto; color: #52525b">›</span></div>
 </sc-if>
 <div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>Done</span><span style="font-family: 'JetBrains Mono', monospace; color: #8b8b94">{{doneCount}}</span><sc-if value="{{showEntry}}" hint-placeholder-val="{{ true }}"><span style="color: #a1a1aa">◇ 2 to review ›</span></sc-if><button type="button" style="margin-left: auto; height: 28px; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px; opacity: {{closeAllOpacity}}">Close all</button></div>
 <sc-if value="{{sheetRowMenu}}" hint-placeholder-val="{{ false }}">
@@ -119,8 +116,8 @@ class Component extends DCLogic {
       doneCount: filtered ? 0 : 3, closeAllOpacity: filtered ? 0.5 : 1,
       sheetRowMenu: sheet === 'rowMenu', sheetLater: sheet === 'later', sheetClose: sheet === 'close', sheetSaveView: sheet === 'saveView',
       target: { state: 'Review', dot: '#fbbf24', round: false, color: '#fbbf24', title: '配信チェックの PR を確認する' },
-      // todoLater: the to-dos folded for later, out of Needs action and its count.
-      todoSection: this.props.todoLater ?? false,
+      // todoLater: a running session whose pending to-dos are all folded, counted in In progress instead of Needs action.
+      todoLater: this.props.todoLater ?? false, workingCount: (this.props.todoLater ?? false) ? 6 : 5,
       failed, navAria: failed ? 'Open navigation, Activity has a failure' : 'Open navigation'
     };
   }

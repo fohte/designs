@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>Conversation with its header, and the status panel or a sheet</title>
+<title>Conversation with its header and the status panel</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -15,7 +15,7 @@ body{margin:0}
 </helmet>
 <div style="position: relative; width: 100%; height: {{h}}; overflow: hidden; display: flex; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif">
 <section style="position: relative; flex: 1; min-width: 0; display: flex; flex-direction: column">
-<div style="position: relative; z-index: 2; flex: none"><dc-import name="ChatHeader" form="{{form}}" opt="{{opt}}" wt="{{ wt }}" narrow="{{ narrow }}" panel="{{ panelOpen }}" tree="{{ treeOn }}" open="{{ open }}" copied="{{ copied }}" tip="{{tip}}" tip-left="{{tipLeft}}" hint-size="100%,{{headH}}"></dc-import></div>
+<div style="position: relative; z-index: 2; flex: none"><dc-import name="ChatHeader" form="{{form}}" opt="{{opt}}" wt="{{ wt }}" narrow="{{ narrow }}" panel="{{ panelOpen }}" tree="{{ treeOn }}" open="{{ open }}" copied="{{ copied }}" parent="{{ parent }}" tip="{{tip}}" tip-left="{{tipLeft}}" hint-size="100%,{{headH}}"></dc-import></div>
 <div style="flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 14px; padding: {{bodyPad}}">
 <div style="align-self: flex-end; width: 62%; height: 40px; background: #1f1f1f"></div>
 <div style="width: 92%; height: 12px; background: #161616"></div>
@@ -24,11 +24,9 @@ body{margin:0}
 </div>
 </section>
 <sc-if value="{{pcPanel}}" hint-placeholder-val="{{ false }}"><div style="flex: none; width: 640px; height: 900px"><dc-import name="StatusPanel" tab="{{tab}}" hint-size="640px,900px"></dc-import></div></sc-if>
-<sc-if value="{{phonePanel}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; inset: 0; z-index: 10"><dc-import name="PhoneStatusPanel" tab="{{tab}}" hint-size="390px,844px"></dc-import></div></sc-if>
-<sc-if value="{{sheet}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; inset: 0; z-index: 30; display: flex; flex-direction: column; justify-content: flex-end; background: rgba(0, 0, 0, 0.55)"><dc-import name="ContextCard" form="sheet" wt="{{ wt }}" hint-size="100%,330px"></dc-import></div></sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"opt":{"editor":"text","default":"current"},"wt":{"editor":"boolean","default":true},"panel":{"editor":"enum","options":["none","running","tree"],"default":"none"},"open":{"editor":"boolean","default":false},"copied":{"editor":"boolean","default":false},"tip":{"editor":"text","default":""},"tipLeft":{"editor":"text","default":"24px"},"h":{"editor":"text","default":"300px"},"$preview":{"width":720,"height":300}}'>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"opt":{"editor":"text","default":"current"},"wt":{"editor":"boolean","default":true},"panel":{"editor":"enum","options":["none","running","tree"],"default":"none"},"open":{"editor":"boolean","default":false},"copied":{"editor":"boolean","default":false},"parent":{"editor":"boolean","default":true},"tip":{"editor":"text","default":""},"tipLeft":{"editor":"text","default":"24px"},"h":{"editor":"text","default":"300px"},"$preview":{"width":720,"height":300}}'>
 class Component extends DCLogic {
   renderVals() {
     const p = this.props;
@@ -37,15 +35,14 @@ class Component extends DCLogic {
     const panel = p.panel ?? 'none';
     const opt = p.opt ?? 'current';
     return {
-      form, opt, wt: p.wt ?? true,
+      form, opt, wt: p.wt ?? true, parent: p.parent ?? true,
       narrow: !phone && panel !== 'none',
       panelOpen: panel !== 'none', treeOn: panel === 'tree',
       open: !!p.open && !phone, copied: !!p.copied, tip: p.tip ?? '', tipLeft: p.tipLeft ?? '24px',
       h: p.h ?? (phone ? '844px' : '300px'),
       headH: phone ? '96px' : '90px',
       bodyPad: phone ? '20px 16px' : '24px max(24px, calc((100% - 672px) / 2))',
-      pcPanel: !phone && panel !== 'none', phonePanel: phone && panel !== 'none', tab: panel === 'tree' ? 'tree' : 'running',
-      sheet: phone && !!p.open
+      pcPanel: !phone && panel !== 'none', tab: panel === 'tree' ? 'tree' : 'running',
     };
   }
 }

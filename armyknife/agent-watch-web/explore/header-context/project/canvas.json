@@ -15,7 +15,7 @@
       "namespace": "agentwatch",
       "artifact": "armyknife/agent-watch-web/design-system",
       "version": null,
-      "copiedAt": "2026-11-23T11:55:21.803Z"
+      "copiedAt": "2026-11-23T12:23:10.034Z"
     }
   ],
   "pages": [
@@ -282,47 +282,71 @@
       "y": 0,
       "w": 390,
       "h": 844,
-      "title": "A · worktree でないセッション",
+      "title": "A · worktree でないセッション (⑂ main)",
       "page": "q4"
     },
-    "q4-b-closed.dc.html": {
+    "q4-a-noparent.dc.html": {
+      "x": 940,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · 親のないセッション",
+      "page": "q4"
+    },
+    "q4-a-press.dc.html": {
+      "x": 1410,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · ブランチを長押しした",
+      "page": "q4"
+    },
+    "q4-b-wt.dc.html": {
       "x": 0,
       "y": 1264,
       "w": 390,
       "h": 844,
-      "title": "B · 閉じている",
+      "title": "B · worktree のセッション",
       "page": "q4"
     },
-    "q4-b-sheet.dc.html": {
+    "q4-b-plain.dc.html": {
       "x": 470,
       "y": 1264,
       "w": 390,
       "h": 844,
-      "title": "B · タイトルを押してシートを開いた (worktree)",
+      "title": "B · worktree でないセッション (⑂ main)",
       "page": "q4"
     },
-    "q4-b-plain.dc.html": {
+    "q4-b-noparent.dc.html": {
       "x": 940,
       "y": 1264,
       "w": 390,
       "h": 844,
-      "title": "B · worktree でないセッションで開いた",
+      "title": "B · 親のないセッション",
       "page": "q4"
     },
-    "q4-c-header.dc.html": {
+    "q4-c-wt.dc.html": {
       "x": 0,
       "y": 2528,
       "w": 390,
       "h": 844,
-      "title": "C · 会話",
+      "title": "C · worktree のセッション",
       "page": "q4"
     },
-    "q4-c-tree.dc.html": {
+    "q4-c-plain.dc.html": {
       "x": 470,
       "y": 2528,
       "w": 390,
       "h": 844,
-      "title": "C · 状況パネルの Tree",
+      "title": "C · worktree でないセッション (⑂ main)",
+      "page": "q4"
+    },
+    "q4-c-noparent.dc.html": {
+      "x": 940,
+      "y": 2528,
+      "w": 390,
+      "h": 844,
+      "title": "C · 親のないセッション",
       "page": "q4"
     },
     "ChatHeader.dc.html": {
@@ -357,16 +381,8 @@
       "title": "StatusPanel",
       "page": "parts"
     },
-    "PhoneStatusPanel.dc.html": {
-      "x": 2840,
-      "y": 0,
-      "w": 390,
-      "h": 844,
-      "title": "PhoneStatusPanel",
-      "page": "parts"
-    },
     "StatusTabs.dc.html": {
-      "x": 3310,
+      "x": 2840,
       "y": 0,
       "w": 640,
       "h": 49,
@@ -374,7 +390,7 @@
       "page": "parts"
     },
     "StatusBody.dc.html": {
-      "x": 4030,
+      "x": 3560,
       "y": 0,
       "w": 640,
       "h": 852,
@@ -382,7 +398,7 @@
       "page": "parts"
     },
     "DraftReview.dc.html": {
-      "x": 4750,
+      "x": 4280,
       "y": 0,
       "w": 640,
       "h": 852,
@@ -390,7 +406,7 @@
       "page": "parts"
     },
     "SessionRow.dc.html": {
-      "x": 5470,
+      "x": 5000,
       "y": 0,
       "w": 460,
       "h": 76,
@@ -398,7 +414,7 @@
       "page": "parts"
     },
     "MergeButton.dc.html": {
-      "x": 6010,
+      "x": 5540,
       "y": 0,
       "w": 160,
       "h": 44,
@@ -406,7 +422,7 @@
       "page": "parts"
     },
     "PrButton.dc.html": {
-      "x": 6250,
+      "x": 5780,
       "y": 0,
       "w": 44,
       "h": 44,
@@ -445,16 +461,18 @@
     "q3-c-tip.dc.html",
     "q4-a-wt.dc.html",
     "q4-a-plain.dc.html",
-    "q4-b-closed.dc.html",
-    "q4-b-sheet.dc.html",
+    "q4-a-noparent.dc.html",
+    "q4-a-press.dc.html",
+    "q4-b-wt.dc.html",
     "q4-b-plain.dc.html",
-    "q4-c-header.dc.html",
-    "q4-c-tree.dc.html",
+    "q4-b-noparent.dc.html",
+    "q4-c-wt.dc.html",
+    "q4-c-plain.dc.html",
+    "q4-c-noparent.dc.html",
     "ChatHeader.dc.html",
     "HeaderScene.dc.html",
     "ContextCard.dc.html",
     "StatusPanel.dc.html",
-    "PhoneStatusPanel.dc.html",
     "StatusTabs.dc.html",
     "StatusBody.dc.html",
     "DraftReview.dc.html",
@@ -619,14 +637,14 @@
       "y": -260,
       "maxW": 2400,
       "page": "q4",
-      "text": "A · 2 行目にブランチを足し、その下に親へ移る行を出す"
+      "text": "A · PC と同じ 2 段のまま、親を「通知まわりの… ›」と縮めてタイトルを 2 行まで折り返す"
     },
     "q4a-note": {
-      "x": 940,
+      "x": 1880,
       "y": 0,
       "w": 480,
       "page": "q4",
-      "text": "A\n- 2 行目を「#2048 通知の再送… · service ⑂ fix-retry-limit」にする。worktree でなければ ⑂ main\n- その下に「↑ ● 通知まわりの改修を進める ›」の行。行ごと押せて (高さ 40px)、親へ移る\n- PC の 1 の A と 2 の A と同じものが出る\n- 弱み: ヘッダーが 40px 高くなり、会話が見える量が減る"
+      "text": "A\n- 一番上の行は PC と同じ「example/service ⑂ fix-retry-limit · #2048 通知の再送処理を見直す」。390px では tq タスクの名前から縮め、#2048 は残す\n- その下でタイトルの前に「親 ›」を置く。親は幅の半分弱で … にし、タイトルは 2 行まで折り返す\n- 親を押すと親の会話へ移る。repo とブランチは PC と同じ動きで、ブランチを長押しすると worktree のパスを出す (PC でマウスを置いたときと同じ)\n- 弱み: 親が短く切れて読めない。タイトルも親の分だけ早く切れる。親の文字は指で押すには小さい"
     },
     "q4b": {
       "kind": "title1",
@@ -634,14 +652,14 @@
       "y": 1004,
       "maxW": 2400,
       "page": "q4",
-      "text": "B · タイトルを押すと、親、tq タスク、repo、ブランチ、パスを下からのシートで出す"
+      "text": "B · 親 › だけタイトルの上の小さな行に置き、タイトルは 2 行を全部使う"
     },
     "q4b-note": {
       "x": 1410,
       "y": 1264,
       "w": 480,
       "page": "q4",
-      "text": "B\n- ヘッダーは今のまま。タイトルの右に ⌄ を出し、押すとシートを開く\n- シートは PC の 2 の C の窓と同じ部品で、親の行を押すと親へ移り、パスはコピーできる\n- ヘッダーの高さは変わらない\n- 弱み: シートを開くまでブランチも親も見えない"
+      "text": "B\n- 一番上の行は A と同じ\n- 親は「通知まわりの改修を進める ›」の小さな行にしてタイトルのすぐ上に置く。タイトルは 2 行を全部使える\n- PC との違いは、親とタイトルが同じ行か上下かだけ。押したときの動きは同じ\n- 親のないセッションでは親の行がなく、A と同じ高さになる\n- 弱み: 親のあるセッションではヘッダーが約 20px 高くなる"
     },
     "q4c": {
       "kind": "title1",
@@ -649,14 +667,14 @@
       "y": 2268,
       "maxW": 2400,
       "page": "q4",
-      "text": "C · 2 行目にブランチを足し、親は状況パネルの Tree で見る"
+      "text": "C · 一番上の行を「repo ⑂ ブランチ」と「tq タスク」の 2 行に折り返し、どちらも切らない"
     },
     "q4c-note": {
-      "x": 940,
+      "x": 1410,
       "y": 2528,
       "w": 480,
       "page": "q4",
-      "text": "C\n- 2 行目は A と同じでブランチを出す\n- 親は出さず、状況パネルの Tree で親と兄弟を見て、行を押して移る\n- ヘッダーの高さは今と同じ\n- 弱み: 親へ移るのにパネルを開き、Tree を選び、行を押す 3 手かかる"
+      "text": "C\n- 一番上の行を折り返し、「example/service ⑂ fix-retry-limit」と「#2048 通知の再送処理を見直す」を上下に置く。390px でもどちらも切れない\n- 親は A と同じくタイトルの前に縮めて置く\n- 弱み: ヘッダーがいつも 1 行ぶん (約 22px) 高くなる。tq タスクの名前がもっと長いと結局切れる"
     }
   },
   "noteOrder": [

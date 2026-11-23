@@ -1394,14 +1394,6 @@
       "h": 844,
       "title": "iPhone · 長いタイトル · 2 行まで折り返し、3 行目から … で切る",
       "page": "topbar"
-    },
-    "before/BeforeMain.dc.html": {
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 3400,
-      "title": "Before · 仕様のまとめ",
-      "page": "inbox"
     }
   },
   "order": [
@@ -1579,8 +1571,7 @@
     "PhoneStatusReviewEnglish.dc.html",
     "StatusReviewFull.dc.html",
     "MergeButton.dc.html",
-    "PhoneChatLongTitle.dc.html",
-    "before/BeforeMain.dc.html"
+    "PhoneChatLongTitle.dc.html"
   ],
   "pages": [
     {
@@ -1879,21 +1870,6 @@
       "maxW": 1910,
       "page": "conversation",
       "text": "会話の中の web UI のリンク · 開く先のタブ名"
-    },
-    "diffMain": {
-      "x": 3040,
-      "y": 0,
-      "w": 380,
-      "text": "変更点\n- 確認したあとの実行の説明: 結果の行は操作を始めた時点の位置に置き、あとのメッセージと一緒に上へ流れる、と書き直した\n- ! コマンドの結果の行も、会話の最後ではなく実行した時点の位置にした",
-      "page": "inbox"
-    },
-    "beforeParts": {
-      "x": 0,
-      "y": 5560,
-      "text": "Before · 変更前のボードが読み込む部品",
-      "kind": "title1",
-      "maxW": 6000,
-      "page": "components"
     }
   },
   "v": 3,

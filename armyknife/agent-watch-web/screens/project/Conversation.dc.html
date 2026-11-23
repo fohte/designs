@@ -201,7 +201,7 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review","drafts","todo","code"],"default":"question"},"draftsDetail":{"editor":null},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review","drafts","todo","code"],"default":"question"},"draftsDetail":{"editor":null},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"todoRunning":{"editor":"boolean","default":false},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
   // bang: the ! command in the last reply. '' (none) | idle | running | succeeded | failed | timedOut.
   // The server sends each run's result to the session as your message; bangHighlight outlines it (Show output landed there).
@@ -280,11 +280,13 @@ class Component extends DCLogic {
     const tLater = { title: '通知の音を実機で確かめる' };
     const tNow = { title: '設定画面の音の一覧を見る', detail: 'ステージングで設定画面を開き、音の一覧に 5 つ並んでいるか見てください。' };
     const added = (this.props.todo ?? 'folded') === 'added';
-    // todoNow: false leaves only the folded to-do pending, so the session sits under To-do later instead of Needs action.
+    // todoNow: false leaves only the folded to-do pending, so the session leaves Needs action for In progress.
     const todoItems = [{ isFolded: true, ...tLater, added }].concat((this.props.todoNow ?? true) ? [
       { isText: true, text: '音の一覧はステージングでも見られます。こちらは今確かめてください。' },
       { isFull: true, ...tNow }
     ] : []);
+    // todoRunning: the session is still working while its only pending to-do is folded, matching its row in In progress.
+    if (variant === 'todo' && (this.props.todoRunning ?? false)) Object.assign(V, { bandState: 'working', bandLabel: 'Working · 12s', bandDetail: 'Bash  npm test -- notify' });
     // vibe: 'on' | 'onParent' (on here and in an ancestor) | 'inherited' | 'off' | 'unavailable' (the repository's setting forbids it).
     const vibe = this.props.vibe ?? { question: 'inherited', working: 'on', review: 'off' }[variant] ?? 'off';
     const vibeOpen = this.props.vibeOpen ?? false;

@@ -16,7 +16,7 @@ body{margin:0}
 <article aria-label="Draft" style="position: absolute; inset: 0; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; background: #0f0f0f; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
 
 <sc-if value="{{many}}" hint-placeholder-val="{{ false }}">
-<div role="tablist" aria-label="Drafts" style="flex: none; display: flex; overflow: hidden; border-bottom: 1px solid #2a2a2a; background: #0c0c0c">
+<div role="tablist" aria-label="Drafts" style="flex: none; display: flex; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #2a2a2a; background: #0c0c0c">
 <sc-for list="{{docs}}" as="r" hint-placeholder-count="4">
 <button type="button" role="tab" aria-selected="{{r.selectedStr}}" style="flex: none; max-width: {{z.chipMaxW}}; min-height: {{z.chipH}}; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 1px; padding: 0 14px; border: 0; border-right: 1px solid #1a1a1a; border-bottom: 2px solid {{r.underline}}; background: {{r.chipBg}}; color: {{r.chipColor}}; font-family: inherit; text-align: left">
 <span style="display: flex; align-items: center; gap: 6px; font-size: {{z.metaFs}}; font-weight: {{r.chipWeight}}; white-space: nowrap"><span aria-hidden="true" style="width: 6px; height: 6px; background: {{r.stateDot}}"></span>{{r.kind}}</span>
@@ -40,7 +40,7 @@ body{margin:0}
 <sc-if value="{{doc.hasNote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: {{z.metaFs}}; color: #a1a1aa">{{doc.note}}</p></sc-if>
 </header>
 
-<div style="flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden">
+<div style="flex: 1; min-height: 0; display: flex; flex-direction: column; overflow-y: auto">
 <sc-if value="{{hasFm}}" hint-placeholder-val="{{ false }}">
 <section aria-label="Frontmatter" style="flex: none; display: flex; flex-direction: column; padding: 8px {{z.padX}} 14px; border-bottom: 1px solid #2a2a2a; color: #d4d4d8; font-size: {{z.bodyFs}}">
 <h3 style="flex: none; margin: 0; height: 32px; display: flex; align-items: center; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">FRONTMATTER</h3>
@@ -133,7 +133,7 @@ body{margin:0}
 </div>
 </sc-if>
 <sc-if value="{{isEdit}}" hint-placeholder-val="{{ false }}">
-<pre aria-label="Markdown body" style="flex: 1; min-height: 0; margin: 6px 0 0; overflow: hidden; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{z.editorFs}}; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere">{{doc.editRaw}}</pre>
+<pre role="textbox" aria-multiline="true" contenteditable="true" aria-label="Markdown body" style="flex: 1; min-height: 0; margin: 6px 0 0; overflow-y: auto; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{z.editorFs}}; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; outline: none">{{doc.editRaw}}</pre>
 </sc-if>
 </section>
 </div>

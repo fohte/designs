@@ -1,0 +1,101 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-20T09:00:00Z"
+  },
+  "title": "explore: draft に気づける返信欄の上の帯",
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-19T17:16:47Z"
+    }
+  ],
+  "pages": [
+    {
+      "id": "options",
+      "name": "案"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "draft-notice-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1190,
+      "h": 180,
+      "title": "今 · Waiting",
+      "page": "options"
+    },
+    "draft-notice-review.dc.html": {
+      "x": 0,
+      "y": 600,
+      "w": 1190,
+      "h": 180,
+      "title": "A · Waiting for your review",
+      "page": "options"
+    },
+    "StatusBand.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "draft-notice-current.dc.html",
+    "draft-notice-review.dc.html",
+    "StatusBand.dc.html"
+  ],
+  "notes": {
+    "about": {
+      "x": 0,
+      "y": -1100,
+      "w": 640,
+      "page": "options",
+      "text": "前提\n- 返信欄の上の帯は、セッションが何を待っているかを出す\n- 例: 1 つのセッションが draft を 4 つ開いている。issue へのコメント (エディタに出ている)、PR draft、PR のレビューへの返信、ただの draft (a ai draft)\n- このキャンバスは帯だけを比べる。Review タブの中は今のまま\n- データはすべて架空"
+    },
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1730,
+      "page": "options",
+      "text": "今 · Waiting とセッションのメモだけ"
+    },
+    "review": {
+      "kind": "title1",
+      "x": 0,
+      "y": 340,
+      "maxW": 1730,
+      "page": "options",
+      "text": "案 · Waiting for your review と Open drafts"
+    },
+    "currentNote": {
+      "x": 1270,
+      "y": 0,
+      "w": 460,
+      "page": "options",
+      "text": "今\n- draft を開いていても帯は Waiting とセッションのメモだけで、Review タブに気づけない"
+    },
+    "reviewNote": {
+      "x": 1270,
+      "y": 600,
+      "w": 460,
+      "page": "options",
+      "text": "案\n- crit と同じ Waiting for your review にし、draft の数と、エディタに出ている draft の種類と対象を出す\n- Open drafts で Review タブを開く"
+    }
+  }
+}

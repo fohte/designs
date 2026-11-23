@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Status band</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<sc-if value="{{line}}" hint-placeholder-val="{{ false }}">
+<div role="status" aria-live="polite" aria-label="Session status" style="width: 100%; box-sizing: border-box; border-top: 1px solid {{bandLine}}; background: #0f0f0f; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; line-height: 1.4">
+<button type="button" aria-expanded="{{openStr}}" style="width: 100%; min-height: {{rowH}}; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 {{padX}}; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: {{fs}}; line-height: 1.4; text-align: left; white-space: nowrap; cursor: pointer">
+<span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{dotRadius}}; background: {{dotColor}}"></span>
+<span style="flex: none; font-weight: 700; color: {{labelColor}}">{{label}}</span>
+<span aria-hidden="true" style="flex: none; color: #71717a">·</span>
+<span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; color: #a1a1aa; font-family: {{detailFont}}; font-size: {{fsDetail}}">{{detail}}</span>
+<span aria-hidden="true" style="flex: none; color: #a1a1aa">{{chev}}</span>
+</button>
+<sc-if value="{{showFull}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; padding: 0 {{padX}} 10px; padding-left: calc({{padX}} + 15px); color: #d4d4d8; font-size: {{fsDetail}}; white-space: pre-line">{{full}}</p></sc-if>
+</div>
+</sc-if>
+<sc-if value="{{desk}}" hint-placeholder-val="{{ true }}">
+<div role="group" aria-label="Session status" style="width: 100%; box-sizing: border-box; display: flex; align-items: center; gap: 12px; padding: 10px max(24px, calc((100% - 712px) / 2)); border-top: 1px solid {{bandLine}}; background: #0f0f0f; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; line-height: 1.55">
+<div role="status" aria-live="polite" style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<span style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; white-space: nowrap"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{dotRadius}}; background: {{dotColor}}"></span>{{label}}</span>
+<span style="padding-left: 15px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: {{detailFont}}; font-size: 11.5px; color: #a1a1aa">{{detail}}</span>
+</div>
+<sc-if value="{{hasBg}}" hint-placeholder-val="{{ false }}"><details style="flex: none"><summary style="display: inline-flex; align-items: center; height: 28px; box-sizing: border-box; padding: 0 10px; border: 1px solid #3f3f46; color: #d4d4d8; font-size: 12px; list-style: none">Background tasks ({{bg}}) ▾</summary></details></sc-if>
+<button type="button" style="flex: none; height: 32px; padding: 0 14px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">{{action}} <span aria-hidden="true">→</span></button>
+</div>
+</sc-if>
+<sc-if value="{{phoneBand}}" hint-placeholder-val="{{ false }}">
+<div role="group" aria-label="Session status" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; padding: 10px 12px; border-top: 1px solid {{bandLine}}; background: #0f0f0f; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; line-height: 1.55">
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0">
+<div role="status" aria-live="polite" style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<span style="display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 700; white-space: nowrap"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{dotRadius}}; background: {{dotColor}}"></span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">{{label}}</span></span>
+<span style="padding-left: 15px; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: {{detailFont}}; font-size: 11.5px; color: #a1a1aa">{{detail}}</span>
+</div>
+<sc-if value="{{hasBg}}" hint-placeholder-val="{{ false }}"><details style="flex: none"><summary style="display: inline-flex; align-items: center; height: 36px; box-sizing: border-box; padding: 0 10px; border: 1px solid #3f3f46; color: #d4d4d8; font-size: 12.5px; list-style: none">Background tasks ({{bg}})</summary></details></sc-if>
+</div>
+<button type="button" style="width: 100%; height: 44px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 14px; font-weight: 700">{{action}} <span aria-hidden="true">→</span></button>
+</div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"state":{"editor":"enum","options":["working","compacting","background","crit","critBg","question","permission","waiting","idle"],"default":"crit"},"phone":{"editor":"boolean","default":false},"open":{"editor":"boolean","default":false},"label":{"editor":"text","default":""},"detail":{"editor":"text","default":""},"action":{"editor":"text","default":""},"$preview":{"width":760,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.props.state ?? 'crit';
+    const phone = this.props.phone ?? false;
+    const open = this.props.open ?? false;
+    const mono = "'JetBrains Mono', monospace";
+    const sans = 'inherit';
+    // idle (stopped or done) has no entry: the band is not drawn.
+    const T = {
+      working: { kind: 'low', tone: 'working', label: 'Working · 1m 12s', detail: 'Bash  cargo test -p logship', font: mono },
+      compacting: { kind: 'low', tone: 'working', label: 'Compacting…', detail: '古い会話を要約しています', font: sans },
+      background: { kind: 'low', tone: 'working', label: 'Background tasks (2)', detail: 'ベンチマークを回す · 4m 10s', full: 'ベンチマークを回す · 4m 10s\n依存の更新を確かめる · 1m 02s', font: sans },
+      crit: { kind: 'crit', tone: 'warning', label: 'Waiting for your review', detail: 'crit · PR #318 · 4m', font: sans },
+      critBg: { kind: 'crit', tone: 'warning', label: 'Waiting for your review', detail: 'crit · PR #318 · 4m', font: sans, bg: 1 },
+      question: { kind: 'ask', tone: 'warning', label: 'Question', detail: '既定の保存期間は 30 日でよいですか?', font: sans },
+      permission: { kind: 'ask', tone: 'warning', label: 'Permission', detail: 'Bash  pnpm run migrate', font: mono },
+      waiting: { kind: 'low', tone: 'neutral', label: 'Waiting', detail: 'CI の結果を待っています', font: sans }
+    }[st];
+    const tone = T ? T.tone : 'neutral';
+    const warn = tone === 'warning';
+    const crit = !!T && T.kind === 'crit';
+    const detail = this.props.detail || (T ? T.detail : '');
+    return {
+      line: !!T && !crit,
+      desk: crit && !phone,
+      phoneBand: crit && phone,
+      label: this.props.label || (T ? T.label : ''),
+      action: this.props.action || 'Review in crit',
+      detail,
+      full: (T && T.full) || detail,
+      // Question and permission jump back to their card in the conversation instead of expanding.
+      showFull: !!T && T.kind === 'low' && open,
+      chev: T && T.kind === 'ask' ? '↑' : open ? '▾' : '›',
+      openStr: open ? 'true' : 'false',
+      detailFont: T ? T.font : sans,
+      hasBg: !!(T && T.bg),
+      bg: T && T.bg ? T.bg : 0,
+      bandLine: warn ? '#fbbf24' : '#2a2a2a',
+      labelColor: warn ? '#fbbf24' : '#fafafa',
+      dotColor: warn ? '#fbbf24' : tone === 'working' ? '#60a5fa' : '#a1a1aa',
+      dotRadius: tone === 'working' ? '50%' : '0',
+      rowH: phone ? '44px' : '32px',
+      padX: phone ? '12px' : 'max(24px, calc((100% - 712px) / 2))',
+      fs: phone ? '14px' : '13px',
+      fsDetail: phone ? '12.5px' : '12px'
+    };
+  }
+}
+</script>
+</body>
+</html>

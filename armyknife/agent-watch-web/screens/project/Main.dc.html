@@ -13,7 +13,7 @@
 body{margin:0}
 </style>
 </helmet>
-<div style="width: 1440px; height: 3300px; box-sizing: border-box; padding: 72px 96px; display: flex; flex-direction: column; gap: 40px; background: #0a0a0a; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.7">
+<div style="width: 1440px; height: 3400px; box-sizing: border-box; padding: 72px 96px; display: flex; flex-direction: column; gap: 40px; background: #0a0a0a; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.7">
 <header>
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #fafafa"><span style="margin-right: 10px; color: #ef4444">&gt;</span>agent watch</div>
 <h1 style="margin: 12px 0 0; font-size: 32px; font-weight: 700; color: #fafafa">いまの画面の仕様</h1>
@@ -31,7 +31,7 @@ body{margin:0}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3300}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3400}}'>
 class Component extends DCLogic {
   renderVals() {
     return {
@@ -45,6 +45,7 @@ class Component extends DCLogic {
         { title: 'ナビ', items: [
           'Inbox と Board の切り替え、保存した絞り込み (VIEWS)、Starred、Recent、PM のセッションを並べます。',
           '⌘K でパレットを開き、ボタンで Inbox をたたみます。',
+          'iPhone では Inbox と会話のヘッダーの ☰ でナビを開きます。会話では ☰ を Inbox へ戻る ‹ の右に置き、タイトルを 2 行まで折り返します。',
           '一番下に claude と codex の quota (5h と 7d) を常に出します。棒の細い縦線は均等に使ったときの量です。棒の右に、このペースで窓の終わりに何 % になるかを → 92% の形で出します。100% 未満は灰、100% 以上 150% 未満は黄、150% 以上は赤の太字で、窓の経過が 5% 未満のうちは出しません。その右はリセットまでの時間です。'
         ] },
         { title: 'Inbox', items: [
@@ -60,8 +61,8 @@ class Component extends DCLogic {
         ] },
         { title: '会話', items: [
           'メッセージは最大 672px の列に中央寄せで並べます。返事を待つカードも会話の中に出します (composer の上には固定しません)。',
-          'ヘッダーに主の tq タスク、repo、親セッション、PR、ターミナルで開くボタンを置きます。ヘッダーには Merge を置かず、PR のボタンの印でマージの状態を出します (マージ中は青の回転、失敗は赤の ! と赤枠。PC ではアイコンの右に並べ、iPhone は角に載せる)。マージ済みでは印を出しません。',
-          'Merge は返信欄の上の帯と、PR の一覧 (PC はポップオーバー、iPhone はシート) のマージできる各行の 2 か所に出します。帯はマージできる PR があると Ready to merge と Merge を出し、Merging…、Merge failed と Retry に変わります。マージできる PR が複数なら行を重ね、Question や crit の帯とは縦に積みます。終わったセッションでも This session has ended の上に出し、マージ済みでは帯を出しません。一覧のマージできない行には、Merge の代わりにその理由を出します。帯と一覧の行は同じ PR を操作するので、同じ状態を出します。一覧の行は PC と iPhone で同じ部品を使い、iPhone では押せる高さを 44px にします。',
+          'ヘッダーに主の tq タスク、repo、親セッション、PR、ターミナルで開くボタンを置きます。ヘッダーには Merge を置かず、PR のボタンの印でマージの状態を出します (マージ中は青の回転、失敗は赤の ! と赤枠。PC はアイコンの右、iPhone は PR のボタンを置かず状況パネルのボタンの角)。マージ済みでは印を出しません。',
+          'Merge は返信欄の上の帯と、PR の一覧 (PC はポップオーバー、iPhone は状況パネルの先頭) のマージできる各行の 2 か所に出します。帯はマージできる PR があると Ready to merge と Merge を出し、Merging…、Merge failed と Retry に変わります。マージできる PR が複数なら行を重ね、Question や crit の帯とは縦に積みます。終わったセッションでも This session has ended の上に出し、マージ済みでは帯を出しません。一覧のマージできない行には、Merge の代わりにその理由を出します。帯と一覧の行は同じ PR を操作するので、同じ状態を出します。一覧の行は PC と iPhone で同じ部品を使い、iPhone では押せる高さを 44px にします。',
           'Done のセッションは PC ではヘッダーの Close、iPhone では ⋯ のメニューの Close ですぐ閉じます。それ以外はヘッダーの ⋯ (iPhone は ⋯ のメニューの一番下) の赤い Close session… から閉じ、Merge と同じ中央の確認ダイアログ (iPhone は下からのシート) を出します。確認の文言は状態ごとに変えます。',
           '返信欄の上に、会話欄の幅いっぱいの帯で今の状態を出します。状態と詳細 (質問の文、実行中のコマンド、タスク名) を 1 行にまとめ、はみ出た詳細は … で切ります。帯を押すと詳細を全部出し、質問と permission では会話の中のカードに戻ります。crit と draft のレビュー待ちだけは 2 行の帯にし、Review in crit で crit を全画面で、Open drafts で状況パネルの Review タブを開きます。止まっているときは帯を出しません。',
           'メッセージの中のリンクの URL が登録済みの web UI の URL なら、リンクの後ろに開く先のタブ名のチップ (canvas など) を出します。押すと crit と同じく、そのタブを watch-web の中で全画面で開き、↙ で状況パネルに戻ります。iPhone は web UI だけのページを会話の上に重ねます。ブラウザの新しいタブへは、web UI のヘッダーの URL (iPhone は ↗) からだけ開きます。',
@@ -73,7 +74,7 @@ class Component extends DCLogic {
           'Merge と Close session… は確認ダイアログで確定するとすぐダイアログを閉じ、裏で実行します。実行中もほかの操作や別のセッションへの移動ができます。',
           '押した場所に結果を出します。Merge は、帯と PR の一覧の行のどちらで押しても両方が Merging… になります。帯と行は同じ見た目で、マージキューに入ったら Queued、失敗したら Merge failed と Retry を出します。マージできたら帯は消え、一覧の行は Merged か Already merged になります。Inbox の行は Closing… になり、閉じたら消え、失敗したら Close failed と Retry を出します。',
           'トーストは画面全体への通知です。PC はどの画面でも画面の左下 (左と下から 16px) に、iPhone は返信欄の上に重ね、2 つ以上は上に積みます。成功は自動で消え、失敗は Retry と Details を付けて残します。',
-          'ナビの quota の上 (iPhone もナビゲーションの quota の上) に Activity を置き、実行中を青、失敗を赤の数で示し、一覧を開けます。まだ一度も実行していないあいだは数を出さずに Activity を薄く示し、開くと No recent activity. と Merge, Close and command results appear here. を出します。iPhone では失敗があるあいだ、Inbox のナビゲーションのボタンに赤い印を付けます。会話にも Merged PR #2049 · 12:03 の形で 1 行残します。',
+          'ナビの quota の上 (iPhone もナビゲーションの quota の上) に Activity を置き、実行中を青、失敗を赤の数で示し、一覧を開けます。まだ一度も実行していないあいだは数を出さずに Activity を薄く示し、開くと No recent activity. と Merge, Close and command results appear here. を出します。iPhone では失敗があるあいだ、Inbox と会話のナビゲーションのボタン ☰ に赤い印を付けます。会話にも Merged PR #2049 · 12:03 の形で 1 行残します。',
           'Close は、コミットしていない変更、merge していないブランチ、動いているプロセスの 3 つを全部調べてから失敗を返します。どこから閉じても、トーストと会話の 1 行には残っているものの要約と Close and keep worktree を、Activity には 3 つの確認の結果 (ファイル、PR、pid) を全部並べ、Open in terminal も置きます。',
           'メッセージの ! コマンドも、確認ダイアログで Run command を押すとすぐダイアログを閉じ、裏で実行します。トースト (2 行目はコマンド)、Activity、会話の最後の 1 行に Running command から Ran command、Command failed · exit 1、Command timed out (30 秒で止めます) のどれかを出します。失敗のトーストと Activity の行には Show output だけを置き、押すとそのセッションの会話で、サーバーが送った結果のメッセージ (終了コードと stdout / stderr) までスクロールして枠で示します。やり直すときは、メッセージのボタンをもう一度押します。'
         ] },

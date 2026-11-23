@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Background action results by kind</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1640px; height: 1400px; box-sizing: border-box; display: grid; grid-template-columns: 140px 340px 360px 300px 300px; grid-auto-rows: min-content; align-items: start; gap: 28px 24px; padding: 40px; background: #050505; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+<span style="font-size: 12px; color: #8b8b94">Result</span>
+<span style="font-size: 12px; color: #8b8b94">Toast</span>
+<span style="font-size: 12px; color: #8b8b94">Activity</span>
+<span style="font-size: 12px; color: #8b8b94">Conversation</span>
+<span style="font-size: 12px; color: #8b8b94">Where you pressed it</span>
+<sc-for list="{{kinds}}" as="k" hint-placeholder-count="8">
+<span style="font-size: 12px; color: #a1a1aa">{{k.label}}</span>
+<dc-import name="BeforeActionItem" a="{{ k.a }}" form="toast" hint-size="100%,72px"></dc-import>
+<div style="background: #1f1f1f"><dc-import name="BeforeActionItem" a="{{ k.a }}" form="row" hint-size="100%,64px"></dc-import></div>
+<sc-if value="{{k.inConversation}}" hint-placeholder-val="{{ true }}"><dc-import name="BeforeActionItem" a="{{ k.a }}" form="line" hint-size="100%,24px"></dc-import></sc-if>
+<sc-if value="{{k.notInConversation}}" hint-placeholder-val="{{ false }}"><span style="color: #8b8b94; font-size: 12px">{{k.noLine}}</span></sc-if>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<sc-if value="{{k.hasBand}}" hint-placeholder-val="{{ true }}"><div style="background: #0a0a0a"><dc-import name="BeforeMergeBand" prs="{{ k.band }}" hint-size="100%,58px"></dc-import></div></sc-if>
+<sc-if value="{{k.noBand}}" hint-placeholder-val="{{ false }}"><span style="color: #8b8b94; font-size: 12px">The merge band leaves.</span></sc-if>
+<sc-if value="{{k.isMerge}}" hint-placeholder-val="{{ true }}"><div style="display: flex; align-items: center; gap: 10px; color: #8b8b94; font-size: 12px"><span style="width: 52px">PR</span><dc-import name="BeforePrButton" badge="{{k.badge}}" count="{{ 1 }}" hint-size="30px,26px"></dc-import><span style="color: {{k.rowColor}}">{{k.rowText}}</span></div></sc-if>
+<sc-if value="{{k.isCloseRow}}" hint-placeholder-val="{{ false }}"><div style="background: #0c0c0c"><dc-import name="BeforeSessionRow" s="{{ k.row }}" density="full" hint-size="100%,96px"></dc-import></div></sc-if>
+<sc-if value="{{k.isClosed}}" hint-placeholder-val="{{ false }}"><span style="color: #8b8b94; font-size: 12px">The row leaves the Inbox.</span></sc-if>
+</div>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1640,"height":1400}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const ms = '配信チェックの PR を確認する';
+    const cs = 'アラートの送り先を決める';
+    const row = (close) => ({ status: 'Proposal', title: cs, age: '12m', preview: '2 つの案から選んでください。', role: 'designer', engine: 'claude', taskRef: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/observability', close, closeReason: 'The session did not stop within 10 s.' });
+    const k = (label, a, extra) => ({ label, a, isMerge: false, hasBand: false, noBand: false, isCloseRow: false, isClosed: false, merge: 'idle', row: null, inConversation: true, notInConversation: false, noLine: '', ...extra });
+    const noLine = { inConversation: false, notInConversation: true, noLine: 'Not shown: the closed session leaves the screen.' };
+    // Merge results show on the band above the composer, the PR button's mark and the PR list row's text.
+    const merge = (state, rowText, rowColor) => {
+      const band = { merging: 'merging', queued: 'queued', failed: 'failed' }[state];
+      return {
+        isMerge: true, merge: state, rowText, rowColor,
+        hasBand: !!band, noBand: !band,
+        band: band ? [{ num: 2049, title: '配信前のチェックを追加する', state: band, reason: 'Head branch was updated after you confirmed. Confirm the new head to merge.' }] : [],
+        badge: { merging: 'merging', queued: 'merging', failed: 'mergeFailed' }[state] ?? 'none'
+      };
+    };
+    return {
+      kinds: [
+        k('Merging', { result: 'merging', pr: 2049, session: ms, time: 'now' }, merge('merging', 'Merging…', '#a1a1aa')),
+        k('Merged', { result: 'merged', pr: 2049, session: ms, time: '12:03' }, merge('merged', '✓ Merged', '#4ade80')),
+        k('Already merged', { result: 'alreadyMerged', pr: 2049, session: ms, time: '12:03' }, merge('alreadyMerged', 'Already merged', '#a1a1aa')),
+        k('Added to the merge queue', { result: 'queued', pr: 2049, session: ms, time: '12:03' }, merge('queued', 'Queued', '#60a5fa')),
+        k('Merge failed', { result: 'mergeFailed', pr: 2049, session: ms, reason: 'Head branch was updated after you confirmed. Confirm the new head to merge.', time: '12:03' }, merge('failed', 'Merge failed', '#f87171')),
+        k('Closing', { result: 'closing', session: cs, time: 'now' }, { isCloseRow: true, row: row('closing') }),
+        k('Closed', { result: 'closed', session: cs, time: '12:03' }, { isClosed: true, ...noLine }),
+        k('Close failed', { result: 'closeFailed', session: cs, reason: 'The session did not stop within 10 s.', time: '12:03' }, { isCloseRow: true, row: row('failed') })
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

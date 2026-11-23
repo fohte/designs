@@ -33,7 +33,7 @@ a{color:#ef4444}
 <sc-for list="{{prGroups}}" as="g" hint-placeholder-count="2">
 <h3 style="margin: 0; padding: 8px 14px 4px; color: #8b8b94; font-size: 11.5px; font-weight: 400">{{g.name}}</h3>
 <sc-for list="{{g.rows}}" as="r" hint-placeholder-count="1">
-<div style="display: grid; grid-template-columns: 7px 1fr auto; align-items: center; column-gap: 10px; padding: 6px 14px; color: {{r.color}}"><span role="img" aria-label="{{r.ci}}" title="{{r.ci}}" style="width: 7px; height: 7px; background: {{r.dot}}"></span><a href="#" style="min-width: 0; display: grid; color: inherit; text-decoration: none"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">#{{r.num}}</span> {{r.title}}</span><span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{r.repo}}</span></a><span style="color: {{r.metaColor}}; font-size: 12px; white-space: nowrap">{{r.meta}}</span></div>
+<div style="display: grid; grid-template-columns: 7px 1fr auto; align-items: center; column-gap: 10px; padding: 6px 14px; color: {{r.color}}"><span role="img" aria-label="{{r.ci}}" title="{{r.ci}}" style="width: 7px; height: 7px; background: {{r.dot}}"></span><a href="#" style="min-width: 0; display: grid; color: inherit; text-decoration: none"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">#{{r.num}}</span> {{r.title}}</span><span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{r.repo}}</span></a><sc-if value="{{r.showMerge}}" hint-placeholder-val="{{ false }}"><dc-import name="MergeButton" state="{{r.mergeState}}" num="{{ r.num }}" form="row" hint-size="64px,26px"></dc-import></sc-if><sc-if value="{{r.showWhy}}" hint-placeholder-val="{{ true }}"><span style="color: #8b8b94; font-size: 12px; white-space: nowrap">{{r.why}}</span></sc-if></div>
 </sc-for>
 </sc-for>
 </section>
@@ -249,12 +249,8 @@ class Component extends DCLogic {
     };
     P.main = withMerge(P.main);
     P.others = P.others.map(withMerge);
-    // The list only shows each PR's state; the band above the composer is the one place to merge.
-    const MS = { merging: ['Merging…', '#a1a1aa'], failed: ['Merge failed', '#f87171'], merged: ['✓ Merged', '#4ade80'], alreadyMerged: ['Already merged', '#a1a1aa'], queued: ['Queued', '#60a5fa'] };
-    const row = (r) => {
-      const ms = MS[r.mergeState];
-      return { ...r, meta: ms ? ms[0] : r.can ? 'CI passed' : r.why, metaColor: ms ? ms[1] : '#8b8b94' };
-    };
+    // A row's Merge and the band act on the same PR, so both show the same merge state.
+    const row = (r) => ({ ...r, showMerge: r.can, showWhy: !r.can });
     const all = [P.main].concat(P.others);
     const mergeBand = all.filter(r => r.can && r.mergeState !== 'merged' && r.mergeState !== 'alreadyMerged')
       .map(r => ({ num: r.num, title: r.title, state: r.mergeState, reason: this.props.actionLine?.reason }));

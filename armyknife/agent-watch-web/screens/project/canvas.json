@@ -2,7 +2,7 @@
   "title": "agent watch UI",
   "boards": {
     "ActionActivity.dc.html": {
-      "x": 3980,
+      "x": 6890,
       "y": 10220,
       "w": 1440,
       "h": 900,
@@ -10,7 +10,7 @@
       "page": "topbar"
     },
     "ActionAway.dc.html": {
-      "x": 1990,
+      "x": 4900,
       "y": 10220,
       "w": 1440,
       "h": 900,
@@ -18,7 +18,7 @@
       "page": "topbar"
     },
     "ActionCopy.dc.html": {
-      "x": 6910,
+      "x": 9820,
       "y": 10220,
       "w": 1640,
       "h": 1400,
@@ -282,7 +282,7 @@
       "page": "components"
     },
     "Dialogs.dc.html": {
-      "x": 2398,
+      "x": 5716,
       "y": 300,
       "w": 1440,
       "h": 900,
@@ -341,7 +341,7 @@
       "x": 0,
       "y": 0,
       "w": 1440,
-      "h": 2640,
+      "h": 2720,
       "title": "仕様のまとめ",
       "page": "inbox"
     },
@@ -442,7 +442,7 @@
       "page": "palette"
     },
     "PhoneActionActivity.dc.html": {
-      "x": 6440,
+      "x": 9350,
       "y": 10220,
       "w": 390,
       "h": 844,
@@ -450,7 +450,7 @@
       "page": "topbar"
     },
     "PhoneActionAway.dc.html": {
-      "x": 3510,
+      "x": 6420,
       "y": 10220,
       "w": 390,
       "h": 844,
@@ -465,7 +465,7 @@
       "page": "topbar"
     },
     "PhoneActionDrawer.dc.html": {
-      "x": 5970,
+      "x": 8880,
       "y": 10220,
       "w": 390,
       "h": 844,
@@ -481,7 +481,7 @@
       "page": "topbar"
     },
     "PhoneActionInbox.dc.html": {
-      "x": 5500,
+      "x": 8410,
       "y": 10220,
       "w": 390,
       "h": 844,
@@ -489,7 +489,7 @@
       "page": "topbar"
     },
     "PhoneActionQueued.dc.html": {
-      "x": 1520,
+      "x": 3500,
       "y": 10220,
       "w": 390,
       "h": 844,
@@ -607,7 +607,7 @@
       "page": "topbar"
     },
     "PhoneChatPrs.dc.html": {
-      "x": 1928,
+      "x": 4316,
       "y": 300,
       "w": 390,
       "h": 844,
@@ -695,7 +695,7 @@
       "page": "topbar"
     },
     "PhoneDialogs.dc.html": {
-      "x": 3918,
+      "x": 7236,
       "y": 300,
       "w": 390,
       "h": 673,
@@ -1258,6 +1258,206 @@
       "h": 900,
       "title": "会話の中の web UI のリンク · 後ろに開く先のタブ名",
       "page": "conversation"
+    },
+    "MergeButton.dc.html": {
+      "x": 2384,
+      "y": 2240,
+      "w": 160,
+      "h": 44,
+      "title": "MergeButton",
+      "page": "components"
+    },
+    "before/BeforeActionCopy.dc.html": {
+      "x": 11540,
+      "y": 10220,
+      "w": 1640,
+      "h": 1400,
+      "title": "Before · 確定したあとの結果 · 種類ごとの文言",
+      "page": "topbar"
+    },
+    "before/BeforePhoneChatPrs.dc.html": {
+      "x": 4786,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · セッションの PR 一覧",
+      "page": "topbar"
+    },
+    "before/BeforePhoneActionQueued.dc.html": {
+      "x": 3970,
+      "y": 10220,
+      "w": 390,
+      "h": 844,
+      "title": "Before · PhoneActionQueued",
+      "page": "topbar"
+    },
+    "before/BeforeConversationPrs.dc.html": {
+      "x": 1928,
+      "y": 300,
+      "w": 1848,
+      "h": 970,
+      "title": "Before · セッションのヘッダー · PR のボタンを押したとき",
+      "page": "topbar"
+    },
+    "before/BeforeActionQueued.dc.html": {
+      "x": 1520,
+      "y": 10220,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 確定したあと · マージキューに入った (PR の一覧を開いた状態)",
+      "page": "topbar"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 2640,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
+    },
+    "before/BeforeActionItem.dc.html": {
+      "x": 0,
+      "y": 5860,
+      "w": 360,
+      "h": 110,
+      "title": "BeforeActionItem",
+      "page": "components"
+    },
+    "before/BeforeActivityButton.dc.html": {
+      "x": 440,
+      "y": 5860,
+      "w": 224,
+      "h": 44,
+      "title": "BeforeActivityButton",
+      "page": "components"
+    },
+    "before/BeforeCloseChecks.dc.html": {
+      "x": 744,
+      "y": 5860,
+      "w": 408,
+      "h": 170,
+      "title": "BeforeCloseChecks",
+      "page": "components"
+    },
+    "before/BeforeCodeBlock.dc.html": {
+      "x": 1232,
+      "y": 5860,
+      "w": 672,
+      "h": 160,
+      "title": "BeforeCodeBlock",
+      "page": "components"
+    },
+    "before/BeforeConfirmDialog.dc.html": {
+      "x": 1984,
+      "y": 5860,
+      "w": 380,
+      "h": 200,
+      "title": "BeforeConfirmDialog",
+      "page": "components"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 2444,
+      "y": 5860,
+      "w": 880,
+      "h": 900,
+      "title": "BeforeConversation",
+      "page": "components"
+    },
+    "before/BeforeInboxList.dc.html": {
+      "x": 3404,
+      "y": 5860,
+      "w": 460,
+      "h": 900,
+      "title": "BeforeInboxList",
+      "page": "components"
+    },
+    "before/BeforeMergeBand.dc.html": {
+      "x": 3944,
+      "y": 5860,
+      "w": 760,
+      "h": 60,
+      "title": "BeforeMergeBand",
+      "page": "components"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 4784,
+      "y": 5860,
+      "w": 240,
+      "h": 900,
+      "title": "BeforeNav",
+      "page": "components"
+    },
+    "before/BeforePhoneChat.dc.html": {
+      "x": 5104,
+      "y": 5860,
+      "w": 390,
+      "h": 844,
+      "title": "BeforePhoneChat",
+      "page": "components"
+    },
+    "before/BeforePrButton.dc.html": {
+      "x": 5574,
+      "y": 5860,
+      "w": 44,
+      "h": 44,
+      "title": "BeforePrButton",
+      "page": "components"
+    },
+    "before/BeforeQuota.dc.html": {
+      "x": 5698,
+      "y": 5860,
+      "w": 240,
+      "h": 140,
+      "title": "BeforeQuota",
+      "page": "components"
+    },
+    "before/BeforeSessionRow.dc.html": {
+      "x": 0,
+      "y": 6880,
+      "w": 460,
+      "h": 76,
+      "title": "BeforeSessionRow",
+      "page": "components"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 540,
+      "y": 6880,
+      "w": 672,
+      "h": 40,
+      "title": "BeforeSessionUsage",
+      "page": "components"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 1292,
+      "y": 6880,
+      "w": 760,
+      "h": 60,
+      "title": "BeforeStatusBand",
+      "page": "components"
+    },
+    "before/BeforeToastStack.dc.html": {
+      "x": 2132,
+      "y": 6880,
+      "w": 360,
+      "h": 240,
+      "title": "BeforeToastStack",
+      "page": "components"
+    },
+    "before/BeforeTodoCard.dc.html": {
+      "x": 2572,
+      "y": 6880,
+      "w": 672,
+      "h": 40,
+      "title": "BeforeTodoCard",
+      "page": "components"
+    },
+    "before/BeforeUpdateBand.dc.html": {
+      "x": 3324,
+      "y": 6880,
+      "w": 760,
+      "h": 40,
+      "title": "BeforeUpdateBand",
+      "page": "components"
     }
   },
   "order": [
@@ -1418,7 +1618,32 @@
     "StatusReviewPreview.dc.html",
     "PhoneStatusReviewPreview.dc.html",
     "PrButton.dc.html",
-    "MergeBand.dc.html"
+    "MergeBand.dc.html",
+    "MergeButton.dc.html",
+    "before/BeforeActionCopy.dc.html",
+    "before/BeforePhoneChatPrs.dc.html",
+    "before/BeforePhoneActionQueued.dc.html",
+    "before/BeforeConversationPrs.dc.html",
+    "before/BeforeActionQueued.dc.html",
+    "before/BeforeMain.dc.html",
+    "before/BeforeActionItem.dc.html",
+    "before/BeforeActivityButton.dc.html",
+    "before/BeforeCloseChecks.dc.html",
+    "before/BeforeCodeBlock.dc.html",
+    "before/BeforeConfirmDialog.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforeInboxList.dc.html",
+    "before/BeforeMergeBand.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforePhoneChat.dc.html",
+    "before/BeforePrButton.dc.html",
+    "before/BeforeQuota.dc.html",
+    "before/BeforeSessionRow.dc.html",
+    "before/BeforeSessionUsage.dc.html",
+    "before/BeforeStatusBand.dc.html",
+    "before/BeforeToastStack.dc.html",
+    "before/BeforeTodoCard.dc.html",
+    "before/BeforeUpdateBand.dc.html"
   ],
   "pages": [
     {
@@ -1544,7 +1769,7 @@
     },
     "rowInboxConversation": {
       "x": 0,
-      "y": 2700,
+      "y": 2770,
       "text": "Inbox と会話 · tq タスクが複数のとき",
       "kind": "title1",
       "maxW": 3900,
@@ -1717,6 +1942,56 @@
       "maxW": 1910,
       "page": "conversation",
       "text": "会話の中の web UI のリンク · 開く先のタブ名"
+    },
+    "diffActionCopy": {
+      "x": 13260,
+      "y": 10220,
+      "w": 380,
+      "text": "変更点\n- Where you pressed it の列に PR の一覧の行を足し、マージの状態ごとの行の表示 (Merge、Merging…、Failed と Retry、Queued、Merged) を出した",
+      "page": "topbar"
+    },
+    "diffPhoneChatPrs": {
+      "x": 5256,
+      "y": 300,
+      "w": 380,
+      "text": "変更点\n- シートの #64 の行を「CI passed」の文字から、高さ 44px の Merge ボタンに戻した",
+      "page": "topbar"
+    },
+    "diffPhoneActionQueued": {
+      "x": 4440,
+      "y": 10220,
+      "w": 380,
+      "text": "変更点\n- シートの #64 の行の Queued を、行の Merge ボタンと同じ部品の Queued 表示にした",
+      "page": "topbar"
+    },
+    "diffConversationPrs": {
+      "x": 3856,
+      "y": 300,
+      "w": 380,
+      "text": "変更点\n- PR の一覧のマージできる行に Merge を戻した。返信欄の上の帯の Merge も残し、どちらからでもマージできる\n- マージできない行は理由 (CI failing など) のまま",
+      "page": "topbar"
+    },
+    "diffActionQueued": {
+      "x": 3040,
+      "y": 10220,
+      "w": 380,
+      "text": "変更点\n- ポップオーバーの行の Queued を、行の Merge ボタンと同じ部品の Queued 表示にした",
+      "page": "topbar"
+    },
+    "diffMain": {
+      "x": 3040,
+      "y": 0,
+      "w": 380,
+      "text": "変更点\n- 会話の節: Merge は返信欄の上の帯と PR の一覧の行の 2 か所に出て、同じ PR の同じ状態を出す、に書き換えた\n- ボードの高さを 2720px に",
+      "page": "inbox"
+    },
+    "beforeParts": {
+      "x": 0,
+      "y": 5560,
+      "text": "Before · 変更前のボードが読み込む部品",
+      "kind": "title1",
+      "maxW": 6000,
+      "page": "components"
     }
   },
   "v": 3,

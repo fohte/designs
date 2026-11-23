@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Result lines in the timeline</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; display: flex; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" activity="{{ activity }}" hint-size="240px,900px"></dc-import></div>
+<div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" current="{{ one }}" hint-size="460px,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0"><dc-import name="Conversation" variant="code" merge-state="merged" timeline="{{ timeline }}" hint-size="100%,900px"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      one: 1,
+      activity: { count: '', tone: 'idle' },
+      timeline: [
+        { line: { result: 'merged', pr: 2049, time: '12:03' } },
+        { you: '続けて、再送の上限を設定ファイルで変えられるようにして。', time: '12:05' },
+        { text: '上限を retry.limit から読むようにして PR #2052 を作りました。CI が通ったらマージしてください。' },
+        { line: { result: 'merged', pr: 2052, time: '12:31' } },
+        { you: 'ありがとう。失敗したときのログも見ておいて。', time: '12:34' },
+        { text: '失敗したときのログを見ています。気になる点があれば書きます。' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

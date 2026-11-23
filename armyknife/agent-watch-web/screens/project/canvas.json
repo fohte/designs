@@ -480,6 +480,22 @@
       "title": "iPhone · Merge が失敗",
       "page": "topbar"
     },
+    "ActionTimeline.dc.html": {
+      "x": 6440,
+      "y": 8900,
+      "w": 1440,
+      "h": 900,
+      "title": "結果の行は押した時点の位置に残り、あとのメッセージと一緒に上へ流れる",
+      "page": "topbar"
+    },
+    "PhoneActionTimeline.dc.html": {
+      "x": 7960,
+      "y": 8900,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 結果の行が会話と一緒に流れる",
+      "page": "topbar"
+    },
     "PhoneActionInbox.dc.html": {
       "x": 5500,
       "y": 10220,
@@ -1470,6 +1486,8 @@
     "PhoneActionRunning.dc.html",
     "PhoneActionSuccess.dc.html",
     "PhoneActionFailure.dc.html",
+    "ActionTimeline.dc.html",
+    "PhoneActionTimeline.dc.html",
     "PhoneActionClose.dc.html",
     "PhoneActionInbox.dc.html",
     "PhoneActionDrawer.dc.html",
@@ -1608,9 +1626,9 @@
     "rowActionResult": {
       "x": 0,
       "y": 8600,
-      "text": "Merge と Close を裏で実行 · 実行中、成功、失敗",
+      "text": "Merge と Close を裏で実行 · 実行中、成功、失敗、会話の中の結果の行",
       "kind": "title1",
-      "maxW": 6360,
+      "maxW": 8350,
       "page": "topbar"
     },
     "rowActivityEmpty": {

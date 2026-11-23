@@ -119,6 +119,13 @@ body{margin:0}
 </article>
 </sc-if>
 </sc-if>
+<sc-if value="{{hasTimeline}}" hint-placeholder-val="{{ false }}">
+<sc-for list="{{timeline}}" as="t" hint-placeholder-count="3">
+<sc-if value="{{t.isLine}}" hint-placeholder-val="{{ true }}"><dc-import name="ActionItem" a="{{ t.line }}" form="line" phone="{{ true }}" hint-size="100%,24px"></dc-import></sc-if>
+<sc-if value="{{t.isYou}}" hint-placeholder-val="{{ false }}"><article style="align-self: flex-end; max-width: 92%; display: flex; flex-direction: column; gap: 4px"><div style="text-align: right; font-size: 12px; color: #8b8b94">You · {{t.time}}</div><div style="padding: 10px 14px; background: #1f1f1f">{{t.you}}</div></article></sc-if>
+<sc-if value="{{t.isText}}" hint-placeholder-val="{{ false }}"><article style="color: #d4d4d8">{{t.text}}</article></sc-if>
+</sc-for>
+</sc-if>
 <sc-if value="{{hasActionLine}}" hint-placeholder-val="{{ false }}">
 <dc-import name="ActionItem" a="{{ actionLine }}" form="line" phone="{{ true }}" hint-size="100%,24px"></dc-import>
 </sc-if>
@@ -156,7 +163,7 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"update":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"state":{"editor":"enum","options":["question","review","todo","code"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"longTitle":{"editor":"boolean","default":false},"activity":{"editor":null},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"update":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"state":{"editor":"enum","options":["question","review","todo","code"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"longTitle":{"editor":"boolean","default":false},"activity":{"editor":null},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
   // bang: the ! command in the last reply. '' (none) | idle | running | succeeded | failed | timedOut.
   // The server sends each run's result to the session as your message; bangHighlight outlines it (Show output landed there).
@@ -231,6 +238,9 @@ class Component extends DCLogic {
       toasts, toastsInline: toasts.length > 0,
       ...this.bangVals(),
       actionLine: this.props.actionLine ?? null, hasActionLine: !!this.props.actionLine,
+      // timeline: entries after the reply above, oldest first: { line } (a result line where its action started), { you, time } or { text }.
+      timeline: (this.props.timeline ?? []).map((t) => ({ ...t, isLine: !!t.line, isYou: !!t.you, isText: !!t.text })),
+      hasTimeline: (this.props.timeline ?? []).length > 0,
       // vibeEvents: lines like 'Vibe mode turned on · 10:14'. The switch reaches the session as a message but draws as an event, not as You.
       vibeEvents: this.props.vibeEvents ?? [], hasVibeEvents: (this.props.vibeEvents ?? []).length > 0,
       vibeText: VB.text, vibeSub: VB.sub, vibeHead: VB.head, vibeBody: VB.body, vibeAction: VB.action,

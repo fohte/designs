@@ -1,0 +1,390 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-23T10:00:00Z"
+  },
+  "title": "explore: マージを会話の流れに出す",
+  "launch": {
+    "view": "canvas",
+    "page": "current"
+  },
+  "pages": [
+    {
+      "id": "current",
+      "name": "今の画面"
+    },
+    {
+      "id": "q1",
+      "name": "いつ出し、どう変わるか"
+    },
+    {
+      "id": "q2",
+      "name": "PR が多いとき"
+    },
+    {
+      "id": "q3",
+      "name": "PR の一覧とまとめ"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-23T10:00:00Z"
+    }
+  ],
+  "boards": {
+    "merge-timeline-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 2612,
+      "h": 936,
+      "title": "今の画面 · 返信欄の上の帯にマージできる PR が並ぶ",
+      "page": "current"
+    },
+    "q1-created.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 4760,
+      "h": 1300,
+      "title": "PR を作った返答の下に出し、その場で書き換える",
+      "page": "q1"
+    },
+    "MergeEntry.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 672,
+      "h": 64,
+      "title": "MergeEntry",
+      "page": "parts"
+    },
+    "MergeGroup.dc.html": {
+      "x": 0,
+      "y": 184,
+      "w": 672,
+      "h": 64,
+      "title": "MergeGroup",
+      "page": "parts"
+    },
+    "MergeChip.dc.html": {
+      "x": 0,
+      "y": 368,
+      "w": 760,
+      "h": 48,
+      "title": "MergeChip",
+      "page": "parts"
+    },
+    "MergeFeed.dc.html": {
+      "x": 0,
+      "y": 536,
+      "w": 672,
+      "h": 300,
+      "title": "MergeFeed",
+      "page": "parts"
+    },
+    "PrButton.dc.html": {
+      "x": 0,
+      "y": 956,
+      "w": 44,
+      "h": 44,
+      "title": "PrButton",
+      "page": "parts"
+    },
+    "Conversation.dc.html": {
+      "x": 900,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "parts"
+    },
+    "PhoneChat.dc.html": {
+      "x": 1860,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneChat",
+      "page": "parts"
+    },
+    "MergeBand.dc.html": {
+      "x": 2330,
+      "y": 0,
+      "w": 760,
+      "h": 60,
+      "title": "MergeBand",
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 2330,
+      "y": 180,
+      "w": 160,
+      "h": 44,
+      "title": "MergeButton",
+      "page": "parts"
+    },
+    "ActionItem.dc.html": {
+      "x": 2330,
+      "y": 344,
+      "w": 360,
+      "h": 110,
+      "title": "ActionItem",
+      "page": "parts"
+    },
+    "ToastStack.dc.html": {
+      "x": 2330,
+      "y": 574,
+      "w": 360,
+      "h": 240,
+      "title": "ToastStack",
+      "page": "parts"
+    },
+    "CloseChecks.dc.html": {
+      "x": 2330,
+      "y": 934,
+      "w": 408,
+      "h": 170,
+      "title": "CloseChecks",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 3170,
+      "y": 0,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    },
+    "UpdateBand.dc.html": {
+      "x": 3170,
+      "y": 180,
+      "w": 760,
+      "h": 40,
+      "title": "UpdateBand",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 3170,
+      "y": 340,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    },
+    "TodoCard.dc.html": {
+      "x": 3170,
+      "y": 500,
+      "w": 672,
+      "h": 40,
+      "title": "TodoCard",
+      "page": "parts"
+    },
+    "CodeBlock.dc.html": {
+      "x": 3170,
+      "y": 660,
+      "w": 672,
+      "h": 160,
+      "title": "CodeBlock",
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 3170,
+      "y": 940,
+      "w": 380,
+      "h": 200,
+      "title": "ConfirmDialog",
+      "page": "parts"
+    },
+    "q1-ready.dc.html": {
+      "x": 0,
+      "y": 1680,
+      "w": 4760,
+      "h": 1300,
+      "title": "マージできるようになった時に一番下へ足し、その場で書き換える",
+      "page": "q1"
+    },
+    "q1-log.dc.html": {
+      "x": 0,
+      "y": 3360,
+      "w": 4760,
+      "h": 1300,
+      "title": "状態が変わるたびに一番下へ 1 行足す",
+      "page": "q1"
+    },
+    "q2-each.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 3602,
+      "h": 1300,
+      "title": "PR ごとに 1 行",
+      "page": "q2"
+    },
+    "q2-group.dc.html": {
+      "x": 0,
+      "y": 1680,
+      "w": 3602,
+      "h": 1300,
+      "title": "1 つの返答の PR をまとめ、開くと一覧",
+      "page": "q2"
+    },
+    "q2-all.dc.html": {
+      "x": 0,
+      "y": 3360,
+      "w": 3602,
+      "h": 1300,
+      "title": "まとめて Merge all",
+      "page": "q2"
+    },
+    "q3-none.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 5248,
+      "h": 936,
+      "title": "返信欄の近くには何も出さない",
+      "page": "q3"
+    },
+    "q3-chip.dc.html": {
+      "x": 0,
+      "y": 1316,
+      "w": 5248,
+      "h": 936,
+      "title": "返信欄の上に 1 行のまとめ",
+      "page": "q3"
+    },
+    "q3-count.dc.html": {
+      "x": 0,
+      "y": 2632,
+      "w": 5248,
+      "h": 936,
+      "title": "PR のボタンにマージできる数",
+      "page": "q3"
+    },
+    "Q3Screens.dc.html": {
+      "x": 0,
+      "y": 1300,
+      "w": 5248,
+      "h": 936,
+      "title": "Q3Screens",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "merge-timeline-current.dc.html",
+    "q1-created.dc.html",
+    "q1-ready.dc.html",
+    "q1-log.dc.html",
+    "q2-each.dc.html",
+    "q2-group.dc.html",
+    "q2-all.dc.html",
+    "q3-none.dc.html",
+    "q3-chip.dc.html",
+    "q3-count.dc.html",
+    "Q3Screens.dc.html",
+    "MergeEntry.dc.html",
+    "MergeGroup.dc.html",
+    "MergeChip.dc.html",
+    "MergeFeed.dc.html",
+    "PrButton.dc.html",
+    "Conversation.dc.html",
+    "PhoneChat.dc.html",
+    "MergeBand.dc.html",
+    "MergeButton.dc.html",
+    "ActionItem.dc.html",
+    "ToastStack.dc.html",
+    "CloseChecks.dc.html",
+    "StatusBand.dc.html",
+    "UpdateBand.dc.html",
+    "SessionUsage.dc.html",
+    "TodoCard.dc.html",
+    "CodeBlock.dc.html",
+    "ConfirmDialog.dc.html"
+  ],
+  "notes": {
+    "cur": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 2612,
+      "page": "current",
+      "text": "今の画面 · マージできる PR は返信欄の上の帯に積まれる"
+    },
+    "q1a": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 4760,
+      "page": "q1",
+      "text": "A · PR を作った返答の下に出し、その場で書き換える"
+    },
+    "q1b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1420,
+      "maxW": 4760,
+      "page": "q1",
+      "text": "B · マージできるようになった時に一番下へ足し、その場で書き換える"
+    },
+    "q1c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3100,
+      "maxW": 4760,
+      "page": "q1",
+      "text": "C · 状態が変わるたびに一番下へ 1 行足す"
+    },
+    "q2a": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 3602,
+      "page": "q2",
+      "text": "A · PR ごとに 1 行"
+    },
+    "q2b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1420,
+      "maxW": 3602,
+      "page": "q2",
+      "text": "B · 1 つの返答でできた PR を 1 つにまとめ、開くと一覧"
+    },
+    "q2c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3100,
+      "maxW": 3602,
+      "page": "q2",
+      "text": "C · まとめた行に Merge all を置く"
+    },
+    "q3a": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 5248,
+      "page": "q3",
+      "text": "A · 返信欄の近くには何も出さない · ヘッダーの印は今のまま"
+    },
+    "q3b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1056,
+      "maxW": 5248,
+      "page": "q3",
+      "text": "B · 見えなくなったら返信欄の上に 1 行のまとめを出す"
+    },
+    "q3c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2372,
+      "maxW": 5248,
+      "page": "q3",
+      "text": "C · PR のボタンにマージできる数を出す"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Merge entry in the conversation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.5">
+
+<sc-if value="{{isCard}}" hint-placeholder-val="{{ true }}">
+<article role="status" aria-label="PR #{{num}} {{label}}" style="box-sizing: border-box; display: flex; align-items: center; gap: 12px; padding: {{cardPad}}; border: 1px solid {{border}}; background: #111111; opacity: {{dim}}">
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="display: flex; align-items: center; gap: 8px; white-space: nowrap"><span style="flex: none; width: 14px; display: inline-flex; justify-content: center; color: {{ic}}">
+<sc-if value="{{iDot}}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="width: 7px; height: 7px; background: currentColor"></span></sc-if>
+<sc-if value="{{iSpin}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></sc-if>
+<sc-if value="{{iClock}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></sc-if>
+<sc-if value="{{iOk}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if>
+<sc-if value="{{iErr}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
+</span><strong style="color: {{labelColor}}">{{label}}</strong><sc-if value="{{hasTime}}" hint-placeholder-val="{{ true }}"><span style="color: #8b8b94; font-size: {{subFs}}">· {{time}}</span></sc-if></span>
+<a href="#" style="min-width: 0; padding-left: 22px; color: #d4d4d8; font-size: {{subFs}}; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace">#{{num}}</span> {{title}} <span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: {{repoFs}}">{{repo}}</span></a>
+<sc-if value="{{hasNote}}" hint-placeholder-val="{{ false }}"><span style="padding-left: 22px; color: {{noteColor}}; font-size: {{subFs}}; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">{{note}}</span></sc-if>
+</div>
+<sc-if value="{{bMerge}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="Merge PR #{{num}}" style="flex: none; min-width: {{btnMinW}}; height: {{btnH}}; padding: 0 14px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{btnFs}}; font-weight: 700">Merge</button></sc-if>
+<sc-if value="{{bBusy}}" hint-placeholder-val="{{ false }}"><button type="button" disabled aria-label="{{busy}} PR #{{num}}" style="flex: none; min-width: {{btnMinW}}; height: {{btnH}}; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 14px; border: 1px solid #2a2a2a; background: #141414; color: #a1a1aa; font-family: inherit; font-size: {{btnFs}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>{{busy}}</button></sc-if>
+<sc-if value="{{bRetry}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Retry merging PR #{{num}}" style="flex: none; min-width: {{btnMinW}}; height: {{btnH}}; padding: 0 14px; border: 1px solid #f87171; background: transparent; color: #fafafa; font-family: inherit; font-size: {{btnFs}}">Retry</button></sc-if>
+</article>
+</sc-if>
+
+<sc-if value="{{isRow}}" hint-placeholder-val="{{ false }}">
+<div style="box-sizing: border-box; min-height: {{rowH}}; display: flex; align-items: center; gap: 10px; padding: {{rowPad}}; border: {{rowBorder}}; background: {{rowBg}}">
+<span style="flex: none; width: 14px; display: inline-flex; justify-content: center; color: {{ic}}">
+<sc-if value="{{iDot}}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="width: 7px; height: 7px; background: currentColor"></span></sc-if>
+<sc-if value="{{iSpin}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></sc-if>
+<sc-if value="{{iClock}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></sc-if>
+<sc-if value="{{iOk}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if>
+<sc-if value="{{iErr}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
+</span>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<a href="#" style="min-width: 0; color: #d4d4d8; font-size: {{subFs}}; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace">#{{num}}</span> {{title}}</a>
+<sc-if value="{{rowNote}}" hint-placeholder-val="{{ false }}"><span style="min-width: 0; color: {{noteColor}}; font-size: {{repoFs}}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{note}}</span></sc-if>
+</div>
+<sc-if value="{{rowWord}}" hint-placeholder-val="{{ false }}"><span style="flex: none; color: {{labelColor}}; font-size: {{subFs}}; white-space: nowrap">{{word}}</span></sc-if>
+<sc-if value="{{bMerge}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="Merge PR #{{num}}" style="flex: none; min-width: {{btnMinW}}; height: {{rowBtnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{btnFs}}; font-weight: 700">Merge</button></sc-if>
+<sc-if value="{{bBusy}}" hint-placeholder-val="{{ false }}"><button type="button" disabled aria-label="{{busy}} PR #{{num}}" style="flex: none; min-width: {{btnMinW}}; height: {{rowBtnH}}; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 12px; border: 1px solid #2a2a2a; background: #141414; color: #a1a1aa; font-family: inherit; font-size: {{btnFs}}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>{{busy}}</button></sc-if>
+<sc-if value="{{bRetry}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Retry merging PR #{{num}}" style="flex: none; min-width: {{btnMinW}}; height: {{rowBtnH}}; padding: 0 12px; border: 1px solid #f87171; background: transparent; color: #fafafa; font-family: inherit; font-size: {{btnFs}}">Retry</button></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{isLine}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: {{subFs}}; text-align: center; opacity: {{dim}}">
+<div style="display: flex; align-items: center; gap: 8px; color: {{lineColor}}">
+<span style="display: inline-flex; color: {{ic}}">
+<sc-if value="{{iDot}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="width: 7px; height: 7px; background: currentColor"></span></sc-if>
+<sc-if value="{{iSpin}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></sc-if>
+<sc-if value="{{iClock}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></sc-if>
+<sc-if value="{{iOk}}" hint-placeholder-val="{{ true }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if>
+<sc-if value="{{iErr}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
+</span>
+<span>{{lineText}}</span><sc-if value="{{hasTime}}" hint-placeholder-val="{{ true }}"><span style="color: #8b8b94">· {{time}}</span></sc-if>
+</div>
+<sc-if value="{{hasNote}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa">{{note}}</span></sc-if>
+<sc-if value="{{bRetry}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Retry merging PR #{{num}}" style="min-width: {{btnMinW}}; min-height: {{lineBtnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: {{subFs}}">Retry</button></sc-if>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"state":{"editor":"enum","options":["waiting","ready","merging","queued","failed","merged","ciFailing","headUpdated","next","was"],"default":"ready"},"size":{"editor":"enum","options":["card","row","line"],"default":"card"},"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"num":{"editor":"int","default":2050},"title":{"editor":null},"repo":{"editor":null},"time":{"editor":null},"note":{"editor":null},"framed":{"editor":"boolean","default":false},"$preview":{"width":672,"height":64}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // state: the PR as the server sees it now. was: an earlier entry of a PR that has a newer one below; it keeps no button.
+    const st = this.props.state ?? 'ready';
+    const size = this.props.size ?? 'card';
+    const phone = (this.props.form ?? 'pc') === 'phone';
+    const num = this.props.num ?? 2050;
+    const S = {
+      waiting: { icon: 'dot', ic: '#fbbf24', label: 'Waiting for CI', word: 'CI running', line: 'PR #' + num + ' is waiting for CI' },
+      ready: { icon: 'dot', ic: '#4ade80', label: 'Ready to merge', word: '', btn: 'merge', line: 'PR #' + num + ' is ready to merge' },
+      merging: { icon: 'spin', ic: '#60a5fa', label: 'Merging…', word: '', btn: 'busy', busy: 'Merging…', line: 'Merging PR #' + num + '…' },
+      queued: { icon: 'clock', ic: '#60a5fa', label: 'In the merge queue', word: '', btn: 'busy', busy: 'Queued', line: 'Added PR #' + num + ' to the merge queue' },
+      failed: { icon: 'err', ic: '#f87171', label: 'Merge failed', word: '', btn: 'retry', line: 'Merge of PR #' + num + ' failed', red: true },
+      merged: { icon: 'ok', ic: '#4ade80', label: 'Merged', word: 'Merged', line: 'Merged PR #' + num },
+      ciFailing: { icon: 'dot', ic: '#f87171', label: 'CI failing', word: 'CI failing', line: 'CI of PR #' + num + ' is failing' },
+      headUpdated: { icon: 'dot', ic: '#fbbf24', label: 'Head updated · waiting for CI', word: 'CI running', line: 'PR #' + num + ' was updated' },
+      next: { icon: 'dot', ic: '#52525b', label: 'Next in Merge all', word: 'Next', line: 'PR #' + num + ' is next' },
+      was: { icon: 'dot', ic: '#52525b', label: 'Was ready to merge', word: '', line: 'PR #' + num + ' was ready to merge', dim: true }
+    }[st];
+    const note = this.props.note ?? '';
+    return {
+      num, title: this.props.title ?? '通知の再送処理を見直す', repo: this.props.repo ?? 'example/service',
+      time: this.props.time ?? '', hasTime: !!this.props.time,
+      note, hasNote: !!note, rowNote: !!note && size === 'row',
+      noteColor: S.red ? '#fca5a5' : '#a1a1aa',
+      isCard: size === 'card', isRow: size === 'row', isLine: size === 'line',
+      iDot: S.icon === 'dot', iSpin: S.icon === 'spin', iClock: S.icon === 'clock', iOk: S.icon === 'ok', iErr: S.icon === 'err',
+      ic: S.ic, label: S.label, labelColor: S.red ? '#f87171' : st === 'was' ? '#a1a1aa' : '#fafafa',
+      word: S.word, rowWord: size === 'row' && !!S.word,
+      lineText: S.line, lineColor: S.red ? '#f87171' : '#a1a1aa',
+      bMerge: S.btn === 'merge', bBusy: S.btn === 'busy', bRetry: S.btn === 'retry', busy: S.busy ?? '',
+      border: S.red ? '#f87171' : '#2a2a2a', dim: S.dim ? '0.75' : '1',
+      fs: phone ? '14px' : '13px', subFs: phone ? '13px' : '12px', repoFs: phone ? '11.5px' : '11px',
+      cardPad: phone ? '10px 10px 10px 12px' : '10px 10px 10px 12px',
+      btnH: phone ? '44px' : '30px', rowBtnH: phone ? '44px' : '26px', lineBtnH: phone ? '44px' : '24px',
+      btnMinW: phone ? '80px' : '64px', btnFs: phone ? '14px' : '12px',
+      // framed: a row standing alone in the conversation rather than inside a group.
+      rowH: phone ? '52px' : '34px',
+      rowPad: this.props.framed ? (phone ? '3px 6px 3px 12px' : '3px 6px 3px 12px') : (phone ? '4px 0' : '2px 0'),
+      rowBorder: this.props.framed ? '1px solid ' + (S.red ? '#f87171' : '#2a2a2a') : '0',
+      rowBg: this.props.framed ? '#111111' : 'transparent'
+    };
+  }
+}
+</script>
+</body>
+</html>

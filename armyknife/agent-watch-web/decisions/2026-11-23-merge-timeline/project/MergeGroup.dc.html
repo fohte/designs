@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Several PRs ready to merge, as one entry</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<article role="group" aria-label="{{label}}" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; border: 1px solid {{border}}; background: #111111; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.5">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: {{headPad}}">
+<div style="flex: 1 1 {{textBasis}}; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span role="status" style="min-width: 0; display: flex; align-items: center; gap: 8px; white-space: nowrap; overflow: hidden"><span style="flex: none; width: 14px; display: inline-flex; justify-content: center; color: {{ic}}">
+<sc-if value="{{iDot}}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="width: 7px; height: 7px; background: currentColor"></span></sc-if>
+<sc-if value="{{iSpin}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></sc-if>
+<sc-if value="{{iOk}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if>
+<sc-if value="{{iErr}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
+</span><strong style="color: {{labelColor}}">{{label}}</strong><sc-if value="{{hasTime}}" hint-placeholder-val="{{ true }}"><span style="color: #8b8b94; font-size: {{subFs}}">· {{time}}</span></sc-if></span>
+<span style="min-width: 0; padding-left: 22px; color: #a1a1aa; font-size: {{subFs}}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{summary}}</span>
+</div>
+<div style="flex: none; display: flex; gap: 10px; margin-left: auto">
+<sc-if value="{{showAll}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Merge all {{count}} PRs one by one" style="flex: none; min-width: {{btnMinW}}; height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{btnFs}}; font-weight: 700; white-space: nowrap">Merge all</button></sc-if>
+<sc-if value="{{showRunning}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Stop merging the rest" style="flex: none; min-width: {{btnMinW}}; height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{btnFs}}; white-space: nowrap">Stop</button></sc-if>
+<sc-if value="{{showResume}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Retry #{{stopNum}} and merge the rest" style="flex: none; min-width: {{btnMinW}}; height: {{btnH}}; padding: 0 12px; border: 1px solid #f87171; background: transparent; color: #fafafa; font-family: inherit; font-size: {{btnFs}}; white-space: nowrap">Retry</button></sc-if>
+<sc-if value="{{hasToggle}}" hint-placeholder-val="{{ true }}"><button type="button" aria-expanded="{{openStr}}" style="flex: none; min-width: {{toggleW}}; height: {{btnH}}; display: inline-flex; align-items: center; justify-content: center; gap: 4px; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{btnFs}}; white-space: nowrap">{{toggle}}<span aria-hidden="true" style="color: #8b8b94">{{chev}}</span></button></sc-if>
+</div>
+</div>
+<sc-if value="{{hasRows}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; padding: {{listPad}}; border-top: 1px solid #2a2a2a">
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="3">
+<dc-import name="MergeEntry" size="row" form="{{form}}" state="{{r.state}}" num="{{ r.num }}" title="{{r.title}}" note="{{r.note}}" hint-size="100%,34px"></dc-import>
+</sc-for>
+</div>
+</sc-if>
+</article>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"prs":{"editor":null},"open":{"editor":"boolean","default":false},"mode":{"editor":"enum","options":["list","all"],"default":"list"},"run":{"editor":"enum","options":["idle","running","stopped","done"],"default":"idle"},"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"time":{"editor":null},"$preview":{"width":672,"height":64}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // prs: [{ num, title, state, note }] that became mergeable within the same turn. state as MergeEntry's.
+    const prs = this.props.prs ?? [
+      { num: 2051, title: '再送キューの上限を設定に出す', state: 'ready' },
+      { num: 2052, title: '再送の待ち時間を指数的に伸ばす', state: 'ready' },
+      { num: 2053, title: '失敗した通知をログに残す', state: 'ready' }
+    ];
+    const phone = (this.props.form ?? 'pc') === 'phone';
+    const open = this.props.open ?? false;
+    const all = (this.props.mode ?? 'list') === 'all';
+    const run = all ? (this.props.run ?? 'idle') : 'idle';
+    const n = (s) => prs.filter(p => p.state === s).length;
+    const ready = n('ready'), failed = n('failed'), merged = n('merged'), busy = n('merging') + n('queued');
+    // A list without a failed PR can still be previewed as stopped from the editor.
+    const stop = prs.find(p => p.state === 'failed') ?? prs[0];
+    const allMerged = merged === prs.length;
+    let label, ic, icon, red = false;
+    if (run === 'running') { label = 'Merging ' + (merged + Math.max(busy, 1)) + ' of ' + prs.length + '…'; ic = '#60a5fa'; icon = 'spin'; }
+    else if (run === 'stopped') { label = 'Stopped at #' + stop.num + ' · merge failed'; ic = '#f87171'; icon = 'err'; red = true; }
+    else if (allMerged) { label = 'Merged ' + prs.length + ' PRs'; ic = '#4ade80'; icon = 'ok'; }
+    else if (failed && !all) { label = ready + ' PRs ready to merge · ' + failed + ' failed'; ic = '#f87171'; icon = 'err'; red = true; }
+    else { label = (ready || prs.length) + ' PRs ready to merge'; ic = '#4ade80'; icon = 'dot'; }
+    const parts = [ready && ready + ' ready', busy && busy + ' merging', failed && failed + ' failed', merged && merged + ' merged'].filter(Boolean);
+    const summary = run === 'stopped' ? (stop.note ?? '') + ' · ' + (prs.length - merged - 1) + ' left'
+      : open || allMerged ? parts.join(' · ') : prs.map(p => '#' + p.num).join(' ');
+    // Closed, a list entry still shows the PRs that need you (failed); everything else hides behind Show.
+    // While Merge all runs, the PRs it has not reached yet wait their turn instead of offering Merge.
+    const rows = (open ? prs : all ? [] : prs.filter(p => p.state === 'failed'))
+      .map(p => run === 'running' && p.state === 'ready' ? { ...p, state: 'next' } : p);
+    return {
+      form: phone ? 'phone' : 'pc',
+      label, labelColor: red ? '#f87171' : '#fafafa', ic, summary,
+      iDot: icon === 'dot', iSpin: icon === 'spin', iOk: icon === 'ok', iErr: icon === 'err',
+      time: this.props.time ?? '', hasTime: !!this.props.time,
+      count: prs.length, stopNum: stop?.num ?? '',
+      showAll: all && run === 'idle' && !allMerged, showRunning: run === 'running', showResume: run === 'stopped',
+      hasToggle: true, openStr: open ? 'true' : 'false', toggle: open ? 'Hide' : 'Show', chev: open ? '▴' : '▾',
+      rows, hasRows: rows.length > 0,
+      border: red ? '#f87171' : '#2a2a2a',
+      // Phone: with two buttons the label would be cut, so the buttons wrap under it.
+      textBasis: phone ? '200px' : '0',
+      fs: phone ? '14px' : '13px', subFs: phone ? '13px' : '12px',
+      headPad: phone ? '10px 10px 10px 12px' : '10px 10px 10px 12px', listPad: phone ? '4px 10px 4px 12px' : '4px 10px 4px 12px',
+      btnH: phone ? '44px' : '30px', btnMinW: phone ? '80px' : '64px', btnFs: phone ? '14px' : '12px', toggleW: phone ? '72px' : '0'
+    };
+  }
+}
+</script>
+</body>
+</html>

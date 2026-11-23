@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Q3: nothing near the composer</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 5248px; height: 936px; display: flex; gap: 24px; background: #0a0a0a; color: #a1a1aa; font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif; font-size: 12.5px">
+<sc-for list="{{pcs}}" as="s" hint-placeholder-count="4">
+<section style="width: 880px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700">{{s.name}}</h2><div style="height: 900px; overflow: hidden"><dc-import name="Conversation" variant="question" feed="{{ s.feed }}" badge="{{s.badge}}" pr-ready="{{ s.ready }}" chip="{{ s.chip }}" pr-count="{{ 3 }}" hint-size="880px,900px"></dc-import></div></section>
+</sc-for>
+<sc-for list="{{phones}}" as="s" hint-placeholder-count="4">
+<section style="width: 390px; flex: none; display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{s.name}}</h2><div style="height: 844px; overflow: hidden"><dc-import name="PhoneChat" h="844px" state="review" feed="{{ s.feed }}" badge="{{s.badge}}" pr-ready="{{ s.ready }}" chip="{{ s.chip }}" pr-count="{{ 3 }}" hint-size="390px,844px"></dc-import></div></section>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["none","chip","count"],"default":"none"},"$preview":{"width":5248,"height":936}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // variant: what tells you about merge entries that scrolled out of view.
+    // none: only the header mark as now (merging / failed). chip: a one-line summary above the composer. count: the header PR button counts the PRs ready to merge.
+    const v = this.props.variant ?? 'none';
+    const reason = 'Base branch was modified. Retry to merge again';
+    const t = ['再送キューの上限を設定に出す', '再送の待ち時間を指数的に伸ばす', '失敗した通知をログに残す'];
+    const entries = (st) => t.map((title, i) => ({ entry: { num: 2051 + i, title, state: st[i] ?? 'ready', time: '10:14', note: st[i] === 'failed' ? reason : '' } }));
+    const later = [
+      { you: '失敗した通知はどこに残る?', time: '10:20' },
+      { say: '失敗した通知は notify_failures テーブルに残ります。送信先、失敗の理由、再送した回数を 1 行ずつ記録し、30 日たったものは毎晩消します。' },
+      { tools: 'Read schema.sql · Read cleanup.ts' },
+      { you: '30 日は短くない? 監査で 90 日分見たいことがある。', time: '10:24' },
+      { say: '保存期間を設定に出し、既定値を 90 日にしました。消すジョブは同じ時刻に動きます。テーブルが大きくなるので、送信先ごとの索引も足しています。' },
+      { tools: 'Edit cleanup.ts · Edit config.ts · Shell ×2' },
+      { you: '索引はどれくらい効く?', time: '10:31' },
+      { say: 'ステージングの 120 万行で、送信先で絞る検索が 840 ms から 12 ms になりました。書き込みの遅れは測れる差がありません。' },
+      { you: '消すジョブが落ちたら気づける?', time: '10:36' },
+      { say: '消した件数と失敗をメトリクスに出しています。失敗が 3 回続くとアラートが飛びます。' },
+      { tools: 'Edit cleanup.ts · Shell ×1' },
+      { you: 'それでいい。', time: '10:40' },
+      { say: 'わかりました。ほかに直すところはありません。' }
+    ];
+    const S = [
+      { name: 'Ready to merge が 3 つ、どれも上に流れて見えない', st: [], badge: 'passed', chip: { ready: 3 }, ready: 3 },
+      { name: 'Merging… / Queued が 1 つ (PR の一覧から押した)', st: ['merging'], badge: 'merging', chip: { ready: 2, merging: 1 }, ready: 0 },
+      { name: 'Merge failed が 1 つ', st: ['failed'], badge: 'mergeFailed', chip: { ready: 2, failed: 1 }, ready: 0 },
+      { name: '3 つともマージした · 何も出ない', st: ['merged', 'merged', 'merged'], badge: 'none', chip: null, ready: 0 }
+    ];
+    const screens = S.map((s) => ({
+      name: s.name, feed: [...entries(s.st), ...later], badge: s.badge,
+      chip: v === 'chip' ? s.chip : null, ready: v === 'count' ? s.ready : 0
+    }));
+    return {
+      pcs: screens.map((s) => ({ ...s, name: 'PC · ' + s.name })),
+      phones: screens.map((s) => ({ ...s, name: 'iPhone · ' + s.name }))
+    };
+  }
+}
+</script>
+</body>
+</html>

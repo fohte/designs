@@ -1,0 +1,1103 @@
+{
+  "title": "Session dependency",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-23T10:57:36.814Z"
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-23T11:22:24.756Z"
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "current"
+  },
+  "pages": [
+    {
+      "id": "current",
+      "name": "今"
+    },
+    {
+      "id": "q1",
+      "name": "1. 待つ設定を始める場所"
+    },
+    {
+      "id": "q2",
+      "name": "2. 待つものの選び方"
+    },
+    {
+      "id": "q3",
+      "name": "3. 待っている間の見え方"
+    },
+    {
+      "id": "q4",
+      "name": "4. 待ちが終わったとき"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "session-dependency-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC · Later メニュー (L)",
+      "page": "current"
+    },
+    "session-dependency-current-menu.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC · 会話の ⋯ メニュー",
+      "page": "current"
+    },
+    "session-dependency-current-phone.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone · Inbox の ◷ Later",
+      "page": "current"
+    },
+    "session-dependency-current-phone-later.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone · Later のシート (スワイプか長押しから)",
+      "page": "current"
+    },
+    "q1-a-pc-later.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · L で開いた Later メニューの 6",
+      "page": "q1"
+    },
+    "q1-a-pc-picker.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · 待つものを選ぶ",
+      "page": "q1"
+    },
+    "q1-a-pc-done.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · 設定したあと",
+      "page": "q1"
+    },
+    "q1-a-phone-later.dc.html": {
+      "x": 4560,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · Later のシートの最後の行",
+      "page": "q1"
+    },
+    "q1-a-phone-picker.dc.html": {
+      "x": 5030,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · 待つものを選ぶシート",
+      "page": "q1"
+    },
+    "q1-a-phone-done.dc.html": {
+      "x": 5500,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · 設定したあとの Inbox",
+      "page": "q1"
+    },
+    "q1-b-pc-menu.dc.html": {
+      "x": 0,
+      "y": 1300,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · 会話の ⋯ メニュー",
+      "page": "q1"
+    },
+    "q1-b-pc-picker.dc.html": {
+      "x": 1520,
+      "y": 1300,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · 待つものを選ぶ",
+      "page": "q1"
+    },
+    "q1-b-phone-menu.dc.html": {
+      "x": 3040,
+      "y": 1300,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · 会話の ⋯ メニュー",
+      "page": "q1"
+    },
+    "q1-b-phone-picker.dc.html": {
+      "x": 3510,
+      "y": 1300,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · 待つものを選ぶシート",
+      "page": "q1"
+    },
+    "q1-c-pc-command.dc.html": {
+      "x": 0,
+      "y": 2600,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC · ⌘K で >until と打つ",
+      "page": "q1"
+    },
+    "q1-c-pc-picker.dc.html": {
+      "x": 1520,
+      "y": 2600,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC · パレットのまま待つものを選ぶ",
+      "page": "q1"
+    },
+    "q1-c-phone-command.dc.html": {
+      "x": 3040,
+      "y": 2600,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone · パレットのコマンド",
+      "page": "q1"
+    },
+    "q1-c-phone-picker.dc.html": {
+      "x": 3510,
+      "y": 2600,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone · パレットのまま待つものを選ぶ",
+      "page": "q1"
+    },
+    "q2-a-pc-open.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · 開いた直後",
+      "page": "q2"
+    },
+    "q2-a-pc-chosen.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · 2 つ選んだ (すべて終わるまで待つ)",
+      "page": "q2"
+    },
+    "q2-a-pc-session.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · セッションを選ぶと、その tq task が入る",
+      "page": "q2"
+    },
+    "q2-a-phone-open.dc.html": {
+      "x": 4560,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · 開いた直後",
+      "page": "q2"
+    },
+    "q2-a-phone-chosen.dc.html": {
+      "x": 5030,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · 2 つ選んだ",
+      "page": "q2"
+    },
+    "q2-a-phone-session.dc.html": {
+      "x": 5500,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · セッションを選ぶと、その tq task が入る",
+      "page": "q2"
+    },
+    "q2-b-pc-open.dc.html": {
+      "x": 0,
+      "y": 1300,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · 開いた直後",
+      "page": "q2"
+    },
+    "q2-b-pc-chosen.dc.html": {
+      "x": 1520,
+      "y": 1300,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · 2 つ選んだ (すべて終わるまで待つ)",
+      "page": "q2"
+    },
+    "q2-b-pc-session.dc.html": {
+      "x": 3040,
+      "y": 1300,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · セッションを選ぶと、その tq task が入る",
+      "page": "q2"
+    },
+    "q2-b-phone-open.dc.html": {
+      "x": 4560,
+      "y": 1300,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · 開いた直後",
+      "page": "q2"
+    },
+    "q2-b-phone-chosen.dc.html": {
+      "x": 5030,
+      "y": 1300,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · 2 つ選んだ",
+      "page": "q2"
+    },
+    "q2-b-phone-session.dc.html": {
+      "x": 5500,
+      "y": 1300,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · セッションを選ぶと、その tq task が入る",
+      "page": "q2"
+    },
+    "q2-c-pc-open.dc.html": {
+      "x": 0,
+      "y": 2600,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC · 開いた直後",
+      "page": "q2"
+    },
+    "q2-c-pc-chosen.dc.html": {
+      "x": 1520,
+      "y": 2600,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC · 2 つ選んだ (すべて終わるまで待つ)",
+      "page": "q2"
+    },
+    "q2-c-pc-session.dc.html": {
+      "x": 3040,
+      "y": 2600,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC · セッションを選ぶと、その tq task が入る",
+      "page": "q2"
+    },
+    "q2-c-phone-open.dc.html": {
+      "x": 4560,
+      "y": 2600,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone · 開いた直後",
+      "page": "q2"
+    },
+    "q2-c-phone-chosen.dc.html": {
+      "x": 5030,
+      "y": 2600,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone · 2 つ選んだ",
+      "page": "q2"
+    },
+    "q2-c-phone-session.dc.html": {
+      "x": 5500,
+      "y": 2600,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone · セッションを選ぶと、その tq task が入る",
+      "page": "q2"
+    },
+    "q2-notask-pc.dc.html": {
+      "x": 0,
+      "y": 3900,
+      "w": 1440,
+      "h": 900,
+      "title": "共通 · PC · tq task がないセッション",
+      "page": "q2"
+    },
+    "q2-notask-phone.dc.html": {
+      "x": 1520,
+      "y": 3900,
+      "w": 390,
+      "h": 844,
+      "title": "共通 · iPhone · tq task がないセッション",
+      "page": "q2"
+    },
+    "q3-a-pc.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · 1 つ待っている",
+      "page": "q3"
+    },
+    "q3-a-pc-many.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · 3 つ待っている",
+      "page": "q3"
+    },
+    "q3-a-phone-inbox.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · Inbox",
+      "page": "q3"
+    },
+    "q3-a-phone-chat.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · 会話",
+      "page": "q3"
+    },
+    "q3-b-pc.dc.html": {
+      "x": 0,
+      "y": 1300,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · 1 つ待っている",
+      "page": "q3"
+    },
+    "q3-b-pc-many.dc.html": {
+      "x": 1520,
+      "y": 1300,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · 3 つ待っている",
+      "page": "q3"
+    },
+    "q3-b-phone-inbox.dc.html": {
+      "x": 3040,
+      "y": 1300,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · Inbox",
+      "page": "q3"
+    },
+    "q3-b-phone-chat.dc.html": {
+      "x": 3510,
+      "y": 1300,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · 会話 (3 つ待っている)",
+      "page": "q3"
+    },
+    "q4-a-pc.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · 通知と Inbox",
+      "page": "q4"
+    },
+    "q4-a-pc-activity.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · Activity",
+      "page": "q4"
+    },
+    "q4-a-phone-chat.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · 会話と通知",
+      "page": "q4"
+    },
+    "q4-a-phone-inbox.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · Inbox",
+      "page": "q4"
+    },
+    "q4-b-pc.dc.html": {
+      "x": 0,
+      "y": 1300,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · 再開した",
+      "page": "q4"
+    },
+    "q4-b-phone-chat.dc.html": {
+      "x": 1520,
+      "y": 1300,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · 再開した",
+      "page": "q4"
+    },
+    "q4-b-phone-inbox.dc.html": {
+      "x": 1990,
+      "y": 1300,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · Inbox",
+      "page": "q4"
+    },
+    "q4-c-pc-picker.dc.html": {
+      "x": 0,
+      "y": 2600,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC · 終わったときにすることを選ぶ",
+      "page": "q4"
+    },
+    "q4-c-pc.dc.html": {
+      "x": 1520,
+      "y": 2600,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC · 書いておいた文で再開した",
+      "page": "q4"
+    },
+    "q4-c-phone-picker.dc.html": {
+      "x": 3040,
+      "y": 2600,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone · 終わったときにすることを選ぶ",
+      "page": "q4"
+    },
+    "q4-c-phone-chat.dc.html": {
+      "x": 3510,
+      "y": 2600,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone · 書いておいた文で再開した",
+      "page": "q4"
+    },
+    "q4-fail-pc.dc.html": {
+      "x": 0,
+      "y": 3900,
+      "w": 1440,
+      "h": 900,
+      "title": "共通 · PC · PR が merge されずに close された",
+      "page": "q4"
+    },
+    "q4-fail-pc-activity.dc.html": {
+      "x": 1520,
+      "y": 3900,
+      "w": 1440,
+      "h": 900,
+      "title": "共通 · PC · Activity の文言",
+      "page": "q4"
+    },
+    "q4-fail-phone-chat.dc.html": {
+      "x": 3040,
+      "y": 3900,
+      "w": 390,
+      "h": 844,
+      "title": "共通 · iPhone · 会話と通知",
+      "page": "q4"
+    },
+    "q4-fail-phone-inbox.dc.html": {
+      "x": 3510,
+      "y": 3900,
+      "w": 390,
+      "h": 844,
+      "title": "共通 · iPhone · Inbox",
+      "page": "q4"
+    },
+    "ActionItem.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 360,
+      "h": 110,
+      "title": "ActionItem",
+      "page": "parts"
+    },
+    "Activity.dc.html": {
+      "x": 440,
+      "y": 0,
+      "w": 400,
+      "h": 360,
+      "title": "Activity",
+      "page": "parts"
+    },
+    "ActivityButton.dc.html": {
+      "x": 920,
+      "y": 0,
+      "w": 224,
+      "h": 44,
+      "title": "ActivityButton",
+      "page": "parts"
+    },
+    "CloseChecks.dc.html": {
+      "x": 1224,
+      "y": 0,
+      "w": 408,
+      "h": 170,
+      "title": "CloseChecks",
+      "page": "parts"
+    },
+    "CodeBlock.dc.html": {
+      "x": 1712,
+      "y": 0,
+      "w": 672,
+      "h": 160,
+      "title": "CodeBlock",
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 2464,
+      "y": 0,
+      "w": 380,
+      "h": 200,
+      "title": "ConfirmDialog",
+      "page": "parts"
+    },
+    "Conversation.dc.html": {
+      "x": 2924,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "parts"
+    },
+    "InboxList.dc.html": {
+      "x": 3884,
+      "y": 0,
+      "w": 460,
+      "h": 900,
+      "title": "InboxList",
+      "page": "parts"
+    },
+    "LaterMenu.dc.html": {
+      "x": 4424,
+      "y": 0,
+      "w": 300,
+      "h": 300,
+      "title": "LaterMenu",
+      "page": "parts"
+    },
+    "MergeBand.dc.html": {
+      "x": 4804,
+      "y": 0,
+      "w": 760,
+      "h": 60,
+      "title": "MergeBand",
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 5644,
+      "y": 0,
+      "w": 160,
+      "h": 44,
+      "title": "MergeButton",
+      "page": "parts"
+    },
+    "Nav.dc.html": {
+      "x": 0,
+      "y": 1100,
+      "w": 240,
+      "h": 900,
+      "title": "Nav",
+      "page": "parts"
+    },
+    "PhoneChat.dc.html": {
+      "x": 320,
+      "y": 1100,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneChat",
+      "page": "parts"
+    },
+    "PhoneDrawer.dc.html": {
+      "x": 790,
+      "y": 1100,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneDrawer",
+      "page": "parts"
+    },
+    "PhoneInbox.dc.html": {
+      "x": 1260,
+      "y": 1100,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneInbox",
+      "page": "parts"
+    },
+    "PhoneRowMenu.dc.html": {
+      "x": 1730,
+      "y": 1100,
+      "w": 390,
+      "h": 250,
+      "title": "PhoneRowMenu",
+      "page": "parts"
+    },
+    "PhoneSaveViewSheet.dc.html": {
+      "x": 2200,
+      "y": 1100,
+      "w": 390,
+      "h": 300,
+      "title": "PhoneSaveViewSheet",
+      "page": "parts"
+    },
+    "PrButton.dc.html": {
+      "x": 2670,
+      "y": 1100,
+      "w": 44,
+      "h": 44,
+      "title": "PrButton",
+      "page": "parts"
+    },
+    "Quota.dc.html": {
+      "x": 2794,
+      "y": 1100,
+      "w": 240,
+      "h": 140,
+      "title": "Quota",
+      "page": "parts"
+    },
+    "ScenePc.dc.html": {
+      "x": 3114,
+      "y": 1100,
+      "w": 1440,
+      "h": 900,
+      "title": "ScenePc",
+      "page": "parts"
+    },
+    "ScenePhone.dc.html": {
+      "x": 4634,
+      "y": 1100,
+      "w": 390,
+      "h": 844,
+      "title": "ScenePhone",
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 5104,
+      "y": 1100,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 0,
+      "y": 2200,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 752,
+      "y": 2200,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    },
+    "ToastStack.dc.html": {
+      "x": 1592,
+      "y": 2200,
+      "w": 360,
+      "h": 240,
+      "title": "ToastStack",
+      "page": "parts"
+    },
+    "TodoCard.dc.html": {
+      "x": 2032,
+      "y": 2200,
+      "w": 672,
+      "h": 40,
+      "title": "TodoCard",
+      "page": "parts"
+    },
+    "UpdateBand.dc.html": {
+      "x": 2784,
+      "y": 2200,
+      "w": 760,
+      "h": 40,
+      "title": "UpdateBand",
+      "page": "parts"
+    },
+    "WaitBand.dc.html": {
+      "x": 3624,
+      "y": 2200,
+      "w": 760,
+      "h": 60,
+      "title": "WaitBand",
+      "page": "parts"
+    },
+    "WaitPicker.dc.html": {
+      "x": 4464,
+      "y": 2200,
+      "w": 600,
+      "h": 640,
+      "title": "WaitPicker",
+      "page": "parts"
+    }
+  },
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 3980,
+      "page": "current",
+      "text": "今 · Later は時刻で戻すだけ。何かが終わるまで待つ方法はない"
+    },
+    "current-note": {
+      "x": 4020,
+      "y": 0,
+      "w": 480,
+      "page": "current",
+      "text": "今の Later\n- PC は行か会話で L を押すとメニューが開き、時刻を 1-5 で選ぶ。セッションに新しい動きがあれば時刻の前でも戻る\n- iPhone は行のスワイプか長押しから下のシートで同じ 5 つを選ぶ\n- Inbox では ◷ Later の区分に畳まれ、次に戻る時刻が出る\n- この例のセッション「通知の再送処理を見直す」は PR #2051 の merge を待ちたいが、今は時刻を推測して Later にするしかない"
+    },
+    "q1a": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 5970,
+      "page": "q1",
+      "text": "A · Later の選択肢に「Until something else is done…」を足す"
+    },
+    "q1a-note": {
+      "x": 6010,
+      "y": 0,
+      "w": 480,
+      "page": "q1",
+      "text": "A · Later の選択肢に足す\n+ 今の Later (L キー、iPhone の Later シート) の続きなので「later にする」という考え方のまま使える\n+ Inbox の行からも会話からも同じ手順で設定できる\n- Later のメニューが 6 項目になり、時刻の選択肢と種類の違うものが並ぶ\nどの案でも、選んだものはセッションに link された tq task (ここでは tq #2048) のブロッカーとして保存し、その task の全セッションが待つ"
+    },
+    "q1b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1040,
+      "maxW": 3980,
+      "page": "q1",
+      "text": "B · 会話の ⋯ メニューに「Later until done…」を足す"
+    },
+    "q1b-note": {
+      "x": 4020,
+      "y": 1300,
+      "w": 480,
+      "page": "q1",
+      "text": "B · 会話の ⋯ メニュー\n+ 会話を見ながら何を待つかを決められる\n+ Later のメニューは時刻だけのまま\n- Inbox の行からは設定できず、会話を開く必要がある\n- Later と別の場所にあり、両方を探すことになる\n選んだあとは A と同じ"
+    },
+    "q1c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2340,
+      "maxW": 3980,
+      "page": "q1",
+      "text": "C · ⌘K パレットのコマンド「Later until done…」から始める"
+    },
+    "q1c-note": {
+      "x": 4020,
+      "y": 2600,
+      "w": 480,
+      "page": "q1",
+      "text": "C · ⌘K パレット\n+ どの画面からでもキーボードだけで始められる\n+ メニューの項目を増やさない\n- コマンドを知らないと見つからない\n- iPhone ではパレットを開くまでが遠い\n選んだあとは A と同じ"
+    },
+    "q2a": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 5970,
+      "page": "q2",
+      "text": "A · 1 つの検索欄で tq task・issue・PR・セッションをまとめて探す"
+    },
+    "q2a-note": {
+      "x": 6010,
+      "y": 0,
+      "w": 480,
+      "page": "q2",
+      "text": "A · まとめて検索\n+ 番号やタイトルの一部を打てば、種類を問わず見つかる\n- 何も打たないうちは何も出ず、何を待てるかがわからない\n- 種類が混ざるので、似たタイトルが並ぶと見分けにくい"
+    },
+    "q2b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1040,
+      "maxW": 5970,
+      "page": "q2",
+      "text": "B · tq tasks / Issues and PRs / Sessions のタブを切り替えて選ぶ"
+    },
+    "q2b-note": {
+      "x": 6010,
+      "y": 1300,
+      "w": 480,
+      "page": "q2",
+      "text": "B · 種類ごとのタブ\n+ 種類ごとに一覧で見られる\n+ タブの数字で選んだ数がわかる\n- 種類をまたいで待つときはタブを行き来する\n- iPhone ではタブ 3 つが横幅をとる"
+    },
+    "q2c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2340,
+      "maxW": 5970,
+      "page": "q2",
+      "text": "C · このセッションに関係するものを先に出し、他は下の検索で探す"
+    },
+    "q2c-note": {
+      "x": 6010,
+      "y": 2600,
+      "w": 480,
+      "page": "q2",
+      "text": "C · 関係するものを先に\n+ tq #2048 の subtask、関係する PR、子セッションが最初から並び、多くは検索せずに済む\n+ 関係のないものは下の検索で探せる\n- 候補を出すためにサーバーが関係を集める必要がある\n- 候補が外れると、下の検索まで目を動かす"
+    },
+    "q2n": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3640,
+      "maxW": 1990,
+      "page": "q2",
+      "text": "共通 · 待たせるセッションに tq task がないとき"
+    },
+    "q2n-note": {
+      "x": 2030,
+      "y": 3900,
+      "w": 480,
+      "page": "q2",
+      "text": "共通 · tq task がないとき\n- 待つものはセッションの tq task に保存するので、task がないセッションでは選ぶ一覧を出さず、task を作るか link するかを先に聞く\n- 作るとセッションのタイトルで task ができ、そのまま待つものを選べる\n- 待つ相手のセッションに tq task がないときは、一覧の行を No tq task として選べなくする (A / B の 3 枚目)"
+    },
+    "q3a": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 3980,
+      "page": "q3",
+      "text": "A · Later の中に「◷ tq #2048 blocked by PR #2051」として並べる"
+    },
+    "q3a-note": {
+      "x": 4020,
+      "y": 0,
+      "w": 480,
+      "page": "q3",
+      "text": "A · Later の中\n+ 時刻の Later と同じ場所で「later にする」の考え方と揃う\n+ Inbox の区分が増えない\n- Later は畳まれているので、待っているセッションが目に入りにくい\n- 時刻で戻るものと、何かが終わって戻るものが混ざる\n会話の上の帯は 1 行。条件が複数なら +2 › で開く\ntq #2048 に link された 2 つのセッション (通知の再送処理を見直す、再送のテストを足す) がどちらも入る"
+    },
+    "q3b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1040,
+      "maxW": 3980,
+      "page": "q3",
+      "text": "B · Inbox に「Blocked」の区分を足して並べる"
+    },
+    "q3b-note": {
+      "x": 4020,
+      "y": 1300,
+      "w": 480,
+      "page": "q3",
+      "text": "B · Blocked の区分\n+ 何を待っているか、いくつ終わったかが常に見える\n+ 待ちが長引いているものに気づきやすい\n- Inbox の区分が 1 つ増える\n- 時刻の Later と別の場所になり、「あとで」が 2 か所に分かれる\n会話の上の帯に条件をすべて並べる。帯と Inbox の組み合わせは A / B で入れ替えられる\n区分の中では tq task ごとにまとめ、その task の 2 つのセッションを並べる"
+    },
+    "q4a": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 3980,
+      "page": "q4",
+      "text": "A · Needs action に戻して通知だけする"
+    },
+    "q4a-note": {
+      "x": 4020,
+      "y": 0,
+      "w": 480,
+      "page": "q4",
+      "text": "A · 戻して通知だけ\n+ 自分で状況を見てから続けられる\n+ 意図しない内容でセッションが進まない\n- 自分が戻るまでセッションは止まったまま\ntq #2048 の 2 つのセッションがどちらも Needs action に戻る"
+    },
+    "q4b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1040,
+      "maxW": 2460,
+      "page": "q4",
+      "text": "B · 開いていたセッションに「PR #2051 was merged. Continue.」を送って自動で再開する"
+    },
+    "q4b-note": {
+      "x": 2500,
+      "y": 1300,
+      "w": 480,
+      "page": "q4",
+      "text": "B · 自動で再開\n+ 待っていたものが終わるとすぐ進む\n- 送る文が決まっていて、終わったあとの指示を足せない\n- 気づかないうちに進む (Activity と会話の行で追う)\n- 同じ task の他のセッションには送らず、Needs action に戻す"
+    },
+    "q4c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2340,
+      "maxW": 3980,
+      "page": "q4",
+      "text": "C · 待つ設定のときに、戻すか、送る文を決めておく"
+    },
+    "q4c-note": {
+      "x": 4020,
+      "y": 2600,
+      "w": 480,
+      "page": "q4",
+      "text": "C · 設定のときに決める\n+ 待つものごとに、戻すか進めるかを選べる\n+ 送る文に、終わったあとの指示を書いておける\n- 待つものを選ぶ画面が一段長くなる\n戻すを選んだときは A と同じ。送る文は設定したセッションにだけ送り、同じ task の他のセッションは Needs action に戻す\n- 送る文は watch-web が持つ (tq のブロッカーには載らない)"
+    },
+    "q4f": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3640,
+      "maxW": 3980,
+      "page": "q4",
+      "text": "共通 · 待っていたものが失敗したら Needs action に戻して通知する"
+    },
+    "q4f-note": {
+      "x": 4020,
+      "y": 3900,
+      "w": 480,
+      "page": "q4",
+      "text": "共通 · 失敗したとき\n- PR が merge されずに close された\n- ブロッカーの tq task が not planned / duplicate で close された\nどちらも tq のブロッカーは残したまま、tq #2048 の 2 つのセッションを Needs action に戻し、赤い行と消えない通知を出す。帯の Remove the blocker で tq から外せる。C で送る文を決めていても送らない"
+    }
+  },
+  "order": [
+    "session-dependency-current.dc.html",
+    "session-dependency-current-menu.dc.html",
+    "session-dependency-current-phone.dc.html",
+    "session-dependency-current-phone-later.dc.html",
+    "q1-a-pc-later.dc.html",
+    "q1-a-pc-picker.dc.html",
+    "q1-a-pc-done.dc.html",
+    "q1-a-phone-later.dc.html",
+    "q1-a-phone-picker.dc.html",
+    "q1-a-phone-done.dc.html",
+    "q1-b-pc-menu.dc.html",
+    "q1-b-pc-picker.dc.html",
+    "q1-b-phone-menu.dc.html",
+    "q1-b-phone-picker.dc.html",
+    "q1-c-pc-command.dc.html",
+    "q1-c-pc-picker.dc.html",
+    "q1-c-phone-command.dc.html",
+    "q1-c-phone-picker.dc.html",
+    "q2-a-pc-open.dc.html",
+    "q2-a-pc-chosen.dc.html",
+    "q2-a-pc-session.dc.html",
+    "q2-a-phone-open.dc.html",
+    "q2-a-phone-chosen.dc.html",
+    "q2-a-phone-session.dc.html",
+    "q2-b-pc-open.dc.html",
+    "q2-b-pc-chosen.dc.html",
+    "q2-b-pc-session.dc.html",
+    "q2-b-phone-open.dc.html",
+    "q2-b-phone-chosen.dc.html",
+    "q2-b-phone-session.dc.html",
+    "q2-c-pc-open.dc.html",
+    "q2-c-pc-chosen.dc.html",
+    "q2-c-pc-session.dc.html",
+    "q2-c-phone-open.dc.html",
+    "q2-c-phone-chosen.dc.html",
+    "q2-c-phone-session.dc.html",
+    "q2-notask-pc.dc.html",
+    "q2-notask-phone.dc.html",
+    "q3-a-pc.dc.html",
+    "q3-a-pc-many.dc.html",
+    "q3-a-phone-inbox.dc.html",
+    "q3-a-phone-chat.dc.html",
+    "q3-b-pc.dc.html",
+    "q3-b-pc-many.dc.html",
+    "q3-b-phone-inbox.dc.html",
+    "q3-b-phone-chat.dc.html",
+    "q4-a-pc.dc.html",
+    "q4-a-pc-activity.dc.html",
+    "q4-a-phone-chat.dc.html",
+    "q4-a-phone-inbox.dc.html",
+    "q4-b-pc.dc.html",
+    "q4-b-phone-chat.dc.html",
+    "q4-b-phone-inbox.dc.html",
+    "q4-c-pc-picker.dc.html",
+    "q4-c-pc.dc.html",
+    "q4-c-phone-picker.dc.html",
+    "q4-c-phone-chat.dc.html",
+    "q4-fail-pc.dc.html",
+    "q4-fail-pc-activity.dc.html",
+    "q4-fail-phone-chat.dc.html",
+    "q4-fail-phone-inbox.dc.html",
+    "ActionItem.dc.html",
+    "Activity.dc.html",
+    "ActivityButton.dc.html",
+    "CloseChecks.dc.html",
+    "CodeBlock.dc.html",
+    "ConfirmDialog.dc.html",
+    "Conversation.dc.html",
+    "InboxList.dc.html",
+    "LaterMenu.dc.html",
+    "MergeBand.dc.html",
+    "MergeButton.dc.html",
+    "Nav.dc.html",
+    "PhoneChat.dc.html",
+    "PhoneDrawer.dc.html",
+    "PhoneInbox.dc.html",
+    "PhoneRowMenu.dc.html",
+    "PhoneSaveViewSheet.dc.html",
+    "PrButton.dc.html",
+    "Quota.dc.html",
+    "ScenePc.dc.html",
+    "ScenePhone.dc.html",
+    "SessionRow.dc.html",
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html",
+    "ToastStack.dc.html",
+    "TodoCard.dc.html",
+    "UpdateBand.dc.html",
+    "WaitBand.dc.html",
+    "WaitPicker.dc.html"
+  ],
+  "v": 3,
+  "noteOrder": [
+    "current",
+    "current-note",
+    "q1a",
+    "q1a-note",
+    "q1b",
+    "q1b-note",
+    "q1c",
+    "q1c-note",
+    "q2a",
+    "q2a-note",
+    "q2b",
+    "q2b-note",
+    "q2c",
+    "q2c-note",
+    "q2n",
+    "q2n-note",
+    "q3a",
+    "q3a-note",
+    "q3b",
+    "q3b-note",
+    "q4a",
+    "q4a-note",
+    "q4b",
+    "q4b-note",
+    "q4c",
+    "q4c-note",
+    "q4f",
+    "q4f-note"
+  ]
+}

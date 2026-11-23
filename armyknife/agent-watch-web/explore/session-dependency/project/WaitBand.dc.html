@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Wait band</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div role="group" aria-label="Later until done" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: {{gap}}; padding: {{pad}}; border-top: 1px solid {{line}}; background: #0f0f0f; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.45">
+<div style="display: flex; align-items: center; gap: 10px; min-width: 0">
+<span aria-hidden="true" style="flex: none; display: inline-flex; color: {{ic}}">
+<sc-if value="{{failed}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
+<sc-if value="{{waiting}}" hint-placeholder-val="{{ true }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg></sc-if>
+</span>
+<div role="status" aria-live="polite" style="flex: 1; min-width: 0; display: flex; flex-direction: {{headDir}}; align-items: {{headAlign}}; gap: {{headGap}}">
+<strong style="flex: none; color: {{labelColor}}; white-space: nowrap">{{label}}</strong>
+<span style="min-width: 0; color: #a1a1aa; font-size: {{subFs}}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{detail}}</span>
+</div>
+<sc-if value="{{inlineBtns}}" hint-placeholder-val="{{ true }}">
+<sc-if value="{{hasMore}}" hint-placeholder-val="{{ false }}"><button type="button" aria-expanded="false" style="flex: none; height: 28px; padding: 0 8px; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px; white-space: nowrap">{{more}} ›</button></sc-if>
+<button type="button" style="flex: none; height: 28px; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px; white-space: nowrap">{{second}}</button>
+<button type="button" style="flex: none; height: 28px; padding: 0 10px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700; white-space: nowrap">{{first}}</button>
+</sc-if>
+</div>
+<sc-if value="{{showList}}" hint-placeholder-val="{{ false }}">
+<ul style="margin: 0; padding: 0 0 0 {{listIndent}}; list-style: none; display: flex; flex-direction: column; gap: 2px">
+<sc-for list="{{conds}}" as="c" hint-placeholder-count="3">
+<li style="min-height: {{itemH}}; display: grid; grid-template-columns: 14px auto 1fr; align-items: center; column-gap: 8px; font-size: {{subFs}}">
+<span aria-hidden="true" style="color: {{c.ic}}; font-size: 12px; text-align: center">{{c.mark}}</span>
+<span style="color: {{c.color}}; white-space: nowrap; text-decoration: {{c.strike}}">{{c.text}}</span>
+<span style="min-width: 0; color: #8b8b94; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{c.live}}</span>
+</li>
+</sc-for>
+</ul>
+</sc-if>
+<sc-if value="{{stackBtns}}" hint-placeholder-val="{{ false }}">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px">
+<button type="button" style="min-height: 44px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px">{{second}}</button>
+<button type="button" style="min-height: 44px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 14px; font-weight: 700">{{first}}</button>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"mode":{"editor":"enum","options":["line","list"],"default":"line"},"state":{"editor":"enum","options":["waiting","failed"],"default":"waiting"},"conds":{"editor":"enum","options":["one","many"],"default":"one"},"send":{"editor":"boolean","default":false},"$preview":{"width":760,"height":60}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const phone = (this.props.form ?? 'pc') === 'phone';
+    const mode = this.props.mode ?? 'line';
+    const failed = (this.props.state ?? 'waiting') === 'failed';
+    const many = (this.props.conds ?? 'one') === 'many';
+    // send: a message is queued for when it is done; Resume now sends it right away.
+    const send = this.props.send ?? false;
+    const C = [
+      { text: 'PR #2051 merges', live: 'CI running · 2 of 3 checks passed', state: failed ? 'failed' : 'waiting' },
+      { text: 'tq #58 closes', live: 'Open · 3 of 5 subtasks done', state: 'waiting' },
+      { text: 'issue #2039 closes', live: 'Closed 12:31', state: 'done' }
+    ].slice(0, many ? 3 : 1);
+    const conds = C.map((c) => ({
+      ...c,
+      mark: c.state === 'done' ? '✓' : c.state === 'failed' ? '!' : '◷',
+      ic: c.state === 'done' ? '#4ade80' : c.state === 'failed' ? '#f87171' : '#a1a1aa',
+      color: c.state === 'done' ? '#8b8b94' : c.state === 'failed' ? '#f87171' : '#fafafa',
+      strike: c.state === 'done' ? 'line-through' : 'none',
+      live: c.state === 'failed' ? 'Closed without merging · 12:40' : c.live
+    }));
+    const left = C.filter((c) => c.state !== 'done').length;
+    const list = mode === 'list';
+    // The line form names the first condition and folds the rest into "+N"; the list form shows each with its live state.
+    const label = failed ? 'PR #2051 was closed without merging' : list ? (many ? 'Later · tq #2048 is blocked by ' + C.length : 'Later · tq #2048 is blocked') : 'Later until PR #2051 merges';
+    const detail = failed ? 'Still a blocker of tq #2048' : list ? (many ? (C.length - left) + ' of ' + C.length + ' done · 2 sessions wait · since 12:10' : '2 sessions wait · since 12:10') : 'tq #2048 · ' + C[0].live;
+    return {
+      waiting: !failed, failed,
+      label, detail,
+      more: '+' + (C.length - 1), hasMore: !list && many && !phone,
+      showList: list || (phone && many),
+      conds: list ? conds : conds.slice(1).length ? conds : [],
+      first: failed ? 'Remove the blocker' : send ? 'Send now' : 'Resume now',
+      second: 'Change…',
+      inlineBtns: !phone, stackBtns: phone,
+      line: failed ? '#f87171' : '#2a2a2a',
+      ic: failed ? '#f87171' : '#a1a1aa',
+      labelColor: failed ? '#f87171' : '#fafafa',
+      headDir: phone ? 'column' : 'row', headAlign: phone ? 'flex-start' : 'baseline', headGap: phone ? '0' : '8px',
+      pad: phone ? '10px 12px' : '9px max(24px, calc((100% - 712px) / 2))',
+      gap: phone ? '8px' : '6px',
+      fs: phone ? '14px' : '13px', subFs: phone ? '12.5px' : '12px',
+      listIndent: '24px', itemH: phone ? '26px' : '22px'
+    };
+  }
+}
+</script>
+</body>
+</html>

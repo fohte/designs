@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Wait for picker</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section role="dialog" aria-modal="true" aria-label="{{head}}: {{subject}}" style="width: 100%; height: {{h}}; box-sizing: border-box; display: flex; flex-direction: column; border: 1px solid #3f3f46; border-width: {{borderW}}; background: {{bg}}; box-shadow: {{shadow}}; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.5">
+
+<sc-if value="{{isPhonePalette}}" hint-placeholder-val="{{ false }}">
+<header style="flex: none; min-height: 50px; display: flex; align-items: center; gap: 8px; padding: 8px 8px 6px 16px; border-bottom: 1px solid #2a2a2a"><span aria-hidden="true" style="color: #8b8b94">⌕</span><span style="flex: 1; color: #8b8b94">Jump to</span><button type="button" style="height: 44px; padding: 0 8px; border: 0; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 16px">Cancel</button></header>
+</sc-if>
+
+<sc-if value="{{isPalette}}" hint-placeholder-val="{{ false }}">
+<div style="flex: none; min-height: {{inputH}}; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding: 8px 16px; border-bottom: 1px solid #2a2a2a">
+<span style="flex: none; height: 24px; display: inline-flex; align-items: center; padding: 0 8px; background: #2a2a2e; font-size: 12px">› Later until done…</span>
+<span style="flex: none; max-width: 100%; height: 24px; display: inline-flex; align-items: center; gap: 6px; padding: 0 8px; background: #2a2a2e; font-size: 12px; white-space: nowrap; overflow: hidden"><span aria-hidden="true" style="width: 7px; height: 7px; background: #fbbf24"></span>{{subject}}</span>
+<input aria-label="Search tq tasks, issues, PRs and sessions" value="{{query}}" placeholder="Search tq tasks, issues, PRs and sessions" style="flex: 1 1 180px; min-width: 0; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: {{inputFs}}">
+<sc-if value="{{pcOnly}}" hint-placeholder-val="{{ true }}"><kbd style="padding: 1px 6px; border: 1px solid #3f3f46; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #a1a1aa">esc</kbd></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{isDialog}}" hint-placeholder-val="{{ true }}">
+<header style="flex: none; display: flex; flex-direction: column; gap: 2px; padding: {{headPad}}">
+<h2 style="margin: 0; font-size: {{headFs}}; font-weight: 700">{{head}}</h2>
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0; font-size: {{subFs}}"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: #fbbf24"></span><span style="flex: none; color: #fbbf24">Question</span><span style="min-width: 0; color: #d4d4d8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{subject}}</span></div>
+<div style="min-width: 0; color: #a1a1aa; font-size: {{metaFs}}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{taskLine}}</div>
+</header>
+</sc-if>
+
+<sc-if value="{{isTabs}}" hint-placeholder-val="{{ false }}">
+<div role="tablist" aria-label="Kind" style="flex: none; display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid #2a2a2a">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="3">
+<button type="button" role="tab" aria-selected="{{t.selected}}" style="min-height: {{tabH}}; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 0 8px; border: 0; border-bottom: 2px solid {{t.underline}}; background: transparent; color: {{t.color}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{t.weight}}; white-space: nowrap">{{t.label}}<sc-if value="{{t.hasPicked}}" hint-placeholder-val="{{ false }}"><span style="padding: 0 5px; background: #fafafa; color: #0a0a0a; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700">{{t.picked}}</span></sc-if></button>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{showSearchTop}}" hint-placeholder-val="{{ true }}">
+<div style="flex: none; padding: {{searchPad}}"><label style="height: {{inputH}}; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px; border: 1px solid #3f3f46; background: #141414"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8b8b94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg><input aria-label="{{searchLabel}}" value="{{query}}" placeholder="{{searchLabel}}" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: {{inputFs}}"></label></div>
+</sc-if>
+
+<div style="flex: 1; min-height: 0; overflow: hidden; padding-bottom: 4px">
+<sc-if value="{{noTask}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 14px 16px">
+<p style="margin: 0; font-weight: 700">This session has no tq task</p>
+<p style="margin: 0; color: #a1a1aa; font-size: {{subFs}}">What it waits for is saved as blockers of its tq task, and every session of that task waits with it. Link a task first.</p>
+<div style="display: grid; grid-template-columns: {{noTaskCols}}; gap: 8px">
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{btnFs}}; font-weight: 700">Create a tq task for it</button>
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{btnFs}}">Link an existing task…</button>
+</div>
+<p style="margin: 0; color: #8b8b94; font-size: {{metaFs}}">The new task is titled 通知の再送処理を見直す in example/service. You pick what to wait for next.</p>
+</div>
+</sc-if>
+<sc-for list="{{groups}}" as="g" hint-placeholder-count="3">
+<h3 style="height: 28px; display: flex; align-items: center; gap: 8px; margin: 4px 0 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">{{g.title}}<sc-if value="{{g.hasNote}}" hint-placeholder-val="{{ false }}"><span style="font-weight: 400; letter-spacing: 0">{{g.note}}</span></sc-if></h3>
+<sc-for list="{{g.items}}" as="it" hint-placeholder-count="2">
+<label style="min-height: {{rowH}}; box-sizing: border-box; display: grid; grid-template-columns: {{checkW}} 16px 1fr auto; align-items: center; column-gap: 10px; padding: 4px 16px 4px {{rowPadL}}; background: {{it.bg}}; opacity: {{it.opacity}}">
+<input type="checkbox" checked="{{it.checked}}" aria-disabled="{{it.disabledStr}}" aria-label="Wait for {{it.title}}" style="width: {{checkBox}}; height: {{checkBox}}; margin: 0; justify-self: center; accent-color: #fafafa">
+<span aria-hidden="true" style="display: grid; place-items: center; color: {{it.glyphColor}}; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700">
+<sc-if value="{{it.isSession}}" hint-placeholder-val="{{ true }}"><span style="width: 7px; height: 7px; border-radius: {{it.dotRadius}}; background: {{it.glyphColor}}"></span></sc-if>
+<sc-if value="{{it.isTask}}" hint-placeholder-val="{{ false }}">#</sc-if>
+<sc-if value="{{it.isIssue}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="1.5" fill="currentColor"></circle></svg></sc-if>
+<sc-if value="{{it.isPr}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg></sc-if>
+</span>
+<span style="min-width: 0; display: flex; flex-direction: column"><span style="min-width: 0; color: #fafafa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><sc-if value="{{it.hasRef}}" hint-placeholder-val="{{ false }}"><span style="font-family: 'JetBrains Mono', monospace; font-size: 0.92em">{{it.ref}}</span> </sc-if>{{it.title}}</span><span style="min-width: 0; color: #a1a1aa; font-size: {{metaFs}}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{it.sub}}</span></span>
+<span style="display: flex; align-items: center">
+<sc-if value="{{it.condFixed}}" hint-placeholder-val="{{ false }}"><span style="color: #d4d4d8; font-size: {{metaFs}}; white-space: nowrap">{{it.cond}}</span></sc-if>
+</span>
+</label>
+</sc-for>
+</sc-for>
+<sc-if value="{{showSearchBottom}}" hint-placeholder-val="{{ false }}">
+<div style="padding: {{searchPad}}"><label style="height: {{inputH}}; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 10px; border: 1px solid #3f3f46; background: #141414"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8b8b94" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg><input aria-label="Search tq tasks, issues, PRs and sessions" placeholder="Search tq tasks, issues, PRs and sessions" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: {{inputFs}}"></label></div>
+</sc-if>
+</div>
+
+<sc-if value="{{onClear}}" hint-placeholder-val="{{ false }}">
+<fieldset style="flex: none; margin: 0; padding: 10px 16px 4px; border: 0; border-top: 1px solid #2a2a2a">
+<legend style="float: left; width: 100%; padding: 0 0 4px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">WHEN IT IS DONE</legend>
+<label style="clear: both; min-height: {{radioH}}; display: flex; align-items: center; gap: 10px"><input type="radio" name="on-clear" style="width: {{checkBox}}; height: {{checkBox}}; margin: 0; accent-color: #fafafa">Bring it back to Needs action and notify me</label>
+<label style="clear: both; min-height: {{radioH}}; display: flex; align-items: center; gap: 10px"><input type="radio" name="on-clear" checked style="width: {{checkBox}}; height: {{checkBox}}; margin: 0; accent-color: #fafafa">Send this message to the session</label>
+<textarea aria-label="Message to send when it is done" rows="2" style="display: block; width: 100%; box-sizing: border-box; margin: 2px 0 6px; padding: 6px 10px; border: 1px solid #3f3f46; background: #141414; color: #fafafa; font-family: inherit; font-size: {{inputFs}}; line-height: 1.5; resize: none">PR #2051 が入ったので、上限は設定の値を使って続けてください。</textarea>
+</fieldset>
+</sc-if>
+
+<footer style="flex: none; display: flex; flex-direction: column; gap: 8px; padding: {{footPad}}; border-top: 1px solid #2a2a2a">
+<div style="display: flex; flex-direction: column; gap: 2px; font-size: {{metaFs}}">
+<span style="color: {{sumColor}}">{{summary}}</span>
+<span style="color: #8b8b94">{{rule}}</span>
+</div>
+<div style="display: grid; grid-template-columns: {{btnCols}}; gap: 8px; justify-content: end">
+<sc-if value="{{pcOnly}}" hint-placeholder-val="{{ true }}"><span style="align-self: center; color: #8b8b94; font-size: 11.5px">Space Select · ↵ {{action}}</span></sc-if>
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{btnFs}}">Cancel</button>
+<button type="button" aria-disabled="{{disabledStr}}" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{btnFs}}; font-weight: 700; opacity: {{actionOpacity}}">{{action}}</button>
+</div>
+</footer>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"frame":{"editor":"enum","options":["dialog","palette"],"default":"dialog"},"mode":{"editor":"enum","options":["search","tabs","suggest"],"default":"suggest"},"step":{"editor":"enum","options":["open","chosen","session","noTask"],"default":"open"},"onClear":{"editor":"boolean","default":false},"head":{"editor":"text","default":"Wait for…"},"action":{"editor":"text","default":"Wait"},"h":{"editor":null},"$preview":{"width":600,"height":640}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const phone = (this.props.form ?? 'pc') === 'phone';
+    const frame = this.props.frame ?? 'dialog';
+    const mode = this.props.mode ?? 'suggest';
+    // step: open (nothing picked), chosen (tq #58 and PR #2051 picked), session (a session picked, which adds its tq task), noTask (this session has no tq task to hold blockers).
+    const step = this.props.step ?? 'open';
+    const noTask = step === 'noTask';
+    const picked = step === 'chosen' || step === 'session';
+    const subject = '通知の再送処理を見直す';
+    // Blockers live on the session's tq task: blockedBy holds tq tasks, githubBlockers holds issue / PR URLs. A session is not a blocker itself; picking one adds its tq task.
+    const I = {
+      task: { kind: 'task', ref: '#58', title: '再送キューを作り直す', sub: 'P1 · open · subtask of #2048', cond: 'closes' },
+      task2: { kind: 'task', ref: '#61', title: '再送の上限を決める', sub: 'P2 · open', cond: 'closes' },
+      pr: { kind: 'pr', ref: '#2051', title: '再送キューの上限を設定に出す', sub: 'PR · service · CI running · by 再送キューを作り直す', cond: 'merges' },
+      pr2: { kind: 'pr', ref: '#2047', title: '再送処理を retry() にまとめる', sub: 'PR · service · by this session', cond: 'merges' },
+      issue: { kind: 'issue', ref: '#2039', title: '再送の失敗が通知されない', sub: 'Issue · service · open', cond: 'closes' },
+      child: { kind: 'session', title: '再送キューを作り直す', sub: 'Child session · Working · its task: tq #58', color: '#60a5fa', round: true, cond: '+ tq #58' },
+      other: { kind: 'session', title: '配信ログの保存期間を決める', sub: 'Plan · service · no tq task', color: '#fbbf24', round: false, cond: 'No tq task', noTask: true }
+    };
+    const isPicked = (k) => (step === 'chosen' && (k === 'pr' || k === 'task')) || (step === 'session' && (k === 'pr' || k === 'task' || k === 'child'));
+    const row = (k) => {
+      const it = I[k];
+      const on = isPicked(k);
+      return {
+        ...it, hasRef: !!it.ref, ref: it.ref ?? '',
+        // session step: tq #58 is in because its session was picked.
+        sub: step === 'session' && k === 'task' ? 'Added with the session 再送キューを作り直す' : it.sub,
+        isSession: it.kind === 'session', isTask: it.kind === 'task', isPr: it.kind === 'pr', isIssue: it.kind === 'issue',
+        glyphColor: it.kind === 'session' ? it.color : '#a1a1aa', dotRadius: it.round ? '50%' : '0',
+        checked: on, bg: on ? '#202024' : 'transparent',
+        condFixed: on || !!it.noTask, disabledStr: it.noTask ? 'true' : 'false', opacity: it.noTask ? 0.55 : 1
+      };
+    };
+    let groups = [];
+    let tabs = [];
+    if (noTask) {
+      groups = [];
+    } else if (mode === 'search') {
+      groups = [
+        { title: 'TQ TASKS', items: ['task', 'task2'].map(row) },
+        { title: 'ISSUES AND PRS', items: ['pr', 'issue', 'pr2'].map(row) },
+        { title: 'SESSIONS', note: '· adds the session’s tq task', items: ['child', 'other'].map(row) }
+      ];
+    } else if (mode === 'tabs') {
+      // open: tq tasks; chosen: on Issues and PRs with one task picked; session: on Sessions.
+      const active = step === 'chosen' ? 'gh' : step === 'session' ? 'sessions' : 'tasks';
+      const count = { tasks: picked ? 1 : 0, gh: picked ? 1 : 0, sessions: step === 'session' ? 1 : 0 };
+      tabs = [['tasks', 'tq tasks'], ['gh', 'Issues and PRs'], ['sessions', 'Sessions']].map(([id, label]) => {
+        const on = id === active;
+        return { label, selected: on ? 'true' : 'false', underline: on ? '#fafafa' : 'transparent', color: on ? '#fafafa' : '#a1a1aa', weight: on ? 700 : 400, picked: count[id], hasPicked: count[id] > 0 };
+      });
+      groups = active === 'gh' ? [{ title: 'OPEN · SERVICE', items: ['pr', 'issue', 'pr2'].map(row) }]
+        : active === 'sessions' ? [{ title: 'SESSIONS', note: '· adds the session’s tq task', items: ['child', 'other'].map(row) }]
+        : [{ title: 'OPEN · SERVICE', items: ['task', 'task2'].map(row) }];
+    } else {
+      groups = [{ title: 'RELATED TO THIS SESSION', items: ['task', 'pr', 'child', 'pr2'].map(row) }];
+    }
+    const chosen = groups.flatMap((g) => g.items).filter((r) => r.checked && r.kind !== 'session');
+    const phrase = (r) => ({ task: 'tq ', pr: 'PR ', issue: 'issue ' })[r.kind] + r.ref + ' ' + r.cond;
+    const isPalette = frame === 'palette';
+    return {
+      head: this.props.head ?? 'Wait for…', subject,
+      taskLine: noTask ? 'No tq task' : 'Saved as blockers of tq #2048 通知の信頼性を上げる · 2 sessions wait',
+      action: this.props.action ?? 'Wait',
+      query: mode === 'search' ? '再送' : '',
+      searchLabel: mode === 'tabs' ? 'Filter' : 'Search tq tasks, issues, PRs and sessions',
+      isPalette, isPhonePalette: isPalette && phone, isDialog: !isPalette, pcOnly: !phone,
+      isTabs: mode === 'tabs' && !noTask, tabs, noTask, noTaskCols: phone ? '1fr' : 'auto auto',
+      showSearchTop: !isPalette && mode !== 'suggest' && !noTask, showSearchBottom: mode === 'suggest' && !noTask,
+      groups: groups.map((g) => ({ ...g, hasNote: !!g.note, note: g.note ?? '' })),
+      onClear: this.props.onClear ?? false,
+      summary: noTask ? 'Nothing to save the blockers on yet.' : picked ? 'tq #2048 waits until ' + chosen.map(phrase).join(' and ') : 'Pick one or more. It waits until all of them are done.',
+      sumColor: picked ? '#fafafa' : '#a1a1aa',
+      rule: picked ? 'Both sessions of tq #2048 go to Later. If a PR closes without merging or a task closes as not planned, they come back right away.' : '',
+      disabledStr: picked ? 'false' : 'true', actionOpacity: picked ? 1 : 0.4,
+      h: this.props.h ?? (phone ? '100%' : 'auto'),
+      bg: isPalette ? '#161616' : '#1f1f1f',
+      borderW: phone ? (isPalette ? '0' : '1px 0 0') : '1px',
+      shadow: phone ? (isPalette ? 'none' : '0 -12px 36px rgb(0 0 0 / 30%)') : '0 12px 36px rgb(0 0 0 / 30%)',
+      fs: phone ? '15px' : '13px', subFs: phone ? '13px' : '12px', metaFs: phone ? '12.5px' : '11.5px',
+      headFs: phone ? '15px' : '14px', headPad: phone ? '16px 16px 8px' : '14px 16px 8px',
+      inputH: phone ? '44px' : '34px', inputFs: phone ? '16px' : '13px',
+      searchPad: phone ? '8px 16px' : '6px 16px 4px',
+      tabH: phone ? '44px' : '34px',
+      rowH: phone ? '60px' : '46px', checkW: phone ? '28px' : '16px', checkBox: phone ? '20px' : '14px', rowPadL: phone ? '10px' : '16px',
+      condH: phone ? '44px' : '26px', condListW: phone ? '240px' : '220px', radioH: phone ? '44px' : '28px',
+      footPad: phone ? '10px 16px max(30px, env(safe-area-inset-bottom))' : '10px 16px 12px',
+      btnCols: phone ? '1fr 1fr' : '1fr auto auto', btnH: phone ? '44px' : '28px', btnFs: phone ? '14px' : '12px'
+    };
+  }
+}
+</script>
+</body>
+</html>

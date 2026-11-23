@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>PC scene</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; display: flex; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" activity="{{ activity }}" activity-open="{{ activityOpen }}" hint-size="240px,900px"></dc-import></div>
+<div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" wait="{{i.wait}}" wait-current="{{ i.waitCurrent }}" current="{{ i.current }}" later-menu-open="{{ i.laterMenuOpen }}" hint-size="460px,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0"><dc-import name="Conversation" variant="{{c.variant}}" menu="{{c.menu}}" menu-wait="{{ c.menuWait }}" wait="{{ c.wait }}" timeline="{{ c.timeline }}" resumed="{{ c.resumed }}" hint-size="100%,900px"></dc-import></div>
+
+<sc-if value="{{isLater}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0, 0, 0, 0.35)">
+<div style="width: 300px"><dc-import name="LaterMenu" form="menu" until="{{ laterUntil }}" pressed="{{ laterPressed }}" hint-size="300px,300px"></dc-import></div>
+</div>
+</sc-if>
+
+<sc-if value="{{isPicker}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; display: flex; justify-content: center; align-items: flex-start; padding-top: 72px; box-sizing: border-box; background: rgba(0, 0, 0, 0.45)">
+<div style="width: 600px"><dc-import name="WaitPicker" form="pc" frame="{{p.frame}}" mode="{{p.mode}}" step="{{p.step}}" on-clear="{{ p.onClear }}" head="{{p.head}}" action="{{p.action}}" hint-size="600px,640px"></dc-import></div>
+</div>
+</sc-if>
+
+<sc-if value="{{isPaletteCmd}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; display: flex; justify-content: center; padding-top: 96px; box-sizing: border-box; background: rgba(0, 0, 0, 0.58)">
+<div role="dialog" aria-label="Jump to" style="width: 680px; height: 420px; box-sizing: border-box; display: flex; flex-direction: column; background: #161616; border: 1px solid #3f3f46">
+<div style="flex: none; height: 54px; display: flex; align-items: center; gap: 12px; padding: 0 16px; border-bottom: 1px solid #2a2a2a">
+<span aria-hidden="true" style="color: #8b8b94; font-size: 16px">⌕</span>
+<input aria-label="Jump to" value="&gt;until" style="flex: 1; min-width: 0; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 15px">
+<kbd style="padding: 1px 6px; border: 1px solid #3f3f46; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #a1a1aa">esc</kbd>
+</div>
+<div role="listbox" style="flex: 1; min-height: 0; padding: 4px 0">
+<h2 style="height: 28px; display: flex; align-items: center; margin: 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">COMMANDS</h2>
+<div role="option" aria-selected="true" style="min-height: 44px; box-sizing: border-box; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 12px; padding: 5px 16px; background: #2a2a2e"><span aria-hidden="true" style="color: #a1a1aa; text-align: center">›</span><div style="min-width: 0"><div>Later until done…</div><div style="font-size: 11.5px; color: #a1a1aa">通知の再送処理を見直す · Block tq #2048 on tasks, issues or PRs</div></div><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">⇧L</kbd></div>
+<div role="option" aria-selected="false" style="min-height: 44px; box-sizing: border-box; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 12px; padding: 5px 16px"><span aria-hidden="true" style="color: #a1a1aa; text-align: center">›</span><div style="min-width: 0"><div>Later</div><div style="font-size: 11.5px; color: #a1a1aa">通知の再送処理を見直す · Bring it back at a time</div></div><kbd style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">L</kbd></div>
+<div role="option" aria-selected="false" style="min-height: 44px; box-sizing: border-box; display: grid; grid-template-columns: 16px 1fr auto; align-items: center; gap: 12px; padding: 5px 16px"><span aria-hidden="true" style="color: #a1a1aa; text-align: center">›</span><div style="min-width: 0"><div>Show blocked tq tasks</div><div style="font-size: 11.5px; color: #a1a1aa">tq #2048 · 2 sessions in Later</div></div><span></span></div>
+</div>
+<div style="flex: none; height: 36px; display: flex; align-items: center; gap: 14px; padding: 0 16px; border-top: 1px solid #2a2a2a; font-size: 11.5px; color: #8b8b94"><span>↵ Run</span><span style="margin-left: auto; font-family: 'JetBrains Mono', monospace">#  task · @ project · &gt; command</span></div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{hasToast}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; left: 16px; bottom: 16px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,150px"></dc-import></div></sc-if>
+<sc-if value="{{activityOpen}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; left: 248px; bottom: 148px; width: 400px"><dc-import name="Activity" items="{{ activityItems }}" hint-size="100%,520px"></dc-import></div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"inbox":{"editor":null},"conv":{"editor":null},"overlay":{"editor":"enum","options":["none","later","picker","paletteCmd"],"default":"none"},"laterPressed":{"editor":"boolean","default":false},"laterUntil":{"editor":"boolean","default":true},"picker":{"editor":null},"toasts":{"editor":null},"activity":{"editor":null},"activityItems":{"editor":null},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const o = this.props.overlay ?? 'none';
+    const toasts = this.props.toasts ?? [];
+    const activityItems = this.props.activityItems ?? null;
+    return {
+      i: { wait: 'none', current: 0, laterMenuOpen: o === 'later', waitCurrent: false, ...(this.props.inbox ?? {}) },
+      c: { variant: 'question', menu: 'closed', menuWait: false, wait: null, timeline: [], resumed: false, ...(this.props.conv ?? {}) },
+      p: { frame: 'dialog', mode: 'suggest', step: 'open', onClear: false, head: 'Wait for…', action: 'Wait', ...(this.props.picker ?? {}) },
+      // laterUntil: the Later menu carries "Until something else is done…".
+      isLater: o === 'later', laterPressed: this.props.laterPressed ?? false, laterUntil: this.props.laterUntil ?? true,
+      isPicker: o === 'picker', isPaletteCmd: o === 'paletteCmd',
+      toasts, hasToast: toasts.length > 0,
+      activity: this.props.activity ?? { count: '', tone: 'idle' },
+      activityOpen: !!activityItems, activityItems: activityItems ?? []
+    };
+  }
+}
+</script>
+</body>
+</html>

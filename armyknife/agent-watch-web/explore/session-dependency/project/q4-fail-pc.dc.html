@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>共通 · PC · PR が merge されずに close された</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; overflow: hidden; background: #0a0a0a">
+<dc-import name="ScenePc" inbox="{{ inbox }}" conv="{{ conv }}" toasts="{{ toasts }}" activity="{{ activity }}" hint-size="1440px,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      "inbox": {
+        "wait": "backFailed",
+        "waitCurrent": true
+      },
+      "conv": {
+        "wait": {
+          "state": "failed"
+        },
+        "timeline": [
+          {
+            "line": {
+              "result": "waitSet",
+              "what": "PR #2051 merges",
+              "time": "12:10"
+            }
+          },
+          {
+            "line": {
+              "result": "waitFailed",
+              "what": "PR #2051 was closed without merging",
+              "session": "通知の再送処理を見直す",
+              "reason": "Still a blocker of tq #2048 · 2 sessions back in Needs action",
+              "time": "12:40"
+            }
+          }
+        ]
+      },
+      "toasts": [
+        {
+          "result": "waitFailed",
+          "what": "PR #2051 was closed without merging",
+          "session": "通知の再送処理を見直す",
+          "reason": "Still a blocker of tq #2048 · 2 sessions back in Needs action",
+          "time": "12:40"
+        }
+      ],
+      "activity": {
+        "count": 1,
+        "tone": "failure"
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

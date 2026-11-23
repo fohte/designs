@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>A · PC · 設定したあと</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; overflow: hidden; background: #0a0a0a">
+<dc-import name="ScenePc" inbox="{{ inbox }}" conv="{{ conv }}" toasts="{{ toasts }}" hint-size="1440px,900px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      "inbox": {
+        "wait": "later",
+        "waitCurrent": true
+      },
+      "conv": {
+        "wait": {
+          "mode": "line"
+        },
+        "timeline": [
+          {
+            "line": {
+              "result": "waitSet",
+              "what": "PR #2051 merges",
+              "time": "12:10"
+            }
+          }
+        ]
+      },
+      "toasts": [
+        {
+          "result": "waitSet",
+          "what": "PR #2051 merges",
+          "session": "通知の再送処理を見直す",
+          "reason": "tq #2048 · 2 sessions in Later"
+        }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

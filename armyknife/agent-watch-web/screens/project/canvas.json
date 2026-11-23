@@ -480,6 +480,22 @@
       "title": "iPhone · Merge が失敗",
       "page": "topbar"
     },
+    "ActionTimeline.dc.html": {
+      "x": 6440,
+      "y": 8900,
+      "w": 1440,
+      "h": 900,
+      "title": "結果の行は押した時点の位置に残り、あとのメッセージと一緒に上へ流れる",
+      "page": "topbar"
+    },
+    "PhoneActionTimeline.dc.html": {
+      "x": 7960,
+      "y": 8900,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 結果の行が会話と一緒に流れる",
+      "page": "topbar"
+    },
     "PhoneActionInbox.dc.html": {
       "x": 5500,
       "y": 10220,
@@ -1378,6 +1394,14 @@
       "h": 844,
       "title": "iPhone · 長いタイトル · 2 行まで折り返し、3 行目から … で切る",
       "page": "topbar"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 3400,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
     }
   },
   "order": [
@@ -1470,6 +1494,8 @@
     "PhoneActionRunning.dc.html",
     "PhoneActionSuccess.dc.html",
     "PhoneActionFailure.dc.html",
+    "ActionTimeline.dc.html",
+    "PhoneActionTimeline.dc.html",
     "PhoneActionClose.dc.html",
     "PhoneActionInbox.dc.html",
     "PhoneActionDrawer.dc.html",
@@ -1553,7 +1579,8 @@
     "PhoneStatusReviewEnglish.dc.html",
     "StatusReviewFull.dc.html",
     "MergeButton.dc.html",
-    "PhoneChatLongTitle.dc.html"
+    "PhoneChatLongTitle.dc.html",
+    "before/BeforeMain.dc.html"
   ],
   "pages": [
     {
@@ -1608,9 +1635,9 @@
     "rowActionResult": {
       "x": 0,
       "y": 8600,
-      "text": "Merge と Close を裏で実行 · 実行中、成功、失敗",
+      "text": "Merge と Close を裏で実行 · 実行中、成功、失敗、会話の中の結果の行",
       "kind": "title1",
-      "maxW": 6360,
+      "maxW": 8350,
       "page": "topbar"
     },
     "rowActivityEmpty": {
@@ -1852,6 +1879,21 @@
       "maxW": 1910,
       "page": "conversation",
       "text": "会話の中の web UI のリンク · 開く先のタブ名"
+    },
+    "diffMain": {
+      "x": 3040,
+      "y": 0,
+      "w": 380,
+      "text": "変更点\n- 確認したあとの実行の説明: 結果の行は操作を始めた時点の位置に置き、あとのメッセージと一緒に上へ流れる、と書き直した\n- ! コマンドの結果の行も、会話の最後ではなく実行した時点の位置にした",
+      "page": "inbox"
+    },
+    "beforeParts": {
+      "x": 0,
+      "y": 5560,
+      "text": "Before · 変更前のボードが読み込む部品",
+      "kind": "title1",
+      "maxW": 6000,
+      "page": "components"
     }
   },
   "v": 3,

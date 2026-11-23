@@ -1,0 +1,690 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-23T11:40:32.259Z"
+  },
+  "title": "Header context",
+  "launch": {
+    "view": "canvas",
+    "page": "current"
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-23T11:55:21.803Z"
+    }
+  ],
+  "pages": [
+    {
+      "id": "current",
+      "name": "今"
+    },
+    {
+      "id": "q1",
+      "name": "1. 親セッションの出し方"
+    },
+    {
+      "id": "q2",
+      "name": "2. worktree とブランチの出し方"
+    },
+    {
+      "id": "q3",
+      "name": "3. 並びと狭いときの縮め方"
+    },
+    {
+      "id": "q4",
+      "name": "4. iPhone での置き場所"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "current-pc-wide.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 720,
+      "h": 360,
+      "title": "今 · PC · 会話の幅 720px",
+      "page": "current"
+    },
+    "current-pc-narrow.dc.html": {
+      "x": 800,
+      "y": 0,
+      "w": 1120,
+      "h": 360,
+      "title": "今 · PC · 状況パネルを開いて会話が 480px",
+      "page": "current"
+    },
+    "current-phone.dc.html": {
+      "x": 2000,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone",
+      "page": "current"
+    },
+    "q1-a-wide.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 720,
+      "h": 360,
+      "title": "A · 会話の幅 720px",
+      "page": "q1"
+    },
+    "q1-a-narrow.dc.html": {
+      "x": 800,
+      "y": 0,
+      "w": 1120,
+      "h": 360,
+      "title": "A · 状況パネルを開いて会話が 480px",
+      "page": "q1"
+    },
+    "q1-b-wide.dc.html": {
+      "x": 0,
+      "y": 1060,
+      "w": 720,
+      "h": 360,
+      "title": "B · 会話の幅 720px",
+      "page": "q1"
+    },
+    "q1-b-narrow.dc.html": {
+      "x": 800,
+      "y": 1060,
+      "w": 1120,
+      "h": 360,
+      "title": "B · 状況パネルを開いて会話が 480px",
+      "page": "q1"
+    },
+    "q1-b-tip.dc.html": {
+      "x": 2000,
+      "y": 1060,
+      "w": 1120,
+      "h": 360,
+      "title": "B · 480px で親の枠の上にマウスを置いた",
+      "page": "q1"
+    },
+    "q1-c-wide.dc.html": {
+      "x": 0,
+      "y": 2120,
+      "w": 720,
+      "h": 360,
+      "title": "C · 会話の幅 720px",
+      "page": "q1"
+    },
+    "q1-c-tree.dc.html": {
+      "x": 800,
+      "y": 2120,
+      "w": 1120,
+      "h": 360,
+      "title": "C · Tree ↑1 を押してパネルの Tree を開いた",
+      "page": "q1"
+    },
+    "q2-a-wt.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 720,
+      "h": 360,
+      "title": "A · worktree のセッション",
+      "page": "q2"
+    },
+    "q2-a-plain.dc.html": {
+      "x": 800,
+      "y": 0,
+      "w": 720,
+      "h": 360,
+      "title": "A · worktree でないセッション (main)",
+      "page": "q2"
+    },
+    "q2-a-tip.dc.html": {
+      "x": 1600,
+      "y": 0,
+      "w": 720,
+      "h": 360,
+      "title": "A · ブランチの上にマウスを置いた",
+      "page": "q2"
+    },
+    "q2-b-wt.dc.html": {
+      "x": 0,
+      "y": 1060,
+      "w": 720,
+      "h": 360,
+      "title": "B · worktree のセッション",
+      "page": "q2"
+    },
+    "q2-b-plain.dc.html": {
+      "x": 800,
+      "y": 1060,
+      "w": 720,
+      "h": 360,
+      "title": "B · worktree でないセッション (何も出ない)",
+      "page": "q2"
+    },
+    "q2-b-copied.dc.html": {
+      "x": 1600,
+      "y": 1060,
+      "w": 720,
+      "h": 360,
+      "title": "B · 枠を押してパスをコピーした",
+      "page": "q2"
+    },
+    "q2-c-wt.dc.html": {
+      "x": 0,
+      "y": 2120,
+      "w": 720,
+      "h": 360,
+      "title": "C · 閉じている",
+      "page": "q2"
+    },
+    "q2-c-open.dc.html": {
+      "x": 800,
+      "y": 2120,
+      "w": 720,
+      "h": 360,
+      "title": "C · repo を押して開いた (worktree)",
+      "page": "q2"
+    },
+    "q2-c-plain.dc.html": {
+      "x": 1600,
+      "y": 2120,
+      "w": 720,
+      "h": 360,
+      "title": "C · worktree でないセッションで開いた",
+      "page": "q2"
+    },
+    "q3-a-wide.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 720,
+      "h": 360,
+      "title": "A · 会話の幅 720px",
+      "page": "q3"
+    },
+    "q3-a-narrow.dc.html": {
+      "x": 800,
+      "y": 0,
+      "w": 1120,
+      "h": 360,
+      "title": "A · 状況パネルを開いて会話が 480px",
+      "page": "q3"
+    },
+    "q3-a-tip.dc.html": {
+      "x": 2000,
+      "y": 0,
+      "w": 1120,
+      "h": 360,
+      "title": "A · 480px で tq タスクの上にマウスを置いた",
+      "page": "q3"
+    },
+    "q3-b-wide.dc.html": {
+      "x": 0,
+      "y": 1060,
+      "w": 720,
+      "h": 360,
+      "title": "B · 会話の幅 720px",
+      "page": "q3"
+    },
+    "q3-b-narrow.dc.html": {
+      "x": 800,
+      "y": 1060,
+      "w": 1120,
+      "h": 360,
+      "title": "B · 状況パネルを開いて会話が 480px",
+      "page": "q3"
+    },
+    "q3-b-tip.dc.html": {
+      "x": 2000,
+      "y": 1060,
+      "w": 1120,
+      "h": 360,
+      "title": "B · 480px でブランチの上にマウスを置いた",
+      "page": "q3"
+    },
+    "q3-c-wide.dc.html": {
+      "x": 0,
+      "y": 2120,
+      "w": 720,
+      "h": 360,
+      "title": "C · 会話の幅 720px",
+      "page": "q3"
+    },
+    "q3-c-narrow.dc.html": {
+      "x": 800,
+      "y": 2120,
+      "w": 1120,
+      "h": 360,
+      "title": "C · 状況パネルを開いて会話が 480px",
+      "page": "q3"
+    },
+    "q3-c-tip.dc.html": {
+      "x": 2000,
+      "y": 2120,
+      "w": 1120,
+      "h": 360,
+      "title": "C · 480px で親の印の上にマウスを置いた",
+      "page": "q3"
+    },
+    "q4-a-wt.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · worktree のセッション",
+      "page": "q4"
+    },
+    "q4-a-plain.dc.html": {
+      "x": 470,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · worktree でないセッション",
+      "page": "q4"
+    },
+    "q4-b-closed.dc.html": {
+      "x": 0,
+      "y": 1264,
+      "w": 390,
+      "h": 844,
+      "title": "B · 閉じている",
+      "page": "q4"
+    },
+    "q4-b-sheet.dc.html": {
+      "x": 470,
+      "y": 1264,
+      "w": 390,
+      "h": 844,
+      "title": "B · タイトルを押してシートを開いた (worktree)",
+      "page": "q4"
+    },
+    "q4-b-plain.dc.html": {
+      "x": 940,
+      "y": 1264,
+      "w": 390,
+      "h": 844,
+      "title": "B · worktree でないセッションで開いた",
+      "page": "q4"
+    },
+    "q4-c-header.dc.html": {
+      "x": 0,
+      "y": 2528,
+      "w": 390,
+      "h": 844,
+      "title": "C · 会話",
+      "page": "q4"
+    },
+    "q4-c-tree.dc.html": {
+      "x": 470,
+      "y": 2528,
+      "w": 390,
+      "h": 844,
+      "title": "C · 状況パネルの Tree",
+      "page": "q4"
+    },
+    "ChatHeader.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 720,
+      "h": 96,
+      "title": "ChatHeader",
+      "page": "parts"
+    },
+    "HeaderScene.dc.html": {
+      "x": 800,
+      "y": 0,
+      "w": 720,
+      "h": 300,
+      "title": "HeaderScene",
+      "page": "parts"
+    },
+    "ContextCard.dc.html": {
+      "x": 1600,
+      "y": 0,
+      "w": 440,
+      "h": 240,
+      "title": "ContextCard",
+      "page": "parts"
+    },
+    "StatusPanel.dc.html": {
+      "x": 2120,
+      "y": 0,
+      "w": 640,
+      "h": 900,
+      "title": "StatusPanel",
+      "page": "parts"
+    },
+    "PhoneStatusPanel.dc.html": {
+      "x": 2840,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneStatusPanel",
+      "page": "parts"
+    },
+    "StatusTabs.dc.html": {
+      "x": 3310,
+      "y": 0,
+      "w": 640,
+      "h": 49,
+      "title": "StatusTabs",
+      "page": "parts"
+    },
+    "StatusBody.dc.html": {
+      "x": 4030,
+      "y": 0,
+      "w": 640,
+      "h": 852,
+      "title": "StatusBody",
+      "page": "parts"
+    },
+    "DraftReview.dc.html": {
+      "x": 4750,
+      "y": 0,
+      "w": 640,
+      "h": 852,
+      "title": "DraftReview",
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 5470,
+      "y": 0,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 6010,
+      "y": 0,
+      "w": 160,
+      "h": 44,
+      "title": "MergeButton",
+      "page": "parts"
+    },
+    "PrButton.dc.html": {
+      "x": 6250,
+      "y": 0,
+      "w": 44,
+      "h": 44,
+      "title": "PrButton",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "current-pc-wide.dc.html",
+    "current-pc-narrow.dc.html",
+    "current-phone.dc.html",
+    "q1-a-wide.dc.html",
+    "q1-a-narrow.dc.html",
+    "q1-b-wide.dc.html",
+    "q1-b-narrow.dc.html",
+    "q1-b-tip.dc.html",
+    "q1-c-wide.dc.html",
+    "q1-c-tree.dc.html",
+    "q2-a-wt.dc.html",
+    "q2-a-plain.dc.html",
+    "q2-a-tip.dc.html",
+    "q2-b-wt.dc.html",
+    "q2-b-plain.dc.html",
+    "q2-b-copied.dc.html",
+    "q2-c-wt.dc.html",
+    "q2-c-open.dc.html",
+    "q2-c-plain.dc.html",
+    "q3-a-wide.dc.html",
+    "q3-a-narrow.dc.html",
+    "q3-a-tip.dc.html",
+    "q3-b-wide.dc.html",
+    "q3-b-narrow.dc.html",
+    "q3-b-tip.dc.html",
+    "q3-c-wide.dc.html",
+    "q3-c-narrow.dc.html",
+    "q3-c-tip.dc.html",
+    "q4-a-wt.dc.html",
+    "q4-a-plain.dc.html",
+    "q4-b-closed.dc.html",
+    "q4-b-sheet.dc.html",
+    "q4-b-plain.dc.html",
+    "q4-c-header.dc.html",
+    "q4-c-tree.dc.html",
+    "ChatHeader.dc.html",
+    "HeaderScene.dc.html",
+    "ContextCard.dc.html",
+    "StatusPanel.dc.html",
+    "PhoneStatusPanel.dc.html",
+    "StatusTabs.dc.html",
+    "StatusBody.dc.html",
+    "DraftReview.dc.html",
+    "SessionRow.dc.html",
+    "MergeButton.dc.html",
+    "PrButton.dc.html"
+  ],
+  "notes": {
+    "current": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 2910,
+      "page": "current",
+      "text": "今 · 1 行目に tq タスク、repo、↑ Parent: が並び、狭いと repo と親が切れる。ブランチと worktree はどこにも出ない"
+    },
+    "current-note": {
+      "x": 2470,
+      "y": 0,
+      "w": 480,
+      "page": "current",
+      "text": "今のヘッダー\n- 1 行目: tq タスク、repo (owner つき)、↑ Parent: 親のタイトル。どれも 12px の灰色で、親だけ等幅の英語の前置きつき\n- 720px でも親のタイトルが切れ、480px では repo の後ろと親がほぼ消える\n- 切れた文字を見る手段がない\n- worktree で動いていても、ブランチもパスも出ない\n- iPhone は 2 行目に tq タスク · repo 名だけで、親もブランチも出ない"
+    },
+    "q1a": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 2440,
+      "page": "q1",
+      "text": "A · タイトルの前に「親のタイトル ›」を出し、押すと親へ移る"
+    },
+    "q1a-note": {
+      "x": 2000,
+      "y": 0,
+      "w": 480,
+      "page": "q1",
+      "text": "A\n- 2 行目が「通知まわりの改修を進める › 再試行の上限を…」になり、上下の関係が文として読める\n- 親の文字を押すと親の会話へ移る\n- 狭いときは親が先に縮み、このセッションのタイトルは残る\n- 1 行目は tq タスクと repo だけになり、ブランチを置く幅ができる\n- 弱み: 親の状態 (Working など) は出ない。タイトルの行が長くなる"
+    },
+    "q1b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 800,
+      "maxW": 3640,
+      "page": "q1",
+      "text": "B · 1 行目の先頭に、親の状態の印つきの小さな枠を出す"
+    },
+    "q1b-note": {
+      "x": 3200,
+      "y": 1060,
+      "w": 480,
+      "page": "q1",
+      "text": "B\n- 1 行目の先頭に「↑ ● 通知まわりの改修を進める」の枠。● は親の状態 (青は Working) で、押すと親へ移る\n- 親が動いているか止まっているかが、親を開かずに分かる\n- 枠は最大 220px で、上にマウスを置くと全文を出す\n- 弱み: 1 行目に 3 つ並ぶので、480px では tq タスクがほぼ消える"
+    },
+    "q1c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1860,
+      "maxW": 2440,
+      "page": "q1",
+      "text": "C · ヘッダーには ↑1 のボタンだけ置き、押すと右のパネルの Tree を開く"
+    },
+    "q1c-note": {
+      "x": 2000,
+      "y": 2120,
+      "w": 480,
+      "page": "q1",
+      "text": "C\n- ヘッダーの右のボタン列に「Tree ↑1」を足す。押すと状況パネルが Tree で開き、親と兄弟が一覧の行で並ぶ\n- 親の行を押すと親へ移る\n- ヘッダーの幅をほとんど使わない\n- 弱み: 親のタイトルはパネルを開くまで分からない。親へ移るのに 2 回押す"
+    },
+    "q2a": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 2840,
+      "page": "q2",
+      "text": "A · repo の後ろにブランチ名をつなげる (worktree でなくても出す)"
+    },
+    "q2a-note": {
+      "x": 2400,
+      "y": 0,
+      "w": 480,
+      "page": "q2",
+      "text": "A\n- 「example/service ⑂ fix-retry-limit」と repo とブランチを 1 つの塊で出す\n- worktree でないセッションでも「⑂ main」と出すので、出たり消えたりしない\n- 上にマウスを置くと worktree のパスも出す\n- 弱み: worktree かどうかは、パスを見るまで区別できない\n\nこのページの親は 1 の A の形で描いた"
+    },
+    "q2b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 800,
+      "maxW": 2840,
+      "page": "q2",
+      "text": "B · worktree のときだけフォルダの枠を出し、押すとパスをコピーする"
+    },
+    "q2b-note": {
+      "x": 2400,
+      "y": 1060,
+      "w": 480,
+      "page": "q2",
+      "text": "B\n- worktree で動くときだけ、repo の右に「フォルダの印 fix-retry-limit ⧉」の枠を出す\n- 押すと worktree のパスをコピーし、枠に Copied と出す\n- worktree でなければ何も出ないので、出ていれば worktree だと一目で分かる\n- 弱み: worktree でないときに、どのブランチかは分からない"
+    },
+    "q2c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1860,
+      "maxW": 2840,
+      "page": "q2",
+      "text": "C · repo を押すと、ブランチと worktree のパスを小さな窓で出す"
+    },
+    "q2c-note": {
+      "x": 2400,
+      "y": 2120,
+      "w": 480,
+      "page": "q2",
+      "text": "C\n- 1 行目は「example/service ▾」だけ。押すと親、tq タスク、repo、ブランチ、パス (コピーのボタンつき) を並べた窓を出す\n- iPhone の 4 の B と同じ部品を使う\n- ヘッダーの幅をほとんど使わない\n- 弱み: 開くまでブランチが見えず、「どこにも表示がない」という今の困りごとは残る"
+    },
+    "q3a": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 3640,
+      "page": "q3",
+      "text": "A · repo とブランチを先頭に置き、tq タスクの名前から縮める"
+    },
+    "q3a-note": {
+      "x": 3200,
+      "y": 0,
+      "w": 480,
+      "page": "q3",
+      "text": "A\n- 1 行目の並びは「repo ⑂ ブランチ」「tq タスク」の順\n- 狭いと tq タスクの名前を先に消し、#2048 は最後まで残す。それでも足りないときだけブランチの後ろを … にする (480px では少し切れる)\n- 親はタイトルの行 (1 の A) で、タイトルより先に縮む\n- 切れたものは上にマウスを置くと全文を出す\n- 弱み: tq タスクの名前は 480px でほとんど読めない"
+    },
+    "q3b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 800,
+      "maxW": 3640,
+      "page": "q3",
+      "text": "B · tq タスクを先頭のまま、repo から owner を省き、ブランチの後ろから縮める"
+    },
+    "q3b-note": {
+      "x": 3200,
+      "y": 1060,
+      "w": 480,
+      "page": "q3",
+      "text": "B\n- 並びは今と同じ「tq タスク」「repo ⑂ ブランチ」。repo は owner を省いて service だけにする\n- 狭いとブランチの後ろから … にし、tq タスクは 120px まで縮める\n- 弱み: 同じ名前の repo が別の owner にあると区別できない。ブランチが切れると worktree を見分けにくい"
+    },
+    "q3c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1860,
+      "maxW": 3640,
+      "page": "q3",
+      "text": "C · 親も 1 行目に置き、狭いと親を印だけにする"
+    },
+    "q3c-note": {
+      "x": 3200,
+      "y": 2120,
+      "w": 480,
+      "page": "q3",
+      "text": "C\n- 1 の B の枠を 1 行目の先頭に置き、「親」「tq タスク」「repo ⑂ ブランチ」の順\n- 狭いと親を「↑ ●」の印だけにし、次に tq タスクの名前を縮め、最後にブランチを縮める\n- タイトルの行は今のまま\n- 弱み: 720px でも tq タスクの名前が消えてブランチが少し切れ、480px では親のタイトルも tq タスクの名前も見えない"
+    },
+    "q4a": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 2400,
+      "page": "q4",
+      "text": "A · 2 行目にブランチを足し、その下に親へ移る行を出す"
+    },
+    "q4a-note": {
+      "x": 940,
+      "y": 0,
+      "w": 480,
+      "page": "q4",
+      "text": "A\n- 2 行目を「#2048 通知の再送… · service ⑂ fix-retry-limit」にする。worktree でなければ ⑂ main\n- その下に「↑ ● 通知まわりの改修を進める ›」の行。行ごと押せて (高さ 40px)、親へ移る\n- PC の 1 の A と 2 の A と同じものが出る\n- 弱み: ヘッダーが 40px 高くなり、会話が見える量が減る"
+    },
+    "q4b": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1004,
+      "maxW": 2400,
+      "page": "q4",
+      "text": "B · タイトルを押すと、親、tq タスク、repo、ブランチ、パスを下からのシートで出す"
+    },
+    "q4b-note": {
+      "x": 1410,
+      "y": 1264,
+      "w": 480,
+      "page": "q4",
+      "text": "B\n- ヘッダーは今のまま。タイトルの右に ⌄ を出し、押すとシートを開く\n- シートは PC の 2 の C の窓と同じ部品で、親の行を押すと親へ移り、パスはコピーできる\n- ヘッダーの高さは変わらない\n- 弱み: シートを開くまでブランチも親も見えない"
+    },
+    "q4c": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2268,
+      "maxW": 2400,
+      "page": "q4",
+      "text": "C · 2 行目にブランチを足し、親は状況パネルの Tree で見る"
+    },
+    "q4c-note": {
+      "x": 940,
+      "y": 2528,
+      "w": 480,
+      "page": "q4",
+      "text": "C\n- 2 行目は A と同じでブランチを出す\n- 親は出さず、状況パネルの Tree で親と兄弟を見て、行を押して移る\n- ヘッダーの高さは今と同じ\n- 弱み: 親へ移るのにパネルを開き、Tree を選び、行を押す 3 手かかる"
+    }
+  },
+  "noteOrder": [
+    "current",
+    "current-note",
+    "q1a",
+    "q1a-note",
+    "q1b",
+    "q1b-note",
+    "q1c",
+    "q1c-note",
+    "q2a",
+    "q2a-note",
+    "q2b",
+    "q2b-note",
+    "q2c",
+    "q2c-note",
+    "q3a",
+    "q3a-note",
+    "q3b",
+    "q3b-note",
+    "q3c",
+    "q3c-note",
+    "q4a",
+    "q4a-note",
+    "q4b",
+    "q4b-note",
+    "q4c",
+    "q4c-note"
+  ]
+}

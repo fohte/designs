@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Session context: parent, task, repo, branch, path</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section role="dialog" aria-label="Where this session runs" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; padding: {{z.pad}}; border: {{z.border}}; border-top: 1px solid #3f3f46; background: #1f1f1f; box-shadow: {{z.shadow}}; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{z.fs}}; line-height: 1.45">
+<sc-if value="{{sheet}}" hint-placeholder-val="{{ false }}"><h2 style="margin: 0 0 6px; color: #fafafa; font-size: 15px; font-weight: 700">再試行の上限を設定で変えられるようにする</h2></sc-if>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="5">
+<div style="min-height: {{z.rowH}}; display: grid; grid-template-columns: {{z.labelW}} 1fr auto; align-items: center; column-gap: 10px; border-top: {{r.sep}}">
+<span style="color: #8b8b94; font-size: {{z.label}}">{{r.label}}</span>
+<span style="min-width: 0; display: flex; align-items: center; gap: 6px; color: {{r.color}}; font-family: {{r.font}}; font-size: {{r.size}}; overflow-wrap: anywhere">
+<sc-if value="{{r.dot}}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="Working" style="flex: none; width: 7px; height: 7px; border-radius: 50%; background: #60a5fa"></span></sc-if>
+<sc-if value="{{r.branch}}" hint-placeholder-val="{{ false }}"><svg width="{{z.icon}}" height="{{z.icon}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #8b8b94"><line x1="6" x2="6" y1="3" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg></sc-if>
+<span style="min-width: 0">{{r.value}}</span>
+</span>
+<sc-if value="{{r.go}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="width: {{z.btn}}; display: grid; place-items: center; color: #71717a; font-size: {{z.chev}}">›</span></sc-if>
+<sc-if value="{{r.copy}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Copy path" title="Copy path" style="width: {{z.btn}}; height: {{z.btn}}; display: grid; place-items: center; padding: 0; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8"><svg width="{{z.icon}}" height="{{z.icon}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path></svg></button></sc-if>
+<sc-if value="{{r.none}}" hint-placeholder-val="{{ true }}"><span></span></sc-if>
+</div>
+</sc-for>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["popover","sheet"],"default":"popover"},"wt":{"editor":"boolean","default":true},"parent":{"editor":"boolean","default":true},"$preview":{"width":440,"height":240}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const sheet = (this.props.form ?? 'popover') === 'sheet';
+    const wt = this.props.wt ?? true;
+    const parent = this.props.parent ?? true;
+    // sheet: finger-sized rows (44px) and 14px text, as the other iPhone sheets.
+    const z = sheet
+      ? { pad: '18px 16px max(30px, env(safe-area-inset-bottom))', border: '0', shadow: '0 -12px 36px rgb(0 0 0 / 30%)', fs: '14px', rowH: '48px', labelW: '76px', label: '12.5px', icon: '16', btn: '44px', chev: '22px', mono: '13px' }
+      : { pad: '4px 14px', border: '1px solid #3f3f46', shadow: '0 12px 36px rgb(0 0 0 / 24%)', fs: '12.5px', rowH: '34px', labelW: '64px', label: '11.5px', icon: '14', btn: '26px', chev: '16px', mono: '12px' };
+    const mono = "'JetBrains Mono', monospace";
+    const sans = 'inherit';
+    const row = (label, value, o = {}) => ({ label, value, color: o.color ?? '#d4d4d8', font: o.mono ? mono : sans, size: o.mono ? z.mono : 'inherit', dot: !!o.dot, branch: !!o.branch, go: !!o.go, copy: !!o.copy, none: !o.go && !o.copy, sep: '0' });
+    const rows = [
+      ...(parent ? [row('Parent', '通知まわりの改修を進める', { dot: true, go: true, color: '#fafafa' })] : []),
+      row('tq task', '#2048 通知の再送処理を見直す', { go: true }),
+      row('Repo', 'example/service', { mono: true }),
+      row('Branch', wt ? 'fix-retry-limit' : 'main', { mono: true, branch: true }),
+      row(wt ? 'Worktree' : 'Checkout', wt ? '~/ghq/github.com/example/service/.worktrees/fix-retry-limit' : '~/ghq/github.com/example/service', { mono: true, copy: true, color: '#a1a1aa' })
+    ];
+    rows.forEach((r, i) => { r.sep = i === 0 ? '0' : '1px solid #2a2a2a'; });
+    return { z, sheet, rows };
+  }
+}
+</script>
+</body>
+</html>

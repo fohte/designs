@@ -291,7 +291,7 @@
     },
     "Inbox.dc.html": {
       "x": 0,
-      "y": 3660,
+      "y": 3760,
       "w": 1440,
       "h": 900,
       "title": "Inbox と会話",
@@ -299,7 +299,7 @@
     },
     "InboxFilter.dc.html": {
       "x": 3400,
-      "y": 4980,
+      "y": 5080,
       "w": 1440,
       "h": 900,
       "title": "Inbox の絞り込み (/)",
@@ -307,7 +307,7 @@
     },
     "InboxFiltered.dc.html": {
       "x": 5390,
-      "y": 4980,
+      "y": 5080,
       "w": 1440,
       "h": 900,
       "title": "絞り込んだ状態と Save view",
@@ -323,7 +323,7 @@
     },
     "InboxTodoLater.dc.html": {
       "x": 0,
-      "y": 8940,
+      "y": 9040,
       "w": 1440,
       "h": 900,
       "title": "Needs action の下の To-do later",
@@ -331,7 +331,7 @@
     },
     "Later.dc.html": {
       "x": 0,
-      "y": 4980,
+      "y": 5080,
       "w": 1440,
       "h": 900,
       "title": "Later メニュー (L)",
@@ -341,7 +341,7 @@
       "x": 0,
       "y": 0,
       "w": 1440,
-      "h": 3300,
+      "h": 3400,
       "title": "仕様のまとめ",
       "page": "inbox"
     },
@@ -371,7 +371,7 @@
     },
     "NewSession.dc.html": {
       "x": 0,
-      "y": 6300,
+      "y": 6400,
       "w": 1440,
       "h": 900,
       "title": "新しいセッション",
@@ -379,7 +379,7 @@
     },
     "NewSessionModel.dc.html": {
       "x": 0,
-      "y": 7620,
+      "y": 7720,
       "w": 1440,
       "h": 900,
       "title": "新しいセッション · モデルと effort を選ぶ",
@@ -387,7 +387,7 @@
     },
     "NewSessionModelSwitch.dc.html": {
       "x": 1990,
-      "y": 7620,
+      "y": 7720,
       "w": 1440,
       "h": 900,
       "title": "新しいセッション · engine を変えてモデルが default に戻った",
@@ -395,7 +395,7 @@
     },
     "NewSessionPicker.dc.html": {
       "x": 1520,
-      "y": 6300,
+      "y": 6400,
       "w": 1440,
       "h": 900,
       "title": "新しいセッション · ディレクトリを選ぶ",
@@ -611,7 +611,7 @@
       "y": 300,
       "w": 390,
       "h": 844,
-      "title": "iPhone · セッションの PR 一覧",
+      "title": "iPhone · 状況パネルのボタンで開いた · 先頭に PR の一覧",
       "page": "topbar"
     },
     "PhoneChatResuming.dc.html": {
@@ -703,7 +703,7 @@
     },
     "PhoneDrawer.dc.html": {
       "x": 1990,
-      "y": 3660,
+      "y": 3760,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーション",
@@ -711,7 +711,7 @@
     },
     "PhoneInbox.dc.html": {
       "x": 1520,
-      "y": 3660,
+      "y": 3760,
       "w": 390,
       "h": 844,
       "title": "iPhone · Inbox",
@@ -719,7 +719,7 @@
     },
     "PhoneInboxClose.dc.html": {
       "x": 2930,
-      "y": 4980,
+      "y": 5080,
       "w": 390,
       "h": 844,
       "title": "iPhone · Close を押したあと",
@@ -727,7 +727,7 @@
     },
     "PhoneInboxFilter.dc.html": {
       "x": 4920,
-      "y": 4980,
+      "y": 5080,
       "w": 390,
       "h": 844,
       "title": "iPhone · 絞り込みの欄を押したあと (kind: を入力中)",
@@ -735,7 +735,7 @@
     },
     "PhoneInboxFiltered.dc.html": {
       "x": 6910,
-      "y": 4980,
+      "y": 5080,
       "w": 390,
       "h": 844,
       "title": "iPhone · 絞り込んだ状態",
@@ -743,7 +743,7 @@
     },
     "PhoneInboxLater.dc.html": {
       "x": 2460,
-      "y": 4980,
+      "y": 5080,
       "w": 390,
       "h": 844,
       "title": "iPhone · Later を押したあと",
@@ -751,7 +751,7 @@
     },
     "PhoneInboxRowMenu.dc.html": {
       "x": 1990,
-      "y": 4980,
+      "y": 5080,
       "w": 390,
       "h": 844,
       "title": "iPhone · 行を長押し",
@@ -759,7 +759,7 @@
     },
     "PhoneInboxSaveView.dc.html": {
       "x": 7380,
-      "y": 4980,
+      "y": 5080,
       "w": 390,
       "h": 844,
       "title": "iPhone · Save view を押したあと",
@@ -767,7 +767,7 @@
     },
     "PhoneInboxSwipe.dc.html": {
       "x": 1520,
-      "y": 4980,
+      "y": 5080,
       "w": 390,
       "h": 844,
       "title": "iPhone · 行の中で左にスワイプ (Later と Close が出る)",
@@ -775,7 +775,7 @@
     },
     "PhoneInboxTodoLater.dc.html": {
       "x": 1520,
-      "y": 8940,
+      "y": 9040,
       "w": 390,
       "h": 844,
       "title": "iPhone · Needs action の下の To-do later",
@@ -806,7 +806,7 @@
     },
     "PhoneNewSession.dc.html": {
       "x": 3040,
-      "y": 6300,
+      "y": 6400,
       "w": 390,
       "h": 844,
       "title": "iPhone · 新しいセッション",
@@ -814,7 +814,7 @@
     },
     "PhoneNewSessionModel.dc.html": {
       "x": 1520,
-      "y": 7620,
+      "y": 7720,
       "w": 390,
       "h": 844,
       "title": "iPhone · モデルと effort を選ぶ",
@@ -822,14 +822,14 @@
     },
     "PhoneNewSessionModelSwitch.dc.html": {
       "x": 3510,
-      "y": 7620,
+      "y": 7720,
       "w": 390,
       "h": 844,
       "page": "inbox"
     },
     "PhoneNewSessionPicker.dc.html": {
       "x": 3510,
-      "y": 6300,
+      "y": 6400,
       "w": 390,
       "h": 844,
       "title": "iPhone · ディレクトリを選ぶ",
@@ -1189,7 +1189,7 @@
     },
     "TaskLinks.dc.html": {
       "x": 2460,
-      "y": 3660,
+      "y": 3760,
       "w": 1440,
       "h": 900,
       "title": "1 つのセッションに tq タスクが複数 · +1 で状況パネルの Tasks を開く",
@@ -1370,6 +1370,14 @@
       "h": 44,
       "title": "MergeButton",
       "page": "components"
+    },
+    "PhoneChatLongTitle.dc.html": {
+      "x": 470,
+      "y": 12040,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 長いタイトル · 2 行まで折り返し、3 行目から … で切る",
+      "page": "topbar"
     }
   },
   "order": [
@@ -1544,7 +1552,8 @@
     "StatusReviewEnglish.dc.html",
     "PhoneStatusReviewEnglish.dc.html",
     "StatusReviewFull.dc.html",
-    "MergeButton.dc.html"
+    "MergeButton.dc.html",
+    "PhoneChatLongTitle.dc.html"
   ],
   "pages": [
     {
@@ -1670,7 +1679,7 @@
     },
     "rowInboxConversation": {
       "x": 0,
-      "y": 3360,
+      "y": 3460,
       "text": "Inbox と会話 · tq タスクが複数のとき",
       "kind": "title1",
       "maxW": 3900,
@@ -1678,7 +1687,7 @@
     },
     "rowInboxLaterFilter": {
       "x": 0,
-      "y": 4680,
+      "y": 4780,
       "text": "Inbox · Later、閉じる、絞り込み · iPhone は行の中のスワイプか長押しと、/ と同じ絞り込みの欄",
       "kind": "title1",
       "maxW": 7770,
@@ -1686,7 +1695,7 @@
     },
     "rowNewSession": {
       "x": 0,
-      "y": 6000,
+      "y": 6100,
       "text": "新しいセッション · ディレクトリを選ぶ",
       "kind": "title1",
       "maxW": 3900,
@@ -1694,7 +1703,7 @@
     },
     "rowNewSessionModel": {
       "x": 0,
-      "y": 7320,
+      "y": 7420,
       "text": "新しいセッション · モデルと effort を選ぶ",
       "kind": "title1",
       "maxW": 3900,
@@ -1770,7 +1779,7 @@
       "y": 11740,
       "maxW": 1330,
       "page": "topbar",
-      "text": "ヘッダー · tq タスクが複数 · iPhone も +N で状況パネルの Tasks を開く"
+      "text": "ヘッダー · tq タスクが複数 (iPhone も +N で状況パネルの Tasks) と長いタイトル"
     },
     "rowReviewPreview": {
       "x": 0,
@@ -1807,7 +1816,7 @@
     "rowTodoLater": {
       "kind": "title1",
       "x": 0,
-      "y": 8640,
+      "y": 8740,
       "maxW": 2450,
       "page": "inbox",
       "text": "Inbox · 畳んだ to-do は To-do later に出す"

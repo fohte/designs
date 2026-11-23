@@ -14,7 +14,7 @@ body{margin:0}
 </style>
 </helmet>
 <div style="position: relative; width: 390px; height: 844px; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif">
-<sc-if value="{{chat}}" hint-placeholder-val="{{ true }}"><dc-import name="PhoneChat" state="review" bang="{{ bang }}" bang-highlight="{{ highlight }}" toasts="{{ toasts }}" action-line="{{ line }}" hint-size="390px,844px"></dc-import></sc-if>
+<sc-if value="{{chat}}" hint-placeholder-val="{{ true }}"><dc-import name="PhoneChat" state="review" activity="{{ activity }}" bang="{{ bang }}" bang-highlight="{{ highlight }}" toasts="{{ toasts }}" action-line="{{ line }}" hint-size="390px,844px"></dc-import></sc-if>
 <sc-if value="{{open}}" hint-placeholder-val="{{ false }}"><dc-import name="PhoneDrawer" activity="{{ activity }}" activity-open="{{ open }}" activity-items="{{ rows }}" hint-size="390px,844px"></dc-import></sc-if>
 </div>
 </x-dc>

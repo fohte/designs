@@ -40,6 +40,7 @@ body{margin:0}
 <sc-if value="{{doc.hasNote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: {{z.metaFs}}; color: #a1a1aa">{{doc.note}}</p></sc-if>
 </header>
 
+<div style="flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden">
 <sc-if value="{{hasFm}}" hint-placeholder-val="{{ false }}">
 <section aria-label="Frontmatter" style="flex: none; display: flex; flex-direction: column; padding: 8px {{z.padX}} 14px; border-bottom: 1px solid #2a2a2a; color: #d4d4d8; font-size: {{z.bodyFs}}">
 <h3 style="flex: none; margin: 0; height: 32px; display: flex; align-items: center; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">FRONTMATTER</h3>
@@ -78,7 +79,7 @@ body{margin:0}
 </section>
 </sc-if>
 
-<section aria-label="Body" style="flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 8px {{z.padX}} 12px">
+<section aria-label="Body" style="flex: 1 0 auto; display: flex; flex-direction: column; padding: 8px {{z.padX}} 12px">
 <div style="flex: none; height: {{z.segRowH}}; display: flex; align-items: center; gap: 8px">
 <h3 style="margin: 0; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">BODY</h3>
 <sc-if value="{{notWide}}" hint-placeholder-val="{{ true }}">
@@ -135,6 +136,7 @@ body{margin:0}
 <pre aria-label="Markdown body" style="flex: 1; min-height: 0; margin: 6px 0 0; overflow: hidden; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{z.editorFs}}; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere">{{doc.editRaw}}</pre>
 </sc-if>
 </section>
+</div>
 
 <footer style="flex: none; display: flex; flex-direction: column; gap: 10px; padding: 10px {{z.padX}} {{z.footPadB}}; border-top: 1px solid #2a2a2a; background: #0f0f0f">
 <sc-if value="{{hasStages}}" hint-placeholder-val="{{ false }}">

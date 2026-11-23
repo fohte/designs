@@ -27,7 +27,6 @@ class Component extends DCLogic {
     const form = this.props.form ?? 'row';
     const phone = form === 'phone';
     const done = st === 'merged' || st === 'alreadyMerged';
-    // queued は帯と同じく、押せない回転のボタンで出す。
     return {
       num: this.props.num ?? 2049,
       idle: st === 'idle', merging: st === 'merging' || st === 'queued', busy: st === 'queued' ? 'Queued' : 'Merging…', done, failed: st === 'failed',

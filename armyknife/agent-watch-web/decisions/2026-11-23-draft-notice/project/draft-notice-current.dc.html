@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Draft notice · current</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1190px; height: 180px; box-sizing: border-box; display: grid; grid-template-columns: 760px 390px; align-items: start; gap: 40px; background: #0a0a0a; color: #a1a1aa; font-family: 'Helvetica Neue', Arial, 'Hiragino Sans', sans-serif; font-size: 12.5px">
+<section style="display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700">PC</h2><dc-import name="StatusBand" state="waiting" detail="draft の承認を待っています" hint-size="100%,33px"></dc-import></section>
+<section style="display: flex; flex-direction: column; gap: 16px"><h2 style="margin: 0; height: 20px; font-size: 12.5px; font-weight: 700">スマホ</h2><dc-import name="StatusBand" state="waiting" phone="{{ true }}" detail="draft の承認を待っています" hint-size="100%,45px"></dc-import></section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1190,"height":180}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

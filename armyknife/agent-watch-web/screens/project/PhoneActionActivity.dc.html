@@ -13,7 +13,7 @@ body{margin:0}
 </style>
 </helmet>
 <div style="width: 390px; height: 844px; overflow: hidden; background: #0a0a0a">
-<dc-import name="PhoneChat" state="review" merge-state="failed" activity="{{ activity }}" activity-open="{{ true }}" activity-items="{{ items }}" action-line="{{ line }}" hint-size="390px,844px"></dc-import>
+<dc-import name="PhoneDrawer" activity="{{ activity }}" activity-open="{{ true }}" activity-items="{{ items }}" hint-size="390px,844px"></dc-import>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
@@ -22,7 +22,6 @@ class Component extends DCLogic {
     const reason = 'Head branch was updated after you confirmed. Confirm the new head to merge.';
     return {
       activity: { count: '1', tone: 'failure' },
-      line: { result: 'mergeFailed', pr: 64, reason, time: '12:03' },
       items: [
         { result: 'mergeFailed', pr: 64, session: '通知の再送処理を見直す', reason, time: '12:03' },
         { result: 'closed', session: 'アラートの送り先を決める', time: '12:02' },

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Update notice</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; line-height: 1.5">
+
+<sc-if value="{{isNav}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="height: 30px; box-sizing: border-box; display: flex; align-items: stretch; border: 1px solid #1e3a5f; background: #0f1a2a; font-size: 12.5px">
+<button type="button" title="Reload to use v0.4.2" style="flex: 1; min-width: 0; display: flex; align-items: center; gap: 7px; padding: 0 8px; border: 0; background: transparent; color: #93c5fd; font-family: inherit; font-size: 12.5px; text-align: left"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg><span style="flex: 1; white-space: nowrap">Update to <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px">v0.4.2</span></span><span style="color: #fafafa; font-weight: 700">Reload</span></button>
+<button type="button" aria-label="Dismiss update notice" title="Dismiss until the next update" style="flex: none; width: 26px; display: grid; place-items: center; padding: 0; border: 0; border-left: 1px solid #1e3a5f; background: transparent; color: #8b8b94"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+</sc-if>
+
+<sc-if value="{{isPill}}" hint-placeholder-val="{{ false }}">
+<span role="status" style="height: 32px; box-sizing: border-box; display: inline-flex; align-items: stretch; border: 1px solid #1e3a5f; background: #0f1a2a; font-size: 13px">
+<button type="button" style="display: inline-flex; align-items: center; gap: 6px; padding: 0 9px; border: 0; background: transparent; color: #93c5fd; font-family: inherit; font-size: 13px; white-space: nowrap"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>{{pillText}}</button>
+<button type="button" aria-label="Dismiss update notice" style="width: 30px; display: grid; place-items: center; padding: 0; border: 0; border-left: 1px solid #1e3a5f; background: transparent; color: #8b8b94"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</span>
+</sc-if>
+
+<sc-if value="{{isBand}}" hint-placeholder-val="{{ true }}">
+<div role="status" style="height: {{bandH}}; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: {{bandPad}}; border-bottom: 1px solid #1e3a5f; background: #0f1a2a; font-size: {{fs}}">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>
+<span style="min-width: 0; flex: {{bandTextFlex}}; color: #dbeafe">{{bandText}}</span>
+<button type="button" style="flex: none; height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{btnFs}}; font-weight: 700">Reload</button>
+<button type="button" aria-label="Dismiss update notice" style="flex: none; width: {{xW}}; height: {{btnH}}; margin-left: {{xMargin}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #8b8b94"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+</sc-if>
+
+<sc-if value="{{isCard}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="box-sizing: border-box; display: grid; grid-template-columns: 16px 1fr {{closeW}}; column-gap: 10px; align-items: start; padding: 12px {{padR}} 12px 14px; border: 1px solid #1e3a5f; background: #111a26; box-shadow: 0 12px 36px rgb(0 0 0 / 30%); font-size: {{fs}}">
+<span style="padding-top: 2px; color: #93c5fd"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg></span>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><strong>New version available</strong><span style="color: #a1a1aa; font-size: {{subFs}}"><span style="font-family: 'JetBrains Mono', monospace">v0.4.2</span> · Reload to use it</span>
+<div style="display: flex; margin-top: 8px"><button type="button" style="min-height: {{btnH}}; padding: 0 14px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700">Reload</button></div>
+</div>
+<button type="button" aria-label="Dismiss update notice" style="width: {{closeW}}; height: {{closeH}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #8b8b94"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["nav","pill","band","card"],"default":"band"},"phone":{"editor":"boolean","default":false},"short":{"editor":"boolean","default":false},"$preview":{"width":390,"height":120}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const form = this.props.form ?? 'band';
+    const phone = this.props.phone ?? false;
+    // short: the narrow label for the phone's Inbox header, where the brand and three buttons leave little room.
+    const short = this.props.short ?? false;
+    return {
+      isNav: form === 'nav', isPill: form === 'pill', isBand: form === 'band', isCard: form === 'card',
+      pillText: short ? 'Update' : 'Update v0.4.2',
+      fs: phone ? '14px' : '13px', subFs: phone ? '13.5px' : '12.5px',
+      bandH: phone ? '52px' : '36px', bandPad: phone ? '0 0 0 14px' : '0 8px 0 16px',
+      bandText: phone ? 'New version v0.4.2 is ready.' : 'A new version of agent watch, v0.4.2, is ready. Reload to use it.',
+      bandTextFlex: phone ? '1' : '0 1 auto',
+      xMargin: phone ? '0' : 'auto',
+      btnH: phone ? '36px' : '24px', btnFs: phone ? '13.5px' : '12px',
+      xW: phone ? '44px' : '28px',
+      closeW: phone ? '44px' : '22px', closeH: phone ? '32px' : '22px', padR: phone ? '0' : '10px'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Phone: tasks sheet</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section role="dialog" aria-modal="true" aria-labelledby="tasks-sheet-title" style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; padding: 16px 0 max(30px, env(safe-area-inset-bottom)); border-top: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 -12px 36px rgb(0 0 0 / 30%); color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+<h2 id="tasks-sheet-title" style="margin: 0 16px 6px; color: #fafafa; font-size: 15px; font-weight: 700">Tasks for this session <span style="margin-left: 4px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; font-weight: 400; color: #a1a1aa">{{total}}</span></h2>
+<h3 style="margin: 0; padding: 10px 16px 2px; color: #8b8b94; font-size: 12.5px; font-weight: 400">In progress</h3>
+<sc-for list="{{open}}" as="t" hint-placeholder-count="4">
+<div style="min-height: 56px; box-sizing: border-box; display: grid; grid-template-columns: 7px 1fr auto; align-items: center; column-gap: 12px; padding: 6px 16px; color: #fafafa"><span aria-hidden="true" style="width: 7px; height: 7px; border-radius: 50%; background: #60a5fa"></span><a href="#" style="min-width: 0; display: grid; color: inherit; text-decoration: none"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #a1a1aa">{{t.no}}</span> {{t.title}}</span><span style="font-size: 12.5px; color: #a1a1aa">{{t.meta}}</span></a><sc-if value="{{t.primary}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa; font-size: 12.5px">Primary</span></sc-if><sc-if value="{{t.make}}" hint-placeholder-val="{{ true }}"><button type="button" style="min-height: 44px; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px; white-space: nowrap">Make primary</button></sc-if></div>
+</sc-for>
+<h3 style="margin: 0; padding: 10px 16px 2px; color: #8b8b94; font-size: 12.5px; font-weight: 400">Completed <span style="margin-left: 4px; font-family: 'JetBrains Mono', monospace">{{doneCount}}</span></h3>
+<sc-for list="{{done}}" as="d" hint-placeholder-count="2">
+<a href="#" style="min-height: 44px; box-sizing: border-box; display: grid; grid-template-columns: 7px 1fr auto; align-items: center; column-gap: 12px; padding: 0 16px; color: #d4d4d8; text-decoration: none"><span aria-hidden="true" style="color: #71717a; font-size: 11px; line-height: 1">✓</span><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #8b8b94">{{d.no}}</span> {{d.title}}</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8b8b94">{{d.age}}</span></a>
+</sc-for>
+<div style="display: grid; margin: 10px 16px 0">
+<button type="button" style="min-height: 44px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">Close</button>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":560},"count":{"editor":"enum","options":["one","many"],"default":"many"}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const many = (this.props.count ?? 'many') === 'many';
+    const t = (no, title, meta, primary) => ({ no, title, meta, primary, make: !primary });
+    const open = many
+      ? [t('#2048', '通知の信頼性を上げる', 'P1 · service', true), t('#2051', '配信ログを見直す', 'P2 · service', false), t('#2055', '監視を整える', 'P3 · service', false), t('#2057', '送信の失敗を記録する', 'P2 · web-app', false)]
+      : [t('#2048', '通知の信頼性を上げる', 'P1 · service', true)];
+    return {
+      open,
+      total: String(open.length),
+      doneCount: '2',
+      done: [{ no: '#2047', title: '再送の上限を設定に出す', age: '1h' }, { no: '#2041', title: '再送のテストを足す', age: '2d' }]
+    };
+  }
+}
+</script>
+</body>
+</html>

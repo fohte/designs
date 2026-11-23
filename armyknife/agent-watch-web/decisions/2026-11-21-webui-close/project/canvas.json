@@ -1,0 +1,35 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-11-21T14:13:09Z"},
+  "title": "全画面の web UI を閉じる",
+  "launch": {"view": "canvas", "page": "options"},
+  "pages": [
+    {"id": "options", "name": "案"},
+    {"id": "parts", "name": "部品"}
+  ],
+  "boards": {
+    "webui-close-current.dc.html": {"x": 0, "y": 0, "w": 390, "h": 844, "title": "今の画面 · iPhone", "page": "options"},
+    "webui-close-close.dc.html": {"x": 0, "y": 1280, "w": 390, "h": 844, "title": "A · ‹ をやめて右上に ↗ と × を並べる · iPhone", "page": "options"},
+    "webui-close-both.dc.html": {"x": 0, "y": 2560, "w": 390, "h": 844, "title": "B · ‹ を残し、右上に × も足す · iPhone", "page": "options"},
+    "PhoneStatusPanel.dc.html": {"x": 0, "y": 0, "w": 390, "h": 844, "title": "PhoneStatusPanel", "page": "parts"},
+    "SessionRow.dc.html": {"x": 470, "y": 0, "w": 460, "h": 76, "title": "SessionRow", "page": "parts"}
+  },
+  "order": [
+    "webui-close-current.dc.html",
+    "webui-close-close.dc.html",
+    "webui-close-both.dc.html",
+    "PhoneStatusPanel.dc.html",
+    "SessionRow.dc.html"
+  ],
+  "notes": {
+    "current": {"kind": "title1", "x": 0, "y": -260, "maxW": 930, "page": "options", "text": "今の画面"},
+    "currentNote": {"x": 470, "y": 0, "w": 460, "page": "options", "text": "今の画面\n- 会話の web UI のリンクから全画面で開いた crit。左上の ‹ で会話に戻る\n- 前は右に ⛶/↙ と × があり、× で閉じていた。今は ‹ が閉じる操作だと気づかれない\n- 状況パネルの crit タブ (PhoneStatusWebUi) の ‹ はパネルを閉じるためのもので、web UI のバーには ↗ と × がすでにある。どの案でも変わらないので載せていない\n- PC は影響しないので iPhone だけ。データはすべて架空"},
+    "close": {"kind": "title1", "x": 0, "y": 1020, "maxW": 930, "page": "options", "text": "A · ‹ をやめて右上に ↗ と × を並べる"},
+    "closeNote": {"x": 470, "y": 1280, "w": 460, "page": "options", "fill": "green", "text": "‹ をやめて右上に ↗ と × を並べる (おすすめ)\n+ 前と同じく右上の × で閉じられる\n+ 状況パネルの web UI のバー (↗ ×) と同じ並び\n- 左上で戻る iPhone の習慣には合わない"},
+    "both": {"kind": "title1", "x": 0, "y": 2300, "maxW": 930, "page": "options", "text": "B · ‹ を残し、右上に × も足す"},
+    "bothNote": {"x": 470, "y": 2560, "w": 460, "page": "options", "text": "‹ を残し、右上に × も足す\n+ 左上で戻る人も、右上で閉じる人も迷わない\n- ‹ と × が同じ動きで、ボタンが 1 つ余る\n- 名前と URL の幅が今より 48px 狭くなる"}
+  },
+  "designSystems": [
+    {"title": "agent watch", "namespace": "agentwatch", "artifact": "armyknife/agent-watch-web/design-system", "version": null, "copiedAt": "2026-11-21T14:13:09Z"}
+  ]
+}

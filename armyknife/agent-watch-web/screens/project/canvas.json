@@ -1,181 +1,101 @@
 {
   "title": "agent watch UI",
   "boards": {
-    "Main.dc.html": {
-      "x": 0,
-      "y": 0,
-      "w": 1440,
-      "h": 1500,
-      "title": "仕様のまとめ",
-      "page": "inbox"
-    },
-    "Inbox.dc.html": {
-      "x": 0,
-      "y": 1620,
-      "w": 1440,
-      "h": 900,
-      "title": "Inbox と会話",
-      "page": "inbox"
-    },
-    "Later.dc.html": {
-      "x": 2460,
-      "y": 1620,
-      "w": 1440,
-      "h": 900,
-      "title": "Later メニュー (L)",
-      "page": "inbox"
-    },
-    "InboxFilter.dc.html": {
+    "ActionActivity.dc.html": {
       "x": 3980,
-      "y": 1620,
+      "y": 10220,
       "w": 1440,
       "h": 900,
-      "title": "Inbox の絞り込み (/)",
-      "page": "inbox"
+      "title": "確定したあと · Activity を開いた",
+      "page": "topbar"
     },
-    "InboxFiltered.dc.html": {
-      "x": 5500,
-      "y": 1620,
-      "w": 1440,
-      "h": 900,
-      "title": "絞り込んだ状態と Save view",
-      "page": "inbox"
-    },
-    "TaskLinks.dc.html": {
-      "x": 7020,
-      "y": 1620,
-      "w": 1440,
-      "h": 900,
-      "title": "1 つのセッションに tq タスクが複数 · +1 で状況パネルの Tasks を開く",
-      "page": "inbox"
-    },
-    "PhoneInbox.dc.html": {
-      "x": 1520,
-      "y": 1620,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · Inbox",
-      "page": "inbox"
-    },
-    "PhoneDrawer.dc.html": {
+    "ActionAway.dc.html": {
       "x": 1990,
-      "y": 1620,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · ナビゲーション",
-      "page": "inbox"
-    },
-    "NewSession.dc.html": {
-      "x": 0,
-      "y": 2640,
+      "y": 10220,
       "w": 1440,
       "h": 900,
-      "title": "新しいセッション",
-      "page": "inbox"
+      "title": "確定したあと · 別のセッションに移っている間に終わった",
+      "page": "topbar"
     },
-    "NewSessionPicker.dc.html": {
+    "ActionCopy.dc.html": {
+      "x": 6910,
+      "y": 10220,
+      "w": 1640,
+      "h": 1400,
+      "title": "確定したあとの結果 · 種類ごとの文言",
+      "page": "topbar"
+    },
+    "ActionFailure.dc.html": {
+      "x": 4450,
+      "y": 8900,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · Merge と Close が失敗",
+      "page": "topbar"
+    },
+    "ActionItem.dc.html": {
+      "x": 960,
+      "y": 2240,
+      "w": 360,
+      "h": 110,
+      "title": "ActionItem",
+      "page": "components"
+    },
+    "ActionQueued.dc.html": {
+      "x": 0,
+      "y": 10220,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · マージキューに入った (PR の一覧を開いた状態)",
+      "page": "topbar"
+    },
+    "ActionRunning.dc.html": {
+      "x": 0,
+      "y": 8900,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · Merge と Close を裏で実行中",
+      "page": "topbar"
+    },
+    "ActionSuccess.dc.html": {
+      "x": 2460,
+      "y": 8900,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあと · Merge と Close が成功",
+      "page": "topbar"
+    },
+    "Activity.dc.html": {
+      "x": 1840,
+      "y": 2240,
+      "w": 400,
+      "h": 360,
+      "title": "Activity",
+      "page": "components"
+    },
+    "ActivityButton.dc.html": {
+      "x": 2560,
+      "y": 2240,
+      "w": 224,
+      "h": 44,
+      "title": "ActivityButton",
+      "page": "components"
+    },
+    "ActivityEmpty.dc.html": {
+      "x": 0,
+      "y": 13304,
+      "w": 1440,
+      "h": 900,
+      "title": "Activity · 操作がまだないとき (数を出さず、ラベルを薄く)",
+      "page": "topbar"
+    },
+    "ActivityEmptyOpen.dc.html": {
       "x": 1520,
-      "y": 2640,
+      "y": 13304,
       "w": 1440,
       "h": 900,
-      "title": "新しいセッション · ディレクトリを選ぶ",
-      "page": "inbox"
-    },
-    "PhoneNewSession.dc.html": {
-      "x": 3040,
-      "y": 2640,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · 新しいセッション",
-      "page": "inbox"
-    },
-    "PhoneNewSessionPicker.dc.html": {
-      "x": 3510,
-      "y": 2640,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · ディレクトリを選ぶ",
-      "page": "inbox"
-    },
-    "NewSessionModel.dc.html": {
-      "x": 3980,
-      "y": 2640,
-      "w": 1440,
-      "h": 900,
-      "title": "新しいセッション · モデルと effort を選ぶ",
-      "page": "inbox"
-    },
-    "NewSessionModelSwitch.dc.html": {
-      "x": 5500,
-      "y": 2640,
-      "w": 1440,
-      "h": 900,
-      "title": "新しいセッション · engine を変えてモデルが default に戻った",
-      "page": "inbox"
-    },
-    "PhoneNewSessionModel.dc.html": {
-      "x": 7020,
-      "y": 2640,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · モデルと effort を選ぶ",
-      "page": "inbox"
-    },
-    "Nav.dc.html": {
-      "x": 0,
-      "y": 0,
-      "w": 240,
-      "h": 900,
-      "title": "Nav",
-      "page": "components"
-    },
-    "InboxList.dc.html": {
-      "x": 320,
-      "y": 0,
-      "w": 460,
-      "h": 900,
-      "title": "InboxList",
-      "page": "components"
-    },
-    "Conversation.dc.html": {
-      "x": 860,
-      "y": 0,
-      "w": 880,
-      "h": 900,
-      "title": "Conversation",
-      "page": "components"
-    },
-    "SessionRow.dc.html": {
-      "x": 1820,
-      "y": 0,
-      "w": 460,
-      "h": 76,
-      "title": "SessionRow",
-      "page": "components"
-    },
-    "Quota.dc.html": {
-      "x": 1820,
-      "y": 200,
-      "w": 240,
-      "h": 140,
-      "title": "Quota",
-      "page": "components"
-    },
-    "SessionUsage.dc.html": {
-      "x": 1820,
-      "y": 460,
-      "w": 672,
-      "h": 40,
-      "title": "SessionUsage",
-      "page": "components"
-    },
-    "StatusBand.dc.html": {
-      "x": 1820,
-      "y": 620,
-      "w": 760,
-      "h": 60,
-      "title": "StatusBand",
-      "page": "components"
+      "title": "Activity · 操作がないときに開いた",
+      "page": "topbar"
     },
     "Board.dc.html": {
       "x": 0,
@@ -185,436 +105,1270 @@
       "title": "Board",
       "page": "board"
     },
-    "Palette.dc.html": {
-      "x": 0,
-      "y": 0,
-      "w": 1440,
-      "h": 900,
-      "title": "⌘K · 開いた直後",
-      "page": "palette"
-    },
-    "PaletteQuery.dc.html": {
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 900,
-      "title": "⌘K · # で tq タスクに絞る",
-      "page": "palette"
-    },
-    "PaletteNewSession.dc.html": {
-      "x": 3040,
-      "y": 0,
-      "w": 1440,
-      "h": 900,
-      "title": "コマンドパレット · 新しいセッション",
-      "page": "palette"
-    },
-    "PhonePaletteNewSession.dc.html": {
-      "x": 4560,
-      "y": 0,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · コマンドパレット · 新しいセッション",
-      "page": "palette"
-    },
-    "PaletteNewSessionModel.dc.html": {
-      "x": 5030,
-      "y": 0,
-      "w": 1440,
-      "h": 900,
-      "title": "コマンドパレット · モデルと effort を選ぶ",
-      "page": "palette"
-    },
-    "PhonePaletteNewSessionModel.dc.html": {
-      "x": 6550,
-      "y": 0,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · コマンドパレット · モデルと effort を選ぶ",
-      "page": "palette"
-    },
-    "StatusRunning.dc.html": {
-      "x": 0,
-      "y": 0,
-      "w": 1440,
-      "h": 900,
-      "title": "状況パネル · Running",
-      "page": "status-panel"
-    },
-    "StatusTree.dc.html": {
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 900,
-      "title": "状況パネル · Tree",
-      "page": "status-panel"
-    },
-    "StatusDecisions.dc.html": {
-      "x": 3040,
-      "y": 0,
-      "w": 1440,
-      "h": 900,
-      "title": "状況パネル · Decisions",
-      "page": "status-panel"
-    },
-    "StatusReview.dc.html": {
-      "x": 4560,
-      "y": 0,
-      "w": 1440,
-      "h": 900,
-      "title": "状況パネル · Review",
-      "page": "status-panel"
-    },
-    "StatusWebUi.dc.html": {
-      "x": 6080,
-      "y": 0,
-      "w": 1440,
-      "h": 900,
-      "title": "状況パネル · Web UI (crit)",
-      "page": "status-panel"
-    },
-    "StatusTasks.dc.html": {
-      "x": 7600,
-      "y": 0,
-      "w": 1440,
-      "h": 900,
-      "title": "状況パネル · Tasks",
-      "page": "status-panel"
-    },
-    "StatusPanel.dc.html": {
-      "x": 2660,
-      "y": 0,
-      "w": 640,
-      "h": 900,
-      "title": "StatusPanel",
-      "page": "components"
-    },
-    "MessageKinds.dc.html": {
-      "x": 0,
-      "y": 0,
-      "w": 1440,
-      "h": 2300,
-      "title": "会話に出るメッセージ",
-      "page": "conversation"
-    },
     "Cards.dc.html": {
-      "x": 1520,
-      "y": 0,
+      "x": 1990,
+      "y": 300,
       "w": 1440,
       "h": 3200,
       "title": "返答を待つカード",
       "page": "conversation"
     },
-    "Dialogs.dc.html": {
-      "x": 3980,
-      "y": 0,
-      "w": 1440,
-      "h": 900,
-      "title": "確認ダイアログ",
-      "page": "conversation"
-    },
-    "PhoneChat.dc.html": {
-      "x": 3040,
-      "y": 0,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · 会話から答える",
-      "page": "conversation"
-    },
-    "PhoneChatMenu.dc.html": {
-      "x": 3510,
-      "y": 0,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · セッションの操作メニュー",
-      "page": "conversation"
-    },
-    "PhoneChatReview.dc.html": {
-      "x": 3040,
-      "y": 964,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · crit のレビュー待ち",
-      "page": "conversation"
-    },
-    "StatusBandStates.dc.html": {
-      "x": 5500,
-      "y": 0,
-      "w": 1290,
-      "h": 1600,
-      "title": "返信欄の上の帯 · 状態ごと",
-      "page": "conversation"
-    },
-    "PhoneChatPrs.dc.html": {
-      "x": 3510,
-      "y": 964,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · セッションの PR 一覧",
-      "page": "conversation"
-    },
-    "VibePopover.dc.html": {
-      "x": 6870,
-      "y": 0,
-      "w": 1848,
-      "h": 2910,
-      "title": "セッションのヘッダー · vibe mode のボタンを押したとき",
-      "page": "conversation"
-    },
-    "PhoneChatVibe.dc.html": {
-      "x": 8800,
-      "y": 0,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · vibe mode のシート",
-      "page": "conversation"
-    },
-    "ConversationEnded.dc.html": {
-      "x": 3980,
-      "y": 1020,
-      "w": 1440,
-      "h": 900,
-      "title": "終わったセッション",
-      "page": "conversation"
-    },
-    "PhoneChatEnded.dc.html": {
-      "x": 3040,
-      "y": 1928,
-      "w": 390,
-      "h": 844,
-      "title": "スマホ: 終わったセッション",
-      "page": "conversation"
-    },
-    "PhoneChatResuming.dc.html": {
-      "x": 3510,
-      "y": 1928,
-      "w": 390,
-      "h": 844,
-      "title": "スマホ: Resume を押した",
-      "page": "conversation"
-    },
-    "ConversationPrs.dc.html": {
-      "x": 6870,
-      "y": 3030,
-      "w": 1848,
-      "h": 970,
-      "title": "セッションのヘッダー · PR のボタンを押したとき",
-      "page": "conversation"
-    },
-    "DeniedCard.dc.html": {
-      "x": 1820,
-      "y": 800,
-      "w": 672,
-      "h": 200,
-      "title": "DeniedCard",
+    "CloseChecks.dc.html": {
+      "x": 4840,
+      "y": 1400,
+      "w": 408,
+      "h": 170,
+      "title": "CloseChecks",
       "page": "components"
-    },
-    "PaletteClose.dc.html": {
-      "x": 7020,
-      "y": 0,
-      "w": 1440,
-      "h": 900,
-      "title": "コマンドパレット · Close this session",
-      "page": "palette"
-    },
-    "CloseMenu.dc.html": {
-      "x": 0,
-      "y": 4080,
-      "w": 1440,
-      "h": 900,
-      "title": "会話のヘッダー · Done 以外は ⋯ に Close session…",
-      "page": "conversation"
-    },
-    "PhoneChatClose.dc.html": {
-      "x": 1520,
-      "y": 4080,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · Done 以外のメニューに Close session…",
-      "page": "conversation"
     },
     "CloseConfirm.dc.html": {
       "x": 1990,
-      "y": 4080,
+      "y": 5020,
       "w": 1440,
       "h": 900,
       "title": "Close session… を押したあと",
-      "page": "conversation"
-    },
-    "PhoneChatCloseConfirm.dc.html": {
-      "x": 3510,
-      "y": 4080,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · Close session… を押したあと",
-      "page": "conversation"
-    },
-    "CloseInbox.dc.html": {
-      "x": 3980,
-      "y": 4080,
-      "w": 1440,
-      "h": 900,
-      "title": "Inbox で Review の行に e",
-      "page": "conversation"
+      "page": "topbar"
     },
     "CloseCopy.dc.html": {
-      "x": 5500,
-      "y": 4080,
+      "x": 7490,
+      "y": 5020,
       "w": 1440,
       "h": 1340,
       "title": "閉じる前の確認 · 状態ごとの文言",
+      "page": "topbar"
+    },
+    "CloseFailActivity.dc.html": {
+      "x": 3510,
+      "y": 6780,
+      "w": 1440,
+      "h": 900,
+      "title": "Close が失敗 · Details で Activity を開いた (3 つの確認を全部並べる)",
+      "page": "topbar"
+    },
+    "CloseFailConversation.dc.html": {
+      "x": 0,
+      "y": 6780,
+      "w": 1440,
+      "h": 900,
+      "title": "Close が失敗 · 会話から閉じた (Done の Close、⋯ の Close session…、⌘K の Close this session)",
+      "page": "topbar"
+    },
+    "CloseFailCopy.dc.html": {
+      "x": 5500,
+      "y": 6780,
+      "w": 1440,
+      "h": 1700,
+      "title": "Close の失敗 · 残っているものごとの文言",
+      "page": "topbar"
+    },
+    "CloseFailInbox.dc.html": {
+      "x": 1990,
+      "y": 6780,
+      "w": 1440,
+      "h": 900,
+      "title": "Close が失敗 · Inbox の e で、開いていないセッションを閉じた",
+      "page": "topbar"
+    },
+    "CloseInbox.dc.html": {
+      "x": 3980,
+      "y": 5020,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox で Review の行に e",
+      "page": "topbar"
+    },
+    "CloseMenu.dc.html": {
+      "x": 0,
+      "y": 5020,
+      "w": 1440,
+      "h": 900,
+      "title": "会話のヘッダー · Done 以外は ⋯ に Close session…",
+      "page": "topbar"
+    },
+    "CodeBlock.dc.html": {
+      "x": 5328,
+      "y": 1620,
+      "w": 672,
+      "h": 160,
+      "title": "CodeBlock",
+      "page": "components"
+    },
+    "CodeCopy.dc.html": {
+      "x": 0,
+      "y": 10490,
+      "w": 1440,
+      "h": 900,
+      "title": "コードブロック · 長い行を横にスクロールしても帯は動かない",
+      "page": "conversation"
+    },
+    "CodeCopyCopied.dc.html": {
+      "x": 1990,
+      "y": 10490,
+      "w": 1440,
+      "h": 900,
+      "title": "コードブロック · Copy を押した直後 (1.5 秒 ✓ Copied)",
+      "page": "conversation"
+    },
+    "CodeCopyUser.dc.html": {
+      "x": 3980,
+      "y": 10490,
+      "w": 1440,
+      "h": 900,
+      "title": "コードブロック · 自分のメッセージの中のコードをコピー",
       "page": "conversation"
     },
     "ConfirmDialog.dc.html": {
-      "x": 4340,
-      "y": 0,
+      "x": 0,
+      "y": 2240,
       "w": 380,
       "h": 200,
       "title": "ConfirmDialog",
       "page": "components"
     },
+    "Conversation.dc.html": {
+      "x": 860,
+      "y": 300,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "components"
+    },
     "ConversationDone.dc.html": {
-      "x": 7020,
-      "y": 4080,
+      "x": 5500,
+      "y": 5020,
       "w": 1440,
       "h": 900,
       "title": "会話 · Done のセッション (ヘッダーの Close で確認なしに閉じる)",
+      "page": "topbar"
+    },
+    "ConversationEnded.dc.html": {
+      "x": 1370,
+      "y": 4310,
+      "w": 1440,
+      "h": 900,
+      "title": "終わったセッション",
       "page": "conversation"
     },
-    "ActionItem.dc.html": {
-      "x": 4840,
-      "y": 0,
-      "w": 360,
-      "h": 110,
-      "title": "ActionItem",
+    "ConversationPrs.dc.html": {
+      "x": 0,
+      "y": 300,
+      "w": 1848,
+      "h": 970,
+      "title": "セッションのヘッダー · PR のボタンを押したとき",
+      "page": "topbar"
+    },
+    "ConversationUpdate.dc.html": {
+      "x": 0,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "PC · 返信を入力中に新しいバージョンが届いた",
+      "page": "app"
+    },
+    "ConversationUpdateToast.dc.html": {
+      "x": 1520,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "PC · Activity の toast と同時 (帯は上、toast は左下)",
+      "page": "app"
+    },
+    "DeniedCard.dc.html": {
+      "x": 2452,
+      "y": 1620,
+      "w": 672,
+      "h": 200,
+      "title": "DeniedCard",
       "page": "components"
     },
+    "Dialogs.dc.html": {
+      "x": 2398,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "確認ダイアログ",
+      "page": "topbar"
+    },
+    "Inbox.dc.html": {
+      "x": 0,
+      "y": 3660,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox と会話",
+      "page": "inbox"
+    },
+    "InboxFilter.dc.html": {
+      "x": 3400,
+      "y": 4980,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox の絞り込み (/)",
+      "page": "inbox"
+    },
+    "InboxFiltered.dc.html": {
+      "x": 5390,
+      "y": 4980,
+      "w": 1440,
+      "h": 900,
+      "title": "絞り込んだ状態と Save view",
+      "page": "inbox"
+    },
+    "InboxList.dc.html": {
+      "x": 320,
+      "y": 300,
+      "w": 460,
+      "h": 900,
+      "title": "InboxList",
+      "page": "components"
+    },
+    "InboxTodoLater.dc.html": {
+      "x": 0,
+      "y": 8940,
+      "w": 1440,
+      "h": 900,
+      "title": "Needs action の下の To-do later",
+      "page": "inbox"
+    },
+    "Later.dc.html": {
+      "x": 0,
+      "y": 4980,
+      "w": 1440,
+      "h": 900,
+      "title": "Later メニュー (L)",
+      "page": "inbox"
+    },
+    "Main.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 3300,
+      "title": "仕様のまとめ",
+      "page": "inbox"
+    },
+    "MergeBand.dc.html": {
+      "x": 6080,
+      "y": 1620,
+      "w": 760,
+      "h": 60,
+      "title": "MergeBand",
+      "page": "components"
+    },
+    "MessageKinds.dc.html": {
+      "x": 0,
+      "y": 300,
+      "w": 1440,
+      "h": 2300,
+      "title": "会話に出るメッセージ",
+      "page": "conversation"
+    },
+    "Nav.dc.html": {
+      "x": 0,
+      "y": 300,
+      "w": 240,
+      "h": 900,
+      "title": "Nav",
+      "page": "components"
+    },
+    "NewSession.dc.html": {
+      "x": 0,
+      "y": 6300,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション",
+      "page": "inbox"
+    },
+    "NewSessionModel.dc.html": {
+      "x": 0,
+      "y": 7620,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション · モデルと effort を選ぶ",
+      "page": "inbox"
+    },
+    "NewSessionModelSwitch.dc.html": {
+      "x": 1990,
+      "y": 7620,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション · engine を変えてモデルが default に戻った",
+      "page": "inbox"
+    },
+    "NewSessionPicker.dc.html": {
+      "x": 1520,
+      "y": 6300,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション · ディレクトリを選ぶ",
+      "page": "inbox"
+    },
+    "Palette.dc.html": {
+      "x": 0,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "⌘K · 開いた直後",
+      "page": "palette"
+    },
+    "PaletteClose.dc.html": {
+      "x": 3040,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "コマンドパレット · Close this session",
+      "page": "palette"
+    },
+    "PaletteNewSession.dc.html": {
+      "x": 0,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "コマンドパレット · 新しいセッション",
+      "page": "palette"
+    },
+    "PaletteNewSessionModel.dc.html": {
+      "x": 1990,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "コマンドパレット · モデルと effort を選ぶ",
+      "page": "palette"
+    },
+    "PaletteQuery.dc.html": {
+      "x": 1520,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "⌘K · # で tq タスクに絞る",
+      "page": "palette"
+    },
+    "PhoneActionActivity.dc.html": {
+      "x": 6440,
+      "y": 10220,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーションから Activity を開いた",
+      "page": "topbar"
+    },
+    "PhoneActionAway.dc.html": {
+      "x": 3510,
+      "y": 10220,
+      "w": 390,
+      "h": 844,
+      "page": "topbar"
+    },
+    "PhoneActionClose.dc.html": {
+      "x": 1990,
+      "y": 8900,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Close を裏で実行中",
+      "page": "topbar"
+    },
+    "PhoneActionDrawer.dc.html": {
+      "x": 5970,
+      "y": 10220,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーションの Activity (quota の上)",
+      "page": "topbar"
+    },
+    "PhoneActionFailure.dc.html": {
+      "x": 5970,
+      "y": 8900,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Merge が失敗",
+      "page": "topbar"
+    },
+    "PhoneActionInbox.dc.html": {
+      "x": 5500,
+      "y": 10220,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Merge が失敗したあと Inbox に戻った (ナビゲーションのボタンに赤い印)",
+      "page": "topbar"
+    },
+    "PhoneActionQueued.dc.html": {
+      "x": 1520,
+      "y": 10220,
+      "w": 390,
+      "h": 844,
+      "page": "topbar"
+    },
+    "PhoneActionRunning.dc.html": {
+      "x": 1520,
+      "y": 8900,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 返信欄の上の帯の Merge を押して実行中",
+      "page": "topbar"
+    },
+    "PhoneActionSuccess.dc.html": {
+      "x": 3980,
+      "y": 8900,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Merge が成功",
+      "page": "topbar"
+    },
+    "PhoneActivityEmpty.dc.html": {
+      "x": 3040,
+      "y": 13304,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーションの Activity · 操作がまだないとき",
+      "page": "topbar"
+    },
+    "PhoneActivityEmptyOpen.dc.html": {
+      "x": 3510,
+      "y": 13304,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 操作がないときに Activity を開いた",
+      "page": "topbar"
+    },
+    "PhoneBoard.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Board",
+      "page": "board"
+    },
+    "PhoneCards.dc.html": {
+      "x": 3510,
+      "y": 300,
+      "w": 390,
+      "h": 3590,
+      "page": "conversation"
+    },
+    "PhoneChat.dc.html": {
+      "x": 3980,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 会話から答える",
+      "page": "conversation"
+    },
+    "PhoneChatClose.dc.html": {
+      "x": 1520,
+      "y": 5020,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Done 以外のメニューに Close session…",
+      "page": "topbar"
+    },
+    "PhoneChatCloseConfirm.dc.html": {
+      "x": 3510,
+      "y": 5020,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Close session… を押したあと",
+      "page": "topbar"
+    },
+    "PhoneChatCodeCopy.dc.html": {
+      "x": 1520,
+      "y": 10490,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · コードブロックの帯 (44px)",
+      "page": "conversation"
+    },
+    "PhoneChatCodeCopyCopied.dc.html": {
+      "x": 3510,
+      "y": 10490,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Copy を押した直後",
+      "page": "conversation"
+    },
+    "PhoneChatCodeCopyUser.dc.html": {
+      "x": 5500,
+      "y": 10490,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 自分のメッセージの中のコードをコピー",
+      "page": "conversation"
+    },
+    "PhoneChatEnded.dc.html": {
+      "x": 2890,
+      "y": 4310,
+      "w": 390,
+      "h": 844,
+      "title": "スマホ: 終わったセッション",
+      "page": "conversation"
+    },
+    "PhoneChatMenu.dc.html": {
+      "x": 7020,
+      "y": 5020,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · セッションの操作メニュー",
+      "page": "topbar"
+    },
+    "PhoneChatPrs.dc.html": {
+      "x": 1928,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · セッションの PR 一覧",
+      "page": "topbar"
+    },
+    "PhoneChatResuming.dc.html": {
+      "x": 3360,
+      "y": 4310,
+      "w": 390,
+      "h": 844,
+      "title": "スマホ: Resume を押した",
+      "page": "conversation"
+    },
+    "PhoneChatReview.dc.html": {
+      "x": 4450,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · crit のレビュー待ち",
+      "page": "conversation"
+    },
+    "PhoneChatTasks.dc.html": {
+      "x": 0,
+      "y": 12040,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · tq タスクが 4 件 · 主タスクの右に +3 (押すと状況パネルの Tasks)",
+      "page": "topbar"
+    },
+    "PhoneChatTodoFolded.dc.html": {
+      "x": 1520,
+      "y": 9170,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · to-do を畳む",
+      "page": "conversation"
+    },
+    "PhoneChatUpdate.dc.html": {
+      "x": 3040,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 会話で入力中 (帯はヘッダーのすぐ下)",
+      "page": "app"
+    },
+    "PhoneChatVibe.dc.html": {
+      "x": 1928,
+      "y": 1690,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · vibe mode のシート",
+      "page": "topbar"
+    },
+    "PhoneChatVibeNotice.dc.html": {
+      "x": 1520,
+      "y": 6530,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · vibe mode を切り替えたあと",
+      "page": "conversation"
+    },
+    "PhoneChatWebUiLink.dc.html": {
+      "x": 1520,
+      "y": 7850,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 会話の中の web UI のリンク",
+      "page": "conversation"
+    },
+    "PhoneCloseFail.dc.html": {
+      "x": 1520,
+      "y": 6780,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Close が失敗",
+      "page": "topbar"
+    },
+    "PhoneCloseFailActivity.dc.html": {
+      "x": 5030,
+      "y": 6780,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Close が失敗してナビゲーションから Activity を開いた",
+      "page": "topbar"
+    },
+    "PhoneDialogs.dc.html": {
+      "x": 3918,
+      "y": 300,
+      "w": 390,
+      "h": 673,
+      "page": "topbar"
+    },
+    "PhoneDrawer.dc.html": {
+      "x": 1990,
+      "y": 3660,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーション",
+      "page": "inbox"
+    },
+    "PhoneInbox.dc.html": {
+      "x": 1520,
+      "y": 3660,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Inbox",
+      "page": "inbox"
+    },
+    "PhoneInboxClose.dc.html": {
+      "x": 2930,
+      "y": 4980,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Close を押したあと",
+      "page": "inbox"
+    },
+    "PhoneInboxFilter.dc.html": {
+      "x": 4920,
+      "y": 4980,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 絞り込みの欄を押したあと (kind: を入力中)",
+      "page": "inbox"
+    },
+    "PhoneInboxFiltered.dc.html": {
+      "x": 6910,
+      "y": 4980,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 絞り込んだ状態",
+      "page": "inbox"
+    },
+    "PhoneInboxLater.dc.html": {
+      "x": 2460,
+      "y": 4980,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Later を押したあと",
+      "page": "inbox"
+    },
+    "PhoneInboxRowMenu.dc.html": {
+      "x": 1990,
+      "y": 4980,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 行を長押し",
+      "page": "inbox"
+    },
+    "PhoneInboxSaveView.dc.html": {
+      "x": 7380,
+      "y": 4980,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Save view を押したあと",
+      "page": "inbox"
+    },
+    "PhoneInboxSwipe.dc.html": {
+      "x": 1520,
+      "y": 4980,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 行の中で左にスワイプ (Later と Close が出る)",
+      "page": "inbox"
+    },
+    "PhoneInboxTodoLater.dc.html": {
+      "x": 1520,
+      "y": 8940,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Needs action の下の To-do later",
+      "page": "inbox"
+    },
+    "PhoneInboxUpdate.dc.html": {
+      "x": 3510,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Inbox",
+      "page": "app"
+    },
+    "PhoneLaterSheet.dc.html": {
+      "x": 470,
+      "y": 3340,
+      "w": 390,
+      "h": 420,
+      "title": "PhoneLaterSheet",
+      "page": "components"
+    },
+    "PhoneMessageKinds.dc.html": {
+      "x": 1520,
+      "y": 300,
+      "w": 390,
+      "h": 2960,
+      "page": "conversation"
+    },
+    "PhoneNewSession.dc.html": {
+      "x": 3040,
+      "y": 6300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 新しいセッション",
+      "page": "inbox"
+    },
+    "PhoneNewSessionModel.dc.html": {
+      "x": 1520,
+      "y": 7620,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · モデルと effort を選ぶ",
+      "page": "inbox"
+    },
+    "PhoneNewSessionModelSwitch.dc.html": {
+      "x": 3510,
+      "y": 7620,
+      "w": 390,
+      "h": 844,
+      "page": "inbox"
+    },
+    "PhoneNewSessionPicker.dc.html": {
+      "x": 3510,
+      "y": 6300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ディレクトリを選ぶ",
+      "page": "inbox"
+    },
+    "PhonePaletteNewSession.dc.html": {
+      "x": 1520,
+      "y": 1620,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · コマンドパレット · 新しいセッション",
+      "page": "palette"
+    },
+    "PhonePaletteNewSessionModel.dc.html": {
+      "x": 3510,
+      "y": 1620,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · コマンドパレット · モデルと effort を選ぶ",
+      "page": "palette"
+    },
+    "PhoneRowMenu.dc.html": {
+      "x": 0,
+      "y": 3340,
+      "w": 390,
+      "h": 250,
+      "title": "PhoneRowMenu",
+      "page": "components"
+    },
+    "PhoneRunCommandActivity.dc.html": {
+      "x": 11470,
+      "y": 12110,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Activity の行",
+      "page": "conversation"
+    },
+    "PhoneRunCommandFailed.dc.html": {
+      "x": 5500,
+      "y": 12110,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 失敗",
+      "page": "conversation"
+    },
+    "PhoneRunCommandOutput.dc.html": {
+      "x": 9480,
+      "y": 12110,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Show output を押した",
+      "page": "conversation"
+    },
+    "PhoneRunCommandRunning.dc.html": {
+      "x": 1520,
+      "y": 12110,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 実行中",
+      "page": "conversation"
+    },
+    "PhoneRunCommandSucceeded.dc.html": {
+      "x": 3510,
+      "y": 12110,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 成功",
+      "page": "conversation"
+    },
+    "PhoneRunCommandTimedOut.dc.html": {
+      "x": 7490,
+      "y": 12110,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 時間切れ",
+      "page": "conversation"
+    },
+    "PhoneSaveViewSheet.dc.html": {
+      "x": 940,
+      "y": 3340,
+      "w": 390,
+      "h": 300,
+      "title": "PhoneSaveViewSheet",
+      "page": "components"
+    },
+    "PhoneStatusDecisions.dc.html": {
+      "x": 5500,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Decisions",
+      "page": "status-panel"
+    },
+    "PhoneStatusPanel.dc.html": {
+      "x": 2540,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneStatusPanel",
+      "page": "components"
+    },
+    "PhoneStatusReview.dc.html": {
+      "x": 7490,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Review · PR draft (日本語で PR を書く repo) · Preview",
+      "page": "status-panel"
+    },
+    "PhoneStatusReviewPreview.dc.html": {
+      "x": 1520,
+      "y": 4500,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Review · PR draft · Edit",
+      "page": "status-panel"
+    },
+    "PhoneStatusRunning.dc.html": {
+      "x": 1520,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Running",
+      "page": "status-panel"
+    },
+    "PhoneStatusTasks.dc.html": {
+      "x": 11470,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Tasks",
+      "page": "status-panel"
+    },
+    "PhoneStatusTasksMany.dc.html": {
+      "x": 0,
+      "y": 2940,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Tasks · 主でないタスクに Make primary",
+      "page": "status-panel"
+    },
+    "PhoneStatusTree.dc.html": {
+      "x": 3510,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Tree",
+      "page": "status-panel"
+    },
+    "PhoneStatusWebUi.dc.html": {
+      "x": 9480,
+      "y": 300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Web UI (crit)",
+      "page": "status-panel"
+    },
+    "PhoneWebUiFull.dc.html": {
+      "x": 1520,
+      "y": 1620,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · web UI のリンクを押した · web UI だけのページを重ねる",
+      "page": "status-panel"
+    },
+    "PrButton.dc.html": {
+      "x": 2320,
+      "y": 2240,
+      "w": 44,
+      "h": 44,
+      "title": "PrButton",
+      "page": "components"
+    },
+    "Quota.dc.html": {
+      "x": 540,
+      "y": 1620,
+      "w": 240,
+      "h": 140,
+      "title": "Quota",
+      "page": "components"
+    },
+    "RunCommandActivity.dc.html": {
+      "x": 9950,
+      "y": 12110,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · Activity の行",
+      "page": "conversation"
+    },
+    "RunCommandFailed.dc.html": {
+      "x": 3980,
+      "y": 12110,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · 失敗 (Show output を置く)",
+      "page": "conversation"
+    },
+    "RunCommandOutput.dc.html": {
+      "x": 7960,
+      "y": 12110,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · Show output を押した (結果のメッセージを枠で示す)",
+      "page": "conversation"
+    },
+    "RunCommandRunning.dc.html": {
+      "x": 0,
+      "y": 12110,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · 押すとダイアログを閉じ、トーストで実行中を示す",
+      "page": "conversation"
+    },
+    "RunCommandSucceeded.dc.html": {
+      "x": 1990,
+      "y": 12110,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · 成功 (トーストは自動で消える)",
+      "page": "conversation"
+    },
+    "RunCommandTimedOut.dc.html": {
+      "x": 5970,
+      "y": 12110,
+      "w": 1440,
+      "h": 900,
+      "title": "Run command · 30 秒で時間切れ",
+      "page": "conversation"
+    },
+    "RunPc.dc.html": {
+      "x": 0,
+      "y": 4360,
+      "w": 1440,
+      "h": 900,
+      "title": "RunPc",
+      "page": "components"
+    },
+    "RunPhone.dc.html": {
+      "x": 1520,
+      "y": 4360,
+      "w": 390,
+      "h": 844,
+      "title": "RunPhone",
+      "page": "components"
+    },
+    "SessionRow.dc.html": {
+      "x": 0,
+      "y": 1620,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "components"
+    },
+    "SessionUsage.dc.html": {
+      "x": 860,
+      "y": 1620,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "components"
+    },
+    "StatusBand.dc.html": {
+      "x": 1612,
+      "y": 1620,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "components"
+    },
+    "StatusBandStates.dc.html": {
+      "x": 0,
+      "y": 4310,
+      "w": 1290,
+      "h": 1800,
+      "title": "返信欄の上の帯 · 状態ごと",
+      "page": "conversation"
+    },
+    "StatusBody.dc.html": {
+      "x": 3010,
+      "y": 429,
+      "w": 640,
+      "h": 852,
+      "title": "StatusBody",
+      "page": "components"
+    },
+    "StatusDecisions.dc.html": {
+      "x": 3980,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Decisions",
+      "page": "status-panel"
+    },
+    "StatusPanel.dc.html": {
+      "x": 1820,
+      "y": 300,
+      "w": 640,
+      "h": 900,
+      "title": "StatusPanel",
+      "page": "components"
+    },
+    "StatusReview.dc.html": {
+      "x": 5970,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Review · PR draft (日本語で PR を書く repo) · Preview",
+      "page": "status-panel"
+    },
+    "StatusReviewPreview.dc.html": {
+      "x": 0,
+      "y": 4500,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Review · PR draft · Edit",
+      "page": "status-panel"
+    },
+    "StatusRunning.dc.html": {
+      "x": 0,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Running",
+      "page": "status-panel"
+    },
+    "StatusTabs.dc.html": {
+      "x": 3010,
+      "y": 300,
+      "w": 640,
+      "h": 49,
+      "title": "StatusTabs",
+      "page": "components"
+    },
+    "StatusTasks.dc.html": {
+      "x": 9950,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Tasks",
+      "page": "status-panel"
+    },
+    "StatusTree.dc.html": {
+      "x": 1990,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Tree",
+      "page": "status-panel"
+    },
+    "StatusWebUi.dc.html": {
+      "x": 7960,
+      "y": 300,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Web UI (crit)",
+      "page": "status-panel"
+    },
+    "TaskLinks.dc.html": {
+      "x": 2460,
+      "y": 3660,
+      "w": 1440,
+      "h": 900,
+      "title": "1 つのセッションに tq タスクが複数 · +1 で状況パネルの Tasks を開く",
+      "page": "inbox"
+    },
     "ToastStack.dc.html": {
-      "x": 4840,
-      "y": 230,
+      "x": 1400,
+      "y": 2240,
       "w": 360,
       "h": 240,
       "title": "ToastStack",
       "page": "components"
     },
-    "Activity.dc.html": {
-      "x": 4840,
-      "y": 590,
-      "w": 400,
-      "h": 360,
-      "title": "Activity",
+    "TodoCard.dc.html": {
+      "x": 3956,
+      "y": 1620,
+      "w": 672,
+      "h": 40,
+      "title": "TodoCard",
+      "page": "components"
+    },
+    "TodoFolded.dc.html": {
+      "x": 0,
+      "y": 9170,
+      "w": 1440,
+      "h": 900,
+      "title": "to-do を畳む · セッションが畳んで出した to-do と、⌃ のあるカード",
+      "page": "conversation"
+    },
+    "UpdateBand.dc.html": {
+      "x": 2864,
+      "y": 2240,
+      "w": 760,
+      "h": 40,
+      "title": "UpdateBand",
+      "page": "components"
+    },
+    "VibeNotice.dc.html": {
+      "x": 0,
+      "y": 6530,
+      "w": 1440,
+      "h": 900,
+      "title": "vibe mode を切り替えたあと · 会話にイベントとして出る",
+      "page": "conversation"
+    },
+    "VibePopover.dc.html": {
+      "x": 0,
+      "y": 1690,
+      "w": 1848,
+      "h": 2910,
+      "title": "セッションのヘッダー · vibe mode のボタンを押したとき",
+      "page": "topbar"
+    },
+    "WebUiFull.dc.html": {
+      "x": 0,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "web UI のリンクを押した · web UI を全画面で開く",
+      "page": "status-panel"
+    },
+    "WebUiLink.dc.html": {
+      "x": 0,
+      "y": 7850,
+      "w": 1440,
+      "h": 900,
+      "title": "会話の中の web UI のリンク · 後ろに開く先のタブ名",
+      "page": "conversation"
+    },
+    "StatusReviewComment.dc.html": {
+      "x": 1990,
+      "y": 4500,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Review · issue へのコメント",
+      "page": "status-panel"
+    },
+    "PhoneStatusReviewComment.dc.html": {
+      "x": 3510,
+      "y": 4500,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Review · issue へのコメント",
+      "page": "status-panel"
+    },
+    "StatusReviewIssue.dc.html": {
+      "x": 3980,
+      "y": 4500,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Review · issue の編集 (frontmatter を入力欄に)",
+      "page": "status-panel"
+    },
+    "PhoneStatusReviewIssue.dc.html": {
+      "x": 5500,
+      "y": 4500,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Review · issue の編集 (frontmatter を入力欄に)",
+      "page": "status-panel"
+    },
+    "StatusReviewThreads.dc.html": {
+      "x": 5970,
+      "y": 4500,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Review · draft が 4 つ · レビューへの返信のタブ",
+      "page": "status-panel"
+    },
+    "PhoneStatusReviewThreads.dc.html": {
+      "x": 7490,
+      "y": 4500,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Review · draft が 4 つ · レビューへの返信のタブ",
+      "page": "status-panel"
+    },
+    "StatusReviewTranslate.dc.html": {
+      "x": 7960,
+      "y": 4500,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Review · 英語で PR を書く repo · 1 日本語の draft を翻訳へ",
+      "page": "status-panel"
+    },
+    "PhoneStatusReviewTranslate.dc.html": {
+      "x": 9480,
+      "y": 4500,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Review · 英語で PR を書く repo · 1 日本語の draft を翻訳へ",
+      "page": "status-panel"
+    },
+    "StatusReviewEnglish.dc.html": {
+      "x": 9950,
+      "y": 4500,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Review · 英語で PR を書く repo · 2 英語の draft で Create PR",
+      "page": "status-panel"
+    },
+    "PhoneStatusReviewEnglish.dc.html": {
+      "x": 11470,
+      "y": 4500,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Review · 英語で PR を書く repo · 2 英語の draft で Create PR",
+      "page": "status-panel"
+    },
+    "StatusReviewFull.dc.html": {
+      "x": 11940,
+      "y": 4500,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Review · ⛶ で全幅に開いた (会話の列を置き換える)",
+      "page": "status-panel"
+    },
+    "DraftReview.dc.html": {
+      "x": 3730,
+      "y": 429,
+      "w": 640,
+      "h": 852,
+      "title": "DraftReview",
+      "page": "components"
+    },
+    "DraftFocus.dc.html": {
+      "x": 4450,
+      "y": 300,
+      "w": 800,
+      "h": 900,
+      "title": "DraftFocus",
       "page": "components"
     },
     "MergeButton.dc.html": {
-      "x": 4840,
-      "y": 1070,
+      "x": 2384,
+      "y": 2240,
       "w": 160,
       "h": 44,
       "title": "MergeButton",
-      "page": "components"
-    },
-    "ActionRunning.dc.html": {
-      "x": 0,
-      "y": 5540,
-      "w": 1440,
-      "h": 900,
-      "title": "確定したあと · Merge と Close を裏で実行中",
-      "page": "conversation"
-    },
-    "ActionSuccess.dc.html": {
-      "x": 2460,
-      "y": 5540,
-      "w": 1440,
-      "h": 900,
-      "title": "確定したあと · Merge と Close が成功",
-      "page": "conversation"
-    },
-    "ActionFailure.dc.html": {
-      "x": 4450,
-      "y": 5540,
-      "w": 1440,
-      "h": 900,
-      "title": "確定したあと · Merge と Close が失敗",
-      "page": "conversation"
-    },
-    "ActionQueued.dc.html": {
-      "x": 6440,
-      "y": 5540,
-      "w": 1440,
-      "h": 900,
-      "title": "確定したあと · マージキューに入った (PR の一覧を開いた状態)",
-      "page": "conversation"
-    },
-    "ActionAway.dc.html": {
-      "x": 7960,
-      "y": 5540,
-      "w": 1440,
-      "h": 900,
-      "title": "確定したあと · 別のセッションに移っている間に終わった",
-      "page": "conversation"
-    },
-    "ActionActivity.dc.html": {
-      "x": 9480,
-      "y": 5540,
-      "w": 1440,
-      "h": 900,
-      "title": "確定したあと · Activity を開いた",
-      "page": "conversation"
-    },
-    "PhoneActionRunning.dc.html": {
-      "x": 1520,
-      "y": 5540,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · PR の一覧から Merge して実行中",
-      "page": "conversation"
-    },
-    "PhoneActionSuccess.dc.html": {
-      "x": 3980,
-      "y": 5540,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · Merge が成功",
-      "page": "conversation"
-    },
-    "PhoneActionFailure.dc.html": {
-      "x": 5970,
-      "y": 5540,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · Merge が失敗",
-      "page": "conversation"
-    },
-    "PhoneActionClose.dc.html": {
-      "x": 1990,
-      "y": 5540,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · Close を裏で実行中",
-      "page": "conversation"
-    },
-    "PhoneActionActivity.dc.html": {
-      "x": 11000,
-      "y": 5540,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · Activity を開いた",
-      "page": "conversation"
-    },
-    "ActionCopy.dc.html": {
-      "x": 0,
-      "y": 6560,
-      "w": 1640,
-      "h": 1400,
-      "title": "確定したあとの結果 · 種類ごとの文言",
-      "page": "conversation"
-    },
-    "ActivityButton.dc.html": {
-      "x": 4840,
-      "y": 1234,
-      "w": 224,
-      "h": 44,
-      "title": "ActivityButton",
       "page": "components"
     }
   },
@@ -636,12 +1390,14 @@
     "PhoneNewSessionPicker.dc.html",
     "NewSessionModel.dc.html",
     "NewSessionModelSwitch.dc.html",
+    "PhoneNewSessionModelSwitch.dc.html",
     "PhoneNewSessionModel.dc.html",
     "SessionRow.dc.html",
     "Quota.dc.html",
     "SessionUsage.dc.html",
     "StatusBand.dc.html",
     "Board.dc.html",
+    "PhoneBoard.dc.html",
     "Palette.dc.html",
     "PaletteQuery.dc.html",
     "PaletteNewSession.dc.html",
@@ -654,12 +1410,22 @@
     "StatusReview.dc.html",
     "StatusWebUi.dc.html",
     "StatusTasks.dc.html",
+    "PhoneStatusRunning.dc.html",
+    "PhoneStatusTree.dc.html",
+    "PhoneStatusDecisions.dc.html",
+    "PhoneStatusReview.dc.html",
+    "PhoneStatusWebUi.dc.html",
+    "PhoneStatusTasks.dc.html",
+    "PhoneStatusPanel.dc.html",
     "StatusPanel.dc.html",
     "MessageKinds.dc.html",
+    "PhoneMessageKinds.dc.html",
     "Cards.dc.html",
+    "PhoneCards.dc.html",
     "PhoneChat.dc.html",
     "PhoneChatMenu.dc.html",
     "Dialogs.dc.html",
+    "PhoneDialogs.dc.html",
     "PhoneChatReview.dc.html",
     "StatusBandStates.dc.html",
     "PhoneChatPrs.dc.html",
@@ -669,6 +1435,8 @@
     "VibePopover.dc.html",
     "ConversationPrs.dc.html",
     "PhoneChatVibe.dc.html",
+    "VibeNotice.dc.html",
+    "PhoneChatVibeNotice.dc.html",
     "DeniedCard.dc.html",
     "PaletteClose.dc.html",
     "CloseMenu.dc.html",
@@ -682,20 +1450,101 @@
     "ActionItem.dc.html",
     "ToastStack.dc.html",
     "Activity.dc.html",
-    "MergeButton.dc.html",
+    "TodoCard.dc.html",
     "ActionRunning.dc.html",
     "ActionSuccess.dc.html",
     "ActionFailure.dc.html",
     "ActionQueued.dc.html",
+    "PhoneActionQueued.dc.html",
     "ActionAway.dc.html",
+    "PhoneActionAway.dc.html",
     "ActionActivity.dc.html",
     "PhoneActionRunning.dc.html",
     "PhoneActionSuccess.dc.html",
     "PhoneActionFailure.dc.html",
     "PhoneActionClose.dc.html",
+    "PhoneActionInbox.dc.html",
+    "PhoneActionDrawer.dc.html",
     "PhoneActionActivity.dc.html",
     "ActionCopy.dc.html",
-    "ActivityButton.dc.html"
+    "ActivityButton.dc.html",
+    "CloseChecks.dc.html",
+    "CloseFailConversation.dc.html",
+    "PhoneCloseFail.dc.html",
+    "CloseFailInbox.dc.html",
+    "CloseFailActivity.dc.html",
+    "PhoneCloseFailActivity.dc.html",
+    "CloseFailCopy.dc.html",
+    "WebUiLink.dc.html",
+    "PhoneChatWebUiLink.dc.html",
+    "WebUiFull.dc.html",
+    "PhoneWebUiFull.dc.html",
+    "TodoFolded.dc.html",
+    "PhoneChatTodoFolded.dc.html",
+    "CodeCopy.dc.html",
+    "PhoneChatCodeCopy.dc.html",
+    "CodeCopyCopied.dc.html",
+    "PhoneChatCodeCopyCopied.dc.html",
+    "CodeCopyUser.dc.html",
+    "PhoneChatCodeCopyUser.dc.html",
+    "CodeBlock.dc.html",
+    "InboxTodoLater.dc.html",
+    "PhoneInboxTodoLater.dc.html",
+    "PhoneInboxSwipe.dc.html",
+    "PhoneInboxRowMenu.dc.html",
+    "PhoneInboxLater.dc.html",
+    "PhoneInboxClose.dc.html",
+    "PhoneInboxFilter.dc.html",
+    "PhoneInboxFiltered.dc.html",
+    "PhoneInboxSaveView.dc.html",
+    "PhoneRowMenu.dc.html",
+    "PhoneLaterSheet.dc.html",
+    "PhoneSaveViewSheet.dc.html",
+    "PhoneChatTasks.dc.html",
+    "PhoneStatusTasksMany.dc.html",
+    "ConversationUpdate.dc.html",
+    "ConversationUpdateToast.dc.html",
+    "PhoneChatUpdate.dc.html",
+    "PhoneInboxUpdate.dc.html",
+    "UpdateBand.dc.html",
+    "ActivityEmpty.dc.html",
+    "ActivityEmptyOpen.dc.html",
+    "PhoneActivityEmpty.dc.html",
+    "PhoneActivityEmptyOpen.dc.html",
+    "RunCommandRunning.dc.html",
+    "PhoneRunCommandRunning.dc.html",
+    "RunCommandSucceeded.dc.html",
+    "PhoneRunCommandSucceeded.dc.html",
+    "RunCommandFailed.dc.html",
+    "PhoneRunCommandFailed.dc.html",
+    "RunCommandTimedOut.dc.html",
+    "PhoneRunCommandTimedOut.dc.html",
+    "RunCommandOutput.dc.html",
+    "PhoneRunCommandOutput.dc.html",
+    "RunCommandActivity.dc.html",
+    "PhoneRunCommandActivity.dc.html",
+    "RunPc.dc.html",
+    "RunPhone.dc.html",
+    "StatusBody.dc.html",
+    "StatusTabs.dc.html",
+    "StatusReviewPreview.dc.html",
+    "PhoneStatusReviewPreview.dc.html",
+    "PrButton.dc.html",
+    "MergeBand.dc.html",
+    "DraftReview.dc.html",
+    "DraftFocus.dc.html",
+    "StatusReviewComment.dc.html",
+    "PhoneStatusReviewComment.dc.html",
+    "StatusReviewIssue.dc.html",
+    "PhoneStatusReviewIssue.dc.html",
+    "StatusReviewThreads.dc.html",
+    "PhoneStatusReviewThreads.dc.html",
+    "StatusReviewTranslate.dc.html",
+    "PhoneStatusReviewTranslate.dc.html",
+    "StatusReviewEnglish.dc.html",
+    "PhoneStatusReviewEnglish.dc.html",
+    "StatusReviewFull.dc.html",
+    "MergeButton.dc.html"
   ],
   "pages": [
     {
@@ -711,12 +1560,20 @@
       "name": "Palette"
     },
     {
-      "id": "status-panel",
-      "name": "Status panel"
+      "id": "conversation",
+      "name": "会話"
     },
     {
-      "id": "conversation",
-      "name": "Conversation"
+      "id": "topbar",
+      "name": "トップバー"
+    },
+    {
+      "id": "status-panel",
+      "name": "右側のタブ"
+    },
+    {
+      "id": "app",
+      "name": "アプリ全体"
     },
     {
       "id": "components",
@@ -725,11 +1582,267 @@
   ],
   "notes": {
     "confirmDialogUsers": {
-      "x": 4340,
-      "y": 320,
+      "x": 460,
+      "y": 2240,
       "w": 420,
       "page": "components",
-      "text": "ConfirmDialog: 確認ダイアログの共通部品。form で形を選ぶ\n- modal: Merge の確認 (確認ダイアログ)、閉じる前の確認 (Close session… を押したあと、Inbox の e、状態ごとの文言)\n- popover: 会話のヘッダーの vibe mode\n- sheet: iPhone の vibe mode、iPhone の閉じる前の確認\n- panel: ! コマンドの確認 (確認ダイアログ)"
+      "text": "ConfirmDialog: 確認ダイアログの共通部品。form で形を選ぶ\n- modal: Merge の確認 (確認ダイアログ)、閉じる前の確認 (Close session… を押したあと、Inbox の e、状態ごとの文言)\n- popover: 会話のヘッダーの vibe mode\n- sheet: iPhone の vibe mode、iPhone の閉じる前の確認 (会話の ⋯ と Inbox の行の Close)、iPhone の Merge の確認、iPhone の ! コマンドの確認\n- panel: ! コマンドの確認 (確認ダイアログ)"
+    },
+    "rowActionMore": {
+      "x": 0,
+      "y": 9920,
+      "text": "Merge と Close を裏で実行 · キュー、別セッション、Activity、文言",
+      "kind": "title1",
+      "maxW": 8550,
+      "page": "topbar"
+    },
+    "rowActionResult": {
+      "x": 0,
+      "y": 8600,
+      "text": "Merge と Close を裏で実行 · 実行中、成功、失敗",
+      "kind": "title1",
+      "maxW": 6360,
+      "page": "topbar"
+    },
+    "rowActivityEmpty": {
+      "x": 0,
+      "y": 13004,
+      "text": "Activity · 操作がないとき",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "topbar"
+    },
+    "rowCloseFailure": {
+      "x": 0,
+      "y": 6480,
+      "text": "セッションを閉じる · Close の失敗",
+      "kind": "title1",
+      "maxW": 8930,
+      "page": "topbar"
+    },
+    "rowCloseSession": {
+      "x": 0,
+      "y": 4720,
+      "text": "セッションを閉じる · Close session… と Done",
+      "kind": "title1",
+      "maxW": 8930,
+      "page": "topbar"
+    },
+    "rowCodeCopy": {
+      "kind": "title1",
+      "x": 0,
+      "y": 10190,
+      "maxW": 5890,
+      "page": "conversation",
+      "text": "コードブロック · 言語名と Copy の帯"
+    },
+    "rowConversationBandEnded": {
+      "x": 0,
+      "y": 4010,
+      "text": "会話 · 返信欄の上の帯、終わったセッション",
+      "kind": "title1",
+      "maxW": 3430,
+      "page": "conversation"
+    },
+    "rowConversationMessages": {
+      "x": 0,
+      "y": 0,
+      "text": "会話 · メッセージと返答を待つカード",
+      "kind": "title1",
+      "maxW": 4840,
+      "page": "conversation"
+    },
+    "rowHeaderPrs": {
+      "x": 0,
+      "y": 0,
+      "text": "ヘッダー · PR の一覧と確認ダイアログ",
+      "kind": "title1",
+      "maxW": 4308,
+      "page": "topbar"
+    },
+    "rowHeaderVibe": {
+      "x": 0,
+      "y": 1390,
+      "text": "ヘッダー · vibe mode",
+      "kind": "title1",
+      "maxW": 2318,
+      "page": "topbar"
+    },
+    "rowInboxConversation": {
+      "x": 0,
+      "y": 3360,
+      "text": "Inbox と会話 · tq タスクが複数のとき",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "inbox"
+    },
+    "rowInboxLaterFilter": {
+      "x": 0,
+      "y": 4680,
+      "text": "Inbox · Later、閉じる、絞り込み · iPhone は行の中のスワイプか長押しと、/ と同じ絞り込みの欄",
+      "kind": "title1",
+      "maxW": 7770,
+      "page": "inbox"
+    },
+    "rowNewSession": {
+      "x": 0,
+      "y": 6000,
+      "text": "新しいセッション · ディレクトリを選ぶ",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "inbox"
+    },
+    "rowNewSessionModel": {
+      "x": 0,
+      "y": 7320,
+      "text": "新しいセッション · モデルと effort を選ぶ",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "inbox"
+    },
+    "rowPaletteBasic": {
+      "x": 0,
+      "y": 0,
+      "text": "⌘K · 開く、# で絞る、Close this session",
+      "kind": "title1",
+      "maxW": 4480,
+      "page": "palette"
+    },
+    "rowPaletteNewSession": {
+      "x": 0,
+      "y": 1320,
+      "text": "⌘K · 新しいセッション",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "palette"
+    },
+    "rowPartsDialogs": {
+      "x": 0,
+      "y": 1940,
+      "text": "ダイアログ、通知、ボタン",
+      "kind": "title1",
+      "maxW": 3624,
+      "page": "components"
+    },
+    "rowPartsLayout": {
+      "x": 0,
+      "y": 0,
+      "text": "画面の区画",
+      "kind": "title1",
+      "maxW": 5250,
+      "page": "components"
+    },
+    "rowPartsPhoneInbox": {
+      "x": 0,
+      "y": 3040,
+      "text": "iPhone の Inbox のシート",
+      "kind": "title1",
+      "maxW": 1330,
+      "page": "components"
+    },
+    "rowPartsRows": {
+      "x": 0,
+      "y": 1320,
+      "text": "行、帯、カード",
+      "kind": "title1",
+      "maxW": 3124,
+      "page": "components"
+    },
+    "rowPartsRunCommand": {
+      "kind": "title1",
+      "x": 0,
+      "y": 4060,
+      "maxW": 1910,
+      "page": "components",
+      "text": "Run command の画面"
+    },
+    "rowPhoneStatusTasks": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2640,
+      "maxW": 1330,
+      "page": "status-panel",
+      "text": "状況パネル · Tasks · iPhone で +N から開いたとき"
+    },
+    "rowPhoneTasks": {
+      "kind": "title1",
+      "x": 0,
+      "y": 11740,
+      "maxW": 1330,
+      "page": "topbar",
+      "text": "ヘッダー · tq タスクが複数 · iPhone も +N で状況パネルの Tasks を開く"
+    },
+    "rowReviewPreview": {
+      "x": 0,
+      "y": 4200,
+      "text": "状況パネル · Review · draft を読んで、そのまま投稿や PR の作成をする",
+      "kind": "title1",
+      "maxW": 13380,
+      "page": "status-panel"
+    },
+    "rowRunCommand": {
+      "kind": "title1",
+      "x": 0,
+      "y": 11810,
+      "maxW": 11860,
+      "page": "conversation",
+      "text": "Run command · toast で結果を出す"
+    },
+    "rowStatusTabs": {
+      "x": 0,
+      "y": 0,
+      "text": "状況パネル · タブごと",
+      "kind": "title1",
+      "maxW": 11860,
+      "page": "status-panel"
+    },
+    "rowTodoFolded": {
+      "kind": "title1",
+      "x": 0,
+      "y": 8870,
+      "maxW": 2450,
+      "page": "conversation",
+      "text": "後で確かめる to-do · タイトルだけの 1 行に畳む"
+    },
+    "rowTodoLater": {
+      "kind": "title1",
+      "x": 0,
+      "y": 8640,
+      "maxW": 2450,
+      "page": "inbox",
+      "text": "Inbox · 畳んだ to-do は To-do later に出す"
+    },
+    "rowUpdateBand": {
+      "kind": "title1",
+      "x": 0,
+      "y": 0,
+      "maxW": 3900,
+      "page": "app",
+      "text": "新しいバージョンの通知 · 一番上の全幅の帯"
+    },
+    "rowVibeNotice": {
+      "x": 0,
+      "y": 6230,
+      "text": "vibe mode を切り替えたあと · 会話に出るイベント",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "conversation"
+    },
+    "rowWebUiFull": {
+      "x": 0,
+      "y": 1320,
+      "text": "web UI のリンクを押したあと · web UI を全画面で開く",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "status-panel"
+    },
+    "rowWebUiLink": {
+      "kind": "title1",
+      "x": 0,
+      "y": 7550,
+      "maxW": 1910,
+      "page": "conversation",
+      "text": "会話の中の web UI のリンク · 開く先のタブ名"
     }
   },
   "v": 3,
@@ -751,6 +1864,27 @@
     }
   ],
   "noteOrder": [
-    "confirmDialogUsers"
+    "confirmDialogUsers",
+    "rowInboxConversation",
+    "rowInboxLaterFilter",
+    "rowNewSession",
+    "rowNewSessionModel",
+    "rowPaletteBasic",
+    "rowPaletteNewSession",
+    "rowStatusTabs",
+    "rowConversationMessages",
+    "rowConversationBandEnded",
+    "rowHeaderPrs",
+    "rowHeaderVibe",
+    "rowCloseSession",
+    "rowCloseFailure",
+    "rowActionResult",
+    "rowActionMore",
+    "rowPartsLayout",
+    "rowPartsRows",
+    "rowPartsDialogs",
+    "rowPhoneTasks",
+    "rowPhoneStatusTasks",
+    "rowReviewPreview"
   ]
 }

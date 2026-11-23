@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>PR button that merges (split)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<span style="display: inline-flex; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1; white-space: nowrap">
+<button type="button" aria-label="{{mainAria}}" aria-disabled="{{busyStr}}" style="height: {{h}}; box-sizing: border-box; display: inline-flex; align-items: center; gap: {{gap}}; padding: 0 {{padX}}; border: 1px solid {{border}}; background: {{mainBg}}; color: {{color}}; font-family: inherit; font-size: {{fs}}">
+<sc-if value="{{isIdle}}" hint-placeholder-val="{{ true }}"><svg width="{{ic}}" height="{{ic}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M6 21V9a9 9 0 0 0 9 9"></path></svg></sc-if>
+<sc-if value="{{isMerging}}" hint-placeholder-val="{{ false }}"><svg width="{{ic}}" height="{{ic}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></sc-if>
+<sc-if value="{{isFailed}}" hint-placeholder-val="{{ false }}"><svg width="{{ic}}" height="{{ic}}" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
+<sc-if value="{{isMerged}}" hint-placeholder-val="{{ false }}"><svg width="{{ic}}" height="{{ic}}" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if>
+<span>{{label}}</span>
+</button>
+<button type="button" aria-haspopup="dialog" aria-expanded="{{openStr}}" aria-label="Pull requests from this session" title="Pull requests from this session" style="width: {{chevW}}; height: {{h}}; box-sizing: border-box; display: grid; place-items: center; padding: 0; border: 1px solid {{border}}; border-left: 1px solid {{sep}}; background: {{chevBg}}; color: #d4d4d8"><svg width="{{ic}}" height="{{ic}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+</span>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"state":{"editor":"enum","options":["idle","merging","failed","merged"],"default":"idle"},"num":{"editor":"int","default":2050},"phone":{"editor":"boolean","default":false},"open":{"editor":"boolean","default":false},"$preview":{"width":160,"height":44}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const st = this.props.state ?? 'idle';
+    const n = '#' + (this.props.num ?? 2050);
+    const phone = this.props.phone ?? false;
+    const open = this.props.open ?? false;
+    // phone: the number moves to aria-label so the title keeps room.
+    const L = phone
+      ? { idle: 'Merge', merging: 'Merging', failed: 'Retry', merged: 'Merged' }
+      : { idle: 'Merge ' + n, merging: 'Merging ' + n + '…', failed: 'Retry merge ' + n, merged: n + ' merged' };
+    const A = { idle: 'Merge PR ' + n, merging: 'Merging PR ' + n, failed: 'Merge of PR ' + n + ' failed. Retry', merged: 'PR ' + n + ' merged' };
+    return {
+      isIdle: st === 'idle', isMerging: st === 'merging', isFailed: st === 'failed', isMerged: st === 'merged',
+      label: L[st], mainAria: A[st], busyStr: st === 'merging' || st === 'merged' ? 'true' : 'false',
+      openStr: open ? 'true' : 'false',
+      border: st === 'failed' ? '#f87171' : phone ? '#3f3f46' : '#2a2a2a',
+      sep: phone ? '#3f3f46' : '#2a2a2a',
+      color: st === 'merging' || st === 'merged' ? '#a1a1aa' : '#fafafa',
+      mainBg: st === 'merging' ? '#141414' : 'transparent',
+      chevBg: open ? '#262626' : 'transparent',
+      h: phone ? '44px' : '26px', padX: phone ? '8px' : '9px', chevW: phone ? '28px' : '22px',
+      fs: phone ? '13px' : '12px', ic: phone ? '13' : '12', gap: phone ? '4px' : '6px'
+    };
+  }
+}
+</script>
+</body>
+</html>

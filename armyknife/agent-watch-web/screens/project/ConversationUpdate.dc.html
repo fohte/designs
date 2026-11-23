@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Desktop: a new version is ready while typing a reply</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; display: flex; flex-direction: column; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+<div style="flex: none"><dc-import name="UpdateBand" hint-size="100%,36px"></dc-import></div>
+<div style="flex: 1; min-height: 0; display: flex">
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" activity="{{ activity }}" h="864px" hint-size="240px,864px"></dc-import></div>
+<div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" current="{{ zero }}" h="864px" hint-size="460px,864px"></dc-import></div>
+<div style="flex: 1; min-width: 0"><dc-import name="Conversation" variant="question" draft="{{ true }}" h="864px" hint-size="100%,864px"></dc-import></div>
+</div>
+<sc-if value="{{toast}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; left: 16px; bottom: 16px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,72px"></dc-import></div></sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"toast":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // toast: an Activity toast arrives while the band is up; the band stays at the top, the toast at the bottom left.
+    const toast = this.props.toast ?? false;
+    return {
+      zero: 0, toast,
+      activity: toast ? { count: '', tone: 'idle' } : null,
+      toasts: [{ result: 'merged', pr: 2049, session: '配信チェックの PR を確認する' }]
+    };
+  }
+}
+</script>
+</body>
+</html>

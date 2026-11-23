@@ -22,10 +22,10 @@ a{color:#ef4444}
 <div style="padding: 10px 14px; background: #1f1f1f">通知の再送処理を見直して。</div>
 </article>
 
-<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Assistant</strong>Markdown with no bubble.</div>
+<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Assistant</strong>Markdown with no bubble. A code block has a bar with its language and Copy.</div>
 <article style="color: #d4d4d8">
 <p style="margin: 0 0 10px">再送処理を <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">retry()</code> にまとめました。詳しくは <a href="#" style="text-decoration: underline">設計メモ</a> を見てください。</p>
-<pre style="margin: 0; padding: 10px 12px; background: #131313; border: 1px solid #262626; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #d4d4d8">const delay = base * 2 ** attempt;</pre>
+<dc-import name="CodeBlock" code="delay" hint-size="100%,76px"></dc-import>
 </article>
 
 <div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Narration</strong>The session's progress report between tool calls. In the body, told from the reply only by dimmer text.</div>
@@ -81,9 +81,11 @@ a{color:#ef4444}
 </article>
 </div>
 
-<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Events</strong>Centered. Compacting draws a divider.</div>
+<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">Events</strong>Centered. Compacting draws a divider. What you do outside the reply box and the session is told of, such as switching vibe mode, is an event, not a You message.</div>
 <div style="display: flex; flex-direction: column; gap: 12px">
 <div style="text-align: center; font-size: 11px; color: #a1a1aa">Session resumed · 10:12</div>
+<div style="text-align: center; font-size: 11px; color: #a1a1aa">Vibe mode turned on · 10:14</div>
+<div style="text-align: center; font-size: 11px; color: #a1a1aa">Vibe mode turned off · 10:20</div>
 <div style="display: flex; align-items: center; gap: 10px; font-size: 11px; color: #a1a1aa"><span style="flex: 1; height: 1px; background: #1a1a1a"></span>Conversation compacted<span style="flex: 1; height: 1px; background: #1a1a1a"></span></div>
 </div>
 
@@ -95,8 +97,7 @@ a{color:#ef4444}
 
 <div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">! commands</strong>Commands in a reply run on a button press.</div>
 <article style="display: flex; flex-direction: column; gap: 8px; color: #d4d4d8">
-<pre style="margin: 0; padding: 10px 12px; background: #131313; border: 1px solid #262626; font-family: 'JetBrains Mono', monospace; font-size: 12.5px">!cargo test -p service
-!cargo clippy</pre>
+<dc-import name="CodeBlock" code="bang" hint-size="100%,96px"></dc-import>
 <div style="display: flex; align-items: center; gap: 8px; font-size: 12px">
 <button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #3f3f46; background: #1f1f1f; color: #d4d4d8; font-family: inherit; font-size: 12px">Run command 1</button>
 <button type="button" style="height: 26px; padding: 0 10px; border: 1px solid #3f3f46; background: #1f1f1f; color: #d4d4d8; font-family: inherit; font-size: 12px">Run all</button>

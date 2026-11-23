@@ -98,7 +98,7 @@ body{margin:0}
 </div>
 <label style="font-size: 12px; color: #a1a1aa">Comment (optional)<textarea rows="2" style="display: block; width: 100%; box-sizing: border-box; margin-top: 4px; padding: 6px 8px; border: 1px solid #3f3f46; background: #141414; color: #fafafa; font-family: inherit; font-size: 13px; resize: none"></textarea></label>
 <div style="display: flex; align-items: center; gap: 8px">
-<button type="button" style="height: 28px; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Choose A</button>
+<button type="button" style="height: 28px; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Choose</button>
 <button type="button" style="height: 28px; padding: 0 12px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Ask for another option</button>
 <span style="margin-left: auto; font-size: 11.5px; color: #8b8b94">1 / 2 to pick · ⌘↵ to send</span>
 </div>
@@ -107,7 +107,7 @@ body{margin:0}
 <div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">To-do</strong>Work the session asks you to do. The border follows its state.</div>
 <div style="display: flex; flex-direction: column; gap: 14px">
 <article style="border: 1px solid #2a2a2a; padding: 14px; display: flex; flex-direction: column; gap: 8px">
-<h2 style="margin: 0; color: #a1a1aa; font-size: 12px; font-weight: 700">To-do · pending</h2>
+<dc-import name="TodoCard" form="header" hint-size="100%,26px"></dc-import>
 <h3 style="margin: 0; font-size: 17px; font-weight: 700">ステージングで再送を試す</h3>
 <div style="font-size: 13px; color: #d4d4d8; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">送信先を一時的に止めて、3 回まで送り直してから諦めることを確かめてください。ログに試行回数が出ているかも見てください。終わったら結果をコメントに書いてください。</div>
 <button type="button" style="align-self: flex-start; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px">Show more</button>
@@ -121,6 +121,12 @@ body{margin:0}
 <article style="border: 1px solid {{t.border}}; padding: 14px"><h2 style="margin: 0 0 4px; color: #a1a1aa; font-size: 12px; font-weight: 700">To-do · {{t.state}}</h2><h3 style="margin: 0; font-size: 17px; font-weight: 700">{{t.title}}</h3></article>
 </sc-for>
 </div>
+
+<div style="font-size: 12.5px; color: #a1a1aa"><strong style="display: block; color: #fafafa; font-size: 13px">To-do, folded</strong>Folded with ⌃, or added folded by the session. The row opens the card. A session whose pending to-dos are all folded leaves Needs action for To-do later.</div>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<dc-import name="TodoCard" form="folded" title="本番の再送を週明けに確かめる" hint-size="100%,40px"></dc-import>
+<dc-import name="TodoCard" form="folded" title="通知を実機で受け取る" added="{{ true }}" hint-size="100%,40px"></dc-import>
+</div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3200}}'>
@@ -128,8 +134,8 @@ class Component extends DCLogic {
   renderVals() {
     return {
       options: [
-        { label: 'A · チャットに送る', recommended: true, desc: 'いまの当番が見ている場所に出す。', pro: 'すぐ気づける', con: '夜間は埋もれる', outline: '2px solid #fafafa', radio: '5px solid #fafafa' },
-        { label: 'B · メールに送る', recommended: false, desc: '担当者全員に送る。', pro: '記録が残る', con: '気づくのが遅い', outline: 'none', radio: '1px solid #71717a' }
+        { label: 'チャットに送る', recommended: true, desc: 'いまの当番が見ている場所に出す。', pro: 'すぐ気づける', con: '夜間は埋もれる', outline: '2px solid #fafafa', radio: '5px solid #fafafa' },
+        { label: 'メールに送る', recommended: false, desc: '担当者全員に送る。', pro: '記録が残る', con: '気づくのが遅い', outline: 'none', radio: '1px solid #71717a' }
       ],
       todos: [
         { state: 'done', title: '送信先の一覧を更新する', border: '#a1a1aa' },

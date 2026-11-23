@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Phone: session status panel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 100%; height: 100vh; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.55">
+
+<section aria-label="{{sectionLabel}}" style="position: absolute; inset: 0; display: flex; flex-direction: column; background: #0f0f0f">
+
+<header style="flex: none; display: grid; grid-template-columns: 44px 1fr auto; align-items: center; column-gap: 4px; padding: 6px {{headPadR}} 6px 0; border-bottom: 1px solid {{headBorder}}">
+<button type="button" aria-label="Back to the conversation" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
+<sc-if value="{{tabbed}}" hint-placeholder-val="{{ true }}"><div style="min-width: 0; display: flex; flex-direction: column"><h1 style="margin: 0; font-size: 15px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Session status</h1><span style="font-size: 12.5px; color: #a1a1aa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">通知の再送処理を見直す</span></div></sc-if>
+<sc-if value="{{full}}" hint-placeholder-val="{{ false }}"><div style="min-width: 0; display: flex; flex-direction: column"><h1 style="margin: 0; font-size: 15px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{webName}}</h1><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{webUrl}}</span></div>
+<a href="{{webUrl}}" target="_blank" rel="noopener noreferrer" aria-label="Open in a new tab" style="width: 44px; height: 44px; display: grid; place-items: center; color: #a1a1aa"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a></sc-if>
+</header>
+
+<sc-if value="{{tabbed}}" hint-placeholder-val="{{ true }}">
+<div style="position: relative; flex: none; overflow: hidden; border-bottom: 1px solid #2a2a2a">
+<div role="tablist" aria-label="Session status" style="display: flex; gap: 22px; width: max-content; padding: 0 16px; transform: translateX({{tabShift}})">
+<sc-for list="{{tabs}}" as="t" hint-placeholder-count="6">
+<button type="button" role="tab" aria-selected="{{t.selected}}" style="height: 44px; display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; border-bottom: 2px solid {{t.underline}}; background: transparent; color: {{t.color}}; font-family: inherit; font-size: 14px; font-weight: {{t.weight}}; white-space: nowrap">{{t.label}}<span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: {{t.countColor}}">{{t.count}}</span></button>
+</sc-for>
+</div>
+<sc-if value="{{moreRight}}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="position: absolute; top: 0; right: 0; bottom: 2px; width: 40px; background: linear-gradient(to right, transparent, #0f0f0f)"></span></sc-if>
+<sc-if value="{{moreLeft}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 0; left: 0; bottom: 2px; width: 40px; background: linear-gradient(to left, transparent, #0f0f0f)"></span></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{isRunning}}" hint-placeholder-val="{{ true }}">
+<div role="tabpanel" style="flex: 1; min-height: 0; overflow-y: auto; padding: 8px 0 24px">
+<h3 style="height: 32px; display: flex; align-items: center; margin: 0; padding: 0 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">SUBAGENTS</h3>
+<div style="display: grid; grid-template-columns: 16px 1fr; gap: 10px; padding: 8px 16px">
+<span style="color: #60a5fa">◐</span>
+<div style="min-width: 0"><div><strong>Explore</strong> <span style="color: #d4d4d8">再送処理の呼び出し元を探す</span></div><div style="font-size: 13px; color: #8b8b94">42s</div></div>
+</div>
+<h3 style="height: 32px; display: flex; align-items: center; margin: 8px 0 0; padding: 0 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">BACKGROUND TASKS</h3>
+<div style="display: grid; grid-template-columns: 16px 1fr; gap: 10px; padding: 8px 16px">
+<span style="color: #60a5fa">▶</span>
+<div style="min-width: 0; display: flex; flex-direction: column; gap: 6px">
+<div><span style="font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #d4d4d8">cargo test -p service</span></div>
+<div style="display: flex; align-items: center; gap: 10px; font-size: 13px; color: #8b8b94"><span>1m 05s</span><button type="button" aria-expanded="true" style="height: 32px; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12.5px">Output</button></div>
+<pre style="margin: 0; padding: 8px 10px; overflow-x: auto; background: #141414; color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: 12px; white-space: pre-wrap">running 24 tests
+test retry::stops_after_limit ... ok
+test retry::backs_off ... ok</pre>
+</div>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isTasks}}" hint-placeholder-val="{{ false }}">
+<div role="tabpanel" style="flex: 1; min-height: 0; overflow-y: auto; padding: 8px 0 24px">
+<h3 style="height: 32px; display: flex; align-items: center; margin: 0; padding: 0 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">IN PROGRESS</h3>
+<sc-for list="{{openTasks}}" as="o" hint-placeholder-count="1">
+<div style="min-height: 60px; box-sizing: border-box; display: grid; grid-template-columns: 16px 1fr auto; gap: 10px; align-items: center; padding: 6px 4px 6px 16px; background: {{o.bg}}; box-shadow: {{o.bar}}"><span style="color: #60a5fa">●</span><a href="#" style="min-width: 0; color: #fafafa; text-decoration: none"><div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #a1a1aa">{{o.no}}</span> {{o.title}}</div><div style="font-size: 13px; color: #8b8b94">{{o.meta}}</div></a><sc-if value="{{o.primary}}" hint-placeholder-val="{{ true }}"><span style="padding: 0 12px; color: #8b8b94; font-size: 13px">Primary</span></sc-if><sc-if value="{{o.make}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; white-space: nowrap">Make primary</button></sc-if></div>
+</sc-for>
+<h3 style="height: 32px; display: flex; align-items: center; margin: 8px 0 0; padding: 0 16px; font-size: 12px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">COMPLETED <span style="margin-left: 6px; font-family: 'JetBrains Mono', monospace">12</span></h3>
+<sc-for list="{{doneTasks}}" as="d" hint-placeholder-count="4">
+<div style="min-height: 56px; box-sizing: border-box; display: grid; grid-template-columns: 16px 1fr auto; gap: 10px; align-items: center; padding: 4px 4px 4px 16px; color: #d4d4d8"><span style="color: #71717a">✓</span><a href="#" style="min-width: 0; color: inherit; text-decoration: none"><div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><span style="font-family: 'JetBrains Mono', monospace; font-size: 13.5px; color: #8b8b94">{{d.no}}</span> {{d.title}}</div><div style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #8b8b94">{{d.age}}</div></a><button type="button" style="min-height: 44px; padding: 0 12px; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13px; white-space: nowrap">Make primary</button></div>
+</sc-for>
+<button type="button" style="min-height: 44px; margin: 0 0 0 42px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13.5px">Show 8 more</button>
+</div>
+</sc-if>
+
+<sc-if value="{{isTree}}" hint-placeholder-val="{{ false }}">
+<div role="tabpanel" style="flex: 1; min-height: 0; overflow-y: auto; padding: 4px 0 24px">
+<div role="tree">
+<sc-for list="{{tree}}" as="n" hint-placeholder-count="5">
+<div role="treeitem" aria-current="{{n.current}}"><dc-import name="SessionRow" s="{{ n }}" density="phone" hint-size="100%,76px"></dc-import></div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isDecisions}}" hint-placeholder-val="{{ false }}">
+<div role="tabpanel" style="flex: 1; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding: 0 12px 24px">
+<div style="display: flex; align-items: center; padding: 12px 4px 2px"><strong style="font-size: 14px">Decisions in this session</strong><span style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #8b8b94">1 / 2 reviewed</span></div>
+<article style="padding: 12px 14px 14px; background: #141414; border: 1px solid #3f3f46; display: flex; flex-direction: column; gap: 8px">
+<a href="#" style="display: flex; flex-direction: column; gap: 8px; color: inherit; text-decoration: none">
+<div style="font-size: 12.5px; color: #8b8b94">◇ Decided · 34m ago</div>
+<h4 style="margin: 0; font-size: 15px; font-weight: 700">待ち時間を指数的に伸ばす</h4>
+<div style="font-size: 14px; color: #d4d4d8"><span style="color: #8b8b94">Why · </span>相手のサーバーが落ちているときに負荷をかけないため。</div>
+<div style="font-size: 14px; color: #d4d4d8"><span style="color: #8b8b94">Also considered · </span>一定間隔で再試行する</div>
+<div style="font-size: 14px; color: #d4d4d8"><span style="color: #8b8b94">Easy to change · </span>間隔の計算は 1 か所にまとまっている。</div>
+</a>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px">
+<button type="button" style="min-height: 44px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 14px; font-weight: 700">OK</button>
+<button type="button" aria-haspopup="dialog" style="min-height: 44px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 14px">Change…</button>
+</div>
+<div style="font-size: 12.5px; color: #8b8b94">Change… sends to 通知の再送処理を見直す</div>
+</article>
+<a href="#" style="padding: 12px 14px; background: #141414; border: 1px solid transparent; display: flex; flex-direction: column; gap: 6px; opacity: 0.64; color: inherit; text-decoration: none">
+<div style="font-size: 12.5px; color: #8b8b94">✓ OK · 1h ago</div>
+<h4 style="margin: 0; font-size: 15px; font-weight: 700">再送の記録を既存のテーブルに足す</h4>
+</a>
+<p style="margin: 4px 4px 0; font-size: 12.5px; color: #8b8b94">Tap a decision to jump to it in the conversation.</p>
+</div>
+</sc-if>
+
+<sc-if value="{{isReview}}" hint-placeholder-val="{{ false }}">
+<div role="tabpanel" style="flex: 1; min-height: 0; display: flex; flex-direction: column; gap: 12px; padding: 12px 12px 0">
+<div style="display: grid; grid-template-columns: 1fr 120px; gap: 8px; font-size: 12.5px; color: #a1a1aa">
+<label style="display: flex; flex-direction: column; gap: 4px">title<input value="再送処理の設計" style="height: 44px; box-sizing: border-box; padding: 0 10px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: 16px"></label>
+<label style="display: flex; flex-direction: column; gap: 4px">status<input value="draft" style="height: 44px; box-sizing: border-box; padding: 0 10px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: 'JetBrains Mono', monospace; font-size: 16px"></label>
+</div>
+<div role="group" aria-label="Body" style="display: grid; grid-template-columns: 1fr 1fr; height: 36px; box-sizing: border-box; padding: 2px; background: #1a1a1a">
+<button type="button" aria-pressed="true" style="border: 0; background: #3f3f46; color: #fafafa; font-family: inherit; font-size: 13px; font-weight: 700">Edit</button>
+<button type="button" aria-pressed="false" style="border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 13px">Preview</button>
+</div>
+<textarea aria-label="Body" style="flex: 1; min-height: 0; padding: 12px; border: 1px solid #2a2a2a; background: #0a0a0a; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: 16px; line-height: 1.6; resize: none">## 方針
+
+失敗したら待ち時間を倍にして
+最大 3 回まで送り直す。</textarea>
+<div style="flex: none; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 10px 0 max(16px, env(safe-area-inset-bottom)); border-top: 1px solid #2a2a2a">
+<div style="grid-column: 1 / -1; font-size: 12.5px; color: #8b8b94">Unsaved changes</div>
+<button type="button" style="min-height: 44px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 14px">Save</button>
+<button type="button" style="min-height: 44px; border: 1px solid #60a5fa; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; font-weight: 700">Finish review</button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isCrit}}" hint-placeholder-val="{{ false }}">
+<div role="tabpanel" style="flex: 1; min-height: 0; display: flex; flex-direction: column">
+<sc-if value="{{tabbed}}" hint-placeholder-val="{{ true }}">
+<div style="flex: none; display: flex; align-items: center; gap: 4px; padding: 4px 4px 4px 16px; background: #141414; border-bottom: 1px solid #2a2a2a">
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column"><strong style="font-size: 14px">{{webName}}</strong><span style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8b8b94; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{webUrl}}</span></div>
+<a href="{{webUrl}}" target="_blank" rel="noopener noreferrer" aria-label="Open in a new tab" style="width: 44px; height: 44px; display: grid; place-items: center; color: #a1a1aa"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></a>
+<button type="button" aria-label="Close web UI" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #a1a1aa"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+</sc-if>
+<div style="flex: 1; min-height: 0; display: grid; place-items: center; background: #0a0a0a; color: #71717a; font-size: 13px">{{webBody}}</div>
+</div>
+</sc-if>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"canvasTab":{"editor":"boolean","default":false},"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit","canvas"],"default":"running"},"linked":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"full":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // A full-screen page pushed over the conversation; the back button returns to it.
+    const tab = this.props.tab ?? 'running';
+    const linked = this.props.linked ?? false;
+    const many = (this.props.tasks ?? 'one') === 'many';
+    // Tasks that are not primary are emphasized so the one to switch to stands out.
+    const mt = (no, title, meta, primary) => ({ no, title, meta, primary, make: !primary, bg: primary ? 'transparent' : '#1f1f1f', bar: primary ? 'none' : 'inset 2px 0 0 #60a5fa' });
+    const T = [
+      ['running', 'Running', '2', '#60a5fa'],
+      ['tasks', 'Tasks', many ? '16' : linked ? '14' : '13', '#8b8b94'],
+      ['tree', 'Tree', '1', '#fbbf24'],
+      ['review', 'Review', '', '#8b8b94'],
+      ['decisions', 'Decisions', '1', '#fbbf24'],
+      ['crit', 'crit', '', '#8b8b94'],
+      // canvasTab: the session has registered a canvas web UI, so its tab stays while another tab is selected.
+      ...(tab === 'canvas' || (this.props.canvasTab ?? false) ? [['canvas', 'canvas', '', '#8b8b94']] : [])
+    ];
+    const tabs = T.map(([id, label, count, countColor]) => {
+      const on = id === tab;
+      return { label, count, countColor, selected: on ? 'true' : 'false', color: on ? '#fafafa' : '#a1a1aa', weight: on ? 700 : 400, underline: on ? '#fafafa' : 'transparent' };
+    });
+    // The tab bar scrolls sideways; the last two tabs are drawn scrolled into view.
+    const canvas = tab === 'canvas';
+    const late = tab === 'decisions' || tab === 'crit' || canvas;
+    // full: only the web UI, pushed over the conversation by a web UI link; the back button returns to the conversation.
+    const full = this.props.full ?? false;
+    const node = (depth, caret, status, title, age, role, engine, taskRef, taskTitle, repo, current, ended) => ({
+      pad: '10px 16px 10px ' + (depth * 18 + 12) + 'px', caret, status, unread: current, title, age, role, engine, taskRef, taskTitle, repo,
+      current: current ? 'true' : 'false',
+      bg: current ? '#262626' : 'transparent', bar: current ? 'inset 2px 0 0 #fafafa' : 'none', opacity: ended ? 0.64 : 1
+    });
+    return {
+      tabShift: canvas ? '-134px' : late ? '-118px' : '0',
+      tabbed: !full, full,
+      sectionLabel: full ? (canvas ? 'canvas' : 'crit') : 'Session status',
+      headPadR: full ? '4px' : '16px',
+      headBorder: full ? '#2a2a2a' : 'transparent',
+      webName: canvas ? 'canvas' : 'crit',
+      webUrl: canvas ? 'http://127.0.0.1:4720/design/k3x9/#page-options' : 'http://127.0.0.1:3000/review/example',
+      webBody: canvas ? 'canvas · 案のページ shows here' : 'The web UI shows here', moreRight: !late, moreLeft: late,
+      tabs,
+      isRunning: tab === 'running',
+      isTasks: tab === 'tasks',
+      openTasks: many
+        ? [mt('#2048', '通知の信頼性を上げる', 'P1 · service', true), mt('#2051', '配信ログを見直す', 'P2 · service', false), mt('#2055', '監視を整える', 'P3 · service', false), mt('#2057', '送信の失敗を記録する', 'P2 · web-app', false)]
+        : linked
+        ? [{ no: '#2055', title: '監視を整える', meta: 'P3 · service', primary: true, make: false, bg: 'transparent', bar: 'none' }, { no: '#2051', title: '配信ログを見直す', meta: 'P2 · service', primary: false, make: true, bg: '#1f1f1f', bar: 'inset 2px 0 0 #60a5fa' }]
+        : [{ no: '#2048', title: '通知の信頼性を上げる', meta: 'P1 · service', primary: true, make: false, bg: 'transparent', bar: 'none' }],
+      doneTasks: [['#2047', '再送の上限を設定に出す', '1h'], ['#2046', '送信キューを分ける', '2h'], ['#2043', '失敗時の記録を残す', '1d'], ['#2041', '再送のテストを足す', '2d']]
+        .map(([no, title, age]) => ({ no, title, age })),
+      isTree: tab === 'tree',
+      isReview: tab === 'review',
+      isDecisions: tab === 'decisions',
+      isCrit: tab === 'crit' || canvas,
+      tree: [
+        node(0, '▾', 'Working', '通知まわりの改修', '12m', 'PM', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/service', false, false),
+        node(1, '▾', 'Question', '通知の再送処理を見直す', '8s', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/service', true, false),
+        node(2, '', 'Working', '再送の記録を残す', '1m', 'development', 'codex', 'P1 #2048', '通知の信頼性を上げる', 'example/service', false, false),
+        node(1, '', 'Review', '配信チェックの PR を確認する', '2m', '', 'codex', 'P2 #2050', '配信チェックを入れる', 'example/web-app', false, false),
+        node(1, '', 'Done', '送信キューを分ける', '2h', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/service', false, true)
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

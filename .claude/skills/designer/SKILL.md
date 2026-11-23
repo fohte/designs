@@ -54,6 +54,7 @@ Do not look up a parent session. If the user later reports that vibe is enabled 
 ## Coordinate decisions and reviews with the user
 
 - Ask the user to choose among design options and review the canvas in this designer session. Register a choice as a proposal and canvas review as a to-do. In the normal flow, also ask the user to merge the PR here and register that request as a to-do. In `vibe_mode`, wait for the user's explicit canvas approval, then continue through PR creation and merge without another approval request. Do not ask the PM to collect these decisions or reviews.
+- Name each proposal option by what it does, such as "Move the title to a second row". Do not prefix or refer to options in the proposal with letters such as "A:", "Option B", or "A + C": the canvas labels its options with letters too, and the same letter would then mean different things on the card and the canvas.
 
 ## Make and submit the design
 

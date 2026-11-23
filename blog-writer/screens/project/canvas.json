@@ -1,0 +1,48 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-11-23T12:16:00Z" },
+  "title": "blog-writer UI/UX",
+  "launch": { "view": "canvas", "page": "editor" },
+  "pages": [
+    { "id": "editor", "name": "執筆" },
+    { "id": "request", "name": "依頼と提案" },
+    { "id": "outline", "name": "構成" },
+    { "id": "memo", "name": "メモ" },
+    { "id": "premise", "name": "前提と根拠" },
+    { "id": "articles", "name": "記事一覧" },
+    { "id": "export", "name": "書き出し" },
+    { "id": "states", "name": "状態と例外" }
+  ],
+  "boards": {
+    "Main.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 920, "title": "PC 執筆画面", "page": "editor" },
+    "PhoneEditor.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "iPhone 本文", "page": "editor" },
+    "RequestStates.dc.html": { "x": 0, "y": 0, "w": 1280, "h": 1200, "title": "依頼の入口と提案の状態", "page": "request" },
+    "PhoneRequest.dc.html": { "x": 1360, "y": 0, "w": 390, "h": 844, "title": "iPhone 依頼と提案", "page": "request" },
+    "Outline.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 920, "title": "PC 構成モード (アウトライナー)", "page": "outline" },
+    "PhoneOutline.dc.html": { "x": 1520, "y": 0, "w": 390, "h": 844, "title": "iPhone 構成と並べ替え", "page": "outline" },
+    "MemoAdopt.dc.html": { "x": 0, "y": 0, "w": 1280, "h": 1000, "title": "メモの採用", "page": "memo" },
+    "PhoneMemo.dc.html": { "x": 1360, "y": 0, "w": 390, "h": 844, "title": "iPhone メモと採用", "page": "memo" },
+    "Premise.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 920, "title": "PC 前提の対話", "page": "premise" },
+    "Evidence.dc.html": { "x": 1520, "y": 0, "w": 1440, "h": 920, "title": "PC 根拠と資料 (初期外の案)", "page": "premise" },
+    "Articles.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 860, "title": "PC 記事一覧", "page": "articles" },
+    "Export.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 920, "title": "PC 書き出し", "page": "export" },
+    "States.dc.html": { "x": 0, "y": 0, "w": 1440, "h": 1040, "title": "状態と例外の一覧", "page": "states" }
+  },
+  "order": [
+    "Main.dc.html",
+    "PhoneEditor.dc.html",
+    "RequestStates.dc.html",
+    "PhoneRequest.dc.html",
+    "Outline.dc.html",
+    "PhoneOutline.dc.html",
+    "MemoAdopt.dc.html",
+    "PhoneMemo.dc.html",
+    "Premise.dc.html",
+    "Evidence.dc.html",
+    "Articles.dc.html",
+    "Export.dc.html",
+    "States.dc.html"
+  ],
+  "notes": {},
+  "designSystems": []
+}

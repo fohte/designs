@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<title>状態と例外の一覧</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#0a0a0a}
+a{color:#ef4444;text-decoration:none}a:hover{text-decoration:underline}
+.m{font-family:'JetBrains Mono','IBM Plex Mono',ui-monospace,monospace}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+input{font:inherit}
+kbd{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;border:1px solid #2a2a2a;border-radius:2px;padding:0 4px;color:#a1a1aa;background:#141414}
+</style>
+</helmet>
+<div style="width: 1440px; min-height: 1040px; box-sizing: border-box; padding: 40px 48px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; display: flex; flex-direction: column; gap: 24px">
+  <h1 style="margin: 0; font-size: 22px"><span class="m" style="color: #ef4444">&gt; </span>状態と例外</h1>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; align-items: start">
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">01 同期 · 下端のバーと右上</h2>
+      <div class="m" style="display: flex; flex-direction: column; gap: 6px; font-size: 12px">
+        <span style="border: 1px solid #2a2a2a; padding: 6px 10px">● 同期済み <span style="color: #a1a1aa">· 他の端末と揃っています</span></span>
+        <span style="border: 1px solid #2a2a2a; padding: 6px 10px">◐ 同期中 <span style="color: #a1a1aa">· 接続が戻ったので反映しています</span></span>
+        <span style="border: 1px solid #2a2a2a; padding: 6px 10px">○ 未同期 <span style="color: #a1a1aa">· 変更 3 件を端末に保存済み</span></span>
+        <span style="border: 1px solid #2a2a2a; padding: 6px 10px">✓ 端末に保存済み <span style="color: #a1a1aa">· 保存は常に先に端末へ</span></span>
+      </div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">記号の塗りで段階を表し、必ず言葉を添える。「保存されていない」状態は存在しないので、不安を煽る表示は出さない。</p>
+    </section>
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">02 ログイン切れと圏外は別のもの</h2>
+      <div style="border: 1px solid #fafafa; padding: 10px 12px; font-size: 13px; line-height: 1.7; display: flex; flex-direction: column; gap: 8px">
+        <span><span class="m" style="color: #ef4444">!</span> ログインが切れました。編集は端末に保存され続けます。同期と LLM はログインすると再開します。</span>
+        <button style="align-self: flex-start; background: #fafafa; color: #0a0a0a; font-weight: 700; padding: 5px 12px; font-size: 12px">ログインし直す</button>
+      </div>
+      <div style="border: 1px solid #2a2a2a; background: #141414; padding: 10px 12px; font-size: 13px; line-height: 1.7; color: #a1a1aa">○ オフラインです。編集は端末に保存され、つながったら同期します。</div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">ログイン切れは操作が要るので白枠で強く、圏外は待つだけなので弱く。</p>
+    </section>
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">03 LLM の経路のエラー</h2>
+      <div style="border: 1px solid #a1a1aa; background: #141414; padding: 10px 12px; font-size: 13px; line-height: 1.7; display: flex; flex-direction: column; gap: 6px">
+        <span><span class="m" style="color: #ef4444">!</span> ローカルの中継に接続できません</span>
+        <span class="m" style="font-size: 11px; color: #a1a1aa">http://127.0.0.1:XXXX · 中継が起動しているか確認してください</span>
+        <a href="#" style="font-size: 12px">設定を開く</a>
+      </div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">サーバーへ自動で切り替えない。書いている最中に経路を変える手段も出さない (設定のみ)。</p>
+    </section>
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 10px; grid-column: span 2">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">04 ファイル同期 · 外部で変更あり (記事を開いている間ずっと本文の上に出る)</h2>
+      <div style="border: 1px solid #fafafa; padding: 12px 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; font-size: 13px; line-height: 1.7">
+        <span style="flex: 1 1 420px"><span class="m" style="color: #ef4444">!</span> <span class="m">posts/2026-11-sqlite-crdt.md</span> がアプリの外で変更されました。ファイルへの書き込みだけ止めています。ここでの編集は保存されています。</span>
+        <button style="border: 1px solid #2a2a2a; padding: 4px 10px; font-size: 12px">差分を見る</button>
+        <button style="border: 1px solid #2a2a2a; padding: 4px 10px; font-size: 12px">ファイルの内容を取り込む</button>
+        <button style="border: 1px solid #2a2a2a; padding: 4px 10px; font-size: 12px">アプリの内容で上書き</button>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; font-size: 12px; line-height: 1.7">
+        <div style="border: 1px solid #2a2a2a; padding: 10px; display: flex; flex-direction: column; gap: 6px">
+          <span class="m" style="color: #a1a1aa">未設定</span>
+          <label for="sync-path" style="color: #a1a1aa">同期フォルダー配下のパス</label>
+          <input id="sync-path" class="m" placeholder="posts/xxxx.md" style="background: #141414; border: 1px solid #2a2a2a; color: #fafafa; padding: 6px 8px; font-size: 12px; outline: none">
+        </div>
+        <div style="border: 1px solid #2a2a2a; padding: 10px; display: flex; flex-direction: column; gap: 6px">
+          <span class="m" style="color: #a1a1aa">ファイルが無い</span>
+          <span>同期先のファイルが見つかりません</span>
+          <div style="display: flex; gap: 6px"><button style="border: 1px solid #2a2a2a; padding: 3px 8px">作り直す</button><button style="border: 1px solid #2a2a2a; padding: 3px 8px">パスを指定し直す</button></div>
+        </div>
+        <div style="border: 1px solid #2a2a2a; padding: 10px; display: flex; flex-direction: column; gap: 6px">
+          <span class="m" style="color: #a1a1aa">取り込んだ後</span>
+          <span>ファイルの内容を取り込みました</span>
+          <button style="align-self: flex-start; border: 1px solid #2a2a2a; padding: 3px 8px">元に戻す <kbd>⌘Z</kbd></button>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">アプリは commit / push しない。ファイル側の変更を自動では取り込まない。</p>
+    </section>
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">05 移動の重なり (他端末)</h2>
+      <p style="margin: 0; font-size: 14px; line-height: 1.9; color: #a1a1aa">…認証と保存だけを持つ。</p>
+      <div style="border: 1px dashed #a1a1aa; padding: 10px 12px; display: flex; flex-direction: column; gap: 8px">
+        <p style="margin: 0; font-size: 14px; line-height: 1.9">iPhone で足した文: 同期は開いている間だけにした。</p>
+        <span style="font-size: 12px; line-height: 1.7; color: #a1a1aa">この文は「### サーバーを単純に保つ」に書かれましたが、そのセクションは PC で「## 実装」の下へ移動されています。</span>
+        <div style="display: flex; gap: 8px; font-size: 12px">
+          <button style="background: #fafafa; color: #0a0a0a; font-weight: 700; padding: 4px 10px">移動先へ移す</button>
+          <button style="border: 1px solid #2a2a2a; padding: 3px 10px">その場に残す</button>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">自動では移さない。構成の該当見出しにも印を付け、記事内のどこにあるか辿れるようにする。</p>
+    </section>
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">06 新しい記事 (空)</h2>
+      <div style="display: flex; flex-direction: column; gap: 10px; padding: 8px 0">
+        <span style="font-size: 24px; font-weight: 700; color: #71717a">タイトル</span>
+        <span style="font-size: 14px; line-height: 1.8; color: #a1a1aa">まずはメモに思いつくことを書き出すか、そのまま本文を書き始めます。</span>
+        <div style="display: flex; gap: 8px; font-size: 12px">
+          <button style="border: 1px solid #fafafa; padding: 4px 10px">メモを書く <kbd>⌘⇧M</kbd></button>
+          <button style="border: 1px solid #2a2a2a; padding: 4px 10px">前提を決める</button>
+        </div>
+      </div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">端末の保存から読み込み中は、文字の形の灰色の帯を出し、レイアウトは動かさない。</p>
+    </section>
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">07 記事一覧</h2>
+      <div style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; line-height: 1.7">
+        <span class="m" style="font-size: 12px; border: 1px solid #2a2a2a; padding: 6px 10px">◐ 全記事を同期中 12 / 40 <span style="color: #a1a1aa">· 開ける記事から使えます</span></span>
+        <div style="border: 1px solid #2a2a2a; padding: 16px 12px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start">
+          <span>記事はまだありません</span>
+          <button style="background: #fafafa; color: #0a0a0a; font-weight: 700; padding: 4px 10px; font-size: 12px">新しい記事</button>
+        </div>
+      </div>
+    </section>
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">08 設定 (この端末だけ)</h2>
+      <fieldset style="margin: 0; border: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; font-size: 13px">
+        <legend style="font-size: 12px; font-weight: 700; color: #a1a1aa; padding: 0 0 6px">LLM の経路</legend>
+        <label style="display: flex; gap: 8px; align-items: center"><input type="radio" name="route"> サーバー (既定)</label>
+        <label style="display: flex; gap: 8px; align-items: center"><input type="radio" name="route" checked=""> ローカル (この PC の中継)</label>
+        <label for="relay" style="font-size: 12px; color: #a1a1aa; margin-top: 4px">中継の URL</label>
+        <input id="relay" class="m" value="http://127.0.0.1:XXXX" style="background: #141414; border: 1px solid #a1a1aa; color: #fafafa; padding: 6px 8px; font-size: 12px; outline: none">
+        <span style="font-size: 12px; color: #a1a1aa"><span class="m" style="color: #ef4444">!</span> 接続できません</span>
+      </fieldset>
+      <div style="display: flex; flex-direction: column; gap: 4px; font-size: 13px">
+        <span style="font-size: 12px; font-weight: 700; color: #a1a1aa">本文ファイルの同期先フォルダー</span>
+        <span class="m" style="font-size: 12px">~/src/blog/content</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; border-top: 1px solid #2a2a2a; padding-top: 10px; font-size: 12px">
+        <span style="color: #a1a1aa; flex: 1">未保存の変更あり</span>
+        <button style="background: #fafafa; color: #0a0a0a; font-weight: 700; padding: 4px 12px">保存</button>
+      </div>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1040}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+
+
+</body></html>

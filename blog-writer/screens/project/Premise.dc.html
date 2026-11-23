@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<title>前提の対話 (PC)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#0a0a0a}
+a{color:#ef4444;text-decoration:none}a:hover{text-decoration:underline}
+.m{font-family:'JetBrains Mono','IBM Plex Mono',ui-monospace,monospace}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+input,textarea{font:inherit}
+kbd{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;border:1px solid #2a2a2a;border-radius:2px;padding:0 4px;color:#a1a1aa;background:#141414}
+</style>
+</helmet>
+<div style="min-height: 920px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; display: flex; flex-direction: column">
+
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 8px 16px; min-height: 48px; box-sizing: border-box; border-bottom: 1px solid #2a2a2a">
+  <a href="Articles.dc.html" class="m" style="color: #fafafa; font-weight: 700; font-size: 14px; display: flex; gap: 6px"><span style="color: #ef4444">&gt;</span>blog-writer</a>
+  <span style="font-size: 13px; color: #a1a1aa; flex: 1 1 240px; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">記事 / SQLite を CRDT で同期する個人用 PWA を作った</span>
+  <span class="m" style="font-size: 12px; color: #a1a1aa">● 同期済み</span>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; flex: 1 1 auto">
+  <main style="flex: 999 1 520px; min-width: 0; display: flex; justify-content: center; padding: 40px 32px; box-sizing: border-box">
+    <article style="width: 100%; max-width: 640px; display: flex; flex-direction: column; gap: 16px; font-size: 16px; line-height: 1.95; color: #a1a1aa">
+      <h1 style="margin: 0; font-size: 28px; line-height: 1.45; color: #fafafa">SQLite を CRDT で同期する個人用 PWA を作った</h1>
+      <h2 style="margin: 8px 0 0; font-size: 20px; color: #fafafa"><span class="m" style="color: #ef4444; font-weight: 400">## </span>はじめに</h2>
+      <p style="margin: 0">PC と iPhone の両方で使うメモアプリを作った。圏外でも書けて、つながったら勝手に揃う、という当たり前のことを個人開発の規模でやると何が大変かを残しておく。</p>
+      <h2 style="margin: 8px 0 0; font-size: 20px; color: #fafafa"><span class="m" style="color: #ef4444; font-weight: 400">## </span>なぜ CRDT か</h2>
+      <p style="margin: 0">個人用のツールでも、PC と iPhone の両方で書くと編集は必ず重なる。</p>
+      <p style="margin: 8px 0 0; font-size: 12px">本文は前提パネルを開いている間もそのまま編集できる。</p>
+    </article>
+  </main>
+
+  <aside aria-label="前提" style="flex: 1 1 520px; max-width: 560px; box-sizing: border-box; border-left: 1px solid #2a2a2a; display: flex; flex-direction: column">
+    <div role="tablist" style="display: flex; border-bottom: 1px solid #2a2a2a; font-size: 13px">
+      <a href="Main.dc.html" role="tab" aria-selected="false" style="flex: 1; padding: 12px 0; text-align: center; color: #a1a1aa">メモ <span class="m" style="font-size: 11px">7</span></a>
+      <button role="tab" aria-selected="true" style="flex: 1; padding: 12px 0; border-bottom: 2px solid #fafafa; font-weight: 700">前提</button>
+      <a href="Evidence.dc.html" role="tab" aria-selected="false" style="flex: 1; padding: 12px 0; text-align: center; color: #a1a1aa">資料</a>
+    </div>
+
+    <div style="padding: 18px 18px 8px; display: flex; flex-direction: column; gap: 16px">
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <label for="p-reader" style="font-size: 12px; font-weight: 700; color: #a1a1aa">想定読者</label>
+        <textarea id="p-reader" rows="2" style="background: #141414; border: 1px solid #2a2a2a; color: #fafafa; padding: 8px 10px; font-size: 14px; line-height: 1.7; resize: vertical">個人開発で PWA を作っている人</textarea>
+        <div style="border: 1px dashed #4ade80; padding: 10px; display: flex; flex-direction: column; gap: 8px">
+          <span class="m" style="font-size: 11px; color: #a1a1aa">修正案</span>
+          <span style="font-size: 14px; line-height: 1.7">個人開発で<ins style="color: #4ade80; text-decoration: underline; text-decoration-color: #4ade80; text-underline-offset: 4px; background: rgba(74, 222, 128, 0.12)">、オフラインでも使える</ins> PWA を作っている人<ins style="color: #4ade80; text-decoration: underline; text-decoration-color: #4ade80; text-underline-offset: 4px; background: rgba(74, 222, 128, 0.12)">。同期の方式をまだ決めていない</ins></span>
+          <div style="display: flex; gap: 8px; justify-content: flex-end; font-size: 12px">
+            <button style="border: 1px solid #2a2a2a; padding: 3px 10px">却下</button>
+            <button style="background: #fafafa; color: #0a0a0a; padding: 4px 12px; font-weight: 700">採用</button>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <label for="p-goal" style="font-size: 12px; font-weight: 700; color: #a1a1aa">目的</label>
+        <textarea id="p-goal" rows="2" style="background: #141414; border: 1px solid #2a2a2a; color: #fafafa; padding: 8px 10px; font-size: 14px; line-height: 1.7; resize: vertical">CRDT を選んだ理由と、実装で詰まった点を共有する</textarea>
+        <span style="font-size: 12px; color: #a1a1aa">修正案なし</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <label for="p-claim" style="font-size: 12px; font-weight: 700; color: #a1a1aa">主張</label>
+        <textarea id="p-claim" rows="2" style="background: #141414; border: 1px solid #2a2a2a; color: #a1a1aa; padding: 8px 10px; font-size: 14px; line-height: 1.7; resize: vertical" placeholder="まだ空です"></textarea>
+        <div style="border: 1px dashed #4ade80; padding: 10px; display: flex; flex-direction: column; gap: 8px">
+          <span class="m" style="font-size: 11px; color: #a1a1aa">修正案 (新規)</span>
+          <span style="font-size: 14px; line-height: 1.7"><ins style="color: #4ade80; text-decoration: underline; text-decoration-color: #4ade80; text-underline-offset: 4px; background: rgba(74, 222, 128, 0.12)">1 人用でも、競合を人に選ばせない同期にすると書く手が止まらない</ins></span>
+          <div style="display: flex; gap: 8px; justify-content: flex-end; font-size: 12px">
+            <button style="border: 1px solid #2a2a2a; padding: 3px 10px">却下</button>
+            <button style="background: #fafafa; color: #0a0a0a; padding: 4px 12px; font-weight: 700">採用</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin: 8px 18px 0; border-top: 1px solid #2a2a2a; padding-top: 14px; display: flex; flex-direction: column; gap: 14px; font-size: 14px; line-height: 1.8; flex: 1">
+      <span style="font-size: 11px; color: #a1a1aa">このやり取りは保存されません。残るのは採用した値だけです。</span>
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <span class="m" style="font-size: 11px; color: #a1a1aa">あなた</span>
+        <span>読者は PWA を作ってる人。言いたいのは競合ダイアログを出したくないってこと</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <span class="m" style="font-size: 11px; color: #a1a1aa">LLM</span>
+        <span>読者は「同期の方式をまだ決めていない人」まで絞ると、比較の章が生きます。主張を案にしました。LWW との比較は本文に入れますか。</span>
+      </div>
+    </div>
+
+    <div style="padding: 14px 18px 18px; display: flex; align-items: center; gap: 8px">
+      <div style="flex: 1; display: flex; align-items: center; gap: 8px; border: 1px solid #a1a1aa; background: #141414; padding: 8px 10px">
+        <span class="m" style="color: #ef4444; font-weight: 700">&gt;</span>
+        <label for="p-chat" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">前提について話す</label>
+        <input id="p-chat" placeholder="前提について話す" style="flex: 1; min-width: 0; background: none; border: 0; color: #fafafa; font-size: 14px; outline: none">
+      </div>
+      <button style="border: 1px solid #2a2a2a; padding: 8px 12px; font-size: 13px">送る</button>
+    </div>
+  </aside>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":920}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+
+
+</body></html>

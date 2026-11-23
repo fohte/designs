@@ -242,7 +242,7 @@
       "page": "topbar"
     },
     "ConversationEnded.dc.html": {
-      "x": 3200,
+      "x": 1370,
       "y": 4310,
       "w": 1440,
       "h": 900,
@@ -591,7 +591,7 @@
       "page": "conversation"
     },
     "PhoneChatEnded.dc.html": {
-      "x": 4720,
+      "x": 2890,
       "y": 4310,
       "w": 390,
       "h": 844,
@@ -615,7 +615,7 @@
       "page": "topbar"
     },
     "PhoneChatResuming.dc.html": {
-      "x": 5190,
+      "x": 3360,
       "y": 4310,
       "w": 390,
       "h": 844,
@@ -932,7 +932,7 @@
       "page": "components"
     },
     "PhoneStatusReview.dc.html": {
-      "x": 9470,
+      "x": 7490,
       "y": 300,
       "w": 390,
       "h": 844,
@@ -940,7 +940,7 @@
       "page": "status-panel"
     },
     "PhoneStatusReviewPreview.dc.html": {
-      "x": 3500,
+      "x": 1520,
       "y": 4500,
       "w": 390,
       "h": 844,
@@ -956,7 +956,7 @@
       "page": "status-panel"
     },
     "PhoneStatusTasks.dc.html": {
-      "x": 14380,
+      "x": 11470,
       "y": 300,
       "w": 390,
       "h": 844,
@@ -980,7 +980,7 @@
       "page": "status-panel"
     },
     "PhoneStatusWebUi.dc.html": {
-      "x": 12390,
+      "x": 9480,
       "y": 300,
       "w": 390,
       "h": 844,
@@ -1164,7 +1164,7 @@
       "page": "components"
     },
     "StatusTasks.dc.html": {
-      "x": 12860,
+      "x": 9950,
       "y": 300,
       "w": 1440,
       "h": 900,
@@ -1180,7 +1180,7 @@
       "page": "status-panel"
     },
     "StatusWebUi.dc.html": {
-      "x": 10870,
+      "x": 7960,
       "y": 300,
       "w": 1440,
       "h": 900,
@@ -1260,7 +1260,7 @@
       "page": "conversation"
     },
     "StatusReviewComment.dc.html": {
-      "x": 4900,
+      "x": 1990,
       "y": 4500,
       "w": 1440,
       "h": 900,
@@ -1268,7 +1268,7 @@
       "page": "status-panel"
     },
     "PhoneStatusReviewComment.dc.html": {
-      "x": 6420,
+      "x": 3510,
       "y": 4500,
       "w": 390,
       "h": 844,
@@ -1276,7 +1276,7 @@
       "page": "status-panel"
     },
     "StatusReviewIssue.dc.html": {
-      "x": 6890,
+      "x": 3980,
       "y": 4500,
       "w": 1440,
       "h": 900,
@@ -1284,7 +1284,7 @@
       "page": "status-panel"
     },
     "PhoneStatusReviewIssue.dc.html": {
-      "x": 8410,
+      "x": 5500,
       "y": 4500,
       "w": 390,
       "h": 844,
@@ -1292,7 +1292,7 @@
       "page": "status-panel"
     },
     "StatusReviewThreads.dc.html": {
-      "x": 8880,
+      "x": 5970,
       "y": 4500,
       "w": 1440,
       "h": 900,
@@ -1300,7 +1300,7 @@
       "page": "status-panel"
     },
     "PhoneStatusReviewThreads.dc.html": {
-      "x": 10400,
+      "x": 7490,
       "y": 4500,
       "w": 390,
       "h": 844,
@@ -1308,7 +1308,7 @@
       "page": "status-panel"
     },
     "StatusReviewTranslate.dc.html": {
-      "x": 10870,
+      "x": 7960,
       "y": 4500,
       "w": 1440,
       "h": 900,
@@ -1316,7 +1316,7 @@
       "page": "status-panel"
     },
     "PhoneStatusReviewTranslate.dc.html": {
-      "x": 12390,
+      "x": 9480,
       "y": 4500,
       "w": 390,
       "h": 844,
@@ -1324,7 +1324,7 @@
       "page": "status-panel"
     },
     "StatusReviewEnglish.dc.html": {
-      "x": 12860,
+      "x": 9950,
       "y": 4500,
       "w": 1440,
       "h": 900,
@@ -1332,7 +1332,7 @@
       "page": "status-panel"
     },
     "PhoneStatusReviewEnglish.dc.html": {
-      "x": 14380,
+      "x": 11470,
       "y": 4500,
       "w": 390,
       "h": 844,
@@ -1340,7 +1340,7 @@
       "page": "status-panel"
     },
     "StatusReviewFull.dc.html": {
-      "x": 14850,
+      "x": 11940,
       "y": 4500,
       "w": 1440,
       "h": 900,
@@ -1361,198 +1361,6 @@
       "w": 800,
       "h": 900,
       "title": "DraftFocus",
-      "page": "components"
-    },
-    "before/BeforePhoneStatusReview.dc.html": {
-      "x": 9940,
-      "y": 300,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · 状況パネル · Review",
-      "page": "status-panel"
-    },
-    "before/BeforeStatusReview.dc.html": {
-      "x": 7490,
-      "y": 300,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · 状況パネル · Review",
-      "page": "status-panel"
-    },
-    "before/BeforePhoneStatusReviewPreview.dc.html": {
-      "x": 3970,
-      "y": 4500,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · 状況パネル · Review · Preview",
-      "page": "status-panel"
-    },
-    "before/BeforeStatusReviewPreview.dc.html": {
-      "x": 1520,
-      "y": 4500,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · 状況パネル · Review · Preview",
-      "page": "status-panel"
-    },
-    "before/BeforeStatusBandStates.dc.html": {
-      "x": 1370,
-      "y": 4310,
-      "w": 1290,
-      "h": 1600,
-      "title": "Before · 返信欄の上の帯 · 状態ごと",
-      "page": "conversation"
-    },
-    "before/BeforeMain.dc.html": {
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 2640,
-      "title": "Before · 仕様のまとめ",
-      "page": "inbox"
-    },
-    "before/BeforeActionItem.dc.html": {
-      "x": 0,
-      "y": 5860,
-      "w": 360,
-      "h": 110,
-      "title": "BeforeActionItem",
-      "page": "components"
-    },
-    "before/BeforeActivityButton.dc.html": {
-      "x": 440,
-      "y": 5860,
-      "w": 224,
-      "h": 44,
-      "title": "BeforeActivityButton",
-      "page": "components"
-    },
-    "before/BeforeCloseChecks.dc.html": {
-      "x": 744,
-      "y": 5860,
-      "w": 408,
-      "h": 170,
-      "title": "BeforeCloseChecks",
-      "page": "components"
-    },
-    "before/BeforeCodeBlock.dc.html": {
-      "x": 1232,
-      "y": 5860,
-      "w": 672,
-      "h": 160,
-      "title": "BeforeCodeBlock",
-      "page": "components"
-    },
-    "before/BeforeConfirmDialog.dc.html": {
-      "x": 1984,
-      "y": 5860,
-      "w": 380,
-      "h": 200,
-      "title": "BeforeConfirmDialog",
-      "page": "components"
-    },
-    "before/BeforeConversation.dc.html": {
-      "x": 2444,
-      "y": 5860,
-      "w": 880,
-      "h": 900,
-      "title": "BeforeConversation",
-      "page": "components"
-    },
-    "before/BeforeMergeBand.dc.html": {
-      "x": 3404,
-      "y": 5860,
-      "w": 760,
-      "h": 60,
-      "title": "BeforeMergeBand",
-      "page": "components"
-    },
-    "before/BeforeNav.dc.html": {
-      "x": 4244,
-      "y": 5860,
-      "w": 240,
-      "h": 900,
-      "title": "BeforeNav",
-      "page": "components"
-    },
-    "before/BeforePhoneStatusPanel.dc.html": {
-      "x": 4564,
-      "y": 5860,
-      "w": 390,
-      "h": 844,
-      "title": "BeforePhoneStatusPanel",
-      "page": "components"
-    },
-    "before/BeforePrButton.dc.html": {
-      "x": 5034,
-      "y": 5860,
-      "w": 44,
-      "h": 44,
-      "title": "BeforePrButton",
-      "page": "components"
-    },
-    "before/BeforeQuota.dc.html": {
-      "x": 5158,
-      "y": 5860,
-      "w": 240,
-      "h": 140,
-      "title": "BeforeQuota",
-      "page": "components"
-    },
-    "before/BeforeSessionRow.dc.html": {
-      "x": 5478,
-      "y": 5860,
-      "w": 460,
-      "h": 76,
-      "title": "BeforeSessionRow",
-      "page": "components"
-    },
-    "before/BeforeSessionUsage.dc.html": {
-      "x": 0,
-      "y": 6880,
-      "w": 672,
-      "h": 40,
-      "title": "BeforeSessionUsage",
-      "page": "components"
-    },
-    "before/BeforeStatusBand.dc.html": {
-      "x": 752,
-      "y": 6880,
-      "w": 760,
-      "h": 60,
-      "title": "BeforeStatusBand",
-      "page": "components"
-    },
-    "before/BeforeStatusBody.dc.html": {
-      "x": 1592,
-      "y": 6880,
-      "w": 640,
-      "h": 852,
-      "title": "BeforeStatusBody",
-      "page": "components"
-    },
-    "before/BeforeStatusPanel.dc.html": {
-      "x": 2312,
-      "y": 6880,
-      "w": 640,
-      "h": 900,
-      "title": "BeforeStatusPanel",
-      "page": "components"
-    },
-    "before/BeforeStatusTabs.dc.html": {
-      "x": 3032,
-      "y": 6880,
-      "w": 640,
-      "h": 49,
-      "title": "BeforeStatusTabs",
-      "page": "components"
-    },
-    "before/BeforeTodoCard.dc.html": {
-      "x": 3752,
-      "y": 6880,
-      "w": 672,
-      "h": 40,
-      "title": "BeforeTodoCard",
       "page": "components"
     }
   },
@@ -1727,31 +1535,7 @@
     "PhoneStatusReviewTranslate.dc.html",
     "StatusReviewEnglish.dc.html",
     "PhoneStatusReviewEnglish.dc.html",
-    "StatusReviewFull.dc.html",
-    "before/BeforePhoneStatusReview.dc.html",
-    "before/BeforeStatusReview.dc.html",
-    "before/BeforePhoneStatusReviewPreview.dc.html",
-    "before/BeforeStatusReviewPreview.dc.html",
-    "before/BeforeStatusBandStates.dc.html",
-    "before/BeforeMain.dc.html",
-    "before/BeforeActionItem.dc.html",
-    "before/BeforeActivityButton.dc.html",
-    "before/BeforeCloseChecks.dc.html",
-    "before/BeforeCodeBlock.dc.html",
-    "before/BeforeConfirmDialog.dc.html",
-    "before/BeforeConversation.dc.html",
-    "before/BeforeMergeBand.dc.html",
-    "before/BeforeNav.dc.html",
-    "before/BeforePhoneStatusPanel.dc.html",
-    "before/BeforePrButton.dc.html",
-    "before/BeforeQuota.dc.html",
-    "before/BeforeSessionRow.dc.html",
-    "before/BeforeSessionUsage.dc.html",
-    "before/BeforeStatusBand.dc.html",
-    "before/BeforeStatusBody.dc.html",
-    "before/BeforeStatusPanel.dc.html",
-    "before/BeforeStatusTabs.dc.html",
-    "before/BeforeTodoCard.dc.html"
+    "StatusReviewFull.dc.html"
   ],
   "pages": [
     {
@@ -2050,56 +1834,6 @@
       "maxW": 1910,
       "page": "conversation",
       "text": "会話の中の web UI のリンク · 開く先のタブ名"
-    },
-    "diffPhoneStatusReview": {
-      "x": 10410,
-      "y": 300,
-      "w": 380,
-      "text": "変更点\n- PC と同じ部品: 種類と対象の見出し、FRONTMATTER の入力欄、1 列の Preview / Edit\n- Save、Send back、Create PR (高さ 44px)\n- iPhone はもともと全画面なので ⛶ はない",
-      "page": "status-panel"
-    },
-    "diffStatusReview": {
-      "x": 9010,
-      "y": 300,
-      "w": 380,
-      "text": "変更点\n- Review タブの一番上に、種類 (PR draft) と対象 (repo · ブランチ)、エディタに出ているかを出す。PC は右端の ⛶ で全幅に開く\n- FRONTMATTER の欄に PR title の入力欄、その下の BODY は 1 列で Preview / Edit を切り替える\n- 説明のないチェックボックスをやめ、Send back と、押すとすぐ PR を作る Create PR\n- 会話の返信欄の上に Waiting for your review と Open drafts の帯",
-      "page": "status-panel"
-    },
-    "diffPhoneStatusReviewPreview": {
-      "x": 4440,
-      "y": 4500,
-      "w": 380,
-      "text": "変更点\n- PC と同じく Edit は生のファイルを 1 列で出す",
-      "page": "status-panel"
-    },
-    "diffStatusReviewPreview": {
-      "x": 3040,
-      "y": 4500,
-      "w": 380,
-      "text": "変更点\n- Edit を選んだときは生のファイルをそのまま 1 列で出す (細い 2 列をやめた)\n- 見出しとボタンは Preview と同じ",
-      "page": "status-panel"
-    },
-    "diffStatusBandStates": {
-      "x": 2740,
-      "y": 4310,
-      "w": 380,
-      "text": "変更点\n- Drafts waiting for review の行を足した: crit と同じ黄色の Waiting for your review、draft の数とエディタに出ている draft、Open drafts で Review タブを開く",
-      "page": "conversation"
-    },
-    "diffMain": {
-      "x": 3040,
-      "y": 0,
-      "w": 380,
-      "text": "変更点\n- 状況パネルの節に Review タブ (見出し、draft ごとのタブ、Preview / Edit と全幅、種類ごとの Preview、すぐ実行するボタンと英語の repo の 2 段) を書いた\n- 会話の節の帯の説明に Open drafts を足した\n- ボードの高さを 3100px に",
-      "page": "inbox"
-    },
-    "beforeParts": {
-      "x": 0,
-      "y": 5560,
-      "text": "Before · 変更前のボードが読み込む部品",
-      "kind": "title1",
-      "maxW": 6000,
-      "page": "components"
     }
   },
   "v": 3,

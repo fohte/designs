@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>New session pane</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 100%; height: {{h}}; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
+<header style="flex: none; display: flex; align-items: center; gap: 8px; min-height: {{headH}}; padding: {{headPad}}; border-bottom: 1px solid #2a2a2a">
+<sc-if value="{{phone}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Back to Inbox" style="width: 44px; height: 44px; margin-left: -14px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button></sc-if>
+<h1 style="margin: 0; font-size: 15px; white-space: nowrap">New session</h1>
+<button type="button" aria-haspopup="listbox" aria-expanded="false" aria-disabled="{{locked}}" style="margin-left: auto; min-width: 0; height: 32px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: {{dirFg}}; font-family: 'JetBrains Mono', monospace; font-size: 12px; white-space: nowrap; overflow: hidden"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">{{dir}}</span> ▾</button>
+</header>
+
+<sc-if value="{{plain}}" hint-placeholder-val="{{ true }}">
+<div aria-live="polite" style="flex: 1; display: grid; place-items: center; padding: 24px; color: #8b8b94; font-size: 13px; text-align: center">{{placeholder}}</div>
+</sc-if>
+
+<sc-if value="{{line}}" hint-placeholder-val="{{ false }}">
+<div aria-live="polite" style="flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; padding: 24px; text-align: center">
+<div style="display: flex; align-items: center; gap: 8px; color: #d4d4d8; font-size: {{fs}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a1a1aa" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>Starting session…</div>
+<div style="max-width: 360px; color: #8b8b94; font-size: 13px">You can leave this page. It shows in Activity, and we’ll let you know when it starts.</div>
+</div>
+</sc-if>
+
+<sc-if value="{{echo}}" hint-placeholder-val="{{ false }}">
+<div aria-live="polite" style="flex: 1; min-height: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 16px; padding: {{echoPad}}">
+<article style="align-self: flex-end; max-width: 80%; display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: flex-end; font-size: 12px; color: #8b8b94">You · 12:03</div><div style="padding: 10px 14px; background: #1f1f1f; color: #fafafa">{{message}}</div></article>
+<div role="status" style="display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: {{subFs}}; text-align: center">
+<div style="display: flex; align-items: center; gap: 8px; color: #a1a1aa"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg><span>Starting {{engineName}} in <span style="font-family: 'JetBrains Mono', monospace">{{dirShort}}</span>…</span></div>
+<span style="color: #8b8b94">You can leave this page. We’ll let you know when it starts.</span>
+</div>
+</div>
+</sc-if>
+
+<div style="flex: none; padding: {{composerPad}}; border-top: 1px solid #2a2a2a">
+<div style="border: 1px solid {{boxBorder}}; background: #0f0f0f">
+<sc-if value="{{notEcho}}" hint-placeholder-val="{{ true }}"><textarea aria-label="First message" placeholder="First message (optional)" aria-disabled="{{locked}}" style="display: block; width: 100%; height: 72px; box-sizing: border-box; padding: 10px 12px; border: 0; outline: none; background: transparent; color: {{msgFg}}; font-family: inherit; font-size: {{inputFs}}; resize: none">通知の再送処理を見直して</textarea></sc-if>
+<sc-if value="{{echo}}" hint-placeholder-val="{{ false }}"><textarea aria-label="First message" placeholder="Reply once the session starts" aria-disabled="true" style="display: block; width: 100%; height: 72px; box-sizing: border-box; padding: 10px 12px; border: 0; outline: none; background: transparent; color: #a1a1aa; font-family: inherit; font-size: {{inputFs}}; resize: none"></textarea></sc-if>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 6px 8px">
+<button type="button" aria-haspopup="menu" aria-disabled="{{locked}}" style="height: 30px; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: {{chipFg}}; font-family: inherit; font-size: 12.5px">Claude Code ▾</button>
+<button type="button" aria-haspopup="dialog" aria-label="Model and reasoning effort" aria-disabled="{{locked}}" style="height: 30px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: {{chipFg}}; font-family: inherit; font-size: 12.5px"><span>atlas-5</span><span aria-hidden="true" style="color: #71717a">·</span><span>high</span> ▾</button>
+<button type="button" aria-haspopup="menu" aria-disabled="{{locked}}" style="height: 30px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: {{chipFg}}; font-family: inherit; font-size: 12.5px">New worktree ▾</button>
+<span role="{{statusRole}}" style="flex: 1 1 160px; min-width: 0; text-align: right; font-size: 12px; color: {{statusFg}}">{{status}}</span>
+<button type="button" aria-disabled="{{locked}}" style="height: {{btnH}}; padding: 0 14px; border: 0; background: {{btnBg}}; color: {{btnFg}}; font-family: inherit; font-size: 13px; font-weight: 700; white-space: nowrap">{{btn}}</button>
+</div></div></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["desktop","phone"],"default":"desktop"},"state":{"editor":"enum","options":["starting","failed"],"default":"starting"},"leave":{"editor":"enum","options":["none","line","echo"],"default":"none"},"$preview":{"width":740,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const phone = (this.props.form ?? 'desktop') === 'phone';
+    const state = this.props.state ?? 'starting';
+    // leave: what the empty area says while starting. none: today's placeholder. line: a line that you can leave. echo: the first message shown as sent.
+    const leave = this.props.leave ?? 'none';
+    const starting = state === 'starting';
+    const echo = starting && leave === 'echo';
+    const message = '通知の再送処理を見直して';
+    return {
+      phone, h: phone ? '844px' : '900px',
+      fs: phone ? '15px' : '13px', subFs: phone ? '13px' : '12px', inputFs: phone ? '16px' : '13px',
+      headH: phone ? '50px' : '52px', headPad: phone ? 'max(8px, env(safe-area-inset-top)) 16px 6px' : '0 16px',
+      composerPad: phone ? '10px 12px max(30px, env(safe-area-inset-bottom))' : '12px 16px 16px',
+      echoPad: phone ? '16px 16px 20px' : '24px',
+      dir: phone ? 'notification-service' : 'example/notification-service', dirShort: phone ? 'notification-service' : 'example/notification-service', engineName: 'Claude Code',
+      locked: starting ? "true" : "false",
+      dirFg: starting ? '#a1a1aa' : '#fafafa',
+      chipFg: starting ? '#8b8b94' : '#fafafa',
+      plain: !starting || leave === 'none', line: starting && leave === 'line', echo,
+      placeholder: starting ? 'Starting session… Waiting for it to appear in the session list.' : 'The conversation opens here when the session starts.',
+      // echo moves the message up into the conversation, so the box is empty until the session starts.
+      message, notEcho: !echo,
+      msgFg: starting ? '#a1a1aa' : '#fafafa', boxBorder: starting ? '#3f3f46' : '#52525b',
+      status: starting ? '' : 'Could not start the session: tmux server is not running.',
+      statusFg: starting ? '#8b8b94' : '#f87171', statusRole: starting ? 'status' : 'alert',
+      btn: starting ? 'Starting…' : 'Start ↵', btnH: phone ? '44px' : '32px',
+      btnBg: starting ? '#27272a' : '#fafafa', btnFg: starting ? '#71717a' : '#0a0a0a'
+    };
+  }
+}
+</script>
+</body>
+</html>

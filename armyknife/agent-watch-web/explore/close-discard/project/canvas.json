@@ -1,0 +1,809 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-24T12:00:00Z"
+  },
+  "title": "Close が止まったときに変更を捨てて worktree を消す",
+  "launch": {
+    "view": "canvas",
+    "page": "current"
+  },
+  "pages": [
+    {
+      "id": "current",
+      "name": "今"
+    },
+    {
+      "id": "place",
+      "name": "選択肢の置き場所"
+    },
+    {
+      "id": "confirm",
+      "name": "消す前の確認"
+    },
+    {
+      "id": "after",
+      "name": "確定したあと"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "close-discard-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC (会話から閉じて止まった)",
+      "page": "current"
+    },
+    "close-discard-current-activity.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC (Details で Activity を開いた)",
+      "page": "current"
+    },
+    "close-discard-current-phone.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone",
+      "page": "current"
+    },
+    "close-discard-current-phone-activity.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone の Activity",
+      "page": "current"
+    },
+    "close-discard-place-button.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC (トーストと会話の行)",
+      "page": "place"
+    },
+    "close-discard-place-button-activity.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC (Activity)",
+      "page": "place"
+    },
+    "close-discard-place-button-phone.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone",
+      "page": "place"
+    },
+    "close-discard-place-button-phone-activity.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone の Activity",
+      "page": "place"
+    },
+    "close-discard-place-menu.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC (トーストの ⋯ を開いた)",
+      "page": "place"
+    },
+    "close-discard-place-menu-activity.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC (Activity)",
+      "page": "place"
+    },
+    "close-discard-place-menu-phone.dc.html": {
+      "x": 3040,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone",
+      "page": "place"
+    },
+    "close-discard-place-menu-phone-sheet.dc.html": {
+      "x": 3510,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone (⋯ を押した)",
+      "page": "place"
+    },
+    "close-discard-place-review.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC (トーストと会話の行は今のまま)",
+      "page": "place"
+    },
+    "close-discard-place-review-activity.dc.html": {
+      "x": 1520,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC (Details で Activity を開いた)",
+      "page": "place"
+    },
+    "close-discard-place-review-phone.dc.html": {
+      "x": 3040,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone",
+      "page": "place"
+    },
+    "close-discard-place-review-phone-activity.dc.html": {
+      "x": 3510,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone の Activity",
+      "page": "place"
+    },
+    "close-discard-confirm-scroll.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC (14 files, 2 commits)",
+      "page": "confirm"
+    },
+    "close-discard-confirm-scroll-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone",
+      "page": "confirm"
+    },
+    "close-discard-confirm-collapse.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC (14 files, 2 commits)",
+      "page": "confirm"
+    },
+    "close-discard-confirm-collapse-phone.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone",
+      "page": "confirm"
+    },
+    "close-discard-confirm-type.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC (まだ打っていない)",
+      "page": "confirm"
+    },
+    "close-discard-confirm-type-phone.dc.html": {
+      "x": 1520,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone",
+      "page": "confirm"
+    },
+    "close-discard-running.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "実行中 · PC",
+      "page": "after"
+    },
+    "close-discard-running-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "実行中 · iPhone",
+      "page": "after"
+    },
+    "close-discard-success.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "成功 · PC",
+      "page": "after"
+    },
+    "close-discard-success-phone.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "成功 · iPhone",
+      "page": "after"
+    },
+    "close-discard-failure.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "失敗 · PC",
+      "page": "after"
+    },
+    "close-discard-failure-phone.dc.html": {
+      "x": 1520,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "失敗 · iPhone",
+      "page": "after"
+    },
+    "close-discard-changed.dc.html": {
+      "x": 0,
+      "y": 3840,
+      "w": 1440,
+      "h": 900,
+      "title": "確定したあとに増えた · PC",
+      "page": "after"
+    },
+    "close-discard-changed-phone.dc.html": {
+      "x": 1520,
+      "y": 3840,
+      "w": 390,
+      "h": 844,
+      "title": "確定したあとに増えた · iPhone",
+      "page": "after"
+    },
+    "close-discard-again.dc.html": {
+      "x": 0,
+      "y": 5120,
+      "w": 1440,
+      "h": 900,
+      "title": "Review again · PC",
+      "page": "after"
+    },
+    "close-discard-again-phone.dc.html": {
+      "x": 1520,
+      "y": 5120,
+      "w": 390,
+      "h": 844,
+      "title": "Review again · iPhone",
+      "page": "after"
+    },
+    "close-discard-process.dc.html": {
+      "x": 0,
+      "y": 6400,
+      "w": 1440,
+      "h": 900,
+      "title": "動いているプロセス · PC",
+      "page": "after"
+    },
+    "close-discard-process-phone.dc.html": {
+      "x": 1520,
+      "y": 6400,
+      "w": 390,
+      "h": 844,
+      "title": "動いているプロセス · iPhone",
+      "page": "after"
+    },
+    "DiscardScreen.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "DiscardScreen",
+      "page": "parts"
+    },
+    "DiscardDialog.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 520,
+      "h": 620,
+      "title": "DiscardDialog",
+      "page": "parts"
+    },
+    "DiscardMenu.dc.html": {
+      "x": 2120,
+      "y": 0,
+      "w": 240,
+      "h": 80,
+      "title": "DiscardMenu",
+      "page": "parts"
+    },
+    "ActionItem.dc.html": {
+      "x": 2440,
+      "y": 0,
+      "w": 360,
+      "h": 110,
+      "title": "ActionItem",
+      "page": "parts"
+    },
+    "ToastStack.dc.html": {
+      "x": 2880,
+      "y": 0,
+      "w": 360,
+      "h": 240,
+      "title": "ToastStack",
+      "page": "parts"
+    },
+    "Activity.dc.html": {
+      "x": 3320,
+      "y": 0,
+      "w": 400,
+      "h": 360,
+      "title": "Activity",
+      "page": "parts"
+    },
+    "CloseChecks.dc.html": {
+      "x": 3800,
+      "y": 0,
+      "w": 408,
+      "h": 170,
+      "title": "CloseChecks",
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 4288,
+      "y": 0,
+      "w": 380,
+      "h": 200,
+      "title": "ConfirmDialog",
+      "page": "parts"
+    },
+    "Conversation.dc.html": {
+      "x": 0,
+      "y": 1100,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "parts"
+    },
+    "InboxList.dc.html": {
+      "x": 960,
+      "y": 1100,
+      "w": 460,
+      "h": 900,
+      "title": "InboxList",
+      "page": "parts"
+    },
+    "Nav.dc.html": {
+      "x": 1500,
+      "y": 1100,
+      "w": 240,
+      "h": 900,
+      "title": "Nav",
+      "page": "parts"
+    },
+    "PhoneChat.dc.html": {
+      "x": 1820,
+      "y": 1100,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneChat",
+      "page": "parts"
+    },
+    "PhoneDrawer.dc.html": {
+      "x": 2290,
+      "y": 1100,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneDrawer",
+      "page": "parts"
+    },
+    "PhoneInbox.dc.html": {
+      "x": 2760,
+      "y": 1100,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneInbox",
+      "page": "parts"
+    },
+    "ActivityButton.dc.html": {
+      "x": 0,
+      "y": 2120,
+      "w": 224,
+      "h": 44,
+      "title": "ActivityButton",
+      "page": "parts"
+    },
+    "CodeBlock.dc.html": {
+      "x": 304,
+      "y": 2120,
+      "w": 672,
+      "h": 160,
+      "title": "CodeBlock",
+      "page": "parts"
+    },
+    "MergeBand.dc.html": {
+      "x": 1056,
+      "y": 2120,
+      "w": 760,
+      "h": 60,
+      "title": "MergeBand",
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 1896,
+      "y": 2120,
+      "w": 160,
+      "h": 44,
+      "title": "MergeButton",
+      "page": "parts"
+    },
+    "PrButton.dc.html": {
+      "x": 2136,
+      "y": 2120,
+      "w": 44,
+      "h": 44,
+      "title": "PrButton",
+      "page": "parts"
+    },
+    "Quota.dc.html": {
+      "x": 2260,
+      "y": 2120,
+      "w": 240,
+      "h": 140,
+      "title": "Quota",
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 2580,
+      "y": 2120,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 3120,
+      "y": 2120,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 3872,
+      "y": 2120,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    },
+    "TodoCard.dc.html": {
+      "x": 4712,
+      "y": 2120,
+      "w": 672,
+      "h": 40,
+      "title": "TodoCard",
+      "page": "parts"
+    },
+    "UpdateBand.dc.html": {
+      "x": 5464,
+      "y": 2120,
+      "w": 760,
+      "h": 40,
+      "title": "UpdateBand",
+      "page": "parts"
+    },
+    "PhoneLaterSheet.dc.html": {
+      "x": 6304,
+      "y": 2120,
+      "w": 390,
+      "h": 420,
+      "title": "PhoneLaterSheet",
+      "page": "parts"
+    },
+    "PhoneRowMenu.dc.html": {
+      "x": 6774,
+      "y": 2120,
+      "w": 390,
+      "h": 250,
+      "title": "PhoneRowMenu",
+      "page": "parts"
+    },
+    "PhoneSaveViewSheet.dc.html": {
+      "x": 7244,
+      "y": 2120,
+      "w": 390,
+      "h": 300,
+      "title": "PhoneSaveViewSheet",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "close-discard-current.dc.html",
+    "close-discard-current-activity.dc.html",
+    "close-discard-current-phone.dc.html",
+    "close-discard-current-phone-activity.dc.html",
+    "close-discard-place-button.dc.html",
+    "close-discard-place-button-activity.dc.html",
+    "close-discard-place-button-phone.dc.html",
+    "close-discard-place-button-phone-activity.dc.html",
+    "close-discard-place-menu.dc.html",
+    "close-discard-place-menu-activity.dc.html",
+    "close-discard-place-menu-phone.dc.html",
+    "close-discard-place-menu-phone-sheet.dc.html",
+    "close-discard-place-review.dc.html",
+    "close-discard-place-review-activity.dc.html",
+    "close-discard-place-review-phone.dc.html",
+    "close-discard-place-review-phone-activity.dc.html",
+    "close-discard-confirm-scroll.dc.html",
+    "close-discard-confirm-scroll-phone.dc.html",
+    "close-discard-confirm-collapse.dc.html",
+    "close-discard-confirm-collapse-phone.dc.html",
+    "close-discard-confirm-type.dc.html",
+    "close-discard-confirm-type-phone.dc.html",
+    "close-discard-running.dc.html",
+    "close-discard-running-phone.dc.html",
+    "close-discard-success.dc.html",
+    "close-discard-success-phone.dc.html",
+    "close-discard-failure.dc.html",
+    "close-discard-failure-phone.dc.html",
+    "close-discard-changed.dc.html",
+    "close-discard-changed-phone.dc.html",
+    "close-discard-again.dc.html",
+    "close-discard-again-phone.dc.html",
+    "close-discard-process.dc.html",
+    "close-discard-process-phone.dc.html",
+    "DiscardScreen.dc.html",
+    "DiscardDialog.dc.html",
+    "DiscardMenu.dc.html",
+    "ActionItem.dc.html",
+    "ToastStack.dc.html",
+    "Activity.dc.html",
+    "CloseChecks.dc.html",
+    "ConfirmDialog.dc.html",
+    "Conversation.dc.html",
+    "InboxList.dc.html",
+    "Nav.dc.html",
+    "PhoneChat.dc.html",
+    "PhoneDrawer.dc.html",
+    "PhoneInbox.dc.html",
+    "ActivityButton.dc.html",
+    "CodeBlock.dc.html",
+    "MergeBand.dc.html",
+    "MergeButton.dc.html",
+    "PrButton.dc.html",
+    "Quota.dc.html",
+    "SessionRow.dc.html",
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html",
+    "TodoCard.dc.html",
+    "UpdateBand.dc.html",
+    "PhoneLaterSheet.dc.html",
+    "PhoneRowMenu.dc.html",
+    "PhoneSaveViewSheet.dc.html"
+  ],
+  "notes": {
+    "curTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 3900,
+      "page": "current",
+      "text": "今 · Close が止まると Close and keep worktree / Retry / Details だけ"
+    },
+    "curNote": {
+      "x": 3980,
+      "y": 0,
+      "w": 460,
+      "page": "current",
+      "text": "今\n- コミットしていない変更か merge していないブランチがあると、Close は何も消さずに止まる\n- 選べるのは Close and keep worktree (worktree を残して閉じる)、Retry、Details (Activity で 3 つの確認を見る) と、Activity の Open in terminal\n- 変更を捨てて worktree ごと消したいときは、ターミナルで消すしかない\n- データはすべて架空"
+    },
+    "placeATitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 3900,
+      "page": "place",
+      "text": "A · 赤い枠の Discard changes and close… を 4 つ目のボタンとして足す"
+    },
+    "placeANote": {
+      "x": 3980,
+      "y": 0,
+      "w": 460,
+      "page": "place",
+      "text": "A\n- トースト、会話の行、Activity の行のどこにも、今のボタンの下に赤い枠の Discard changes and close… を 1 行で足す\n- … は確認が出る印。押してもすぐには消さない\n+ 止まった場所からそのまま 1 手で確認まで進める\n+ 3 か所で同じ並びなので覚えやすい\n- トーストが 1 行ぶん高くなる (iPhone では 44px)\n- いちばん重い操作がいつも目に入る"
+    },
+    "placeBTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 3900,
+      "page": "place",
+      "text": "B · ボタンの並びの最後に ⋯ を置き、開いたメニューに Discard changes and close… を入れる"
+    },
+    "placeBNote": {
+      "x": 3980,
+      "y": 1280,
+      "w": 460,
+      "page": "place",
+      "text": "B\n- トーストと会話の行は Retry / Details の横に ⋯。開くと Open in terminal と赤い Discard changes and close…\n- Activity の行は Open in terminal が外にあるので、⋯ の中は Discard changes and close… だけ\n- iPhone の ⋯ は下からのシート (行の長押しのシートと同じ形)\n+ 今の見た目にボタン 1 つぶんしか足さない\n+ トーストからもターミナルを開ける\n- 中身が 1 つ (Activity) のメニューになる\n- 消す操作がどこにあるか、開くまで分からない"
+    },
+    "placeCTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2300,
+      "maxW": 3900,
+      "page": "place",
+      "text": "C · トーストは今のままにし、Activity の行の一番下に Discard changes and close… を置く"
+    },
+    "placeCNote": {
+      "x": 3980,
+      "y": 2560,
+      "w": 460,
+      "page": "place",
+      "text": "C\n- トーストと会話の行は今と同じ (Close and keep worktree / Retry / Details)\n- Activity の行で 3 つの確認とボタンの下に区切り線を引き、Deletes the worktree with 3 files and 2 commits that are not saved anywhere else. と赤い枠のボタン\n+ 残っているものを見てからでないと押せない\n+ トーストは変わらない\n- Details → ボタン → 確認で、A より 1 手多い\n- iPhone ではナビゲーションの Activity まで行く"
+    },
+    "confATitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1910,
+      "page": "confirm",
+      "text": "A · 全部を並べ、長いときは枠の中でスクロールする。赤いボタンを押すだけ"
+    },
+    "confANote": {
+      "x": 1990,
+      "y": 0,
+      "w": 460,
+      "page": "confirm",
+      "text": "A\n- Uncommitted changes に status の文字 (M / A / D / ??) とパス、Commits not on main に短い sha と件名を全部並べる\n- 枠は PC 252px、iPhone 290px まで。超えると枠の中でスクロールし、区分の見出しは上に残る\n- 赤い Discard and close を押せば実行\n+ 隠れているものがない\n- 下のほうはスクロールしないと見えない (見ずに押せる)\n- 枠の中のスクロールは iPhone で触りにくい"
+    },
+    "confBTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 1910,
+      "page": "confirm",
+      "text": "B · 区分ごとに 5 件まで出し、残りは Show 9 more で開く。赤いボタンを押すだけ"
+    },
+    "confBNote": {
+      "x": 1990,
+      "y": 1280,
+      "w": 460,
+      "page": "confirm",
+      "text": "B\n- 見出しの右に件数 (14 files / 2 commits)。各区分は先頭 5 件で、残りは Show 9 more で同じ場所に開く\n- 枠の中のスクロールはない。開くとダイアログ (iPhone はシート) ごと伸びてスクロールする\n- 赤い Discard and close を押せば実行\n+ 件数が先に目に入り、ふつうの量 (5 件まで) なら全部見える\n+ 押したあとに変わったら止めるので、確認は押すだけで足りる\n- 6 件目からは開かないと見えない"
+    },
+    "confCTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2300,
+      "maxW": 1910,
+      "page": "confirm",
+      "text": "C · B のリストに加え、ブランチ名を打つと赤いボタンが押せるようになる"
+    },
+    "confCNote": {
+      "x": 1990,
+      "y": 2560,
+      "w": 460,
+      "page": "confirm",
+      "text": "C\n- リストは B と同じ\n- Type fix-resend-limit to confirm の欄に打ち終えるまで、赤いボタンは薄く押せない\n- iPhone の入力欄は 16px (ズームしない)、自動の大文字と補正は切る\n+ 押し間違いでは消えない\n- 毎回打つ手間が重い。特に iPhone\n- 打つことに気を取られ、リストを読まなくなる"
+    },
+    "runningTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1910,
+      "page": "after",
+      "text": "実行中 · トーストと会話の行が Deleting worktree… になる"
+    },
+    "runningNote": {
+      "x": 1990,
+      "y": 0,
+      "w": 460,
+      "page": "after",
+      "text": "実行中\n- トーストと会話の行は Deleting worktree…。Activity の数は青\n- 確認で見たものと今の worktree を比べてから消す。そのあいだもほかの操作はできる"
+    },
+    "successTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 1910,
+      "page": "after",
+      "text": "成功 · Closed session and deleted worktree"
+    },
+    "successNote": {
+      "x": 1990,
+      "y": 1280,
+      "w": 460,
+      "page": "after",
+      "text": "成功\n- トーストは自動で消える。会話の行は Closed session and deleted worktree · 12:05 に書き換わる\n- Inbox の行は今の Close の成功と同じく消える"
+    },
+    "failureTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2300,
+      "maxW": 1910,
+      "page": "after",
+      "text": "失敗 · Delete failed と理由、Retry"
+    },
+    "failureNote": {
+      "x": 1990,
+      "y": 2560,
+      "w": 460,
+      "page": "after",
+      "text": "失敗\n- 確認とは関係のない失敗 (git が worktree を消せなかった等)。理由をそのまま出す\n- Retry は確認で見たものに対してもう一度実行する。Details は Activity\n- 途中まで消えていても、セッションは開いたままと書く"
+    },
+    "changedTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3580,
+      "maxW": 1910,
+      "page": "after",
+      "text": "確定したあとに増えた · 何も消さずに止め、Review again を出す"
+    },
+    "changedNote": {
+      "x": 1990,
+      "y": 3840,
+      "w": 460,
+      "page": "after",
+      "text": "確定したあとに増えた\n- 確認を出してから実行するまでに、ファイルかコミットが増えた (エージェントが書き込んだなど)\n- 何も消さずに止め、Changed after you confirmed: 1 new file and 1 new commit.\n- Review again (白) で確認を開き直す。Close and keep worktree も選べる"
+    },
+    "againTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 4860,
+      "maxW": 1910,
+      "page": "after",
+      "text": "Review again · 増えたものを New として先頭に出す"
+    },
+    "againNote": {
+      "x": 1990,
+      "y": 5120,
+      "w": 460,
+      "page": "after",
+      "text": "Review again\n- 見出しは Review the changes again。本文で何も消していないことと、増えた件数を言う\n- 増えたファイルとコミットは各区分の先頭に、青い New と薄い青の背景で\n- リストの形は B (5 件まで、Show N more)。New は 5 件の中に必ず入る"
+    },
+    "processTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 6140,
+      "maxW": 1910,
+      "page": "after",
+      "text": "動いているプロセス · どのプロセスかを出し、止めてから Retry"
+    },
+    "processNote": {
+      "x": 1990,
+      "y": 6400,
+      "w": 460,
+      "page": "after",
+      "text": "動いているプロセス\n- 実行の直前に worktree の中でプロセスが動いていた。何も消さない\n- Running in the worktree: 48213 node (vite). Stop it, then Retry.\n- トーストは Retry (白) と Open in terminal。会話の行は Retry だけ\n- こちらからプロセスは止めない (何のプロセスか、web からは分からないため)"
+    },
+    "partsNote": {
+      "x": 0,
+      "y": -300,
+      "w": 700,
+      "page": "parts",
+      "text": "部品\n- DiscardScreen: 画面全体。form (pc / phone)、opt (none / button / menu / review)、view、menuOpen、dialog、result で全部の画面を描く\n- DiscardDialog: 消す前の確認。form (modal / sheet)、list (scroll / collapse)、confirm (button / type)、again\n- DiscardMenu: B の ⋯ のメニュー。form (popover / sheet)\n- ActionItem: a.discard でボタンの置き場所を、result に deleting / deleted / deleteChanged / deleteBlocked / deleteFailed を足した\n- ほかは screens からの写し"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-24T12:00:00Z"
+    }
+  ]
+}

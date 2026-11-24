@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>To-do card with attached images</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<article aria-label="User task" style="box-sizing: border-box; border: 1px solid #2a2a2a; padding: 14px; display: flex; flex-direction: column; gap: 8px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
+<dc-import name="TodoCard" form="header" phone="{{ phone }}" hint-size="100%,26px"></dc-import>
+<h3 style="margin: 0; font-size: 17px; font-weight: 700">通知の音を実機で確かめる</h3>
+
+<sc-if value="{{isInline}}" hint-placeholder-val="{{ false }}">
+<div style="font-size: {{detailFs}}; color: #d4d4d8">実機で通知を受け取り、設定した音が鳴るか確かめてください。シミュレーターでは次のとおり Chime を選んであります。</div>
+<button type="button" aria-label="Enlarge notify-settings.png" style="display: block; height: {{inlineH}}; padding: 0; border: 0; box-shadow: 0 0 0 1px #2a2a2a; background: transparent"><dc-import name="Shot" h="{{inlineH}}" kind="settings" fs="{{shotFs}}" hint-size="100%,100%"></dc-import></button>
+<div style="font-size: {{detailFs}}; color: #d4d4d8">鳴らなかったら、端末のサイレントを外してもう一度試してください。</div>
+</sc-if>
+<sc-if value="{{notInline}}" hint-placeholder-val="{{ true }}">
+<div style="font-size: {{detailFs}}; color: #d4d4d8; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden">実機で通知を受け取り、設定した音が鳴るか確かめてください。シミュレーターでは Chime を選んであります。鳴らなかったら、端末のサイレントを外してもう一度試してください。</div>
+<button type="button" style="align-self: flex-start; min-height: {{moreH}}; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: {{smallFs}}">Show more</button>
+</sc-if>
+
+<sc-if value="{{isOne}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 4px">
+<button type="button" aria-label="Enlarge notify-settings.png" style="display: block; width: {{oneW}}; height: {{oneH}}; padding: 0; border: 0; box-shadow: 0 0 0 1px #2a2a2a; background: transparent"><dc-import name="Shot" h="{{oneH}}" kind="settings" fs="7px" hint-size="100%,100%"></dc-import></button>
+<span style="font-size: {{capFs}}; color: #a1a1aa">notify-settings.png</span>
+</div>
+</sc-if>
+
+<sc-if value="{{isExpand}}" hint-placeholder-val="{{ false }}">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 6px">
+<button type="button" aria-label="Shrink sound-list.png" style="display: block; height: {{expandH}}; padding: 0; border: 0; box-shadow: 0 0 0 1px #3f3f46; background: transparent; cursor: zoom-out"><dc-import name="Shot" h="{{expandH}}" kind="sounds" fs="{{shotFs}}" hint-size="100%,100%"></dc-import></button>
+<figcaption style="display: flex; align-items: center; gap: 8px; font-size: {{capFs}}; color: #a1a1aa"><span style="color: #d4d4d8">音の一覧</span><span>sound-list.png · 2 / 6</span><button type="button" style="margin-left: auto; min-height: {{ctlH}}; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{smallFs}}">Shrink</button></figcaption>
+</figure>
+</sc-if>
+
+<sc-if value="{{isRow}}" hint-placeholder-val="{{ false }}">
+<ul aria-label="Attached images" style="display: grid; grid-template-columns: repeat({{rowSlots}}, 1fr); gap: 8px; margin: 0; padding: 0; list-style: none">
+<sc-for list="{{rowItems}}" as="t" hint-placeholder-count="4">
+<li style="position: relative; height: {{rowH}}">
+<sc-if value="{{t.isImg}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="{{t.aria}}" title="{{t.cap}}" style="width: 100%; height: 100%; display: block; padding: 0; border: 0; box-shadow: 0 0 0 1px #2a2a2a; outline: {{t.outline}}; outline-offset: 1px; background: transparent"><dc-import name="Shot" h="{{rowH}}" kind="{{t.kind}}" fs="5px" hint-size="100%,100%"></dc-import></button></sc-if>
+<sc-if value="{{t.isMore}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="{{t.moreAria}}" style="width: 100%; height: 100%; display: grid; place-items: center; padding: 0; border: 1px solid #3f3f46; background: #141414; color: #d4d4d8; font-family: inherit; font-size: {{moreFs}}">{{t.restLabel}}</button></sc-if>
+<sc-if value="{{t.newTab}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 4px; right: 4px; width: {{tabPx}}; height: {{tabPx}}; display: grid; place-items: center; background: rgb(10 10 10 / 80%); color: #fafafa"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></span></sc-if>
+<sc-if value="{{t.tip}}" hint-placeholder-val="{{ false }}"><span role="tooltip" style="position: absolute; z-index: 2; top: calc(100% + 6px); left: 0; padding: 3px 8px; border: 1px solid #3f3f46; background: #1f1f1f; color: #d4d4d8; font-size: 12px; white-space: nowrap">音の一覧 · Open in new tab ↗</span></sc-if>
+</li>
+</sc-for>
+</ul>
+</sc-if>
+
+<sc-if value="{{isGrid}}" hint-placeholder-val="{{ false }}">
+<ul aria-label="Attached images" style="display: grid; grid-template-columns: repeat({{gridCols}}, 1fr); gap: 10px 8px; margin: 0; padding: 0; list-style: none">
+<sc-for list="{{gridItems}}" as="t" hint-placeholder-count="4">
+<li style="min-width: 0; display: flex; flex-direction: column; gap: 3px">
+<span style="position: relative; display: block; height: {{gridH}}">
+<button type="button" aria-label="{{t.aria}}" style="width: 100%; height: 100%; display: block; padding: 0; border: 0; box-shadow: 0 0 0 1px #2a2a2a; background: transparent"><dc-import name="Shot" h="{{gridH}}" kind="{{t.kind}}" fs="6px" hint-size="100%,100%"></dc-import></button>
+<sc-if value="{{t.isMore}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; inset: 0; display: grid; place-items: center; background: rgb(10 10 10 / 72%); color: #fafafa; font-size: 20px; font-weight: 700">{{t.restLabel}}</span></sc-if>
+</span>
+<span style="font-size: {{capFs}}; color: #d4d4d8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{t.cap}}</span>
+</li>
+</sc-for>
+</ul>
+</sc-if>
+
+<sc-if value="{{isCarousel}}" hint-placeholder-val="{{ false }}">
+<section aria-roledescription="carousel" aria-label="Attached images" style="display: flex; flex-direction: column; gap: 6px">
+<div style="position: relative; height: {{carH}}">
+<button type="button" aria-label="Enlarge notify-settings.png" style="width: 100%; height: 100%; display: block; padding: 0; border: 0; box-shadow: 0 0 0 1px #2a2a2a; background: transparent"><dc-import name="Shot" h="{{carH}}" kind="settings" fs="{{shotFs}}" hint-size="100%,100%"></dc-import></button>
+<button type="button" aria-label="Previous image" disabled style="position: absolute; left: 6px; top: calc(50% - {{navHalf}}); width: {{navPx}}; height: {{navPx}}; display: grid; place-items: center; padding: 0; border: 1px solid #3f3f46; background: rgb(10 10 10 / 80%); color: #71717a"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
+<button type="button" aria-label="Next image" style="position: absolute; right: 6px; top: calc(50% - {{navHalf}}); width: {{navPx}}; height: {{navPx}}; display: grid; place-items: center; padding: 0; border: 1px solid #3f3f46; background: rgb(10 10 10 / 80%); color: #fafafa"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>
+<span style="position: absolute; top: 6px; right: 6px; padding: 1px 7px; background: rgb(10 10 10 / 80%); color: #fafafa; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">1 / 6</span>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0; font-size: {{capFs}}"><span style="color: #d4d4d8">通知の設定画面</span><span style="min-width: 0; color: #a1a1aa; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">notify-settings.png</span><span aria-hidden="true" style="margin-left: auto; display: flex; gap: 5px"><sc-for list="{{dots}}" as="d" hint-placeholder-count="6"><span style="width: 6px; height: 6px; background: {{d}}"></span></sc-for></span></div>
+</section>
+</sc-if>
+
+<textarea aria-label="Comment" rows="2" placeholder="Comment (optional)" style="width: 100%; box-sizing: border-box; padding: {{taPad}}; border: 1px solid #3f3f46; background: #141414; color: #fafafa; font-family: inherit; font-size: {{taFs}}; resize: none"></textarea>
+<div style="display: {{btnDisplay}}; grid-template-columns: 1fr 1fr; gap: 8px">
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{btnFs}}; font-weight: 700">Mark done</button>
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{btnFs}}">Reject</button>
+</div>
+</article>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"phone":{"editor":"boolean","default":false},"place":{"editor":"enum","options":["none","inline","strip"],"default":"strip"},"multi":{"editor":"enum","options":["one","row","grid","carousel"],"default":"one"},"zoom":{"editor":"enum","options":["none","newTab","expand"],"default":"none"},"$preview":{"width":672,"height":360}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const phone = this.props.phone ?? false;
+    // place: where one attached image sits. none: today, no images. inline: where the detail mentions it. strip: under the detail.
+    const place = this.props.place ?? 'strip';
+    // multi: how six attached images show under the detail. one: a single image.
+    const multi = place === 'strip' ? (this.props.multi ?? 'one') : 'none';
+    // zoom: newTab marks each image as opening the file in a new tab (PC shows it on the pointer's image); expand opens the 2nd image inside the card.
+    const zoom = this.props.zoom ?? 'none';
+    const imgs = [
+      { kind: 'settings', name: 'notify-settings.png', cap: '通知の設定画面' },
+      { kind: 'sounds', name: 'sound-list.png', cap: '音の一覧' },
+      { kind: 'phone', name: 'lock-screen.png', cap: 'ロック画面に出た通知' },
+      { kind: 'log', name: 'device-log.png', cap: '端末のログ' },
+      { kind: 'silent', name: 'silent-mode.png', cap: 'サイレントの設定' },
+      { kind: 'settings', name: 'notify-settings-after.png', cap: '音を変えた後の設定' }
+    ];
+    const total = imgs.length;
+    // A row holds 5 slots on PC and 4 on the phone; the last slot turns into +N when more are attached.
+    const rowSlots = phone ? 4 : 5;
+    const row = imgs.length > rowSlots ? imgs.slice(0, rowSlots - 1) : imgs;
+    const rowItems = row.map((t, i) => ({ ...t, isImg: true, aria: 'Enlarge ' + t.name, newTab: zoom === 'newTab' && (phone || i === 1), tip: zoom === 'newTab' && !phone && i === 1, outline: (zoom === 'newTab' && !phone && i === 1) || (zoom === 'expand' && i === 1) ? '2px solid #a1a1aa' : 'none' }))
+      .concat(imgs.length > rowSlots ? [{ isMore: true, restLabel: '+' + (total - row.length), moreAria: 'Show all ' + total + ' images' }] : []);
+    // The grid holds 6 on PC and 4 on the phone; the last one shown carries +N over it.
+    const gridMax = phone ? 4 : 6;
+    const gridItems = imgs.slice(0, gridMax).map((t, i) => ({ ...t, aria: 'Enlarge ' + t.name, isMore: total > gridMax && i === gridMax - 1, restLabel: '+' + (total - gridMax + 1) }));
+    return {
+      phone,
+      fs: phone ? '15px' : '14px',
+      detailFs: phone ? '14px' : '13px',
+      smallFs: phone ? '13px' : '12px',
+      capFs: phone ? '12.5px' : '12px',
+      moreH: phone ? '32px' : '0',
+      isInline: place === 'inline', notInline: place !== 'inline',
+      inlineH: phone ? '190px' : '230px',
+      shotFs: phone ? '8px' : '10px',
+      isOne: multi === 'one',
+      oneW: phone ? '160px' : '192px', oneH: phone ? '100px' : '120px',
+      isRow: multi === 'row', rowSlots, rowItems, rowH: phone ? '52px' : '76px', total, moreFs: phone ? '15px' : '14px', tabPx: phone ? '20px' : '22px',
+      isExpand: multi === 'row' && zoom === 'expand', expandH: phone ? '200px' : '320px', ctlH: phone ? '44px' : '26px',
+      isGrid: multi === 'grid', gridItems, gridCols: phone ? 2 : 3, gridH: phone ? '100px' : '128px',
+      isCarousel: multi === 'carousel', carH: phone ? '200px' : '300px', navPx: phone ? '44px' : '32px', navHalf: phone ? '22px' : '16px',
+      dots: imgs.map((_, i) => i === 0 ? '#fafafa' : '#3f3f46'),
+      taPad: phone ? '8px 10px' : '6px 8px', taFs: phone ? '16px' : '13px',
+      btnDisplay: phone ? 'grid' : 'flex', btnH: phone ? '44px' : '28px', btnFs: phone ? '14px' : '12px'
+    };
+  }
+}
+</script>
+</body>
+</html>

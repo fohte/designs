@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Shared file: an image the session sent with a agent file send</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<article style="max-width: {{maxW}}; box-sizing: border-box; padding: 10px 12px; border: 1px solid #2a2a2a; background: #1f1f1f; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; color: #a1a1aa; font-size: 12px"><span>Shared file</span><time>10:14</time></div>
+<p style="margin: 8px 0">シミュレーターで音を選んだ画面です。</p>
+<button type="button" aria-label="Enlarge notify-settings.png" style="display: block; width: 100%; height: {{imgH}}; margin-top: 8px; padding: 0; border: 0; background: transparent; cursor: zoom-in"><dc-import name="Shot" h="{{imgH}}" kind="settings" fs="{{shotFs}}" hint-size="100%,100%"></dc-import></button>
+</article>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"phone":{"editor":"boolean","default":false},"$preview":{"width":560,"height":360}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // The image keeps its own size up to 480px tall; this fictional one is 16:10.
+    const phone = this.props.phone ?? false;
+    return {
+      maxW: phone ? '100%' : 'min(80%, 560px)',
+      fs: phone ? '15px' : '14px',
+      imgH: phone ? '205px' : '320px',
+      shotFs: phone ? '8px' : '10px'
+    };
+  }
+}
+</script>
+</body>
+</html>

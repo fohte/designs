@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Proposal card with attached images</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<article style="box-sizing: border-box; border: 1px solid #fbbf24; padding: 14px; display: flex; flex-direction: column; gap: 10px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
+<h2 style="margin: 0; color: #fbbf24; font-size: {{headFs}}; font-weight: 700">Proposal · waiting for your choice</h2>
+<h3 style="margin: 0; font-size: 17px; font-weight: 700">通知の再送の上限をどこで設定するか</h3>
+<div style="font-size: {{sumFs}}; color: #a1a1aa">再送の上限を、誰がどこで変えられるようにするか決めてください。</div>
+
+<sc-if value="{{isCard}}" hint-placeholder-val="{{ false }}">
+<ul aria-label="Attached images" style="display: flex; gap: 8px; margin: 0; padding: 0; list-style: none">
+<sc-for list="{{opts}}" as="o" hint-placeholder-count="2">
+<li style="min-width: 0; width: {{cardW}}; display: flex; flex-direction: column; gap: 3px">
+<button type="button" aria-label="{{o.aria}}" style="display: block; height: {{cardH}}; padding: 0; border: 0; box-shadow: 0 0 0 1px #2a2a2a; background: transparent"><dc-import name="Shot" h="{{cardH}}" kind="{{o.kind}}" fs="7px" hint-size="100%,100%"></dc-import></button>
+<span style="font-size: {{capFs}}; color: #d4d4d8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{o.cap}}</span>
+</li>
+</sc-for>
+</ul>
+</sc-if>
+
+<div style="display: grid; gap: 7px">
+<sc-for list="{{opts}}" as="o" hint-placeholder-count="2">
+<label style="display: grid; grid-template-columns: {{o.cols}}; gap: 10px; min-height: {{optMinH}}; box-sizing: border-box; padding: 10px; background: #141414; outline: {{o.outline}}; outline-offset: -2px">
+<span style="width: 15px; height: 15px; box-sizing: border-box; margin-top: 3px; border-radius: 50%; border: {{o.radio}}"></span>
+<span style="min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<span style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px"><strong>{{o.label}}</strong><sc-if value="{{o.recommended}}" hint-placeholder-val="{{ false }}"><span style="padding: 0 6px; border: 1px solid #a1a1aa; font-size: 11px; color: #a1a1aa">Recommended</span></sc-if></span>
+<span style="font-size: {{descFs}}; color: #d4d4d8">{{o.desc}}</span>
+<sc-if value="{{isInline}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="{{o.aria}}" style="display: block; width: {{inlineW}}; height: {{inlineH}}; margin: 2px 0; padding: 0; border: 0; box-shadow: 0 0 0 1px #2a2a2a; background: transparent"><dc-import name="Shot" h="{{inlineH}}" kind="{{o.kind}}" fs="8px" hint-size="100%,100%"></dc-import></button></sc-if>
+<span style="font-size: {{proFs}}; color: #a1a1aa">+ {{o.pro}}</span>
+<span style="font-size: {{proFs}}; color: #a1a1aa">− {{o.con}}</span>
+</span>
+<sc-if value="{{isOption}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="{{o.aria}}" style="align-self: start; width: {{thumbW}}; height: {{thumbH}}; display: block; padding: 0; border: 0; box-shadow: 0 0 0 1px #2a2a2a; background: transparent"><dc-import name="Shot" h="{{thumbH}}" kind="{{o.kind}}" fs="5px" hint-size="100%,100%"></dc-import></button></sc-if>
+</label>
+</sc-for>
+</div>
+<label style="font-size: {{smallFs}}; color: #a1a1aa">Comment (optional)<textarea rows="2" style="display: block; width: 100%; box-sizing: border-box; margin-top: 4px; padding: {{taPad}}; border: 1px solid #3f3f46; background: #141414; color: #fafafa; font-family: inherit; font-size: {{taFs}}; resize: none"></textarea></label>
+<div style="display: flex; flex-direction: {{btnDir}}; align-items: {{btnAlign}}; gap: 8px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{btnFs}}; font-weight: 700">Choose</button>
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{btnFs}}">Ask for another option</button>
+</div>
+<span style="margin-left: {{hintMl}}; font-size: 11.5px; color: #8b8b94">1 / 2 to pick · ⌘↵ to send</span>
+</div>
+</article>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"phone":{"editor":"boolean","default":false},"place":{"editor":"enum","options":["none","inline","card","option"],"default":"option"},"$preview":{"width":672,"height":460}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const phone = this.props.phone ?? false;
+    // place: none (today) | inline: in the option's text where it mentions the image | card: under the summary, for the whole card | option: beside the option it belongs to.
+    const place = this.props.place ?? 'option';
+    const thumbW = phone ? '84px' : '128px';
+    const opts = [
+      { label: '設定ファイルに書く', recommended: true, desc: '運用する人が config.yml で上限を決める。', pro: '画面を作らずに済む', con: '利用者は変えられない', kind: 'file', name: 'config-file.png', cap: '設定ファイルに書く場合', outline: '2px solid #fafafa', radio: '5px solid #fafafa' },
+      { label: '設定画面で選ぶ', recommended: false, desc: 'アプリの設定画面に上限の欄を足す。', pro: '利用者がその場で変えられる', con: '画面の改修が要る', kind: 'screen', name: 'settings-screen.png', cap: '設定画面で選ぶ場合', outline: 'none', radio: '1px solid #71717a' }
+    ].map((o) => ({ ...o, aria: 'Enlarge ' + o.name, cols: place === 'option' ? '15px 1fr ' + thumbW : '15px 1fr' }));
+    return {
+      opts,
+      isCard: place === 'card', isInline: place === 'inline', isOption: place === 'option',
+      fs: phone ? '15px' : '14px', headFs: phone ? '12.5px' : '12px', sumFs: phone ? '14px' : '13px',
+      descFs: phone ? '14px' : '13px', proFs: phone ? '13px' : '12.5px', capFs: phone ? '12.5px' : '12px', smallFs: phone ? '12.5px' : '12px',
+      cardW: phone ? '156px' : '192px', cardH: phone ? '98px' : '120px',
+      inlineW: phone ? '100%' : '320px', inlineH: phone ? '140px' : '160px',
+      thumbW, thumbH: phone ? '56px' : '80px',
+      optMinH: phone ? '48px' : '0',
+      taPad: phone ? '8px 10px' : '6px 8px', taFs: phone ? '16px' : '13px',
+      btnDir: phone ? 'column' : 'row', btnAlign: phone ? 'flex-start' : 'center', hintMl: phone ? '0' : 'auto',
+      btnH: phone ? '44px' : '28px', btnFs: phone ? '12.5px' : '12px'
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Attached image: a fictional screenshot</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div role="img" aria-label="{{label}}" style="width: 100%; height: {{h}}; text-align: left; box-sizing: border-box; overflow: hidden; display: flex; background: {{bg}}; color: #27272a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.4">
+<sc-if value="{{isWindow}}" hint-placeholder-val="{{ true }}">
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<div style="flex: none; height: 8%; min-height: 6px; display: flex; align-items: center; gap: 3%; padding: 0 3%; background: #d4d4d8"><span style="width: 1.6%; aspect-ratio: 1; border-radius: 50%; background: #a1a1aa"></span><span style="width: 1.6%; aspect-ratio: 1; border-radius: 50%; background: #a1a1aa"></span><span style="width: 1.6%; aspect-ratio: 1; border-radius: 50%; background: #a1a1aa"></span></div>
+<div style="flex: 1; min-height: 0; display: flex">
+<div style="flex: none; width: 24%; display: flex; flex-direction: column; gap: 9%; padding: 5% 3%; box-sizing: border-box; background: #e4e4e7"><span style="height: 5%; background: #a1a1aa"></span><span style="height: 5%; width: 70%; background: #c4c4c9"></span><span style="height: 5%; width: 85%; background: #52525b"></span><span style="height: 5%; width: 60%; background: #c4c4c9"></span></div>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; padding: 4% 5%; box-sizing: border-box; background: #f4f4f5">
+<strong style="margin-bottom: 3%; font-size: 1.25em">{{heading}}</strong>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="4">
+<div style="flex: 1; max-height: 18%; display: flex; align-items: center; gap: 4%; padding: 0 3%; border-bottom: 1px solid #e4e4e7; background: {{r.bg}}">
+<sc-if value="{{r.radio}}" hint-placeholder-val="{{ false }}"><span style="flex: none; width: 0.9em; height: 0.9em; box-sizing: border-box; border-radius: 50%; border: {{r.dot}}"></span></sc-if>
+<span style="flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{r.label}}</span>
+<sc-if value="{{r.toggle}}" hint-placeholder-val="{{ false }}"><span style="flex: none; width: 2.2em; height: 1.2em; box-sizing: border-box; display: flex; justify-content: {{r.knob}}; padding: 0.15em; border-radius: 0.6em; background: {{r.track}}"><span style="width: 0.9em; height: 0.9em; border-radius: 50%; background: #ffffff"></span></span></sc-if>
+<sc-if value="{{r.hasValue}}" hint-placeholder-val="{{ false }}"><span style="flex: none; color: #52525b; white-space: nowrap">{{r.value}}</span></sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{isPhone}}" hint-placeholder-val="{{ false }}">
+<div style="flex: 1; display: grid; place-items: center; padding: 3% 0; box-sizing: border-box">
+<div style="height: 100%; aspect-ratio: 9 / 18; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; gap: 4%; padding: 14% 6% 0; border: 2px solid #27272a; border-radius: 9%/4.5%; background: #52525b; color: #fafafa">
+<span style="font-size: 2.6em; font-weight: 300; line-height: 1">9:41</span>
+<span style="width: 100%; box-sizing: border-box; margin-top: 10%; display: grid; grid-template-columns: 1.6em 1fr; column-gap: 0.5em; padding: 0.6em; border-radius: 0.6em; background: #e4e4e7; color: #27272a; font-size: 0.85em"><span style="grid-row: span 2; width: 1.6em; height: 1.6em; border-radius: 0.35em; background: #71717a"></span><strong style="white-space: nowrap">example</strong><span>テスト通知が届きました</span></span>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{isCode}}" hint-placeholder-val="{{ false }}">
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; padding: 4% 0; box-sizing: border-box; font-family: 'JetBrains Mono', monospace">
+<sc-for list="{{lines}}" as="l" hint-placeholder-count="5">
+<div style="display: flex; gap: 4%; padding: 0.15em 4%; background: {{l.bg}}; color: {{l.color}}; white-space: pre"><span style="flex: none; width: 1.5em; text-align: right; color: {{l.numColor}}">{{l.n}}</span><span>{{l.text}}</span></div>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"kind":{"editor":"enum","options":["settings","sounds","silent","screen","phone","log","file"],"default":"settings"},"fs":{"editor":null},"h":{"editor":null},"$preview":{"width":320,"height":200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // kind: what the fictional screenshot shows. The importer sizes it; fs scales its text with the box.
+    const kind = this.props.kind ?? 'settings';
+    const T = (label, on) => ({ label, toggle: true, track: on ? '#52525b' : '#c4c4c9', knob: on ? 'flex-end' : 'flex-start', bg: 'transparent' });
+    const V = (label, value, hi) => ({ label, hasValue: true, value, bg: hi ? '#dbeafe' : 'transparent' });
+    const R = (label, on) => ({ label, radio: true, dot: on ? '0.3em solid #27272a' : '1px solid #71717a', bg: on ? '#dbeafe' : 'transparent' });
+    const W = {
+      settings: { heading: 'Notifications', label: '通知の設定画面のスクリーンショット', rows: [T('Allow notifications', true), V('Sound', 'Chime ▾', true), T('Badge', true), V('Preview', 'Always')] },
+      sounds: { heading: 'Sound', label: '音の一覧のスクリーンショット', rows: [R('Chime', true), R('Bell'), R('Pop'), R('Note'), R('None')] },
+      silent: { heading: 'Sounds', label: 'サイレントの設定のスクリーンショット', rows: [T('Silent mode', false), V('Volume', '70%'), T('Vibrate', true)] },
+      screen: { heading: 'Delivery', label: '再送の上限を設定画面で選ぶ案の画面', rows: [T('Retry on failure', true), V('Max retries', '−  3  +', true), V('Wait between', '1 s')] }
+    };
+    const C = {
+      log: { label: '端末のログのスクリーンショット', dark: true, lines: ['12:03:41 notify received id=42', '12:03:41 sound=chime', '12:03:41 silent=false', '12:03:42 played 0.8 s', '12:03:42 done'] },
+      file: { label: '再送の上限を設定ファイルに書く案の画面', dark: false, hi: 3, lines: ['notify:', '  retry:', '    enabled: true', '    max_attempts: 3', '    wait: 1s'] }
+    };
+    const w = W[kind];
+    const c = C[kind];
+    const lines = c ? c.lines.map((text, i) => ({ n: String(i + 1), text, bg: c.hi === i ? '#dbeafe' : 'transparent', color: c.dark ? (i === 1 ? '#86efac' : '#d4d4d8') : '#27272a', numColor: c.dark ? '#71717a' : '#a1a1aa' })) : [];
+    return {
+      isWindow: !!w, isPhone: kind === 'phone', isCode: !!c,
+      heading: w?.heading ?? '', rows: w?.rows ?? [],
+      lines,
+      label: w?.label ?? c?.label ?? 'ロック画面に出た通知のスクリーンショット',
+      bg: c?.dark ? '#18181b' : kind === 'phone' ? '#d4d4d8' : '#f4f4f5',
+      fs: this.props.fs ?? '10px',
+      h: this.props.h ?? '200px'
+    };
+  }
+}
+</script>
+</body>
+</html>

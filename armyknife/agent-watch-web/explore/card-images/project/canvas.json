@@ -1,0 +1,795 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-24T12:00:00Z"
+  },
+  "title": "to-do と proposal のカードに画像を出す",
+  "launch": {
+    "view": "canvas",
+    "page": "current"
+  },
+  "pages": [
+    {
+      "id": "current",
+      "name": "今の画面"
+    },
+    {
+      "id": "place",
+      "name": "1. 画像の置き場所"
+    },
+    {
+      "id": "multi",
+      "name": "2. 画像が何枚もあるとき"
+    },
+    {
+      "id": "zoom",
+      "name": "3. 画像を大きく見る"
+    },
+    {
+      "id": "inbox",
+      "name": "4. Inbox の行"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "card-images-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC の to-do",
+      "page": "current"
+    },
+    "card-images-current-proposal.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC の proposal",
+      "page": "current"
+    },
+    "card-images-current-lightbox.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC で Shared file の画像を押した",
+      "page": "current"
+    },
+    "card-images-current-phone.dc.html": {
+      "x": 4560,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone の to-do",
+      "page": "current"
+    },
+    "card-images-current-phone-proposal.dc.html": {
+      "x": 5030,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone の proposal",
+      "page": "current"
+    },
+    "card-images-current-phone-lightbox.dc.html": {
+      "x": 5500,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone で画像を押した",
+      "page": "current"
+    },
+    "place-inline-todo.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC の to-do",
+      "page": "place"
+    },
+    "place-inline-proposal.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC の proposal",
+      "page": "place"
+    },
+    "place-inline-todo-phone.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone の to-do",
+      "page": "place"
+    },
+    "place-inline-proposal-phone.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone の proposal",
+      "page": "place"
+    },
+    "place-strip-todo.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC の to-do",
+      "page": "place"
+    },
+    "place-strip-proposal.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC の proposal",
+      "page": "place"
+    },
+    "place-strip-todo-phone.dc.html": {
+      "x": 3040,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone の to-do",
+      "page": "place"
+    },
+    "place-strip-proposal-phone.dc.html": {
+      "x": 3510,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone の proposal",
+      "page": "place"
+    },
+    "place-option-proposal.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC の proposal",
+      "page": "place"
+    },
+    "place-option-proposal-phone.dc.html": {
+      "x": 1520,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone の proposal",
+      "page": "place"
+    },
+    "multi-row.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC",
+      "page": "multi"
+    },
+    "multi-row-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone",
+      "page": "multi"
+    },
+    "multi-grid.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC",
+      "page": "multi"
+    },
+    "multi-grid-phone.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone",
+      "page": "multi"
+    },
+    "multi-carousel.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC",
+      "page": "multi"
+    },
+    "multi-carousel-phone.dc.html": {
+      "x": 1520,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone",
+      "page": "multi"
+    },
+    "zoom-lightbox.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC で 2 枚目を押した",
+      "page": "zoom"
+    },
+    "zoom-lightbox-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone で 2 枚目を押した",
+      "page": "zoom"
+    },
+    "zoom-lightbox-phone-pinch.dc.html": {
+      "x": 1990,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone でピンチして拡大した",
+      "page": "zoom"
+    },
+    "zoom-newtab.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC で画像にポインターを乗せた",
+      "page": "zoom"
+    },
+    "zoom-newtab-phone.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone",
+      "page": "zoom"
+    },
+    "zoom-expand.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC で 2 枚目を押した",
+      "page": "zoom"
+    },
+    "zoom-expand-phone.dc.html": {
+      "x": 1520,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone で 2 枚目を押した",
+      "page": "zoom"
+    },
+    "inbox-none.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC",
+      "page": "inbox"
+    },
+    "inbox-none-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone",
+      "page": "inbox"
+    },
+    "inbox-count.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC",
+      "page": "inbox"
+    },
+    "inbox-count-phone.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone",
+      "page": "inbox"
+    },
+    "inbox-thumb.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC",
+      "page": "inbox"
+    },
+    "inbox-thumb-phone.dc.html": {
+      "x": 1520,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone",
+      "page": "inbox"
+    },
+    "Lightbox.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "page": "parts"
+    },
+    "SharedFile.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 560,
+      "h": 360,
+      "page": "parts"
+    },
+    "Shot.dc.html": {
+      "x": 2160,
+      "y": 0,
+      "w": 320,
+      "h": 200,
+      "page": "parts"
+    },
+    "ImgProposal.dc.html": {
+      "x": 2560,
+      "y": 0,
+      "w": 672,
+      "h": 460,
+      "page": "parts"
+    },
+    "ImgTodo.dc.html": {
+      "x": 3312,
+      "y": 0,
+      "w": 672,
+      "h": 360,
+      "page": "parts"
+    },
+    "ActionItem.dc.html": {
+      "x": 0,
+      "y": 1020,
+      "w": 360,
+      "h": 110,
+      "page": "parts"
+    },
+    "ActivityButton.dc.html": {
+      "x": 440,
+      "y": 1020,
+      "w": 224,
+      "h": 44,
+      "page": "parts"
+    },
+    "CloseChecks.dc.html": {
+      "x": 744,
+      "y": 1020,
+      "w": 408,
+      "h": 170,
+      "page": "parts"
+    },
+    "CloseCopy.dc.html": {
+      "x": 1232,
+      "y": 1020,
+      "w": 1440,
+      "h": 1340,
+      "page": "parts"
+    },
+    "CodeBlock.dc.html": {
+      "x": 2752,
+      "y": 1020,
+      "w": 672,
+      "h": 160,
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 3504,
+      "y": 1020,
+      "w": 380,
+      "h": 200,
+      "page": "parts"
+    },
+    "Conversation.dc.html": {
+      "x": 0,
+      "y": 2480,
+      "w": 880,
+      "h": 900,
+      "page": "parts"
+    },
+    "InboxList.dc.html": {
+      "x": 960,
+      "y": 2480,
+      "w": 460,
+      "h": 900,
+      "page": "parts"
+    },
+    "MergeBand.dc.html": {
+      "x": 1500,
+      "y": 2480,
+      "w": 760,
+      "h": 60,
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 2340,
+      "y": 2480,
+      "w": 160,
+      "h": 44,
+      "page": "parts"
+    },
+    "Nav.dc.html": {
+      "x": 2580,
+      "y": 2480,
+      "w": 240,
+      "h": 900,
+      "page": "parts"
+    },
+    "PhoneChat.dc.html": {
+      "x": 2900,
+      "y": 2480,
+      "w": 390,
+      "h": 844,
+      "page": "parts"
+    },
+    "PhoneInbox.dc.html": {
+      "x": 3370,
+      "y": 2480,
+      "w": 390,
+      "h": 844,
+      "page": "parts"
+    },
+    "PhoneLaterSheet.dc.html": {
+      "x": 0,
+      "y": 3500,
+      "w": 390,
+      "h": 420,
+      "page": "parts"
+    },
+    "PhoneRowMenu.dc.html": {
+      "x": 470,
+      "y": 3500,
+      "w": 390,
+      "h": 250,
+      "page": "parts"
+    },
+    "PhoneSaveViewSheet.dc.html": {
+      "x": 940,
+      "y": 3500,
+      "w": 390,
+      "h": 300,
+      "page": "parts"
+    },
+    "PrButton.dc.html": {
+      "x": 1410,
+      "y": 3500,
+      "w": 44,
+      "h": 44,
+      "page": "parts"
+    },
+    "Quota.dc.html": {
+      "x": 1534,
+      "y": 3500,
+      "w": 240,
+      "h": 140,
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 1854,
+      "y": 3500,
+      "w": 460,
+      "h": 76,
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 2394,
+      "y": 3500,
+      "w": 672,
+      "h": 40,
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 3146,
+      "y": 3500,
+      "w": 760,
+      "h": 60,
+      "page": "parts"
+    },
+    "ToastStack.dc.html": {
+      "x": 0,
+      "y": 4040,
+      "w": 360,
+      "h": 240,
+      "page": "parts"
+    },
+    "TodoCard.dc.html": {
+      "x": 440,
+      "y": 4040,
+      "w": 672,
+      "h": 40,
+      "page": "parts"
+    },
+    "UpdateBand.dc.html": {
+      "x": 1192,
+      "y": 4040,
+      "w": 760,
+      "h": 40,
+      "page": "parts"
+    }
+  },
+  "order": [
+    "UpdateBand.dc.html",
+    "TodoCard.dc.html",
+    "ToastStack.dc.html",
+    "StatusBand.dc.html",
+    "SessionUsage.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "PrButton.dc.html",
+    "PhoneSaveViewSheet.dc.html",
+    "PhoneRowMenu.dc.html",
+    "PhoneLaterSheet.dc.html",
+    "PhoneInbox.dc.html",
+    "PhoneChat.dc.html",
+    "Nav.dc.html",
+    "MergeButton.dc.html",
+    "MergeBand.dc.html",
+    "InboxList.dc.html",
+    "Conversation.dc.html",
+    "ConfirmDialog.dc.html",
+    "CodeBlock.dc.html",
+    "CloseCopy.dc.html",
+    "CloseChecks.dc.html",
+    "ActivityButton.dc.html",
+    "ActionItem.dc.html",
+    "ImgTodo.dc.html",
+    "ImgProposal.dc.html",
+    "Shot.dc.html",
+    "SharedFile.dc.html",
+    "Lightbox.dc.html",
+    "card-images-current.dc.html",
+    "card-images-current-proposal.dc.html",
+    "card-images-current-lightbox.dc.html",
+    "card-images-current-phone.dc.html",
+    "card-images-current-phone-proposal.dc.html",
+    "card-images-current-phone-lightbox.dc.html",
+    "place-inline-todo.dc.html",
+    "place-inline-proposal.dc.html",
+    "place-inline-todo-phone.dc.html",
+    "place-inline-proposal-phone.dc.html",
+    "place-strip-todo.dc.html",
+    "place-strip-proposal.dc.html",
+    "place-strip-todo-phone.dc.html",
+    "place-strip-proposal-phone.dc.html",
+    "place-option-proposal.dc.html",
+    "place-option-proposal-phone.dc.html",
+    "multi-row.dc.html",
+    "multi-row-phone.dc.html",
+    "multi-grid.dc.html",
+    "multi-grid-phone.dc.html",
+    "multi-carousel.dc.html",
+    "multi-carousel-phone.dc.html",
+    "zoom-lightbox.dc.html",
+    "zoom-lightbox-phone.dc.html",
+    "zoom-lightbox-phone-pinch.dc.html",
+    "zoom-newtab.dc.html",
+    "zoom-newtab-phone.dc.html",
+    "zoom-expand.dc.html",
+    "zoom-expand-phone.dc.html",
+    "inbox-none.dc.html",
+    "inbox-none-phone.dc.html",
+    "inbox-count.dc.html",
+    "inbox-count-phone.dc.html",
+    "inbox-thumb.dc.html",
+    "inbox-thumb-phone.dc.html"
+  ],
+  "notes": {
+    "currentRow0Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 5890,
+      "page": "current",
+      "text": "今の画面 · 画像は a agent file send の Shared file でだけ送れる"
+    },
+    "currentRow0Note": {
+      "x": 5970,
+      "y": 0,
+      "w": 460,
+      "page": "current",
+      "text": "今\n- a agent file send の画像は、会話に Shared file のカードとして流れる。caption と、幅いっぱい (最大 480px の高さ) の画像。\n- 画像を押すと画面に重ねて 1 枚だけ大きく出る。前後の画像へは送れず、どこを押しても閉じる。\n- to-do と proposal のカードには画像を載せられない。to-do の画像は、返事に添付するとき (Comment の下) にだけ出る。"
+    },
+    "placeRow0Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 3900,
+      "page": "place",
+      "text": "A · 本文の中、エージェントが触れた位置に大きく出す"
+    },
+    "placeRow0Note": {
+      "x": 3980,
+      "y": 0,
+      "w": 460,
+      "page": "place",
+      "text": "A\n+ 文と画像が隣り合い、どの画像の話か迷わない\n+ proposal は選択肢の説明の中に出るので、どの案の画像か分かる\n− カードが縦に長くなる。proposal は PC でも 1 画面に収まらず、Choose まで送る必要がある\n− to-do の本文を 2 行で畳めない\n− エージェントが本文に ![](…) で位置を書く必要がある"
+    },
+    "placeRow1Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 3900,
+      "page": "place",
+      "text": "B · 本文の下に、カードの画像をまとめて並べる"
+    },
+    "placeRow1Note": {
+      "x": 3980,
+      "y": 1280,
+      "w": 460,
+      "page": "place",
+      "text": "B\n+ 本文は今のまま 2 行で畳め、カードの高さが読める\n+ エージェントは画像を渡すだけでよい\n− proposal では、どの画像がどの案か caption で書き分けるしかない\n− 本文のどの文の話かは読む側がつなぐ"
+    },
+    "placeRow2Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2300,
+      "maxW": 1910,
+      "page": "place",
+      "text": "C · proposal は選択肢の右に、その選択肢の画像を出す"
+    },
+    "placeRow2Note": {
+      "x": 1990,
+      "y": 2560,
+      "w": 460,
+      "page": "place",
+      "text": "C\n- to-do は B と同じく本文の下。proposal の選択肢に付けた画像は、その選択肢の右に小さく出す。カード全体の画像は B と同じく概要の下。\n+ 案と画像の対応が見ただけで分かり、選ぶ操作の近くにある\n+ カードの高さは B とほぼ同じ\n− 画像が小さいので、中身は大きくして見る (3. の案) 前提\n− CLI で画像を選択肢に結びつける指定が要る"
+    },
+    "multiRow0Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1910,
+      "page": "multi",
+      "text": "A · 小さな画像を 1 列に並べ、入らない分は +N にする"
+    },
+    "multiRow0Note": {
+      "x": 1990,
+      "y": 0,
+      "w": 460,
+      "page": "multi",
+      "text": "A\n- PC は 5 枠、iPhone は 4 枠。入らないときは最後の枠を +N にする (6 枚なら PC は 4 枚と +2、iPhone は 3 枚と +3)。\n- 画像の下に文字は出さない。caption はポインターを乗せたときと、大きくしたときに出す。\n+ 何枚でもカードの高さが変わらない\n− 1 枚ずつの中身は大きくしないと読めない"
+    },
+    "multiRow1Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 1910,
+      "page": "multi",
+      "text": "B · 大きめの画像を格子に並べ、説明を添える"
+    },
+    "multiRow1Note": {
+      "x": 1990,
+      "y": 1280,
+      "w": 460,
+      "page": "multi",
+      "text": "B\n- PC は 3 列で 6 枚まで、iPhone は 2 列で 4 枚まで。入らないときは最後の 1 枚に +N を重ねる。\n- 各画像の下に caption (無ければファイル名) を 1 行出す。\n+ カードの中で中身がおおよそ読め、説明で見分けられる\n− 枚数に応じてカードが縦に伸びる"
+    },
+    "multiRow2Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2300,
+      "maxW": 1910,
+      "page": "multi",
+      "text": "C · 1 枚ずつ大きく出し、左右に送る"
+    },
+    "multiRow2Note": {
+      "x": 1990,
+      "y": 2560,
+      "w": 460,
+      "page": "multi",
+      "text": "C\n- 1 枚を幅いっぱいに出し、‹ › (iPhone はスワイプも) で送る。右上に 1 / 6、下に caption とファイル名と位置の印。\n+ 1 枚ごとの中身がカードの中で読める\n− 2 枚目以降は送らないと見えず、何が写っているか一覧できない\n− カードの高さが 1 枚目に引っ張られる"
+    },
+    "zoomRow0Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 2380,
+      "page": "zoom",
+      "text": "A · 画面に重ねて大きく出し、←→ やスワイプで送る"
+    },
+    "zoomRow0Note": {
+      "x": 2460,
+      "y": 0,
+      "w": 460,
+      "page": "zoom",
+      "text": "A\n- 今の Shared file の拡大を、カードの画像の並びごと送れるようにしたもの。\n- PC: ← → と下の一覧で送り、Esc か × で閉じる。Open original で元のファイルを新しいタブで開く。\n- iPhone: 左右のスワイプで送り、ピンチで拡大、ダブルタップで戻す。下へのスワイプか × で閉じる。\n+ 会話から離れずに全部を見比べられる\n− 作る量がいちばん多い"
+    },
+    "zoomRow1Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 1910,
+      "page": "zoom",
+      "text": "B · 押すと元の画像を新しいタブで開く"
+    },
+    "zoomRow1Note": {
+      "x": 1990,
+      "y": 1280,
+      "w": 460,
+      "page": "zoom",
+      "text": "B\n- 画像の角に ↗ を出し、押すと元のファイルをブラウザの新しいタブで開く。拡大や送りはブラウザに任せる。\n+ 作る量が少なく、原寸やピンチはブラウザがそのまま扱う\n− 1 枚ごとにタブが増え、会話に戻る手間がある\n− 今の Shared file の拡大とふるまいが揃わない"
+    },
+    "zoomRow2Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2300,
+      "maxW": 1910,
+      "page": "zoom",
+      "text": "C · カードの中でその場で大きくする"
+    },
+    "zoomRow2Note": {
+      "x": 1990,
+      "y": 2560,
+      "w": 460,
+      "page": "zoom",
+      "text": "C\n- 押した画像をカードの幅いっぱいに広げ、もう一度押すか Shrink で戻す。並びの中では広げた画像に枠を付ける。\n+ 本文やボタンと一緒に見ながら答えられる\n− カードの幅より大きくはならず、細かい文字は読みにくい\n− 広げるたびに会話の位置がずれる"
+    },
+    "inboxRow0Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1910,
+      "page": "inbox",
+      "text": "A · 行には何も出さない"
+    },
+    "inboxRow0Note": {
+      "x": 1990,
+      "y": 0,
+      "w": 460,
+      "page": "inbox",
+      "text": "A\n+ 行が今のまま。画像があるかは開けば分かる\n− 画像を見ないと答えられないカードか、開くまで分からない"
+    },
+    "inboxRow1Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 1910,
+      "page": "inbox",
+      "text": "B · プレビューの前に画像の数を出す"
+    },
+    "inboxRow1Note": {
+      "x": 1990,
+      "y": 1280,
+      "w": 460,
+      "page": "inbox",
+      "text": "B\n- プレビューの行頭に画像の印と枚数。\n+ 行の高さもレイアウトも変わらない\n− 何の画像かは分からない"
+    },
+    "inboxRow2Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2300,
+      "maxW": 1910,
+      "page": "inbox",
+      "text": "C · 行の右に 1 枚目の画像を小さく出す"
+    },
+    "inboxRow2Note": {
+      "x": 1990,
+      "y": 2560,
+      "w": 460,
+      "page": "inbox",
+      "text": "C\n- 行の右端に 1 枚目の画像。2 枚以上なら右下に +N。\n+ 見覚えのある画面なら、開く前に何の話か分かる\n− 行が混み、タイトルとプレビューの幅が減る\n− 48px では中身はほぼ読めない"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-24T12:00:00Z"
+    }
+  ]
+}

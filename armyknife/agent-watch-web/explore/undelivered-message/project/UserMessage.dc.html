@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Your message: queued or not delivered</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; align-items: flex-end; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
+
+<sc-if value="{{isEvent}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="align-self: stretch; display: flex; justify-content: center; align-items: center; gap: 6px; flex-wrap: wrap; font-size: {{smallFs}}; text-align: center; color: #a1a1aa">
+<span style="display: inline-flex; color: #f87171"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></span>
+<span style="color: #f87171">{{eventHead}}</span><span>· {{time}}</span><span style="flex-basis: {{noteBasis}}">{{notePrefix}}{{eventNote}}</span>
+</div>
+</sc-if>
+
+<sc-if value="{{isBubble}}" hint-placeholder-val="{{ true }}">
+<article aria-label="{{aria}}" style="max-width: {{maxW}}; min-width: {{minW}}; display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; justify-content: flex-end; gap: 0; font-size: 12px; color: #8b8b94; white-space: pre">You · <sc-if value="{{redLabel}}" hint-placeholder-val="{{ false }}"><span style="color: #f87171; font-weight: 700">{{labelWord}}</span> · </sc-if><sc-if value="{{greyLabel}}" hint-placeholder-val="{{ false }}"><span>{{labelWord}}</span> · </sc-if>{{time}}</div>
+<div style="padding: 10px 14px; background: #1f1f1f; color: {{bubbleColor}}; overflow-wrap: anywhere">{{text}}</div>
+
+<sc-if value="{{isBand}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="margin-top: -4px; box-sizing: border-box; display: flex; flex-direction: {{bandDir}}; align-items: {{bandAlign}}; gap: {{bandGap}}; padding: {{bandPad}}; border: 1px solid #5b2323; border-top: 0; background: #1a1111; font-size: {{smallFs}}">
+<div style="flex: 1; min-width: 0; display: flex; align-items: flex-start; gap: 8px">
+<span style="flex: none; display: inline-flex; padding-top: 3px; color: {{iconColor}}">
+<sc-if value="{{spin}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg></sc-if>
+<sc-if value="{{notSpin}}" hint-placeholder-val="{{ true }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
+</span>
+<span style="min-width: 0"><strong style="color: {{headColor}}">{{bandHead}}</strong> <span style="color: #d4d4d8">{{bandText}}</span></span>
+</div>
+<sc-if value="{{hasBtns}}" hint-placeholder-val="{{ true }}">
+<div style="flex: none; display: {{btnDisplay}}; grid-template-columns: {{btnCols}}; gap: 8px">
+<sc-for list="{{btns}}" as="b" hint-placeholder-count="2"><button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{b.border}}; background: {{b.bg}}; color: {{b.color}}; font-family: inherit; font-size: {{btnFs}}; font-weight: {{b.weight}}; white-space: nowrap">{{b.label}}</button></sc-for>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{isLabel}}" hint-placeholder-val="{{ false }}">
+<sc-if value="{{hasLabelRow}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; justify-content: flex-end; align-items: center; flex-wrap: wrap; gap: 8px; margin-top: 2px; font-size: {{smallFs}}">
+<sc-if value="{{hasHint}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa">{{hint}}</span></sc-if>
+<sc-for list="{{btns}}" as="b" hint-placeholder-count="2"><button type="button" style="min-height: {{btnH}}; min-width: {{btnMinW}}; padding: 0 10px; border: 1px solid {{b.border}}; background: {{b.bg}}; color: {{b.color}}; font-family: inherit; font-size: {{btnFs}}; font-weight: {{b.weight}}; white-space: nowrap">{{b.label}}</button></sc-for>
+</div>
+</sc-if>
+</sc-if>
+</article>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"m":{"editor":null},"phone":{"editor":"boolean","default":false},"$preview":{"width":640,"height":160}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // m.look: queued (as now: You · Queued, nothing else) | label (red Not delivered in the label, buttons under the bubble) | band (a red band joined under the bubble) | event (no bubble; one centered line, the text went back to the composer).
+    // m.state: failed (Resend / Discard) | resending | waitResume (ended session; Resend appears after Resume) | resumeResend (ended session; one button resumes, then resends).
+    // m.actions false: one of several undelivered messages whose buttons sit under the last one. m.count: how many that last one acts on.
+    const m = this.props.m ?? { text: 'PR の説明に計測値の例も足して。', time: '14:31', look: 'band', state: 'failed' };
+    const phone = this.props.phone ?? false;
+    const look = m.look ?? 'band';
+    const state = m.state ?? 'failed';
+    const count = m.count ?? 1;
+    const actions = m.actions ?? true;
+    const many = count > 1;
+    const n = many ? ' ' + count : '';
+    const primary = (label, disabled) => ({ label, border: disabled ? '#3f3f46' : '#fafafa', bg: disabled ? 'transparent' : '#fafafa', color: disabled ? '#a1a1aa' : '#0a0a0a', weight: '700' });
+    const ghost = (label) => ({ label, border: '#3f3f46', bg: 'transparent', color: '#d4d4d8', weight: '400' });
+    const discard = ghost('Discard' + n);
+    const B = {
+      failed: [primary('Resend' + n), discard],
+      resending: [],
+      waitResume: [discard],
+      resumeResend: [primary('Resume and resend' + n), discard]
+    }[state];
+    const btns = actions ? B : [];
+    const what = many ? count + ' messages were not delivered.' : 'Not delivered.';
+    const T = {
+      failed: { head: what, text: 'The session exited before it read ' + (many ? 'them.' : 'this message.') },
+      resending: { head: 'Resending…', text: 'It is sent once the session is running.' },
+      waitResume: { head: what, text: 'Resume the session to resend ' + (many ? 'them.' : 'it.') },
+      resumeResend: { head: what, text: 'The session exited before it read ' + (many ? 'them.' : 'this message.') }
+    }[state];
+    const failedLook = look === 'label' || look === 'band';
+    return {
+      fs: phone ? '15px' : '14px',
+      smallFs: phone ? '13px' : '12.5px',
+      maxW: phone ? '92%' : '80%',
+      minW: look === 'band' ? (phone ? '100%' : '420px') : '0',
+      aria: failedLook ? 'Your message, not delivered' : 'Your message',
+      text: m.text, time: m.time,
+      isEvent: look === 'event', isBubble: look !== 'event',
+      eventHead: m.eventHead ?? 'Your message was not delivered',
+      eventNote: m.note ?? 'Back in the composer',
+      // phone: the note takes its own line instead of wrapping mid-sentence.
+      noteBasis: phone ? '100%' : 'auto', notePrefix: phone ? '' : '· ',
+      // queued: the label as the app shows it now. label: red, or grey while it resends.
+      redLabel: look === 'label' && state !== 'resending',
+      greyLabel: look === 'queued' || (look === 'label' && state === 'resending'),
+      labelWord: look === 'queued' ? 'Queued' : state === 'resending' ? 'Resending…' : 'Not delivered',
+      bubbleColor: failedLook && state !== 'resending' ? '#d4d4d8' : '#fafafa',
+      isBand: look === 'band' && actions,
+      isLabel: look === 'label',
+      hasLabelRow: btns.length > 0 || (actions && state === 'waitResume'),
+      hasHint: actions && state === 'waitResume',
+      hint: 'Resume the session to resend',
+      bandHead: T.head, bandText: T.text,
+      headColor: state === 'resending' ? '#d4d4d8' : '#f87171',
+      iconColor: state === 'resending' ? '#a1a1aa' : '#f87171',
+      spin: state === 'resending', notSpin: state !== 'resending',
+      bandDir: phone ? 'column' : 'row',
+      bandAlign: phone ? 'stretch' : 'center',
+      bandGap: phone ? '10px' : '12px',
+      bandPad: phone ? '10px 12px 12px' : '8px 8px 8px 12px',
+      hasBtns: btns.length > 0,
+      btns,
+      btnDisplay: phone ? 'grid' : 'flex',
+      btnCols: btns.length > 1 ? '1fr 1fr' : '1fr',
+      btnH: phone ? '44px' : '28px',
+      btnMinW: phone ? '88px' : '0',
+      btnFs: phone ? '14px' : '12px'
+    };
+  }
+}
+</script>
+</body>
+</html>

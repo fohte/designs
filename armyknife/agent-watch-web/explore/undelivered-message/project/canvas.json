@@ -1,0 +1,473 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-25T12:25:55.826Z"
+  },
+  "title": "届かなかったメッセージ",
+  "launch": {
+    "view": "canvas",
+    "page": "current"
+  },
+  "pages": [
+    {
+      "id": "current",
+      "name": "今の画面"
+    },
+    {
+      "id": "look",
+      "name": "会話での見せ方"
+    },
+    {
+      "id": "resend",
+      "name": "終わったセッションでの Resend"
+    },
+    {
+      "id": "many",
+      "name": "2 件以上届かなかったとき"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "undelivered-message-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "page": "current"
+    },
+    "undelivered-message-current-phone.dc.html": {
+      "x": 960,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "current"
+    },
+    "undelivered-message-look-label.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "page": "look"
+    },
+    "undelivered-message-look-label-phone.dc.html": {
+      "x": 960,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "look"
+    },
+    "undelivered-message-look-band.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 880,
+      "h": 900,
+      "page": "look"
+    },
+    "undelivered-message-look-band-phone.dc.html": {
+      "x": 960,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "page": "look"
+    },
+    "undelivered-message-look-composer.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 880,
+      "h": 900,
+      "page": "look"
+    },
+    "undelivered-message-look-composer-phone.dc.html": {
+      "x": 960,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "page": "look"
+    },
+    "undelivered-message-look-composer-resumed.dc.html": {
+      "x": 1430,
+      "y": 2560,
+      "w": 880,
+      "h": 900,
+      "page": "look"
+    },
+    "undelivered-message-look-composer-resumed-phone.dc.html": {
+      "x": 2390,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "page": "look"
+    },
+    "undelivered-message-resend-resume.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "page": "resend"
+    },
+    "undelivered-message-resend-resume-phone.dc.html": {
+      "x": 960,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "resend"
+    },
+    "undelivered-message-resend-resume-busy.dc.html": {
+      "x": 1430,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "page": "resend"
+    },
+    "undelivered-message-resend-resume-busy-phone.dc.html": {
+      "x": 2390,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "resend"
+    },
+    "undelivered-message-resend-wait.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 880,
+      "h": 900,
+      "page": "resend"
+    },
+    "undelivered-message-resend-wait-phone.dc.html": {
+      "x": 960,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "page": "resend"
+    },
+    "undelivered-message-resend-wait-resumed.dc.html": {
+      "x": 1430,
+      "y": 1280,
+      "w": 880,
+      "h": 900,
+      "page": "resend"
+    },
+    "undelivered-message-resend-wait-resumed-phone.dc.html": {
+      "x": 2390,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "page": "resend"
+    },
+    "undelivered-message-many-each.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "page": "many"
+    },
+    "undelivered-message-many-each-phone.dc.html": {
+      "x": 960,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "many"
+    },
+    "undelivered-message-many-together.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 880,
+      "h": 900,
+      "page": "many"
+    },
+    "undelivered-message-many-together-phone.dc.html": {
+      "x": 960,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "page": "many"
+    },
+    "UserMessage.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 640,
+      "h": 160,
+      "page": "parts"
+    },
+    "Conversation.dc.html": {
+      "x": 720,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "page": "parts"
+    },
+    "PhoneChat.dc.html": {
+      "x": 1680,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "parts"
+    },
+    "ActionItem.dc.html": {
+      "x": 2150,
+      "y": 0,
+      "w": 360,
+      "h": 110,
+      "page": "parts"
+    },
+    "CloseChecks.dc.html": {
+      "x": 2590,
+      "y": 0,
+      "w": 408,
+      "h": 170,
+      "page": "parts"
+    },
+    "CodeBlock.dc.html": {
+      "x": 3078,
+      "y": 0,
+      "w": 672,
+      "h": 160,
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 3830,
+      "y": 0,
+      "w": 380,
+      "h": 200,
+      "page": "parts"
+    },
+    "MergeBand.dc.html": {
+      "x": 4290,
+      "y": 0,
+      "w": 760,
+      "h": 60,
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 5130,
+      "y": 0,
+      "w": 160,
+      "h": 44,
+      "page": "parts"
+    },
+    "PrButton.dc.html": {
+      "x": 5370,
+      "y": 0,
+      "w": 44,
+      "h": 44,
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 5494,
+      "y": 0,
+      "w": 672,
+      "h": 40,
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 6246,
+      "y": 0,
+      "w": 760,
+      "h": 60,
+      "page": "parts"
+    },
+    "TodoCard.dc.html": {
+      "x": 7086,
+      "y": 0,
+      "w": 672,
+      "h": 40,
+      "page": "parts"
+    },
+    "ToastStack.dc.html": {
+      "x": 7838,
+      "y": 0,
+      "w": 360,
+      "h": 240,
+      "page": "parts"
+    },
+    "UpdateBand.dc.html": {
+      "x": 8278,
+      "y": 0,
+      "w": 760,
+      "h": 40,
+      "page": "parts"
+    }
+  },
+  "order": [
+    "undelivered-message-current.dc.html",
+    "undelivered-message-current-phone.dc.html",
+    "undelivered-message-look-label.dc.html",
+    "undelivered-message-look-label-phone.dc.html",
+    "undelivered-message-look-band.dc.html",
+    "undelivered-message-look-band-phone.dc.html",
+    "undelivered-message-look-composer.dc.html",
+    "undelivered-message-look-composer-phone.dc.html",
+    "undelivered-message-look-composer-resumed.dc.html",
+    "undelivered-message-look-composer-resumed-phone.dc.html",
+    "undelivered-message-resend-resume.dc.html",
+    "undelivered-message-resend-resume-phone.dc.html",
+    "undelivered-message-resend-resume-busy.dc.html",
+    "undelivered-message-resend-resume-busy-phone.dc.html",
+    "undelivered-message-resend-wait.dc.html",
+    "undelivered-message-resend-wait-phone.dc.html",
+    "undelivered-message-resend-wait-resumed.dc.html",
+    "undelivered-message-resend-wait-resumed-phone.dc.html",
+    "undelivered-message-many-each.dc.html",
+    "undelivered-message-many-each-phone.dc.html",
+    "undelivered-message-many-together.dc.html",
+    "undelivered-message-many-together-phone.dc.html",
+    "UserMessage.dc.html",
+    "Conversation.dc.html",
+    "PhoneChat.dc.html",
+    "ActionItem.dc.html",
+    "CloseChecks.dc.html",
+    "CodeBlock.dc.html",
+    "ConfirmDialog.dc.html",
+    "MergeBand.dc.html",
+    "MergeButton.dc.html",
+    "PrButton.dc.html",
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html",
+    "TodoCard.dc.html",
+    "ToastStack.dc.html",
+    "UpdateBand.dc.html"
+  ],
+  "notes": {
+    "row0Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1350,
+      "page": "current",
+      "text": "今の画面 · 終わったセッションに届かなかったメッセージが You · Queued のまま残る"
+    },
+    "row0Note": {
+      "x": 1430,
+      "y": 0,
+      "w": 460,
+      "page": "current",
+      "text": "今\n- watch-web から送ったメッセージは Queued で会話に出て、セッションのプロセスが読むと You に変わる\n- 読む前にプロセスが終わると、You · Queued のまま残る。送れたのか、まだ待てば届くのかが分からない\n- 終わったセッションへの送信はサーバーが断る (409) ので、待っても届かない\n- 決まっていること: 届かなかったと分かる見た目にし、Resend と Discard を置く。PC と iPhone で同じ部品\n- データはすべて架空"
+    },
+    "row1Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1350,
+      "page": "look",
+      "text": "A · 名前の行に赤い Not delivered を出し、吹き出しの下に Resend と Discard を置く"
+    },
+    "row1Note": {
+      "x": 1430,
+      "y": 0,
+      "w": 460,
+      "page": "look",
+      "text": "A\n- 名前の行が You · Not delivered · 14:31 になり、Not delivered だけ赤い\n- 吹き出しの文字を少し暗くし、下の右寄せに Resend (白) と Discard\n- iPhone はボタンを 44px の高さにする\n+ 足すものが少なく、会話の流れを崩さない\n+ Queued が Not delivered に変わるだけなので、今との違いが分かりやすい\n- なぜ届かなかったかは書かない\n- 名前の行の文字は小さく、赤でも見落としやすい"
+    },
+    "row2Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 1350,
+      "page": "look",
+      "text": "B · 吹き出しの下に赤い帯をつなげ、届かなかった理由と Resend / Discard を帯に置く"
+    },
+    "row2Note": {
+      "x": 1430,
+      "y": 1280,
+      "w": 460,
+      "page": "look",
+      "text": "B\n- 吹き出しのすぐ下に赤い枠の帯をつなげる。Not delivered. The session exited before it read this message.\n- 帯の右に Resend (白) と Discard。iPhone は文の下に 2 つを等分に並べる\n- 名前の行は You · 14:31 のまま (Queued を消す)\n+ 何が起きたかと、どうするかが 1 か所で読める\n+ 赤い帯は遠くからでも目に入る\n- 吹き出しが帯の分だけ高くなる\n- 短いメッセージでも帯の幅に合わせて吹き出しが広がる"
+    },
+    "row3Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2300,
+      "maxW": 2780,
+      "page": "look",
+      "text": "C · 吹き出しを消して文を入力欄に戻し、会話には届かなかったことを 1 行だけ残す"
+    },
+    "row3Note": {
+      "x": 2860,
+      "y": 2560,
+      "w": 460,
+      "page": "look",
+      "text": "C\n- 吹き出しは会話から消え、その位置に赤い印の 1 行 Your message was not delivered · 14:31 を残す\n- 終わっている間は入力欄がないので、終わった帯に 1 message was not delivered と書く\n- Resume すると文が入力欄に戻り、上に Not delivered at 14:31 と Discard。Resend は普通の送信 (↵)\n+ 送り直す前に文を直せる\n+ 届いていない文が会話に You として並ばない\n- 終わっている間は文が見えない\n- 入力欄に別の書きかけがあると、どちらかを消すことになる\n- Resend というボタンがなく、送り直せることに気づきにくい"
+    },
+    "row4Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 2780,
+      "page": "resend",
+      "text": "A · Resume and resend の 1 回で、再開してから送り直す"
+    },
+    "row4Note": {
+      "x": 2860,
+      "y": 0,
+      "w": 460,
+      "page": "resend",
+      "text": "A\n- 終わったセッションでは帯のボタンが Resume and resend になる。押すと再開し、立ち上がったら同じ文を送る\n- 押した後は帯が Resending… になり、下の帯も Resuming…\n- 動いているセッションでは Resend のまま\n+ 1 回押すだけで済む\n+ 下の Resume を押してから戻ってくる手間がない\n- 再開したくないのに押すと、セッションが立ち上がる\n\nこのページは「会話での見せ方」の B で描いた"
+    },
+    "row5Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 2780,
+      "page": "resend",
+      "text": "B · 終わっている間は Discard だけ出し、Resume の後に Resend を出す"
+    },
+    "row5Note": {
+      "x": 2860,
+      "y": 1280,
+      "w": 460,
+      "page": "resend",
+      "text": "B\n- 終わったセッションでは帯に Resume the session to resend it. と Discard だけ\n- 下の帯の Resume で再開すると、帯に Resend が出る。送るのは自分で押してから\n+ 再開と送信を別々に決められる\n+ Resend はいつも「今すぐ送る」だけの意味になる\n- 送り直すまでに 2 回押す\n- 再開した後、帯まで戻って Resend を押す必要がある"
+    },
+    "row6Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1350,
+      "page": "many",
+      "text": "A · 届かなかったメッセージごとに帯と Resend / Discard を付ける"
+    },
+    "row6Note": {
+      "x": 1430,
+      "y": 0,
+      "w": 460,
+      "page": "many",
+      "text": "A\n- 2 件とも吹き出しの下に帯とボタン\n- 1 件ずつ送り直すか消すかを選べる\n+ 部品が 1 件のときと同じ\n+ 片方だけ送る、が 1 回でできる\n- 同じ帯が続き、画面が赤くなる\n- 両方送るには 2 回押す (2 回目は再開を待ってから)\n\nこのページは「会話での見せ方」の B と「Resend の動き」の A で描いた"
+    },
+    "row7Title": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 1350,
+      "page": "many",
+      "text": "B · 最後の 1 件の下にまとめて Resend 2 / Discard 2 を置く"
+    },
+    "row7Note": {
+      "x": 1430,
+      "y": 1280,
+      "w": 460,
+      "page": "many",
+      "text": "B\n- 前の吹き出しには帯を付けず、最後の 1 件の下に 2 messages were not delivered. と Resume and resend 2 / Discard 2\n- 送り直すときは送った順に 2 件を送る\n+ 帯が 1 つで、画面が静か\n+ プロセスが終わると待っていたメッセージは全部届かないので、まとめて扱うのが普通の場面に合う\n- 1 件だけ消すことができない (消すなら全部)\n- 帯のない前の吹き出しは、届かなかったと分かりにくい"
+    },
+    "partsTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 9038,
+      "page": "parts",
+      "text": "部品 · UserMessage は今の Queued と、届かなかったときの 3 案の見た目をまとめて持つ"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-25T00:00:00Z"
+    }
+  ]
+}

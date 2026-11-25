@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>A message or card holding two details blocks</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="min-width: 0; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
+
+<sc-if value="{{isMessage}}" hint-placeholder-val="{{ true }}">
+<article style="min-width: 0; display: flex; flex-direction: column; gap: {{gap}}; color: #d4d4d8">
+<div>再送の上限を <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">RETRY_LIMIT</code> で変えられるようにしました。テストはすべて通っています。</div>
+<dc-import name="MdDetails" look="{{look}}" open="{{ false }}" phone="{{ phone }}" summary="変更したファイル" body="files" hint-size="100%,44px"></dc-import>
+<dc-import name="MdDetails" look="{{look}}" open="{{ true }}" phone="{{ phone }}" summary="実行したテストのログ" body="log" hint-size="100%,200px"></dc-import>
+</article>
+</sc-if>
+
+<sc-if value="{{isTodo}}" hint-placeholder-val="{{ false }}">
+<article aria-label="User task" style="border: 1px solid #2a2a2a; padding: 14px; display: flex; flex-direction: column; gap: 8px">
+<dc-import name="TodoCard" form="header" phone="{{ phone }}" hint-size="100%,26px"></dc-import>
+<h3 style="margin: 0; font-size: 17px; font-weight: 700">ステージングで再送を試す</h3>
+<div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: {{detailFs}}; color: #d4d4d8">
+<div>送信先を一時的に止めて、3 回まで送り直してから諦めることを確かめてください。</div>
+<dc-import name="MdDetails" look="{{look}}" open="{{ false }}" phone="{{ phone }}" summary="確かめる手順" body="steps" hint-size="100%,44px"></dc-import>
+<dc-import name="MdDetails" look="{{look}}" open="{{ true }}" phone="{{ phone }}" summary="実行したテストのログ" body="log" hint-size="100%,200px"></dc-import>
+</div>
+<button type="button" style="align-self: flex-start; min-height: {{lessH}}; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: {{lessFs}}">Show less</button>
+<textarea aria-label="Comment" rows="2" placeholder="Comment (optional)" style="width: 100%; box-sizing: border-box; padding: 6px 8px; border: 1px solid #3f3f46; background: #141414; color: #fafafa; font-family: inherit; font-size: {{inputFs}}; resize: none"></textarea>
+<div style="display: grid; grid-template-columns: {{btnCols}}; gap: 8px">
+<button type="button" style="height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{btnFs}}; font-weight: 700">Mark done</button>
+<button type="button" style="height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{btnFs}}">Reject</button>
+</div>
+</article>
+</sc-if>
+
+<sc-if value="{{isProposal}}" hint-placeholder-val="{{ false }}">
+<article style="border: 1px solid #fbbf24; padding: 14px; display: flex; flex-direction: column; gap: 10px">
+<h2 style="margin: 0; color: #fbbf24; font-size: 12px; font-weight: 700">Proposal · waiting for your choice</h2>
+<h3 style="margin: 0; font-size: 17px; font-weight: 700">再送の上限</h3>
+<div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: {{detailFs}}; color: #a1a1aa">
+<div>応答の遅い送信先で、何回まで送り直すか決めてください。</div>
+<dc-import name="MdDetails" look="{{look}}" open="{{ false }}" phone="{{ phone }}" summary="比べた失敗の件数" body="numbers" hint-size="100%,44px"></dc-import>
+<dc-import name="MdDetails" look="{{look}}" open="{{ true }}" phone="{{ phone }}" summary="実行したテストのログ" body="log" hint-size="100%,200px"></dc-import>
+</div>
+<div style="display: grid; gap: 7px">
+<sc-for list="{{options}}" as="o" hint-placeholder-count="2">
+<label style="display: grid; grid-template-columns: 15px 1fr; gap: 10px; padding: {{optPad}}; background: #141414; outline: {{o.outline}}; outline-offset: -2px">
+<span style="width: 15px; height: 15px; box-sizing: border-box; margin-top: 3px; border-radius: 50%; border: {{o.radio}}"></span>
+<span style="display: flex; flex-direction: column; gap: 4px"><span style="display: flex; align-items: center; gap: 8px"><strong>{{o.label}}</strong><sc-if value="{{o.recommended}}" hint-placeholder-val="{{ false }}"><span style="padding: 0 6px; border: 1px solid #a1a1aa; font-size: 11px; color: #a1a1aa">Recommended</span></sc-if></span><span style="font-size: {{detailFs}}; color: #d4d4d8">{{o.desc}}</span></span>
+</label>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: {{btnCols}}; gap: 8px">
+<button type="button" style="height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{btnFs}}; font-weight: 700">Choose</button>
+<button type="button" style="height: {{btnH}}; padding: 0 12px; border: 1px solid #2a2a2a; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{btnFs}}">Ask for another option</button>
+</div>
+</article>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"place":{"editor":"enum","options":["message","todo","proposal"],"default":"message"},"look":{"editor":"enum","options":["raw","a","b","c"],"default":"a"},"phone":{"editor":"boolean","default":false},"$preview":{"width":672,"height":420}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // Each place holds the same pair: one details block left closed, one opened.
+    const place = this.props.place ?? 'message';
+    const phone = this.props.phone ?? false;
+    return {
+      isMessage: place === 'message', isTodo: place === 'todo', isProposal: place === 'proposal',
+      look: this.props.look ?? 'a',
+      phone,
+      fs: phone ? '15px' : '14px',
+      gap: '12px',
+      detailFs: phone ? '14px' : '13px',
+      lessH: phone ? '32px' : '20px',
+      lessFs: phone ? '13px' : '12px',
+      inputFs: phone ? '16px' : '13px',
+      btnH: phone ? '44px' : '28px',
+      btnFs: phone ? '14px' : '12px',
+      btnCols: phone ? '1fr 1fr' : 'max-content max-content',
+      optPad: phone ? '12px' : '10px',
+      options: [
+        { label: '3 回で止める', recommended: false, desc: '失敗が続くときは早めに諦める。', outline: 'none', radio: '1px solid #71717a' },
+        { label: '5 回まで続ける', recommended: true, desc: '応答の遅い送信先でも届く。', outline: '2px solid #fafafa', radio: '5px solid #fafafa' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

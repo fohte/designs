@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Markdown details block</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="min-width: 0; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
+
+<sc-if value="{{isRaw}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 0.75rem">
+<div style="overflow-wrap: anywhere">&lt;details&gt; &lt;summary&gt;{{summary}}&lt;/summary&gt;</div>
+<sc-if value="{{isCode}}" hint-placeholder-val="{{ true }}"><dc-import name="CodeBlock" code="log" phone="{{ phone }}" hint-size="100%,150px"></dc-import></sc-if>
+<sc-if value="{{isList}}" hint-placeholder-val="{{ false }}"><ul style="margin: 0; padding-left: 1.5rem"><sc-for list="{{items}}" as="i" hint-placeholder-count="2"><li><code style="padding: {{codePad}}; background: {{codeBg}}; font-family: {{codeFont}}; font-size: {{codeFs}}">{{i}}</code></li></sc-for></ul></sc-if>
+<div>&lt;/details&gt;</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isA}}" hint-placeholder-val="{{ false }}">
+<div>
+<button type="button" aria-expanded="{{openStr}}" style="min-height: {{rowH}}; display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: {{aFs}}; text-align: left"><span>{{summary}}</span><span aria-hidden="true" style="flex: none; display: inline-block; color: #71717a; transform: rotate({{aRot}})">›</span></button>
+<sc-if value="{{open}}" hint-placeholder-val="{{ true }}">
+<div style="margin: 4px 0 0 1px; padding-left: 12px; border-left: 1px solid #3f3f46">
+<sc-if value="{{isCode}}" hint-placeholder-val="{{ true }}"><dc-import name="CodeBlock" code="log" phone="{{ phone }}" hint-size="100%,150px"></dc-import></sc-if>
+<sc-if value="{{isList}}" hint-placeholder-val="{{ false }}"><ul style="margin: 0; padding-left: 1.5rem"><sc-for list="{{items}}" as="i" hint-placeholder-count="2"><li><code style="padding: {{codePad}}; background: {{codeBg}}; font-family: {{codeFont}}; font-size: {{codeFs}}">{{i}}</code></li></sc-for></ul></sc-if>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{isB}}" hint-placeholder-val="{{ false }}">
+<div style="border: 1px solid #2a2a2a; background: #111111">
+<button type="button" aria-expanded="{{openStr}}" style="width: 100%; min-height: {{bRowH}}; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 6px {{bPadR}} 6px 12px; border: 0; border-bottom: {{bDivider}}; background: transparent; color: #fafafa; font-family: inherit; font-size: inherit; font-weight: 700; text-align: left"><span style="flex: 1; min-width: 0; overflow-wrap: anywhere">{{summary}}</span><svg width="{{bIcon}}" height="{{bIcon}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #a1a1aa"><path d="{{bChevron}}"></path></svg></button>
+<sc-if value="{{open}}" hint-placeholder-val="{{ true }}">
+<div style="padding: 12px">
+<sc-if value="{{isCode}}" hint-placeholder-val="{{ true }}"><dc-import name="CodeBlock" code="log" phone="{{ phone }}" hint-size="100%,150px"></dc-import></sc-if>
+<sc-if value="{{isList}}" hint-placeholder-val="{{ false }}"><ul style="margin: 0; padding-left: 1.5rem"><sc-for list="{{items}}" as="i" hint-placeholder-count="2"><li><code style="padding: {{codePad}}; background: {{codeBg}}; font-family: {{codeFont}}; font-size: {{codeFs}}">{{i}}</code></li></sc-for></ul></sc-if>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{isC}}" hint-placeholder-val="{{ false }}">
+<div>
+<button type="button" aria-expanded="{{openStr}}" style="min-height: {{rowH}}; display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: inherit; text-align: left"><svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" style="flex: none; color: #d4d4d8; transform: rotate({{cRot}})"><path d="M2 1l6 4-6 4z" fill="currentColor"></path></svg><span>{{summary}}</span></button>
+<sc-if value="{{open}}" hint-placeholder-val="{{ true }}">
+<div style="margin-top: 0.5rem">
+<sc-if value="{{isCode}}" hint-placeholder-val="{{ true }}"><dc-import name="CodeBlock" code="log" phone="{{ phone }}" hint-size="100%,150px"></dc-import></sc-if>
+<sc-if value="{{isList}}" hint-placeholder-val="{{ false }}"><ul style="margin: 0; padding-left: 1.5rem"><sc-for list="{{items}}" as="i" hint-placeholder-count="2"><li><code style="padding: {{codePad}}; background: {{codeBg}}; font-family: {{codeFont}}; font-size: {{codeFs}}">{{i}}</code></li></sc-for></ul></sc-if>
+</div>
+</sc-if>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"look":{"editor":"enum","options":["raw","a","b","c"],"default":"a"},"open":{"editor":"boolean","default":true},"phone":{"editor":"boolean","default":false},"summary":{"editor":"text","default":"実行したテストのログ"},"body":{"editor":"enum","options":["log","files","steps","numbers"],"default":"log"},"$preview":{"width":672,"height":200}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // look raw: the app today; react-markdown shows the tags as text and the inside always.
+    // a: a small grey line like the folded tool calls. b: a box like the folded to-do row. c: a GitHub-like triangle.
+    const look = this.props.look ?? 'a';
+    const open = this.props.open ?? true;
+    const phone = this.props.phone ?? false;
+    const body = this.props.body ?? 'log';
+    const ITEMS = {
+      files: ['src/notify/retry.ts', 'src/notify/retry.test.ts', 'config/notify.example.toml'],
+      steps: ['RETRY_LIMIT=3 で起動する', '送信先を止めて通知を 1 件送る', 'ログの attempt=3 で止まるか見る'],
+      numbers: ['3 回: 失敗 12 件 / 1,000 件', '5 回: 失敗 4 件 / 1,000 件']
+    };
+    return {
+      isRaw: look === 'raw', isA: look === 'a', isB: look === 'b', isC: look === 'c',
+      // Raw shows the inside even though nothing opened it.
+      open: look === 'raw' || open,
+      openStr: open ? 'true' : 'false',
+      phone,
+      summary: this.props.summary ?? '実行したテストのログ',
+      isCode: body === 'log', isList: body !== 'log',
+      items: ITEMS[body] ?? [],
+      // Only file paths are inline code; the other lists are plain text.
+      codePad: body === 'files' ? '0.1em 0.35em' : '0', codeBg: body === 'files' ? '#262626' : 'transparent',
+      codeFont: body === 'files' ? "'JetBrains Mono', monospace" : 'inherit', codeFs: body === 'files' ? '0.9em' : 'inherit',
+      fs: 'inherit',
+      rowH: phone ? '44px' : '26px',
+      aFs: phone ? '13px' : '12.5px',
+      aRot: open ? '90deg' : '0deg',
+      bRowH: phone ? '48px' : '36px',
+      bPadR: phone ? '14px' : '10px',
+      bIcon: phone ? '18' : '15',
+      bChevron: open ? 'm18 15-6-6-6 6' : 'm6 9 6 6 6-6',
+      bDivider: open ? '1px solid #2a2a2a' : '0',
+      cRot: open ? '90deg' : '0deg'
+    };
+  }
+}
+</script>
+</body>
+</html>

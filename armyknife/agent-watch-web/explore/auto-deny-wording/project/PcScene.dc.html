@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>PC conversation with two denials</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<main style="width: 760px; height: 940px; box-sizing: border-box; display: flex; flex-direction: column; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
+<header style="flex: none; display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 24px; border-bottom: 1px solid #2a2a2a"><h1 style="margin: 0; font-size: 14px; font-weight: 700">通知の再送処理を見直す</h1><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a1a1aa">example/notification-service</span></header>
+<div style="flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; padding: 24px 44px">
+<article style="flex: none; align-self: flex-end; max-width: 80%; display: flex; flex-direction: column; gap: 4px">
+<div style="text-align: right; font-size: 12px; color: #8b8b94">You · 10:02</div>
+<div style="padding: 10px 14px; background: #1f1f1f">古いキャッシュを消してから、直したブランチを push しておいてください。</div>
+</article>
+<article style="flex: none; color: #d4d4d8">共有キャッシュを消してから作り直します。</article>
+<div style="flex: none"><dc-import name="DeniedCard" kind="danger" hint-size="100%,190px"></dc-import></div>
+<article style="flex: none; color: #d4d4d8">共有キャッシュは消さず、作業ディレクトリの中に作り直しました。ブランチを push します。</article>
+<div style="flex: none"><dc-import name="DeniedCard" kind="unjudged" wording="{{wording}}" state="{{state}}" hint-size="100%,210px"></dc-import></div>
+<article style="flex: none; color: #d4d4d8">push は通らなかったので、手元で commit までにしてあります。</article>
+</div>
+<div style="flex: none; padding: 0 44px 20px"><div style="min-height: 64px; box-sizing: border-box; padding: 12px 14px; border: 1px solid #2a2a2a; background: #141414; color: #71717a">Reply to Claude…</div></div>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"wording":{"editor":"enum","options":["now","a","b","c"],"default":"now"},"state":{"editor":"enum","options":["pending","dismissed","sent","open"],"default":"pending"},"$preview":{"width":760,"height":940}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { wording: this.props.wording ?? 'now', state: this.props.state ?? 'pending' };
+  }
+}
+</script>
+</body>
+</html>

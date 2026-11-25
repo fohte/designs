@@ -1,0 +1,269 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-25T12:22:25Z"
+  },
+  "title": "explore: 自動判定なしで止まった操作のカードの文言",
+  "launch": {
+    "view": "canvas",
+    "page": "options"
+  },
+  "pages": [
+    {
+      "id": "now",
+      "name": "今"
+    },
+    {
+      "id": "options",
+      "name": "案"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "auto-deny-wording-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 760,
+      "h": 940,
+      "title": "PC · 今 · 届いたとき",
+      "page": "now"
+    },
+    "PcNowDismissed.dc.html": {
+      "x": 840,
+      "y": 0,
+      "w": 760,
+      "h": 940,
+      "title": "PC · 今 · Dismiss のあと",
+      "page": "now"
+    },
+    "PhoneNow.dc.html": {
+      "x": 1680,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 今 · 届いたとき",
+      "page": "now"
+    },
+    "PhoneNowDismissed.dc.html": {
+      "x": 2150,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 今 · Dismiss のあと",
+      "page": "now"
+    },
+    "PcA.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 760,
+      "h": 940,
+      "title": "PC · A · 届いたとき",
+      "page": "options"
+    },
+    "PcADismissed.dc.html": {
+      "x": 840,
+      "y": 0,
+      "w": 760,
+      "h": 940,
+      "title": "PC · A · Dismiss のあと",
+      "page": "options"
+    },
+    "PhoneA.dc.html": {
+      "x": 1680,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · A · 届いたとき",
+      "page": "options"
+    },
+    "PhoneADismissed.dc.html": {
+      "x": 2150,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · A · Dismiss のあと",
+      "page": "options"
+    },
+    "PcB.dc.html": {
+      "x": 0,
+      "y": 1400,
+      "w": 760,
+      "h": 940,
+      "title": "PC · B · 届いたとき (1 行)",
+      "page": "options"
+    },
+    "PcBOpen.dc.html": {
+      "x": 840,
+      "y": 1400,
+      "w": 760,
+      "h": 940,
+      "title": "PC · B · 行を開いたとき",
+      "page": "options"
+    },
+    "PhoneB.dc.html": {
+      "x": 1680,
+      "y": 1400,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · B · 届いたとき (1 行)",
+      "page": "options"
+    },
+    "PhoneBOpen.dc.html": {
+      "x": 2150,
+      "y": 1400,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · B · 行を開いたとき",
+      "page": "options"
+    },
+    "PcC.dc.html": {
+      "x": 0,
+      "y": 2800,
+      "w": 760,
+      "h": 940,
+      "title": "PC · C · 届いたとき",
+      "page": "options"
+    },
+    "PcCSent.dc.html": {
+      "x": 840,
+      "y": 2800,
+      "w": 760,
+      "h": 940,
+      "title": "PC · C · Ask Claude to try again のあと",
+      "page": "options"
+    },
+    "PcCDismissed.dc.html": {
+      "x": 1680,
+      "y": 2800,
+      "w": 760,
+      "h": 940,
+      "title": "PC · C · Dismiss のあと",
+      "page": "options"
+    },
+    "PhoneC.dc.html": {
+      "x": 2520,
+      "y": 2800,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · C · 届いたとき",
+      "page": "options"
+    },
+    "PhoneCSent.dc.html": {
+      "x": 2990,
+      "y": 2800,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · C · Ask Claude to try again のあと",
+      "page": "options"
+    },
+    "PhoneCDismissed.dc.html": {
+      "x": 3460,
+      "y": 2800,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · C · Dismiss のあと",
+      "page": "options"
+    },
+    "DeniedCard.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 672,
+      "h": 220,
+      "title": "DeniedCard",
+      "page": "parts"
+    },
+    "PcScene.dc.html": {
+      "x": 752,
+      "y": 0,
+      "w": 760,
+      "h": 940,
+      "title": "PcScene",
+      "page": "parts"
+    },
+    "PhoneScene.dc.html": {
+      "x": 1592,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneScene",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "auto-deny-wording-current.dc.html",
+    "PcNowDismissed.dc.html",
+    "PhoneNow.dc.html",
+    "PhoneNowDismissed.dc.html",
+    "PcA.dc.html",
+    "PcADismissed.dc.html",
+    "PhoneA.dc.html",
+    "PhoneADismissed.dc.html",
+    "PcB.dc.html",
+    "PcBOpen.dc.html",
+    "PhoneB.dc.html",
+    "PhoneBOpen.dc.html",
+    "PcC.dc.html",
+    "PcCSent.dc.html",
+    "PcCDismissed.dc.html",
+    "PhoneC.dc.html",
+    "PhoneCSent.dc.html",
+    "PhoneCDismissed.dc.html",
+    "DeniedCard.dc.html",
+    "PcScene.dc.html",
+    "PhoneScene.dc.html"
+  ],
+  "notes": {
+    "about": {
+      "x": 0,
+      "y": -1180,
+      "w": 760,
+      "page": "now",
+      "text": "前提\n- auto mode では、安全かどうかの判定 (classifier) が動かなかった、または答えを返さなかったときも操作が止まる。このとき危ないと判定されたわけではなく、Claude は止まったことを知らされて先に進む。ユーザーがすることはない\n- 今は危ないと判定されたカードと同じ黄色の枠・同じ見出しで出るので、危ない操作だと読める\n- どの画面でも、上が危ないと判定されたカード (比べる相手、案でも変えない)、下が判定なしで止まったカード\n\n今の文言 (判定なしのカード)\n- 見出し: Operation denied (黄色)\n- 理由: Claude Code が返した文がそのまま出る。Auto mode could not evaluate this action and is blocking it for safety. / Classifier unavailable / No reason provided / なし\n- 注記: This denial has no classifier verdict and cannot be approved here.\n- ボタン: Dismiss だけ (Allow and retry は出ない)\n- Dismiss のあと: Operation denied · Dismissed の 1 行"
+    },
+    "nowTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": -300,
+      "maxW": 2540,
+      "page": "now",
+      "text": "今 · 危ないと判定されたカードと同じ見た目で出る"
+    },
+    "aTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": -300,
+      "maxW": 2540,
+      "page": "options",
+      "text": "A · 灰色の枠で「危なくない、することはない」と書く"
+    },
+    "bTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1100,
+      "maxW": 2540,
+      "page": "options",
+      "text": "B · はじめから畳んだ 1 行で流す"
+    },
+    "cTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2500,
+      "maxW": 3380,
+      "page": "options",
+      "text": "C · 青い情報カードで、やり直しを頼むボタンも置く"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-25T12:22:25Z"
+    }
+  ]
+}

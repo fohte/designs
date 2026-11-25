@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Denied card</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
+
+<sc-if value="{{dangerCard}}" hint-placeholder-val="{{ true }}">
+<article style="border: 1px solid #fbbf24; padding: {{pad}}; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 10px"><h2 style="margin: 0; color: #fbbf24; font-size: 12px; font-weight: 700">Operation denied</h2><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a1a1aa">Bash</span></div>
+<pre style="margin: 0; padding: 10px 12px; background: #131313; border-radius: 0.45rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #d4d4d8; white-space: pre-wrap">rm -rf ../shared/cache</pre>
+<div style="font-size: 13px; color: #d4d4d8">作業ディレクトリの外を消す可能性があるため自動では許可しませんでした。</div>
+<div style="display: flex; gap: 8px">
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: 12px; font-weight: 700">Allow and retry</button>
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Dismiss</button>
+</div>
+</article>
+</sc-if>
+
+<sc-if value="{{nowCard}}" hint-placeholder-val="{{ false }}">
+<article style="border: 1px solid #fbbf24; padding: {{pad}}; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 10px"><h2 style="margin: 0; color: #fbbf24; font-size: 12px; font-weight: 700">Operation denied</h2><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a1a1aa">Bash</span></div>
+<pre style="margin: 0; padding: 10px 12px; background: #131313; border-radius: 0.45rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #d4d4d8; white-space: pre-wrap">git push origin fix/notification-retry</pre>
+<div style="font-size: 13px; color: #d4d4d8">Auto mode could not evaluate this action and is blocking it for safety.</div>
+<p role="status" style="margin: 0; font-size: 12px; color: #a1a1aa">This denial has no classifier verdict and cannot be approved here.</p>
+<div style="display: flex; gap: 8px">
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Dismiss</button>
+</div>
+</article>
+</sc-if>
+
+<sc-if value="{{aCard}}" hint-placeholder-val="{{ false }}">
+<article style="border: 1px solid #3f3f46; padding: {{pad}}; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 10px"><h2 style="margin: 0; color: #d4d4d8; font-size: 12px; font-weight: 700">Not run · safety check unavailable</h2><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a1a1aa">Bash</span></div>
+<pre style="margin: 0; padding: 10px 12px; background: #131313; border-radius: 0.45rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #d4d4d8; white-space: pre-wrap">git push origin fix/notification-retry</pre>
+<div style="font-size: 13px; color: #d4d4d8">This was not judged dangerous. Auto mode could not check it, so it did not run. Claude was told and carries on. You don't need to do anything.</div>
+<div style="display: flex; gap: 8px">
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Dismiss</button>
+</div>
+</article>
+</sc-if>
+
+<sc-if value="{{cCard}}" hint-placeholder-val="{{ false }}">
+<article style="border: 1px solid #1e40af; padding: {{pad}}; display: flex; flex-direction: column; gap: 8px">
+<div style="display: flex; align-items: center; gap: 8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: #60a5fa"><circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path></svg><h2 style="margin: 0; color: #60a5fa; font-size: 12px; font-weight: 700">Safety check unavailable</h2><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #a1a1aa">Bash</span></div>
+<pre style="margin: 0; padding: 10px 12px; background: #131313; border-radius: 0.45rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #d4d4d8; white-space: pre-wrap">git push origin fix/notification-retry</pre>
+<div style="font-size: 13px; color: #fafafa; font-weight: 700">Not judged dangerous. Nothing to do.</div>
+<div style="font-size: 13px; color: #a1a1aa">Auto mode could not check this call, so Claude skipped it and was told why.</div>
+<sc-if value="{{cPending}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; gap: 8px">
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Ask Claude to try again</button>
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Dismiss</button>
+</div>
+</sc-if>
+<sc-if value="{{cSent}}" hint-placeholder-val="{{ false }}"><p role="status" style="margin: 0; font-size: 12px; color: #a1a1aa">Asked Claude to try again.</p></sc-if>
+</article>
+</sc-if>
+
+<sc-if value="{{row}}" hint-placeholder-val="{{ false }}">
+<article style="font-size: 12px; color: #d4d4d8; background: #111111">
+<button type="button" aria-expanded="{{expandedStr}}" style="width: 100%; min-height: {{rowH}}; display: flex; align-items: center; gap: 8px; padding: 8px 12px; border: 0; background: transparent; color: inherit; font-family: inherit; font-size: {{rowFs}}; text-align: left"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #71717a"></span><span style="flex: none; color: #8b8b94">{{rowLabel}}</span><code style="min-width: 0; font-family: 'JetBrains Mono', monospace; color: #d4d4d8; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{rowCmd}}</code><span aria-hidden="true" style="flex: none; margin-left: auto; color: #8b8b94; transform: {{chevron}}">▸</span></button>
+<sc-if value="{{expanded}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 4px 12px 12px 28px">
+<pre style="margin: 0; padding: 10px 12px; background: #131313; border-radius: 0.45rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #d4d4d8; white-space: pre-wrap">git push origin fix/notification-retry</pre>
+<div style="font-size: 13px; color: #d4d4d8">Not judged dangerous. Auto mode could not check this call, so it did not run. Claude was told and carries on. Nothing to do.</div>
+<div style="font-size: 12px; color: #8b8b94">From Claude Code: <span style="font-family: 'JetBrains Mono', monospace">Classifier unavailable</span></div>
+</div>
+</sc-if>
+</article>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"kind":{"editor":"enum","options":["danger","unjudged"],"default":"unjudged"},"wording":{"editor":"enum","options":["now","a","b","c"],"default":"now"},"state":{"editor":"enum","options":["pending","dismissed","sent","open"],"default":"pending"},"phone":{"editor":"boolean","default":false},"$preview":{"width":672,"height":220}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const phone = this.props.phone ?? false;
+    const danger = (this.props.kind ?? 'unjudged') === 'danger';
+    const w = this.props.wording ?? 'now';
+    const s = this.props.state ?? 'pending';
+    const un = !danger;
+    // B never shows a card: it is born as a folded line and only opens.
+    const rowShown = (s === 'dismissed' && !(un && w === 'b')) || (un && w === 'b');
+    const card = !rowShown;
+    const labels = { now: 'Operation denied · Dismissed', a: 'Not run · check unavailable · Dismissed', b: 'Not run · safety check unavailable', c: 'Check unavailable · Dismissed' };
+    const expanded = un && w === 'b' && s === 'open';
+    return {
+      dangerCard: danger && card,
+      nowCard: un && w === 'now' && card,
+      aCard: un && w === 'a' && card,
+      cCard: un && w === 'c' && card,
+      cPending: s !== 'sent',
+      cSent: s === 'sent',
+      row: rowShown,
+      rowLabel: danger ? 'Operation denied · Dismissed' : labels[w],
+      rowCmd: danger ? 'rm -rf ../shared/cache' : 'git push origin fix/notification-retry',
+      expanded,
+      expandedStr: expanded ? 'true' : 'false',
+      chevron: expanded ? 'rotate(90deg)' : 'none',
+      fs: phone ? '15px' : '14px',
+      pad: phone ? '10px 14px' : '12px 16px',
+      btnH: phone ? '44px' : '28px',
+      rowH: phone ? '44px' : '32px',
+      rowFs: phone ? '13px' : '12px'
+    };
+  }
+}
+</script>
+</body>
+</html>

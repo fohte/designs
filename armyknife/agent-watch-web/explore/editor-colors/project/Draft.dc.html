@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Review tab: PR draft in Edit</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<article aria-label="Draft" style="position: absolute; inset: 0; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; background: #0f0f0f; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+<header style="flex: none; display: flex; flex-direction: column; gap: 6px; padding: 10px {{z.headPadR}} 12px {{z.padX}}; border-bottom: 1px solid #1a1a1a">
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0; font-size: {{z.metaFs}}">
+<span style="flex: none; padding: 0 6px; border: 1px solid #3f3f46; color: #fafafa; line-height: 1.6">PR draft</span>
+<span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', monospace; color: #a1a1aa">example/notification-service · feature/retry-limit</span>
+<span style="flex: none; margin-left: auto; display: inline-flex; align-items: center; gap: 6px; color: #8b8b94"><span aria-hidden="true" style="width: 7px; height: 7px; background: #fbbf24"></span>In the editor · 3m</span>
+<sc-if value="{{desk}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="Open full width" title="Open full width" style="flex: none; width: 28px; height: 28px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #a1a1aa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="m21 3-7 7"></path><path d="m3 21 7-7"></path><path d="M9 21H3v-6"></path></svg></button></sc-if>
+</div>
+</header>
+
+<div style="flex: 1; min-height: 0; display: flex; flex-direction: column; overflow: hidden">
+<section aria-label="Frontmatter" style="flex: none; display: flex; flex-direction: column; padding: 8px {{z.padX}} 14px; border-bottom: 1px solid #2a2a2a; color: #d4d4d8">
+<h3 style="flex: none; margin: 0; height: 32px; display: flex; align-items: center; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">FRONTMATTER</h3>
+<label style="display: flex; flex-direction: column; gap: 4px; padding-top: 6px"><span style="font-size: {{z.metaFs}}; color: #8b8b94">PR title</span><textarea style="display: block; width: 100%; height: {{z.titleAreaH}}; box-sizing: border-box; padding: 6px 8px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: {{z.titleInputFs}}; font-weight: 700; line-height: 1.4; resize: none">再送の上限を設定で変えられるようにする</textarea></label>
+</section>
+
+<section aria-label="Body" style="flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 8px {{z.padX}} 12px">
+<div style="flex: none; height: {{z.segRowH}}; display: flex; align-items: center; gap: 8px">
+<h3 style="margin: 0; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">BODY</h3>
+<div role="group" aria-label="Body view" style="margin-left: auto; display: flex">
+<button type="button" aria-pressed="false" style="height: {{z.segH}}; padding: 0 {{z.segPadX}}; border: 1px solid #3f3f46; background: transparent; color: #a1a1aa; font-family: inherit; font-size: {{z.segFs}}">Preview</button>
+<button type="button" aria-pressed="true" style="height: {{z.segH}}; margin-left: -1px; padding: 0 {{z.segPadX}}; border: 1px solid #a1a1aa; background: #262626; color: #fafafa; font-family: inherit; font-size: {{z.segFs}}">Edit</button>
+</div>
+</div>
+<div style="flex: 1; min-height: 0; margin-top: 6px"><dc-import name="MdEditor" scheme="{{scheme}}" size="{{size}}" hint-size="100%,100%"></dc-import></div>
+</section>
+</div>
+
+<footer style="flex: none; display: flex; flex-direction: column; gap: 10px; padding: 10px {{z.padX}} {{z.footPadB}}; border-top: 1px solid #2a2a2a; background: #0f0f0f">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<button type="button" style="height: {{z.btnH}}; padding: 0 12px; border: 0; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{z.btnFs}}">Save</button>
+<button type="button" title="Close the editor without approving. The session reads your edits and revises the draft." style="flex: {{z.bFlex}}; height: {{z.btnH}}; padding: 0 12px; margin-left: {{z.backMl}}; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: {{z.btnFs}}">Send back</button>
+<button type="button" style="flex: {{z.bFlex}}; height: {{z.btnH}}; padding: 0 14px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{z.btnFs}}; font-weight: 700">Create PR</button>
+</div>
+<p style="margin: 0; color: #8b8b94; font-size: 11.5px">Create PR creates the PR on example/notification-service right away. Send back returns your edits to the session.</p>
+</footer>
+</article>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"scheme":{"editor":"enum","options":["now","cmdefault","a","b","c"],"default":"now"},"size":{"editor":"enum","options":["desktop","phone"],"default":"desktop"},"$preview":{"width":640,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // The PR draft in Edit, as DraftReview draws it in screens/; only the editor's colors change between options.
+    const size = this.props.size ?? 'desktop';
+    const phone = size === 'phone';
+    const z = phone
+      ? { padX: '16px', headPadR: '16px', metaFs: '12.5px', titleInputFs: '16px', titleAreaH: '66px', segRowH: '48px', segH: '44px', segPadX: '16px', segFs: '14px', btnH: '44px', btnFs: '14px', bFlex: '1 1 auto', backMl: '0', footPadB: '16px' }
+      : { padX: '18px', headPadR: '10px', metaFs: '12px', titleInputFs: '14px', titleAreaH: '36px', segRowH: '32px', segH: '26px', segPadX: '12px', segFs: '12px', btnH: '30px', btnFs: '12px', bFlex: '0 0 auto', backMl: 'auto', footPadB: '10px' };
+    return { z, size, scheme: this.props.scheme ?? 'now', desk: !phone };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Markdown body editor</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div role="textbox" aria-multiline="true" aria-label="Markdown body" style="box-sizing: border-box; width: 100%; height: 100%; overflow: hidden; padding: 10px 0; border: 1px solid #3f3f46; background: #0a0a0a; color: #d4d4d8; font-family: 'JetBrains Mono', 'Noto Sans JP', monospace; font-size: {{fs}}; line-height: 1.6; font-variant-ligatures: none">
+<sc-for list="{{lines}}" as="l" hint-placeholder-count="12"><div style="min-height: 1.6em; padding: 0 12px; background: {{l.bg}}; overflow-wrap: anywhere"><sc-for list="{{l.segs}}" as="s" hint-placeholder-count="3"><span style="white-space: pre-wrap; color: {{s.color}}; font-weight: {{s.w}}; font-style: {{s.i}}; text-decoration: {{s.u}}; text-underline-offset: 2px; background: {{s.bg}}">{{s.text}}</span></sc-for></div></sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"scheme":{"editor":"enum","options":["now","cmdefault","a","b","c"],"default":"now"},"size":{"editor":"enum","options":["desktop","phone"],"default":"desktop"},"$preview":{"width":604,"height":760}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const scheme = this.props.scheme ?? 'now';
+    const phone = (this.props.size ?? 'desktop') === 'phone';
+    // Classes follow the @lezer/markdown nodes: *m = the marks (HeaderMark, EmphasisMark, LinkMark, CodeMark, ListMark, QuoteMark), fm/info = the fence and its language, kw..num = the fenced TypeScript.
+    const L = [
+      [['cmt', '<!-- Why を先に書く。数値は計測から書く -->']],
+      [['hm', '## '], ['h', 'Why']],
+      [],
+      [['t', '再送の上限が '], ['sm', '**'], ['strong', '3 回で固定'], ['sm', '**'], ['t', 'されていて、応答の遅い送信先では足りない。']],
+      [['t', '詳細は '], ['lm', '['], ['lt', '#2048'], ['lm', ']('], ['url', 'https://example.com/notification-service/issues/2048'], ['lm', ')'], ['t', ' を参照。']],
+      [],
+      [['hm', '## '], ['h', 'What']],
+      [],
+      [['li', '-'], ['t', ' 上限を '], ['cm', '`'], ['code', 'RETRY_LIMIT'], ['cm', '`'], ['t', ' で変えられるようにする']],
+      [['li', '-'], ['t', ' 既定値は '], ['emm', '_'], ['em', '3 回のまま'], ['emm', '_']],
+      [['t', '  '], ['li', '-'], ['t', ' '], ['cm', '`'], ['code', '0'], ['cm', '`'], ['t', ' を渡すと再送しない']],
+      [],
+      [['qm', '> '], ['q', '既存の設定ファイルはそのまま動く。']],
+      [],
+      [['hm', '### '], ['h', '設定例']],
+      [],
+      [['fm', '```'], ['info', 'ts']],
+      [['kw', 'export'], ['c', ' '], ['kw', 'const'], ['c', ' '], ['cst', 'retry'], ['c', ' '], ['kw', '='], ['c', ' {']],
+      [['c', '  limit: '], ['fn', 'Number'], ['c', '(process.env.'], ['cst', 'RETRY_LIMIT'], ['c', ' '], ['kw', '??'], ['c', ' '], ['cst', '3'], ['c', '),']],
+      [['c', '}']],
+      [['fm', '```']],
+      [],
+      [['li', '1.'], ['t', ' '], ['cm', '`'], ['code', 'RETRY_LIMIT=5'], ['cm', '`'], ['t', ' で起動する']],
+      [['li', '2.'], ['t', ' 応答の遅い送信先に送り、5 回まで再送されるのを見る']],
+      [],
+      [['hr', '---']],
+      [],
+      [['cmt', '<!-- テストの結果は CI のログを見る -->']]
+    ];
+    const FENCE = new Set([16, 17, 18, 19, 20]);
+    const B = 700, I = 'italic', U = 'underline';
+    // The code inside a fence, colored as the conversation's shiki code blocks (theme github-dark).
+    const SH = { kw: ['#f97583'], cst: ['#79b8ff'], fn: ['#b392f0'], c: ['#e1e4e8'] };
+    const plainCode = { kw: [], cst: [], fn: [], c: [] };
+    // Each entry: [color, weight, italic, underline, background]; a missing color is the line's default.
+    const S = {
+      // The app today: .review-document-editor .cm-line span sets every token to #d4d4d8, normal weight, no decoration.
+      now: { base: '#d4d4d8' },
+      // defaultHighlightStyle as it would show without that override.
+      cmdefault: {
+        base: '#d4d4d8',
+        hm: [null, B, null, U], h: [null, B, null, U], sm: [], strong: [null, B], emm: [], em: [null, null, I],
+        lm: [null, null, null, U], lt: [null, null, null, U], url: ['#221199', null, null, U],
+        info: ['#221199'], hr: ['#221199'], cmt: ['#994400'], ...plainCode
+      },
+      // A: the markdown tokens exactly as shiki github-dark colors them in the conversation, comments lifted to #8b949e.
+      a: {
+        base: '#e1e4e8',
+        hm: ['#79b8ff', B], h: ['#79b8ff', B], sm: [null, B], strong: [null, B], emm: [null, null, I], em: [null, null, I],
+        lm: [], lt: ['#dbedff', null, null, U], url: [null, null, null, U],
+        cm: ['#79b8ff'], code: ['#79b8ff'], li: ['#ffab70'], qm: ['#85e89d'], q: ['#85e89d'],
+        fm: [], info: [], hr: ['#79b8ff', B], cmt: ['#8b949e'], ...SH
+      },
+      // B: hue only on headings, code and links; every mark in one quiet gray.
+      b: {
+        base: '#d4d4d8',
+        hm: ['#79b8ff', B], h: ['#79b8ff', B], sm: ['#8b8b94', B], strong: ['#fafafa', B], emm: ['#8b8b94'], em: [null, null, I],
+        lm: ['#8b8b94'], lt: ['#b392f0', null, null, U], url: ['#8b8b94', null, null, U],
+        cm: ['#8b8b94'], code: ['#ffab70'], li: ['#8b8b94'], qm: ['#8b8b94'], q: ['#a1a1aa'],
+        fm: ['#8b8b94'], info: ['#8b8b94'], hr: ['#8b8b94'], cmt: ['#8b8b94', null, I], ...SH
+      },
+      // C: no hue in the markdown, only brightness and weight; the fence gets the code block's background and colors.
+      c: {
+        base: '#d4d4d8',
+        hm: ['#8b8b94', B], h: ['#fafafa', B], sm: ['#8b8b94', B], strong: ['#fafafa', B], emm: ['#8b8b94'], em: [null, null, I],
+        lm: ['#8b8b94'], lt: ['#fafafa', null, null, U], url: ['#8b8b94'],
+        cm: ['#8b8b94', null, null, null, '#1f1f23'], code: ['#fafafa', null, null, null, '#1f1f23'], li: ['#8b8b94'], qm: ['#8b8b94'], q: ['#a1a1aa'],
+        fm: ['#8b8b94'], info: ['#8b8b94'], hr: ['#8b8b94'], cmt: ['#8b8b94', null, I], ...SH
+      }
+    }[scheme] || { base: '#d4d4d8' };
+    return {
+      fs: phone ? '16px' : '12.5px',
+      lines: L.map((segs, n) => ({
+        bg: scheme === 'c' && FENCE.has(n) ? '#18181b' : 'transparent',
+        segs: segs.map(([k, text]) => {
+          const [color, w, i, u, bg] = S[k] || [];
+          return { text, color: color || S.base, w: w || 400, i: i || 'normal', u: u || 'none', bg: bg || 'transparent' };
+        })
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

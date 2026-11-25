@@ -1,0 +1,50 @@
+{
+  "v": 3,
+  "createdOnFiles": { "v": 1, "at": "2026-11-25T10:00:00Z" },
+  "title": "agent-watch-web · draft editor colors",
+  "launch": { "view": "canvas", "page": "now" },
+  "pages": [
+    { "id": "now", "name": "今" },
+    { "id": "options", "name": "案" },
+    { "id": "parts", "name": "部品" }
+  ],
+  "boards": {
+    "editor-colors-current.dc.html": { "x": 0, "y": 0, "w": 640, "h": 900, "page": "now", "title": "PC · 右パネルの PR draft · Edit · 今" },
+    "NowPhone.dc.html": { "x": 720, "y": 0, "w": 390, "h": 844, "page": "now", "title": "iPhone · PR draft · Edit · 今" },
+    "NowDefault.dc.html": { "x": 1190, "y": 0, "w": 640, "h": 900, "page": "now", "title": "PC · 参考: CSS の上書きを外しただけ (defaultHighlightStyle)" },
+    "OptA.dc.html": { "x": 0, "y": 0, "w": 640, "h": 900, "page": "options", "title": "PC · 右パネルの PR draft · Edit · A" },
+    "OptAPhone.dc.html": { "x": 720, "y": 0, "w": 390, "h": 844, "page": "options", "title": "iPhone · PR draft · Edit · A" },
+    "OptB.dc.html": { "x": 0, "y": 1320, "w": 640, "h": 900, "page": "options", "title": "PC · 右パネルの PR draft · Edit · B" },
+    "OptBPhone.dc.html": { "x": 720, "y": 1320, "w": 390, "h": 844, "page": "options", "title": "iPhone · PR draft · Edit · B" },
+    "OptC.dc.html": { "x": 0, "y": 2640, "w": 640, "h": 900, "page": "options", "title": "PC · 右パネルの PR draft · Edit · C" },
+    "OptCPhone.dc.html": { "x": 720, "y": 2640, "w": 390, "h": 844, "page": "options", "title": "iPhone · PR draft · Edit · C" },
+    "Draft.dc.html": { "x": 0, "y": 0, "w": 640, "h": 900, "page": "parts", "title": "Draft (PR draft の Edit。scheme と size で切り替える)" },
+    "MdEditor.dc.html": { "x": 720, "y": 0, "w": 604, "h": 760, "page": "parts", "title": "MdEditor (Markdown body の editor)" }
+  },
+  "order": [
+    "editor-colors-current.dc.html",
+    "NowPhone.dc.html",
+    "NowDefault.dc.html",
+    "OptA.dc.html",
+    "OptAPhone.dc.html",
+    "OptB.dc.html",
+    "OptBPhone.dc.html",
+    "OptC.dc.html",
+    "OptCPhone.dc.html",
+    "Draft.dc.html",
+    "MdEditor.dc.html"
+  ],
+  "notes": {
+    "nowTitle": { "x": 0, "y": -300, "text": "今 · 全部同じ灰色で、記号と本文の区別がない", "kind": "title1", "maxW": 1830, "page": "now" },
+    "nowNote": { "x": 1910, "y": 0, "w": 520, "page": "now", "fill": "gray", "text": "今の色 (背景 #0a0a0a に対する WCAG コントラスト比)\n\n今: editor は defaultHighlightStyle を読み込んでいるが、review-document-panel.css の `.review-document-editor .cm-line span { color: #d4d4d8; font-weight: 400; font-style: normal; text-decoration: none }` が全 token を上書きする。見出し、記号、リンク、コードがすべて #d4d4d8 (13.40) の同じ見た目。\n\n参考 (右): 上書きを外しただけだと defaultHighlightStyle は明るい背景用の色で、URL・code fence の言語名・--- が #221199 (1.52)、コメントが #994400 (3.00) で読めない。見出しは下線 + 太字、インラインコードと引用は色なし。\n\ncode fence の中は codeLanguages を渡していないので、どちらでも 1 色。" },
+    "aTitle": { "x": 0, "y": -300, "text": "A · 会話のコードブロックと同じ色で Markdown を塗る", "kind": "title1", "maxW": 1710, "page": "options" },
+    "aNote": { "x": 1190, "y": 0, "w": 520, "page": "options", "fill": "blue", "text": "A の色 (shiki github-dark の markdown と同じ。背景 #0a0a0a に対する比)\n\n本文 #e1e4e8 15.52\n見出し (# ごと)・--- #79b8ff 太字 9.53\nインラインコード (` ごと) #79b8ff 9.53\nリストの - と 1. #ffab70 10.66\n引用 (> ごと) #85e89d 13.22\nリンクの文字 #dbedff 下線 16.56、URL は下線だけ\n太字・斜体は色を変えず太さと傾きだけ\nコメント #8b949e 6.44: shiki の #6a737d は 4.11 で AA (4.5) に届かないので上げた\ncode fence の中 (共通): keyword #f97583 7.45 / 定数 #79b8ff 9.53 / 関数 #b392f0 7.81 / その他 #e1e4e8\n\n全色 AA 以上。見出しとインラインコードが同じ青で、太字かどうかでしか分からない。" },
+    "bTitle": { "x": 0, "y": 1020, "text": "B · 見出し、コード、リンクだけ色を付け、記号は灰色にする", "kind": "title1", "maxW": 1710, "page": "options" },
+    "bNote": { "x": 1190, "y": 1320, "w": 520, "page": "options", "fill": "orange", "text": "B の色 (背景 #0a0a0a に対する比)\n\n本文 #d4d4d8 13.40 (今と同じ)\n見出し (# ごと) #79b8ff 太字 9.53\nインラインコード #ffab70 10.66\nリンクの文字 #b392f0 下線 7.81\n記号 (** _ ` [ ]( ) - 1. > ``` ---)・URL・コメント #8b8b94 5.86 (コメントは斜体)\n引用の文字 #a1a1aa 7.72 (Preview の引用と同じ)\n太字 #fafafa 18.97\ncode fence の中は A と同じ shiki の色\n\n色は 3 種類だけ。見出し・コード・リンクが互いに別の色。" },
+    "cTitle": { "x": 0, "y": 2340, "text": "C · 色は使わず明るさと太さで分け、コードブロックだけ会話と同じ色にする", "kind": "title1", "maxW": 1710, "page": "options" },
+    "cNote": { "x": 1190, "y": 2640, "w": 520, "page": "options", "fill": "gray", "text": "C の色 (背景 #0a0a0a に対する比)\n\n本文 #d4d4d8 13.40\n見出しの文字・太字・リンクの文字 #fafafa 18.97 (リンクは下線)\n記号・URL・コメント #8b8b94 5.86 (code fence の背景 #18181b の上でも 5.25)\nインラインコード #fafafa を #1f1f23 の地に 15.74\n引用の文字 #a1a1aa 7.72\ncode fence は行ごと会話のコードブロックと同じ #18181b の地にし、中は shiki の色: #f97583 6.67 / #b392f0 6.99 / #79b8ff 8.53 / #e1e4e8 13.89 (#18181b に対する比)\n\nMarkdown 部分は灰色の濃淡だけ。" }
+  },
+  "designSystems": [
+    { "title": "agent watch", "namespace": "agentwatch", "artifact": "armyknife/agent-watch-web/design-system", "version": null, "copiedAt": "2026-11-25T10:00:00Z" }
+  ]
+}

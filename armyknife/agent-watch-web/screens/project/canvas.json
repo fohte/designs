@@ -1394,6 +1394,238 @@
       "h": 844,
       "title": "iPhone · 長いタイトル · 2 行まで折り返し、3 行目から … で切る",
       "page": "topbar"
+    },
+    "InboxSort.dc.html": {
+      "x": 0,
+      "y": 10660,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox · Sort を押すとメニュー (今の並び順に ✓)",
+      "page": "inbox"
+    },
+    "PhoneInboxSort.dc.html": {
+      "x": 1520,
+      "y": 10660,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Sort を押すと下からシート",
+      "page": "inbox"
+    },
+    "InboxSortProject.dc.html": {
+      "x": 1990,
+      "y": 10660,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox · Project で並べた (区分の中に project ごとの小見出し)",
+      "page": "inbox"
+    },
+    "PhoneInboxSortProject.dc.html": {
+      "x": 3510,
+      "y": 10660,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Project で並べた",
+      "page": "inbox"
+    },
+    "SortControl.dc.html": {
+      "x": 3704,
+      "y": 2240,
+      "w": 240,
+      "h": 44,
+      "page": "components",
+      "title": "SortControl"
+    },
+    "SortMenu.dc.html": {
+      "x": 1410,
+      "y": 3340,
+      "w": 390,
+      "h": 300,
+      "page": "components",
+      "title": "SortMenu"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 3400,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
+    },
+    "before/BeforeInbox.dc.html": {
+      "x": 3980,
+      "y": 3760,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Inbox と会話",
+      "page": "inbox"
+    },
+    "before/BeforePhoneInbox.dc.html": {
+      "x": 5500,
+      "y": 3760,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · Inbox",
+      "page": "inbox"
+    },
+    "before/BeforePhoneSaveViewSheet.dc.html": {
+      "x": 0,
+      "y": 5860,
+      "w": 390,
+      "h": 300,
+      "title": "BeforePhoneSaveViewSheet",
+      "page": "components"
+    },
+    "before/BeforeConfirmDialog.dc.html": {
+      "x": 470,
+      "y": 5860,
+      "w": 380,
+      "h": 200,
+      "title": "BeforeConfirmDialog",
+      "page": "components"
+    },
+    "before/BeforePhoneLaterSheet.dc.html": {
+      "x": 930,
+      "y": 5860,
+      "w": 390,
+      "h": 420,
+      "title": "BeforePhoneLaterSheet",
+      "page": "components"
+    },
+    "before/BeforePhoneRowMenu.dc.html": {
+      "x": 1400,
+      "y": 5860,
+      "w": 390,
+      "h": 250,
+      "title": "BeforePhoneRowMenu",
+      "page": "components"
+    },
+    "before/BeforeSessionRow.dc.html": {
+      "x": 1870,
+      "y": 5860,
+      "w": 460,
+      "h": 76,
+      "title": "BeforeSessionRow",
+      "page": "components"
+    },
+    "before/BeforeUpdateBand.dc.html": {
+      "x": 2410,
+      "y": 5860,
+      "w": 760,
+      "h": 40,
+      "title": "BeforeUpdateBand",
+      "page": "components"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 3250,
+      "y": 5860,
+      "w": 880,
+      "h": 900,
+      "title": "BeforeConversation",
+      "page": "components"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 4210,
+      "y": 5860,
+      "w": 672,
+      "h": 40,
+      "title": "BeforeSessionUsage",
+      "page": "components"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 4962,
+      "y": 5860,
+      "w": 760,
+      "h": 60,
+      "title": "BeforeStatusBand",
+      "page": "components"
+    },
+    "before/BeforeMergeBand.dc.html": {
+      "x": 5802,
+      "y": 5860,
+      "w": 760,
+      "h": 60,
+      "title": "BeforeMergeBand",
+      "page": "components"
+    },
+    "before/BeforeActionItem.dc.html": {
+      "x": 6642,
+      "y": 5860,
+      "w": 360,
+      "h": 110,
+      "title": "BeforeActionItem",
+      "page": "components"
+    },
+    "before/BeforeCloseChecks.dc.html": {
+      "x": 7082,
+      "y": 5860,
+      "w": 408,
+      "h": 170,
+      "title": "BeforeCloseChecks",
+      "page": "components"
+    },
+    "before/BeforeCodeBlock.dc.html": {
+      "x": 7570,
+      "y": 5860,
+      "w": 672,
+      "h": 160,
+      "title": "BeforeCodeBlock",
+      "page": "components"
+    },
+    "before/BeforeTodoCard.dc.html": {
+      "x": 8322,
+      "y": 5860,
+      "w": 672,
+      "h": 40,
+      "title": "BeforeTodoCard",
+      "page": "components"
+    },
+    "before/BeforeMergeButton.dc.html": {
+      "x": 9074,
+      "y": 5860,
+      "w": 160,
+      "h": 44,
+      "title": "BeforeMergeButton",
+      "page": "components"
+    },
+    "before/BeforePrButton.dc.html": {
+      "x": 9314,
+      "y": 5860,
+      "w": 44,
+      "h": 44,
+      "title": "BeforePrButton",
+      "page": "components"
+    },
+    "before/BeforeInboxList.dc.html": {
+      "x": 9438,
+      "y": 5860,
+      "w": 460,
+      "h": 900,
+      "title": "BeforeInboxList",
+      "page": "components"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 9978,
+      "y": 5860,
+      "w": 240,
+      "h": 900,
+      "title": "BeforeNav",
+      "page": "components"
+    },
+    "before/BeforeQuota.dc.html": {
+      "x": 10298,
+      "y": 5860,
+      "w": 240,
+      "h": 140,
+      "title": "BeforeQuota",
+      "page": "components"
+    },
+    "before/BeforeActivityButton.dc.html": {
+      "x": 10618,
+      "y": 5860,
+      "w": 224,
+      "h": 44,
+      "title": "BeforeActivityButton",
+      "page": "components"
     }
   },
   "order": [
@@ -1571,7 +1803,36 @@
     "PhoneStatusReviewEnglish.dc.html",
     "StatusReviewFull.dc.html",
     "MergeButton.dc.html",
-    "PhoneChatLongTitle.dc.html"
+    "PhoneChatLongTitle.dc.html",
+    "InboxSort.dc.html",
+    "PhoneInboxSort.dc.html",
+    "InboxSortProject.dc.html",
+    "PhoneInboxSortProject.dc.html",
+    "SortControl.dc.html",
+    "SortMenu.dc.html",
+    "before/BeforeMain.dc.html",
+    "before/BeforeInbox.dc.html",
+    "before/BeforePhoneInbox.dc.html",
+    "before/BeforePhoneSaveViewSheet.dc.html",
+    "before/BeforeConfirmDialog.dc.html",
+    "before/BeforePhoneLaterSheet.dc.html",
+    "before/BeforePhoneRowMenu.dc.html",
+    "before/BeforeSessionRow.dc.html",
+    "before/BeforeUpdateBand.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforeSessionUsage.dc.html",
+    "before/BeforeStatusBand.dc.html",
+    "before/BeforeMergeBand.dc.html",
+    "before/BeforeActionItem.dc.html",
+    "before/BeforeCloseChecks.dc.html",
+    "before/BeforeCodeBlock.dc.html",
+    "before/BeforeTodoCard.dc.html",
+    "before/BeforeMergeButton.dc.html",
+    "before/BeforePrButton.dc.html",
+    "before/BeforeInboxList.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeQuota.dc.html",
+    "before/BeforeActivityButton.dc.html"
   ],
   "pages": [
     {
@@ -1748,7 +2009,7 @@
       "y": 1940,
       "text": "ダイアログ、通知、ボタン",
       "kind": "title1",
-      "maxW": 3624,
+      "maxW": 3944,
       "page": "components"
     },
     "rowPartsLayout": {
@@ -1762,9 +2023,9 @@
     "rowPartsPhoneInbox": {
       "x": 0,
       "y": 3040,
-      "text": "iPhone の Inbox のシート",
+      "text": "Inbox のシートと並び順のメニュー",
       "kind": "title1",
-      "maxW": 1330,
+      "maxW": 1800,
       "page": "components"
     },
     "rowPartsRows": {
@@ -1870,6 +2131,38 @@
       "maxW": 1910,
       "page": "conversation",
       "text": "会話の中の web UI のリンク · 開く先のタブ名"
+    },
+    "rowInboxSort": {
+      "x": 0,
+      "y": 10360,
+      "text": "Inbox · 並び順 · 見出しの右の Sort で選び、区分は変えない",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "inbox"
+    },
+    "beforeParts": {
+      "x": 0,
+      "y": 5560,
+      "text": "Before · 変更前のボードが読み込む部品 (main のまま)",
+      "kind": "title1",
+      "maxW": 10842,
+      "page": "components"
+    },
+    "diffMain": {
+      "x": 3040,
+      "y": 0,
+      "w": 420,
+      "fill": "yellow",
+      "page": "inbox",
+      "text": "左が変更前 (Before)。変更点:\n- Inbox の 1 つ目: 「Needs action を tq の優先度順に並べ」を、区分の中の並び順を Sort Priority ⌄ で Priority、Updated、Project から選ぶ説明に書き換えた\n- 選んだ並び順はブラウザごとに保存し、区分は変えない\n- Project では区分の中に project ごとの小見出しを入れ、同じ project の中は Priority の順"
+    },
+    "diffInbox": {
+      "x": 5970,
+      "y": 3760,
+      "w": 420,
+      "fill": "yellow",
+      "page": "inbox",
+      "text": "左の 2 枚が変更前 (Before)。変更点:\n- PC: 見出しの右の Sorted by tq priority を Sort Priority ⌄ のボタンにした\n- iPhone: Inbox の見出しの右に同じボタンを置いた (高さ 36px)\n- 押したときの形と Project で並べたときの小見出しは、一番下の「Inbox · 並び順」の行\n- InboxList と PhoneInbox を読み込むほかのボードも、見出しが同じように変わる"
     }
   },
   "v": 3,

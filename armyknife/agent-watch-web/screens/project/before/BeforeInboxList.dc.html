@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Inbox</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-labelledby="inbox-title" style="width: 460px; height: {{h}}; box-sizing: border-box; display: flex; flex-direction: column; background: #0c0c0c; border-right: 1px solid #2a2a2a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13.5px; line-height: 1.5">
+
+<header style="flex: 0 0 48px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 18px; border-bottom: 1px solid #2a2a2a">
+<h1 id="inbox-title" style="margin: 0; font-size: 15px; font-weight: 700; line-height: 1">Inbox</h1>
+<span style="font-size: 11.5px; color: #8b8b94">Sorted by tq priority</span>
+</header>
+
+<div style="flex: none; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 44px; padding: 8px 14px; border-bottom: 1px solid #1a1a1a">
+<sc-if value="{{noFilter}}" hint-placeholder-val="{{ true }}">
+<button type="button" style="flex: 1; min-height: 28px; display: flex; align-items: center; gap: 8px; padding: 0 10px; border: 1px solid #2a2a2a; background: #141414; color: #8b8b94; font-family: inherit; font-size: 12.5px; text-align: left"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 20a1 1 0 0 0 .553.895l2 1A1 1 0 0 0 14 21v-7a2 2 0 0 1 .517-1.341L21.74 4.67A1 1 0 0 0 21 3H3a1 1 0 0 0-.742 1.67l7.225 7.989A2 2 0 0 1 10 14z"></path></svg><span style="flex: 1">Filter by project, kind, tq task, repo</span><kbd style="margin-left: auto; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8b8b94">/</kbd></button>
+</sc-if>
+<sc-if value="{{hasFilter}}" hint-placeholder-val="{{ false }}">
+<div aria-label="Active inbox filters" style="display: flex; flex-wrap: wrap; gap: 6px">
+<span style="display: inline-flex; align-items: center; gap: 6px; min-height: 26px; padding: 0 4px 0 9px; background: #262626; font-size: 12.5px; white-space: nowrap"><span style="color: #a1a1aa">Project</span><span style="color: #fafafa; font-weight: 700">web-app</span><button type="button" aria-label="Remove Project filter" style="width: 20px; height: 20px; border: 0; background: transparent; color: #a1a1aa; font-size: 13px">×</button></span>
+<span style="display: inline-flex; align-items: center; gap: 6px; min-height: 26px; padding: 0 4px 0 9px; background: #262626; font-size: 12.5px; white-space: nowrap"><span style="color: #a1a1aa">Kind</span><span style="color: #fafafa; font-weight: 700">Question, Review</span><button type="button" aria-label="Remove Kind filter" style="width: 20px; height: 20px; border: 0; background: transparent; color: #a1a1aa; font-size: 13px">×</button></span>
+</div>
+<button type="button" style="min-height: 26px; padding: 0 8px; border: 1px dashed #3f3f46; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px">+ Filter</button>
+<span style="margin-left: auto; font-size: 12px; color: #8b8b94">2 of 6</span>
+<sc-if value="{{notSaving}}" hint-placeholder-val="{{ true }}">
+<button type="button" style="min-height: 26px; padding: 0 8px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 12px">Save view</button>
+</sc-if>
+<sc-if value="{{saving}}" hint-placeholder-val="{{ false }}">
+<form style="flex: 1 1 100%; display: flex; align-items: center; justify-content: flex-end; gap: 3px; margin: 0">
+<input aria-label="Saved view name" placeholder="Name this view" maxlength="60" value="web-app のレビュー" style="width: 132px; box-sizing: border-box; padding: 5px 7px; border: 1px solid #3f3f46; background: #161616; color: #fafafa; font-family: inherit; font-size: 10.5px; outline: none">
+<button type="button" style="min-height: 26px; padding: 0 8px; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px">Save</button>
+<button type="button" style="min-height: 26px; padding: 0 8px; border: 0; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12px">Cancel</button>
+</form>
+</sc-if>
+</sc-if>
+</div>
+
+<div style="flex: 1; min-height: 0; overflow: hidden">
+<section aria-label="Needs action">
+<h2 style="height: 32px; display: flex; align-items: center; gap: 8px; margin: 0; padding: 0 18px; font-size: 12.5px; font-weight: 700; color: #fafafa"><span>Needs action</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #fbbf24">{{needCount}}</span></h2>
+<ul style="margin: 0; padding: 0; list-style: none">
+<sc-for list="{{need}}" as="s" hint-placeholder-count="6">
+<li aria-current="{{s.current}}" style="outline: {{s.outline}}; outline-offset: -1px"><dc-import name="BeforeSessionRow" s="{{ s }}" density="full" hint-size="100%,76px"></dc-import></li>
+</sc-for>
+</ul>
+</section>
+
+<button type="button" aria-expanded="{{laterOpenStr}}" style="width: 100%; height: 38px; display: flex; align-items: center; gap: 8px; padding: 0 18px; border: 0; border-bottom: 1px solid #2a2a2a; background: #141414; color: #d4d4d8; font-family: inherit; font-size: 12.5px; font-weight: 700; text-align: left"><span>◷ Later</span><span style="font-family: 'JetBrains Mono', monospace; font-weight: 400; color: #a1a1aa">{{laterCount}}</span><span style="margin-left: auto; font-weight: 400; color: #8b8b94">{{laterNext}}</span></button>
+
+<sc-if value="{{showInProgress}}" hint-placeholder-val="{{ true }}">
+<section aria-label="In progress">
+<h2 style="height: 32px; display: flex; align-items: center; gap: 8px; margin: 6px 0 0; padding: 0 18px; font-size: 12.5px; font-weight: 700; color: #d4d4d8"><span>In progress</span><span style="font-family: 'JetBrains Mono', monospace; color: #60a5fa">{{workingCount}}</span></h2>
+<ul style="margin: 0; padding: 0; list-style: none">
+<sc-for list="{{working}}" as="s" hint-placeholder-count="2">
+<li><dc-import name="BeforeSessionRow" s="{{ s }}" density="full" hint-size="100%,58px"></dc-import></li>
+</sc-for>
+</ul>
+<button type="button" aria-expanded="false" style="display: block; width: 100%; padding: 2px 18px 6px 36px; border: 0; background: transparent; color: #8b8b94; font-family: inherit; font-size: 12px; text-align: left">{{moreCount}} more ▸</button>
+</section>
+</sc-if>
+
+<section aria-label="Done">
+<h2 style="height: 32px; display: flex; align-items: center; gap: 8px; margin: 4px 0 0; padding: 0 18px; border-top: 1px solid #2a2a2a; font-size: 12.5px; font-weight: 700; color: #d4d4d8"><span>Done</span><span style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{doneCount}}</span><button type="button" style="height: 22px; margin-left: auto; padding: 0 7px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 11px; font-weight: 400; opacity: {{closeAllOpacity}}">Close all</button></h2>
+<ul style="margin: 0; padding: 0; list-style: none">
+<sc-for list="{{done}}" as="s" hint-placeholder-count="3">
+<li><dc-import name="BeforeSessionRow" s="{{ s }}" density="full" hint-size="100%,58px"></dc-import></li>
+</sc-for>
+</ul>
+</section>
+</div>
+
+<footer aria-label="Keyboard shortcuts" style="flex: 0 0 32px; box-sizing: border-box; display: flex; align-items: center; gap: 14px; padding: 0 18px; border-top: 1px solid #2a2a2a; font-size: 11.5px; color: #8b8b94; white-space: nowrap">
+<span><kbd style="font-family: 'JetBrains Mono', monospace">j</kbd> <kbd style="font-family: 'JetBrains Mono', monospace">k</kbd> Move</span>
+<span><kbd style="font-family: 'JetBrains Mono', monospace">L</kbd> Later</span>
+<span><kbd style="font-family: 'JetBrains Mono', monospace">E</kbd> Close</span>
+<span><kbd style="font-family: 'JetBrains Mono', monospace">⇧B</kbd> Board</span>
+<span><kbd style="font-family: 'JetBrains Mono', monospace">[</kbd> Inbox</span>
+<span><kbd style="font-family: 'JetBrains Mono', monospace">⌘.</kbd> Panel</span>
+</footer>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"h":{"editor":null},"filter":{"editor":"enum","options":["none","chips","saving"],"default":"none"},"laterMenuOpen":{"editor":"boolean","default":false},"current":{"editor":"int","default":0},"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"closeReason":{"editor":"text","default":""},"todoLater":{"editor":"boolean","default":false},"$preview":{"width":460,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const cur = this.props.current ?? 0;
+    const filter = this.props.filter ?? 'none';
+    const laterMenuOpen = this.props.laterMenuOpen ?? false;
+    const filtered = filter !== 'none';
+    const rows = [
+      { status: 'Question', title: '通知の再送処理を見直す', unread: true, age: '8s', preview: '再試行は 3 回で止めてよいですか?', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', vibe: 'inherited', match: true },
+      { status: 'Review', title: '配信チェックの PR を確認する', unread: true, age: '2m', preview: 'PR #2049 のレビューをお願いします。', role: '', engine: 'codex', taskRef: '', repo: 'example/web-app', match: true },
+      { status: 'Error', title: '統合テストの失敗を直す', unread: true, age: '4m', preview: 'テストが exit code 101 で終了しました。', role: 'debug-flow', engine: 'claude', taskRef: '', repo: 'example/service' },
+      { status: 'Plan', title: '段階的な公開の計画を立てる', unread: false, age: '5m', preview: '計画を確認してください。', role: 'PM', engine: 'claude', taskRef: 'P2 #2052', taskTitle: '新しい設定を段階的に公開する', repo: 'example/web-app' },
+      { status: 'Approve', title: 'ステージングの設定を書き換える', unread: false, age: '6m', preview: 'Bash の実行を許可してください。', role: 'development', engine: 'codex', taskRef: 'P2 #2052', taskTitle: '新しい設定を段階的に公開する', repo: 'example/service' },
+      { status: 'Proposal', title: 'アラートの送り先を決める', unread: false, age: '12m', preview: '2 つの案から選んでください。', role: 'designer', engine: 'claude', taskRef: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/observability' }
+    ];
+    // close: a confirmed close of the Proposal row running in the background. 'closed' takes the row out.
+    const close = this.props.close ?? 'none';
+    const proposal = rows[rows.length - 1];
+    if (close === 'closed') rows.pop();
+    else if (close !== 'none') Object.assign(proposal, { close, closeReason: this.props.closeReason || 'The session did not stop within 10 s.' });
+    const need = rows.filter((r) => !filtered || r.match).map((r, i) => ({
+      ...r,
+      current: i === cur ? 'true' : 'false',
+      bg: i === cur ? (laterMenuOpen ? '#1f1f1f' : '#262626') : 'transparent',
+      outline: i === cur && laterMenuOpen ? '1px solid #a1a1aa' : 'none'
+    }));
+    // A done row shows its decisions left to review on the preview line.
+    const done = filtered ? [] : [
+      { status: 'Done', title: 'リクエスト上限を文書にする', age: '1h', preview: '◇ 2 decisions to review', previewColor: '#d4d4d8', role: 'development', engine: 'claude', taskRef: '', repo: 'example/service' },
+      { status: 'Done', title: 'セットアップ手順を更新する', age: '2h', role: '', engine: 'codex', taskRef: '', repo: 'example/handbook' },
+      { status: 'Done', title: 'キャッシュの挙動を調べる', age: '3h', preview: '◇ 1 decision', previewColor: '#d4d4d8', role: 'research', engine: 'codex', taskRef: 'P3 #2050', taskTitle: 'キャッシュを見直す', repo: 'example/service' }
+    ];
+    const working = [
+      { status: 'Working', title: '配信メトリクスを追加する', age: '30s', role: 'development', engine: 'codex', taskRef: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/observability', vibe: 'on' },
+      { status: 'Working', title: 'リクエストの遅延を計測する', age: '1m', role: 'research', engine: 'claude', taskRef: '', repo: 'example/service' }
+    ];
+    // todoLater: a running session whose pending to-dos are all folded. It stays out of Needs action and its count, and its row in In progress names the folded to-do. Open in the conversation beside it.
+    const todoLater = this.props.todoLater ?? false;
+    // In progress shows its first 2 rows; the rest fold into "N more".
+    if (todoLater) working.splice(1, 1);
+    if (todoLater) working.unshift({ status: 'Working', title: '通知の音を選べるようにする', age: '3m', preview: 'To-do · later · 通知の音を実機で確かめる', role: 'development', engine: 'claude', taskRef: 'P2 #3101', taskTitle: '通知の設定を増やす', repo: 'example/mobile-app', bg: '#262626' });
+    return {
+      // h: shorter when the update band takes the top of the window.
+      h: this.props.h ?? '900px',
+      noFilter: !filtered,
+      hasFilter: filtered,
+      saving: filter === 'saving',
+      notSaving: filter !== 'saving',
+      need,
+      needCount: need.length,
+      laterCount: filtered ? 0 : 2,
+      laterOpenStr: 'false',
+      laterNext: filtered ? '' : 'Next back 19:00 ▸',
+      showInProgress: !filtered,
+      working,
+      workingCount: todoLater ? 6 : 5, moreCount: todoLater ? 4 : 3,
+      done,
+      doneCount: done.length,
+      closeAllOpacity: done.length ? 1 : 0.5
+    };
+  }
+}
+</script>
+</body>
+</html>

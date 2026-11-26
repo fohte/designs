@@ -13,11 +13,11 @@
 body{margin:0}
 </style>
 </helmet>
-<section aria-labelledby="inbox-title" style="width: 460px; height: {{h}}; box-sizing: border-box; display: flex; flex-direction: column; background: #0c0c0c; border-right: 1px solid #2a2a2a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13.5px; line-height: 1.5">
+<section aria-labelledby="inbox-title" style="position: relative; width: 460px; height: {{h}}; box-sizing: border-box; display: flex; flex-direction: column; background: #0c0c0c; border-right: 1px solid #2a2a2a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13.5px; line-height: 1.5">
 
 <header style="flex: 0 0 48px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 18px; border-bottom: 1px solid #2a2a2a">
 <h1 id="inbox-title" style="margin: 0; font-size: 15px; font-weight: 700; line-height: 1">Inbox</h1>
-<span style="font-size: 11.5px; color: #8b8b94">Sorted by tq priority</span>
+<dc-import name="SortControl" form="pc" value="{{sort}}" open="{{sortOpen}}" hint-size="140px,26px"></dc-import>
 </header>
 
 <div style="flex: none; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; min-height: 44px; padding: 8px 14px; border-bottom: 1px solid #1a1a1a">
@@ -49,6 +49,7 @@ body{margin:0}
 <h2 style="height: 32px; display: flex; align-items: center; gap: 8px; margin: 0; padding: 0 18px; font-size: 12.5px; font-weight: 700; color: #fafafa"><span>Needs action</span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #fbbf24">{{needCount}}</span></h2>
 <ul style="margin: 0; padding: 0; list-style: none">
 <sc-for list="{{need}}" as="s" hint-placeholder-count="6">
+<sc-if value="{{s.hasHead}}" hint-placeholder-val="{{ false }}"><li aria-hidden="true" style="height: 24px; display: flex; align-items: flex-end; padding: 0 18px 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8b8b94">{{s.project}}</li></sc-if>
 <li aria-current="{{s.current}}" style="outline: {{s.outline}}; outline-offset: -1px"><dc-import name="SessionRow" s="{{ s }}" density="full" hint-size="100%,76px"></dc-import></li>
 </sc-for>
 </ul>
@@ -61,6 +62,7 @@ body{margin:0}
 <h2 style="height: 32px; display: flex; align-items: center; gap: 8px; margin: 6px 0 0; padding: 0 18px; font-size: 12.5px; font-weight: 700; color: #d4d4d8"><span>In progress</span><span style="font-family: 'JetBrains Mono', monospace; color: #60a5fa">{{workingCount}}</span></h2>
 <ul style="margin: 0; padding: 0; list-style: none">
 <sc-for list="{{working}}" as="s" hint-placeholder-count="2">
+<sc-if value="{{s.hasHead}}" hint-placeholder-val="{{ false }}"><li aria-hidden="true" style="height: 24px; display: flex; align-items: flex-end; padding: 0 18px 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8b8b94">{{s.project}}</li></sc-if>
 <li><dc-import name="SessionRow" s="{{ s }}" density="full" hint-size="100%,58px"></dc-import></li>
 </sc-for>
 </ul>
@@ -72,6 +74,7 @@ body{margin:0}
 <h2 style="height: 32px; display: flex; align-items: center; gap: 8px; margin: 4px 0 0; padding: 0 18px; border-top: 1px solid #2a2a2a; font-size: 12.5px; font-weight: 700; color: #d4d4d8"><span>Done</span><span style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{doneCount}}</span><button type="button" style="height: 22px; margin-left: auto; padding: 0 7px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 11px; font-weight: 400; opacity: {{closeAllOpacity}}">Close all</button></h2>
 <ul style="margin: 0; padding: 0; list-style: none">
 <sc-for list="{{done}}" as="s" hint-placeholder-count="3">
+<sc-if value="{{s.hasHead}}" hint-placeholder-val="{{ false }}"><li aria-hidden="true" style="height: 24px; display: flex; align-items: flex-end; padding: 0 18px 2px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #8b8b94">{{s.project}}</li></sc-if>
 <li><dc-import name="SessionRow" s="{{ s }}" density="full" hint-size="100%,58px"></dc-import></li>
 </sc-for>
 </ul>
@@ -86,9 +89,10 @@ body{margin:0}
 <span><kbd style="font-family: 'JetBrains Mono', monospace">[</kbd> Inbox</span>
 <span><kbd style="font-family: 'JetBrains Mono', monospace">⌘.</kbd> Panel</span>
 </footer>
+<sc-if value="{{sortOpen}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; top: 42px; right: 14px; z-index: 20"><dc-import name="SortMenu" form="pc" value="{{sort}}" hint-size="236px,150px"></dc-import></div></sc-if>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"h":{"editor":null},"filter":{"editor":"enum","options":["none","chips","saving"],"default":"none"},"laterMenuOpen":{"editor":"boolean","default":false},"current":{"editor":"int","default":0},"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"closeReason":{"editor":"text","default":""},"todoLater":{"editor":"boolean","default":false},"$preview":{"width":460,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"h":{"editor":null},"filter":{"editor":"enum","options":["none","chips","saving"],"default":"none"},"laterMenuOpen":{"editor":"boolean","default":false},"current":{"editor":"int","default":0},"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"closeReason":{"editor":"text","default":""},"todoLater":{"editor":"boolean","default":false},"sort":{"editor":"enum","options":["priority","updated","project"],"default":"priority"},"sortOpen":{"editor":"boolean","default":false},"$preview":{"width":460,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const cur = this.props.current ?? 0;
@@ -129,22 +133,32 @@ class Component extends DCLogic {
     // In progress shows its first 2 rows; the rest fold into "N more".
     if (todoLater) working.splice(1, 1);
     if (todoLater) working.unshift({ status: 'Working', title: '通知の音を選べるようにする', age: '3m', preview: 'To-do · later · 通知の音を実機で確かめる', role: 'development', engine: 'claude', taskRef: 'P2 #3101', taskTitle: '通知の設定を増やす', repo: 'example/mobile-app', bg: '#262626' });
+    // sort: Priority keeps the order above (tq priority, ties by newest update); Updated and Project reorder inside each section only.
+    const sort = this.props.sort ?? 'priority';
+    const secs = (a) => parseInt(a, 10) * ({ s: 1, m: 60, h: 3600 }[a.slice(-1)] ?? 1);
+    const order = (list) => {
+      const out = list.map((r, i) => ({ ...r, project: r.repo.split('/').pop(), i }));
+      if (sort === 'updated') out.sort((a, b) => secs(a.age) - secs(b.age) || a.i - b.i);
+      if (sort === 'project') out.sort((a, b) => a.project.localeCompare(b.project) || a.i - b.i);
+      return out.map((r, i) => ({ ...r, hasHead: sort === 'project' && (i === 0 || out[i - 1].project !== r.project) }));
+    };
     return {
+      sort, sortOpen: this.props.sortOpen ?? false,
       // h: shorter when the update band takes the top of the window.
       h: this.props.h ?? '900px',
       noFilter: !filtered,
       hasFilter: filtered,
       saving: filter === 'saving',
       notSaving: filter !== 'saving',
-      need,
+      need: order(need),
       needCount: need.length,
       laterCount: filtered ? 0 : 2,
       laterOpenStr: 'false',
       laterNext: filtered ? '' : 'Next back 19:00 ▸',
       showInProgress: !filtered,
-      working,
+      working: order(working),
       workingCount: todoLater ? 6 : 5, moreCount: todoLater ? 4 : 3,
-      done,
+      done: order(done),
       doneCount: done.length,
       closeAllOpacity: done.length ? 1 : 0.5
     };

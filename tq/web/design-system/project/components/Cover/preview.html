@@ -1,0 +1,65 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>tq</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--background); color:var(--foreground); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; height:288px; overflow:hidden; }
+  .art { position:absolute; top:24px; left:480px; width:456px; height:240px; }
+  .art svg { display:block; }
+  .line { stroke:var(--border); stroke-width:1; }
+  .ring { fill:none; stroke:var(--muted-foreground); stroke-width:1.5; }
+  .done { fill:var(--status-completed); }
+  .faint { fill:var(--muted-foreground-faint); }
+  .bar { fill:var(--surface-strong); }
+  .text { fill:var(--muted-foreground-ghost); }
+  .mark { fill:var(--primary); }
+  .words { position:absolute; left:24px; bottom:24px; max-width:420px; }
+  .name { margin:0; font-family:var(--font-mono); font-size:120px; line-height:.9; font-weight:700; }
+  .name span { color:var(--primary); }
+  .tag { margin:12px 0 0; font-size:14px; line-height:20px; color:var(--muted-foreground); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 456 240" width="456" height="240">
+<!--
+  rows        a task list: 40px rows split by border hairlines, like the tree list
+  marks       StatusIcon at its real 20px: todo rings, one status-completed, one not_planned
+  titles      surface-strong bars stand in for titles; muted-foreground-ghost bars for metadata
+  accent      one primary square, the ## of a SectionHeading, kept small
+-->
+<rect class="mark" x="0" y="8" width="8" height="8"/>
+<rect class="mark" x="12" y="8" width="8" height="8"/>
+<rect class="bar" x="32" y="8" width="96" height="8"/>
+<line class="line" x1="0" y1="40" x2="456" y2="40"/>
+<circle class="ring" cx="10" cy="60" r="7"/>
+<rect class="bar" x="32" y="56" width="248" height="8"/>
+<rect class="text" x="344" y="56" width="112" height="8"/>
+<line class="line" x1="0" y1="80" x2="456" y2="80"/>
+<circle class="done" cx="10" cy="100" r="10"/>
+<rect class="bar" x="32" y="96" width="184" height="8"/>
+<rect class="text" x="376" y="96" width="80" height="8"/>
+<line class="line" x1="0" y1="120" x2="456" y2="120"/>
+<circle class="ring" cx="34" cy="140" r="7"/>
+<rect class="bar" x="56" y="136" width="296" height="8"/>
+<line class="line" x1="0" y1="160" x2="456" y2="160"/>
+<circle class="faint" cx="10" cy="180" r="10"/>
+<rect class="bar" x="32" y="176" width="152" height="8"/>
+<rect class="text" x="392" y="176" width="64" height="8"/>
+<line class="line" x1="0" y1="200" x2="456" y2="200"/>
+<circle class="ring" cx="10" cy="220" r="7"/>
+<rect class="bar" x="32" y="216" width="216" height="8"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">tq<span>.</span></h1>
+<p class="tag">A personal task manager: square, dark, mono chrome, red only as punctuation.</p>
+</div>
+</div>
+</body>
+</html>

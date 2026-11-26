@@ -1,0 +1,239 @@
+/* Static renditions of tq's primitives. Values follow the app's Tailwind
+   classes; colors come from the tokens, spacing is written in px because the
+   Tailwind half steps (space-0.5, space-1.5) are not valid custom property names. */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.tq-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.tq-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+
+.tq-note {
+  color: var(--muted-foreground);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.tq-icon {
+  display: block;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+/* Button: @fohte/ui button.tsx */
+
+.tq-button {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background: transparent;
+  color: var(--foreground);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.tq-button .tq-icon { width: 16px; height: 16px; }
+.tq-button:disabled { opacity: .5; cursor: default; }
+.tq-button--default { border-color: var(--border-strong); background: var(--surface-strong); }
+.tq-button--default:hover { border-color: var(--foreground); }
+.tq-button--outline { border-color: var(--border); background: var(--background); }
+.tq-button--outline:hover { background: var(--muted); }
+.tq-button--secondary { border-color: var(--border); color: var(--muted-foreground-strong); }
+.tq-button--secondary:hover { border-color: var(--border-strong); color: var(--foreground); }
+.tq-button--ghost:hover { background: var(--muted); }
+.tq-button--destructive { border-color: var(--border); color: var(--muted-foreground-strong); }
+.tq-button--destructive:hover { border-color: var(--destructive); color: var(--destructive); }
+.tq-button--link { color: var(--primary); }
+.tq-button--link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.tq-button--plain { height: auto; padding: 0; border: 0; color: var(--muted-foreground); font: inherit; }
+.tq-button--plain:hover { color: var(--destructive); }
+.tq-button--xs { height: 24px; gap: 4px; padding: 0 8px; font-size: 12px; line-height: 16px; }
+.tq-button--xs .tq-icon { width: 12px; height: 12px; }
+.tq-button--sm { height: 28px; gap: 4px; padding: 0 10px; font-size: 12px; line-height: 16px; }
+.tq-button--sm .tq-icon { width: 14px; height: 14px; }
+.tq-button--lg { height: 36px; }
+.tq-button--icon { width: 32px; padding: 0; }
+.tq-button--icon-xs { width: 24px; height: 24px; padding: 0; }
+.tq-button--icon-xs .tq-icon { width: 12px; height: 12px; }
+.tq-button--icon-sm { width: 28px; height: 28px; padding: 0; }
+.tq-button--icon-lg { width: 36px; height: 36px; padding: 0; }
+
+/* Chip: @fohte/ui chip.tsx */
+
+.tq-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 4px;
+  border: 1px solid var(--border);
+  color: var(--muted-foreground);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 14px;
+}
+.tq-chip--md { padding: 2px 6px; }
+.tq-chip--strong { border-color: var(--border-strong); color: var(--foreground); }
+.tq-chip--faint { color: var(--muted-foreground-faint); }
+.tq-chip .tq-icon { width: 12px; height: 12px; }
+
+/* Input: @fohte/ui input.tsx */
+
+.tq-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 32px;
+  padding: 4px 10px;
+  border: 1px solid var(--input);
+  border-radius: 0;
+  background: rgb(42 42 42 / 30%);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  outline: none;
+}
+.tq-input::placeholder { color: var(--muted-foreground); }
+.tq-input:focus-visible { border-color: var(--ring); box-shadow: 0 0 0 1px rgb(239 68 68 / 50%); }
+.tq-input[aria-invalid='true'] { border-color: rgb(239 68 68 / 50%); }
+
+/* SegmentedControl: @fohte/ui segmented-control.tsx */
+
+.tq-segmented {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+  border: 1px solid var(--border);
+  background: var(--secondary);
+}
+.tq-segmented button {
+  padding: 4px 10px;
+  border: 0;
+  background: transparent;
+  color: var(--muted-foreground);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  cursor: pointer;
+}
+.tq-segmented button[aria-pressed='true'] { background: var(--background); color: var(--foreground); }
+
+/* KeybindHint: web/src/components/ui/keybind-hint.tsx */
+
+.tq-kbd { font-family: var(--font-mono); font-size: 10px; line-height: 14px; color: var(--muted-foreground-ghost); }
+.tq-kbd--strong { color: var(--muted-foreground-strong); }
+.tq-kbd--muted { color: var(--muted-foreground); }
+.tq-kbd--boxed {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--keycap-radius);
+  background: var(--secondary);
+  color: var(--foreground);
+}
+
+/* SectionHeading: web/src/components/ui/section-heading.tsx */
+
+.tq-heading { display: inline-flex; align-items: baseline; gap: 8px; font-family: var(--font-mono); }
+.tq-heading__mark { color: var(--primary); font-size: 12px; line-height: 16px; font-weight: 700; }
+.tq-heading__label { font-size: 12px; line-height: 16px; font-weight: 500; }
+.tq-heading--3 .tq-heading__label { font-size: 14px; line-height: 20px; font-weight: 700; }
+
+/* ScreenHeaderBar: web/src/components/ui/screen-header-bar.tsx */
+
+.tq-header-bar {
+  box-sizing: border-box;
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+.tq-header-bar__title { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 700; }
+.tq-header-bar__end { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+
+/* StatusIcon: web/src/components/task/status-icon.tsx */
+
+.tq-status { display: flex; flex: none; align-items: center; justify-content: center; width: 20px; height: 20px; }
+.tq-status--todo { color: var(--muted-foreground); }
+.tq-status--todo svg { width: 20px; height: 20px; }
+.tq-status--completed, .tq-status--not-planned, .tq-status--duplicate { border-radius: 9999px; color: var(--background); }
+.tq-status--completed { background: var(--status-completed); }
+.tq-status--not-planned, .tq-status--duplicate { background: var(--muted-foreground-faint); }
+.tq-status .tq-icon { width: 12px; height: 12px; stroke-width: 3; }
+
+/* PriorityBadge: web/src/components/task/priority-badge.tsx */
+
+.tq-priority {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  background: var(--secondary);
+  color: var(--foreground);
+  font-size: 10px;
+  line-height: 14px;
+}
+
+/* TaskFilterChip: web/src/components/task/task-filter-chip.tsx */
+
+.tq-filter-chip { display: inline-flex; align-items: center; gap: 4px; min-height: 20px; font-family: var(--font-mono); font-size: 12px; line-height: 16px; }
+.tq-filter-chip .tq-icon { width: 14px; height: 14px; color: var(--muted-foreground); }
+.tq-filter-chip__key { color: var(--muted-foreground); }
+.tq-filter-chip__value { padding: 0 4px; border-radius: var(--radius-task-filter-value); background: var(--tint-blue); color: var(--tint-blue-foreground); }
+.tq-filter-chip__remove { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; padding: 0; border: 0; background: none; color: var(--muted-foreground); cursor: pointer; }
+.tq-filter-chip__remove .tq-icon { width: 12px; height: 12px; }
+.tq-filter-chip--default { opacity: .5; }
+
+/* ProgressBar: web/src/components/ui/progress-bar.tsx */
+
+.tq-progress { height: 2px; background: var(--surface-strong); }
+.tq-progress__fill { height: 100%; background: var(--foreground); }
+.tq-progress--muted .tq-progress__fill { background: var(--muted-foreground); }
+
+/* Panel: @fohte/ui panel.tsx */
+
+.tq-panel { box-sizing: border-box; padding: 12px; border: 1px solid var(--border); }
+.tq-panel--sm { padding: 6px 12px; }
+.tq-panel--none { padding: 0; }

@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Task detail on a phone</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: {{h}}; overflow: hidden; display: flex; flex-direction: column; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif">
+<main style="flex: 1; min-height: 0; overflow: hidden; padding: 16px">
+
+<div style="display: flex; flex-direction: column; gap: 12px; font-family: 'JetBrains Mono', monospace">
+<span style="font-size: 10px; line-height: 14px; letter-spacing: 0.1em; color: #52525b">DETAILS</span>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid #2a2a2a">
+
+<div style="padding: 10px; border-bottom: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 10px; line-height: 14px; color: #52525b">STATUS</span>
+<div style="padding: 0 4px"><button type="button" aria-label="Status" style="width: 100%; height: 28px; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 4px; margin: 0 -4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; text-align: left"><svg width="16" height="16" viewBox="0 0 20 20" aria-hidden="true" style="flex: none; color: #71717a"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.5"></circle></svg><span style="flex: 1">todo</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div>
+</div>
+<div style="padding: 10px; border-bottom: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 10px; line-height: 14px; color: #52525b">CHECKLIST</span>
+<div style="font-size: 12px; line-height: 16px">2/7</div>
+</div>
+
+<div style="grid-column: span 2; padding: 10px; border-bottom: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 10px; line-height: 14px; color: #52525b">PLAN</span>
+<div>
+<div role="group" aria-label="Plan" style="display: inline-flex; padding: 2px; border: 1px solid #2a2a2a; background: #141414">
+<button type="button" aria-pressed="false" style="padding: 4px 10px; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 12px; line-height: 16px; font-weight: 500">—</button>
+<button type="button" aria-pressed="true" style="padding: 4px 10px; border: 0; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: 12px; line-height: 16px; font-weight: 500">today</button>
+<button type="button" aria-pressed="false" style="padding: 4px 10px; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 12px; line-height: 16px; font-weight: 500">this week</button>
+</div>
+<p style="margin: 4px 0 0; font-size: 10px; line-height: 14px; color: #52525b">in today's queue · 2nd of 5</p>
+</div>
+</div>
+
+<div style="padding: 10px; border-bottom: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 6px">
+<label for="p-start" style="font-size: 10px; line-height: 14px; color: #52525b">START</label>
+<div style="padding: 0 4px"><input id="p-start" type="text" value="2026/11/27" style="width: 100%; height: 32px; box-sizing: border-box; padding: 0 4px; margin: 0 -4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: inherit; font-size: 16px; outline: none"></div>
+</div>
+<div style="padding: 10px; border-bottom: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 6px">
+<label for="p-due" style="font-size: 10px; line-height: 14px; color: #52525b">DUE</label>
+<div style="padding: 0 4px"><input id="p-due" type="text" value="2026/11/28" style="width: 100%; height: 32px; box-sizing: border-box; padding: 0 4px; margin: 0 -4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: inherit; font-size: 16px; outline: none"></div>
+</div>
+
+<div style="grid-column: span 2; padding: 10px; border-bottom: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 10px; line-height: 14px; color: #52525b">RECURRENCE</span>
+<button type="button" style="width: 100%; min-height: 32px; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 6px 4px; margin: 0 -4px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px; line-height: 16px; text-align: left"><span style="flex: 1">—</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+</div>
+
+<div style="grid-column: span 2; padding: 10px; border-bottom: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 10px; line-height: 14px; color: #52525b">REMIND</span>
+<button type="button" style="width: 100%; min-height: 32px; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 6px 4px; margin: 0 -4px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px; line-height: 16px; text-align: left"><span style="flex: 1">tomorrow 09:00</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+</div>
+
+<div style="min-width: 0; padding: 10px; border-bottom: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 10px; line-height: 14px; color: #52525b">PARENT</span>
+<button type="button" style="width: 100%; min-height: 32px; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 6px 4px; margin: 0 -4px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px; line-height: 16px; text-align: left"><span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">#112 ログイン周りの不具合</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="m6 9 6 6 6-6"></path></svg></button>
+</div>
+<div style="padding: 10px; border-bottom: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 10px; line-height: 14px; color: #52525b">CONTEXT</span>
+<div style="padding: 0 4px"><button type="button" aria-label="Context" style="width: 100%; height: 28px; box-sizing: border-box; display: flex; align-items: center; padding: 0 4px; margin: 0 -4px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; text-align: left"><span style="flex: 1">work</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div>
+</div>
+
+<div style="padding: 10px; border-bottom: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 10px; line-height: 14px; color: #52525b">PRIORITY</span>
+<div style="padding: 0 4px"><button type="button" aria-label="Priority" style="width: 100%; height: 28px; box-sizing: border-box; display: flex; align-items: center; padding: 0 4px; margin: 0 -4px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; text-align: left"><span style="flex: 1">Normal</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button></div>
+</div>
+<div style="min-width: 0; padding: 10px; border-bottom: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 10px; line-height: 14px; color: #52525b">PROJECT</span>
+<div style="padding: 0 4px"><button type="button" aria-label="Project" style="width: 100%; height: 28px; box-sizing: border-box; display: flex; align-items: center; padding: 0 4px; margin: 0 -4px; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; text-align: left"><span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">会員サイト改修</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="m6 9 6 6 6-6"></path></svg></button></div>
+</div>
+
+<div style="grid-column: span 2; padding: 10px; border-bottom: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 10px; line-height: 14px; color: #52525b">TAGS</span>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 12px; line-height: 16px">
+<span style="display: inline-flex; align-items: center; gap: 4px; padding: 0 4px; border: 1px solid #2a2a2a; color: #71717a; font-size: 10px; line-height: 14px"><span style="color: #ef4444; font-weight: 700">#</span>backend<button type="button" aria-label="Remove backend" style="display: flex; padding: 0; border: 0; background: transparent; color: inherit"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></span>
+<span style="display: inline-flex; align-items: center; gap: 4px; padding: 0 4px; border: 1px solid #2a2a2a; color: #71717a; font-size: 10px; line-height: 14px"><span style="color: #ef4444; font-weight: 700">#</span>auth<button type="button" aria-label="Remove auth" style="display: flex; padding: 0; border: 0; background: transparent; color: inherit"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></span>
+<button type="button" style="padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 12px">+ add tag</button>
+</div>
+</div>
+
+<div style="grid-column: span 2; padding: 10px; display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 10px; line-height: 14px; color: #52525b">GITHUB</span>
+<div style="font-size: 12px; line-height: 16px; color: #71717a">2 links</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 8px; padding-top: 14px; border-top: 1px solid #2a2a2a">
+<span style="font-size: 10px; line-height: 14px; color: #52525b">TIME BLOCKS</span>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 4px; padding: 8px; border: 1px solid #2a2a2a; background: #141414; font-size: 10px; line-height: 14px; color: #a1a1aa">
+<div style="display: flex; align-items: center; gap: 8px"><span style="color: #52525b">11-25</span><span>09:00–10:30</span><span style="color: #52525b">(1h30m)</span><span style="height: 20px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 0 8px; border: 1px solid #2a2a2a; color: #fafafa; font-size: 12px; font-weight: 500">auto</span></div>
+<button type="button" aria-label="Delete time block" style="display: flex; padding: 4px; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 4px; padding: 8px; border: 1px solid #2a2a2a; background: #141414; font-size: 10px; line-height: 14px; color: #a1a1aa">
+<div style="display: flex; align-items: center; gap: 8px"><span style="color: #52525b">11-26</span><span>14:00–14:45</span><span style="color: #52525b">(45m)</span><span style="height: 20px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 0 8px; border: 1px solid #2a2a2a; color: #fafafa; font-size: 12px; font-weight: 500">manual</span></div>
+<button type="button" aria-label="Delete time block" style="display: flex; padding: 4px; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button>
+</div>
+</div>
+</div>
+</div>
+
+<div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #2a2a2a; display: flex; flex-direction: column; gap: 20px">
+<dc-import name="TaskDetailHead" form="phone" hint-size="100%,470px"></dc-import>
+<dc-import name="TaskDetailChecklists" form="phone" hint-size="100%,740px"></dc-import>
+<dc-import name="TaskDetailPages" form="phone" hint-size="100%,520px"></dc-import>
+<dc-import name="TaskDetailSubtasks" hint-size="100%,293px"></dc-import>
+<dc-import name="TaskDetailGithub" hint-size="100%,112px"></dc-import>
+<dc-import name="TaskDetailDeps" variant="full" hint-size="100%,700px"></dc-import>
+<dc-import name="TaskDetailLinked" hint-size="100%,200px"></dc-import>
+<dc-import name="TaskDetailSessions" hint-size="100%,140px"></dc-import>
+<dc-import name="TaskDetailActivity" form="phone" hint-size="100%,620px"></dc-import>
+</div>
+</main>
+
+<sc-if value="{{sheet}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; inset: 0; z-index: 10; display: flex; flex-direction: column; justify-content: flex-end; background: rgba(0,0,0,0.4)">
+<div role="menu" aria-label="Task actions" style="border-top: 1px solid #2a2a2a; background: #141414; font-size: 14px; line-height: 20px">
+<div aria-hidden="true" style="width: 32px; height: 2px; margin: 8px auto; background: #3f3f46"></div>
+<button type="button" role="menuitem" style="width: 100%; min-height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 14px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #ef4444; font-family: inherit; font-size: 14px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>delete…</button>
+</div>
+</div>
+</sc-if>
+
+<dc-import name="TabBar" view="tasks" hint-size="100%,53px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"height":{"editor":"int","default":844},"sheet":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const sheet = this.props.sheet === true || this.props.sheet === 'true';
+    return { h: (this.props.height ?? 844) + 'px', sheet };
+  }
+}
+</script>
+</body>
+</html>

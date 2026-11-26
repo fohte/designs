@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Task dependencies section</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif">
+<h3 style="margin: 0; display: inline-flex; align-items: baseline; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 20px; font-weight: 700"><span style="color: #ef4444; font-size: 12px">###</span>dependencies</h3>
+
+<div style="display: flex; flex-direction: column; gap: 12px">
+
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">blocked by</span>
+<div style="border: 1px solid #2a2a2a">
+
+<sc-if value="{{showWaiting}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 8px 12px; border-bottom: 1px solid #2a2a2a">
+<div style="min-height: 28px; display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; row-gap: 4px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; color: #71717a">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22h14"></path><path d="M5 2h14"></path><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"></path><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"></path></svg>
+<span>waiting</span>
+<label style="margin-left: auto; display: inline-flex; align-items: center; gap: 6px; color: #52525b">follow up<input type="text" aria-label="Follow-up date for デザインレビューの返事" value="2026/11/29" style="width: 128px; height: 28px; box-sizing: border-box; padding: 0 4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; outline: none"></label>
+<button type="button" aria-label="Resolve wait: デザインレビューの返事" style="display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #71717a; font: inherit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>resolve</button>
+<button type="button" aria-label="Remove wait: デザインレビューの返事" style="width: 24px; height: 24px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+<div style="padding-left: 20px; font-size: 14px; line-height: 1.625">デザインレビューの返事を待つ。ログイン画面の文言も一緒に確認してもらう。</div>
+</div>
+</sc-if>
+
+<sc-if value="{{waitingOnly}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 8px 12px; border-bottom: 1px solid #2a2a2a">
+<div style="min-height: 28px; display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; row-gap: 4px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; color: #ef4444">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22h14"></path><path d="M5 2h14"></path><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"></path><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"></path></svg>
+<span>wait resolved</span>
+<span style="margin-left: auto; color: #52525b">resolved Nov 25</span>
+<button type="button" aria-label="Acknowledge wait: インフラ担当の回答" style="display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #71717a; font: inherit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>acknowledge</button>
+<button type="button" aria-label="Remove wait: インフラ担当の回答" style="width: 24px; height: 24px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+<div style="padding-left: 20px; font-size: 14px; line-height: 1.625; color: #71717a; text-decoration: line-through">インフラ担当にセッションストアの TTL を確認する</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 8px 12px; border-bottom: 1px solid #2a2a2a; opacity: 0.55">
+<div style="min-height: 28px; display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; row-gap: 4px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; color: #71717a">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22h14"></path><path d="M5 2h14"></path><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"></path><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"></path></svg>
+<span>resolved</span>
+<span style="margin-left: auto; color: #52525b">resolved Nov 20</span>
+<button type="button" aria-label="Remove wait: 再現環境の用意" style="width: 24px; height: 24px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+<div style="padding-left: 20px; font-size: 14px; line-height: 1.625; color: #71717a; text-decoration: line-through">再現環境を用意してもらう</div>
+</div>
+</sc-if>
+
+<sc-if value="{{full}}" hint-placeholder-val="{{ true }}">
+<div style="position: relative; border-bottom: 1px solid #2a2a2a">
+<dc-import name="TaskRow" num="#120" title="認証ライブラリを更新する" status="todo" priority="" labels="#backend" project="" context="work" due="" overdue="false" children="" expanded="false" waiting="false" depth="0" selected="false" hint-size="100%,57px"></dc-import>
+<button type="button" aria-label="Remove #120 as blocker" style="position: absolute; top: 50%; right: 12px; margin-top: -12px; width: 24px; height: 24px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+
+<div role="group" aria-label="GitHub blocker example-org/auth-lib#45" style="display: flex; flex-direction: column; gap: 4px; padding: 8px 12px; border-bottom: 1px solid #2a2a2a">
+<div style="display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; row-gap: 4px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; color: #71717a">
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<a href="https://github.com/example-org/auth-lib/issues/45" style="min-width: 0; display: flex; align-items: center; gap: 8px; font-size: 14px; line-height: 20px; color: #fafafa; text-decoration: none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c3e88d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg><span style="min-width: 0; flex-shrink: 1; color: #71717a; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">example-org/auth-lib#45</span><span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">returnTo を保持するオプションがほしい</span></a>
+<span style="font-size: 10px; line-height: 14px; color: #52525b">github · open</span>
+</div>
+<button type="button" aria-label="Notify on: closed" style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 6px; border: 0; background: transparent; color: #52525b; font-family: inherit; font-size: 10px; line-height: 14px">closed<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<button type="button" aria-label="Remove example-org/auth-lib#45 as blocker" style="width: 24px; height: 24px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+<button type="button" aria-label="Wait mode for example-org/auth-lib#45" style="width: 128px; height: 28px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: 'JetBrains Mono', monospace; font-size: 12px">until closed<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+</div>
+</sc-if>
+
+<sc-if value="{{waitingOnly}}" hint-placeholder-val="{{ false }}">
+<div role="group" aria-label="GitHub blocker example-org/api#77" style="display: flex; flex-direction: column; gap: 4px; padding: 8px 12px; border-bottom: 1px solid #2a2a2a">
+<div style="display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; row-gap: 4px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; color: #71717a">
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px">
+<a href="https://github.com/example-org/api/pull/77" style="min-width: 0; display: flex; align-items: center; gap: 8px; font-size: 14px; line-height: 20px; color: #fafafa; text-decoration: none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c3e88d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg><span style="min-width: 0; flex-shrink: 1; color: #71717a; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">example-org/api#77</span><span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">セッション API に redirect パラメータを追加</span></a>
+<span style="font-size: 10px; line-height: 14px; color: #52525b">github · open</span>
+</div>
+<button type="button" aria-label="Notify on: all" style="display: inline-flex; align-items: center; gap: 4px; padding: 4px 6px; border: 0; background: transparent; color: #52525b; font-family: inherit; font-size: 10px; line-height: 14px">all<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<button type="button" aria-label="Remove example-org/api#77 as blocker" style="width: 24px; height: 24px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+<div style="min-height: 28px; display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; row-gap: 4px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; color: #71717a">
+<button type="button" aria-label="Wait mode for example-org/api#77" style="width: 128px; height: 28px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; padding: 0 4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">until reply<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<label style="margin-left: auto; display: inline-flex; align-items: center; gap: 6px; color: #52525b">follow up<input type="text" aria-label="Follow-up date for example-org/api#77" value="2026/12/01" style="width: 128px; height: 28px; box-sizing: border-box; padding: 0 4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; outline: none"></label>
+<button type="button" aria-label="Resolve wait: example-org/api#77" style="display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #71717a; font: inherit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>resolve</button>
+</div>
+<div style="padding-left: 20px; font-size: 14px; line-height: 1.625">レビューコメントへの返信を待つ</div>
+</div>
+</sc-if>
+
+<div style="display: flex; align-items: center; border-top: 1px dashed #2a2a2a; padding: 0 12px; font-family: 'JetBrains Mono', monospace; font-size: 12px"><button type="button" style="flex: 1; min-height: 44px; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 12px; text-align: left"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>add blocker</button></div>
+</div>
+</div>
+
+<sc-if value="{{full}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">subject PR waits</span>
+<div style="border: 1px solid #2a2a2a">
+<div role="group" aria-label="GitHub subject PR example-org/web#212" style="display: flex; flex-direction: column; gap: 4px; padding: 8px 12px">
+<a href="https://github.com/example-org/web/pull/212" style="min-width: 0; display: flex; align-items: center; gap: 8px; font-size: 14px; line-height: 20px; color: #fafafa; text-decoration: none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c3e88d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg><span style="min-width: 0; flex-shrink: 1; color: #71717a; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">example-org/web#212</span><span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">ログイン後のリダイレクト先を復元する</span></a>
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 8px 12px; margin: 0 -12px -8px">
+<div style="min-height: 28px; display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; row-gap: 4px; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px; color: #71717a">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 22h14"></path><path d="M5 2h14"></path><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"></path><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"></path></svg>
+<span>waiting</span>
+<label style="margin-left: auto; display: inline-flex; align-items: center; gap: 6px; color: #52525b">follow up<input type="text" aria-label="Follow-up date for example-org/web#212" value="2026/11/28" style="width: 128px; height: 28px; box-sizing: border-box; padding: 0 4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; outline: none"></label>
+<button type="button" aria-label="Resolve wait: example-org/web#212" style="display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #71717a; font: inherit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg>resolve</button>
+<button type="button" aria-label="Remove wait: example-org/web#212" style="width: 24px; height: 24px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+<div style="padding-left: 20px; font-size: 14px; line-height: 1.625">レビュアーの返事を待つ</div>
+</div>
+</div>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">blocking</span>
+<div style="border: 1px solid #2a2a2a">
+<dc-import name="TaskRow" num="#140" title="ログイン導線の計測を入れる" status="todo" priority="" labels="#frontend" project="会員サイト改修" context="work" due="" overdue="false" children="" expanded="false" waiting="false" depth="0" selected="false" hint-size="100%,57px"></dc-import>
+</div>
+</div>
+</sc-if>
+
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["full","waiting","empty"],"default":"full"},"$preview":{"width":768,"height":560}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const v = this.props.variant ?? 'full';
+    return {
+      full: v === 'full',
+      waitingOnly: v === 'waiting',
+      showWaiting: v !== 'empty',
+    };
+  }
+}
+</script>
+</body>
+</html>

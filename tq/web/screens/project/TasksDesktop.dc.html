@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Tasks</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+input::placeholder{color:#71717a}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; overflow: hidden; display: flex; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<div style="flex: none; width: 200px"><dc-import name="Nav" view="tasks" hint-size="200px,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<main style="flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column">
+
+<header style="flex: none; height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-bottom: 1px solid #2a2a2a; background: #0a0a0a">
+<h1 style="margin: 0; display: inline-flex; align-items: baseline; gap: 8px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px"><span style="font-weight: 700; color: #ef4444">##</span><span style="font-weight: 500; color: #fafafa">tasks</span></h1>
+<div style="margin-left: auto; display: flex; align-items: center; gap: 8px">
+<a href="#recurring" style="display: inline-flex; align-items: center; gap: 4px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a; text-decoration: none"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14"></path><path d="m7 22-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg>recurring</a>
+<button type="button" style="height: 24px; display: inline-flex; align-items: center; gap: 4px; padding: 0 8px; border: 1px solid #71717a; background: #1f1f1f; color: #fafafa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500">+ new<kbd style="font-family: inherit; font-size: 10px; line-height: 14px; font-weight: 400; color: #71717a">n</kbd></button>
+</div>
+</header>
+
+<div style="flex: none; min-height: 48px; box-sizing: border-box; display: flex; align-items: center; gap: 12px; padding: 0 16px; border-bottom: 1px solid #2a2a2a; background: #0a0a0a">
+<label for="tasks-filter" style="flex: none; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; line-height: 20px; font-weight: 700; color: #ef4444">›</label>
+<div style="flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: 12px; row-gap: 8px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px">
+<span style="min-height: 20px; min-width: 0; display: inline-flex; align-items: center; gap: 4px">
+<button type="button" aria-label="is todo, done" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; font: inherit; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg>is:<span style="padding: 0 4px; background: #181d27; color: #82aaff; border-radius: 3px">todo, done</span></button>
+<button type="button" aria-label="Remove status filter" style="width: 16px; height: 16px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</span>
+<span style="min-height: 20px; min-width: 0; display: inline-flex; align-items: center; gap: 4px">
+<button type="button" aria-label="label #dev/api" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; font: inherit; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle></svg>label:<span style="padding: 0 4px; background: #181d27; color: #82aaff; border-radius: 3px">dev/api</span></button>
+<button type="button" aria-label="Remove label filter" style="width: 16px; height: 16px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</span>
+<span style="min-height: 20px; min-width: 0; display: inline-flex; align-items: center; gap: 4px">
+<button type="button" aria-label="priority Now" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; font: inherit; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg>priority:<span style="padding: 0 4px; background: #181d27; color: #82aaff; border-radius: 3px">Now</span></button>
+<button type="button" aria-label="Remove priority filter" style="width: 16px; height: 16px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</span>
+<span style="min-height: 20px; min-width: 0; display: inline-flex; align-items: center; gap: 4px; opacity: 0.5">
+<button type="button" aria-label="Sort by priority, then updated" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; font: inherit; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 16 4 4 4-4"></path><path d="M7 20V4"></path><path d="M11 4h10"></path><path d="M11 8h7"></path><path d="M11 12h4"></path></svg>sort:<span style="padding: 0 4px; background: #181d27; color: #82aaff; border-radius: 3px">priority &gt; updated</span></button>
+</span>
+<div style="flex: 1; min-width: 128px; display: flex; align-items: center; padding: 0 4px">
+<input id="tasks-filter" type="text" aria-label="Filter query" placeholder="Filter…" value="{{query}}" onChange="{{noop}}" style="width: 100%; height: 32px; box-sizing: border-box; margin: 0 -4px; padding: 0 4px; border: 0; border-bottom: 1px solid {{inputLine}}; background: transparent; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif; font-size: 14px; outline: none">
+</div>
+</div>
+<button type="button" style="flex: none; height: 28px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; border: 0; background: transparent; color: #fafafa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z"></path></svg>Save view</button>
+</div>
+
+<div style="flex: 1; min-height: 0; overflow: hidden; padding: 4px 0">
+<dc-import name="TaskRow" num="#31" title="オンボーディングのチェックリストを書く" status="todo" priority="Now" labels="#dev/api" project="サイト改修" context="work" due="Mar 20 → Mar 28" overdue="false" children="" expanded="false" waiting="false" depth="0" selected="{{selectFirst}}" hover="{{hoverFirst}}" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#32" title="エクスポートのテストが不安定なのを直す" status="todo" priority="Now" labels="#dev/api" project="" context="work" due="" overdue="false" children="1/3" expanded="true" waiting="false" depth="0" selected="false" github="api#58" githubState="open" hint-size="100%,81px"></dc-import>
+<dc-import name="TaskRow" num="#40" title="再現手順をまとめる" status="todo" priority="" labels="" project="" context="work" due="" overdue="false" children="" expanded="false" waiting="false" depth="1" selected="false" checklist="1/3" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#43" title="タイムアウトの原因を切り分ける" status="todo" priority="" labels="" project="" context="work" due="→ Mar 24" overdue="false" children="1/2" expanded="true" waiting="false" depth="1" selected="false" hint-size="100%,81px"></dc-import>
+<dc-import name="TaskRow" num="#44" title="CI のログを集める" status="todo" priority="" labels="" project="" context="work" due="" overdue="false" children="" expanded="false" waiting="false" depth="2" selected="false" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#45" title="ローカルで再現する" status="completed" priority="" labels="" project="" context="work" due="" overdue="false" children="" expanded="false" waiting="false" depth="2" selected="false" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#42" title="テストデータを固定する" status="completed" priority="" labels="" project="" context="work" due="" overdue="false" children="" expanded="false" waiting="false" depth="1" selected="false" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#33" title="API の利用上限の回答を待つ" status="todo" priority="Now" labels="#dev/api" project="" context="work" due="" overdue="false" children="" expanded="false" waiting="true" depth="0" selected="false" blocker="サポートからの返信" followUp="Mar 30" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#37" title="認証トークンの更新手順を書く" status="todo" priority="Now" labels="#dev/api" project="社内ツール" context="work" due="Mar 10 → Mar 18" overdue="true" children="" expanded="false" waiting="false" depth="0" selected="false" dragging="{{dragging}}" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#46" title="エラーレスポンスの形式をそろえる" status="todo" priority="Now" labels="#dev/api" project="社内ツール" context="work" due="" overdue="false" children="2/5" expanded="false" waiting="false" depth="0" selected="{{dragging}}" hint-size="100%,81px"></dc-import>
+<dc-import name="TaskRow" num="#34" title="古いエンドポイントを削除する" status="completed" priority="Now" labels="#dev/api" project="" context="work" due="" overdue="false" children="" expanded="false" waiting="false" depth="0" selected="false" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#38" title="レート制限のヘッダを返す" status="todo" priority="Now" labels="#dev/api" project="" context="work" due="Apr 2 →" overdue="false" children="" expanded="false" waiting="false" depth="0" selected="false" hint-size="100%,57px"></dc-import>
+</div>
+</main>
+<dc-import name="StatusLine" path="/tasks" hint-size="100%,24px"></dc-import>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"query":{"editor":"text","default":""},"focus":{"editor":"boolean","default":false},"firstRow":{"editor":"enum","options":["selected","hover","plain"],"default":"selected"},"drag":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const firstRow = this.props.firstRow ?? 'selected';
+    return {
+      query: this.props.query ?? '',
+      inputLine: this.props.focus ? '#71717a' : 'transparent',
+      selectFirst: firstRow === 'selected' ? 'true' : 'false',
+      hoverFirst: firstRow === 'hover' ? 'true' : 'false',
+      dragging: this.props.drag ? "true" : "false",
+      noop: () => {},
+    };
+  }
+}
+</script>
+</body>
+</html>

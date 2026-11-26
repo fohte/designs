@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Task detail head</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif">
+
+<nav aria-label="Breadcrumb" style="position: relative; display: flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">
+<a href="#tasks" style="color: #71717a; text-decoration: none">tasks</a>
+<span style="color: #3f3f46">/</span>
+<span style="color: #fafafa">#128</span>
+<span style="margin-left: auto; color: #52525b">opened 2026-11-02 · updated 3h ago</span>
+<sc-if value="{{desktop}}" hint-placeholder-val="{{ true }}">
+<button type="button" aria-label="Task actions" style="width: 20px; height: 20px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: {{menuTriggerColor}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</sc-if>
+<sc-if value="{{phone}}" hint-placeholder-val="{{ false }}">
+<button type="button" aria-label="Task actions" style="width: 44px; height: 44px; margin: -15px -12px -15px 0; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</sc-if>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<div role="menu" aria-label="Task actions" style="position: absolute; top: 22px; right: 0; z-index: 5; min-width: 128px; box-sizing: border-box; padding: 4px; background: #141414; box-shadow: 0 0 0 1px rgba(250,250,250,0.1), 0 4px 12px rgba(0,0,0,0.5); font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif">
+<button type="button" role="menuitem" style="width: 100%; display: flex; align-items: center; gap: 6px; padding: 4px 6px; border: 0; background: rgba(239,68,68,0.1); color: #ef4444; font-family: inherit; font-size: 14px; line-height: 20px; text-align: left"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>delete…</button>
+</div>
+</sc-if>
+</nav>
+
+<div style="display: flex; align-items: flex-start; gap: 12px">
+<button type="button" aria-label="{{statusToggleLabel}}" style="flex: none; margin-top: 4px; padding: 0; border: 0; background: transparent; display: flex">
+<sc-if value="{{isTodo}}" hint-placeholder-val="{{ true }}">
+<svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" style="color: #71717a"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.5"></circle></svg>
+</sc-if>
+<sc-if value="{{isCompleted}}" hint-placeholder-val="{{ false }}">
+<span style="width: 20px; height: 20px; border-radius: 50%; background: #c792ea; color: #0a0a0a; display: grid; place-items: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span>
+</sc-if>
+<sc-if value="{{isDuplicate}}" hint-placeholder-val="{{ false }}">
+<span style="width: 20px; height: 20px; border-radius: 50%; background: #52525b; color: #0a0a0a; display: grid; place-items: center"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" x2="19" y1="9" y2="9"></line><line x1="5" x2="19" y1="15" y2="15"></line></svg></span>
+</sc-if>
+</button>
+<button type="button" style="flex: 1; min-width: 0; min-height: 32px; display: flex; align-items: center; padding: 0 4px; margin: 0 -4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: inherit; font-size: 24px; line-height: 32px; font-weight: 700; text-align: left; cursor: text">ログイン後に元のページへ戻らない</button>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px">
+<sc-if value="{{chipsFull}}" hint-placeholder-val="{{ true }}">
+<button type="button" style="display: inline-flex; align-items: center; gap: 4px; padding: 0 4px; border: 1px solid #2a2a2a; background: transparent; color: #71717a; font-family: inherit; font-size: 10px; line-height: 14px"><span style="color: #ef4444; font-weight: 700">#</span>backend</button>
+<button type="button" style="display: inline-flex; align-items: center; gap: 4px; padding: 0 4px; border: 1px solid #2a2a2a; background: transparent; color: #71717a; font-family: inherit; font-size: 10px; line-height: 14px"><span style="color: #ef4444; font-weight: 700">#</span>auth</button>
+</sc-if>
+<span style="display: inline-flex; align-items: center; padding: 0 4px; border: 1px solid #2a2a2a; color: #71717a">work</span>
+<sc-if value="{{chipsFull}}" hint-placeholder-val="{{ true }}">
+<span style="display: inline-flex; align-items: center; gap: 4px">
+<a href="https://github.com/example-org/web/pull/212" style="display: inline-flex; align-items: center; gap: 4px; padding: 0 4px; border: 1px solid #2a2a2a; color: #c3e88d; text-decoration: none"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg>web#212</a>
+<span style="color: #52525b">+1</span>
+</span>
+<a href="#project" style="display: inline-flex; align-items: center; padding: 0 4px; border: 1px solid #2a2a2a; color: #71717a; text-decoration: none">project: 会員サイト改修</a>
+</sc-if>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; gap: 8px; min-height: 20px">
+<sc-if value="{{showPencilDesktop}}" hint-placeholder-val="{{ true }}">
+<button type="button" aria-label="Edit task description" style="margin-left: auto; width: 20px; height: 20px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg></button>
+</sc-if>
+<sc-if value="{{showPencilPhone}}" hint-placeholder-val="{{ false }}">
+<button type="button" aria-label="Edit task description" style="margin: -12px -12px -12px auto; width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg></button>
+</sc-if>
+</div>
+
+<sc-if value="{{descFilled}}" hint-placeholder-val="{{ true }}">
+<div style="border: 1px solid #2a2a2a; padding: 16px; font-size: 14px; line-height: 1.625">
+<div style="padding: 8px; font-size: 14px; line-height: 28px; color: #fafafa">
+<p style="margin: 0">ログインし直すと、開いていたページではなく常にトップへ飛ばされる。</p>
+<ul style="margin: 16px 0 0 8px; padding-left: 16px; color: #71717a">
+<li style="padding-bottom: 4px"><span style="color: #fafafa">再現: 設定ページを開いたままセッションを切らす</span></li>
+<li style="padding-bottom: 4px"><span style="color: #fafafa">期待: ログイン後に設定ページへ戻る</span></li>
+<li style="padding-bottom: 4px"><span style="color: #fafafa">関連: <a href="#task-118" style="display: inline-flex; align-items: center; gap: 4px; vertical-align: middle; padding: 2px 6px; border: 1px solid #71717a; color: #fafafa; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px"><span style="color: #71717a">#118</span><span style="max-width: 192px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">セッション期限を延ばす</span></a></span></li>
+</ul>
+<p style="margin: 16px 0 0"><code style="padding: 0 4px; background: #1f1f1f; border-radius: 4px; font-family: 'IBM Plex Mono', monospace; font-size: 0.85em">returnTo</code> が OAuth のコールバックで落ちていそう。</p>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{descEmpty}}" hint-placeholder-val="{{ false }}">
+<button type="button" style="display: block; width: 100%; box-sizing: border-box; min-height: 120px; border: 1px solid #2a2a2a; padding: 16px; background: transparent; text-align: left; font-family: inherit; cursor: text">
+<span style="display: block; padding: 8px; font-size: 14px; line-height: 28px; color: #71717a">Add description...</span>
+</button>
+</sc-if>
+
+<sc-if value="{{descMention}}" hint-placeholder-val="{{ false }}">
+<div style="position: relative; min-height: 120px; border: 1px solid #ef4444; padding: 16px; font-size: 14px; line-height: 1.625">
+<div style="padding: 8px; font-size: 14px; line-height: 28px; color: #fafafa">
+<p style="margin: 0">ログインし直すと、開いていたページではなく常にトップへ飛ばされる。</p>
+<p style="margin: 16px 0 0">セッション切れの扱いは #セッ<span style="display: inline-block; width: 1px; height: 18px; margin-left: 1px; vertical-align: -3px; background: #fafafa"></span></p>
+</div>
+<div role="listbox" aria-label="Task mentions" style="position: absolute; top: 108px; left: 196px; z-index: 5; width: 256px; box-sizing: border-box; padding: 4px; background: #141414; box-shadow: 0 0 0 1px rgba(250,250,250,0.1), 0 4px 12px rgba(0,0,0,0.5); font-size: 14px; line-height: 20px">
+<div role="option" aria-selected="true" style="display: flex; align-items: center; gap: 8px; padding: 6px 8px; background: #1f1f1f"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717a">#118</span><span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap">セッション期限を延ばす</span></div>
+<div role="option" aria-selected="false" style="display: flex; align-items: center; gap: 8px; padding: 6px 8px"><span style="display: flex; color: #c792ea"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717a">#96</span><span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap">セッション Cookie を SameSite=Lax にする</span></div>
+<div role="option" aria-selected="false" style="display: flex; align-items: center; gap: 8px; padding: 6px 8px"><span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #71717a">#141</span><span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap">セッション一覧を設定画面に出す</span></div>
+</div>
+</div>
+</sc-if>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"status":{"editor":"enum","options":["todo","completed","duplicate"],"default":"todo"},"desc":{"editor":"enum","options":["filled","empty","mention"],"default":"filled"},"form":{"editor":"enum","options":["desktop","phone"],"default":"desktop"},"menu":{"editor":"boolean","default":false},"chips":{"editor":"enum","options":["full","context"],"default":"full"},"$preview":{"width":768,"height":420}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const status = this.props.status ?? 'todo';
+    const desc = this.props.desc ?? 'filled';
+    const phone = (this.props.form ?? 'desktop') === 'phone';
+    const menuOpen = this.props.menu === true || this.props.menu === 'true';
+    const reading = desc !== 'mention';
+    return {
+      isTodo: status === 'todo',
+      isCompleted: status === 'completed',
+      isDuplicate: status === 'duplicate',
+      statusToggleLabel: status === 'todo' ? 'Mark as completed' : 'Mark as todo',
+      descFilled: desc === 'filled',
+      descEmpty: desc === 'empty',
+      descMention: desc === 'mention',
+      showPencilDesktop: reading && !phone,
+      showPencilPhone: reading && phone,
+      desktop: !phone,
+      phone,
+      menuOpen: menuOpen && !phone,
+      chipsFull: (this.props.chips ?? 'full') === 'full',
+      menuTriggerColor: menuOpen ? '#fafafa' : '#71717a',
+    };
+  }
+}
+</script>
+</body>
+</html>

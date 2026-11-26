@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Task GitHub section</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif">
+<h3 style="margin: 0; display: inline-flex; align-items: baseline; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 14px; line-height: 20px; font-weight: 700"><span style="color: #ef4444; font-size: 12px">###</span>github</h3>
+
+<sc-if value="{{filled}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; align-items: center; gap: 8px">
+<a href="https://github.com/example-org/web/pull/212" style="flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; color: #fafafa; text-decoration: none; font-size: 14px; line-height: 20px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c3e88d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg><span style="flex: none; color: #71717a">example-org/web#212</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">ログイン後のリダイレクト先を復元する</span></a>
+<button type="button" aria-label="Notify on: all" style="flex: none; display: inline-flex; align-items: center; gap: 4px; padding: 4px 6px; border: 0; background: transparent; color: #52525b; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px">all<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<button type="button" aria-label="Unlink example-org/web#212" style="flex: none; width: 24px; height: 24px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+<div style="display: flex; align-items: center; gap: 8px">
+<a href="https://github.com/example-org/web/issues/198" style="flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px; color: #fafafa; text-decoration: none; font-size: 14px; line-height: 20px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f07178" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg><span style="flex: none; color: #71717a">example-org/web#198</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">再ログインするとトップページに戻される</span></a>
+<button type="button" aria-label="Notify on: closed, comments" style="flex: none; display: inline-flex; align-items: center; gap: 4px; padding: 4px 6px; border: 0; background: transparent; color: #52525b; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px">closed, comments<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<button type="button" aria-label="Unlink example-org/web#198" style="flex: none; width: 24px; height: 24px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+</div>
+</sc-if>
+
+<div style="width: fit-content; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 16px"><button type="button" style="padding: 0; border: 0; background: transparent; color: #71717a; font: inherit">link issue or PR</button></div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"empty":{"editor":"boolean","default":false},"$preview":{"width":768,"height":120}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const empty = this.props.empty === true || this.props.empty === 'true';
+    return { filled: !empty };
+  }
+}
+</script>
+</body>
+</html>

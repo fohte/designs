@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Link GitHub issue dialog</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif">
+<dc-import name="TaskDetail" height="{{h}}" scroll="{{scroll}}" hint-size="1440px,900px"></dc-import>
+<div style="position: absolute; inset: 0; display: grid; place-items: center; background: rgba(0,0,0,0.4); backdrop-filter: blur(4px)">
+<div role="dialog" aria-modal="true" aria-labelledby="gh-title" style="position: relative; width: 384px; box-sizing: border-box; display: grid; gap: 16px; padding: 16px; background: #0a0a0a; box-shadow: 0 0 0 1px rgba(250,250,250,0.1); color: #fafafa; font-size: 14px; line-height: 20px">
+<div style="display: grid; gap: 8px">
+<h2 id="gh-title" style="margin: 0; font-size: 16px; line-height: 1; font-weight: 500">Link GitHub issue</h2>
+<p style="margin: 0; color: #71717a">Paste a GitHub issue or pull request URL.</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<input type="text" aria-label="GitHub URL" value="{{url}}" placeholder="https://github.com/owner/repo/issues/123" style="width: 100%; height: 32px; box-sizing: border-box; padding: 4px 10px; border: 1px solid #2a2a2a; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; outline: none">
+<sc-if value="{{loading}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; align-items: center; gap: 8px; color: #71717a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>Looking up issue...</div>
+</sc-if>
+<sc-if value="{{error}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; color: #ef4444">Not a GitHub issue or pull request URL: https://example.com/issues/205</p>
+</sc-if>
+<sc-if value="{{linked}}" hint-placeholder-val="{{ false }}">
+<div style="padding: 12px; border: 1px solid #2a2a2a">
+<p style="margin: 0; color: #71717a">Already linked to:</p>
+<p style="margin: 0; font-weight: 500">セッション期限を延ばす</p>
+</div>
+</sc-if>
+<sc-if value="{{preview}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 12px; border: 1px solid #2a2a2a">
+<div style="display: flex; align-items: center; gap: 6px; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg>example-org/web#205</div>
+<p style="margin: 0; font-weight: 500">ログイン画面でエラー文言が二重に出る</p>
+</div>
+</sc-if>
+</div>
+<div style="display: flex; justify-content: flex-end; gap: 8px; margin: 0 -16px -16px; padding: 16px; border-top: 1px solid #2a2a2a; background: rgba(20,20,20,0.5)">
+<button type="button" style="height: 32px; padding: 0 10px; border: 1px solid #2a2a2a; background: #0a0a0a; color: #fafafa; font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500">Cancel</button>
+<sc-if value="{{linked}}" hint-placeholder-val="{{ false }}">
+<button type="button" style="height: 32px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; border: 1px solid #71717a; background: #1f1f1f; color: #fafafa; font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500">Go to task<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg></button>
+</sc-if>
+<sc-if value="{{notLinked}}" hint-placeholder-val="{{ true }}">
+<button type="button" disabled="{{linkDisabled}}" style="height: 32px; padding: 0 10px; border: 1px solid #71717a; background: #1f1f1f; color: #fafafa; font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 500; opacity: {{linkOpacity}}">Link</button>
+</sc-if>
+</div>
+<button type="button" aria-label="Close" style="position: absolute; top: 8px; right: 8px; width: 28px; height: 28px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #fafafa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"state":{"editor":"enum","options":["preview","loading","linked","error"],"default":"preview"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.props.state ?? 'preview';
+    const urls = {
+      preview: 'https://github.com/example-org/web/issues/205',
+      loading: 'https://github.com/example-org/web/issues/205',
+      linked: 'https://github.com/example-org/web/issues/180',
+      error: 'https://example.com/issues/205',
+    };
+    return {
+      h: 900,
+      scroll: 1944,
+      url: urls[s],
+      preview: s === 'preview',
+      loading: s === 'loading',
+      linked: s === 'linked',
+      notLinked: s !== 'linked',
+      error: s === 'error',
+      linkDisabled: s !== 'preview',
+      linkOpacity: s === 'preview' ? 1 : 0.5,
+    };
+  }
+}
+</script>
+</body>
+</html>

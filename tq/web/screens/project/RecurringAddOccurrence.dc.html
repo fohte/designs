@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Add a task from this template</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif">
+<dc-import name="RecurringDetail" hint-size="1440px,900px"></dc-import>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(4px)"></div>
+
+<div style="position: absolute; inset: 0; box-sizing: border-box; padding: 16px; display: flex; align-items: center; justify-content: center">
+<div role="dialog" aria-modal="true" aria-labelledby="add-occurrence-title" style="width: 100%; max-width: 512px; display: flex; flex-direction: column; overflow: hidden; background: #141414; box-shadow: 0 0 0 1px rgba(250, 250, 250, 0.1), 0 25px 50px -12px rgba(0, 0, 0, 0.25)">
+
+<div style="flex: none; height: 56px; box-sizing: border-box; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; border-bottom: 1px solid #2a2a2a">
+<span id="add-occurrence-title" style="font-size: 16px; line-height: 24px; font-weight: 500; color: #fafafa">Add a task from this template</span>
+<button type="button" aria-label="Close" style="width: 28px; height: 28px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #fafafa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+
+<form style="margin: 0; display: flex; flex-direction: column">
+<div style="display: flex; flex-direction: column; gap: 12px; padding: 24px">
+<label for="occurrence-date" style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #71717a">Occurrence date</label>
+<input id="occurrence-date" type="date" value="2026-08-15" style="width: 100%; height: 32px; box-sizing: border-box; padding: 4px 10px; border: 1px solid #2a2a2a; background: rgba(42, 42, 42, 0.3); color: #fafafa; color-scheme: dark; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px">
+<sc-if value="{{hasError}}" hint-placeholder-val="{{false}}">
+<p role="alert" style="margin: 0; font-size: 12px; line-height: 16px; color: #ef4444">{{error}}</p>
+</sc-if>
+</div>
+<div style="display: flex; align-items: center; justify-content: flex-end; gap: 12px; padding: 12px 24px; border-top: 1px solid #2a2a2a">
+<button type="button" style="height: 32px; padding: 0 10px; border: 1px solid #2a2a2a; background: #0a0a0a; color: #fafafa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500">Cancel</button>
+<button type="submit" style="height: 36px; padding: 0 10px; border: 1px solid #71717a; background: #1f1f1f; color: #fafafa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500">Add</button>
+</div>
+</form>
+
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"error":{"editor":"enum","options":["none","conflict","failed"],"default":"none"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const error = this.props.error ?? 'none';
+    return {
+      hasError: error !== 'none',
+      error: error === 'conflict' ? 'A task for 2026-08-15 already exists.' : 'Failed to add the task.'
+    };
+  }
+}
+</script>
+</body>
+</html>

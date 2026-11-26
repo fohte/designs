@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Calendar grid</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif">
+
+<sc-if value="{{timeGrid}}" hint-placeholder-val="{{ true }}">
+
+<sc-if value="{{hasHeader}}" hint-placeholder-val="{{ true }}">
+<div style="flex: none; display: grid; grid-template-columns: {{cols}}; border-bottom: 1px solid #2a2a2a">
+<div></div>
+<sc-for list="{{headers}}" as="hd" hint-placeholder-count="7">
+<div style="padding: 6px 0; border-left: 1px solid #2a2a2a; background: {{hd.bg}}; text-align: center; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 11px; line-height: 16px; font-weight: {{hd.weight}}; color: {{hd.color}}"><span style="display: inline-block; padding: 4px 8px">{{hd.label}}</span></div>
+</sc-for>
+</div>
+</sc-if>
+
+<div style="flex: none; position: relative; height: {{allDayH}}">
+<div style="position: absolute; inset: 0; display: grid; grid-template-columns: {{cols}}">
+<div style="display: flex; align-items: center; justify-content: flex-end; padding: 0 4px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: #52525b">all-day</div>
+<sc-for list="{{headers}}" as="hd" hint-placeholder-count="7">
+<div style="border-left: 1px solid #2a2a2a; background: #141414"></div>
+</sc-for>
+</div>
+<div style="position: absolute; inset: 2px 0; display: grid; grid-template-columns: {{cols}}; grid-auto-rows: 18px; row-gap: 1px">
+<sc-for list="{{allDay}}" as="a" hint-placeholder-count="4">
+<div style="min-width: 0; margin: 0 2px; box-sizing: border-box; display: flex; align-items: center; gap: {{a.gap}}; overflow: hidden; white-space: nowrap; padding: 1px {{a.padR}} 1px {{a.padL}}; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; {{a.style}}">
+<sc-if value="{{a.flag}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: {{a.iconColor}}"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" x2="4" y1="22" y2="15"></line></svg></sc-if>
+<span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis">{{a.title}}</span>
+<sc-if value="{{a.due}}" hint-placeholder-val="{{ false }}"><span style="flex: none; color: rgba(239, 68, 68, 0.7)">{{a.due}}</span></sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="flex: none; height: 2px; border-top: 1px solid #2a2a2a; border-bottom: 1px solid #2a2a2a; background: #141414"></div>
+
+<div style="flex: 1; min-height: 0; position: relative; overflow: hidden">
+<div style="position: relative; display: flex; height: 780px">
+<div style="flex: none; width: 56px; position: relative">
+<sc-for list="{{axis}}" as="ax" hint-placeholder-count="15">
+<div style="position: absolute; left: 0; right: 0; top: {{ax.top}}; height: 26px; box-sizing: border-box; border-top: 1px solid #2a2a2a; display: flex; align-items: center; justify-content: flex-end; padding: 0 4px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">{{ax.label}}</div>
+<div style="position: absolute; left: 0; right: 0; top: {{ax.half}}; border-top: 1px dotted #2a2a2a"></div>
+</sc-for>
+<sc-if value="{{marker}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; left: 0; top: {{nowMarkerTop}}; width: 6px; height: 6px; background: #ef4444"></div></sc-if>
+</div>
+<sc-for list="{{columns}}" as="c" hint-placeholder-count="7">
+<div style="position: relative; flex: 1; min-width: 0; border-left: 1px solid #2a2a2a; background: {{c.bg}}">
+<sc-for list="{{lines}}" as="ln" hint-placeholder-count="15">
+<div style="position: absolute; left: 0; right: 0; top: {{ln}}; border-top: 1px solid #1f1f1f"></div>
+</sc-for>
+<sc-for list="{{c.bands}}" as="b" hint-placeholder-count="0">
+<div style="position: absolute; left: 0; right: 0; top: {{b.top}}; height: {{b.height}}; box-sizing: border-box; border-top: 1px solid #3f3f46; border-bottom: 1px solid #3f3f46; background: repeating-linear-gradient(135deg, transparent 0 6px, rgba(255, 255, 255, 0.035) 6px 12px); display: flex; align-items: center; justify-content: center; gap: 4px; font-size: 10px; line-height: 14px; color: #a1a1aa">
+<sc-if value="{{b.focus}}" hint-placeholder-val="{{ true }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"></path></svg></sc-if>
+<sc-if value="{{b.ooo}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 17 5-5-5-5"></path><path d="M21 12H9"></path><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path></svg></sc-if>
+<span>{{b.title}}</span>
+</div>
+</sc-for>
+<div style="position: absolute; top: 0; bottom: 0; left: 2px; right: 2.5%">
+<sc-for list="{{c.events}}" as="e" hint-placeholder-count="3">
+<div style="position: absolute; left: 0; right: 0; top: {{e.top}}; height: {{e.height}}; opacity: {{e.opacity}}; cursor: pointer">
+<div style="height: 100%; box-sizing: border-box; display: flex; flex-direction: {{e.dir}}; align-items: {{e.align}}; gap: 6px; min-width: 0; overflow: hidden; padding: {{e.pad}}; {{e.box}}">
+<div style="display: flex; min-width: 0; align-items: center; gap: 6px">
+<span style="display: inline-flex; min-width: 0; align-items: center; gap: 4px; font-size: 10px; line-height: 14px; {{e.titleStyle}}"><span style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis">{{e.title}}</span><sc-if value="{{e.tag}}" hint-placeholder-val="{{ false }}"><span aria-label="{{e.tagLabel}}" style="flex: none; padding: 0 4px; background: #1f1f1f; font-size: 10px; line-height: 16px; color: #a1a1aa">{{e.tag}}</span></sc-if></span>
+<sc-if value="{{e.badge}}" hint-placeholder-val="{{ false }}"><span style="flex: none; padding: 0 4px; border: 1px solid #2a2a2a; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">{{e.badge}}</span></sc-if>
+</div>
+<span style="flex: none; margin-left: {{e.timeMargin}}; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">{{e.time}}</span>
+</div>
+</div>
+</sc-for>
+</div>
+<sc-if value="{{c.today}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; left: 0; right: 0; top: {{nowTop}}; border-top: 1px solid #ef4444; z-index: 4">
+<sc-if value="{{showNowLabel}}" hint-placeholder-val="{{ true }}"><span style="position: absolute; top: -14px; right: 4px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #ef4444">10:12</span></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{c.popGcal}}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-label="Calendar event details" style="position: absolute; z-index: 20; left: 2px; top: 160px; width: 384px; box-sizing: border-box; padding: 12px; border: 1px solid #2a2a2a; background: #141414; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #fafafa; display: flex; flex-direction: column; gap: 12px">
+<div>
+<h2 style="margin: 0; font-size: 14px; line-height: 20px; font-weight: 600; color: #fafafa">定例ミーティング</h2>
+<p style="margin: 0; color: #71717a">Tuesday, September 1, 2026 · 11:00 AM–12:00 PM</p>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; color: #71717a"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 9999px; background: #7986cb"></span>仕事</div>
+<div style="display: flex; align-items: center; gap: 8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg><span>会議室 B</span></div>
+<div><span style="color: #71717a">Your response: </span><span>Accepted</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; align-items: center; gap: 6px; font-weight: 500"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Attendees (4)</div>
+<div style="padding-left: 20px; display: flex; flex-direction: column; gap: 4px; color: #71717a">
+<div>2 accepted · 1 tentative · 1 needs action</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 2px"><li>田中 一郎</li><li>佐藤 花子</li><li>鈴木 健</li><li>高橋 真理</li></ul>
+<div>Organizer: <span style="color: #fafafa">田中 一郎</span></div>
+</div>
+</div>
+<p style="margin: 0; white-space: pre-wrap; color: #71717a">週次の進捗共有と来週の優先度の確認。
+議事録: <a href="https://example.com/notes/weekly" style="color: #ef4444; text-decoration: underline">https://example.com/notes/weekly</a></p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 8px; border-top: 1px solid #2a2a2a">
+<button type="button" style="height: 28px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; border: 1px solid #71717a; background: #1f1f1f; color: #fafafa; font-family: inherit; font-size: 12px; font-weight: 500"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect></svg>Join meeting</button>
+<a href="https://calendar.google.com/" style="display: inline-flex; align-items: center; gap: 4px; color: #ef4444; text-decoration: underline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>Open in Google Calendar</a>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{c.popPreview}}" hint-placeholder-val="{{ false }}">
+<div style="position: absolute; z-index: 20; left: calc(100% + 8px); top: 26px; width: 288px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; background: #0a0a0a; box-shadow: 0 0 0 1px rgba(250, 250, 250, 0.1); font-size: 14px; line-height: 20px">
+<a href="#" style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border: 1px solid #2a2a2a; background: #141414; color: #fafafa; text-decoration: none">
+<span style="display: flex; align-items: center; gap: 8px"><span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #71717a">#231</span><span style="height: 20px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 2px 8px; border: 1px solid #2a2a2a; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 500">Todo</span></span>
+<span style="font-size: 14px; line-height: 20px; font-weight: 500">カレンダー表示を 3 日ビューに対応させる</span>
+<span style="font-size: 12px; line-height: 16px; color: #71717a">狭い画面では週ビューを 3 日ビューに切り替え、左右のスワイプで前後の期間へ移動できるようにする。</span>
+</a>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px; border: 1px solid #2a2a2a; background: #141414; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #a1a1aa">
+<span style="display: inline-flex; align-items: center; gap: 6px"><span style="color: #52525b">09-01</span><span>09:30–10:30</span><span style="color: #52525b">(1h)</span><span style="height: 20px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 2px 8px; border: 1px solid #2a2a2a; font-size: 12px; line-height: 16px; font-weight: 500; color: #fafafa">manual</span></span>
+<button type="button" aria-label="Delete time block" style="flex: none; display: grid; place-items: center; padding: 4px; border: 0; border-radius: 4px; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{c.popFeedback}}" hint-placeholder-val="{{ false }}">
+<div role="status" style="position: absolute; z-index: 20; left: 2px; top: 394px; display: flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid #2a2a2a; background: #141414; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); white-space: nowrap; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #71717a"><sc-if value="{{feedbackOk}}" hint-placeholder-val="{{ true }}"><span>Moved</span><button type="button" style="padding: 0; border: 0; background: transparent; color: #71717a; font: inherit">Undo</button></sc-if><sc-if value="{{feedbackError}}" hint-placeholder-val="{{ false }}"><span style="color: #ef4444">Couldn't save — reverted to the original time</span></sc-if></div>
+</sc-if>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{month}}" hint-placeholder-val="{{ false }}">
+<div style="flex: none; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); border-bottom: 1px solid #2a2a2a">
+<sc-for list="{{weekdays}}" as="wd" hint-placeholder-count="7">
+<div style="padding: 8px 0; border-left: 1px solid #2a2a2a; text-align: center; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 11px; line-height: 16px; color: #71717a">{{wd}}</div>
+</sc-for>
+</div>
+<div style="flex: 1; min-height: 0; display: flex; flex-direction: column">
+<sc-for list="{{weeks}}" as="w" hint-placeholder-count="6">
+<div style="flex: 1; min-height: 0; position: relative; overflow: hidden; border-bottom: 1px solid #2a2a2a">
+<div style="position: absolute; inset: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr))">
+<sc-for list="{{w.days}}" as="d" hint-placeholder-count="7">
+<div style="border-left: 1px solid #2a2a2a; background: {{d.bg}}; cursor: pointer"></div>
+</sc-for>
+</div>
+<div style="position: relative; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); grid-template-rows: 26px; grid-auto-rows: 16px; row-gap: 1px">
+<sc-for list="{{w.days}}" as="d" hint-placeholder-count="7">
+<div style="grid-row: 1; display: flex; flex-direction: row-reverse; align-items: flex-start">
+<span style="display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 11px; line-height: 16px; {{d.numStyle}}">{{d.num}}</span>
+</div>
+</sc-for>
+<sc-for list="{{w.events}}" as="me" hint-placeholder-count="4">
+<div style="min-width: 0; margin: 0 2px; box-sizing: border-box; display: flex; align-items: center; gap: 4px; overflow: hidden; padding: 1px 4px; white-space: nowrap; {{me.style}}">
+<sc-if value="{{me.flag}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; color: {{me.iconColor}}"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" x2="4" y1="22" y2="15"></line></svg></sc-if>
+<span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; font-size: 10px; line-height: 14px; {{me.titleStyle}}">{{me.title}}</span>
+</div>
+</sc-for>
+<sc-for list="{{w.more}}" as="mo" hint-placeholder-count="0">
+<a href="#" style="margin: 0 3px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 16px; color: #71717a; text-decoration: none; {{mo.style}}">{{mo.label}}</a>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"view":{"editor":"enum","options":["day","week","3day","month"],"default":"week"},"nowLabel":{"editor":"boolean","default":true},"popover":{"editor":"enum","options":["none","gcal","preview","feedback","feedback-error"],"default":"none"},"gcal":{"editor":"boolean","default":true},"$preview":{"width":856,"height":796}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const M = "'JetBrains Mono', 'IBM Plex Mono', monospace";
+    const S = "'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif";
+    const view = this.props.view ?? 'week';
+    const popover = this.props.popover ?? 'none';
+    const showNowLabel = String(this.props.nowLabel ?? true) !== 'false';
+    // Without a Google Calendar connection only tq's own blocks, schedules and task dates are on the grid.
+    const gcal = String(this.props.gcal ?? true) !== 'false';
+    const fromGoogle = (t) => t.startsWith('gcal') || t === 'redacted';
+    // 52px per hour; the grid is drawn scrolled to 09:00, about an hour above "now" (10:12).
+    const H = 52;
+    const FROM = 9;
+    const toMin = (s) => { const [h, m] = s.split(':').map(Number); return h * 60 + m; };
+    const y = (s) => ((toMin(s) - FROM * 60) * H) / 60;
+    const px = (v) => `${v}px`;
+    const mix = (hex, pct) => {
+      const n = parseInt(hex.slice(1), 16);
+      const f = (c) => Math.round(c * pct + 20 * (1 - pct));
+      return `rgb(${f((n >> 16) & 255)}, ${f((n >> 8) & 255)}, ${f(n & 255)})`;
+    };
+
+    const WEEK = [
+      { d: '30', wd: 'Sun' }, { d: '31', wd: 'Mon' }, { d: '1', wd: 'Tue', today: true },
+      { d: '2', wd: 'Wed' }, { d: '3', wd: 'Thu' }, { d: '4', wd: 'Fri' }, { d: '5', wd: 'Sat' },
+    ];
+    const days = view === 'day' ? WEEK.slice(2, 3) : view === '3day' ? WEEK.slice(2, 5) : WEEK;
+    const idx = (d) => days.findIndex((x) => x.d === d);
+    const weekIdx = (d) => WEEK.findIndex((x) => x.d === d);
+
+    const ALLDAY = [
+      { from: '31', to: '31', row: 1, kind: 'task-date', overdue: true, flag: true, title: '保険の更新手続きをする', due: '08-31' },
+      { from: '1', to: '1', row: 1, kind: 'day-queue', title: 'カレンダー表示を 3 日ビューに対応させる' },
+      { from: '1', to: '1', row: 2, kind: 'day-queue', title: '歯医者の予約を取り直す' },
+      { from: '1', to: '1', row: 3, kind: 'day-queue', title: 'API レート制限の調査メモをまとめる' },
+      { from: '1', to: '1', row: 4, kind: 'task-date', flag: true, title: 'API レート制限の調査メモをまとめる', due: '09-01' },
+      { from: '2', to: '2', row: 1, kind: 'day-queue', title: 'ジムの体験レッスンを予約する' },
+      { from: '2', to: '2', row: 2, kind: 'day-queue', title: '読書会の課題本を読み終える' },
+      { from: '2', to: '4', row: 3, kind: 'task-date', title: '引っ越しの見積もりを比較する', due: '09-04' },
+      { from: '3', to: '3', row: 1, kind: 'day-queue', title: '四半期目標の振り返りを書く' },
+      { from: '4', to: '4', row: 1, kind: 'task-date', flag: true, title: '確定申告の書類を揃える', due: '09-04' },
+    ];
+    const allDay = [];
+    let rows = 1;
+    for (const a of ALLDAY) {
+      const lo = weekIdx(a.from);
+      const hi = weekIdx(a.to);
+      const vis = days.map((d) => weekIdx(d.d)).filter((i) => i >= lo && i <= hi);
+      if (vis.length === 0) continue;
+      const ci = idx(WEEK[vis[0]].d);
+      const cj = idx(WEEK[vis[vis.length - 1]].d);
+      const cutR = vis[vis.length - 1] < hi;
+      rows = Math.max(rows, a.row);
+      let style = `grid-column: ${ci + 2} / ${cj + 3}; grid-row: ${a.row};`;
+      if (a.kind === 'day-queue') {
+        style += ' border: 1px dashed #2a2a2a; border-left: 2px dashed #71717a; background: #141414; color: #a1a1aa;';
+      } else if (a.overdue) {
+        style += ' border: 1px solid transparent; border-left: 2px solid rgba(239, 68, 68, 0.7); background: rgba(239, 68, 68, 0.2); color: #fafafa;';
+      } else {
+        style += ' border: 1px solid transparent; border-left: 2px solid #71717a; background: #141414; color: #a1a1aa;';
+      }
+      // A multi-day bar cut by the visible range ends in an arrow.
+      if (cutR) style += ' clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 50%, calc(100% - 10px) 100%, 0 100%);';
+      allDay.push({
+        style,
+        title: a.title,
+        flag: !!a.flag,
+        iconColor: a.overdue ? 'rgba(239, 68, 68, 0.7)' : 'currentColor',
+        due: a.kind === 'task-date' ? a.due : '',
+        gap: a.kind === 'day-queue' ? '6px' : '4px',
+        padL: '8px',
+        padR: cutR ? '12px' : '8px',
+      });
+    }
+
+    const TIMED = [
+      { day: '1', s: '09:30', e: '10:30', type: 'manual', title: 'カレンダー表示を 3 日ビューに対応させる' },
+      { day: '1', s: '11:00', e: '12:00', type: 'gcal-meeting', color: '#7986cb', title: '定例ミーティング' },
+      { day: '1', s: '12:00', e: '13:00', type: 'schedule', title: '昼休み' },
+      { day: '1', s: '14:00', e: '15:00', type: 'auto', title: 'API レート制限の調査メモをまとめる' },
+      { day: '1', s: '16:00', e: '16:30', type: 'manual', title: '歯医者の予約を取り直す' },
+      { day: '1', s: '19:00', e: '20:00', type: 'schedule', color: '#95E1D3', title: 'ランニング' },
+      { day: '31', s: '11:00', e: '11:30', type: 'gcal-meeting', color: '#7986cb', title: '1on1' },
+      { day: '31', s: '14:00', e: '15:30', type: 'manual', title: '週次レポートのドラフトを書く' },
+      { day: '31', s: '17:30', e: '18:00', type: 'gcal-solo', color: '#33b679', title: '移動' },
+      { day: '2', s: '10:00', e: '11:00', type: 'redacted', title: '予定あり' },
+      { day: '2', s: '15:00', e: '16:30', type: 'gcal-meeting', color: '#7986cb', title: '設計レビュー' },
+      { day: '2', s: '17:00', e: '18:00', type: 'gcal-meeting', color: '#e67c73', title: '採用面接', pending: true },
+      { day: '3', s: '20:00', e: '21:00', type: 'schedule', color: '#95E1D3', title: 'ランニング', tag: '↻ changed', tagLabel: 'Time changed occurrence' },
+      { day: '4', s: '13:00', e: '14:30', type: 'gcal-meeting', color: '#7986cb', title: 'ふりかえり会' },
+      { day: '5', s: '19:00', e: '20:00', type: 'schedule', color: '#95E1D3', title: 'ランニング' },
+      { day: '30', s: '15:00', e: '16:00', type: 'gcal-solo', color: '#33b679', title: '買い物' },
+    ];
+    const BANDS = [
+      { day: '3', s: '09:00', e: '12:00', title: 'Focus time', focus: true },
+      { day: '4', s: '18:00', e: '22:00', title: 'Out of office', ooo: true },
+    ];
+    const chip = (ev) => {
+      const dur = toMin(ev.e) - toMin(ev.s);
+      const short = dur <= 30;
+      let border = '1px solid #2a2a2a';
+      let left = '2px solid #71717a';
+      let bg = '#141414';
+      let titleStyle = `font-family: ${M}; color: #a1a1aa;`;
+      if (ev.type === 'auto') {
+        border = '1px dashed #2a2a2a';
+        bg = 'transparent';
+      } else if (ev.type === 'redacted') {
+        border = '1px dashed #2a2a2a';
+        left = '2px dashed #52525b';
+        bg = 'transparent';
+        titleStyle = `font-family: ${M}; color: #71717a;`;
+      } else if (ev.type === 'schedule' && !ev.color) {
+        left = '2px solid #ef4444';
+        titleStyle = `font-family: ${M}; color: #fafafa;`;
+      } else if (ev.type === 'schedule' || ev.type === 'gcal-meeting') {
+        left = `4px solid ${ev.color}`;
+        bg = mix(ev.color, 0.32);
+        titleStyle = `font-family: ${S}; font-weight: 600; color: #fafafa;`;
+      } else if (ev.type === 'gcal-solo') {
+        left = `2px solid ${ev.color}`;
+        bg = mix(ev.color, 0.14);
+        titleStyle = `font-family: ${S}; font-weight: 600; color: #fafafa;`;
+      }
+      return {
+        top: px(y(ev.s)),
+        height: px((dur * H) / 60 - 1),
+        opacity: ev.pending ? 0.5 : 1,
+        dir: short ? 'row' : 'column',
+        align: short ? 'center' : 'stretch',
+        pad: short ? '1px 8px' : '4px 8px',
+        timeMargin: short ? 'auto' : '0',
+        box: `border: ${border}; border-left: ${left}; background: ${bg};`,
+        titleStyle,
+        title: ev.title,
+        tag: ev.tag ?? '',
+        tagLabel: ev.tagLabel ?? '',
+        badge: ev.type === 'auto' ? 'auto' : '',
+        time: `${ev.s}–${ev.e}`,
+      };
+    };
+    const columns = days.map((d) => ({
+      today: !!d.today,
+      bg: d.today && view !== 'day' ? '#141414' : 'transparent',
+      events: TIMED.filter((ev) => ev.day === d.d && (gcal || !fromGoogle(ev.type))).map(chip),
+      bands: BANDS.filter((b) => b.day === d.d && gcal).map((b) => ({
+        top: px(y(b.s)), height: px(((toMin(b.e) - toMin(b.s)) * H) / 60), title: b.title, focus: !!b.focus, ooo: !!b.ooo,
+      })),
+      popGcal: !!d.today && popover === 'gcal',
+      popPreview: !!d.today && popover === 'preview',
+      popFeedback: !!d.today && popover.startsWith('feedback'),
+    }));
+    const hours = Array.from({ length: 24 - FROM }, (_, i) => FROM + i);
+
+    // Month view: Sunday-first 6-week grid for September 2026.
+    const ME = [];
+    const add = (from, to, kind, title, extra) => ME.push({ from, to, kind, title, ...(extra || {}) });
+    add('8-30', '8-30', 'gcal-solo', '買い物', { color: '#33b679' });
+    add('8-31', '8-31', 'task-date', '保険の更新手続きをする', { overdue: true, flag: true });
+    add('8-31', '8-31', 'gcal-meeting', '1on1', { color: '#7986cb' });
+    add('8-31', '8-31', 'manual', '週次レポートのドラフトを書く');
+    add('8-31', '8-31', 'gcal-solo', '移動', { color: '#33b679' });
+    add('9-1', '9-1', 'day-queue', 'カレンダー表示を 3 日ビューに対応させる');
+    add('9-1', '9-1', 'day-queue', '歯医者の予約を取り直す');
+    add('9-1', '9-1', 'day-queue', 'API レート制限の調査メモをまとめる');
+    add('9-1', '9-1', 'task-date', 'API レート制限の調査メモをまとめる', { flag: true });
+    add('9-1', '9-1', 'manual', 'カレンダー表示を 3 日ビューに対応させる');
+    add('9-1', '9-1', 'gcal-meeting', '定例ミーティング', { color: '#7986cb' });
+    add('9-1', '9-1', 'schedule', '昼休み');
+    add('9-1', '9-1', 'auto', 'API レート制限の調査メモをまとめる');
+    add('9-1', '9-1', 'manual', '歯医者の予約を取り直す');
+    add('9-1', '9-1', 'schedule', 'ランニング', { color: '#95E1D3' });
+    add('9-2', '9-4', 'task-date', '引っ越しの見積もりを比較する');
+    add('9-2', '9-2', 'day-queue', 'ジムの体験レッスンを予約する');
+    add('9-2', '9-2', 'day-queue', '読書会の課題本を読み終える');
+    add('9-2', '9-2', 'redacted', '予定あり');
+    add('9-2', '9-2', 'gcal-meeting', '設計レビュー', { color: '#7986cb' });
+    add('9-2', '9-2', 'gcal-meeting', '採用面接', { color: '#e67c73', pending: true });
+    add('9-3', '9-3', 'day-queue', '四半期目標の振り返りを書く');
+    add('9-3', '9-3', 'gcal-status', 'Focus time', { color: '#7986cb' });
+    add('9-3', '9-3', 'schedule', 'ランニング', { color: '#95E1D3' });
+    add('9-4', '9-4', 'task-date', '確定申告の書類を揃える', { flag: true });
+    add('9-4', '9-4', 'gcal-meeting', 'ふりかえり会', { color: '#7986cb' });
+    add('9-4', '9-4', 'gcal-status', 'Out of office', { color: '#7986cb' });
+    add('9-5', '9-5', 'schedule', 'ランニング', { color: '#95E1D3' });
+    add('9-14', '9-15', 'gcal-meeting', '大阪出張', { color: '#7986cb' });
+    add('9-11', '9-11', 'gcal-meeting', 'チーム懇親会', { color: '#e67c73' });
+    add('9-18', '9-18', 'task-date', 'ブログ記事の下書きを仕上げる', { flag: true });
+    add('9-24', '9-24', 'gcal-solo', '健康診断', { color: '#33b679' });
+    const weeksOut = [];
+    for (let w = 0; w < 6; w += 1) {
+      const wdays = Array.from({ length: 7 }, (_, i) => new Date(2026, 7, 30 + w * 7 + i));
+      const key = (dt) => `${dt.getMonth() + 1}-${dt.getDate()}`;
+      const keys = wdays.map(key);
+      // Recurring series after the first week: ランニング Tue/Thu/Sat, 定例ミーティング Tue.
+      const evs = ME.filter((e) => (keys.includes(e.from) || keys.includes(e.to)) && (gcal || !fromGoogle(e.kind))).map((e) => ({ ...e }));
+      if (w > 0) {
+        wdays.forEach((dt, i) => {
+          const k = keys[i];
+          if (i === 2 && gcal) evs.push({ from: k, to: k, kind: 'gcal-meeting', title: '定例ミーティング', color: '#7986cb' });
+          if (i === 2 || i === 4 || i === 6) evs.push({ from: k, to: k, kind: 'schedule', title: 'ランニング', color: '#95E1D3' });
+        });
+      }
+      const used = keys.map(() => []);
+      const placed = [];
+      const spanOf = (e) => [Math.max(0, keys.indexOf(e.from)), keys.indexOf(e.to) < 0 ? 6 : keys.indexOf(e.to)];
+      const ordered = evs.map((e, o) => ({ e, o })).sort((a, b) => {
+        const [a0, a1] = spanOf(a.e);
+        const [b0, b1] = spanOf(b.e);
+        return (b1 - b0) - (a1 - a0) || a0 - b0 || a.o - b.o;
+      });
+      for (const { e } of ordered) {
+        const [c0, c1] = spanOf(e);
+        let r = 0;
+        while (used.slice(c0, c1 + 1).some((u) => u[r])) r += 1;
+        for (let c = c0; c <= c1; c += 1) used[c][r] = true;
+        placed.push({ e, c0, c1, r });
+      }
+      // dayMaxEvents: a day with more than 5 events shows 4 and a "+N more" link.
+      const hiddenPerCol = keys.map((_, c) => {
+        const n = placed.filter((p) => p.c0 <= c && p.c1 >= c).length;
+        return n > 5 ? n - 4 : 0;
+      });
+      const events = placed
+        .filter((p) => !(p.r >= 4 && hiddenPerCol.slice(p.c0, p.c1 + 1).some((h) => h > 0)))
+        .map(({ e, c0, c1, r }) => {
+          let style = `grid-column: ${c0 + 1} / ${c1 + 2}; grid-row: ${r + 2};`;
+          let titleStyle = `font-family: ${M}; color: #fafafa;`;
+          let iconColor = 'currentColor';
+          if (e.kind === 'task-date') {
+            style += e.overdue
+              ? ' border-left: 2px solid rgba(239, 68, 68, 0.7); background: rgba(239, 68, 68, 0.2); padding: 1px 8px;'
+              : ' border-left: 2px solid #71717a; background: #141414; padding: 1px 8px; color: #a1a1aa;';
+            titleStyle = `font-family: ${M}; color: ${e.overdue ? '#fafafa' : '#a1a1aa'};`;
+            if (e.overdue) iconColor = 'rgba(239, 68, 68, 0.7)';
+          } else if (e.kind === 'manual' || e.kind === 'day-queue') {
+            style += ` background: #141414; border-left: 2px ${e.kind === 'day-queue' ? 'dashed' : 'solid'} #71717a;`;
+            titleStyle = `font-family: ${M}; color: #a1a1aa;`;
+          } else if (e.kind === 'auto') {
+            style += ' background: transparent; border-left: 2px dashed #71717a;';
+            titleStyle = `font-family: ${M}; color: #a1a1aa;`;
+          } else if (e.kind === 'redacted') {
+            style += ' background: #141414; border-left: 2px solid #2a2a2a;';
+          } else if (e.kind === 'gcal-status') {
+            style += ` background: #141414; border-left: 2px solid ${e.color};`;
+          } else if (e.kind === 'gcal-solo') {
+            style += ` background: ${mix(e.color, 0.14)}; border-left: 2px solid ${e.color};`;
+            titleStyle = `font-family: ${S}; font-weight: 600; color: #fafafa;`;
+          } else {
+            const c = e.color ?? '#ef4444';
+            style += ` background: ${e.color ? mix(c, 0.32) : '#141414'}; border-left: 4px solid ${c};`;
+            titleStyle = `font-family: ${S}; font-weight: 600; color: #fafafa;`;
+          }
+          if (e.pending) style += ' opacity: 0.5;';
+          return { style, titleStyle, title: e.title, flag: !!e.flag, iconColor };
+        });
+      const more = hiddenPerCol
+        .map((h, c) => ({ h, c }))
+        .filter((m) => m.h > 0)
+        .map((m) => ({ label: `+${m.h} more`, style: `grid-column: ${m.c + 1}; grid-row: 6;` }));
+      weeksOut.push({
+        days: wdays.map((dt) => {
+          const other = dt.getMonth() !== 8;
+          const today = dt.getMonth() === 8 && dt.getDate() === 1;
+          return {
+            num: String(dt.getDate()),
+            bg: today ? '#141414' : 'transparent',
+            numStyle: today
+              ? 'width: 22px; height: 22px; margin: 4px 4px 0; background: #ef4444; color: #fafafa; font-weight: 700;'
+              : `padding: 4px 6px; color: ${other ? '#71717a' : '#fafafa'}; font-weight: ${other ? 400 : 500};`,
+          };
+        }),
+        events,
+        more,
+      });
+    }
+
+    return {
+      timeGrid: view !== 'month',
+      month: view === 'month',
+      hasHeader: view === 'week' || view === '3day',
+      cols: `56px repeat(${days.length}, minmax(0, 1fr))`,
+      headers: days.map((d) => ({
+        label: `${d.wd} ${d.d}`,
+        bg: d.today ? '#141414' : 'transparent',
+        color: d.today ? '#ef4444' : '#71717a',
+        weight: d.today ? 700 : 500,
+      })),
+      allDay,
+      allDayH: px(rows * 19 + 3),
+      axis: hours.map((h) => ({ label: `${String(h).padStart(2, '0')}:00`, top: px((h - FROM) * H), half: px((h - FROM) * H + 26) })),
+      lines: hours.map((h) => px((h - FROM) * H)),
+      columns,
+      nowTop: px(y('10:12')),
+      nowMarkerTop: px(y('10:12') - 3),
+      marker: view === 'day',
+      showNowLabel,
+      feedbackOk: popover !== 'feedback-error',
+      feedbackError: popover === 'feedback-error',
+      weekdays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      weeks: weeksOut,
+    };
+  }
+}
+</script>
+</body>
+</html>

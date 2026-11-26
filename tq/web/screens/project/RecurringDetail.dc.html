@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Recurring template detail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; overflow: hidden; display: flex; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif">
+<div style="flex: none; width: 200px"><dc-import name="Nav" view="none" hint-size="200px,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<main style="flex: 1; min-height: 0; overflow: hidden; display: flex">
+
+<div style="flex: 1; min-width: 0; padding: 24px 28px; overflow-y: auto">
+<div style="max-width: 768px; display: flex; flex-direction: column; gap: 20px">
+
+<nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">
+<a href="#" style="color: #71717a; text-decoration: none">tasks</a>
+<span style="color: #3f3f46">/</span>
+<a href="RecurringList.dc.html" style="color: #71717a; text-decoration: none">recurring</a>
+<span style="color: #3f3f46">/</span>
+<span style="color: #fafafa">植物に水をやる</span>
+<button type="button" aria-label="Template actions" style="margin-left: auto; width: 20px; height: 20px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</nav>
+
+<h1 style="margin: 0"><button type="button" style="width: 100%; min-height: 32px; padding: 0; border: 0; background: transparent; text-align: left; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 24px; line-height: 32px; font-weight: 700; color: #fafafa">植物に水をやる</button></h1>
+
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="display: inline-flex; padding: 0 4px; border: 1px solid #2a2a2a; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">#home</span>
+<span style="display: inline-flex; padding: 0 4px; border: 1px solid #2a2a2a; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">#plants</span>
+<span style="display: inline-flex; padding: 0 4px; border: 1px solid #2a2a2a; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">personal</span>
+</div>
+
+<p style="margin: 0; white-space: pre-line; font-size: 14px; line-height: 1.625; color: #71717a">ベランダと窓辺の鉢植えに水をやる。
+夏のあいだは朝のうちに済ませる。</p>
+
+<div style="border-top: 1px solid #2a2a2a"></div>
+
+<dc-import name="RecurringGeneratedTasks" state="{{listState}}" hint-size="100%,240px"></dc-import>
+
+</div>
+</div>
+
+<aside style="flex: none; width: 240px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; padding: 16px; border-left: 1px solid #2a2a2a; overflow-y: auto">
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; letter-spacing: 0.1em; color: #52525b">TEMPLATE</span>
+
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">REPEAT</span>
+<button type="button" aria-label="Repeat" style="width: calc(100% + 8px); min-height: 32px; box-sizing: border-box; margin: 0 -4px; display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 6px 4px; border: 0; background: transparent; color: #fafafa; text-align: left; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Weekly · Sun, Wed</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="m6 9 6 6 6-6"></path></svg></button>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">NEXT</span>
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #fafafa">Aug 16</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">DUE OFFSET</span>
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #fafafa">0 days after start</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">CONTEXT</span>
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #fafafa">personal</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">PROJECT</span>
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #fafafa">—</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">TAGS</span>
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #fafafa">home, plants</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">STATE</span>
+<div style="padding: 0 4px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; color: #fafafa">
+<button type="button" aria-label="State" style="height: 28px; margin: 0 -4px; display: inline-flex; align-items: center; justify-content: space-between; gap: 6px; padding: 0 4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px">Active<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+</div>
+</div>
+</aside>
+
+</main>
+<dc-import name="StatusLine" path="/recurring/5c1e8a7d-2b4f-4e9a-8c3d-7f6a1b2e9d40" hint-size="100%,24px"></dc-import>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"listState":{"editor":"enum","options":["items","loading","error","empty","loading more","load more failed"],"default":"items"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return { listState: this.props.listState ?? 'items' };
+  }
+}
+</script>
+</body>
+</html>

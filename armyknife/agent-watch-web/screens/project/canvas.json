@@ -1572,7 +1572,7 @@
       "page": "inbox"
     },
     "NewSessionStartingActivity.dc.html": {
-      "x": 3510,
+      "x": 3980,
       "y": 13900,
       "w": 1440,
       "h": 900,
@@ -1580,7 +1580,7 @@
       "page": "inbox"
     },
     "PhoneNewSessionStartingAway.dc.html": {
-      "x": 5030,
+      "x": 3510,
       "y": 13900,
       "w": 390,
       "h": 844,
@@ -1620,7 +1620,7 @@
       "page": "inbox"
     },
     "NewSessionStartFailedActivity.dc.html": {
-      "x": 3510,
+      "x": 3980,
       "y": 15520,
       "w": 1440,
       "h": 900,
@@ -1628,7 +1628,7 @@
       "page": "inbox"
     },
     "PhoneNewSessionStartFailed.dc.html": {
-      "x": 5030,
+      "x": 3510,
       "y": 15520,
       "w": 390,
       "h": 844,

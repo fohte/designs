@@ -210,7 +210,7 @@ a{color:#ef4444}
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 8px 8px 14px; color: #a1a1aa; font-size: 11.5px">
 <span>↵ Send · ⇧↵ / ⌥↵ New line · Esc Interrupt</span>
 <span style="margin-left: auto">⌥↑ / ⌥↓ My messages</span>
-<button type="submit" aria-label="Send message" style="width: 32px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414; opacity: {{sendOpacity}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
+<button type="submit" aria-label="Send message" aria-disabled="{{startingStr}}" style="width: 32px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414; opacity: {{sendOpacity}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
 </div>
 </form>
 </sc-if>
@@ -330,7 +330,7 @@ class Component extends DCLogic {
     const draft = this.props.draft ?? false;
     const timeline = (this.props.timeline ?? []).map((t) => ({ ...t, isLine: !!t.line, isYou: !!t.you, isText: !!t.text, isPlace: !!t.place }));
     return {
-      hasDraft: draft, noDraft: !draft, sendOpacity: draft ? '1' : '0.5',
+      hasDraft: draft, noDraft: !draft, sendOpacity: draft && variant !== 'starting' ? '1' : '0.5',
       // h: shorter when the update band takes the top of the window.
       h: this.props.h ?? '900px',
       // webUiLink: a message whose link points at a registered web UI; the chip names the tab it opens in.

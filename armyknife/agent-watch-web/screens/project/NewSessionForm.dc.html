@@ -46,7 +46,9 @@ class Component extends DCLogic {
     };
     const eng = engines[codex ? 'codex' : 'claude'];
     const modelIdx = Number(p.model ?? 0);
-    const effortIdx = Number(p.effort ?? -1) < 0 ? eng.defEffort : Number(p.effort);
+    // comet-5 supports efforts only up to high.
+    const efforts = eng.models[modelIdx] === 'comet-5' ? eng.efforts.slice(0, 3) : eng.efforts;
+    const effortIdx = Math.min(Number(p.effort ?? -1) < 0 ? eng.defEffort : Number(p.effort), efforts.length - 1);
     const rowH = phone ? '44px' : '40px';
 
     const rowStyle = (on) => 'min-height: ' + rowH + '; display: flex; align-items: center; gap: 10px; padding: 0 16px; background: ' + (on ? '#2a2a2e' : 'transparent');
@@ -71,7 +73,7 @@ class Component extends DCLogic {
           { title: eng.name.toUpperCase() + ' OPTIONS', rows: [
             optRow('worktree', 'New worktree from main', '', ['off', 'on'], wt ? 1 : 0),
             optRow('model', 'Model', phone ? '' : 'default ' + eng.models[0], eng.models, modelIdx),
-            optRow('effort', 'Effort', phone ? '' : 'default ' + eng.efforts[eng.defEffort], eng.efforts, effortIdx)
+            optRow('effort', 'Effort', phone ? '' : 'default ' + eng.efforts[eng.defEffort], efforts, effortIdx)
           ] }
         ];
 

@@ -270,7 +270,9 @@ class Component extends DCLogic {
             ...t.comments.flatMap((c) => ['<!-- comment: ' + c.author + ' ' + c.iso + ' -->', c.body, '<!-- /comment -->']),
             t.reply
           ].join('\n')).join('\n\n')
-          : x.raw.replace(/^---\n[\s\S]*?\n---\n\n/, ''),
+          : x.raw.replace(/^---\n[\s\S]*?\n---\n\n/, '') + (details && i === 1
+            ? '\n\n## Test\n\n<details>\n<summary>変更したファイル</summary>\n\n- src/notify/retry.ts\n- src/notify/retry.test.ts\n- config/notify.example.toml\n\n</details>\n\n<details open>\n<summary>実行したテストのログ</summary>\n\n```\n$ bun run test --filter retry\n ✓ src/notify/retry.test.ts (4 tests) 12ms\n ✓ src/notify/send.test.ts (6 tests) 31ms\n Test Files  2 passed (2)\n      Tests  10 passed (10)\n```\n\n</details>'
+            : ''),
         threads: (x.threads || []).map((t) => ({
           ...t,
           diff: t.diff.map((d0) => {

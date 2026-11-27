@@ -3,7 +3,7 @@
   "boards": {
     "ActionActivity.dc.html": {
       "x": 3980,
-      "y": 15520,
+      "y": 13820,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · Activity を開いた",
@@ -11,7 +11,7 @@
     },
     "ActionAway.dc.html": {
       "x": 1990,
-      "y": 15520,
+      "y": 13820,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · 別のセッションに移っている間に終わった",
@@ -19,7 +19,7 @@
     },
     "ActionCopy.dc.html": {
       "x": 6910,
-      "y": 15520,
+      "y": 13820,
       "w": 1640,
       "h": 1400,
       "title": "確定したあとの結果 · 種類ごとの文言",
@@ -27,7 +27,7 @@
     },
     "ActionFailure.dc.html": {
       "x": 4450,
-      "y": 14200,
+      "y": 12500,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · Merge と Close が失敗",
@@ -43,7 +43,7 @@
     },
     "ActionQueued.dc.html": {
       "x": 0,
-      "y": 15520,
+      "y": 13820,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · マージキューに入った (PR の一覧を開いた状態)",
@@ -51,7 +51,7 @@
     },
     "ActionRunning.dc.html": {
       "x": 0,
-      "y": 14200,
+      "y": 12500,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · Merge と Close を裏で実行中",
@@ -59,7 +59,7 @@
     },
     "ActionSuccess.dc.html": {
       "x": 2460,
-      "y": 14200,
+      "y": 12500,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · Merge と Close が成功",
@@ -83,7 +83,7 @@
     },
     "ActivityEmpty.dc.html": {
       "x": 0,
-      "y": 18604,
+      "y": 16904,
       "w": 1440,
       "h": 900,
       "title": "Activity · 操作がまだないとき (数を出さず、ラベルを薄く)",
@@ -91,7 +91,7 @@
     },
     "ActivityEmptyOpen.dc.html": {
       "x": 1520,
-      "y": 18604,
+      "y": 16904,
       "w": 1440,
       "h": 900,
       "title": "Activity · 操作がないときに開いた",
@@ -443,7 +443,7 @@
     },
     "PhoneActionActivity.dc.html": {
       "x": 6440,
-      "y": 15520,
+      "y": 13820,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーションから Activity を開いた",
@@ -451,14 +451,14 @@
     },
     "PhoneActionAway.dc.html": {
       "x": 3510,
-      "y": 15520,
+      "y": 13820,
       "w": 390,
       "h": 844,
       "page": "topbar"
     },
     "PhoneActionClose.dc.html": {
       "x": 1990,
-      "y": 14200,
+      "y": 12500,
       "w": 390,
       "h": 844,
       "title": "iPhone · Close を裏で実行中",
@@ -466,7 +466,7 @@
     },
     "PhoneActionDrawer.dc.html": {
       "x": 5970,
-      "y": 15520,
+      "y": 13820,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーションの Activity (quota の上)",
@@ -474,7 +474,7 @@
     },
     "PhoneActionFailure.dc.html": {
       "x": 5970,
-      "y": 14200,
+      "y": 12500,
       "w": 390,
       "h": 844,
       "title": "iPhone · Merge が失敗",
@@ -482,7 +482,7 @@
     },
     "ActionTimeline.dc.html": {
       "x": 6440,
-      "y": 14200,
+      "y": 12500,
       "w": 1440,
       "h": 900,
       "title": "結果の行は押した時点の位置に残り、あとのメッセージと一緒に上へ流れる",
@@ -490,7 +490,7 @@
     },
     "PhoneActionTimeline.dc.html": {
       "x": 7960,
-      "y": 14200,
+      "y": 12500,
       "w": 390,
       "h": 844,
       "title": "iPhone · 結果の行が会話と一緒に流れる",
@@ -498,7 +498,7 @@
     },
     "PhoneActionInbox.dc.html": {
       "x": 5500,
-      "y": 15520,
+      "y": 13820,
       "w": 390,
       "h": 844,
       "title": "iPhone · Merge が失敗したあと Inbox に戻った (ナビゲーションのボタンに赤い印)",
@@ -506,14 +506,14 @@
     },
     "PhoneActionQueued.dc.html": {
       "x": 1520,
-      "y": 15520,
+      "y": 13820,
       "w": 390,
       "h": 844,
       "page": "topbar"
     },
     "PhoneActionRunning.dc.html": {
       "x": 1520,
-      "y": 14200,
+      "y": 12500,
       "w": 390,
       "h": 844,
       "title": "iPhone · 返信欄の上の帯の Merge を押して実行中",
@@ -521,7 +521,7 @@
     },
     "PhoneActionSuccess.dc.html": {
       "x": 3980,
-      "y": 14200,
+      "y": 12500,
       "w": 390,
       "h": 844,
       "title": "iPhone · Merge が成功",
@@ -529,7 +529,7 @@
     },
     "PhoneActivityEmpty.dc.html": {
       "x": 3040,
-      "y": 18604,
+      "y": 16904,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーションの Activity · 操作がまだないとき",
@@ -537,7 +537,7 @@
     },
     "PhoneActivityEmptyOpen.dc.html": {
       "x": 3510,
-      "y": 18604,
+      "y": 16904,
       "w": 390,
       "h": 844,
       "title": "iPhone · 操作がないときに Activity を開いた",
@@ -648,7 +648,7 @@
     },
     "PhoneChatTasks.dc.html": {
       "x": 0,
-      "y": 17340,
+      "y": 15640,
       "w": 390,
       "h": 844,
       "title": "iPhone · tq タスクが 4 件 · 主タスクの右に +3 (押すと状況パネルの Tasks)",
@@ -1389,7 +1389,7 @@
     },
     "PhoneChatLongTitle.dc.html": {
       "x": 470,
-      "y": 17340,
+      "y": 15640,
       "w": 390,
       "h": 844,
       "title": "iPhone · 長いタイトル · 2 行まで折り返し、3 行目から … で切る",
@@ -1723,62 +1723,6 @@
       "title": "iPhone · Discard changes… を押した (下からのシート)",
       "page": "topbar"
     },
-    "before/BeforeCloseFailConversation.dc.html": {
-      "x": 0,
-      "y": 7760,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · Close が失敗 · 会話から閉じた (Done の Close、⋯ の Close session…、⌘K の Close this session)",
-      "page": "topbar"
-    },
-    "before/BeforePhoneCloseFail.dc.html": {
-      "x": 1520,
-      "y": 7760,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · Close が失敗",
-      "page": "topbar"
-    },
-    "before/BeforeCloseFailInbox.dc.html": {
-      "x": 1990,
-      "y": 7760,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · Close が失敗 · Inbox の e で、開いていないセッションを閉じた",
-      "page": "topbar"
-    },
-    "before/BeforeCloseFailActivity.dc.html": {
-      "x": 3510,
-      "y": 7760,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · Close が失敗 · Details で Activity を開いた (3 つの確認を全部並べる)",
-      "page": "topbar"
-    },
-    "before/BeforePhoneCloseFailActivity.dc.html": {
-      "x": 5030,
-      "y": 7760,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · Close が失敗してナビゲーションから Activity を開いた",
-      "page": "topbar"
-    },
-    "before/BeforeCloseFailCopy.dc.html": {
-      "x": 5500,
-      "y": 8640,
-      "w": 1440,
-      "h": 1700,
-      "title": "Before · Close の失敗 · 残っているものごとの文言",
-      "page": "topbar"
-    },
-    "before/BeforeMain.dc.html": {
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 3900,
-      "title": "Before · 仕様のまとめ",
-      "page": "inbox"
-    },
     "DiscardDialog.dc.html": {
       "x": 4024,
       "y": 2240,
@@ -1787,257 +1731,9 @@
       "title": "DiscardDialog",
       "page": "components"
     },
-    "before/BeforeActionItem.dc.html": {
-      "x": 0,
-      "y": 8760,
-      "w": 360,
-      "h": 110,
-      "title": "BeforeActionItem",
-      "page": "topbar"
-    },
-    "before/BeforeActivity.dc.html": {
-      "x": 440,
-      "y": 8760,
-      "w": 400,
-      "h": 360,
-      "title": "BeforeActivity",
-      "page": "topbar"
-    },
-    "before/BeforeActivityButton.dc.html": {
-      "x": 920,
-      "y": 8760,
-      "w": 224,
-      "h": 44,
-      "title": "BeforeActivityButton",
-      "page": "topbar"
-    },
-    "before/BeforeCloseChecks.dc.html": {
-      "x": 1224,
-      "y": 8760,
-      "w": 408,
-      "h": 170,
-      "title": "BeforeCloseChecks",
-      "page": "topbar"
-    },
-    "before/BeforeCodeBlock.dc.html": {
-      "x": 1712,
-      "y": 8760,
-      "w": 672,
-      "h": 160,
-      "title": "BeforeCodeBlock",
-      "page": "topbar"
-    },
-    "before/BeforeConfirmDialog.dc.html": {
-      "x": 2464,
-      "y": 8760,
-      "w": 380,
-      "h": 200,
-      "title": "BeforeConfirmDialog",
-      "page": "topbar"
-    },
-    "before/BeforeConversation.dc.html": {
-      "x": 2924,
-      "y": 8760,
-      "w": 880,
-      "h": 900,
-      "title": "BeforeConversation",
-      "page": "topbar"
-    },
-    "before/BeforeDetailsPlace.dc.html": {
-      "x": 3884,
-      "y": 8760,
-      "w": 672,
-      "h": 420,
-      "title": "BeforeDetailsPlace",
-      "page": "topbar"
-    },
-    "before/BeforeInboxList.dc.html": {
-      "x": 4636,
-      "y": 8760,
-      "w": 460,
-      "h": 900,
-      "title": "BeforeInboxList",
-      "page": "topbar"
-    },
-    "before/BeforeMdDetails.dc.html": {
-      "x": 0,
-      "y": 9740,
-      "w": 672,
-      "h": 200,
-      "title": "BeforeMdDetails",
-      "page": "topbar"
-    },
-    "before/BeforeMergeBand.dc.html": {
-      "x": 752,
-      "y": 9740,
-      "w": 760,
-      "h": 60,
-      "title": "BeforeMergeBand",
-      "page": "topbar"
-    },
-    "before/BeforeMergeButton.dc.html": {
-      "x": 1592,
-      "y": 9740,
-      "w": 160,
-      "h": 44,
-      "title": "BeforeMergeButton",
-      "page": "topbar"
-    },
-    "before/BeforeNav.dc.html": {
-      "x": 1832,
-      "y": 9740,
-      "w": 240,
-      "h": 900,
-      "title": "BeforeNav",
-      "page": "topbar"
-    },
-    "before/BeforePaneSnapshot.dc.html": {
-      "x": 2152,
-      "y": 9740,
-      "w": 672,
-      "h": 380,
-      "title": "BeforePaneSnapshot",
-      "page": "topbar"
-    },
-    "before/BeforePhoneChat.dc.html": {
-      "x": 2904,
-      "y": 9740,
-      "w": 390,
-      "h": 844,
-      "title": "BeforePhoneChat",
-      "page": "topbar"
-    },
-    "before/BeforePhoneDrawer.dc.html": {
-      "x": 3374,
-      "y": 9740,
-      "w": 390,
-      "h": 844,
-      "title": "BeforePhoneDrawer",
-      "page": "topbar"
-    },
-    "before/BeforePhoneInbox.dc.html": {
-      "x": 3844,
-      "y": 9740,
-      "w": 390,
-      "h": 844,
-      "title": "BeforePhoneInbox",
-      "page": "topbar"
-    },
-    "before/BeforePhoneLaterSheet.dc.html": {
-      "x": 4314,
-      "y": 9740,
-      "w": 390,
-      "h": 420,
-      "title": "BeforePhoneLaterSheet",
-      "page": "topbar"
-    },
-    "before/BeforePhoneRowMenu.dc.html": {
-      "x": 4784,
-      "y": 9740,
-      "w": 390,
-      "h": 250,
-      "title": "BeforePhoneRowMenu",
-      "page": "topbar"
-    },
-    "before/BeforePhoneSaveViewSheet.dc.html": {
-      "x": 0,
-      "y": 10720,
-      "w": 390,
-      "h": 300,
-      "title": "BeforePhoneSaveViewSheet",
-      "page": "topbar"
-    },
-    "before/BeforePrButton.dc.html": {
-      "x": 470,
-      "y": 10720,
-      "w": 44,
-      "h": 44,
-      "title": "BeforePrButton",
-      "page": "topbar"
-    },
-    "before/BeforeQuota.dc.html": {
-      "x": 594,
-      "y": 10720,
-      "w": 240,
-      "h": 140,
-      "title": "BeforeQuota",
-      "page": "topbar"
-    },
-    "before/BeforeSessionRow.dc.html": {
-      "x": 914,
-      "y": 10720,
-      "w": 460,
-      "h": 76,
-      "title": "BeforeSessionRow",
-      "page": "topbar"
-    },
-    "before/BeforeSessionUsage.dc.html": {
-      "x": 1454,
-      "y": 10720,
-      "w": 672,
-      "h": 40,
-      "title": "BeforeSessionUsage",
-      "page": "topbar"
-    },
-    "before/BeforeSortControl.dc.html": {
-      "x": 2206,
-      "y": 10720,
-      "w": 240,
-      "h": 44,
-      "title": "BeforeSortControl",
-      "page": "topbar"
-    },
-    "before/BeforeSortMenu.dc.html": {
-      "x": 2526,
-      "y": 10720,
-      "w": 390,
-      "h": 300,
-      "title": "BeforeSortMenu",
-      "page": "topbar"
-    },
-    "before/BeforeStatusBand.dc.html": {
-      "x": 2996,
-      "y": 10720,
-      "w": 760,
-      "h": 60,
-      "title": "BeforeStatusBand",
-      "page": "topbar"
-    },
-    "before/BeforeStuckBand.dc.html": {
-      "x": 3836,
-      "y": 10720,
-      "w": 760,
-      "h": 90,
-      "title": "BeforeStuckBand",
-      "page": "topbar"
-    },
-    "before/BeforeToastStack.dc.html": {
-      "x": 4676,
-      "y": 10720,
-      "w": 360,
-      "h": 240,
-      "title": "BeforeToastStack",
-      "page": "topbar"
-    },
-    "before/BeforeTodoCard.dc.html": {
-      "x": 0,
-      "y": 11100,
-      "w": 672,
-      "h": 40,
-      "title": "BeforeTodoCard",
-      "page": "topbar"
-    },
-    "before/BeforeUpdateBand.dc.html": {
-      "x": 752,
-      "y": 11100,
-      "w": 760,
-      "h": 40,
-      "title": "BeforeUpdateBand",
-      "page": "topbar"
-    },
     "CloseDiscardRunning.dc.html": {
       "x": 0,
-      "y": 11560,
+      "y": 9420,
       "w": 1440,
       "h": 900,
       "title": "Discard changes and close · 実行中 (トーストと会話の行が Deleting worktree…)",
@@ -2045,7 +1741,7 @@
     },
     "PhoneCloseDiscardRunning.dc.html": {
       "x": 1520,
-      "y": 11560,
+      "y": 9420,
       "w": 390,
       "h": 844,
       "title": "iPhone · Discard changes and close を実行中",
@@ -2053,7 +1749,7 @@
     },
     "CloseDiscardSuccess.dc.html": {
       "x": 1990,
-      "y": 11560,
+      "y": 9420,
       "w": 1440,
       "h": 900,
       "title": "Discard changes and close · 成功 (Closed session and deleted worktree)",
@@ -2061,7 +1757,7 @@
     },
     "PhoneCloseDiscardSuccess.dc.html": {
       "x": 3510,
-      "y": 11560,
+      "y": 9420,
       "w": 390,
       "h": 844,
       "title": "iPhone · Discard changes and close が成功",
@@ -2069,7 +1765,7 @@
     },
     "CloseDiscardFailure.dc.html": {
       "x": 3980,
-      "y": 11560,
+      "y": 9420,
       "w": 1440,
       "h": 900,
       "title": "Discard changes and close · 失敗 (Delete failed と理由、Retry)",
@@ -2077,7 +1773,7 @@
     },
     "PhoneCloseDiscardFailure.dc.html": {
       "x": 5500,
-      "y": 11560,
+      "y": 9420,
       "w": 390,
       "h": 844,
       "title": "iPhone · Discard changes and close が失敗",
@@ -2085,7 +1781,7 @@
     },
     "CloseDiscardChanged.dc.html": {
       "x": 0,
-      "y": 12880,
+      "y": 10740,
       "w": 1440,
       "h": 900,
       "title": "Discard changes and close · 確認したあとに増えた (何も消さずに止め、Review again)",
@@ -2093,7 +1789,7 @@
     },
     "PhoneCloseDiscardChanged.dc.html": {
       "x": 1520,
-      "y": 12880,
+      "y": 10740,
       "w": 390,
       "h": 844,
       "title": "iPhone · 確認したあとに増えた",
@@ -2101,7 +1797,7 @@
     },
     "CloseDiscardAgain.dc.html": {
       "x": 1990,
-      "y": 12880,
+      "y": 10740,
       "w": 1440,
       "h": 900,
       "title": "Discard changes and close · Review again (増えたものを New として先頭に)",
@@ -2109,7 +1805,7 @@
     },
     "PhoneCloseDiscardAgain.dc.html": {
       "x": 3510,
-      "y": 12880,
+      "y": 10740,
       "w": 390,
       "h": 844,
       "title": "iPhone · Review again (下からのシート)",
@@ -2117,7 +1813,7 @@
     },
     "CloseDiscardProcess.dc.html": {
       "x": 3980,
-      "y": 12880,
+      "y": 10740,
       "w": 1440,
       "h": 900,
       "title": "Discard changes and close · プロセスが動いていた (止めてから Retry)",
@@ -2125,7 +1821,7 @@
     },
     "PhoneCloseDiscardProcess.dc.html": {
       "x": 5500,
-      "y": 12880,
+      "y": 10740,
       "w": 390,
       "h": 844,
       "title": "iPhone · プロセスが動いていた",
@@ -2142,7 +1838,6 @@
   },
   "order": [
     "Main.dc.html",
-    "before/BeforeMain.dc.html",
     "Inbox.dc.html",
     "PhoneInbox.dc.html",
     "PhoneDrawer.dc.html",
@@ -2262,12 +1957,6 @@
     "PhoneCloseDiscardAgain.dc.html",
     "CloseDiscardProcess.dc.html",
     "PhoneCloseDiscardProcess.dc.html",
-    "before/BeforeCloseFailConversation.dc.html",
-    "before/BeforePhoneCloseFail.dc.html",
-    "before/BeforeCloseFailInbox.dc.html",
-    "before/BeforeCloseFailActivity.dc.html",
-    "before/BeforePhoneCloseFailActivity.dc.html",
-    "before/BeforeCloseFailCopy.dc.html",
     "WebUiLink.dc.html",
     "PhoneChatWebUiLink.dc.html",
     "WebUiFull.dc.html",
@@ -2377,38 +2066,7 @@
     "ConversationStuckOpen.dc.html",
     "PhoneChatStuckOpen.dc.html",
     "StuckBand.dc.html",
-    "PaneSnapshot.dc.html",
-    "before/BeforeActionItem.dc.html",
-    "before/BeforeActivity.dc.html",
-    "before/BeforeActivityButton.dc.html",
-    "before/BeforeCloseChecks.dc.html",
-    "before/BeforeCodeBlock.dc.html",
-    "before/BeforeConfirmDialog.dc.html",
-    "before/BeforeConversation.dc.html",
-    "before/BeforeDetailsPlace.dc.html",
-    "before/BeforeInboxList.dc.html",
-    "before/BeforeMdDetails.dc.html",
-    "before/BeforeMergeBand.dc.html",
-    "before/BeforeMergeButton.dc.html",
-    "before/BeforeNav.dc.html",
-    "before/BeforePaneSnapshot.dc.html",
-    "before/BeforePhoneChat.dc.html",
-    "before/BeforePhoneDrawer.dc.html",
-    "before/BeforePhoneInbox.dc.html",
-    "before/BeforePhoneLaterSheet.dc.html",
-    "before/BeforePhoneRowMenu.dc.html",
-    "before/BeforePhoneSaveViewSheet.dc.html",
-    "before/BeforePrButton.dc.html",
-    "before/BeforeQuota.dc.html",
-    "before/BeforeSessionRow.dc.html",
-    "before/BeforeSessionUsage.dc.html",
-    "before/BeforeSortControl.dc.html",
-    "before/BeforeSortMenu.dc.html",
-    "before/BeforeStatusBand.dc.html",
-    "before/BeforeStuckBand.dc.html",
-    "before/BeforeToastStack.dc.html",
-    "before/BeforeTodoCard.dc.html",
-    "before/BeforeUpdateBand.dc.html"
+    "PaneSnapshot.dc.html"
   ],
   "pages": [
     {
@@ -2454,7 +2112,7 @@
     },
     "rowActionMore": {
       "x": 0,
-      "y": 15220,
+      "y": 13520,
       "text": "Merge と Close を裏で実行 · キュー、別セッション、Activity、文言",
       "kind": "title1",
       "maxW": 8550,
@@ -2462,7 +2120,7 @@
     },
     "rowActionResult": {
       "x": 0,
-      "y": 13900,
+      "y": 12200,
       "text": "Merge と Close を裏で実行 · 実行中、成功、失敗、会話の中の結果の行",
       "kind": "title1",
       "maxW": 8350,
@@ -2470,7 +2128,7 @@
     },
     "rowActivityEmpty": {
       "x": 0,
-      "y": 18304,
+      "y": 16604,
       "text": "Activity · 操作がないとき",
       "kind": "title1",
       "maxW": 3900,
@@ -2631,7 +2289,7 @@
     "rowPhoneTasks": {
       "kind": "title1",
       "x": 0,
-      "y": 17040,
+      "y": 15340,
       "maxW": 1330,
       "page": "topbar",
       "text": "ヘッダー · tq タスクが複数 (iPhone も +N で状況パネルの Tasks) と長いタイトル"
@@ -2788,37 +2446,9 @@
       "maxW": 1512,
       "page": "components"
     },
-    "diffCloseFail": {
-      "x": -540,
-      "y": 7760,
-      "w": 460,
-      "text": "変更前 (Before) と今の違い · 上の段が今、この段が変更前\n- トースト、会話の行、Activity の行で、Close and keep worktree (幅いっぱい) と Retry / Details の並びを、Close anyway の見出しの下の 2 列 2 段にした\n- 1 段目は白い Keep worktree と、赤い枠と文字の Discard changes… (ゴミ箱付き)。2 段目は Retry と Details (Activity では Open in terminal)\n- 4 つとも同じ大きさ (PC 26px、iPhone 44px)\n- 会話の行に Details が付いた\n- Inbox の e で閉じた場合も、トーストは同じ並び",
-      "page": "topbar"
-    },
-    "diffCloseFailCopy": {
-      "x": 7020,
-      "y": 8640,
-      "w": 460,
-      "text": "変更前 (Before) と今の違い · 文言の一覧\n- 3 つの確認のどれかで止まった行は、トースト、Activity、会話のどれも新しい 2 列 2 段の並び\n- 確認の結果がない失敗 (No guard) は今のまま Retry と Details\n- 行が高くなったので、ボードの高さを 1700px から 1780px にした",
-      "page": "topbar"
-    },
-    "diffConfirmNew": {
-      "x": 9010,
-      "y": 6780,
-      "w": 460,
-      "text": "新しいボード\n- Discard changes… を押したあとの確認。PC はダイアログ、iPhone は下からのシート\n- Uncommitted changes と Commits not on main に分け、見出しの右に件数。区分ごとに 5 件まで出し、残りは Show 9 more で開く\n- 赤い塗りのボタンは最後の Discard and close だけ",
-      "page": "topbar"
-    },
-    "diffMain": {
-      "x": 3040,
-      "y": 0,
-      "w": 460,
-      "page": "inbox",
-      "text": "変更前 (Before) と今の違い · 仕様のまとめ\n- 確認したあとの実行: Close が止まったときのボタンの並びを、Close anyway の下の Keep worktree / Discard changes… と、その下の Retry / Details に書き換えた\n- 消す前の確認 (区分ごとに 5 件、Show 9 more、赤い塗りは最後の Discard and close だけ) の項目を足した"
-    },
     "rowCloseDiscardResult": {
       "x": 0,
-      "y": 11260,
+      "y": 9120,
       "text": "セッションを閉じる · Discard changes and close を確定したあと · 実行中、成功、失敗",
       "kind": "title1",
       "maxW": 5890,
@@ -2826,25 +2456,11 @@
     },
     "rowCloseDiscardStopped": {
       "x": 0,
-      "y": 12580,
+      "y": 10440,
       "text": "セッションを閉じる · Discard changes and close を確定したあと · 何も消さずに止めた",
       "kind": "title1",
       "maxW": 5890,
       "page": "topbar"
-    },
-    "diffDiscardResult": {
-      "x": 5970,
-      "y": 11560,
-      "w": 460,
-      "page": "topbar",
-      "text": "新しいボード\n- 確認で Discard and close を押したあと。トーストと会話の行は Deleting worktree…、Activity の数は青\n- 消す前に、確認で見たものと今の worktree を比べる。そのあいだもほかの操作はできる\n- 成功: トーストは自動で消え、会話の行は Closed session and deleted worktree · 12:05 に書き換わる\n- 失敗: 確認と関係のない失敗。理由をそのまま出し、セッションは開いたままと書く。Retry は確認で見たものに対してもう一度実行する"
-    },
-    "diffDiscardStopped": {
-      "x": 5970,
-      "y": 12880,
-      "w": 460,
-      "page": "topbar",
-      "text": "新しいボード\n- 確認したあとにファイルかコミットが増えた: 何も消さずに止め、Review again (白) と Close and keep worktree\n- Review again: 見出しは Review the changes again。増えたものは各区分の先頭に青い New と薄い青の背景で出し、5 件の中に必ず入る\n- 消す直前に worktree の中でプロセスが動いていた: 何も消さずにプロセスを出す。トーストは Retry と Open in terminal、会話の行は Retry だけ\n- web からは何のプロセスか分からないので、こちらからは止めない"
     }
   },
   "v": 3,

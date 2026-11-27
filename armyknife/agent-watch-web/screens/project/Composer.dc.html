@@ -22,7 +22,7 @@ body{margin:0}
 <button type="button" aria-label="Attach files" title="Attach files" style="{{plusStyle}}"><svg width="{{icon}}" height="{{icon}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></button>
 <span style="flex: 1 1 0; min-width: 0; padding-left: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{hint}}</span>
 <sc-if value="{{hasHint2}}" hint-placeholder-val="{{ false }}"><span style="flex: none">{{hint2}}</span></sc-if>
-<button type="submit" aria-label="{{sendLabel}}" aria-disabled="{{sendDisabled}}" style="{{sendStyle}}"><svg width="{{icon}}" height="{{icon}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
+<sc-if value="{{sendOn}}" hint-placeholder-val="{{ true }}"><button type="submit" aria-label="{{sendLabel}}" style="{{sendStyle}}"><svg width="{{icon}}" height="{{icon}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></sc-if><sc-if value="{{sendOff}}" hint-placeholder-val="{{ false }}"><button type="submit" disabled aria-label="{{sendLabel}}" style="{{sendStyle}}"><svg width="{{icon}}" height="{{icon}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></sc-if>
 </div>
 </div>
 <sc-if value="{{hasStatus}}" hint-placeholder-val="{{ false }}"><p role="status" style="{{statusStyle}}">{{status}}</p></sc-if>
@@ -73,7 +73,8 @@ class Component extends DCLogic {
       hasHint2: !!hint2,
       hint2,
       sendLabel: conv ? 'Send message' : 'Start session',
-      sendDisabled: send === 'on' ? 'false' : 'true',
+      sendOn: send !== 'off',
+      sendOff: send === 'off',
       sendStyle: 'flex: none; width: ' + btn + 'px; height: ' + btn + 'px; display: grid; place-items: center; padding: 0; border: 0; ' + (send === 'off' ? 'background: #2a2a2e; color: #71717a' : 'background: #fafafa; color: #0a0a0a; opacity: ' + (send === 'dim' ? '0.5' : '1')),
       hasStatus: !!status,
       status,

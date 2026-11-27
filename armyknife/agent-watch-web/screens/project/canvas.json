@@ -291,7 +291,7 @@
     },
     "Inbox.dc.html": {
       "x": 0,
-      "y": 4160,
+      "y": 4860,
       "w": 1440,
       "h": 900,
       "title": "Inbox と会話",
@@ -299,7 +299,7 @@
     },
     "InboxFilter.dc.html": {
       "x": 3400,
-      "y": 5480,
+      "y": 6180,
       "w": 1440,
       "h": 900,
       "title": "Inbox の絞り込み (/)",
@@ -307,7 +307,7 @@
     },
     "InboxFiltered.dc.html": {
       "x": 5390,
-      "y": 5480,
+      "y": 6180,
       "w": 1440,
       "h": 900,
       "title": "絞り込んだ状態と Save view",
@@ -323,7 +323,7 @@
     },
     "InboxTodoLater.dc.html": {
       "x": 0,
-      "y": 9440,
+      "y": 10140,
       "w": 1440,
       "h": 900,
       "title": "畳んだ to-do だけのセッションは In progress に出す",
@@ -331,7 +331,7 @@
     },
     "Later.dc.html": {
       "x": 0,
-      "y": 5480,
+      "y": 6180,
       "w": 1440,
       "h": 900,
       "title": "Later メニュー (L)",
@@ -341,7 +341,7 @@
       "x": 0,
       "y": 0,
       "w": 1440,
-      "h": 3900,
+      "h": 4600,
       "title": "仕様のまとめ",
       "page": "inbox"
     },
@@ -370,35 +370,27 @@
       "page": "components"
     },
     "NewSession.dc.html": {
-      "x": 0,
-      "y": 6800,
+      "x": 1520,
+      "y": 7500,
       "w": 1440,
       "h": 900,
-      "title": "新しいセッション",
+      "title": "新しいセッション · ↵ でディレクトリがチップになり、同じ入力にメッセージを打つ",
       "page": "inbox"
     },
     "NewSessionModel.dc.html": {
       "x": 0,
-      "y": 8120,
+      "y": 8820,
       "w": 1440,
       "h": 900,
-      "title": "新しいセッション · モデルと effort を選ぶ",
-      "page": "inbox"
-    },
-    "NewSessionModelSwitch.dc.html": {
-      "x": 1990,
-      "y": 8120,
-      "w": 1440,
-      "h": 900,
-      "title": "新しいセッション · engine を変えてモデルが default に戻った",
+      "title": "新しいセッション · ↓ で Model の行に移り、→ で borealis-5 に変えた",
       "page": "inbox"
     },
     "NewSessionPicker.dc.html": {
-      "x": 1520,
-      "y": 6800,
+      "x": 0,
+      "y": 7500,
       "w": 1440,
       "h": 900,
-      "title": "新しいセッション · ディレクトリを選ぶ",
+      "title": "新しいセッション · c か + で開いた直後 · 1 本の入力に打つとディレクトリの候補",
       "page": "inbox"
     },
     "Palette.dc.html": {
@@ -422,15 +414,7 @@
       "y": 1620,
       "w": 1440,
       "h": 900,
-      "title": "コマンドパレット · 新しいセッション",
-      "page": "palette"
-    },
-    "PaletteNewSessionModel.dc.html": {
-      "x": 1990,
-      "y": 1620,
-      "w": 1440,
-      "h": 900,
-      "title": "コマンドパレット · モデルと effort を選ぶ",
+      "title": "⌘K · New session · + の画面と同じ入力と一覧",
       "page": "palette"
     },
     "PaletteQuery.dc.html": {
@@ -719,7 +703,7 @@
     },
     "PhoneDrawer.dc.html": {
       "x": 1990,
-      "y": 4160,
+      "y": 4860,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーション",
@@ -727,7 +711,7 @@
     },
     "PhoneInbox.dc.html": {
       "x": 1520,
-      "y": 4160,
+      "y": 4860,
       "w": 390,
       "h": 844,
       "title": "iPhone · Inbox",
@@ -735,7 +719,7 @@
     },
     "PhoneInboxClose.dc.html": {
       "x": 2930,
-      "y": 5480,
+      "y": 6180,
       "w": 390,
       "h": 844,
       "title": "iPhone · Close を押したあと",
@@ -743,7 +727,7 @@
     },
     "PhoneInboxFilter.dc.html": {
       "x": 4920,
-      "y": 5480,
+      "y": 6180,
       "w": 390,
       "h": 844,
       "title": "iPhone · 絞り込みの欄を押したあと (kind: を入力中)",
@@ -751,7 +735,7 @@
     },
     "PhoneInboxFiltered.dc.html": {
       "x": 6910,
-      "y": 5480,
+      "y": 6180,
       "w": 390,
       "h": 844,
       "title": "iPhone · 絞り込んだ状態",
@@ -759,7 +743,7 @@
     },
     "PhoneInboxLater.dc.html": {
       "x": 2460,
-      "y": 5480,
+      "y": 6180,
       "w": 390,
       "h": 844,
       "title": "iPhone · Later を押したあと",
@@ -767,7 +751,7 @@
     },
     "PhoneInboxRowMenu.dc.html": {
       "x": 1990,
-      "y": 5480,
+      "y": 6180,
       "w": 390,
       "h": 844,
       "title": "iPhone · 行を長押し",
@@ -775,7 +759,7 @@
     },
     "PhoneInboxSaveView.dc.html": {
       "x": 7380,
-      "y": 5480,
+      "y": 6180,
       "w": 390,
       "h": 844,
       "title": "iPhone · Save view を押したあと",
@@ -783,7 +767,7 @@
     },
     "PhoneInboxSwipe.dc.html": {
       "x": 1520,
-      "y": 5480,
+      "y": 6180,
       "w": 390,
       "h": 844,
       "title": "iPhone · 行の中で左にスワイプ (Later と Close が出る)",
@@ -791,7 +775,7 @@
     },
     "PhoneInboxTodoLater.dc.html": {
       "x": 1520,
-      "y": 9440,
+      "y": 10140,
       "w": 390,
       "h": 844,
       "title": "iPhone · 畳んだ to-do だけのセッションは In progress に出す",
@@ -821,34 +805,27 @@
       "page": "conversation"
     },
     "PhoneNewSession.dc.html": {
-      "x": 3040,
-      "y": 6800,
+      "x": 3510,
+      "y": 7500,
       "w": 390,
       "h": 844,
-      "title": "iPhone · 新しいセッション",
+      "title": "iPhone · メッセージを打った · engine の行を押すと始まる",
       "page": "inbox"
     },
     "PhoneNewSessionModel.dc.html": {
       "x": 1520,
-      "y": 8120,
+      "y": 8820,
       "w": 390,
       "h": 844,
-      "title": "iPhone · モデルと effort を選ぶ",
-      "page": "inbox"
-    },
-    "PhoneNewSessionModelSwitch.dc.html": {
-      "x": 3510,
-      "y": 8120,
-      "w": 390,
-      "h": 844,
+      "title": "iPhone · Model の borealis-5 を押した",
       "page": "inbox"
     },
     "PhoneNewSessionPicker.dc.html": {
-      "x": 3510,
-      "y": 6800,
+      "x": 3040,
+      "y": 7500,
       "w": 390,
       "h": 844,
-      "title": "iPhone · ディレクトリを選ぶ",
+      "title": "iPhone · + で開いた直後 · ディレクトリの候補",
       "page": "inbox"
     },
     "PhonePaletteNewSession.dc.html": {
@@ -856,15 +833,7 @@
       "y": 1620,
       "w": 390,
       "h": 844,
-      "title": "iPhone · コマンドパレット · 新しいセッション",
-      "page": "palette"
-    },
-    "PhonePaletteNewSessionModel.dc.html": {
-      "x": 3510,
-      "y": 1620,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · コマンドパレット · モデルと effort を選ぶ",
+      "title": "iPhone · ⌘K · New session",
       "page": "palette"
     },
     "PhoneRowMenu.dc.html": {
@@ -1205,7 +1174,7 @@
     },
     "TaskLinks.dc.html": {
       "x": 2460,
-      "y": 4160,
+      "y": 4860,
       "w": 1440,
       "h": 900,
       "title": "1 つのセッションに tq タスクが複数 · +1 で状況パネルの Tasks を開く",
@@ -1397,7 +1366,7 @@
     },
     "InboxSort.dc.html": {
       "x": 0,
-      "y": 11060,
+      "y": 11760,
       "w": 1440,
       "h": 900,
       "title": "Inbox · Sort を押すとメニュー (今の並び順に ✓)",
@@ -1405,7 +1374,7 @@
     },
     "PhoneInboxSort.dc.html": {
       "x": 1520,
-      "y": 11060,
+      "y": 11760,
       "w": 390,
       "h": 844,
       "title": "iPhone · Sort を押すと下からシート",
@@ -1413,7 +1382,7 @@
     },
     "InboxSortProject.dc.html": {
       "x": 1990,
-      "y": 11060,
+      "y": 11760,
       "w": 1440,
       "h": 900,
       "title": "Inbox · Project で並べた (区分の中に project ごとの小見出し)",
@@ -1421,7 +1390,7 @@
     },
     "PhoneInboxSortProject.dc.html": {
       "x": 3510,
-      "y": 11060,
+      "y": 11760,
       "w": 390,
       "h": 844,
       "title": "iPhone · Project で並べた",
@@ -1445,7 +1414,7 @@
     },
     "InboxWaiting.dc.html": {
       "x": 0,
-      "y": 12680,
+      "y": 13380,
       "w": 1440,
       "h": 900,
       "title": "Inbox · 他の作業を待っているセッションは Later の下の Waiting に分ける (先頭を会話で開いている)",
@@ -1453,7 +1422,7 @@
     },
     "PhoneInboxWaiting.dc.html": {
       "x": 1520,
-      "y": 12680,
+      "y": 13380,
       "w": 390,
       "h": 844,
       "title": "iPhone · Waiting 3 ⌄ を開いた",
@@ -1461,7 +1430,7 @@
     },
     "PhoneDrawerWaiting.dc.html": {
       "x": 1990,
-      "y": 12680,
+      "y": 13380,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーションの待っているセッションにも砂時計",
@@ -1469,7 +1438,7 @@
     },
     "InboxLongNames.dc.html": {
       "x": 0,
-      "y": 14300,
+      "y": 15000,
       "w": 1440,
       "h": 900,
       "title": "長い repo 名とブランチ名 · repo とブランチから … で縮め、タスク名を残す (Proposal の行の repo にマウスを置いた)",
@@ -1477,7 +1446,7 @@
     },
     "PhoneInboxLongNames.dc.html": {
       "x": 1520,
-      "y": 14300,
+      "y": 15000,
       "w": 390,
       "h": 844,
       "title": "iPhone · 長い repo 名 · org を … にして repo 名を残す",
@@ -1485,7 +1454,7 @@
     },
     "PhoneDrawerLongNames.dc.html": {
       "x": 1990,
-      "y": 14300,
+      "y": 15000,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーション · 長い repo 名とブランチ名 (入れば org も出す)",
@@ -1618,6 +1587,310 @@
       "h": 380,
       "title": "PaneSnapshot",
       "page": "components"
+    },
+    "before/BeforeNewSessionPicker.dc.html": {
+      "x": 4080,
+      "y": 7500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 新しいセッション · ディレクトリを選ぶ",
+      "page": "inbox"
+    },
+    "before/BeforeNewSession.dc.html": {
+      "x": 5600,
+      "y": 7500,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 新しいセッション",
+      "page": "inbox"
+    },
+    "before/BeforePhoneNewSessionPicker.dc.html": {
+      "x": 7120,
+      "y": 7500,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · ディレクトリを選ぶ",
+      "page": "inbox"
+    },
+    "before/BeforePhoneNewSession.dc.html": {
+      "x": 7590,
+      "y": 7500,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · 新しいセッション",
+      "page": "inbox"
+    },
+    "before/BeforeNewSessionModel.dc.html": {
+      "x": 4080,
+      "y": 8820,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 新しいセッション · モデルと effort を選ぶ",
+      "page": "inbox"
+    },
+    "before/BeforePhoneNewSessionModel.dc.html": {
+      "x": 5600,
+      "y": 8820,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · モデルと effort を選ぶ",
+      "page": "inbox"
+    },
+    "before/BeforeNewSessionModelSwitch.dc.html": {
+      "x": 6070,
+      "y": 8820,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · 新しいセッション · engine を変えてモデルが default に戻った",
+      "page": "inbox"
+    },
+    "before/BeforePhoneNewSessionModelSwitch.dc.html": {
+      "x": 7590,
+      "y": 8820,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · engine を変えてモデルが default に戻った",
+      "page": "inbox"
+    },
+    "before/BeforePaletteNewSession.dc.html": {
+      "x": 1990,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コマンドパレット · 新しいセッション",
+      "page": "palette"
+    },
+    "before/BeforePhonePaletteNewSession.dc.html": {
+      "x": 3510,
+      "y": 1620,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · コマンドパレット · 新しいセッション",
+      "page": "palette"
+    },
+    "before/BeforePaletteNewSessionModel.dc.html": {
+      "x": 3980,
+      "y": 1620,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · コマンドパレット · モデルと effort を選ぶ",
+      "page": "palette"
+    },
+    "before/BeforePhonePaletteNewSessionModel.dc.html": {
+      "x": 5500,
+      "y": 1620,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · コマンドパレット · モデルと effort を選ぶ",
+      "page": "palette"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 3900,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 0,
+      "y": 8820,
+      "w": 240,
+      "h": 900,
+      "title": "BeforeNav",
+      "page": "components"
+    },
+    "before/BeforeInboxList.dc.html": {
+      "x": 320,
+      "y": 8820,
+      "w": 460,
+      "h": 900,
+      "title": "BeforeInboxList",
+      "page": "components"
+    },
+    "before/BeforeConversation.dc.html": {
+      "x": 860,
+      "y": 8820,
+      "w": 880,
+      "h": 900,
+      "title": "BeforeConversation",
+      "page": "components"
+    },
+    "before/BeforeSessionRow.dc.html": {
+      "x": 1820,
+      "y": 8820,
+      "w": 460,
+      "h": 76,
+      "title": "BeforeSessionRow",
+      "page": "components"
+    },
+    "before/BeforeSortControl.dc.html": {
+      "x": 2360,
+      "y": 8820,
+      "w": 240,
+      "h": 44,
+      "title": "BeforeSortControl",
+      "page": "components"
+    },
+    "before/BeforeSortMenu.dc.html": {
+      "x": 2680,
+      "y": 8820,
+      "w": 390,
+      "h": 300,
+      "title": "BeforeSortMenu",
+      "page": "components"
+    },
+    "before/BeforeActivityButton.dc.html": {
+      "x": 3150,
+      "y": 8820,
+      "w": 224,
+      "h": 44,
+      "title": "BeforeActivityButton",
+      "page": "components"
+    },
+    "before/BeforeQuota.dc.html": {
+      "x": 3454,
+      "y": 8820,
+      "w": 240,
+      "h": 140,
+      "title": "BeforeQuota",
+      "page": "components"
+    },
+    "before/BeforeActionItem.dc.html": {
+      "x": 3774,
+      "y": 8820,
+      "w": 360,
+      "h": 110,
+      "title": "BeforeActionItem",
+      "page": "components"
+    },
+    "before/BeforeCodeBlock.dc.html": {
+      "x": 4214,
+      "y": 8820,
+      "w": 672,
+      "h": 160,
+      "title": "BeforeCodeBlock",
+      "page": "components"
+    },
+    "before/BeforeConfirmDialog.dc.html": {
+      "x": 4966,
+      "y": 8820,
+      "w": 380,
+      "h": 200,
+      "title": "BeforeConfirmDialog",
+      "page": "components"
+    },
+    "before/BeforeDetailsPlace.dc.html": {
+      "x": 5426,
+      "y": 8820,
+      "w": 672,
+      "h": 420,
+      "title": "BeforeDetailsPlace",
+      "page": "components"
+    },
+    "before/BeforeMdDetails.dc.html": {
+      "x": 6178,
+      "y": 8820,
+      "w": 672,
+      "h": 200,
+      "title": "BeforeMdDetails",
+      "page": "components"
+    },
+    "before/BeforeMergeBand.dc.html": {
+      "x": 6930,
+      "y": 8820,
+      "w": 760,
+      "h": 60,
+      "title": "BeforeMergeBand",
+      "page": "components"
+    },
+    "before/BeforeMergeButton.dc.html": {
+      "x": 7770,
+      "y": 8820,
+      "w": 160,
+      "h": 44,
+      "title": "BeforeMergeButton",
+      "page": "components"
+    },
+    "before/BeforePrButton.dc.html": {
+      "x": 8010,
+      "y": 8820,
+      "w": 44,
+      "h": 44,
+      "title": "BeforePrButton",
+      "page": "components"
+    },
+    "before/BeforeSessionUsage.dc.html": {
+      "x": 8134,
+      "y": 8820,
+      "w": 672,
+      "h": 40,
+      "title": "BeforeSessionUsage",
+      "page": "components"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 8886,
+      "y": 8820,
+      "w": 760,
+      "h": 60,
+      "title": "BeforeStatusBand",
+      "page": "components"
+    },
+    "before/BeforeStuckBand.dc.html": {
+      "x": 9726,
+      "y": 8820,
+      "w": 760,
+      "h": 90,
+      "title": "BeforeStuckBand",
+      "page": "components"
+    },
+    "before/BeforePaneSnapshot.dc.html": {
+      "x": 10566,
+      "y": 8820,
+      "w": 672,
+      "h": 380,
+      "title": "BeforePaneSnapshot",
+      "page": "components"
+    },
+    "before/BeforeTodoCard.dc.html": {
+      "x": 11318,
+      "y": 8820,
+      "w": 672,
+      "h": 40,
+      "title": "BeforeTodoCard",
+      "page": "components"
+    },
+    "before/BeforeCloseChecks.dc.html": {
+      "x": 12070,
+      "y": 8820,
+      "w": 408,
+      "h": 170,
+      "title": "BeforeCloseChecks",
+      "page": "components"
+    },
+    "NewSessionRestored.dc.html": {
+      "x": 1990,
+      "y": 8820,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション · Esc で閉じて c で開き直した · 書きかけの入力がそのまま戻る",
+      "page": "inbox"
+    },
+    "PhoneNewSessionRestored.dc.html": {
+      "x": 3510,
+      "y": 8820,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ‹ で戻って + で開き直した · 書きかけの入力がそのまま戻る",
+      "page": "inbox"
+    },
+    "NewSessionForm.dc.html": {
+      "x": 0,
+      "y": 7700,
+      "w": 740,
+      "h": 520,
+      "title": "NewSessionForm",
+      "page": "components"
     }
   },
   "order": [
@@ -1637,8 +1910,6 @@
     "PhoneNewSession.dc.html",
     "PhoneNewSessionPicker.dc.html",
     "NewSessionModel.dc.html",
-    "NewSessionModelSwitch.dc.html",
-    "PhoneNewSessionModelSwitch.dc.html",
     "PhoneNewSessionModel.dc.html",
     "SessionRow.dc.html",
     "Quota.dc.html",
@@ -1650,8 +1921,6 @@
     "PaletteQuery.dc.html",
     "PaletteNewSession.dc.html",
     "PhonePaletteNewSession.dc.html",
-    "PaletteNewSessionModel.dc.html",
-    "PhonePaletteNewSessionModel.dc.html",
     "StatusRunning.dc.html",
     "StatusTree.dc.html",
     "StatusDecisions.dc.html",
@@ -1823,7 +2092,45 @@
     "ConversationStuckOpen.dc.html",
     "PhoneChatStuckOpen.dc.html",
     "StuckBand.dc.html",
-    "PaneSnapshot.dc.html"
+    "PaneSnapshot.dc.html",
+    "NewSessionRestored.dc.html",
+    "PhoneNewSessionRestored.dc.html",
+    "NewSessionForm.dc.html",
+    "before/BeforeActionItem.dc.html",
+    "before/BeforeActivityButton.dc.html",
+    "before/BeforeCloseChecks.dc.html",
+    "before/BeforeCodeBlock.dc.html",
+    "before/BeforeConfirmDialog.dc.html",
+    "before/BeforeConversation.dc.html",
+    "before/BeforeDetailsPlace.dc.html",
+    "before/BeforeInboxList.dc.html",
+    "before/BeforeMain.dc.html",
+    "before/BeforeMdDetails.dc.html",
+    "before/BeforeMergeBand.dc.html",
+    "before/BeforeMergeButton.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeNewSession.dc.html",
+    "before/BeforeNewSessionModel.dc.html",
+    "before/BeforeNewSessionModelSwitch.dc.html",
+    "before/BeforeNewSessionPicker.dc.html",
+    "before/BeforePaletteNewSession.dc.html",
+    "before/BeforePaletteNewSessionModel.dc.html",
+    "before/BeforePaneSnapshot.dc.html",
+    "before/BeforePhoneNewSession.dc.html",
+    "before/BeforePhoneNewSessionModel.dc.html",
+    "before/BeforePhoneNewSessionModelSwitch.dc.html",
+    "before/BeforePhoneNewSessionPicker.dc.html",
+    "before/BeforePhonePaletteNewSession.dc.html",
+    "before/BeforePhonePaletteNewSessionModel.dc.html",
+    "before/BeforePrButton.dc.html",
+    "before/BeforeQuota.dc.html",
+    "before/BeforeSessionRow.dc.html",
+    "before/BeforeSessionUsage.dc.html",
+    "before/BeforeSortControl.dc.html",
+    "before/BeforeSortMenu.dc.html",
+    "before/BeforeStatusBand.dc.html",
+    "before/BeforeStuckBand.dc.html",
+    "before/BeforeTodoCard.dc.html"
   ],
   "pages": [
     {
@@ -1949,7 +2256,7 @@
     },
     "rowInboxConversation": {
       "x": 0,
-      "y": 3937,
+      "y": 4637,
       "text": "Inbox と会話 · tq タスクが複数のとき",
       "kind": "title1",
       "maxW": 3900,
@@ -1957,7 +2264,7 @@
     },
     "rowInboxLaterFilter": {
       "x": 0,
-      "y": 5180,
+      "y": 5880,
       "text": "Inbox · Later、閉じる、絞り込み · iPhone は行の中のスワイプか長押しと、/ と同じ絞り込みの欄",
       "kind": "title1",
       "maxW": 7770,
@@ -1965,16 +2272,16 @@
     },
     "rowNewSession": {
       "x": 0,
-      "y": 6500,
-      "text": "新しいセッション · ディレクトリを選ぶ",
+      "y": 7200,
+      "text": "新しいセッション · ⌘K の New session と同じ 1 本の入力と一覧",
       "kind": "title1",
       "maxW": 3900,
       "page": "inbox"
     },
     "rowNewSessionModel": {
       "x": 0,
-      "y": 7820,
-      "text": "新しいセッション · モデルと effort を選ぶ",
+      "y": 8520,
+      "text": "新しいセッション · engine ごとの Model と Effort、閉じて開き直すと入力が戻る",
       "kind": "title1",
       "maxW": 3900,
       "page": "inbox"
@@ -1990,7 +2297,7 @@
     "rowPaletteNewSession": {
       "x": 0,
       "y": 1320,
-      "text": "⌘K · 新しいセッション",
+      "text": "⌘K · 新しいセッション · + の画面と同じ部品",
       "kind": "title1",
       "maxW": 3900,
       "page": "palette"
@@ -2086,7 +2393,7 @@
     "rowTodoLater": {
       "kind": "title1",
       "x": 0,
-      "y": 9140,
+      "y": 9840,
       "maxW": 2450,
       "page": "inbox",
       "text": "Inbox · 畳んだ to-do だけのセッションは元の区分に出す"
@@ -2125,7 +2432,7 @@
     },
     "rowInboxSort": {
       "x": 0,
-      "y": 10760,
+      "y": 11460,
       "text": "Inbox · 並び順 · 見出しの右の Sort で選び、区分は変えない",
       "kind": "title1",
       "maxW": 3900,
@@ -2133,7 +2440,7 @@
     },
     "rowInboxWaiting": {
       "x": 0,
-      "y": 12380,
+      "y": 13080,
       "text": "Inbox · 他の作業を待っているセッション · Waiting の区分と灰色の砂時計",
       "kind": "title1",
       "maxW": 2380,
@@ -2141,7 +2448,7 @@
     },
     "rowLongNames": {
       "x": 0,
-      "y": 14000,
+      "y": 14700,
       "text": "Inbox · 長い repo 名とブランチ名 · repo やブランチから … で縮め、タイトルとタスク名を残す",
       "kind": "title1",
       "maxW": 2380,
@@ -2186,6 +2493,50 @@
       "kind": "title1",
       "maxW": 1512,
       "page": "components"
+    },
+    "rowPartsNewSession": {
+      "x": 0,
+      "y": 7400,
+      "text": "新しいセッションの入力と一覧 (+ と ⌘K で共通)",
+      "kind": "title1",
+      "maxW": 1512,
+      "page": "components"
+    },
+    "beforeParts": {
+      "x": 0,
+      "y": 8520,
+      "text": "Before · 変更前のボードが読み込む部品 (main のまま)",
+      "kind": "title1",
+      "maxW": 3000,
+      "page": "components"
+    },
+    "diffNewSession": {
+      "x": 8060,
+      "y": 7500,
+      "w": 420,
+      "page": "inbox",
+      "text": "Before の 4 枚が変更前。変更点:\n- ディレクトリのボタン、engine、モデルと effort、New worktree のメニューをやめ、⌘K の New session と同じ 1 本の入力と一覧にした\n- ディレクトリは入力に打って絞り、↵ でチップになる。続けて同じ入力に最初のメッセージを打つ\n- engine は START WITH の行、worktree、モデル、effort は OPTIONS の行で、↑↓ と ←→ で選ぶ\n- Start ボタンと Choose a directory to start をやめ、↵ と一覧の下のキーの案内にした\n- iPhone も同じ部品 (form=phone) で、キーの案内を出さず、engine の行を押して始める"
+    },
+    "diffNewSessionModel": {
+      "x": 8060,
+      "y": 8820,
+      "w": 420,
+      "page": "inbox",
+      "text": "Before の 4 枚が変更前。変更点:\n- モデルと effort を開くダイアログをやめ、OPTIONS の Model と Effort の行に値を全部並べた\n- Model と Effort は engine ごとに持つので、engine を変えたときにモデルを default に戻す知らせと Undo (Before の 3 枚目と 4 枚目) はなくした\n- 閉じて開き直すと書きかけの入力が戻るボード (左の 3 枚目と 4 枚目) を足した。これには Before がない"
+    },
+    "diffPaletteNewSession": {
+      "x": 5970,
+      "y": 1620,
+      "w": 420,
+      "page": "palette",
+      "text": "Before の 4 枚が変更前。変更点:\n- ⌘K の New session も + の画面と同じ部品にした\n- Codex の ⌥↵、⌥M Model · effort、⌥W Worktree をやめ、↑↓ で行、←→ で値を選ぶ。⌥↵ は改行になる\n- Model · effort を開いた一覧 (Before の 3 枚目と 4 枚目) をやめ、OPTIONS の Model と Effort の行にした\n- 下の行の右の設定の要約 (claude · example/service · …) をやめた。値は一覧に全部出ている\n- iPhone の Start with Claude Code のボタンをやめ、engine の行を押して始める"
+    },
+    "diffMain": {
+      "x": 3040,
+      "y": 0,
+      "w": 420,
+      "page": "inbox",
+      "text": "Before が変更前。変更点:\n- 新しいセッションの区分を足した (1 本の入力と一覧、engine ごとの OPTIONS、閉じても残る下書き)"
     }
   },
   "v": 3,

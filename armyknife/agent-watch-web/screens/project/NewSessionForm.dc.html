@@ -41,13 +41,14 @@ class Component extends DCLogic {
     const codex = hl === 'codex' || (hl !== 'claude' && (p.codex ?? false));
     const wt = p.worktree ?? true;
     const engines = {
-      claude: { name: 'Claude Code', models: ['atlas-5', 'borealis-5', 'comet-5'], efforts: ['low', 'medium', 'high', 'xhigh'], defEffort: 2 },
+      claude: { name: 'Claude Code', models: ['atlas-5', 'borealis-5', 'comet-5'], efforts: ['low', 'medium', 'high', 'xhigh', 'max'], defEffort: 2 },
       codex: { name: 'Codex', models: ['vega-3', 'vega-3-mini'], efforts: ['low', 'medium', 'high'], defEffort: 1 }
     };
     const eng = engines[codex ? 'codex' : 'claude'];
     const modelIdx = Number(p.model ?? 0);
     // comet-5 supports efforts only up to high.
-    const efforts = eng.models[modelIdx] === 'comet-5' ? eng.efforts.slice(0, 3) : eng.efforts;
+    const effortsOf = (e, m) => e.models[m] === 'comet-5' ? e.efforts.slice(0, 3) : e.efforts;
+    const efforts = effortsOf(eng, modelIdx);
     const effortIdx = Math.min(Number(p.effort ?? -1) < 0 ? eng.defEffort : Number(p.effort), efforts.length - 1);
     const rowH = phone ? '44px' : '40px';
 
@@ -58,23 +59,33 @@ class Component extends DCLogic {
       const on = hl === key;
       return { on, name: engines[key].name, nameStyle: on ? 'font-weight: 700' : '', sub: 'in example/notification-service', subStyle: sub, style: rowStyle(on), vals: [], hasWhen: false, when: '', hasKey: on && !phone, key: '↵' };
     };
-    const optRow = (key, name, defNote, vals, sel) => {
-      const on = hl === key;
+    const optRow = (key, name, defNote, vals, sel, active = true) => {
+      const on = active && hl === key;
       return { on, name, nameStyle: '', sub: defNote, subStyle: 'font-size: 11.5px; color: #8b8b94', style: rowStyle(on), vals: vals.map((v, i) => ({ label: v, on: i === sel, style: valStyle(i === sel, on) })), hasWhen: false, when: '', hasKey: on && !phone, key: '←→' };
     };
     const dirs = [
       { name: 'example/notification-service', path: '~/ghq/github.com/example/notification-service', when: '2h ago' },
       { name: 'example/notification-web', path: '~/ghq/github.com/example/notification-web', when: '3d ago' }
     ];
+    const query = p.query ?? 'notif';
+    const shown = dirs.filter((d) => d.name.includes(query));
+    const optSection = (key) => {
+      const e = engines[key];
+      const active = e === eng;
+      const m = active ? modelIdx : 0;
+      const ef = active ? efforts : effortsOf(e, 0);
+      return { title: e.name.toUpperCase() + ' OPTIONS', rows: [
+        optRow('worktree', 'New worktree from main', '', ['off', 'on'], wt ? 1 : 0, active),
+        optRow('model', 'Model', phone ? '' : 'default ' + e.models[0], e.models, m, active),
+        optRow('effort', 'Effort', phone ? '' : 'default ' + e.efforts[e.defEffort], ef, active ? effortIdx : e.defEffort, active)
+      ] };
+    };
     const sections = choosing
-      ? [{ title: 'RECENT', rows: dirs.map((d, i) => ({ on: i === 0, name: d.name, nameStyle: i === 0 ? 'font-weight: 700' : '', sub: phone ? '' : d.path, subStyle: 'font-family: \'JetBrains Mono\', monospace; font-size: 11px; color: #8b8b94', style: rowStyle(i === 0), vals: [], hasWhen: true, when: d.when, hasKey: i === 0 && !phone, key: '↵' })) }]
+      ? [{ title: 'RECENT', rows: shown.map((d, i) => ({ on: i === 0, name: d.name, nameStyle: i === 0 ? 'font-weight: 700' : '', sub: phone ? '' : d.path, subStyle: 'font-family: \'JetBrains Mono\', monospace; font-size: 11px; color: #8b8b94', style: rowStyle(i === 0), vals: [], hasWhen: true, when: d.when, hasKey: i === 0 && !phone, key: '↵' })) }]
       : [
           { title: 'START WITH', rows: [engRow('claude'), engRow('codex')] },
-          { title: eng.name.toUpperCase() + ' OPTIONS', rows: [
-            optRow('worktree', 'New worktree from main', '', ['off', 'on'], wt ? 1 : 0),
-            optRow('model', 'Model', phone ? '' : 'default ' + eng.models[0], eng.models, modelIdx),
-            optRow('effort', 'Effort', phone ? '' : 'default ' + eng.efforts[eng.defEffort], efforts, effortIdx)
-          ] }
+          // iPhone starts on tapping an engine row, so both engines' options are shown up front.
+          ...(phone ? [optSection('claude'), optSection('codex')] : [optSection(codex ? 'codex' : 'claude')])
         ];
 
     const onOption = ['worktree', 'model', 'effort'].includes(hl);

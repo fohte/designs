@@ -113,8 +113,8 @@ class Component extends DCLogic {
           'ナビの + か c で会話の列 (iPhone は全画面) に開きます。⌘K の New session は同じ入力と一覧をダイアログに出し、操作も同じです。',
           '入力は 1 本です。ディレクトリを打って絞り、↵ で選ぶとチップになり、続けて最初のメッセージを打ちます。空の入力で ⌫ を押すとディレクトリに戻ります。⇧↵ / ⌥↵ で改行します。',
           '下の一覧は START WITH (Claude Code、Codex) と OPTIONS (New worktree from main、Model、Effort) です。カーソルは入力に置いたまま ↑↓ で行を移り、↵ でその engine で始めます。OPTIONS の行では ←→ で値を変えます。値は全部並べ、メニューは開きません。',
-          'Model と Effort は engine ごとに持ち、最後にいた START WITH の行の engine のものを出します (見出しは CLAUDE CODE OPTIONS)。先頭の行で ↑ を押すと一番下の Effort に回ります。profile の既定値は行の名前の右に default atlas-5 の形で出します。Effort には選んだ model が受け付ける値だけを並べます (comet-5 は high まで)。',
-          'キーの案内は一覧の下の 1 行に今の場所で効くキーだけを出し、選んでいる行の右端に ↵ か ←→ を出します。iPhone はキーの案内を出さず、同じ部品で行と値を押して選び、engine の行を押すとその engine で始めます。',
+          'Model と Effort は engine ごとに持ち、最後にいた START WITH の行の engine のものを出します (見出しは CLAUDE CODE OPTIONS)。先頭の行で ↑ を押すと一番下の Effort に回ります。profile の既定値は行の名前の右に default atlas-5 の形で出します。Effort には選んだ model が受け付ける値だけを並べます (Claude Code は max まで、comet-5 は high まで)。',
+          'キーの案内は一覧の下の 1 行に今の場所で効くキーだけを出し、選んでいる行の右端に ↵ か ←→ を出します。iPhone はキーの案内を出さず、同じ部品で行と値を押して選び、engine の行を押すとその engine で始めるので、OPTIONS は Claude Code と Codex の両方を並べ、始める前にどちらの値も変えられます。',
           '書きかけの入力 (ディレクトリ、打ちかけの文字、OPTIONS の値、最初のメッセージ、いた engine) は、Esc、‹、Cancel、ダイアログの外、別のセッションを開く、再読み込みのどれで閉じても消さず、次に + か c か ⌘K の New session で開くと閉じたときのまま戻します。下書きはブラウザごとに 1 つです。戻したときは入力の下に Restored your draft from 12:03 と Clear を出し、Clear で空の入力と既定の値に戻します。セッションを始めたら下書きを消し、始められなかったときは残します。'
         ] },
         { title: '色', items: [

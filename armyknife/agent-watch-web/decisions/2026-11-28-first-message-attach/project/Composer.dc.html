@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Composer</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<form aria-label="{{formLabel}}" style="{{root}}">
+<sc-if value="{{boxLayout}}" hint-placeholder-val="{{ true }}">
+<textarea aria-label="{{fieldLabel}}" placeholder="{{placeholder}}" value="{{msgText}}" style="{{taStyle}}"></textarea>
+<sc-if value="{{hasImages}}" hint-placeholder-val="{{ false }}"><ul aria-label="Attachments" style="{{listStyle}}"><sc-for list="{{imgs}}" as="i" hint-placeholder-count="1"><li style="{{itemStyle}}"><svg width="{{thumbW}}" height="{{thumbH}}" viewBox="0 0 44 36" preserveAspectRatio="none" role="img" aria-label="{{i.name}}" style="flex: none"><rect width="44" height="36" fill="#3f3f46"></rect><rect x="4" y="4" width="36" height="4" fill="#71717a"></rect><rect x="4" y="12" width="24" height="3" fill="#52525b"></rect><rect x="4" y="18" width="30" height="3" fill="#52525b"></rect><rect x="4" y="25" width="14" height="6" fill="#a1a1aa"></rect></svg><sc-if value="{{showNames}}" hint-placeholder-val="{{ true }}"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{i.name}}</span></sc-if><button type="button" aria-label="Remove {{i.name}}" style="{{xStyle}}">×</button></li></sc-for></ul></sc-if>
+<div style="{{footStyle}}">
+<sc-if value="{{attach}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="Attach files" title="Attach files" style="{{clipStyle}}"><svg width="{{clipSize}}" height="{{clipSize}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"></path></svg></button></sc-if>
+<sc-if value="{{controls}}" hint-placeholder-val="{{ false }}"><div style="{{ctlWrap}}"><dc-import name="SessionControls" form="{{form}}" worktree="{{worktree}}" hint-size="100%,30px"></dc-import></div></sc-if>
+<sc-if value="{{hasHint}}" hint-placeholder-val="{{ false }}"><span>{{hint}}</span></sc-if>
+<span role="status" style="{{statusStyle}}">{{status}}</span>
+<sc-if value="{{hasHint2}}" hint-placeholder-val="{{ false }}"><span>{{hint2}}</span></sc-if>
+<sc-if value="{{isSend}}" hint-placeholder-val="{{ false }}"><button type="submit" aria-label="Send message" style="{{sendStyle}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></sc-if>
+<sc-if value="{{isStartOn}}" hint-placeholder-val="{{ false }}"><button type="submit" style="{{startStyle}}">{{startLabel}}</button></sc-if><sc-if value="{{startOff}}" hint-placeholder-val="{{ false }}"><button type="submit" disabled style="{{startStyle}}">{{startLabel}}</button></sc-if>
+</div>
+</sc-if>
+<sc-if value="{{gridLayout}}" hint-placeholder-val="{{ false }}">
+<div style="{{gridStyle}}">
+<sc-if value="{{attach}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="Attach files" title="Attach files" style="{{clipStyle}}"><svg width="{{clipSize}}" height="{{clipSize}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"></path></svg></button></sc-if>
+<div style="{{fieldBox}}"><textarea aria-label="{{fieldLabel}}" placeholder="{{placeholder}}" value="{{msgText}}" style="{{taStyle}}"></textarea>
+<sc-if value="{{hasImages}}" hint-placeholder-val="{{ false }}"><ul aria-label="Attachments" style="{{listStyle}}"><sc-for list="{{imgs}}" as="i" hint-placeholder-count="1"><li style="{{itemStyle}}"><svg width="{{thumbW}}" height="{{thumbH}}" viewBox="0 0 44 36" preserveAspectRatio="none" role="img" aria-label="{{i.name}}" style="flex: none"><rect width="44" height="36" fill="#3f3f46"></rect><rect x="4" y="4" width="36" height="4" fill="#71717a"></rect><rect x="4" y="12" width="24" height="3" fill="#52525b"></rect><rect x="4" y="18" width="30" height="3" fill="#52525b"></rect><rect x="4" y="25" width="14" height="6" fill="#a1a1aa"></rect></svg><button type="button" aria-label="Remove {{i.name}}" style="{{xStyle}}">×</button></li></sc-for></ul></sc-if></div>
+<sc-if value="{{isSend}}" hint-placeholder-val="{{ false }}"><button type="submit" aria-label="Send message" style="{{sendStyle}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></sc-if>
+<sc-if value="{{isStartOn}}" hint-placeholder-val="{{ false }}"><button type="submit" style="{{startStyle}}">{{startLabel}}</button></sc-if><sc-if value="{{startOff}}" hint-placeholder-val="{{ false }}"><button type="submit" disabled style="{{startStyle}}">{{startLabel}}</button></sc-if>
+<sc-if value="{{hasStatus}}" hint-placeholder-val="{{ false }}"><span role="status" style="grid-column: 1 / -1; font-size: 12px; color: #8b8b94">{{status}}</span></sc-if>
+</div>
+</sc-if>
+<sc-if value="{{roundLayout}}" hint-placeholder-val="{{ false }}">
+<div style="{{rBox}}">
+<sc-if value="{{hasImages}}" hint-placeholder-val="{{ false }}"><ul aria-label="Attachments" style="{{rList}}"><sc-for list="{{imgs}}" as="i" hint-placeholder-count="1"><li style="position: relative; flex: none"><svg width="{{rThumb}}" height="{{rThumb}}" viewBox="0 0 64 64" role="img" aria-label="{{i.name}}" style="{{rThumbStyle}}"><rect width="64" height="64" fill="#27272a"></rect><rect x="8" y="10" width="48" height="5" rx="2" fill="#71717a"></rect><rect x="8" y="22" width="34" height="4" rx="2" fill="#52525b"></rect><rect x="8" y="31" width="42" height="4" rx="2" fill="#52525b"></rect><rect x="8" y="44" width="20" height="9" rx="3" fill="#a1a1aa"></rect></svg><button type="button" aria-label="Remove {{i.name}}" style="{{rX}}"><svg width="{{rXIcon}}" height="{{rXIcon}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button></li></sc-for></ul></sc-if>
+<textarea aria-label="{{fieldLabel}}" placeholder="{{placeholder}}" value="{{msgText}}" style="{{taStyle}}"></textarea>
+<div style="display: flex; align-items: center; gap: 8px">
+<sc-if value="{{attach}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="Attach files" title="Attach files" style="{{rPlus}}"><svg width="{{rIcon}}" height="{{rIcon}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></button></sc-if>
+<span style="flex: 1 1 0; min-width: 0; text-align: right; font-size: 11.5px; color: #71717a; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{hint}}</span>
+<sc-if value="{{rOn}}" hint-placeholder-val="{{ true }}"><button type="submit" aria-label="{{rSendLabel}}" style="{{rSend}}"><svg width="{{rIcon}}" height="{{rIcon}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></sc-if><sc-if value="{{startOff}}" hint-placeholder-val="{{ false }}"><button type="submit" disabled aria-label="{{rSendLabel}}" style="{{rSend}}"><svg width="{{rIcon}}" height="{{rIcon}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></sc-if>
+</div>
+</div>
+<sc-if value="{{hasStatus}}" hint-placeholder-val="{{ false }}"><p role="status" style="{{rStatus}}">{{status}}</p></sc-if>
+</sc-if>
+<sc-if value="{{drop}}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="position: absolute; inset: 0; z-index: 5; display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px dashed #a1a1aa; background: rgb(20 20 20 / 92%); color: #fafafa; font-size: 13px"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"></path></svg>Drop images to attach</div></sc-if>
+</form>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"place":{"editor":"enum","options":["conversation","plus","palette"],"default":"conversation"},"bare":{"editor":"boolean","default":false},"round":{"editor":"boolean","default":false},"square":{"editor":"boolean","default":false},"controls":{"editor":"boolean","default":false},"worktree":{"editor":"boolean","default":false},"images":{"editor":"enum","options":["0","1","3"],"default":"1"},"attach":{"editor":"boolean","default":true},"msg":{"editor":"text","default":"この画面の通知の文言を直して"},"placeholder":{"editor":"text","default":"Message the session"},"rows":{"editor":"int","default":2},"start":{"editor":"enum","options":["send","start","startOff","none"],"default":"send"},"status":{"editor":"text","default":""},"hint":{"editor":"text","default":"↵ Send · ⇧↵ / ⌥↵ New line"},"hint2":{"editor":"text","default":""},"drop":{"editor":"boolean","default":false},"$preview":{"width":712,"height":150}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const form = p.form ?? 'pc';
+    const phone = form === 'phone';
+    const place = p.place ?? 'conversation';
+    const bare = p.bare ?? false;
+    const controls = (p.controls ?? false) && place === 'plus';
+    const n = Number(p.images ?? '1');
+    const rows = Number(p.rows ?? 2);
+    const start = p.start ?? 'send';
+    const text = p.msg ?? 'この画面の通知の文言を直して';
+    const status = p.status ?? '';
+    const hint = phone ? '' : (p.hint ?? '↵ Send · ⇧↵ / ⌥↵ New line');
+    const hint2 = phone ? '' : (p.hint2 ?? '');
+    // round: the chat-app shape of 1-1 B, a rounded box with square thumbnails, + and a round send.
+    const round = p.round ?? false;
+    // square: round's layout with the design system's square corners (1-1 B2).
+    const square = round && (p.square ?? false);
+    const rad = (v) => square ? '0' : v;
+    // Phone keeps the conversation's one-row grid unless the new-session controls sit inside the box, or round asks for the B shape.
+    const gridLayout = phone && !controls && !round;
+    // Phone with the controls inside the box stacks them above 📎 and a full-width Start.
+    const stack = phone && controls;
+    const font = "font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; color: #fafafa; line-height: 1.55";
+    const imgs = Array.from({ length: n }, (_, i) => ({ name: 'screenshot-' + (i + 1) + '.png' }));
+    const startOff = start === 'startOff';
+    let fieldBox = '', root, taStyle, footStyle, gridStyle = '', listStyle, itemStyle, xStyle, clipStyle, sendStyle, startStyle, statusStyle;
+    if (!gridLayout) {
+      const boxBg = bare ? 'transparent' : '#141414';
+      const boxBorder = bare ? '0' : '1px solid #3f3f46';
+      root = font + '; position: relative; box-sizing: border-box; margin: 0; border: ' + boxBorder + '; background: ' + boxBg;
+      const lh = phone ? 24 : 22.4;
+      const h = Math.max(phone ? 44 : 54, Math.round(rows * lh + (phone ? 20 : 16)));
+      taStyle = 'display: block; width: 100%; height: ' + h + 'px; box-sizing: border-box; padding: ' + (phone ? '10px 12px' : (bare ? '10px 16px 4px' : '12px 14px 4px')) + '; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: ' + (phone ? '16px' : '14px') + '; line-height: ' + (phone ? '1.5' : '1.6') + '; resize: none; white-space: pre-wrap';
+      listStyle = 'display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: ' + (bare ? '0 16px 8px' : (phone ? '0 10px 8px' : '0 12px 8px')) + '; list-style: none';
+      footStyle = stack ? 'display: grid; grid-template-columns: 44px minmax(0, 1fr); align-items: center; gap: 8px; padding: 6px 8px 8px; color: #a1a1aa; font-size: 11.5px' : 'display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: ' + (bare ? '0 10px 6px' : '6px 8px 8px') + '; color: #a1a1aa; font-size: 11.5px';
+      statusStyle = stack && !status ? "display: none" : stack
+        ? 'grid-column: 1 / -1; order: 2; font-size: 12px; color: #8b8b94'
+        : 'flex: 1 1 0; min-width: 0; text-align: right; font-size: 12px; color: #8b8b94; white-space: nowrap; overflow: hidden; text-overflow: ellipsis';
+      startStyle = (stack ? 'order: 4; height: 44px; font-size: 15px' : phone ? 'flex: none; height: 44px; font-size: 15px' : 'flex: none; height: 32px; font-size: 13px') + '; padding: 0 14px; border: 0; font-family: inherit; font-weight: 700; ' + (startOff ? 'background: #27272a; color: #71717a' : 'background: #fafafa; color: #0a0a0a');
+      sendStyle = 'flex: none; width: ' + (phone ? '44px' : '32px') + '; height: ' + (phone ? '44px' : '32px') + '; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414; opacity: ' + (text ? '1' : '0.5');
+    } else {
+      root = font + '; position: relative; box-sizing: border-box; margin: 0; padding: ' + (bare ? '0' : '10px 12px 6px') + '; border-top: ' + (bare ? '0' : '1px solid #2a2a2a') + '; background: ' + (bare ? 'transparent' : '#141414');
+      const attach = p.attach ?? true;
+      const cols = (attach ? '44px ' : '') + 'minmax(0, 1fr)' + (start === 'send' ? ' 44px' : (start === 'none' ? '' : ' auto'));
+      gridStyle = 'display: grid; grid-template-columns: ' + cols + '; align-items: end; gap: 8px';
+      const h = Math.max(44, Math.round(rows * 24 + 22));
+      fieldBox = 'min-width: 0; border: 1px solid ' + (text ? '#a1a1aa' : '#3f3f46') + '; background: #0a0a0a';
+      taStyle = 'display: block; width: 100%; height: ' + h + 'px; box-sizing: border-box; padding: 10px 12px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 16px; line-height: 1.5; resize: none; white-space: pre-wrap';
+      listStyle = 'display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0 6px 6px; list-style: none';
+      sendStyle = 'width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414';
+      startStyle = 'height: 44px; padding: 0 14px; border: 0; font-family: inherit; font-size: 15px; font-weight: 700; ' + (startOff ? 'background: #27272a; color: #71717a' : 'background: #fafafa; color: #0a0a0a');
+    }
+    // Phone previews drop the file name so three fit on one row, and × is a 44px target.
+    itemStyle = phone
+      ? 'display: flex; align-items: center; height: 46px; box-sizing: border-box; padding: 0 0 0 4px; border: 1px solid #3f3f46; color: #d4d4d8; font-size: 12px'
+      : 'display: flex; max-width: 100%; align-items: center; gap: 8px; padding: 4px 6px; border: 1px solid #3f3f46; color: #d4d4d8; font-size: 12px';
+    xStyle = phone
+      ? 'flex: none; width: 44px; height: 44px; padding: 0; border: 0; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 18px'
+      : 'flex: none; width: 24px; height: 24px; padding: 0; border: 0; background: transparent; color: #d4d4d8; font-family: inherit; font-size: 16px';
+    clipStyle = 'flex: none; width: ' + (phone ? '44px' : '32px') + '; height: ' + (phone ? '44px' : '32px') + '; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #a1a1aa';
+    if (stack) clipStyle += '; order: 3';
+    const r = {};
+    if (round) {
+      root = font + '; position: relative; box-sizing: border-box; margin: 0';
+      r.rBox = 'box-sizing: border-box; display: flex; flex-direction: column; gap: ' + (phone ? '6px' : '4px') + '; padding: ' + (phone ? '12px 8px 8px' : '14px 10px 10px') + '; border: 1px solid ' + (square ? '#3f3f46' : '#2a2a2a') + '; border-radius: ' + rad(phone ? '26px' : '24px') + '; background: ' + (square ? '#141414' : '#1f1f1f');
+      r.rList = 'display: flex; gap: 12px; margin: 0; padding: 4px 6px; list-style: none; overflow-x: auto; scrollbar-width: none';
+      r.rThumb = phone ? '72' : '64';
+      r.rThumbStyle = 'display: block; border-radius: ' + rad('14px') + '; outline: 1px solid #3f3f46; outline-offset: -1px';
+      // × overlaps the thumbnail's corner, as in iOS chat apps.
+      r.rX = 'position: absolute; top: -5px; right: -5px; width: 24px; height: 24px; display: grid; place-items: center; padding: 0; border: 2px solid ' + (square ? '#141414' : '#1f1f1f') + '; border-radius: ' + rad('999px') + '; background: #fafafa; color: #0a0a0a';
+      r.rXIcon = '12';
+      const lh = phone ? 24 : 22;
+      taStyle = 'display: block; width: 100%; height: ' + (rows * lh + 8) + 'px; box-sizing: border-box; padding: 4px 8px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: ' + (phone ? '16px' : '14px') + '; line-height: ' + lh + 'px; resize: none; white-space: pre-wrap';
+      const btn = phone ? 44 : 36;
+      r.rIcon = phone ? '22' : '18';
+      r.rPlus = 'flex: none; width: ' + btn + 'px; height: ' + btn + 'px; display: grid; place-items: center; padding: 0; border: 0; border-radius: ' + rad('999px') + '; background: #2a2a2e; color: #d4d4d8';
+      const off = startOff || (!text && !n);
+      r.rSend = 'flex: none; width: ' + btn + 'px; height: ' + btn + 'px; display: grid; place-items: center; padding: 0; border: 0; border-radius: ' + rad('999px') + '; ' + (off ? 'background: #2a2a2e; color: #71717a' : 'background: #fafafa; color: #0a0a0a');
+      r.rSendLabel = start === 'send' ? 'Send message' : 'Start session';
+      r.rOn = !startOff;
+      r.rStatus = 'margin: 8px 0 0; padding: 0 ' + (phone ? '14px' : '16px') + '; font-size: ' + (phone ? '12.5px' : '11.5px') + '; color: #8b8b94; text-align: ' + (phone ? 'center' : 'right');
+    }
+    return {
+      ...r,
+      roundLayout: round,
+      form,
+      formLabel: place === 'conversation' ? 'Message' : 'First message',
+      fieldLabel: place === 'conversation' ? 'Message' : 'First message',
+      placeholder: p.placeholder ?? (place === 'conversation' ? 'Message the session' : 'First message (optional)'),
+      msgText: text,
+      root, taStyle, footStyle, gridStyle, listStyle, itemStyle, xStyle, clipStyle, sendStyle, startStyle, statusStyle,
+      boxLayout: !gridLayout && !round,
+      fieldBox,
+      ctlWrap: phone ? 'grid-column: 1 / -1; order: 1; min-width: 0' : 'flex: none',
+      gridLayout,
+      hasImages: n > 0,
+      imgs,
+      showNames: !phone,
+      thumbW: phone ? '56' : '44',
+      thumbH: phone ? '44' : '36',
+      attach: p.attach ?? true,
+      clipSize: phone ? '20' : '16',
+      controls,
+      worktree: p.worktree ?? false,
+      hasHint: !!hint,
+      hint,
+      hasHint2: !!hint2,
+      hint2,
+      status,
+      hasStatus: !!status,
+      isSend: start === 'send',
+      isStartOn: start === "start",
+      startOff,
+      startLabel: phone ? 'Start' : 'Start ↵',
+      drop: p.drop ?? false
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -208,20 +208,12 @@ a{color:#ef4444}
 <sc-if value="{{live}}" hint-placeholder-val="{{ true }}">
 <sc-if value="{{notStarting}}" hint-placeholder-val="{{ true }}"><div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" label="{{bandLabel}}" detail="{{bandDetail}}" hint-size="100%,58px"></dc-import></div></sc-if>
 
-<form style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 12px auto 6px; border: 1px solid #3f3f46; background: #141414">
-<sc-if value="{{noDraft}}" hint-placeholder-val="{{ true }}"><textarea aria-label="Message" rows="2" placeholder="{{placeholder}}" aria-disabled="{{startingStr}}" style="display: block; width: 100%; min-height: 54px; box-sizing: border-box; padding: 12px 14px 4px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; line-height: 1.6; resize: none"></textarea></sc-if>
-<sc-if value="{{hasDraft}}" hint-placeholder-val="{{ false }}"><textarea aria-label="Message" rows="2" style="display: block; width: 100%; min-height: 54px; box-sizing: border-box; padding: 12px 14px 4px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; line-height: 1.6; resize: none">上限は 5 回にしてください。待ち時間は 1 秒から倍にしていき、最後に失敗したときだけ</textarea></sc-if>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 8px 8px 14px; color: #a1a1aa; font-size: 11.5px">
-<span>↵ Send · ⇧↵ / ⌥↵ New line · Esc Interrupt</span>
-<span style="margin-left: auto">⌥↑ / ⌥↓ My messages</span>
-<button type="submit" aria-label="Send message" aria-disabled="{{startingStr}}" style="width: 32px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414; opacity: {{sendOpacity}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
-</div>
-</form>
+<div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 12px auto 6px"><dc-import name="Composer" form="pc" place="conversation" msg="{{composerText}}" placeholder="{{placeholder}}" images="{{composerImages}}" send="{{composerSend}}" hint="↵ Send · ⇧↵ / ⌥↵ New line · Esc Interrupt" hint2="⌥↑ / ⌥↓ My messages" hint-size="100%,110px"></dc-import></div>
 </sc-if>
 <sc-if value="{{notStarting}}" hint-placeholder-val="{{ true }}"><div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div></sc-if>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","waiting","review","drafts","todo","code","starting"],"default":"question"},"draftsDetail":{"editor":null},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"todoRunning":{"editor":"boolean","default":false},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"stuck":{"editor":"enum","options":["no","closed","open"],"default":"no"},"paneBusy":{"editor":"boolean","default":false},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"},"withdrawn":{"editor":"boolean","default":false}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","waiting","review","drafts","todo","code","starting"],"default":"question"},"draftsDetail":{"editor":null},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"todoRunning":{"editor":"boolean","default":false},"withdrawn":{"editor":"boolean","default":false},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"stuck":{"editor":"enum","options":["no","closed","open"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"composerText":{"editor":"text","default":"上限は 5 回にしてください。待ち時間は 1 秒から倍にしていき、最後に失敗したときだけ"},"composerImages":{"editor":"int","default":0},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"},"paneBusy":{"editor":"boolean","default":false}}'>
 class Component extends DCLogic {
   // bang: the ! command in the last reply. '' (none) | idle | running | succeeded | failed | timedOut.
   // The server sends each run's result to the session as your message; bangHighlight outlines it (Show output landed there).
@@ -338,9 +330,12 @@ class Component extends DCLogic {
     const menuOn = menu !== 'closed';
     // draft: the composer holds an unsent message, as while typing.
     const draft = this.props.draft ?? false;
+    const composerImages = Number(this.props.composerImages ?? 0);
     const timeline = (this.props.timeline ?? []).map((t) => ({ ...t, isLine: !!t.line, isYou: !!t.you, isText: !!t.text, isPlace: !!t.place }));
     return {
-      hasDraft: draft, noDraft: !draft, sendOpacity: draft && variant !== 'starting' ? '1' : '0.5',
+      composerText: draft ? (this.props.composerText ?? '上限は 5 回にしてください。待ち時間は 1 秒から倍にしていき、最後に失敗したときだけ') : '',
+      composerImages,
+      composerSend: (draft || composerImages > 0) && variant !== 'starting' ? 'on' : 'dim',
       // h: shorter when the update band takes the top of the window.
       h: this.props.h ?? '900px',
       // webUiLink: a message whose link points at a registered web UI; the chip names the tab it opens in.
@@ -391,7 +386,7 @@ class Component extends DCLogic {
       ],
       hasMoreTasks: w,
       placeholder: variant === 'starting' ? 'Reply once the session starts' : 'Message PR ' + P.main.num,
-      isStarting: variant === 'starting', notStarting: variant !== 'starting', startingStr: variant === 'starting' ? 'true' : 'false',
+      isStarting: variant === 'starting', notStarting: variant !== 'starting',
       pr: P.main,
       morePrs,
       hasMorePrs: morePrs > 0,

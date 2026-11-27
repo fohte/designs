@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Drop b, conversation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; display: flex; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" hint-size="240px,900px"></dc-import></div>
+<div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" hint-size="460px,900px"></dc-import></div>
+<div style="position: relative; flex: 1; min-width: 0"><dc-import name="Conversation" variant="question" hint-size="100%,900px"></dc-import><div aria-hidden="true" style="position: absolute; inset: 8px; z-index: 15; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; border: 1px dashed #a1a1aa; background: rgb(10 10 10 / 88%); color: #fafafa; font-size: 14px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"></path></svg><span>Drop images to attach</span></div></div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

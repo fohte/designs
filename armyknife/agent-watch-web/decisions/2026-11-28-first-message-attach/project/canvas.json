@@ -1,0 +1,857 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-25T04:27:22Z"
+  },
+  "title": "First message attach",
+  "launch": {
+    "view": "canvas",
+    "page": "current"
+  },
+  "pages": [
+    {
+      "id": "current",
+      "name": "今"
+    },
+    {
+      "id": "q1",
+      "name": "1-1. + の画面"
+    },
+    {
+      "id": "q1p",
+      "name": "1-2. ⌘K"
+    },
+    {
+      "id": "q2",
+      "name": "2. 画像を落とせる場所"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "first-message-attach-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC · + の画面 (複数行の欄だが、画像は貼れない)",
+      "page": "current"
+    },
+    "current-palette.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC · ⌘K の New session (1 行の欄)",
+      "page": "current"
+    },
+    "current-phone-plus.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone · + の画面",
+      "page": "current"
+    },
+    "current-phone-palette.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone · ⌘K の New session (1 行の欄)",
+      "page": "current"
+    },
+    "current-chat.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC · 会話の返信欄に画像を 1 枚貼った (📎 はない)",
+      "page": "current"
+    },
+    "current-phone-chat.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone · 会話の返信欄に画像を 1 枚貼った",
+      "page": "current"
+    },
+    "q1-a-nodir.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · ディレクトリを選ぶ前に画像を 1 枚貼った (Start は押せない)",
+      "page": "q1"
+    },
+    "q1-a-three.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · 画像 3 枚と 2 行の文 (箱が上に伸びる)",
+      "page": "q1"
+    },
+    "q1-a-phone-nodir.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · ディレクトリを選ぶ前に 1 枚",
+      "page": "q1"
+    },
+    "q1-a-phone-three.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · 画像 3 枚と 2 行の文",
+      "page": "q1"
+    },
+    "q1-b-nodir.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B1 · ディレクトリを選ぶ前に画像を 1 枚貼った",
+      "page": "q1"
+    },
+    "q1-b-three.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B1 · 画像 3 枚と 2 行の文",
+      "page": "q1"
+    },
+    "q1-b-phone-nodir.dc.html": {
+      "x": 3040,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B1 · iPhone · ディレクトリを選ぶ前に 1 枚",
+      "page": "q1"
+    },
+    "q1-b-phone-three.dc.html": {
+      "x": 3510,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B1 · iPhone · 画像 3 枚と 2 行の文",
+      "page": "q1"
+    },
+    "q1-b-chat.dc.html": {
+      "x": 3980,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B1 · 会話の返信欄も同じ箱で + が付く",
+      "page": "q1"
+    },
+    "q1-b-phone-chat.dc.html": {
+      "x": 5500,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B1 · iPhone · 会話の返信欄も同じ箱で + が付く",
+      "page": "q1"
+    },
+    "q1-c-nodir.dc.html": {
+      "x": 0,
+      "y": 3840,
+      "w": 1440,
+      "h": 900,
+      "title": "C · ディレクトリを選ぶ前に画像を 1 枚貼った",
+      "page": "q1"
+    },
+    "q1-c-three.dc.html": {
+      "x": 1520,
+      "y": 3840,
+      "w": 1440,
+      "h": 900,
+      "title": "C · 画像 3 枚と 2 行の文",
+      "page": "q1"
+    },
+    "q1-c-phone-nodir.dc.html": {
+      "x": 3040,
+      "y": 3840,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone · ディレクトリを選ぶ前に 1 枚",
+      "page": "q1"
+    },
+    "q1-c-phone-three.dc.html": {
+      "x": 3510,
+      "y": 3840,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone · 画像 3 枚と 2 行の文",
+      "page": "q1"
+    },
+    "q1p-a-one.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · 画像を 1 枚貼った",
+      "page": "q1p"
+    },
+    "q1p-a-three.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · 画像 3 枚と 2 行の文 (一覧が下に押される)",
+      "page": "q1p"
+    },
+    "q1p-a-phone-one.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · 画像を 1 枚",
+      "page": "q1p"
+    },
+    "q1p-a-phone-three.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · 画像 3 枚と 2 行の文",
+      "page": "q1p"
+    },
+    "q1p-b-one.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · 画像を 1 枚貼った",
+      "page": "q1p"
+    },
+    "q1p-b-three.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · 画像 3 枚と 2 行の文 (一覧は動かない)",
+      "page": "q1p"
+    },
+    "q1p-b-phone-one.dc.html": {
+      "x": 3040,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · 画像を 1 枚",
+      "page": "q1p"
+    },
+    "q1p-b-phone-three.dc.html": {
+      "x": 3510,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · 画像 3 枚と 2 行の文",
+      "page": "q1p"
+    },
+    "q1p-c-dir.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "C · ⌘K でディレクトリを選ぶ",
+      "page": "q1p"
+    },
+    "q1p-c-plus.dc.html": {
+      "x": 1520,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "C · ↵ で + の画面が開き、ディレクトリが入っている (画像を貼った)",
+      "page": "q1p"
+    },
+    "q1p-c-phone-dir.dc.html": {
+      "x": 3040,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone · ⌘K でディレクトリを選ぶ",
+      "page": "q1p"
+    },
+    "q1p-c-phone-plus.dc.html": {
+      "x": 3510,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone · + の画面が開く",
+      "page": "q1p"
+    },
+    "q2-a-field.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · 返信欄の上にドラッグ中 (欄が点線になる)",
+      "page": "q2"
+    },
+    "q2-a-outside.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · 返信欄の外にドラッグ中 (受けない)",
+      "page": "q2"
+    },
+    "q2-b-plus.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · + の画面のどこでも点線が出る",
+      "page": "q2"
+    },
+    "q2-b-chat.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · 会話でも同じ",
+      "page": "q2"
+    },
+    "q2-c.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "C · どこに落としても受けない (今の会話と同じ)",
+      "page": "q2"
+    },
+    "Composer.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 712,
+      "h": 150,
+      "title": "Composer",
+      "page": "parts"
+    },
+    "SessionControls.dc.html": {
+      "x": 792,
+      "y": 0,
+      "w": 420,
+      "h": 44,
+      "title": "SessionControls",
+      "page": "parts"
+    },
+    "NewSessionPane.dc.html": {
+      "x": 1292,
+      "y": 0,
+      "w": 740,
+      "h": 900,
+      "title": "NewSessionPane",
+      "page": "parts"
+    },
+    "NewSessionPalette.dc.html": {
+      "x": 2112,
+      "y": 0,
+      "w": 680,
+      "h": 560,
+      "title": "NewSessionPalette",
+      "page": "parts"
+    },
+    "ActionItem.dc.html": {
+      "x": 2872,
+      "y": 0,
+      "w": 360,
+      "h": 110,
+      "title": "ActionItem",
+      "page": "parts"
+    },
+    "ActivityButton.dc.html": {
+      "x": 3312,
+      "y": 0,
+      "w": 224,
+      "h": 44,
+      "title": "ActivityButton",
+      "page": "parts"
+    },
+    "CloseChecks.dc.html": {
+      "x": 0,
+      "y": 1020,
+      "w": 408,
+      "h": 170,
+      "title": "CloseChecks",
+      "page": "parts"
+    },
+    "CodeBlock.dc.html": {
+      "x": 488,
+      "y": 1020,
+      "w": 672,
+      "h": 160,
+      "title": "CodeBlock",
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 1240,
+      "y": 1020,
+      "w": 380,
+      "h": 200,
+      "title": "ConfirmDialog",
+      "page": "parts"
+    },
+    "Conversation.dc.html": {
+      "x": 1700,
+      "y": 1020,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "parts"
+    },
+    "InboxList.dc.html": {
+      "x": 2660,
+      "y": 1020,
+      "w": 460,
+      "h": 900,
+      "title": "InboxList",
+      "page": "parts"
+    },
+    "MergeBand.dc.html": {
+      "x": 3200,
+      "y": 1020,
+      "w": 760,
+      "h": 60,
+      "title": "MergeBand",
+      "page": "parts"
+    },
+    "Nav.dc.html": {
+      "x": 0,
+      "y": 2040,
+      "w": 240,
+      "h": 900,
+      "title": "Nav",
+      "page": "parts"
+    },
+    "PhoneChat.dc.html": {
+      "x": 320,
+      "y": 2040,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneChat",
+      "page": "parts"
+    },
+    "PrButton.dc.html": {
+      "x": 790,
+      "y": 2040,
+      "w": 44,
+      "h": 44,
+      "title": "PrButton",
+      "page": "parts"
+    },
+    "Quota.dc.html": {
+      "x": 914,
+      "y": 2040,
+      "w": 240,
+      "h": 140,
+      "title": "Quota",
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 1234,
+      "y": 2040,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 1774,
+      "y": 2040,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 2526,
+      "y": 2040,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    },
+    "ToastStack.dc.html": {
+      "x": 3366,
+      "y": 2040,
+      "w": 360,
+      "h": 240,
+      "title": "ToastStack",
+      "page": "parts"
+    },
+    "TodoCard.dc.html": {
+      "x": 0,
+      "y": 3060,
+      "w": 672,
+      "h": 40,
+      "title": "TodoCard",
+      "page": "parts"
+    },
+    "UpdateBand.dc.html": {
+      "x": 752,
+      "y": 3060,
+      "w": 760,
+      "h": 40,
+      "title": "UpdateBand",
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 1592,
+      "y": 3060,
+      "w": 160,
+      "h": 44,
+      "title": "MergeButton",
+      "page": "parts"
+    },
+    "q1-b2-nodir.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "B2 · ディレクトリを選ぶ前に画像を 1 枚貼った",
+      "page": "q1"
+    },
+    "q1-b2-three.dc.html": {
+      "x": 1520,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "B2 · 画像 3 枚と 2 行の文",
+      "page": "q1"
+    },
+    "q1-b2-phone-nodir.dc.html": {
+      "x": 3040,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "B2 · iPhone · ディレクトリを選ぶ前に 1 枚",
+      "page": "q1"
+    },
+    "q1-b2-phone-three.dc.html": {
+      "x": 3510,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "B2 · iPhone · 画像 3 枚と 2 行の文",
+      "page": "q1"
+    },
+    "q1-b2-chat.dc.html": {
+      "x": 3980,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "B2 · 会話の返信欄も同じ箱で + が付く",
+      "page": "q1"
+    },
+    "q1-b2-phone-chat.dc.html": {
+      "x": 5500,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "B2 · iPhone · 会話の返信欄も同じ箱で + が付く",
+      "page": "q1"
+    }
+  },
+  "order": [
+    "first-message-attach-current.dc.html",
+    "current-palette.dc.html",
+    "current-phone-plus.dc.html",
+    "current-phone-palette.dc.html",
+    "current-chat.dc.html",
+    "current-phone-chat.dc.html",
+    "q1-a-nodir.dc.html",
+    "q1-a-three.dc.html",
+    "q1-a-phone-nodir.dc.html",
+    "q1-a-phone-three.dc.html",
+    "q1-b-nodir.dc.html",
+    "q1-b-three.dc.html",
+    "q1-b-phone-nodir.dc.html",
+    "q1-b-phone-three.dc.html",
+    "q1-b-chat.dc.html",
+    "q1-b-phone-chat.dc.html",
+    "q1-b2-nodir.dc.html",
+    "q1-b2-three.dc.html",
+    "q1-b2-phone-nodir.dc.html",
+    "q1-b2-phone-three.dc.html",
+    "q1-b2-chat.dc.html",
+    "q1-b2-phone-chat.dc.html",
+    "q1-c-nodir.dc.html",
+    "q1-c-three.dc.html",
+    "q1-c-phone-nodir.dc.html",
+    "q1-c-phone-three.dc.html",
+    "q1p-a-one.dc.html",
+    "q1p-a-three.dc.html",
+    "q1p-a-phone-one.dc.html",
+    "q1p-a-phone-three.dc.html",
+    "q1p-b-one.dc.html",
+    "q1p-b-three.dc.html",
+    "q1p-b-phone-one.dc.html",
+    "q1p-b-phone-three.dc.html",
+    "q1p-c-dir.dc.html",
+    "q1p-c-plus.dc.html",
+    "q1p-c-phone-dir.dc.html",
+    "q1p-c-phone-plus.dc.html",
+    "q2-a-field.dc.html",
+    "q2-a-outside.dc.html",
+    "q2-b-plus.dc.html",
+    "q2-b-chat.dc.html",
+    "q2-c.dc.html",
+    "Composer.dc.html",
+    "SessionControls.dc.html",
+    "NewSessionPane.dc.html",
+    "NewSessionPalette.dc.html",
+    "ActionItem.dc.html",
+    "ActivityButton.dc.html",
+    "CloseChecks.dc.html",
+    "CodeBlock.dc.html",
+    "ConfirmDialog.dc.html",
+    "Conversation.dc.html",
+    "InboxList.dc.html",
+    "MergeBand.dc.html",
+    "Nav.dc.html",
+    "PhoneChat.dc.html",
+    "PrButton.dc.html",
+    "Quota.dc.html",
+    "SessionRow.dc.html",
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html",
+    "ToastStack.dc.html",
+    "TodoCard.dc.html",
+    "UpdateBand.dc.html",
+    "MergeButton.dc.html"
+  ],
+  "notes": {
+    "current": {
+      "x": 0,
+      "y": -260,
+      "text": "今 · + の画面と ⌘K の New session では画像を入れられない",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "current"
+    },
+    "current-chat": {
+      "x": 0,
+      "y": 1020,
+      "text": "今 · 会話の返信欄は画像を貼ると欄の下に並ぶ",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "current"
+    },
+    "current-note": {
+      "x": -620,
+      "y": 0,
+      "text": "今\n- ⌘K の New session は、ディレクトリを選んだあとに 1 行の欄 (input) が出る。改行できず、画像を貼っても何も起きない。\n- + の画面は複数行の欄 (高さ 72px) だが、画像を貼っても何も起きない。📎 も画像の一覧もない。\n- 会話の返信欄は、画像を貼ると欄の下に一覧が出る (縮小画像、名前、×)。📎 はなく、貼り付けだけ。画面に落としても受けない。\n- 新しいセッションを始める API は文字だけを受け取り、画像を送る口がない。",
+      "w": 520,
+      "page": "current",
+      "fill": "blue"
+    },
+    "q1a": {
+      "x": 0,
+      "y": -260,
+      "text": "A · 1 つの箱に、文、画像、設定のボタンと Start を順に並べる",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "q1"
+    },
+    "q1a-note": {
+      "x": 3980,
+      "y": 0,
+      "text": "A\n- 今の + の画面の箱を返信欄の部品に替える。上から文、画像の一覧、ボタンの列 (📎、engine、モデル、New worktree、Start)。\n- iPhone はボタンを 44px にし、Start を幅いっぱいにする (今のアプリと同じ)。\n+ 今の + の画面と見た目がほとんど変わらない。設定と Start が近い。\n- 箱の下の列が会話の返信欄と違うので、始めたあとに返信欄の形が変わる。",
+      "w": 480,
+      "page": "q1"
+    },
+    "q1b": {
+      "x": 0,
+      "y": 1020,
+      "text": "B1 · 設定は箱の上に丸いチップで 1 行に出し、箱はチャットアプリのような角の丸い返信欄にする。design-system の角も丸く直す",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "q1"
+    },
+    "q1b-note": {
+      "x": 5970,
+      "y": 1280,
+      "text": "B1\n- ChatGPT や Claude の iOS アプリの入力欄に寄せる。角の丸い 1 つの箱に、上から画像の角の丸い正方形のサムネイル (右上に丸い ×)、文、下の行の左に +、右に丸い送信ボタン。\n- 新しいセッションでは送信ボタンが Start を兼ねる。ディレクトリを選ぶ前は灰色で押せず、「Choose a directory to start」を箱の下に小さく出す。\n- engine、モデル、New worktree は箱のすぐ上に丸いチップで 1 行に並べる。iPhone では折り返さず、画面の端まで横にスクロールする。\n- iPhone も PC と同じ形で、箱は画面の幅近くまで広げる。+ と送信は 44px。\n- 会話の返信欄も PC と iPhone で同じ箱にする。\n+ 始めたあと、同じ場所に同じ形の返信欄が残る。\n- 角を丸くするのは design-system の四角い角と違う。決めるなら design-system も直す。\n- 設定が箱の外に出るぶん、下の帯が 1 行高い。",
+      "w": 480,
+      "page": "q1"
+    },
+    "q1c": {
+      "x": 0,
+      "y": 3580,
+      "text": "C · 設定のボタンはヘッダーに移し、下には会話と同じ返信欄だけを置く",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "q1"
+    },
+    "q1c-note": {
+      "x": 3980,
+      "y": 3840,
+      "text": "C\n- engine、モデル、New worktree をヘッダーのタイトルの右に移す。下には会話と同じ返信欄を、会話と同じ幅 (中央の 712px) で置く。\n- iPhone はヘッダーの下に 2 行目を足し、設定を横にスクロールする。\n+ 始める前とあとで画面の形が同じ。\n- 設定が Start から遠い。モデルのメニューはヘッダーから下に開くことになる。",
+      "w": 480,
+      "page": "q1"
+    },
+    "q1-common": {
+      "x": -620,
+      "y": 0,
+      "text": "どの案でも同じ\n- 最初のメッセージの欄を会話の返信欄と同じ部品にする。欄は文に合わせて伸び、画面の高さの半分で止まって中がスクロールする。\n- 📎 はファイルを選ぶ画面を開く (iPhone は写真も選べる)。会話の返信欄にも同じ 📎 が付く。\n- ディレクトリを選ぶ前でも画像を貼れ、文と同じく残る。押せないのは Start だけ。\n- 画像は会話と同じく 1 通に 16 個、合わせて 50 MiB まで。\n- iPhone の画像は名前を出さず、縮小画像と 44px の × だけにする。3 枚が 1 行に入る。",
+      "w": 520,
+      "page": "q1",
+      "fill": "blue"
+    },
+    "q1pa": {
+      "x": 0,
+      "y": -260,
+      "text": "A · 上の欄を複数行にし、画像はその下に並べる (一覧はその下)",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "q1p"
+    },
+    "q1pa-note": {
+      "x": 3980,
+      "y": 0,
+      "text": "A\n- 1 行目に › New session とディレクトリ、その下に複数行の欄。画像は欄の下に並び、📎 は欄の左下。\n- 一覧 (START WITH、OPTIONS) は下に押される。パレットは 660px で止まり、超えたぶんは一覧の中でスクロールする。\n+ 今と同じく、開いてすぐ書く場所が上にある。\n- 文と画像が増えると、↑↓ で選ぶ一覧が下へ動く。",
+      "w": 480,
+      "page": "q1p"
+    },
+    "q1pb": {
+      "x": 0,
+      "y": 1020,
+      "text": "B · 一覧を上に残し、返信欄と同じ箱を一覧の下に置く",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "q1p"
+    },
+    "q1pb-note": {
+      "x": 3980,
+      "y": 1280,
+      "text": "B\n- 1 行目は › New session とディレクトリだけ。一覧は今の位置に残し、+ の画面と同じ箱を一覧の下に置く。\n- 文と画像が増えると、箱が上に伸びてパレットが下に伸びる。一覧の位置は動かない。\n+ 一覧の位置が変わらない。+ の画面と同じ箱。\n- 書く場所がパレットの下にあり、ディレクトリを選んだあと目が下へ動く。",
+      "w": 480,
+      "page": "q1p"
+    },
+    "q1pc": {
+      "x": 0,
+      "y": 2300,
+      "text": "C · ⌘K ではディレクトリだけ選び、+ の画面に移って書く",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "q1p"
+    },
+    "q1pc-note": {
+      "x": 3980,
+      "y": 2560,
+      "text": "C\n- ⌘K の New session はディレクトリを選ぶところまで。↵ で + の画面が開き、ディレクトリが入り、欄にカーソルがある。\n- 書く場所は + の画面だけになる。+ の画面の形は 1-1 で選んだ案 (ここでは A で描いた)。\n+ 最初のメッセージを書く場所が 1 つになる。キーのぶつかりもない。\n- ⌘K の中で engine や worktree を決めて ↵ ですぐ始める流れがなくなる。",
+      "w": 480,
+      "page": "q1p"
+    },
+    "q1p-keys": {
+      "x": -620,
+      "y": 0,
+      "text": "キーについて (new-session-keys で決める)\n- 欄を複数行にすると、今の ⌘K の ⌥↵ (Codex で始める) と ↑↓ (engine を選ぶ) が、改行と欄の中のカーソル移動とぶつかる。\n- A と B の下のキーの行は今のまま描いた。\n- C ならこのぶつかりは起きない。\n\nどの案でも、欄と画像の一覧は + の画面と同じ部品。",
+      "w": 520,
+      "page": "q1p",
+      "fill": "blue"
+    },
+    "q2a": {
+      "x": 0,
+      "y": -260,
+      "text": "A · 返信欄の上に落としたときだけ受ける",
+      "kind": "title1",
+      "maxW": 2960,
+      "page": "q2"
+    },
+    "q2a-note": {
+      "x": 3040,
+      "y": 0,
+      "text": "A\n- 返信欄の上に来たときだけ欄が点線になり、離すと画像の一覧に入る。外では何も起きない。\n+ どこに落とせば入るかがはっきりする。\n- 欄が小さいので、狙って落とす必要がある。",
+      "w": 480,
+      "page": "q2"
+    },
+    "q2b": {
+      "x": 0,
+      "y": 1020,
+      "text": "B · 右側の画面のどこに落としても受ける",
+      "kind": "title1",
+      "maxW": 2960,
+      "page": "q2"
+    },
+    "q2b-note": {
+      "x": 3040,
+      "y": 1280,
+      "text": "B\n- + の画面と会話の右側のどこにファイルを持ってきても点線が出て、離すと返信欄の一覧に入る。\n+ 狙わなくてよい。\n- 出すのはファイルを持ってきたときだけにする。会話の文を選んでドラッグしたときは出さない。",
+      "w": 480,
+      "page": "q2"
+    },
+    "q2c": {
+      "x": 0,
+      "y": 2300,
+      "text": "C · 落としても受けず、貼り付けと 📎 だけにする",
+      "kind": "title1",
+      "maxW": 1440,
+      "page": "q2"
+    },
+    "q2c-note": {
+      "x": 1520,
+      "y": 2560,
+      "text": "C\n- 今の会話と同じく落としても受けない。画像は貼り付けか 📎 で入れる。\n+ 作るものが少ない。\n- Finder やスクリーンショットの縮小表示から、そのまま持ってこられない。",
+      "w": 480,
+      "page": "q2"
+    },
+    "q2-common": {
+      "x": -620,
+      "y": 0,
+      "text": "どの案でも同じ\n- 今のアプリは画面に落としたファイルをブラウザが開かないよう止めているだけで、受けてはいない。\n- iPhone はドラッグしないので描かない。📎 と貼り付けで入れる。\n- ⌘K のパレットは、A なら欄の上だけ、B ならパレット全体で受ける。\n- 1-1 の A の形で描いた。",
+      "w": 520,
+      "page": "q2",
+      "fill": "blue"
+    },
+    "parts": {
+      "x": 0,
+      "y": -260,
+      "text": "部品",
+      "kind": "title1",
+      "maxW": 4000,
+      "page": "parts"
+    },
+    "parts-note": {
+      "x": -620,
+      "y": 0,
+      "w": 520,
+      "page": "parts",
+      "fill": "blue",
+      "text": "部品\n- Composer: 会話の返信欄、+ の画面、⌘K の欄が使う 1 つの部品。form (pc / phone)、place (conversation / plus / palette)、controls (箱の中に設定のボタンを入れる、1-1 の A)、round (角の丸い箱、正方形のサムネイル、+ と丸い送信ボタン、1-1 の B)、images (0 / 1 / 3)、drop。\n- SessionControls: engine、モデル、New worktree のボタン。iPhone では 44px。chip で小さな丸いチップにする (1-1 の B)。\n- NewSessionPane: + の画面。layout が 1-1 の案。\n- NewSessionPalette: ⌘K の New session。layout が 1-2 の案。\n- Conversation と PhoneChat は screens の写しで、返信欄だけを Composer に替えた。ほかは screens の写しのまま。"
+    },
+    "q1b2": {
+      "x": 0,
+      "y": 2300,
+      "text": "B2 · B1 と同じ配置で、箱、サムネイル、チップ、+ と送信の角は design-system どおり四角くする",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "q1"
+    },
+    "q1b2-note": {
+      "x": 5970,
+      "y": 2560,
+      "text": "B2\n- 配置は B1 と同じ。箱の中に上から画像のサムネイル (右上に ×)、文、下の行の左に +、右に送信ボタン。設定は箱のすぐ上に 1 行で並べる。\n- 送信ボタンが Start を兼ね、ディレクトリを選ぶ前は灰色で押せない。理由は箱の下に小さく出す。\n- 角はすべて四角。箱の枠と設定のボタンは今のアプリの欄やボタンと同じ色と線。\n- iPhone の設定、+、送信は 44px。\n+ design-system を変えずに、B1 と同じ使い勝手になる。\n- チャットアプリの入力欄とは見た目が離れる。",
+      "w": 480,
+      "page": "q1"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-25T04:27:22Z"
+    }
+  ]
+}

@@ -44,7 +44,7 @@ body{margin:0}
 <sc-if value="{{showEntry}}" hint-placeholder-val="{{ true }}">
 <div style="height: 36px; display: flex; align-items: center; gap: 6px; padding: 0 16px; overflow: hidden">
 <span style="flex: none; height: 26px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; background: #1f1f1f; font-size: 12.5px; white-space: nowrap"><span style="color: #fbbf24">★</span>通知の再送処理を見直す</span>
-<span style="flex: none; height: 26px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; background: #1f1f1f; font-size: 12.5px; white-space: nowrap"><span style="color: #fbbf24">★</span>配信ログの保存期間を決める</span>
+<span style="flex: none; height: 26px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; background: #1f1f1f; font-size: 12.5px; white-space: nowrap"><span style="color: #fbbf24">★</span>{{starred2}}</span>
 </div>
 </sc-if>
 <h2 style="display: flex; align-items: center; gap: 8px; margin: 8px 0 0; padding: 0 16px 6px; font-size: 13px; font-weight: 700">Needs action <span style="font-family: 'JetBrains Mono', monospace; color: #fbbf24">{{needCount}}</span></h2>
@@ -61,6 +61,13 @@ body{margin:0}
 </div>
 </sc-for>
 <div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>◷ Later</span><span style="font-family: 'JetBrains Mono', monospace; color: #8b8b94">{{laterCount}}</span><span style="margin-left: auto; color: #8b8b94">{{laterNext}}</span></div>
+<sc-if value="{{showWaiting}}" hint-placeholder-val="{{ false }}">
+<button type="button" aria-expanded="true" style="width: 100%; height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border: 0; border-bottom: 1px solid #1f1f1f; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px; text-align: left"><span>Waiting</span><span style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{waitCount}}</span><span aria-hidden="true" style="margin-left: auto; color: #52525b">⌄</span></button>
+<sc-for list="{{waitRows}}" as="r" hint-placeholder-count="3">
+<sc-if value="{{r.hasHead}}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="padding: 8px 16px 2px; font-family: 'JetBrains Mono', monospace; font-size: 12.5px; color: #8b8b94">{{r.project}}</div></sc-if>
+<dc-import name="SessionRow" s="{{ r }}" density="phone" hint-size="100%,96px"></dc-import>
+</sc-for>
+</sc-if>
 <sc-if value="{{showEntry}}" hint-placeholder-val="{{ true }}">
 <div style="height: 48px; display: flex; align-items: center; gap: 8px; padding: 0 16px; border-bottom: 1px solid #1f1f1f; font-size: 13px"><span>In progress</span><span style="font-family: 'JetBrains Mono', monospace; color: #60a5fa">{{workingCount}}</span><sc-if value="{{todoLater}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa">1 to-do later</span></sc-if><span style="margin-left: auto; color: #52525b">›</span></div>
 </sc-if>
@@ -92,7 +99,7 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"update":{"editor":"boolean","default":false},"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"activity":{"editor":null},"todoLater":{"editor":"boolean","default":false},"filtered":{"editor":"boolean","default":false},"swipe":{"editor":"boolean","default":false},"sheet":{"editor":"enum","options":["none","rowMenu","later","close","saveView","sort"],"default":"none"},"sort":{"editor":"enum","options":["priority","updated","project"],"default":"priority"},"$preview":{"width":390,"height":844}}'>
+<script type="text/x-dc" data-dc-script data-props='{"update":{"editor":"boolean","default":false},"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"activity":{"editor":null},"todoLater":{"editor":"boolean","default":false},"filtered":{"editor":"boolean","default":false},"swipe":{"editor":"boolean","default":false},"sheet":{"editor":"enum","options":["none","rowMenu","later","close","saveView","sort"],"default":"none"},"sort":{"editor":"enum","options":["priority","updated","project"],"default":"priority"},"wait":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
     // close: a confirmed close of the Proposal row running in the background. 'closed' takes the row out.
@@ -119,22 +126,32 @@ class Component extends DCLogic {
     // sort: Priority keeps the order of rows() (tq priority, ties by newest update); Updated and Project reorder inside the section only.
     const sort = this.props.sort ?? 'priority';
     const secs = (a) => parseInt(a, 10) * ({ s: 1, m: 60, h: 3600 }[a.slice(-1)] ?? 1);
-    rows = rows.map((r, i) => ({ ...r, project: r.repo, i }));
-    if (sort === 'updated') rows.sort((a, b) => secs(a.age) - secs(b.age) || a.i - b.i);
-    if (sort === 'project') rows.sort((a, b) => a.project.localeCompare(b.project) || a.i - b.i);
-    rows = rows.map((r, i) => ({ ...r, hasHead: sort === 'project' && (i === 0 || rows[i - 1].project !== r.project) }));
+    const order = (list) => {
+      const out = list.map((r, i) => ({ ...r, project: r.repo, i }));
+      if (sort === 'updated') out.sort((a, b) => secs(a.age) - secs(b.age) || a.i - b.i);
+      if (sort === 'project') out.sort((a, b) => a.project.localeCompare(b.project) || a.i - b.i);
+      return out.map((r, i) => ({ ...r, hasHead: sort === 'project' && (i === 0 || out[i - 1].project !== r.project) }));
+    };
+    // wait: sessions with activityStatus 'waiting' leave In progress for the Waiting row above it, opened here. Needs action keeps 2 rows so Waiting fits the screen.
+    const wait = this.props.wait ?? false;
+    if (wait) rows = rows.slice(0, 2);
+    const waits = wait && !filtered ? this.waits() : [];
+    rows = order(rows);
     return {
       sort, sortOpen: sheet === 'sort',
+      showWaiting: waits.length > 0, waitRows: order(waits), waitCount: waits.length,
+      // The second starred session is the one waiting on a PR merge, as in the navigation.
+      starred2: wait ? '配信チェックを本番に出す' : '配信ログの保存期間を決める',
       // update: a new version is ready; the band sits right under the header.
       update: this.props.update ?? false,
-      rows, needCount: filtered ? 2 : close === 'closed' ? 5 : 6,
+      rows, needCount: wait ? rows.length : filtered ? 2 : close === 'closed' ? 5 : 6,
       showEntry: !filtered, filtered,
       laterCount: filtered ? 0 : 2, laterNext: filtered ? '' : 'in 2h ›',
       doneCount: filtered ? 0 : 3, closeAllOpacity: filtered ? 0.5 : 1,
       sheetRowMenu: sheet === 'rowMenu', sheetLater: sheet === 'later', sheetClose: sheet === 'close', sheetSaveView: sheet === 'saveView',
       target: { state: 'Review', dot: '#fbbf24', round: false, color: '#fbbf24', title: '配信チェックの PR を確認する' },
       // todoLater: a running session whose pending to-dos are all folded, counted in In progress instead of Needs action.
-      todoLater: this.props.todoLater ?? false, workingCount: (this.props.todoLater ?? false) ? 6 : 5,
+      todoLater: this.props.todoLater ?? false, workingCount: wait ? 3 : (this.props.todoLater ?? false) ? 6 : 5,
       failed, navAria: failed ? 'Open navigation, Activity has a failure' : 'Open navigation'
     };
   }
@@ -144,6 +161,13 @@ class Component extends DCLogic {
         { status: 'Review', unread: true, title: '配信チェックの PR を確認する', age: '2m', preview: 'PR #2049 を見てください', role: '', engine: 'codex', taskRef: 'P2 #2050', taskTitle: '配信チェックを入れる', repo: 'web-app', match: true },
         { status: 'Error', unread: true, title: '統合テストの失敗を直す', age: '4m', preview: 'テストが 2 件失敗しました', role: 'debug-flow', engine: 'claude', taskRef: 'P1 #2052', taskTitle: 'テストを安定させる', repo: 'service' },
         { status: 'Proposal', title: 'アラートの送り先を決める', age: '12m', preview: '2 つの案から選んでください', role: 'designer', engine: 'claude', taskRef: 'P2 #2051', taskTitle: '監視を整える', repo: 'observability' }
+    ];
+  }
+  waits() {
+    return [
+        { status: 'Waiting', title: '配信チェックを本番に出す', age: '6m', preview: 'PR #2061 のマージ待ち', role: 'development', engine: 'claude', taskRef: 'P1 #2050', taskTitle: '配信チェックを入れる', repo: 'web-app' },
+        { status: 'Waiting', title: '通知まわりの改修', age: '14m', preview: '子セッション 2 件の PR のマージ待ち', role: 'PM', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'service', vibe: 'on' },
+        { status: 'Waiting', title: '監視の設定を入れ替える', age: '3m', preview: 'CI の結果を待っています', role: 'development', engine: 'claude', taskRef: 'P3 #2055', taskTitle: '監視を整える', repo: 'observability' }
     ];
   }
 }

@@ -1442,6 +1442,102 @@
       "h": 300,
       "page": "components",
       "title": "SortMenu"
+    },
+    "InboxWaiting.dc.html": {
+      "x": 0,
+      "y": 12280,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox · 他の作業を待っているセッションは Later の下の Waiting に分ける (先頭を会話で開いている)",
+      "page": "inbox"
+    },
+    "PhoneInboxWaiting.dc.html": {
+      "x": 1520,
+      "y": 12280,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Waiting 3 ⌄ を開いた",
+      "page": "inbox"
+    },
+    "PhoneDrawerWaiting.dc.html": {
+      "x": 1990,
+      "y": 12280,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーションの待っているセッションにも砂時計",
+      "page": "inbox"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 3400,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
+    },
+    "before/BeforeBoard.dc.html": {
+      "x": 1990,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Before · Board",
+      "page": "board"
+    },
+    "before/BeforePhoneBoard.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "Before · iPhone · Board",
+      "page": "board"
+    },
+    "before/BeforeStatusBandStates.dc.html": {
+      "x": 3830,
+      "y": 4310,
+      "w": 1290,
+      "h": 1800,
+      "title": "Before · 返信欄の上の帯 · 状態ごと",
+      "page": "conversation"
+    },
+    "before/BeforeNav.dc.html": {
+      "x": 0,
+      "y": 5860,
+      "w": 240,
+      "h": 900,
+      "title": "BeforeNav",
+      "page": "components"
+    },
+    "before/BeforeSessionRow.dc.html": {
+      "x": 320,
+      "y": 5860,
+      "w": 460,
+      "h": 76,
+      "title": "BeforeSessionRow",
+      "page": "components"
+    },
+    "before/BeforeStatusBand.dc.html": {
+      "x": 860,
+      "y": 5860,
+      "w": 760,
+      "h": 60,
+      "title": "BeforeStatusBand",
+      "page": "components"
+    },
+    "before/BeforeActivityButton.dc.html": {
+      "x": 1700,
+      "y": 5860,
+      "w": 224,
+      "h": 44,
+      "title": "BeforeActivityButton",
+      "page": "components"
+    },
+    "before/BeforeQuota.dc.html": {
+      "x": 2004,
+      "y": 5860,
+      "w": 240,
+      "h": 140,
+      "title": "BeforeQuota",
+      "page": "components"
     }
   },
   "order": [
@@ -1625,7 +1721,19 @@
     "InboxSortProject.dc.html",
     "PhoneInboxSortProject.dc.html",
     "SortControl.dc.html",
-    "SortMenu.dc.html"
+    "SortMenu.dc.html",
+    "InboxWaiting.dc.html",
+    "PhoneInboxWaiting.dc.html",
+    "PhoneDrawerWaiting.dc.html",
+    "before/BeforeMain.dc.html",
+    "before/BeforeBoard.dc.html",
+    "before/BeforePhoneBoard.dc.html",
+    "before/BeforeStatusBandStates.dc.html",
+    "before/BeforeNav.dc.html",
+    "before/BeforeSessionRow.dc.html",
+    "before/BeforeStatusBand.dc.html",
+    "before/BeforeActivityButton.dc.html",
+    "before/BeforeQuota.dc.html"
   ],
   "pages": [
     {
@@ -1932,6 +2040,54 @@
       "kind": "title1",
       "maxW": 3900,
       "page": "inbox"
+    },
+    "rowInboxWaiting": {
+      "x": 0,
+      "y": 11980,
+      "text": "Inbox · 他の作業を待っているセッション · Waiting の区分と灰色の砂時計",
+      "kind": "title1",
+      "maxW": 2380,
+      "page": "inbox"
+    },
+    "beforeParts": {
+      "x": 0,
+      "y": 5560,
+      "text": "Before · 変更前のボードが読み込む部品 (main のまま)",
+      "kind": "title1",
+      "maxW": 2244,
+      "page": "components"
+    },
+    "diffMain": {
+      "x": 3040,
+      "y": 0,
+      "w": 420,
+      "fill": "yellow",
+      "page": "inbox",
+      "text": "Before が変更前。変更点:\n- Inbox: Later の下、In progress の上に Waiting の区分を入れた (先頭 2 件ずつ)\n- セッションの行: 状態の印に灰色の砂時計 (Waiting) を足し、ナビの Starred、Recent、PM の行も同じ印にした。Board の待っている行だけ 2 行目に待っている内容を出す\n- セッションの行: Waiting の説明を足した (他の作業を待つセッション、Inbox と Board での置き場所、2 行目の待っている内容、ないときは出さない、iPhone は 1 行にまとめて押すと開く、返信欄の上の帯も砂時計)\n- 色: 他の作業待ちは色を付けず灰色の砂時計"
+    },
+    "diffInboxWaiting": {
+      "x": 2460,
+      "y": 12280,
+      "w": 420,
+      "fill": "yellow",
+      "page": "inbox",
+      "text": "この行の 3 枚は新しいボード (変更前はない)。\n- PC: Needs action 4 件のあとに Later、Waiting 3 (先頭 2 件と 1 more)、In progress 3。Waiting の先頭を右の会話で開いていて、帯は砂時計の Waiting · PR #2061 のマージ待ち\n- ナビの Starred と PM の待っているセッションも砂時計\n- iPhone: Waiting 3 ⌄ を開いた状態。In progress は 1 行にまとめたまま\n- iPhone のナビゲーション: Starred と PM の待っているセッションに砂時計\n- 待っているセッションがないときは Waiting を出さないので、ほかの Inbox のボードは変わらない"
+    },
+    "diffBoard": {
+      "x": 3980,
+      "y": 0,
+      "w": 420,
+      "fill": "yellow",
+      "page": "board",
+      "text": "Before の 2 枚が変更前。変更点:\n- PC と iPhone: 各列の Needs action と In progress の間に Waiting の小見出しを足し、待っているセッションを灰色の砂時計と待っている内容の 2 行目で出す (service、web-app、observability に 1 件ずつ)\n- PC: ナビの Starred と PM の待っているセッションを砂時計にした"
+    },
+    "diffStatusBand": {
+      "x": 5200,
+      "y": 4310,
+      "w": 420,
+      "fill": "yellow",
+      "page": "conversation",
+      "text": "Before のボードが変更前。変更点:\n- Waiting on something else の 2 枚: 灰色の四角を灰色の砂時計にした (Inbox や Board の待っている行と同じ印)\n- 押して開いたときの全文は、砂時計の幅に合わせて字下げを変えた\n- ほかの状態の印 (黄色の四角、青い丸など) は変えていない"
     }
   },
   "v": 3,
@@ -1974,6 +2130,12 @@
     "rowPartsDialogs",
     "rowPhoneTasks",
     "rowPhoneStatusTasks",
-    "rowReviewPreview"
+    "rowReviewPreview",
+    "rowInboxWaiting",
+    "beforeParts",
+    "diffMain",
+    "diffInboxWaiting",
+    "diffBoard",
+    "diffStatusBand"
   ]
 }

@@ -1331,7 +1331,14 @@
       "namespace": "tq",
       "artifact": "tq/web/design-system",
       "version": null,
-      "copiedAt": "2026-11-26T06:10:00Z"
+      "copiedAt": "2026-11-27T17:48:15Z"
+    },
+    {
+      "title": "@fohte/ui",
+      "namespace": "fohteui",
+      "artifact": "ui/design-system",
+      "version": null,
+      "copiedAt": "2026-11-27T17:48:15Z"
     }
   ]
 }

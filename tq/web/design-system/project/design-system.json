@@ -18,8 +18,8 @@
   },
   "lastChange": {
     "by": "fohte",
-    "at": "2026-11-26T06:00:00Z",
+    "at": "2026-11-28T00:00:00Z",
     "via": "Claude Code",
-    "note": "Build the system from tq's web source and @fohte/ui tokens."
+    "note": "Keep only tq's own tokens and components; @fohte/ui's move to ui/design-system."
   }
 }

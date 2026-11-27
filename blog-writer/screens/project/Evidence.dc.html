@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<title>根拠と資料 (PC)</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#0a0a0a}
+a{color:#ef4444;text-decoration:none}a:hover{text-decoration:underline}
+.m{font-family:'JetBrains Mono','IBM Plex Mono',ui-monospace,monospace}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+input{font:inherit}
+kbd{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;border:1px solid #2a2a2a;border-radius:2px;padding:0 4px;color:#a1a1aa;background:#141414}
+</style>
+</helmet>
+<div style="min-height: 920px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; display: flex; flex-direction: column">
+
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 8px 16px; min-height: 48px; box-sizing: border-box; border-bottom: 1px solid #2a2a2a">
+  <a href="Articles.dc.html" class="m" style="color: #fafafa; font-weight: 700; font-size: 14px; display: flex; gap: 6px"><span style="color: #ef4444">&gt;</span>blog-writer</a>
+  <span style="font-size: 13px; color: #a1a1aa; flex: 1 1 240px; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">記事 / SQLite を CRDT で同期する個人用 PWA を作った</span>
+  <span class="m" style="font-size: 11px; color: #a1a1aa; border: 1px solid #2a2a2a; padding: 2px 8px">初期リリース外の案</span>
+  <span class="m" style="font-size: 12px; color: #a1a1aa">● 同期済み</span>
+</header>
+
+<div style="display: flex; flex-wrap: wrap; flex: 1 1 auto">
+  <main style="flex: 999 1 560px; min-width: 0; display: flex; justify-content: center; padding: 40px 32px; box-sizing: border-box">
+    <article style="width: 100%; max-width: 680px; display: flex; flex-direction: column; gap: 16px; font-size: 16px; line-height: 1.95">
+      <h2 style="margin: 0; font-size: 20px"><span class="m" style="color: #ef4444; font-weight: 400">## </span>計測</h2>
+      <p style="margin: 0">cr-sqlite は変更をテーブルごとの行として記録する。<sup class="m" style="font-size: 11px; color: #a1a1aa">[1]</sup> 1 万行の変更を合流させるのに、手元の iPhone では <span style="text-decoration: underline dotted #fafafa; text-underline-offset: 5px; background: #141414">約 0.4 秒かかった</span>。<sup class="m" style="font-size: 11px; color: #fafafa; border: 1px solid #a1a1aa; padding: 0 2px">[?]</sup> Safari は 7 日間使わないサイトのストレージを消すことがある。<sup class="m" style="font-size: 11px; color: #a1a1aa">[2]</sup></p>
+
+      <div role="dialog" aria-label="この文の根拠" style="border: 1px solid #a1a1aa; background: #141414; padding: 14px; display: flex; flex-direction: column; gap: 10px; font-size: 13px; line-height: 1.7; max-width: 520px">
+        <div style="display: flex; align-items: center; gap: 10px">
+          <span class="m" style="font-size: 11px; border: 1px solid #a1a1aa; padding: 0 6px">要確認 · 古い</span>
+          <span style="flex: 1"></span>
+          <span class="m" style="font-size: 11px; color: #a1a1aa">確認 2026-11-04</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 2px">
+          <span style="font-weight: 700">cr-sqlite Benchmarks</span>
+          <span class="m" style="font-size: 11px; color: #a1a1aa">example.dev · 公開 2024-02-10</span>
+        </div>
+        <blockquote style="margin: 0; padding: 8px 10px; border: 1px solid #2a2a2a; color: #a1a1aa">“merging 10k changes took roughly 400ms on an iPhone 12”</blockquote>
+        <span style="color: #a1a1aa">要約: 2024 年版の計測。手元の端末と版が異なる。</span>
+        <div style="border-top: 1px solid #2a2a2a; padding-top: 10px; display: flex; flex-direction: column; gap: 8px">
+          <span class="m" style="font-size: 11px; color: #a1a1aa">修正案 · 根拠: cr-sqlite Benchmarks</span>
+          <span>1 万行の変更を合流させるのに、<del style="color: #f87171; text-decoration-color: #f87171; background: rgba(248, 113, 113, 0.12)">手元の iPhone では約 0.4 秒かかった</del><ins style="color: #4ade80; text-decoration: underline; text-decoration-color: #4ade80; text-underline-offset: 4px; background: rgba(74, 222, 128, 0.12)">2024 年時点の公開値では iPhone 12 で約 0.4 秒だった</ins>。</span>
+          <div style="display: flex; gap: 8px; font-size: 12px">
+            <button style="color: #a1a1aa; text-decoration: underline; text-underline-offset: 3px">根拠を外す</button>
+            <span style="flex: 1"></span>
+            <button style="border: 1px solid #2a2a2a; padding: 3px 10px">却下</button>
+            <button style="background: #fafafa; color: #0a0a0a; padding: 4px 12px; font-weight: 700">採用</button>
+          </div>
+        </div>
+      </div>
+
+      <p style="margin: 0; font-size: 12px; color: #a1a1aa; line-height: 1.8">根拠は脚注の <span class="m">[1]</span> で、要確認は枠付きの <span class="m">[?]</span> と点線で示す。つなぎや意見の文には何も付けない。「根拠あり」は出どころが分かるという意味で、事実の保証ではない。</p>
+    </article>
+  </main>
+
+  <aside aria-label="資料" style="flex: 1 1 380px; max-width: 420px; box-sizing: border-box; border-left: 1px solid #2a2a2a; display: flex; flex-direction: column">
+    <div role="tablist" style="display: flex; border-bottom: 1px solid #2a2a2a; font-size: 13px">
+      <a href="Main.dc.html" role="tab" aria-selected="false" style="flex: 1; padding: 12px 0; text-align: center; color: #a1a1aa">メモ</a>
+      <a href="Premise.dc.html" role="tab" aria-selected="false" style="flex: 1; padding: 12px 0; text-align: center; color: #a1a1aa">前提</a>
+      <button role="tab" aria-selected="true" style="flex: 1; padding: 12px 0; border-bottom: 2px solid #fafafa; font-weight: 700">資料 <span class="m" style="font-size: 11px; color: #a1a1aa">4</span></button>
+    </div>
+
+    <div style="margin: 14px; border: 1px solid #2a2a2a; background: #141414; padding: 12px; display: flex; flex-direction: column; gap: 6px; font-size: 12px">
+      <div style="display: flex; align-items: center; gap: 8px">
+        <span style="font-weight: 700; font-size: 13px">調べています · ## 計測</span>
+        <span style="flex: 1"></span>
+        <button style="border: 1px solid #2a2a2a; padding: 2px 10px">中止</button>
+      </div>
+      <span class="m" style="color: #a1a1aa">検索 “cr-sqlite merge benchmark 2026”</span>
+      <span class="m" style="color: #a1a1aa">取得中 example.dev/blog/crsqlite-perf</span>
+      <span class="m" style="color: #a1a1aa">取得済み github.com/example/cr-sqlite</span>
+      <span style="color: #a1a1aa">本文は書き続けられます</span>
+    </div>
+
+    <div style="display: flex; gap: 8px; padding: 0 14px 10px">
+      <label for="src-add" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">URL を追加</label>
+      <input id="src-add" placeholder="URL を貼って追加" style="flex: 1; min-width: 0; background: #141414; border: 1px solid #2a2a2a; color: #fafafa; padding: 7px 10px; font-size: 13px; outline: none">
+      <button style="border: 1px solid #2a2a2a; padding: 0 10px; font-size: 12px">ファイル</button>
+    </div>
+
+    <ul style="list-style: none; margin: 0; padding: 0 6px; font-size: 13px; line-height: 1.6">
+      <li style="padding: 10px 8px; border-bottom: 1px solid #1f1f1f; display: flex; flex-direction: column; gap: 2px">
+        <span style="display: flex; gap: 8px"><span style="flex: 1; font-weight: 700">cr-sqlite Benchmarks</span><span class="m" style="font-size: 11px; color: #a1a1aa">根拠 1 · 要確認 1</span></span>
+        <span class="m" style="font-size: 11px; color: #a1a1aa">example.dev · 取得 2026-11-04 · 確認後に編集 1</span>
+      </li>
+      <li style="padding: 10px 8px; border-bottom: 1px solid #1f1f1f; display: flex; flex-direction: column; gap: 2px">
+        <span style="display: flex; gap: 8px"><span style="flex: 1; font-weight: 700">Storage for the web</span><span class="m" style="font-size: 11px; color: #a1a1aa">根拠 1</span></span>
+        <span class="m" style="font-size: 11px; color: #a1a1aa">example.org · 取得 2026-11-02</span>
+      </li>
+      <li style="padding: 10px 8px; border-bottom: 1px solid #1f1f1f; display: flex; flex-direction: column; gap: 2px; background: #141414">
+        <span style="display: flex; gap: 8px"><span style="flex: 1; font-weight: 700">CRDT の基礎 (社内資料)</span><span class="m" style="font-size: 11px">新規</span></span>
+        <span class="m" style="font-size: 11px; color: #a1a1aa">example.com · 取得できず (要ログイン)</span>
+        <button style="align-self: flex-start; margin-top: 4px; font-size: 12px; border: 1px solid #2a2a2a; padding: 2px 10px">本文を貼り付けて登録</button>
+      </li>
+      <li style="padding: 10px 8px; display: flex; flex-direction: column; gap: 2px">
+        <span style="display: flex; gap: 8px"><span style="flex: 1; font-weight: 700; color: #a1a1aa">github.com/example/cr-sqlite</span><span class="m" style="font-size: 11px">新規</span></span>
+        <span class="m" style="font-size: 11px; color: #a1a1aa">取り込み中 · 要点を抽出中</span>
+      </li>
+    </ul>
+  </aside>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":920}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+
+
+</body></html>

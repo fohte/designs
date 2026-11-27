@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="utf-8">
+<title>依頼の入口と提案の状態</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0;background:#0a0a0a}
+a{color:#ef4444;text-decoration:none}a:hover{text-decoration:underline}
+.m{font-family:'JetBrains Mono','IBM Plex Mono',ui-monospace,monospace}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;padding:0}
+input{font:inherit}
+kbd{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:11px;border:1px solid #2a2a2a;border-radius:2px;padding:0 4px;color:#a1a1aa;background:#141414}
+</style>
+</helmet>
+<div style="width: 1280px; min-height: 1200px; box-sizing: border-box; padding: 40px 48px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; display: flex; flex-direction: column; gap: 24px">
+  <div style="display: flex; align-items: baseline; gap: 16px">
+    <h1 style="margin: 0; font-size: 22px; font-weight: 700"><span class="m" style="color: #ef4444">&gt; </span>依頼の入口と提案の状態</h1>
+    <span style="font-size: 13px; color: #a1a1aa">入口は本文の中に 1 つだけ。<kbd>⌘J</kbd> またはカーソル行の左に出る <span class="m">&gt;</span> から開く</span>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; flex: 1">
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">01 依頼欄 · 空のとき候補</h2>
+      <p style="margin: 0; font-size: 14px; line-height: 1.9; background: #1f1f1f">サーバーは受け取った変更を保存して配るだけにした。</p>
+      <div style="border: 1px solid #a1a1aa; background: #141414">
+        <div style="display: flex; align-items: center; gap: 8px; padding: 9px 10px; border-bottom: 1px solid #2a2a2a">
+          <span class="m" style="color: #ef4444; font-weight: 700">&gt;</span>
+          <label for="rq1" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">依頼</label>
+          <input id="rq1" placeholder="この段落への依頼" style="flex: 1; min-width: 0; background: none; border: 0; color: #fafafa; font-size: 14px; outline: none">
+          <span class="m" style="font-size: 11px; color: #a1a1aa">段落</span>
+        </div>
+        <ul style="list-style: none; margin: 0; padding: 4px 0; font-size: 13px">
+          <li><button style="width: 100%; text-align: left; padding: 7px 12px; background: #1f1f1f">簡潔にする</button></li>
+          <li><button style="width: 100%; text-align: left; padding: 7px 12px">例を 1 つ足す</button></li>
+          <li><button style="width: 100%; text-align: left; padding: 7px 12px">前後とのつながりを直す</button></li>
+          <li style="border-top: 1px solid #2a2a2a; margin-top: 4px; padding-top: 4px"><span style="display: block; padding: 4px 12px; font-size: 11px; color: #a1a1aa">調査 (資料機能を有効にしたとき)</span></li>
+          <li><button style="width: 100%; text-align: left; padding: 7px 12px">根拠を確かめる</button></li>
+          <li><button style="width: 100%; text-align: left; padding: 7px 12px">この見出しについて調べる</button></li>
+          <li><button style="width: 100%; text-align: left; padding: 7px 12px">資料をもとに書く</button></li>
+        </ul>
+      </div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">対象は欄の右端に出す (選択範囲 / 段落 / 挿入)。候補は前提と見出しから出し分ける。<kbd>↑</kbd><kbd>↓</kbd> で選び <kbd>⏎</kbd> で送る。</p>
+    </section>
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">02 作成中 · 書き続けられる</h2>
+      <p style="margin: 0; font-size: 14px; line-height: 1.9"><span style="text-decoration: underline dotted #a1a1aa; text-underline-offset: 5px">サーバーは受け取った変更を保存して配るだけにした。</span></p>
+      <div style="display: flex; align-items: center; gap: 10px; border: 1px solid #2a2a2a; background: #141414; padding: 8px 10px; font-size: 12px">
+        <span class="m" style="color: #a1a1aa"><span style="color: #ef4444">&gt;</span> 簡潔にする</span>
+        <span class="m" style="color: #a1a1aa">作成中 ··· 4s</span>
+        <span style="flex: 1"></span>
+        <button style="border: 1px solid #2a2a2a; padding: 3px 10px">中止 <kbd>Esc</kbd></button>
+      </div>
+      <p style="margin: 0; font-size: 14px; line-height: 1.9">ここは筆者がそのまま書き続けている段落。<span style="display: inline-block; width: 1px; height: 1.2em; background: #fafafa; vertical-align: text-bottom" aria-hidden="true"></span></p>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">対象範囲は点線で示し、範囲の外の編集には追従する。範囲の中を編集したら、この帯ごと静かに消える (通知なし)。新しい依頼を出すと前の依頼は中止。</p>
+    </section>
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">03 提案あり · 未フォーカス</h2>
+      <div style="position: relative; padding-left: 40px">
+        <button class="m" aria-label="提案を開く" style="position: absolute; left: 0; top: 4px; font-size: 11px; color: #4ade80; border: 1px solid #4ade80; padding: 0 4px; line-height: 18px">提案</button>
+        <p style="margin: 0; font-size: 14px; line-height: 1.9"><span style="text-decoration: underline dotted #4ade80; text-underline-offset: 5px">サーバーは受け取った変更を保存して配るだけにした。</span>合流の計算はすべて端末側で済む。</p>
+      </div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">左の余白に印と、対象に点線だけ。本文の行は動かさないので、日本語の変換中でも表示が作り直されない。<kbd>⌥]</kbd> で次の提案へ、印のクリックでも開く。</p>
+    </section>
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 12px; grid-column: span 2">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">04 提案あり · フォーカス中 (差分をその場で)</h2>
+      <p style="margin: 0; font-size: 15px; line-height: 2; outline: 1px solid #2a2a2a; outline-offset: 8px">サーバーは受け取った変更を<del style="color: #f87171; text-decoration-color: #f87171; background: rgba(248, 113, 113, 0.12)">保存して配るだけにした</del><ins style="color: #4ade80; text-decoration: underline; text-decoration-color: #4ade80; text-underline-offset: 5px; background: rgba(74, 222, 128, 0.12)">保存して配るだけ</ins>。<del style="color: #f87171; text-decoration-color: #f87171; background: rgba(248, 113, 113, 0.12)">cr-sqlite の拡張を入れれば、合流の計算はすべて端末側で済む。</del><ins style="color: #4ade80; text-decoration: underline; text-decoration-color: #4ade80; text-underline-offset: 5px; background: rgba(74, 222, 128, 0.12)">合流は cr-sqlite が端末側で計算する。</ins></p>
+      <div style="margin-top: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; border: 1px solid #2a2a2a; background: #141414; padding: 8px 10px; font-size: 12px">
+        <span class="m" style="color: #a1a1aa"><span style="color: #ef4444">&gt;</span> 簡潔にする</span>
+        <span style="color: #a1a1aa">段落を置き換え</span>
+        <span style="color: #a1a1aa">文中の &lt;a&gt; やリンクは採用まで文字のまま</span>
+        <span style="flex: 1"></span>
+        <button style="border: 1px solid #2a2a2a; padding: 4px 10px">却下 <kbd>Esc</kbd></button>
+        <button style="background: #fafafa; color: #0a0a0a; padding: 5px 12px; font-weight: 700">採用 <kbd style="background: #e5e5e5; color: #0a0a0a; border-color: #e5e5e5">⏎</kbd></button>
+      </div>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">diff と同じく、追加は緑の下線と面、削除は赤の取り消し線と面。本文の白と一目で分かれ、色が見分けにくくても下線と取り消し線の形で区別できる。採用は 1 回の <kbd>⌘Z</kbd> で戻る通常の編集として入る。一部だけ使いたいときは、採用してから直す。</p>
+    </section>
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 12px">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">05 失敗 (依頼したものだけ表示)</h2>
+      <div style="border: 1px solid #a1a1aa; background: #141414; padding: 10px; font-size: 13px; display: flex; flex-direction: column; gap: 8px">
+        <span><span class="m" style="color: #ef4444">!</span> 作成できませんでした · 利用枠に達しました</span>
+        <div style="display: flex; gap: 8px">
+          <button style="border: 1px solid #2a2a2a; padding: 3px 10px; font-size: 12px">依頼し直す</button>
+          <button style="border: 1px solid #2a2a2a; padding: 3px 10px; font-size: 12px; color: #a1a1aa">閉じる</button>
+        </div>
+      </div>
+      <ul class="m" style="margin: 0; padding: 0; list-style: none; font-size: 11px; line-height: 2; color: #a1a1aa">
+        <li>利用枠に達しました</li>
+        <li>応答の形式が正しくありませんでした</li>
+        <li>10 分たっても応答がありませんでした</li>
+        <li>中継 (127.0.0.1:XXXX) に接続できません → 設定</li>
+      </ul>
+      <p style="margin: 0; font-size: 12px; line-height: 1.8; color: #a1a1aa">構成の修正案とつなぎの文は自動なので、失敗しても何も出さない。</p>
+    </section>
+
+    <section style="border: 1px solid #2a2a2a; padding: 18px; display: flex; flex-direction: column; gap: 12px; grid-column: span 3">
+      <h2 class="m" style="margin: 0; font-size: 12px; color: #a1a1aa; font-weight: 400">06 つなぎの文 · 並べ替えの直後に、継ぎ目にだけ出る</h2>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; align-items: start">
+        <div style="font-size: 14px; line-height: 1.9; display: flex; flex-direction: column; gap: 10px">
+          <p style="margin: 0; color: #a1a1aa">…認証と保存だけを持つ。</p>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #a1a1aa">
+            <span style="flex: 1; border-top: 1px dashed #2a2a2a"></span>
+            <button class="m" style="border: 1px dashed #4ade80; padding: 2px 10px; color: #4ade80">↕ つなぎの文の修正案</button>
+            <span style="flex: 1; border-top: 1px dashed #2a2a2a"></span>
+          </div>
+          <p style="margin: 0; color: #a1a1aa">## 実装 …</p>
+          <span style="font-size: 12px; color: #a1a1aa">閉じた状態。継ぎ目の線だけで本文は動かない。</span>
+        </div>
+        <div style="font-size: 14px; line-height: 1.9; display: flex; flex-direction: column; gap: 10px; outline: 1px solid #2a2a2a; outline-offset: 8px">
+          <p style="margin: 0">サーバーは認証と保存だけを持つ。<ins style="color: #4ade80; text-decoration: underline; text-decoration-color: #4ade80; text-underline-offset: 5px; background: rgba(74, 222, 128, 0.12)">では、端末側では何を記録しているのか。</ins></p>
+          <p style="margin: 0"><span class="m" style="color: #ef4444">## </span>実装</p>
+          <p style="margin: 0"><del style="color: #f87171; text-decoration-color: #f87171; background: rgba(248, 113, 113, 0.12)">次に</del>最初に決めたのは、変更をどの単位で記録するかだった。</p>
+          <div style="display: flex; gap: 8px; justify-content: flex-end; font-size: 12px">
+            <button style="border: 1px solid #2a2a2a; padding: 4px 10px">却下</button>
+            <button style="background: #fafafa; color: #0a0a0a; padding: 5px 12px; font-weight: 700">採用 (前後 2 文)</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1280,"height":1200}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+
+
+</body></html>

@@ -1,0 +1,569 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-25T12:33:42Z"
+  },
+  "title": "details-fold · <details> の折りたたみ",
+  "launch": {
+    "view": "canvas",
+    "page": "look"
+  },
+  "pages": [
+    {
+      "id": "today",
+      "name": "今"
+    },
+    {
+      "id": "look",
+      "name": "閉じた形と開いた形"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "details-fold-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · 会話のメッセージ · PC",
+      "page": "today"
+    },
+    "details-fold-current-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · 会話のメッセージ · iPhone",
+      "page": "today"
+    },
+    "details-fold-current-todo.dc.html": {
+      "x": 1990,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · To-do のカード · PC",
+      "page": "today"
+    },
+    "details-fold-current-todo-phone.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · To-do のカード · iPhone",
+      "page": "today"
+    },
+    "details-fold-current-proposal.dc.html": {
+      "x": 3980,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · Proposal のカード · PC",
+      "page": "today"
+    },
+    "details-fold-current-proposal-phone.dc.html": {
+      "x": 5500,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · Proposal のカード · iPhone",
+      "page": "today"
+    },
+    "details-fold-current-preview.dc.html": {
+      "x": 5970,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PR 下書きの Preview · PC",
+      "page": "today"
+    },
+    "details-fold-current-preview-phone.dc.html": {
+      "x": 7490,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · PR 下書きの Preview · iPhone",
+      "page": "today"
+    },
+    "details-fold-a-message.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · 会話のメッセージ · PC",
+      "page": "look"
+    },
+    "details-fold-a-message-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · 会話のメッセージ · iPhone",
+      "page": "look"
+    },
+    "details-fold-a-todo.dc.html": {
+      "x": 1990,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · To-do のカード · PC",
+      "page": "look"
+    },
+    "details-fold-a-todo-phone.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · To-do のカード · iPhone",
+      "page": "look"
+    },
+    "details-fold-a-proposal.dc.html": {
+      "x": 3980,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · Proposal のカード · PC",
+      "page": "look"
+    },
+    "details-fold-a-proposal-phone.dc.html": {
+      "x": 5500,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · Proposal のカード · iPhone",
+      "page": "look"
+    },
+    "details-fold-a-preview.dc.html": {
+      "x": 5970,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PR 下書きの Preview · PC",
+      "page": "look"
+    },
+    "details-fold-a-preview-phone.dc.html": {
+      "x": 7490,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · PR 下書きの Preview · iPhone",
+      "page": "look"
+    },
+    "details-fold-b-message.dc.html": {
+      "x": 0,
+      "y": 1320,
+      "w": 1440,
+      "h": 900,
+      "title": "B · 会話のメッセージ · PC",
+      "page": "look"
+    },
+    "details-fold-b-message-phone.dc.html": {
+      "x": 1520,
+      "y": 1320,
+      "w": 390,
+      "h": 844,
+      "title": "B · 会話のメッセージ · iPhone",
+      "page": "look"
+    },
+    "details-fold-b-todo.dc.html": {
+      "x": 1990,
+      "y": 1320,
+      "w": 1440,
+      "h": 900,
+      "title": "B · To-do のカード · PC",
+      "page": "look"
+    },
+    "details-fold-b-todo-phone.dc.html": {
+      "x": 3510,
+      "y": 1320,
+      "w": 390,
+      "h": 844,
+      "title": "B · To-do のカード · iPhone",
+      "page": "look"
+    },
+    "details-fold-b-proposal.dc.html": {
+      "x": 3980,
+      "y": 1320,
+      "w": 1440,
+      "h": 900,
+      "title": "B · Proposal のカード · PC",
+      "page": "look"
+    },
+    "details-fold-b-proposal-phone.dc.html": {
+      "x": 5500,
+      "y": 1320,
+      "w": 390,
+      "h": 844,
+      "title": "B · Proposal のカード · iPhone",
+      "page": "look"
+    },
+    "details-fold-b-preview.dc.html": {
+      "x": 5970,
+      "y": 1320,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PR 下書きの Preview · PC",
+      "page": "look"
+    },
+    "details-fold-b-preview-phone.dc.html": {
+      "x": 7490,
+      "y": 1320,
+      "w": 390,
+      "h": 844,
+      "title": "B · PR 下書きの Preview · iPhone",
+      "page": "look"
+    },
+    "details-fold-c-message.dc.html": {
+      "x": 0,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "C · 会話のメッセージ · PC",
+      "page": "look"
+    },
+    "details-fold-c-message-phone.dc.html": {
+      "x": 1520,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "C · 会話のメッセージ · iPhone",
+      "page": "look"
+    },
+    "details-fold-c-todo.dc.html": {
+      "x": 1990,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "C · To-do のカード · PC",
+      "page": "look"
+    },
+    "details-fold-c-todo-phone.dc.html": {
+      "x": 3510,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "C · To-do のカード · iPhone",
+      "page": "look"
+    },
+    "details-fold-c-proposal.dc.html": {
+      "x": 3980,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "C · Proposal のカード · PC",
+      "page": "look"
+    },
+    "details-fold-c-proposal-phone.dc.html": {
+      "x": 5500,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "C · Proposal のカード · iPhone",
+      "page": "look"
+    },
+    "details-fold-c-preview.dc.html": {
+      "x": 5970,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PR 下書きの Preview · PC",
+      "page": "look"
+    },
+    "details-fold-c-preview-phone.dc.html": {
+      "x": 7490,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "C · PR 下書きの Preview · iPhone",
+      "page": "look"
+    },
+    "MdDetails.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 672,
+      "h": 200,
+      "page": "parts"
+    },
+    "DetailsPlace.dc.html": {
+      "x": 752,
+      "y": 0,
+      "w": 672,
+      "h": 420,
+      "page": "parts"
+    },
+    "ActionItem.dc.html": {
+      "x": 1504,
+      "y": 0,
+      "w": 360,
+      "h": 110,
+      "page": "parts"
+    },
+    "ActivityButton.dc.html": {
+      "x": 1944,
+      "y": 0,
+      "w": 224,
+      "h": 44,
+      "page": "parts"
+    },
+    "CloseChecks.dc.html": {
+      "x": 2248,
+      "y": 0,
+      "w": 408,
+      "h": 170,
+      "page": "parts"
+    },
+    "CodeBlock.dc.html": {
+      "x": 2736,
+      "y": 0,
+      "w": 672,
+      "h": 160,
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 3488,
+      "y": 0,
+      "w": 380,
+      "h": 200,
+      "page": "parts"
+    },
+    "Conversation.dc.html": {
+      "x": 3948,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "page": "parts"
+    },
+    "DraftReview.dc.html": {
+      "x": 4908,
+      "y": 0,
+      "w": 640,
+      "h": 852,
+      "page": "parts"
+    },
+    "InboxList.dc.html": {
+      "x": 5628,
+      "y": 0,
+      "w": 460,
+      "h": 900,
+      "page": "parts"
+    },
+    "MergeBand.dc.html": {
+      "x": 6168,
+      "y": 0,
+      "w": 760,
+      "h": 60,
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 7008,
+      "y": 0,
+      "w": 160,
+      "h": 44,
+      "page": "parts"
+    },
+    "Nav.dc.html": {
+      "x": 7248,
+      "y": 0,
+      "w": 240,
+      "h": 900,
+      "page": "parts"
+    },
+    "PhoneChat.dc.html": {
+      "x": 7568,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "parts"
+    },
+    "PhoneStatusPanel.dc.html": {
+      "x": 8038,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "parts"
+    },
+    "PrButton.dc.html": {
+      "x": 8508,
+      "y": 0,
+      "w": 44,
+      "h": 44,
+      "page": "parts"
+    },
+    "Quota.dc.html": {
+      "x": 8632,
+      "y": 0,
+      "w": 240,
+      "h": 140,
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 8952,
+      "y": 0,
+      "w": 460,
+      "h": 76,
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 9492,
+      "y": 0,
+      "w": 672,
+      "h": 40,
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 10244,
+      "y": 0,
+      "w": 760,
+      "h": 60,
+      "page": "parts"
+    },
+    "StatusBody.dc.html": {
+      "x": 11084,
+      "y": 0,
+      "w": 640,
+      "h": 852,
+      "page": "parts"
+    },
+    "StatusPanel.dc.html": {
+      "x": 11804,
+      "y": 0,
+      "w": 640,
+      "h": 900,
+      "page": "parts"
+    },
+    "StatusTabs.dc.html": {
+      "x": 12524,
+      "y": 0,
+      "w": 640,
+      "h": 49,
+      "page": "parts"
+    },
+    "ToastStack.dc.html": {
+      "x": 13244,
+      "y": 0,
+      "w": 360,
+      "h": 240,
+      "page": "parts"
+    },
+    "TodoCard.dc.html": {
+      "x": 13684,
+      "y": 0,
+      "w": 672,
+      "h": 40,
+      "page": "parts"
+    },
+    "UpdateBand.dc.html": {
+      "x": 14436,
+      "y": 0,
+      "w": 760,
+      "h": 40,
+      "page": "parts"
+    }
+  },
+  "order": [
+    "details-fold-current.dc.html",
+    "details-fold-current-phone.dc.html",
+    "details-fold-current-todo.dc.html",
+    "details-fold-current-todo-phone.dc.html",
+    "details-fold-current-proposal.dc.html",
+    "details-fold-current-proposal-phone.dc.html",
+    "details-fold-current-preview.dc.html",
+    "details-fold-current-preview-phone.dc.html",
+    "details-fold-a-message.dc.html",
+    "details-fold-a-message-phone.dc.html",
+    "details-fold-a-todo.dc.html",
+    "details-fold-a-todo-phone.dc.html",
+    "details-fold-a-proposal.dc.html",
+    "details-fold-a-proposal-phone.dc.html",
+    "details-fold-a-preview.dc.html",
+    "details-fold-a-preview-phone.dc.html",
+    "details-fold-b-message.dc.html",
+    "details-fold-b-message-phone.dc.html",
+    "details-fold-b-todo.dc.html",
+    "details-fold-b-todo-phone.dc.html",
+    "details-fold-b-proposal.dc.html",
+    "details-fold-b-proposal-phone.dc.html",
+    "details-fold-b-preview.dc.html",
+    "details-fold-b-preview-phone.dc.html",
+    "details-fold-c-message.dc.html",
+    "details-fold-c-message-phone.dc.html",
+    "details-fold-c-todo.dc.html",
+    "details-fold-c-todo-phone.dc.html",
+    "details-fold-c-proposal.dc.html",
+    "details-fold-c-proposal-phone.dc.html",
+    "details-fold-c-preview.dc.html",
+    "details-fold-c-preview-phone.dc.html",
+    "MdDetails.dc.html",
+    "DetailsPlace.dc.html",
+    "ActionItem.dc.html",
+    "ActivityButton.dc.html",
+    "CloseChecks.dc.html",
+    "CodeBlock.dc.html",
+    "ConfirmDialog.dc.html",
+    "Conversation.dc.html",
+    "DraftReview.dc.html",
+    "InboxList.dc.html",
+    "MergeBand.dc.html",
+    "MergeButton.dc.html",
+    "Nav.dc.html",
+    "PhoneChat.dc.html",
+    "PhoneStatusPanel.dc.html",
+    "PrButton.dc.html",
+    "Quota.dc.html",
+    "SessionRow.dc.html",
+    "SessionUsage.dc.html",
+    "StatusBand.dc.html",
+    "StatusBody.dc.html",
+    "StatusPanel.dc.html",
+    "StatusTabs.dc.html",
+    "ToastStack.dc.html",
+    "TodoCard.dc.html",
+    "UpdateBand.dc.html"
+  ],
+  "notes": {
+    "title-current": {
+      "x": 0,
+      "y": -300,
+      "text": "今 · <details> がタグの文字のまま出て、中身も常に見えている",
+      "kind": "title1",
+      "maxW": 7880,
+      "page": "today"
+    },
+    "title-a": {
+      "x": 0,
+      "y": -300,
+      "text": "A · ツールの行と同じ小さな灰色の行で、右に › が付く",
+      "kind": "title1",
+      "maxW": 7880,
+      "page": "look"
+    },
+    "title-b": {
+      "x": 0,
+      "y": 1020,
+      "text": "B · 枠で囲んだ箱で、見出しの右に ⌄ が付く",
+      "kind": "title1",
+      "maxW": 7880,
+      "page": "look"
+    },
+    "title-c": {
+      "x": 0,
+      "y": 2340,
+      "text": "C · GitHub と同じく、左に ▸ が付いた本文の文字の行",
+      "kind": "title1",
+      "maxW": 7880,
+      "page": "look"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-25T12:33:42Z"
+    }
+  ]
+}

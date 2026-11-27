@@ -1443,6 +1443,54 @@
       "page": "components",
       "title": "SortMenu"
     },
+    "InboxWaiting.dc.html": {
+      "x": 0,
+      "y": 12680,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox · 他の作業を待っているセッションは Later の下の Waiting に分ける (先頭を会話で開いている)",
+      "page": "inbox"
+    },
+    "PhoneInboxWaiting.dc.html": {
+      "x": 1520,
+      "y": 12680,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Waiting 3 ⌄ を開いた",
+      "page": "inbox"
+    },
+    "PhoneDrawerWaiting.dc.html": {
+      "x": 1990,
+      "y": 12680,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーションの待っているセッションにも砂時計",
+      "page": "inbox"
+    },
+    "InboxLongNames.dc.html": {
+      "x": 0,
+      "y": 14300,
+      "w": 1440,
+      "h": 900,
+      "title": "長い repo 名とブランチ名 · repo とブランチから … で縮め、タスク名を残す (Proposal の行の repo にマウスを置いた)",
+      "page": "inbox"
+    },
+    "PhoneInboxLongNames.dc.html": {
+      "x": 1520,
+      "y": 14300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 長い repo 名 · org を … にして repo 名を残す",
+      "page": "inbox"
+    },
+    "PhoneDrawerLongNames.dc.html": {
+      "x": 1990,
+      "y": 14300,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーション · 長い repo 名とブランチ名 (入れば org も出す)",
+      "page": "inbox"
+    },
     "MdDetails.dc.html": {
       "x": 0,
       "y": 5680,
@@ -1522,30 +1570,6 @@
       "h": 844,
       "title": "iPhone · 状況パネル · Review · PR draft の Preview の details",
       "page": "status-panel"
-    },
-    "InboxWaiting.dc.html": {
-      "x": 0,
-      "y": 12680,
-      "w": 1440,
-      "h": 900,
-      "title": "Inbox · 他の作業を待っているセッションは Later の下の Waiting に分ける (先頭を会話で開いている)",
-      "page": "inbox"
-    },
-    "PhoneDrawerWaiting.dc.html": {
-      "x": 1990,
-      "y": 12680,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · ナビゲーションの待っているセッションにも砂時計",
-      "page": "inbox"
-    },
-    "PhoneInboxWaiting.dc.html": {
-      "x": 1520,
-      "y": 12680,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · Waiting 3 ⌄ を開いた",
-      "page": "inbox"
     },
     "ConversationStuckClosed.dc.html": {
       "x": 0,
@@ -1778,6 +1802,12 @@
     "PhoneInboxSortProject.dc.html",
     "SortControl.dc.html",
     "SortMenu.dc.html",
+    "InboxWaiting.dc.html",
+    "PhoneInboxWaiting.dc.html",
+    "PhoneDrawerWaiting.dc.html",
+    "InboxLongNames.dc.html",
+    "PhoneInboxLongNames.dc.html",
+    "PhoneDrawerLongNames.dc.html",
     "MdDetails.dc.html",
     "DetailsPlace.dc.html",
     "DetailsMessage.dc.html",
@@ -1788,9 +1818,6 @@
     "PhoneChatDetailsProposal.dc.html",
     "StatusReviewDetails.dc.html",
     "PhoneStatusReviewDetails.dc.html",
-    "InboxWaiting.dc.html",
-    "PhoneInboxWaiting.dc.html",
-    "PhoneDrawerWaiting.dc.html",
     "ConversationStuckClosed.dc.html",
     "PhoneChatStuckClosed.dc.html",
     "ConversationStuckOpen.dc.html",
@@ -2104,6 +2131,22 @@
       "maxW": 3900,
       "page": "inbox"
     },
+    "rowInboxWaiting": {
+      "x": 0,
+      "y": 12380,
+      "text": "Inbox · 他の作業を待っているセッション · Waiting の区分と灰色の砂時計",
+      "kind": "title1",
+      "maxW": 2380,
+      "page": "inbox"
+    },
+    "rowLongNames": {
+      "x": 0,
+      "y": 14000,
+      "text": "Inbox · 長い repo 名とブランチ名 · repo やブランチから … で縮め、タイトルとタスク名を残す",
+      "kind": "title1",
+      "maxW": 2380,
+      "page": "inbox"
+    },
     "rowDetailsFold": {
       "x": 0,
       "y": 13130,
@@ -2127,14 +2170,6 @@
       "kind": "title1",
       "maxW": 1424,
       "page": "components"
-    },
-    "rowInboxWaiting": {
-      "x": 0,
-      "y": 12380,
-      "text": "Inbox · 他の作業を待っているセッション · Waiting の区分と灰色の砂時計",
-      "kind": "title1",
-      "maxW": 2380,
-      "page": "inbox"
     },
     "rowStuckResume": {
       "x": 0,

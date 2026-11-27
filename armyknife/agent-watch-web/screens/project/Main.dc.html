@@ -96,7 +96,8 @@ class Component extends DCLogic {
         ] },
         { title: 'セッションの行', items: [
           'セッションが並ぶ場所はすべて同じ行 (SessionRow) で描きます。先頭は状態で、種類のアイコン (Needs action)、青い丸 (Working)、灰色の砂時計 (Waiting)、✓ (Done) のどれかです。ナビの Starred、Recent、PM の行も同じ印を使います。',
-          'Inbox はタイトル、プレビュー、role / engine / tq タスクとリポジトリの 3 行です。ほかの一覧はプレビューを省き、リポジトリを 3 行目に出します。Board の待っている行だけは、プレビューの代わりに待っている内容を 2 行目に出します。',
+          'Inbox はタイトル、プレビュー、role / engine / tq タスクとリポジトリの 3 行です。ほかの一覧はプレビューを省き、リポジトリとブランチ (⑂ のあと) を 3 行目に出します。Board の待っている行だけは、プレビューの代わりに待っている内容を 2 行目に出します。',
+          '1 行に入らないときは、タイトルとタスク名を残し、リポジトリとブランチを先に … で縮めます。ブランチは「⑂ fix-…」(7 文字) まで縮みます。リポジトリは全部入れば「example/notification-service」と出し、入らなければ org を 1 つの … にして「…/notification-service」とし、それでも入らなければ後ろを … にします (10 文字まで)。そこまで縮めても入らなければ、タスク名の後ろも … にします。並びは今のまま、Inbox はタスクの後ろにリポジトリ、ほかの一覧は 3 行目にリポジトリ ⑂ ブランチで、会話のヘッダー (リポジトリが先でタスク名から縮む) とは揃えません。縮めた文字は、上にマウスを置くと全文を出します。',
           'Waiting は PR のマージや CI など他の作業を待つセッション (activityStatus waiting) です。In progress から分けた区分 (Inbox は Later の下、Board は各列の Needs action と In progress の間) に置き、2 行目に待っている内容 (PR #2061 のマージ待ちなど) を出します。ないときは区分ごと出しません。iPhone の Inbox では In progress と同じく 1 行にまとめ、押すと開きます。返信欄の上の帯も同じ砂時計に Waiting と待っている内容を続けます。',
           'role は灰色のアイコンで、role がないセッションは設定の agent.work_type_fallback のアイコンを出します。engine は claude / codex の文字で出します。'
         ] },

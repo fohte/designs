@@ -1,0 +1,82 @@
+<!-- @dsCard group="Overlays" height=640 width=1080 subtitle="static rendition" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>CommandPalette</title>
+</head>
+<body>
+<div class="fui-row" style="align-items:flex-start;gap:16px;flex-wrap:nowrap">
+  <div class="fui-cell" style="flex:1 1 680px"><span class="fui-note">from md (768px): centered 640px window, key hints, footer</span>
+    <div class="fui-palette-overlay fui-palette-overlay--md" style="width:100%;padding-top:48px">
+      <div class="fui-palette fui-palette--md" role="dialog" aria-modal="true" aria-label="Command palette">
+        <div class="fui-palette-head">
+          <span class="fui-palette-prefix" aria-hidden="true">›</span>
+          <input class="fui-input fui-ghost-field fui-input--ghost" type="text" value="gar" aria-label="Search">
+          <span class="fui-palette-key">Esc</span>
+          <button class="fui-button fui-button--ghost fui-palette-close" type="button" aria-label="Close search"><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div class="fui-palette-results">
+          <div class="fui-list" role="listbox" aria-label="Search results">
+            <div class="fui-palette-group-title">PAGES</div>
+            <div class="fui-list-item" role="option" aria-selected="true" data-highlighted data-selected><span class="fui-palette-item-title">Garden plan</span><span class="fui-palette-item-detail">this workspace</span><svg class="fui-icon fui-icon--selected" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+            <div class="fui-list-item" role="option" aria-selected="false"><span class="fui-palette-item-title">Garage inventory</span><span class="fui-palette-item-detail">shared notes</span></div>
+            <div class="fui-palette-divider"></div>
+            <div class="fui-palette-group-title">COMMANDS</div>
+            <div class="fui-palette-section-title">Create</div>
+            <div class="fui-list-item" role="option" aria-selected="false"><span class="fui-palette-item-title">New garden note</span><span class="fui-palette-item-detail">⌘ N</span></div>
+          </div>
+        </div>
+        <div class="fui-palette-foot">
+          <span class="fui-palette-key">↑↓</span><span>navigate</span>
+          <span class="fui-palette-key">Tab</span><span>filter / autocomplete</span>
+          <span class="fui-palette-key">Enter</span><span>open</span>
+          <span class="fui-palette-key">Esc</span><span>close</span>
+        </div>
+      </div>
+    </div>
+    <span class="fui-note" style="margin-top:8px">states: loading with a scope chip · empty</span>
+    <div style="display:flex;gap:12px;width:100%">
+      <div class="fui-palette fui-palette--md" style="flex:1">
+        <div class="fui-palette-head">
+          <span class="fui-palette-prefix" aria-hidden="true">#</span>
+          <span style="display:flex;max-width:128px;min-width:0"><span class="fui-chip fui-chip--md fui-chip--strong"><span style="min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">scope:garden</span><button class="fui-button-plain" type="button" aria-label="Remove the scope"><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></span></span>
+          <input class="fui-input fui-ghost-field fui-input--ghost" type="text" value="seeds" aria-label="Search">
+          <svg class="fui-icon fui-palette-loading" viewBox="0 0 24 24" aria-label="Loading"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+          <span class="fui-palette-key">Esc</span>
+        </div>
+      </div>
+      <div class="fui-palette fui-palette--md" style="flex:1">
+        <div class="fui-palette-head">
+          <span class="fui-palette-prefix" aria-hidden="true">›</span>
+          <input class="fui-input fui-ghost-field fui-input--ghost" type="text" value="zzz" aria-label="Search">
+          <span class="fui-palette-key">Esc</span>
+        </div>
+        <div class="fui-palette-message">No results for “zzz”</div>
+      </div>
+    </div>
+  </div>
+  <div class="fui-cell" style="flex:0 0 320px"><span class="fui-note">below md: full screen, close button, mobile toolbar, no footer</span>
+    <div class="fui-palette-overlay" style="width:320px;height:540px">
+      <div class="fui-palette" role="dialog" aria-modal="true" aria-label="Command palette">
+        <div class="fui-palette-head">
+          <span class="fui-palette-prefix" aria-hidden="true">›</span>
+          <input class="fui-input fui-ghost-field fui-input--ghost" type="text" value="" placeholder="Search..." aria-label="Search">
+          <span class="fui-palette-key">Esc</span>
+          <button class="fui-button fui-button--ghost fui-palette-close" type="button" aria-label="Close search"><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+        <div class="fui-palette-toolbar" role="group" aria-label="Search mode">
+          <button class="fui-chip fui-chip--md fui-chip--strong" type="button" aria-pressed="true">all</button>
+          <button class="fui-chip fui-chip--md" type="button" aria-pressed="false">pages</button>
+          <button class="fui-chip fui-chip--md" type="button" aria-pressed="false">commands</button>
+        </div>
+        <div class="fui-palette-results">
+          <div class="fui-palette-message">Type to search pages</div>
+        </div>
+        <div class="fui-palette-foot"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

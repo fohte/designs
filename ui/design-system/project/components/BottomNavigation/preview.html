@@ -1,0 +1,49 @@
+<!-- @dsCard group="Navigation" height=360 subtitle="static rendition" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>BottomNavigation</title>
+</head>
+<body>
+<div class="fui-row" style="align-items:flex-start;gap:24px">
+  <div class="fui-cell" style="width:320px"><span class="fui-note">five links, first selected (aria-current="page")</span>
+    <nav class="fui-bottom-nav" aria-label="Primary navigation"><ul class="fui-bottom-nav-list">
+      <li><a class="fui-bottom-nav-item" href="#home" aria-current="page"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span>Home</span></a></li>
+      <li><a class="fui-bottom-nav-item" href="#read"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span><span>Read</span></a></li>
+      <li><a class="fui-bottom-nav-item is-hover" href="#plan"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg></span><span>Plan</span></a></li>
+      <li><a class="fui-bottom-nav-item" href="#log"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></span><span>Log</span></a></li>
+      <li><a class="fui-bottom-nav-item is-focus" href="#saved"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"/></svg></span><span>Saved</span></a></li>
+    </ul></nav>
+    <span class="fui-note">Plan: hover · Saved: keyboard focus</span>
+  </div>
+  <div class="fui-cell" style="width:320px"><span class="fui-note">four links and two actions (divider via item className)</span>
+    <nav class="fui-bottom-nav" aria-label="Primary navigation"><ul class="fui-bottom-nav-list">
+      <li><a class="fui-bottom-nav-item" href="#home" aria-current="page"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span>Home</span></a></li>
+      <li><a class="fui-bottom-nav-item" href="#read"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span><span>Read</span></a></li>
+      <li><a class="fui-bottom-nav-item" href="#plan"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg></span><span>Plan</span></a></li>
+      <li><a class="fui-bottom-nav-item" href="#saved"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="5" rx="1"/><path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4"/></svg></span><span>Saved</span></a></li>
+      <li><button class="fui-bottom-nav-item fui-bottom-nav-item--divider" type="button"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M22 3H2l8 9.46V19l4 2v-8.54z"/></svg></span><span>Filter</span></button></li>
+      <li><button class="fui-bottom-nav-item" type="button"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span><span>Find</span></button></li>
+    </ul></nav>
+  </div>
+</div>
+<div class="fui-row" style="align-items:flex-start;gap:24px">
+  <div class="fui-cell" style="width:320px"><span class="fui-note">a disabled action</span>
+    <nav class="fui-bottom-nav" aria-label="Primary navigation"><ul class="fui-bottom-nav-list">
+      <li><a class="fui-bottom-nav-item" href="#home" aria-current="page"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><span>Home</span></a></li>
+      <li><a class="fui-bottom-nav-item" href="#read"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span><span>Read</span></a></li>
+      <li><a class="fui-bottom-nav-item" href="#plan"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg></span><span>Plan</span></a></li>
+      <li><button class="fui-bottom-nav-item" type="button" disabled><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M9 15h6M12 18v-6"/></svg></span><span>Edit</span></button></li>
+    </ul></nav>
+  </div>
+  <div class="fui-cell" style="width:320px"><span class="fui-note">long labels stay on one line and scroll</span>
+    <nav class="fui-bottom-nav" aria-label="Primary navigation"><ul class="fui-bottom-nav-list">
+      <li><a class="fui-bottom-nav-item" href="#week" aria-current="page"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg></span><span>Weekly planning</span></a></li>
+      <li><a class="fui-bottom-nav-item" href="#shelf"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg></span><span>Bedside reading shelf</span></a></li>
+      <li><a class="fui-bottom-nav-item" href="#changes"><span class="fui-bottom-nav-icon" aria-hidden="true"><svg class="fui-icon" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></span><span>Recent changes</span></a></li>
+    </ul></nav>
+  </div>
+</div>
+</body>
+</html>

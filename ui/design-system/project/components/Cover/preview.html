@@ -1,0 +1,61 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>@fohte/ui</title>
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--background); color: var(--foreground); font-family: var(--font-sans); overflow: hidden; }
+  .cover { position: relative; height: 288px; overflow: hidden; }
+  .art { position: absolute; top: 0; left: 480px; width: 480px; height: 288px; }
+  .art svg { display: block; }
+  .ink { fill: var(--foreground); }
+  .red { fill: var(--primary); }
+  .strong { fill: var(--border-strong); }
+  .mid { fill: var(--muted-foreground); }
+  .cap { fill: none; stroke: var(--border-strong); stroke-width: 1; rx: var(--keycap-radius); }
+  .cap-on { fill: var(--foreground); rx: var(--keycap-radius); }
+  .words { position: absolute; left: 24px; bottom: 24px; max-width: 440px; }
+  .name { margin: 0; font-family: var(--font-mono); font-size: 72px; line-height: .92; font-weight: 700; }
+  .tag { margin: 12px 0 0; font-size: 14px; line-height: 20px; color: var(--muted-foreground); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      foreground slab 240x168 (bleeds top), primary 144x96 and border-strong 144x72 (bleed right), muted-foreground 48x48 tucked under the slab
+  arrangement a flush modular grid of square-cornered tiles (radius 0) cut from the 8px spacing steps, bleeding off the top and right edges
+  pattern     "geometric, modular, dense UI": two rows of keycaps, the system's only rounded corner (keycap-radius 4px), one filled in foreground
+  scales      tiles on space-2 (8px) multiples, keycaps 40x24 with space-2 gaps, rx = keycap-radius
+-->
+<rect class="ink" x="96" y="0" width="240" height="168"/>
+<rect class="red" x="336" y="0" width="144" height="96"/>
+<rect class="strong" x="336" y="96" width="144" height="72"/>
+<rect class="mid" x="48" y="120" width="48" height="48"/>
+<rect class="cap" x="96.5" y="200.5" width="39" height="23"/>
+<rect class="cap" x="144.5" y="200.5" width="39" height="23"/>
+<rect class="cap" x="192.5" y="200.5" width="39" height="23"/>
+<rect class="cap" x="240.5" y="200.5" width="39" height="23"/>
+<rect class="cap" x="288.5" y="200.5" width="39" height="23"/>
+<rect class="cap" x="336.5" y="200.5" width="39" height="23"/>
+<rect class="cap" x="384.5" y="200.5" width="39" height="23"/>
+<rect class="cap" x="432.5" y="200.5" width="39" height="23"/>
+<rect class="cap" x="120.5" y="232.5" width="39" height="23"/>
+<rect class="cap" x="168.5" y="232.5" width="39" height="23"/>
+<rect class="cap-on" x="216" y="232" width="40" height="24"/>
+<rect class="cap" x="264.5" y="232.5" width="39" height="23"/>
+<rect class="cap" x="312.5" y="232.5" width="39" height="23"/>
+<rect class="cap" x="360.5" y="232.5" width="39" height="23"/>
+<rect class="cap" x="408.5" y="232.5" width="39" height="23"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">@fohte/ui</h1>
+<p class="tag">Shared tokens and React parts for fohte's apps: square, gray, red only as punctuation.</p>
+</div>
+</div>
+</body>
+</html>

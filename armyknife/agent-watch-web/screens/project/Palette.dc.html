@@ -71,7 +71,7 @@ class Component extends DCLogic {
     };
     const it = (glyph, title, sub) => pick({ isOther: true, isSession: false, glyph, title, sub });
     const ses = (status, unread, title, age, role, engine, taskRef, taskTitle, repo) =>
-      pick({ isSession: true, isOther: false, pad: '6px 16px 7px', status, unread, title, age, role, engine, taskRef, taskTitle, repo });
+      pick({ isSession: true, isOther: false, pad: '6px 16px 7px', w: 680, status, unread, title, age, role, engine, taskRef, taskTitle, repo });
     // Close this session acts on the open conversation; only a Done session closes without asking.
     const groups = close ? [
       { title: 'COMMANDS', items: [

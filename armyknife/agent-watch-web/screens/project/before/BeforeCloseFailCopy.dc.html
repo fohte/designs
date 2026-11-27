@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Close failures by what is left</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1440px; height: 1700px; box-sizing: border-box; display: grid; grid-template-columns: 160px 360px 400px 320px; grid-auto-rows: min-content; align-items: start; gap: 32px 24px; padding: 40px; background: #050505; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+<span style="font-size: 12px; color: #8b8b94">What is left</span>
+<span style="font-size: 12px; color: #8b8b94">Toast (summary)</span>
+<span style="font-size: 12px; color: #8b8b94">Activity (every check)</span>
+<span style="font-size: 12px; color: #8b8b94">Conversation (summary)</span>
+<sc-for list="{{kinds}}" as="k" hint-placeholder-count="5">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; color: #a1a1aa">{{k.label}}</span><code style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{k.code}}</code></div>
+<dc-import name="BeforeActionItem" a="{{ k.a }}" form="toast" hint-size="100%,170px"></dc-import>
+<div style="background: #1f1f1f"><dc-import name="BeforeActionItem" a="{{ k.a }}" form="row" hint-size="100%,280px"></dc-import></div>
+<dc-import name="BeforeActionItem" a="{{ k.a }}" form="line" hint-size="100%,90px"></dc-import>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const session = 'アラートの送り先を決める';
+    const base = { path: '~/src/example/observability/.worktrees/alert-routing', files: [], branch: 'feature/alert-routing', merged: true, processes: [] };
+    const files = ['config/routes.yaml', 'config/routes.test.yaml', 'docs/alerts.md', 'docs/oncall.md', 'scripts/notify.sh'];
+    const k = (label, code, extra) => ({ label, code, a: { result: 'closeFailed', session, time: '12:03', ...extra } });
+    return {
+      kinds: [
+        k('Uncommitted changes', 'dirty_worktree', { checks: { ...base, files: files.slice(0, 2) } }),
+        k('Branch not merged', 'unmerged_worktree', { checks: { ...base, merged: false, reason: 'PR #2056 is still open' } }),
+        k('Running processes', 'worktree_process_guard', { checks: { ...base, processes: ['48213 node', '48250 vite'] } }),
+        k('All three', 'all guards', { checks: { ...base, files, merged: false, reason: 'PR #2056 is still open', processes: ['48213 node'] } }),
+        k('No guard (only the message)', 'no code', { reason: 'The session did not stop within 10 s.' })
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

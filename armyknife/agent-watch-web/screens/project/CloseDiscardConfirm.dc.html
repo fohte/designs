@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Discard changes and close: confirmation</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; display: flex; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" activity="{{ activity }}" hint-size="240px,900px"></dc-import></div>
+<div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" current="{{ one }}" hint-size="460px,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0"><dc-import name="Conversation" variant="review" done="{{ true }}" action-line="{{ line }}" hint-size="100%,900px"></dc-import></div>
+<div style="position: absolute; z-index: 10; left: 16px; bottom: 16px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,220px"></dc-import></div>
+<div style="position: absolute; z-index: 30; inset: 0; display: grid; place-items: center; background: rgb(0 0 0 / 55%)">
+<div style="width: 520px"><dc-import name="DiscardDialog" form="modal" session="{{ session }}" branch="{{ branch }}" path="{{ path }}" changes="{{ changes }}" commits="{{ commits }}" hint-size="100%,560px"></dc-import></div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const session = '配信チェックの PR を確認する', branch = 'feature/resend-limit', path = '~/src/example/web-app/.worktrees/resend-limit';
+    const changes = [
+      { s: 'M', path: 'src/resend.ts' }, { s: 'M', path: 'src/resend.test.ts' }, { s: 'A', path: 'src/resend-limit.ts' },
+      { s: 'A', path: 'src/resend-limit.test.ts' }, { s: 'M', path: 'config/resend.yaml' }, { s: 'D', path: 'src/legacy-retry.ts' },
+      { s: 'M', path: 'src/queue.ts' }, { s: 'M', path: 'src/queue.test.ts' }, { s: 'M', path: 'docs/resend.md' },
+      { s: 'M', path: 'package.json' }, { s: 'M', path: 'pnpm-lock.yaml' }, { s: '??', path: 'scripts/replay.sh' },
+      { s: '??', path: 'notes/limit.md' }, { s: '??', path: 'tmp/resend-debug.log' }
+    ];
+    const commits = [{ sha: 'a1b2c3d', subject: '再送の上限を設定に出す' }, { sha: 'e4f5a6b', subject: '上限に達したら警告を出す' }];
+    const checks = { path, files: changes.map((f) => f.path), branch, merged: false, reason: 'PR #2049 is still open', processes: [] };
+    return {
+      one: 1, session, branch, path, changes, commits,
+      activity: { count: '1', tone: 'failure' },
+      line: { result: 'closeFailed', checks, time: '12:03' },
+      // The toast the dialog was opened from stays underneath.
+      toasts: [{ result: 'closeFailed', session, checks }]
+    };
+  }
+}
+</script>
+</body>
+</html>

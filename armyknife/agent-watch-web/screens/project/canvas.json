@@ -1522,6 +1522,30 @@
       "h": 844,
       "title": "iPhone · 状況パネル · Review · PR draft の Preview の details",
       "page": "status-panel"
+    },
+    "InboxWaiting.dc.html": {
+      "x": 0,
+      "y": 12280,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox · 他の作業を待っているセッションは Later の下の Waiting に分ける (先頭を会話で開いている)",
+      "page": "inbox"
+    },
+    "PhoneDrawerWaiting.dc.html": {
+      "x": 1990,
+      "y": 12280,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーションの待っているセッションにも砂時計",
+      "page": "inbox"
+    },
+    "PhoneInboxWaiting.dc.html": {
+      "x": 1520,
+      "y": 12280,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Waiting 3 ⌄ を開いた",
+      "page": "inbox"
     }
   },
   "order": [
@@ -1715,7 +1739,10 @@
     "DetailsProposal.dc.html",
     "PhoneChatDetailsProposal.dc.html",
     "StatusReviewDetails.dc.html",
-    "PhoneStatusReviewDetails.dc.html"
+    "PhoneStatusReviewDetails.dc.html",
+    "InboxWaiting.dc.html",
+    "PhoneInboxWaiting.dc.html",
+    "PhoneDrawerWaiting.dc.html"
   ],
   "pages": [
     {
@@ -2046,6 +2073,14 @@
       "kind": "title1",
       "maxW": 1424,
       "page": "components"
+    },
+    "rowInboxWaiting": {
+      "x": 0,
+      "y": 11980,
+      "text": "Inbox · 他の作業を待っているセッション · Waiting の区分と灰色の砂時計",
+      "kind": "title1",
+      "maxW": 2380,
+      "page": "inbox"
     }
   },
   "v": 3,
@@ -2091,6 +2126,7 @@
     "rowReviewPreview",
     "rowDetailsFold",
     "rowReviewDetails",
-    "rowPartsDetails"
+    "rowPartsDetails",
+    "rowInboxWaiting"
   ]
 }

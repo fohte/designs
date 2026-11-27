@@ -61,16 +61,16 @@
       "page": "app"
     },
     "AppBrowse.dc.html": {
-      "x": 0,
-      "y": 1020,
+      "x": 1990,
+      "y": 0,
       "w": 390,
       "h": 844,
       "title": "browse · モバイル",
       "page": "app"
     },
     "AppBrowseTagSheet.dc.html": {
-      "x": 470,
-      "y": 1020,
+      "x": 2460,
+      "y": 0,
       "w": 390,
       "h": 844,
       "title": "browse · タグの操作シート",
@@ -78,7 +78,7 @@
     },
     "AppSearch.dc.html": {
       "x": 0,
-      "y": 1984,
+      "y": 1020,
       "w": 1440,
       "h": 900,
       "title": "検索パレット · 結果",
@@ -86,15 +86,15 @@
     },
     "AppSearchHelp.dc.html": {
       "x": 1990,
-      "y": 1984,
+      "y": 1020,
       "w": 1440,
       "h": 900,
       "title": "検索パレット · ヘルプ",
       "page": "app"
     },
     "AppSearchEmpty.dc.html": {
-      "x": 3510,
-      "y": 1984,
+      "x": 3980,
+      "y": 1020,
       "w": 1440,
       "h": 900,
       "title": "検索パレット · 初期状態と結果なし",
@@ -102,7 +102,7 @@
     },
     "AppSearchPhone.dc.html": {
       "x": 1520,
-      "y": 1984,
+      "y": 1020,
       "w": 390,
       "h": 844,
       "title": "検索パレット · モバイル",
@@ -110,7 +110,7 @@
     },
     "AppUrlCopiedToast.dc.html": {
       "x": 0,
-      "y": 3004,
+      "y": 4080,
       "w": 480,
       "h": 68,
       "title": "URL コピーのトースト",
@@ -118,7 +118,7 @@
     },
     "AppCompletionFailure.dc.html": {
       "x": 560,
-      "y": 3004,
+      "y": 4080,
       "w": 1860,
       "h": 360,
       "title": "完了失敗パネルの状態",
@@ -126,7 +126,7 @@
     },
     "AppFindInPage.dc.html": {
       "x": 2500,
-      "y": 3004,
+      "y": 4080,
       "w": 760,
       "h": 112,
       "title": "ページ内検索バー",
@@ -134,31 +134,31 @@
     },
     "AppSaveView.dc.html": {
       "x": 0,
-      "y": 3484,
+      "y": 2040,
       "w": 1440,
       "h": 900,
       "title": "Save view ダイアログ",
       "page": "app"
     },
     "AppRenameView.dc.html": {
-      "x": 1520,
-      "y": 3484,
+      "x": 1990,
+      "y": 2040,
       "w": 1440,
       "h": 900,
       "title": "Rename view ダイアログ",
       "page": "app"
     },
     "AppEditTag.dc.html": {
-      "x": 3040,
-      "y": 3484,
+      "x": 0,
+      "y": 3060,
       "w": 1440,
       "h": 900,
       "title": "Edit tag ダイアログ",
       "page": "app"
     },
     "AppDeleteConfirm.dc.html": {
-      "x": 4560,
-      "y": 3484,
+      "x": 1990,
+      "y": 3060,
       "w": 1440,
       "h": 900,
       "title": "削除確認ダイアログ",
@@ -166,7 +166,7 @@
     },
     "AppSessions.dc.html": {
       "x": 0,
-      "y": 4504,
+      "y": 4560,
       "w": 720,
       "h": 300,
       "title": "エージェントセッション表示",
@@ -174,7 +174,7 @@
     },
     "AppExtensionChip.dc.html": {
       "x": 800,
-      "y": 4504,
+      "y": 4560,
       "w": 960,
       "h": 600,
       "title": "拡張機能チップ (GitHub)",
@@ -182,7 +182,7 @@
     },
     "Compact.dc.html": {
       "x": 0,
-      "y": 5224,
+      "y": 5280,
       "w": 320,
       "h": 900,
       "title": "サイドウィンドウ",
@@ -190,7 +190,7 @@
     },
     "CompactMeeting.dc.html": {
       "x": 400,
-      "y": 5224,
+      "y": 5280,
       "w": 320,
       "h": 900,
       "title": "サイドウィンドウ (会議中)",
@@ -198,7 +198,7 @@
     },
     "CompactOverrun.dc.html": {
       "x": 800,
-      "y": 5224,
+      "y": 5280,
       "w": 320,
       "h": 900,
       "title": "サイドウィンドウ (超過と次の予定)",
@@ -206,7 +206,7 @@
     },
     "CompactBrowser.dc.html": {
       "x": 1200,
-      "y": 5224,
+      "y": 5280,
       "w": 320,
       "h": 900,
       "title": "サイドウィンドウ (ブラウザ, 未連携)",
@@ -214,7 +214,7 @@
     },
     "MemoWindow.dc.html": {
       "x": 1600,
-      "y": 5224,
+      "y": 5280,
       "w": 480,
       "h": 560,
       "title": "メモウィンドウ",
@@ -229,15 +229,15 @@
       "page": "calendar"
     },
     "DayNotConnected.dc.html": {
-      "x": 0,
-      "y": 1020,
+      "x": 2460,
+      "y": 0,
       "w": 1440,
       "h": 900,
       "title": "Day ビュー (Google 未連携)",
       "page": "calendar"
     },
     "DayMonth.dc.html": {
-      "x": 1520,
+      "x": 0,
       "y": 1020,
       "w": 1440,
       "h": 900,
@@ -245,7 +245,7 @@
       "page": "calendar"
     },
     "DayBoard.dc.html": {
-      "x": 3040,
+      "x": 1990,
       "y": 1020,
       "w": 1440,
       "h": 900,
@@ -261,23 +261,23 @@
       "page": "calendar"
     },
     "DayBlockPreview.dc.html": {
-      "x": 1520,
-      "y": 2040,
+      "x": 0,
+      "y": 3060,
       "w": 1440,
       "h": 900,
       "title": "時間ブロックのプレビュー",
       "page": "calendar"
     },
     "DayBlockDelete.dc.html": {
-      "x": 3040,
-      "y": 2040,
+      "x": 1990,
+      "y": 3060,
       "w": 1440,
       "h": 900,
       "title": "時間ブロック削除の確認",
       "page": "calendar"
     },
     "DayChangeFeedback.dc.html": {
-      "x": 4560,
+      "x": 1990,
       "y": 2040,
       "w": 1440,
       "h": 900,
@@ -302,7 +302,7 @@
     },
     "ScheduleDesktop.dc.html": {
       "x": 0,
-      "y": 3060,
+      "y": 4080,
       "w": 1440,
       "h": 900,
       "title": "スケジュール作成",
@@ -310,7 +310,7 @@
     },
     "ScheduleEditDesktop.dc.html": {
       "x": 1990,
-      "y": 3060,
+      "y": 4080,
       "w": 1440,
       "h": 900,
       "title": "スケジュール編集 (全件)",
@@ -318,7 +318,7 @@
     },
     "SchedulePhone.dc.html": {
       "x": 1520,
-      "y": 3060,
+      "y": 4080,
       "w": 390,
       "h": 844,
       "title": "スケジュール作成 スマホ",
@@ -501,16 +501,16 @@
       "page": "projects"
     },
     "ProjectLinkTask.dc.html": {
-      "x": 0,
-      "y": 3060,
+      "x": 1990,
+      "y": 2040,
       "w": 1440,
       "h": 900,
       "title": "既存タスクを紐付け",
       "page": "projects"
     },
     "ProjectMoveConfirm.dc.html": {
-      "x": 1520,
-      "y": 3060,
+      "x": 3980,
+      "y": 2040,
       "w": 1440,
       "h": 900,
       "title": "プロジェクト移動の確認",
@@ -534,7 +534,7 @@
     },
     "RecurringCreateModal.dc.html": {
       "x": 0,
-      "y": 2040,
+      "y": 1020,
       "w": 1440,
       "h": 900,
       "title": "New Recurring Template · デスクトップ",
@@ -542,47 +542,47 @@
     },
     "RecurringCreateModalPhone.dc.html": {
       "x": 1520,
-      "y": 2040,
+      "y": 1020,
       "w": 390,
       "h": 844,
       "title": "New Recurring Template · スマホ",
       "page": "recurring"
     },
     "RecurringDetail.dc.html": {
-      "x": 0,
-      "y": 1020,
+      "x": 1990,
+      "y": 0,
       "w": 1440,
       "h": 900,
       "title": "テンプレート詳細 · デスクトップ",
       "page": "recurring"
     },
     "RecurringDetailPhone.dc.html": {
-      "x": 1520,
-      "y": 1020,
+      "x": 3510,
+      "y": 0,
       "w": 390,
       "h": 844,
       "title": "テンプレート詳細 · スマホ",
       "page": "recurring"
     },
     "RecurringRepeatPopover.dc.html": {
-      "x": 0,
-      "y": 3060,
+      "x": 1990,
+      "y": 1020,
       "w": 1440,
       "h": 900,
       "title": "繰り返しルールのポップオーバー",
       "page": "recurring"
     },
     "RecurringAddOccurrence.dc.html": {
-      "x": 1520,
-      "y": 3060,
+      "x": 0,
+      "y": 2040,
       "w": 1440,
       "h": 900,
       "title": "テンプレートからタスクを追加",
       "page": "recurring"
     },
     "RecurringDeleteDialog.dc.html": {
-      "x": 3040,
-      "y": 3060,
+      "x": 1990,
+      "y": 2040,
       "w": 1440,
       "h": 900,
       "title": "テンプレートの削除",
@@ -590,7 +590,7 @@
     },
     "RecurringGeneratedTasks.dc.html": {
       "x": 0,
-      "y": 4080,
+      "y": 3060,
       "w": 768,
       "h": 240,
       "title": "生成タスク一覧 (部品)",
@@ -598,7 +598,7 @@
     },
     "RecurringGeneratedStates.dc.html": {
       "x": 848,
-      "y": 4080,
+      "y": 3060,
       "w": 1648,
       "h": 660,
       "title": "生成タスク一覧 · 状態",
@@ -629,7 +629,7 @@
       "page": "settings"
     },
     "SettingsTemplateDialog.dc.html": {
-      "x": 1520,
+      "x": 1990,
       "y": 3440,
       "w": 1440,
       "h": 900,
@@ -654,7 +654,7 @@
     },
     "TaskDetailHead.dc.html": {
       "x": 0,
-      "y": 10460,
+      "y": 15140,
       "w": 768,
       "h": 420,
       "title": "見出し・説明",
@@ -662,7 +662,7 @@
     },
     "TaskDetailChecklists.dc.html": {
       "x": 848,
-      "y": 10460,
+      "y": 15140,
       "w": 768,
       "h": 700,
       "title": "チェックリスト",
@@ -670,7 +670,7 @@
     },
     "TaskDetailPages.dc.html": {
       "x": 1696,
-      "y": 10460,
+      "y": 15140,
       "w": 768,
       "h": 420,
       "title": "ページ一覧",
@@ -678,7 +678,7 @@
     },
     "TaskDetailSubtasks.dc.html": {
       "x": 2544,
-      "y": 10460,
+      "y": 15140,
       "w": 768,
       "h": 300,
       "title": "サブタスク",
@@ -686,7 +686,7 @@
     },
     "TaskDetailGithub.dc.html": {
       "x": 3392,
-      "y": 10460,
+      "y": 15140,
       "w": 768,
       "h": 120,
       "title": "GitHub リンク",
@@ -694,7 +694,7 @@
     },
     "TaskDetailDeps.dc.html": {
       "x": 4240,
-      "y": 10460,
+      "y": 15140,
       "w": 768,
       "h": 560,
       "title": "依存関係・wait",
@@ -702,7 +702,7 @@
     },
     "TaskDetailLinked.dc.html": {
       "x": 5088,
-      "y": 10460,
+      "y": 15140,
       "w": 768,
       "h": 200,
       "title": "言及",
@@ -710,7 +710,7 @@
     },
     "TaskDetailSessions.dc.html": {
       "x": 5936,
-      "y": 10460,
+      "y": 15140,
       "w": 768,
       "h": 100,
       "title": "セッション",
@@ -718,7 +718,7 @@
     },
     "TaskDetailActivity.dc.html": {
       "x": 6784,
-      "y": 10460,
+      "y": 15140,
       "w": 768,
       "h": 640,
       "title": "アクティビティ",
@@ -726,7 +726,7 @@
     },
     "TaskDetailSidebar.dc.html": {
       "x": 7632,
-      "y": 10460,
+      "y": 15140,
       "w": 240,
       "h": 1060,
       "title": "サイドバー",
@@ -734,7 +734,7 @@
     },
     "TaskDetailGithubParts.dc.html": {
       "x": 0,
-      "y": 11640,
+      "y": 16320,
       "w": 960,
       "h": 820,
       "title": "GitHub 部品",
@@ -742,7 +742,7 @@
     },
     "TaskDetailRefParts.dc.html": {
       "x": 1040,
-      "y": 11640,
+      "y": 16320,
       "w": 960,
       "h": 1180,
       "title": "参照チップ・カード",
@@ -757,7 +757,7 @@
       "page": "task"
     },
     "TaskDetailDuplicate.dc.html": {
-      "x": 1520,
+      "x": 1990,
       "y": 5020,
       "w": 1440,
       "h": 900,
@@ -765,7 +765,7 @@
       "page": "task"
     },
     "TaskDetailWaiting.dc.html": {
-      "x": 3040,
+      "x": 3980,
       "y": 5020,
       "w": 1440,
       "h": 900,
@@ -773,24 +773,24 @@
       "page": "task"
     },
     "TaskDetailEmpty.dc.html": {
-      "x": 4560,
-      "y": 5020,
+      "x": 0,
+      "y": 6040,
       "w": 1440,
       "h": 1240,
       "title": "空のセクション",
       "page": "task"
     },
     "TaskDetailLoading.dc.html": {
-      "x": 6080,
-      "y": 5020,
+      "x": 1990,
+      "y": 6040,
       "w": 1440,
       "h": 900,
       "title": "読み込み中",
       "page": "task"
     },
     "TaskDetailNotFound.dc.html": {
-      "x": 7600,
-      "y": 5020,
+      "x": 3980,
+      "y": 6040,
       "w": 1440,
       "h": 900,
       "title": "見つからない",
@@ -798,47 +798,47 @@
     },
     "TaskDetailMenusStatus.dc.html": {
       "x": 0,
-      "y": 6380,
+      "y": 8000,
       "w": 1440,
       "h": 900,
       "title": "ステータス・繰り返し・操作メニュー",
       "page": "task"
     },
     "TaskDetailMenusRemind.dc.html": {
-      "x": 1520,
-      "y": 6380,
+      "x": 2460,
+      "y": 8000,
       "w": 1440,
       "h": 900,
       "title": "リマインド・プロジェクト",
       "page": "task"
     },
     "TaskDetailMenusParent.dc.html": {
-      "x": 3040,
-      "y": 6380,
+      "x": 0,
+      "y": 9020,
       "w": 1440,
       "h": 900,
       "title": "親タスク",
       "page": "task"
     },
     "TaskDetailMenusTags.dc.html": {
-      "x": 4560,
-      "y": 6380,
+      "x": 1990,
+      "y": 9020,
       "w": 1440,
       "h": 900,
       "title": "コンテキスト・タグ",
       "page": "task"
     },
     "TaskDetailMenusPriority.dc.html": {
-      "x": 6080,
-      "y": 6380,
+      "x": 0,
+      "y": 10040,
       "w": 1440,
       "h": 900,
       "title": "優先度・項目メニュー",
       "page": "task"
     },
     "TaskDetailMention.dc.html": {
-      "x": 7600,
-      "y": 6380,
+      "x": 2460,
+      "y": 10040,
       "w": 1440,
       "h": 900,
       "title": "メンション補完",
@@ -846,71 +846,71 @@
     },
     "TaskDetailDeleteDialog.dc.html": {
       "x": 0,
-      "y": 7400,
+      "y": 11060,
       "w": 1440,
       "h": 900,
       "title": "タスク削除",
       "page": "task"
     },
     "TaskDetailSearchDialog.dc.html": {
-      "x": 1520,
-      "y": 7400,
+      "x": 0,
+      "y": 12080,
       "w": 1440,
       "h": 900,
       "title": "ブロッカー追加",
       "page": "task"
     },
     "TaskDetailBlockerGithub.dc.html": {
-      "x": 3040,
-      "y": 7400,
+      "x": 1990,
+      "y": 12080,
       "w": 1440,
       "h": 900,
       "title": "ブロッカー追加 (GitHub URL)",
       "page": "task"
     },
     "TaskDetailLinkTask.dc.html": {
-      "x": 4560,
-      "y": 7400,
+      "x": 3980,
+      "y": 12080,
       "w": 1440,
       "h": 900,
       "title": "既存タスクをリンク",
       "page": "task"
     },
     "TaskDetailDuplicateSearch.dc.html": {
-      "x": 6080,
-      "y": 7400,
+      "x": 0,
+      "y": 13100,
       "w": 1440,
       "h": 900,
       "title": "重複先の選択",
       "page": "task"
     },
     "TaskDetailMoveConfirm.dc.html": {
-      "x": 0,
-      "y": 8420,
+      "x": 1990,
+      "y": 11060,
       "w": 1440,
       "h": 900,
       "title": "親タスク変更の確認",
       "page": "task"
     },
     "TaskDetailWaitDialog.dc.html": {
-      "x": 1520,
-      "y": 8420,
+      "x": 3980,
+      "y": 11060,
       "w": 1440,
       "h": 900,
       "title": "wait の追加",
       "page": "task"
     },
     "TaskDetailGithubDialog.dc.html": {
-      "x": 3040,
-      "y": 8420,
+      "x": 1990,
+      "y": 13100,
       "w": 1440,
       "h": 900,
       "title": "GitHub issue をリンク",
       "page": "task"
     },
     "TaskDetailLinkPrDialog.dc.html": {
-      "x": 4560,
-      "y": 8420,
+      "x": 3980,
+      "y": 13100,
       "w": 1440,
       "h": 900,
       "title": "PR をリンク (チェックリスト)",
@@ -933,8 +933,8 @@
       "page": "task"
     },
     "TaskDetailPhoneActions.dc.html": {
-      "x": 2460,
-      "y": 0,
+      "x": 1990,
+      "y": 8000,
       "w": 390,
       "h": 844,
       "title": "操作シート",
@@ -942,7 +942,7 @@
     },
     "TaskPage.dc.html": {
       "x": 0,
-      "y": 9440,
+      "y": 14120,
       "w": 1440,
       "h": 900,
       "title": "Markdown ページ",
@@ -950,7 +950,7 @@
     },
     "TaskPageHtml.dc.html": {
       "x": 1990,
-      "y": 9440,
+      "y": 14120,
       "w": 1440,
       "h": 900,
       "title": "HTML ページ",
@@ -958,7 +958,7 @@
     },
     "TaskPagePhone.dc.html": {
       "x": 1520,
-      "y": 9440,
+      "y": 14120,
       "w": 390,
       "h": 844,
       "title": "ページ (モバイル)",
@@ -1021,7 +1021,7 @@
       "page": "tasks"
     },
     "TasksSyntaxHelp.dc.html": {
-      "x": 1520,
+      "x": 1990,
       "y": 2040,
       "w": 1440,
       "h": 900,
@@ -1029,7 +1029,7 @@
       "page": "tasks"
     },
     "TasksSaveView.dc.html": {
-      "x": 3040,
+      "x": 3980,
       "y": 2040,
       "w": 1440,
       "h": 900,
@@ -1037,7 +1037,7 @@
       "page": "tasks"
     },
     "TasksRowActions.dc.html": {
-      "x": 0,
+      "x": 1990,
       "y": 3060,
       "w": 1440,
       "h": 900,
@@ -1045,7 +1045,7 @@
       "page": "tasks"
     },
     "TasksDragOverlay.dc.html": {
-      "x": 1520,
+      "x": 0,
       "y": 3060,
       "w": 1440,
       "h": 900,
@@ -1061,31 +1061,31 @@
       "page": "tasks"
     },
     "TasksCandidateLink.dc.html": {
-      "x": 1520,
-      "y": 4080,
+      "x": 0,
+      "y": 5100,
       "w": 1440,
       "h": 900,
       "title": "タスク検索 · link existing",
       "page": "tasks"
     },
     "TasksCandidateDuplicate.dc.html": {
-      "x": 3040,
-      "y": 4080,
+      "x": 0,
+      "y": 6120,
       "w": 1440,
       "h": 900,
       "title": "タスク検索 · duplicate of",
       "page": "tasks"
     },
     "TasksChangeParent.dc.html": {
-      "x": 4560,
-      "y": 4080,
+      "x": 1990,
+      "y": 5100,
       "w": 1440,
       "h": 900,
       "title": "親変更の確認",
       "page": "tasks"
     },
     "TasksSetProject.dc.html": {
-      "x": 6080,
+      "x": 1990,
       "y": 4080,
       "w": 1440,
       "h": 900,
@@ -1093,8 +1093,8 @@
       "page": "tasks"
     },
     "TasksDeleteTask.dc.html": {
-      "x": 7600,
-      "y": 4080,
+      "x": 1990,
+      "y": 6120,
       "w": 1440,
       "h": 900,
       "title": "タスク削除の確認",
@@ -1102,7 +1102,7 @@
     },
     "CreateTaskDesktop.dc.html": {
       "x": 0,
-      "y": 5100,
+      "y": 7140,
       "w": 1440,
       "h": 900,
       "title": "タスク作成 · ショートハンド候補",
@@ -1110,15 +1110,15 @@
     },
     "CreateTaskHelp.dc.html": {
       "x": 1990,
-      "y": 5100,
+      "y": 7140,
       "w": 1440,
       "h": 900,
       "title": "タスク作成 · タイトルのヘルプ",
       "page": "tasks"
     },
     "CreateTaskTags.dc.html": {
-      "x": 3510,
-      "y": 5100,
+      "x": 3980,
+      "y": 7140,
       "w": 1440,
       "h": 900,
       "title": "タスク作成 · タグ入力",
@@ -1126,23 +1126,23 @@
     },
     "CreateTaskPhone.dc.html": {
       "x": 1520,
-      "y": 5100,
+      "y": 7140,
       "w": 390,
       "h": 844,
       "title": "タスク作成 · スマホ",
       "page": "tasks"
     },
     "CreateTaskReplace.dc.html": {
-      "x": 5030,
-      "y": 5100,
+      "x": 0,
+      "y": 8160,
       "w": 1440,
       "h": 900,
       "title": "説明置換の確認",
       "page": "tasks"
     },
     "CreateTaskDiscard.dc.html": {
-      "x": 6550,
-      "y": 5100,
+      "x": 1990,
+      "y": 8160,
       "w": 1440,
       "h": 900,
       "title": "下書き破棄の確認",
@@ -1165,20 +1165,468 @@
       "page": "today"
     },
     "FocusLoading.dc.html": {
-      "x": 0,
-      "y": 1020,
+      "x": 1990,
+      "y": 0,
       "w": 1440,
       "h": 900,
       "title": "Focus 読み込み中",
       "page": "today"
     },
     "FocusEmpty.dc.html": {
-      "x": 1520,
-      "y": 1020,
+      "x": 3980,
+      "y": 0,
       "w": 1440,
       "h": 900,
       "title": "Focus 空",
       "page": "today"
+    },
+    "DayNotConnectedPhone.dc.html": {
+      "x": 3980,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "Day ビュー スマホ (Google 未連携)",
+      "page": "calendar"
+    },
+    "DayMonthPhone.dc.html": {
+      "x": 1520,
+      "y": 1020,
+      "w": 390,
+      "h": 844,
+      "title": "Day ビュー スマホ (月)",
+      "page": "calendar"
+    },
+    "DayBoardPhone.dc.html": {
+      "x": 3510,
+      "y": 1020,
+      "w": 390,
+      "h": 844,
+      "title": "Day ビュー スマホ (Board)",
+      "page": "calendar"
+    },
+    "DayGcalPopoverPhone.dc.html": {
+      "x": 1520,
+      "y": 2040,
+      "w": 390,
+      "h": 844,
+      "title": "Google 予定の詳細 スマホ",
+      "page": "calendar"
+    },
+    "DayChangeFeedbackPhone.dc.html": {
+      "x": 3510,
+      "y": 2040,
+      "w": 390,
+      "h": 844,
+      "title": "変更フィードバック スマホ",
+      "page": "calendar"
+    },
+    "ScheduleEditPhone.dc.html": {
+      "x": 3510,
+      "y": 4080,
+      "w": 390,
+      "h": 1100,
+      "title": "スケジュール編集 (全件) スマホ",
+      "page": "calendar"
+    },
+    "FocusLoadingPhone.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "Focus 読み込み中 スマホ",
+      "page": "today"
+    },
+    "FocusEmptyPhone.dc.html": {
+      "x": 5500,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "Focus 空 スマホ",
+      "page": "today"
+    },
+    "AppBackdropPhone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "オーバーレイの背景 (/tasks) · スマホ",
+      "page": "app"
+    },
+    "AppSearchHelpPhone.dc.html": {
+      "x": 3510,
+      "y": 1020,
+      "w": 390,
+      "h": 844,
+      "title": "検索パレット · ヘルプ · スマホ",
+      "page": "app"
+    },
+    "AppSearchEmptyPhone.dc.html": {
+      "x": 5500,
+      "y": 1020,
+      "w": 390,
+      "h": 844,
+      "title": "検索パレット · 初期状態と結果なし · スマホ",
+      "page": "app"
+    },
+    "AppSaveViewPhone.dc.html": {
+      "x": 1520,
+      "y": 2040,
+      "w": 390,
+      "h": 844,
+      "title": "Save view ダイアログ · スマホ",
+      "page": "app"
+    },
+    "AppRenameViewPhone.dc.html": {
+      "x": 3510,
+      "y": 2040,
+      "w": 390,
+      "h": 844,
+      "title": "Rename view ダイアログ · スマホ",
+      "page": "app"
+    },
+    "AppEditTagPhone.dc.html": {
+      "x": 1520,
+      "y": 3060,
+      "w": 390,
+      "h": 844,
+      "title": "Edit tag ダイアログ · スマホ",
+      "page": "app"
+    },
+    "AppDeleteConfirmPhone.dc.html": {
+      "x": 3510,
+      "y": 3060,
+      "w": 390,
+      "h": 844,
+      "title": "削除確認ダイアログ · スマホ",
+      "page": "app"
+    },
+    "ProjectListEmptyPhone.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "プロジェクト一覧 · 空 · スマホ",
+      "page": "projects"
+    },
+    "ProjectLinkTaskPhone.dc.html": {
+      "x": 3510,
+      "y": 2040,
+      "w": 390,
+      "h": 844,
+      "title": "既存タスクを紐付け · スマホ",
+      "page": "projects"
+    },
+    "ProjectMoveConfirmPhone.dc.html": {
+      "x": 5500,
+      "y": 2040,
+      "w": 390,
+      "h": 844,
+      "title": "プロジェクト移動の確認 · スマホ",
+      "page": "projects"
+    },
+    "RecurringRepeatPopoverPhone.dc.html": {
+      "x": 3510,
+      "y": 1020,
+      "w": 390,
+      "h": 844,
+      "title": "繰り返しルールのポップオーバー · スマホ",
+      "page": "recurring"
+    },
+    "RecurringAddOccurrencePhone.dc.html": {
+      "x": 1520,
+      "y": 2040,
+      "w": 390,
+      "h": 844,
+      "title": "テンプレートからタスクを追加 · スマホ",
+      "page": "recurring"
+    },
+    "RecurringDeleteDialogPhone.dc.html": {
+      "x": 3510,
+      "y": 2040,
+      "w": 390,
+      "h": 844,
+      "title": "テンプレートの削除 · スマホ",
+      "page": "recurring"
+    },
+    "SettingsSyncRuleDialogPhone.dc.html": {
+      "x": 1520,
+      "y": 3440,
+      "w": 390,
+      "h": 844,
+      "title": "同期ルールのダイアログ · スマホ",
+      "page": "settings"
+    },
+    "SettingsTemplateDialogPhone.dc.html": {
+      "x": 3510,
+      "y": 3440,
+      "w": 390,
+      "h": 844,
+      "title": "テンプレートのダイアログ · スマホ",
+      "page": "settings"
+    },
+    "TaskDetailDeleteDialogPhone.dc.html": {
+      "x": 1520,
+      "y": 11060,
+      "w": 390,
+      "h": 844,
+      "title": "タスク削除 · スマホ",
+      "page": "task"
+    },
+    "TaskDetailSearchDialogPhone.dc.html": {
+      "x": 1520,
+      "y": 12080,
+      "w": 390,
+      "h": 844,
+      "title": "ブロッカー追加 · スマホ",
+      "page": "task"
+    },
+    "TaskDetailBlockerGithubPhone.dc.html": {
+      "x": 3510,
+      "y": 12080,
+      "w": 390,
+      "h": 844,
+      "title": "ブロッカー追加 (GitHub URL) · スマホ",
+      "page": "task"
+    },
+    "TaskDetailLinkTaskPhone.dc.html": {
+      "x": 5500,
+      "y": 12080,
+      "w": 390,
+      "h": 844,
+      "title": "既存タスクをリンク · スマホ",
+      "page": "task"
+    },
+    "TaskDetailDuplicateSearchPhone.dc.html": {
+      "x": 1520,
+      "y": 13100,
+      "w": 390,
+      "h": 844,
+      "title": "重複先の選択 · スマホ",
+      "page": "task"
+    },
+    "TaskDetailMoveConfirmPhone.dc.html": {
+      "x": 3510,
+      "y": 11060,
+      "w": 390,
+      "h": 844,
+      "title": "親タスク変更の確認 · スマホ",
+      "page": "task"
+    },
+    "TaskDetailWaitDialogPhone.dc.html": {
+      "x": 5500,
+      "y": 11060,
+      "w": 390,
+      "h": 844,
+      "title": "wait の追加 · スマホ",
+      "page": "task"
+    },
+    "TaskDetailGithubDialogPhone.dc.html": {
+      "x": 3510,
+      "y": 13100,
+      "w": 390,
+      "h": 844,
+      "title": "GitHub issue をリンク · スマホ",
+      "page": "task"
+    },
+    "TaskDetailLinkPrDialogPhone.dc.html": {
+      "x": 5500,
+      "y": 13100,
+      "w": 390,
+      "h": 844,
+      "title": "PR をリンク (チェックリスト) · スマホ",
+      "page": "task"
+    },
+    "TaskPageHtmlPhone.dc.html": {
+      "x": 3510,
+      "y": 14120,
+      "w": 390,
+      "h": 844,
+      "title": "HTML ページ · スマホ",
+      "page": "task"
+    },
+    "TasksStatusMenuPhone.dc.html": {
+      "x": 3390,
+      "y": 1020,
+      "w": 390,
+      "h": 844,
+      "title": "フィルタ · Status メニュー · スマホ",
+      "page": "tasks"
+    },
+    "TasksFilterSuggestPhone.dc.html": {
+      "x": 1520,
+      "y": 2040,
+      "w": 390,
+      "h": 844,
+      "title": "フィルタ入力 · サジェスト · スマホ",
+      "page": "tasks"
+    },
+    "TasksSyntaxHelpPhone.dc.html": {
+      "x": 3510,
+      "y": 2040,
+      "w": 390,
+      "h": 844,
+      "title": "フィルタ入力 · 構文ヘルプ · スマホ",
+      "page": "tasks"
+    },
+    "TasksSaveViewPhone.dc.html": {
+      "x": 5500,
+      "y": 2040,
+      "w": 390,
+      "h": 844,
+      "title": "ビュー保存 · スマホ",
+      "page": "tasks"
+    },
+    "TasksDragOverlayPhone.dc.html": {
+      "x": 1520,
+      "y": 3060,
+      "w": 390,
+      "h": 844,
+      "title": "ドラッグ中 · スマホ",
+      "page": "tasks"
+    },
+    "CreateTaskHelpPhone.dc.html": {
+      "x": 3510,
+      "y": 7140,
+      "w": 390,
+      "h": 844,
+      "title": "タスク作成 · タイトルのヘルプ · スマホ",
+      "page": "tasks"
+    },
+    "CreateTaskTagsPhone.dc.html": {
+      "x": 5500,
+      "y": 7140,
+      "w": 390,
+      "h": 844,
+      "title": "タスク作成 · タグ入力 · スマホ",
+      "page": "tasks"
+    },
+    "CreateTaskReplacePhone.dc.html": {
+      "x": 1520,
+      "y": 8160,
+      "w": 390,
+      "h": 844,
+      "title": "説明置換の確認 · スマホ",
+      "page": "tasks"
+    },
+    "CreateTaskDiscardPhone.dc.html": {
+      "x": 3510,
+      "y": 8160,
+      "w": 390,
+      "h": 844,
+      "title": "下書き破棄の確認 · スマホ",
+      "page": "tasks"
+    },
+    "TaskDetailCompletedPhone.dc.html": {
+      "x": 1520,
+      "y": 5020,
+      "w": 390,
+      "h": 844,
+      "title": "完了 · スマホ",
+      "page": "task"
+    },
+    "TaskDetailDuplicatePhone.dc.html": {
+      "x": 3510,
+      "y": 5020,
+      "w": 390,
+      "h": 844,
+      "title": "重複 · スマホ",
+      "page": "task"
+    },
+    "TaskDetailWaitingPhone.dc.html": {
+      "x": 5500,
+      "y": 5020,
+      "w": 390,
+      "h": 844,
+      "title": "wait 中 · スマホ",
+      "page": "task"
+    },
+    "TaskDetailEmptyPhone.dc.html": {
+      "x": 1520,
+      "y": 6040,
+      "w": 390,
+      "h": 1840,
+      "title": "空のセクション · スマホ",
+      "page": "task"
+    },
+    "TaskDetailLoadingPhone.dc.html": {
+      "x": 3510,
+      "y": 6040,
+      "w": 390,
+      "h": 844,
+      "title": "読み込み中 · スマホ",
+      "page": "task"
+    },
+    "TaskDetailNotFoundPhone.dc.html": {
+      "x": 5500,
+      "y": 6040,
+      "w": 390,
+      "h": 844,
+      "title": "見つからない · スマホ",
+      "page": "task"
+    },
+    "TaskDetailMenusStatusPhone.dc.html": {
+      "x": 1520,
+      "y": 8000,
+      "w": 390,
+      "h": 844,
+      "title": "ステータス・繰り返し · スマホ",
+      "page": "task"
+    },
+    "TaskDetailMenusRemindPhone.dc.html": {
+      "x": 3980,
+      "y": 8000,
+      "w": 390,
+      "h": 844,
+      "title": "リマインド · スマホ",
+      "page": "task"
+    },
+    "TaskDetailMenusParentPhone.dc.html": {
+      "x": 1520,
+      "y": 9020,
+      "w": 390,
+      "h": 844,
+      "title": "親タスク · スマホ",
+      "page": "task"
+    },
+    "TaskDetailMenusTagsPhone.dc.html": {
+      "x": 3510,
+      "y": 9020,
+      "w": 390,
+      "h": 844,
+      "title": "コンテキスト・タグ · スマホ",
+      "page": "task"
+    },
+    "TaskDetailMenusPriorityPhone.dc.html": {
+      "x": 1520,
+      "y": 10040,
+      "w": 390,
+      "h": 844,
+      "title": "優先度・プロジェクト · スマホ",
+      "page": "task"
+    },
+    "TaskDetailMentionPhone.dc.html": {
+      "x": 3980,
+      "y": 10040,
+      "w": 390,
+      "h": 844,
+      "title": "メンション補完 · スマホ",
+      "page": "task"
+    },
+    "TaskDetailMenusChecklistPhone.dc.html": {
+      "x": 1990,
+      "y": 10040,
+      "w": 390,
+      "h": 844,
+      "title": "項目メニュー · スマホ",
+      "page": "task"
+    },
+    "TaskDetailPhoneStates.dc.html": {
+      "x": 2800,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "タスク詳細 · 状態別 (スマホ部品)",
+      "page": "components"
     }
   },
   "order": [
@@ -1322,9 +1770,129 @@
     "SettingsSyncRuleDialog.dc.html",
     "SettingsTemplateDialog.dc.html",
     "SettingsStates.dc.html",
-    "SettingsBody.dc.html"
+    "SettingsBody.dc.html",
+    "DayNotConnectedPhone.dc.html",
+    "DayMonthPhone.dc.html",
+    "DayBoardPhone.dc.html",
+    "DayGcalPopoverPhone.dc.html",
+    "DayChangeFeedbackPhone.dc.html",
+    "ScheduleEditPhone.dc.html",
+    "FocusLoadingPhone.dc.html",
+    "FocusEmptyPhone.dc.html",
+    "AppBackdropPhone.dc.html",
+    "AppSearchHelpPhone.dc.html",
+    "AppSearchEmptyPhone.dc.html",
+    "AppSaveViewPhone.dc.html",
+    "AppRenameViewPhone.dc.html",
+    "AppEditTagPhone.dc.html",
+    "AppDeleteConfirmPhone.dc.html",
+    "ProjectListEmptyPhone.dc.html",
+    "ProjectLinkTaskPhone.dc.html",
+    "ProjectMoveConfirmPhone.dc.html",
+    "RecurringRepeatPopoverPhone.dc.html",
+    "RecurringAddOccurrencePhone.dc.html",
+    "RecurringDeleteDialogPhone.dc.html",
+    "SettingsSyncRuleDialogPhone.dc.html",
+    "SettingsTemplateDialogPhone.dc.html",
+    "TaskDetailDeleteDialogPhone.dc.html",
+    "TaskDetailSearchDialogPhone.dc.html",
+    "TaskDetailBlockerGithubPhone.dc.html",
+    "TaskDetailLinkTaskPhone.dc.html",
+    "TaskDetailDuplicateSearchPhone.dc.html",
+    "TaskDetailMoveConfirmPhone.dc.html",
+    "TaskDetailWaitDialogPhone.dc.html",
+    "TaskDetailGithubDialogPhone.dc.html",
+    "TaskDetailLinkPrDialogPhone.dc.html",
+    "TaskPageHtmlPhone.dc.html",
+    "TasksStatusMenuPhone.dc.html",
+    "TasksFilterSuggestPhone.dc.html",
+    "TasksSyntaxHelpPhone.dc.html",
+    "TasksSaveViewPhone.dc.html",
+    "TasksDragOverlayPhone.dc.html",
+    "CreateTaskHelpPhone.dc.html",
+    "CreateTaskTagsPhone.dc.html",
+    "CreateTaskReplacePhone.dc.html",
+    "CreateTaskDiscardPhone.dc.html",
+    "TaskDetailCompletedPhone.dc.html",
+    "TaskDetailDuplicatePhone.dc.html",
+    "TaskDetailWaitingPhone.dc.html",
+    "TaskDetailEmptyPhone.dc.html",
+    "TaskDetailLoadingPhone.dc.html",
+    "TaskDetailNotFoundPhone.dc.html",
+    "TaskDetailMenusStatusPhone.dc.html",
+    "TaskDetailMenusRemindPhone.dc.html",
+    "TaskDetailMenusParentPhone.dc.html",
+    "TaskDetailMenusTagsPhone.dc.html",
+    "TaskDetailMenusPriorityPhone.dc.html",
+    "TaskDetailMentionPhone.dc.html",
+    "TaskDetailMenusChecklistPhone.dc.html",
+    "TaskDetailPhoneStates.dc.html"
   ],
-  "notes": {},
+  "notes": {
+    "nophone-dayblockpreview": {
+      "x": 1520,
+      "y": 3060,
+      "w": 390,
+      "page": "calendar",
+      "text": "スマホなし\n時間ブロックのプレビューは hover / focus で開く PreviewCard。スマホでタップするとタスク詳細へ移る (web/src/components/calendar/time-block-preview-trigger.tsx)"
+    },
+    "nophone-dayblockdelete": {
+      "x": 3510,
+      "y": 3060,
+      "w": 390,
+      "page": "calendar",
+      "text": "スマホなし\nDay ビューの削除確認は hover で開くプレビューカードからだけ開く。スマホではタスク詳細の time block から消す (web/src/components/task/sidebar-time-blocks.tsx)"
+    },
+    "nophone-rowactions": {
+      "x": 3510,
+      "y": 3060,
+      "w": 390,
+      "page": "tasks",
+      "text": "スマホなし\n行の ⋯ メニューはスマホでは出ない (mobileItems が空。web/src/components/task/tree-row-actions-menu.tsx)"
+    },
+    "nophone-candidatedialog": {
+      "x": 1520,
+      "y": 4080,
+      "w": 390,
+      "page": "tasks",
+      "text": "スマホなし\nmove under は行の ⋯ メニューからしか開けない (web/src/components/task/tree-task-grid-row.tsx)"
+    },
+    "nophone-setproject": {
+      "x": 3510,
+      "y": 4080,
+      "w": 390,
+      "page": "tasks",
+      "text": "スマホなし\nプロジェクト設定は行の ⋯ メニューからしか開けない (web/src/components/task/tree-task-grid-row.tsx)"
+    },
+    "nophone-candidatelink": {
+      "x": 1520,
+      "y": 5100,
+      "w": 390,
+      "page": "tasks",
+      "text": "スマホなし (一覧から)\n一覧では行の ⋯ メニューからだけ開く。スマホではタスク詳細から開く: task ページの「既存タスクをリンク · スマホ」"
+    },
+    "nophone-changeparent": {
+      "x": 3510,
+      "y": 5100,
+      "w": 390,
+      "page": "tasks",
+      "text": "スマホなし (一覧から)\nスマホではタスク詳細から開く: task ページの「親タスク変更の確認 · スマホ」"
+    },
+    "nophone-candidateduplicate": {
+      "x": 1520,
+      "y": 6120,
+      "w": 390,
+      "page": "tasks",
+      "text": "スマホなし (一覧から)\nduplicate の検索はタスク詳細の STATUS からだけ開く: task ページの「重複先の選択 · スマホ」"
+    },
+    "nophone-deletetask": {
+      "x": 3510,
+      "y": 6120,
+      "w": 390,
+      "page": "tasks",
+      "text": "スマホなし (一覧から)\nスマホではタスク詳細から開く: task ページの「タスク削除 · スマホ」"
+    }
+  },
   "designSystems": [
     {
       "title": "tq",

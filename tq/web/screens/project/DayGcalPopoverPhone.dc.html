@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Day view on a phone, Google event details open</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 390px; height: 844px; position: relative; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif">
+<dc-import name="DayPhoneCalendar" hint-size="390px,844px"></dc-import>
+<div role="dialog" aria-label="Calendar event details" style="position: absolute; z-index: 20; left: 8px; right: 8px; top: 352px; box-sizing: border-box; padding: 12px; border: 1px solid #2a2a2a; background: #141414; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #fafafa; display: flex; flex-direction: column; gap: 12px">
+<div>
+<h2 style="margin: 0; font-size: 14px; line-height: 20px; font-weight: 600; color: #fafafa">定例ミーティング</h2>
+<p style="margin: 0; color: #71717a">Tuesday, September 1, 2026 · 11:00 AM–12:00 PM</p>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; color: #71717a"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 9999px; background: #7986cb"></span>仕事</div>
+<div style="display: flex; align-items: center; gap: 8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg><span>会議室 B</span></div>
+<div><span style="color: #71717a">Your response: </span><span>Accepted</span></div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<div style="display: flex; align-items: center; gap: 6px; font-weight: 500"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>Attendees (4)</div>
+<div style="padding-left: 20px; display: flex; flex-direction: column; gap: 4px; color: #71717a">
+<div>2 accepted · 1 tentative · 1 needs action</div>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 2px"><li>田中 一郎</li><li>佐藤 花子</li><li>鈴木 健</li><li>高橋 真理</li></ul>
+<div>Organizer: <span style="color: #fafafa">田中 一郎</span></div>
+</div>
+</div>
+<p style="margin: 0; white-space: pre-wrap; word-break: break-all; color: #71717a">週次の進捗共有と来週の優先度の確認。
+議事録: <a href="https://example.com/notes/weekly" style="color: #ef4444; text-decoration: underline">https://example.com/notes/weekly</a></p>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 8px; border-top: 1px solid #2a2a2a">
+<button type="button" style="height: 28px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; border: 1px solid #71717a; background: #1f1f1f; color: #fafafa; font-family: inherit; font-size: 12px; font-weight: 500"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path><rect x="2" y="6" width="14" height="12" rx="2"></rect></svg>Join meeting</button>
+<a href="https://calendar.google.com/" style="display: inline-flex; align-items: center; gap: 4px; color: #ef4444; text-decoration: underline"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>Open in Google Calendar</a>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

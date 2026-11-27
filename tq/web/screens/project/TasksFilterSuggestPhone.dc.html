@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Tasks filter input with suggestions on phone</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+input::placeholder{color:#71717a}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; display: flex; flex-direction: column; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+<main style="flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column">
+
+<header style="flex: none; height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 10px; padding: 0 12px; border-bottom: 1px solid #2a2a2a; background: #0a0a0a">
+<h1 style="margin: 0; display: inline-flex; align-items: baseline; gap: 8px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px"><span style="font-weight: 700; color: #ef4444">##</span><span style="font-weight: 500; color: #fafafa">tasks</span></h1>
+<div style="margin-left: auto; display: flex; align-items: center; gap: 8px">
+<a href="#recurring" style="display: inline-flex; align-items: center; gap: 4px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a; text-decoration: none"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14"></path><path d="m7 22-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg>recurring</a>
+</div>
+</header>
+
+<div style="position: relative; z-index: 5; flex: none; min-height: 48px; box-sizing: border-box; display: flex; align-items: center; gap: 12px; padding: 0 16px; border-bottom: 1px solid #2a2a2a; background: #0a0a0a">
+<label for="tasks-filter-phone-suggest" style="flex: none; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; line-height: 20px; font-weight: 700; color: #ef4444">›</label>
+<div style="flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: 12px; row-gap: 8px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px">
+<span style="min-height: 20px; min-width: 0; display: inline-flex; align-items: center; gap: 4px">
+<button type="button" aria-label="is todo" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; font: inherit; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg>is:<span style="padding: 0 4px; background: #181d27; color: #82aaff; border-radius: 3px">todo</span></button>
+<button type="button" aria-label="Remove status filter" style="width: 16px; height: 16px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</span>
+<span style="min-height: 20px; min-width: 0; display: inline-flex; align-items: center; gap: 4px">
+<button type="button" aria-label="label #dev/api" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; font: inherit; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle></svg>label:<span style="padding: 0 4px; background: #181d27; color: #82aaff; border-radius: 3px">dev/api</span></button>
+<button type="button" aria-label="Remove label filter" style="width: 16px; height: 16px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</span>
+<span style="min-height: 20px; min-width: 0; display: inline-flex; align-items: center; gap: 4px; opacity: 0.5">
+<button type="button" aria-label="Sort by priority, then updated" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; font: inherit; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 16 4 4 4-4"></path><path d="M7 20V4"></path><path d="M11 4h10"></path><path d="M11 8h7"></path><path d="M11 12h4"></path></svg>sort:<span style="padding: 0 4px; background: #181d27; color: #82aaff; border-radius: 3px">priority &gt; updated</span></button>
+</span>
+<div style="position: relative; flex: 1; min-width: 128px; display: flex; align-items: center; padding: 0 4px">
+<input id="tasks-filter-phone-suggest" type="text" aria-label="Filter query" placeholder="Filter…" value="{{query}}" onChange="{{noop}}" style="width: 100%; height: 32px; box-sizing: border-box; margin: 0 -4px; padding: 0 4px; border: 0; border-bottom: 1px solid #71717a; background: transparent; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif; font-size: 16px; outline: none">
+
+<sc-if value="{{isSuggest}}" hint-placeholder-val="{{ true }}">
+<div style="position: absolute; left: 0; right: 0; top: 36px; z-index: 50; border: 1px solid #2a2a2a; background: #141414; box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1)">
+<div role="listbox" aria-label="Filter suggestions" style="display: flex; flex-direction: column; font-size: 14px; line-height: 20px">
+<button type="button" role="option" aria-selected="true" style="width: 100%; min-height: 36px; display: flex; align-items: center; gap: 8px; padding: 0 12px; border: 0; background: #1f1f1f; color: #fafafa; font: inherit; text-align: left"><span>is:todo</span><span style="color: #71717a">Todo</span></button>
+<button type="button" role="option" aria-selected="false" style="width: 100%; min-height: 36px; display: flex; align-items: center; gap: 8px; padding: 0 12px; border: 0; background: transparent; color: #fafafa; font: inherit; text-align: left"><span>is:completed</span><span style="color: #71717a">Completed</span></button>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{isHelp}}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-label="Search syntax" style="position: absolute; left: -3px; top: 36px; z-index: 50; width: 352px; border: 1px solid #2a2a2a; background: #141414; box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -2px rgba(0,0,0,.1)">
+<div style="max-height: 384px; overflow-y: auto; box-sizing: border-box; padding: 12px 16px; font-size: 12px; line-height: 16px">
+<div style="margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px">
+<h2 style="margin: 0; font-size: 10px; line-height: 14px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: #52525b">Search syntax</h2>
+</div>
+<section>
+<h3 style="margin: 0 0 4px; font-size: 10px; line-height: 14px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.1em; color: #71717a">Filters</h3>
+<dl style="margin: 0">
+
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 8px 0">
+<dt style="display: flex; min-width: 0; word-break: break-all; color: #ef4444"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin: 2px 8px 0 0"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg>is:</dt>
+<dd style="margin: 0; min-width: 0; color: #71717a"><span>Filter by whether a task is todo or completed.</span>
+<div style="margin-top: 4px; display: flex; flex-wrap: wrap; column-gap: 8px; row-gap: 4px"><span><code style="font: inherit; word-break: break-all; color: #fafafa">is:todo</code> <span style="color: #52525b">Todo</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">is:completed</code> <span style="color: #52525b">Completed</span></span></div></dd>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 8px 0; border-top: 1px solid rgba(42,42,42,.6)">
+<dt style="display: flex; min-width: 0; word-break: break-all; color: #ef4444"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin: 2px 8px 0 0"><path d="M12 12h.01"></path><path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"></path><path d="M22 13a18.15 18.15 0 0 1-20 0"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg>context:</dt>
+<dd style="margin: 0; min-width: 0; color: #71717a"><span>Limit results to work or personal tasks.</span>
+<div style="margin-top: 4px; display: flex; flex-wrap: wrap; column-gap: 8px; row-gap: 4px"><span><code style="font: inherit; word-break: break-all; color: #fafafa">context:work</code> <span style="color: #52525b">Work</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">context:personal</code> <span style="color: #52525b">Personal</span></span></div></dd>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 8px 0; border-top: 1px solid rgba(42,42,42,.6)">
+<dt style="display: flex; min-width: 0; word-break: break-all; color: #ef4444"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin: 2px 8px 0 0"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg>priority:</dt>
+<dd style="margin: 0; min-width: 0; color: #71717a"><span>Limit tasks by priority value. Display names follow your priority settings.</span>
+<div style="margin-top: 4px; display: flex; flex-wrap: wrap; column-gap: 8px; row-gap: 4px"><span><code style="font: inherit; word-break: break-all; color: #fafafa">priority:2</code> <span style="color: #52525b">Now</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">priority:1</code> <span style="color: #52525b">Next</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">priority:0</code> <span style="color: #52525b">Normal</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">priority:none</code> <span style="color: #52525b">Inbox</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">priority:-1</code> <span style="color: #52525b">Later</span></span></div></dd>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 8px 0; border-top: 1px solid rgba(42,42,42,.6)">
+<dt style="display: flex; min-width: 0; word-break: break-all; color: #ef4444"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin: 2px 8px 0 0"><path d="m3 16 4 4 4-4"></path><path d="M7 20V4"></path><path d="M11 4h10"></path><path d="M11 8h7"></path><path d="M11 12h4"></path></svg>sort:</dt>
+<dd style="margin: 0; min-width: 0; color: #71717a"><span>Sort results by date or configured priority. Repeat sort: to break ties with later keys.</span>
+<div style="margin-top: 4px; display: flex; flex-wrap: wrap; column-gap: 8px; row-gap: 4px"><span><code style="font: inherit; word-break: break-all; color: #fafafa">sort:due</code> <span style="color: #52525b">Sort by due date</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">sort:created</code> <span style="color: #52525b">Sort by creation date</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">sort:updated</code> <span style="color: #52525b">Sort by update date</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">sort:priority</code> <span style="color: #52525b">Sort by priority</span></span></div></dd>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 8px 0; border-top: 1px solid rgba(42,42,42,.6)">
+<dt style="display: flex; min-width: 0; word-break: break-all; color: #ef4444"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin: 2px 8px 0 0"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>has:</dt>
+<dd style="margin: 0; min-width: 0; color: #71717a"><span>Filter by pages, comments, children, blockers, follow-up dates, or resolved waits.</span>
+<div style="margin-top: 4px; display: flex; flex-wrap: wrap; column-gap: 8px; row-gap: 4px"><span><code style="font: inherit; word-break: break-all; color: #fafafa">has:pages</code> <span style="color: #52525b">Has pages</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">has:comments</code> <span style="color: #52525b">Has comments</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">has:no-children</code> <span style="color: #52525b">Has no children</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">has:blockers</code> <span style="color: #52525b">Has blockers</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">has:no-blockers</code> <span style="color: #52525b">Has no blockers</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">has:follow-up-due</code> <span style="color: #52525b">Has follow-up due</span></span><span><code style="font: inherit; word-break: break-all; color: #fafafa">has:resolved-wait</code> <span style="color: #52525b">Has a resolved wait to acknowledge</span></span></div></dd>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 8px 0; border-top: 1px solid rgba(42,42,42,.6)">
+<dt style="display: flex; min-width: 0; word-break: break-all; color: #ef4444"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin: 2px 8px 0 0"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle></svg>label:&lt;label&gt;</dt>
+<dd style="margin: 0; min-width: 0; color: #71717a"><span>Limit results to tasks with this label.</span></dd>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 8px 0; border-top: 1px solid rgba(42,42,42,.6)">
+<dt style="display: flex; min-width: 0; word-break: break-all; color: #ef4444"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin: 2px 8px 0 0"><path d="M8 5h13"></path><path d="M13 12h8"></path><path d="M13 19h8"></path><path d="M3 10a2 2 0 0 0 2 2h3"></path><path d="M3 5v12a2 2 0 0 0 2 2h3"></path></svg>parent:&lt;task-id-or-number|root&gt;</dt>
+<dd style="margin: 0; min-width: 0; color: #71717a"><span>Limit results to children of this task UUID or number, or use 'root' for tasks whose parent does not match the other filters.</span></dd>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 8px 0; border-top: 1px solid rgba(42,42,42,.6)">
+<dt style="display: flex; min-width: 0; word-break: break-all; color: #ef4444"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; margin: 2px 8px 0 0"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path><path d="M8 10v4"></path><path d="M12 10v2"></path><path d="M16 10v6"></path></svg>project:&lt;project-id&gt;</dt>
+<dd style="margin: 0; min-width: 0; color: #71717a"><span>Limit results to tasks in this project ID.</span></dd>
+</div>
+
+</dl>
+</section>
+</div>
+</div>
+</sc-if>
+</div>
+</div>
+<button type="button" aria-label="Save view" style="flex: none; width: 28px; height: 28px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #fafafa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 3a2 2 0 0 1 2 2v15a1 1 0 0 1-1.496.868l-4.512-2.578a2 2 0 0 0-1.984 0l-4.512 2.578A1 1 0 0 1 5 20V5a2 2 0 0 1 2-2z"></path></svg></button>
+</div>
+
+<div style="flex: 1; min-height: 0; overflow: hidden; padding: 4px 0">
+<dc-import name="TaskRow" num="#31" title="オンボーディングのチェックリストを書く" status="todo" priority="Now" labels="#dev/api" project="サイト改修" context="work" due="Mar 20 → Mar 28" overdue="false" children="" expanded="false" waiting="false" depth="0" selected="false" actions="false" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#32" title="エクスポートのテストが不安定なのを直す" status="todo" priority="Now" labels="#dev/api" project="" context="work" due="" overdue="false" children="1/3" expanded="true" waiting="false" depth="0" selected="false" actions="false" github="api#58" githubState="open" hint-size="100%,81px"></dc-import>
+<dc-import name="TaskRow" num="#40" title="再現手順をまとめる" status="todo" priority="" labels="" project="" context="work" due="" overdue="false" children="" expanded="false" waiting="false" depth="1" selected="false" actions="false" checklist="1/3" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#43" title="タイムアウトの原因を切り分ける" status="todo" priority="" labels="" project="" context="work" due="→ Mar 24" overdue="false" children="1/2" expanded="false" waiting="false" depth="1" selected="false" actions="false" hint-size="100%,81px"></dc-import>
+<dc-import name="TaskRow" num="#33" title="API の利用上限の回答を待つ" status="todo" priority="Now" labels="#dev/api" project="" context="work" due="" overdue="false" children="" expanded="false" waiting="true" depth="0" selected="false" actions="false" blocker="サポートからの返信" followUp="Mar 30" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#37" title="認証トークンの更新手順を書く" status="todo" priority="Now" labels="#dev/api" project="社内ツール" context="work" due="Mar 10 → Mar 18" overdue="true" children="" expanded="false" waiting="false" depth="0" selected="false" actions="false" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#46" title="エラーレスポンスの形式をそろえる" status="todo" priority="Now" labels="#dev/api" project="社内ツール" context="work" due="" overdue="false" children="2/5" expanded="false" waiting="false" depth="0" selected="false" actions="false" hint-size="100%,81px"></dc-import>
+<dc-import name="TaskRow" num="#38" title="レート制限のヘッダを返す" status="todo" priority="Now" labels="#dev/api" project="" context="work" due="Apr 2 →" overdue="false" children="" expanded="false" waiting="false" depth="0" selected="false" actions="false" hint-size="100%,57px"></dc-import>
+</div>
+
+</main>
+<button type="button" aria-label="New task" style="position: absolute; right: 16px; bottom: 80px; z-index: 40; width: 36px; height: 36px; display: grid; place-items: center; padding: 0; border: 1px solid #71717a; background: #1f1f1f; color: #fafafa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></button>
+<dc-import name="TabBar" view="tasks" hint-size="100%,53px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mode":{"editor":"enum","options":["suggest","help"],"default":"suggest"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const mode = this.props.mode ?? 'suggest';
+    return {
+      query: mode === 'suggest' ? 'is:' : '',
+      isSuggest: mode === 'suggest',
+      isHelp: mode === 'help',
+      noop: () => {},
+    };
+  }
+}
+</script>
+</body>
+</html>

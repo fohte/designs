@@ -3,7 +3,7 @@
   "boards": {
     "ActionActivity.dc.html": {
       "x": 3980,
-      "y": 10220,
+      "y": 13820,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · Activity を開いた",
@@ -11,7 +11,7 @@
     },
     "ActionAway.dc.html": {
       "x": 1990,
-      "y": 10220,
+      "y": 13820,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · 別のセッションに移っている間に終わった",
@@ -19,7 +19,7 @@
     },
     "ActionCopy.dc.html": {
       "x": 6910,
-      "y": 10220,
+      "y": 13820,
       "w": 1640,
       "h": 1400,
       "title": "確定したあとの結果 · 種類ごとの文言",
@@ -27,7 +27,7 @@
     },
     "ActionFailure.dc.html": {
       "x": 4450,
-      "y": 8900,
+      "y": 12500,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · Merge と Close が失敗",
@@ -43,7 +43,7 @@
     },
     "ActionQueued.dc.html": {
       "x": 0,
-      "y": 10220,
+      "y": 13820,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · マージキューに入った (PR の一覧を開いた状態)",
@@ -51,7 +51,7 @@
     },
     "ActionRunning.dc.html": {
       "x": 0,
-      "y": 8900,
+      "y": 12500,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · Merge と Close を裏で実行中",
@@ -59,7 +59,7 @@
     },
     "ActionSuccess.dc.html": {
       "x": 2460,
-      "y": 8900,
+      "y": 12500,
       "w": 1440,
       "h": 900,
       "title": "確定したあと · Merge と Close が成功",
@@ -83,7 +83,7 @@
     },
     "ActivityEmpty.dc.html": {
       "x": 0,
-      "y": 13304,
+      "y": 16904,
       "w": 1440,
       "h": 900,
       "title": "Activity · 操作がまだないとき (数を出さず、ラベルを薄く)",
@@ -91,7 +91,7 @@
     },
     "ActivityEmptyOpen.dc.html": {
       "x": 1520,
-      "y": 13304,
+      "y": 16904,
       "w": 1440,
       "h": 900,
       "title": "Activity · 操作がないときに開いた",
@@ -157,7 +157,7 @@
       "x": 5500,
       "y": 6780,
       "w": 1440,
-      "h": 1700,
+      "h": 1780,
       "title": "Close の失敗 · 残っているものごとの文言",
       "page": "topbar"
     },
@@ -427,7 +427,7 @@
     },
     "PhoneActionActivity.dc.html": {
       "x": 6440,
-      "y": 10220,
+      "y": 13820,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーションから Activity を開いた",
@@ -435,14 +435,14 @@
     },
     "PhoneActionAway.dc.html": {
       "x": 3510,
-      "y": 10220,
+      "y": 13820,
       "w": 390,
       "h": 844,
       "page": "topbar"
     },
     "PhoneActionClose.dc.html": {
       "x": 1990,
-      "y": 8900,
+      "y": 12500,
       "w": 390,
       "h": 844,
       "title": "iPhone · Close を裏で実行中",
@@ -450,7 +450,7 @@
     },
     "PhoneActionDrawer.dc.html": {
       "x": 5970,
-      "y": 10220,
+      "y": 13820,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーションの Activity (quota の上)",
@@ -458,7 +458,7 @@
     },
     "PhoneActionFailure.dc.html": {
       "x": 5970,
-      "y": 8900,
+      "y": 12500,
       "w": 390,
       "h": 844,
       "title": "iPhone · Merge が失敗",
@@ -466,7 +466,7 @@
     },
     "ActionTimeline.dc.html": {
       "x": 6440,
-      "y": 8900,
+      "y": 12500,
       "w": 1440,
       "h": 900,
       "title": "結果の行は押した時点の位置に残り、あとのメッセージと一緒に上へ流れる",
@@ -474,7 +474,7 @@
     },
     "PhoneActionTimeline.dc.html": {
       "x": 7960,
-      "y": 8900,
+      "y": 12500,
       "w": 390,
       "h": 844,
       "title": "iPhone · 結果の行が会話と一緒に流れる",
@@ -482,7 +482,7 @@
     },
     "PhoneActionInbox.dc.html": {
       "x": 5500,
-      "y": 10220,
+      "y": 13820,
       "w": 390,
       "h": 844,
       "title": "iPhone · Merge が失敗したあと Inbox に戻った (ナビゲーションのボタンに赤い印)",
@@ -490,14 +490,14 @@
     },
     "PhoneActionQueued.dc.html": {
       "x": 1520,
-      "y": 10220,
+      "y": 13820,
       "w": 390,
       "h": 844,
       "page": "topbar"
     },
     "PhoneActionRunning.dc.html": {
       "x": 1520,
-      "y": 8900,
+      "y": 12500,
       "w": 390,
       "h": 844,
       "title": "iPhone · 返信欄の上の帯の Merge を押して実行中",
@@ -505,7 +505,7 @@
     },
     "PhoneActionSuccess.dc.html": {
       "x": 3980,
-      "y": 8900,
+      "y": 12500,
       "w": 390,
       "h": 844,
       "title": "iPhone · Merge が成功",
@@ -513,7 +513,7 @@
     },
     "PhoneActivityEmpty.dc.html": {
       "x": 3040,
-      "y": 13304,
+      "y": 16904,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーションの Activity · 操作がまだないとき",
@@ -521,7 +521,7 @@
     },
     "PhoneActivityEmptyOpen.dc.html": {
       "x": 3510,
-      "y": 13304,
+      "y": 16904,
       "w": 390,
       "h": 844,
       "title": "iPhone · 操作がないときに Activity を開いた",
@@ -632,7 +632,7 @@
     },
     "PhoneChatTasks.dc.html": {
       "x": 0,
-      "y": 12040,
+      "y": 15640,
       "w": 390,
       "h": 844,
       "title": "iPhone · tq タスクが 4 件 · 主タスクの右に +3 (押すと状況パネルの Tasks)",
@@ -1358,7 +1358,7 @@
     },
     "PhoneChatLongTitle.dc.html": {
       "x": 470,
-      "y": 12040,
+      "y": 15640,
       "w": 390,
       "h": 844,
       "title": "iPhone · 長いタイトル · 2 行まで折り返し、3 行目から … で切る",
@@ -1438,7 +1438,7 @@
     },
     "InboxLongNames.dc.html": {
       "x": 0,
-      "y": 15000,
+      "y": 14600,
       "w": 1440,
       "h": 900,
       "title": "長い repo 名とブランチ名 · repo とブランチから … で縮め、タスク名を残す (Proposal の行の repo にマウスを置いた)",
@@ -1446,7 +1446,7 @@
     },
     "PhoneInboxLongNames.dc.html": {
       "x": 1520,
-      "y": 15000,
+      "y": 14600,
       "w": 390,
       "h": 844,
       "title": "iPhone · 長い repo 名 · org を … にして repo 名を残す",
@@ -1454,7 +1454,7 @@
     },
     "PhoneDrawerLongNames.dc.html": {
       "x": 1990,
-      "y": 15000,
+      "y": 14600,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーション · 長い repo 名とブランチ名 (入れば org も出す)",
@@ -1610,6 +1610,222 @@
       "w": 740,
       "h": 520,
       "title": "NewSessionForm",
+      "page": "components"
+    },
+    "NewSessionStarting.dc.html": {
+      "x": 0,
+      "y": 16200,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション · Start を押した直後 (送ったメッセージと Starting Claude Code in …)",
+      "page": "inbox"
+    },
+    "PhoneNewSessionStarting.dc.html": {
+      "x": 1520,
+      "y": 16200,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Start を押した直後",
+      "page": "inbox"
+    },
+    "NewSessionStartingAway.dc.html": {
+      "x": 1990,
+      "y": 16200,
+      "w": 1440,
+      "h": 900,
+      "title": "別のセッションを開いた · 左下のトーストとナビの Activity に青い 1",
+      "page": "inbox"
+    },
+    "NewSessionStartingActivity.dc.html": {
+      "x": 3980,
+      "y": 16200,
+      "w": 1440,
+      "h": 900,
+      "title": "Activity を開いた · 先頭に Starting session の行",
+      "page": "inbox"
+    },
+    "PhoneNewSessionStartingAway.dc.html": {
+      "x": 3510,
+      "y": 16200,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Inbox に戻った · 下端のトースト",
+      "page": "inbox"
+    },
+    "PhoneNewSessionStartingActivity.dc.html": {
+      "x": 5500,
+      "y": 16200,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ☰ から Activity を開いた",
+      "page": "inbox"
+    },
+    "NewSessionStarted.dc.html": {
+      "x": 0,
+      "y": 17820,
+      "w": 1440,
+      "h": 900,
+      "title": "始まった · トーストが Session started と Open に変わり、5 秒で消える",
+      "page": "inbox"
+    },
+    "PhoneNewSessionStarted.dc.html": {
+      "x": 1520,
+      "y": 17820,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 始まった",
+      "page": "inbox"
+    },
+    "NewSessionStartFailed.dc.html": {
+      "x": 1990,
+      "y": 17820,
+      "w": 1440,
+      "h": 900,
+      "title": "始められなかった · 赤いトーストに理由と Retry、Details",
+      "page": "inbox"
+    },
+    "NewSessionStartFailedActivity.dc.html": {
+      "x": 3980,
+      "y": 17820,
+      "w": 1440,
+      "h": 900,
+      "title": "Details で Activity を開いた · 行に理由と Retry",
+      "page": "inbox"
+    },
+    "PhoneNewSessionStartFailed.dc.html": {
+      "x": 3510,
+      "y": 17820,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 始められなかった (☰ に赤い印)",
+      "page": "inbox"
+    },
+    "CloseDiscardConfirm.dc.html": {
+      "x": 7020,
+      "y": 6780,
+      "w": 1440,
+      "h": 900,
+      "title": "Close が失敗 · Discard changes… を押した (区分ごとに 5 件、残りは Show 9 more)",
+      "page": "topbar"
+    },
+    "PhoneCloseDiscardConfirm.dc.html": {
+      "x": 8540,
+      "y": 6780,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Discard changes… を押した (下からのシート)",
+      "page": "topbar"
+    },
+    "DiscardDialog.dc.html": {
+      "x": 4024,
+      "y": 2240,
+      "w": 520,
+      "h": 620,
+      "title": "DiscardDialog",
+      "page": "components"
+    },
+    "CloseDiscardRunning.dc.html": {
+      "x": 0,
+      "y": 9420,
+      "w": 1440,
+      "h": 900,
+      "title": "Discard changes and close · 実行中 (トーストと会話の行が Deleting worktree…)",
+      "page": "topbar"
+    },
+    "PhoneCloseDiscardRunning.dc.html": {
+      "x": 1520,
+      "y": 9420,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Discard changes and close を実行中",
+      "page": "topbar"
+    },
+    "CloseDiscardSuccess.dc.html": {
+      "x": 1990,
+      "y": 9420,
+      "w": 1440,
+      "h": 900,
+      "title": "Discard changes and close · 成功 (Closed session and deleted worktree)",
+      "page": "topbar"
+    },
+    "PhoneCloseDiscardSuccess.dc.html": {
+      "x": 3510,
+      "y": 9420,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Discard changes and close が成功",
+      "page": "topbar"
+    },
+    "CloseDiscardFailure.dc.html": {
+      "x": 3980,
+      "y": 9420,
+      "w": 1440,
+      "h": 900,
+      "title": "Discard changes and close · 失敗 (Delete failed と理由、Retry)",
+      "page": "topbar"
+    },
+    "PhoneCloseDiscardFailure.dc.html": {
+      "x": 5500,
+      "y": 9420,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Discard changes and close が失敗",
+      "page": "topbar"
+    },
+    "CloseDiscardChanged.dc.html": {
+      "x": 0,
+      "y": 10740,
+      "w": 1440,
+      "h": 900,
+      "title": "Discard changes and close · 確認したあとに増えた (何も消さずに止め、Review again)",
+      "page": "topbar"
+    },
+    "PhoneCloseDiscardChanged.dc.html": {
+      "x": 1520,
+      "y": 10740,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 確認したあとに増えた",
+      "page": "topbar"
+    },
+    "CloseDiscardAgain.dc.html": {
+      "x": 1990,
+      "y": 10740,
+      "w": 1440,
+      "h": 900,
+      "title": "Discard changes and close · Review again (増えたものを New として先頭に)",
+      "page": "topbar"
+    },
+    "PhoneCloseDiscardAgain.dc.html": {
+      "x": 3510,
+      "y": 10740,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Review again (下からのシート)",
+      "page": "topbar"
+    },
+    "CloseDiscardProcess.dc.html": {
+      "x": 3980,
+      "y": 10740,
+      "w": 1440,
+      "h": 900,
+      "title": "Discard changes and close · プロセスが動いていた (止めてから Retry)",
+      "page": "topbar"
+    },
+    "PhoneCloseDiscardProcess.dc.html": {
+      "x": 5500,
+      "y": 10740,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · プロセスが動いていた",
+      "page": "topbar"
+    },
+    "DiscardResult.dc.html": {
+      "x": 4624,
+      "y": 2240,
+      "w": 1440,
+      "h": 900,
+      "title": "DiscardResult",
       "page": "components"
     }
   },
@@ -1815,7 +2031,34 @@
     "PaneSnapshot.dc.html",
     "NewSessionRestored.dc.html",
     "PhoneNewSessionRestored.dc.html",
-    "NewSessionForm.dc.html"
+    "NewSessionForm.dc.html",
+    "DiscardDialog.dc.html",
+    "DiscardResult.dc.html",
+    "CloseDiscardConfirm.dc.html",
+    "PhoneCloseDiscardConfirm.dc.html",
+    "CloseDiscardRunning.dc.html",
+    "PhoneCloseDiscardRunning.dc.html",
+    "CloseDiscardSuccess.dc.html",
+    "PhoneCloseDiscardSuccess.dc.html",
+    "CloseDiscardFailure.dc.html",
+    "PhoneCloseDiscardFailure.dc.html",
+    "CloseDiscardChanged.dc.html",
+    "PhoneCloseDiscardChanged.dc.html",
+    "CloseDiscardAgain.dc.html",
+    "PhoneCloseDiscardAgain.dc.html",
+    "CloseDiscardProcess.dc.html",
+    "PhoneCloseDiscardProcess.dc.html",
+    "NewSessionStarting.dc.html",
+    "PhoneNewSessionStarting.dc.html",
+    "NewSessionStartingAway.dc.html",
+    "NewSessionStartingActivity.dc.html",
+    "PhoneNewSessionStartingAway.dc.html",
+    "PhoneNewSessionStartingActivity.dc.html",
+    "NewSessionStarted.dc.html",
+    "PhoneNewSessionStarted.dc.html",
+    "NewSessionStartFailed.dc.html",
+    "NewSessionStartFailedActivity.dc.html",
+    "PhoneNewSessionStartFailed.dc.html"
   ],
   "pages": [
     {
@@ -1861,7 +2104,7 @@
     },
     "rowActionMore": {
       "x": 0,
-      "y": 9920,
+      "y": 13520,
       "text": "Merge と Close を裏で実行 · キュー、別セッション、Activity、文言",
       "kind": "title1",
       "maxW": 8550,
@@ -1869,7 +2112,7 @@
     },
     "rowActionResult": {
       "x": 0,
-      "y": 8600,
+      "y": 12200,
       "text": "Merge と Close を裏で実行 · 実行中、成功、失敗、会話の中の結果の行",
       "kind": "title1",
       "maxW": 8350,
@@ -1877,7 +2120,7 @@
     },
     "rowActivityEmpty": {
       "x": 0,
-      "y": 13004,
+      "y": 16604,
       "text": "Activity · 操作がないとき",
       "kind": "title1",
       "maxW": 3900,
@@ -2038,7 +2281,7 @@
     "rowPhoneTasks": {
       "kind": "title1",
       "x": 0,
-      "y": 11740,
+      "y": 15340,
       "maxW": 1330,
       "page": "topbar",
       "text": "ヘッダー · tq タスクが複数 (iPhone も +N で状況パネルの Tasks) と長いタイトル"
@@ -2133,7 +2376,7 @@
     },
     "rowLongNames": {
       "x": 0,
-      "y": 14700,
+      "y": 14300,
       "text": "Inbox · 長い repo 名とブランチ名 · repo やブランチから … で縮め、タイトルとタスク名を残す",
       "kind": "title1",
       "maxW": 2380,
@@ -2186,6 +2429,38 @@
       "kind": "title1",
       "maxW": 1512,
       "page": "components"
+    },
+    "rowNewSessionStarting": {
+      "x": 0,
+      "y": 15900,
+      "text": "新しいセッション · Start のあとは裏で待つ · + の画面を離れたらトーストと Activity の先頭の行に Starting session",
+      "kind": "title1",
+      "maxW": 5890,
+      "page": "inbox"
+    },
+    "rowNewSessionStarted": {
+      "x": 0,
+      "y": 17520,
+      "text": "新しいセッション · 始まったら Session started と Open、始められなかったら理由と Retry",
+      "kind": "title1",
+      "maxW": 5420,
+      "page": "inbox"
+    },
+    "rowCloseDiscardResult": {
+      "x": 0,
+      "y": 9120,
+      "text": "セッションを閉じる · Discard changes and close を確定したあと · 実行中、成功、失敗",
+      "kind": "title1",
+      "maxW": 5890,
+      "page": "topbar"
+    },
+    "rowCloseDiscardStopped": {
+      "x": 0,
+      "y": 10440,
+      "text": "セッションを閉じる · Discard changes and close を確定したあと · 何も消さずに止めた",
+      "kind": "title1",
+      "maxW": 5890,
+      "page": "topbar"
     }
   },
   "v": 3,

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>SortControl</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="display: inline-flex; align-items: center; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; line-height: 1">
+<button type="button" aria-haspopup="menu" aria-expanded="{{openStr}}" style="height: {{h}}; display: inline-flex; align-items: center; gap: 5px; padding: 0 {{padX}}; border: 1px solid {{border}}; background: {{bg}}; color: #8b8b94; font-family: inherit; font-size: {{size}}; white-space: nowrap"><span>Sort</span><span style="color: #fafafa">{{label}}</span><svg width="{{icon}}" height="{{icon}}" viewBox="0 0 24 24" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"value":{"editor":"enum","options":["priority","updated","project"],"default":"priority"},"open":{"editor":"boolean","default":false},"$preview":{"width":240,"height":44}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const phone = (this.props.form ?? 'pc') === 'phone';
+    const open = this.props.open ?? false;
+    const names = { priority: 'Priority', updated: 'Updated', project: 'Project' };
+    return {
+      label: names[this.props.value ?? 'priority'], openStr: open ? 'true' : 'false',
+      // The phone's control takes the header buttons' 36 px.
+      h: phone ? '36px' : '26px',
+      padX: phone ? '12px' : '8px', size: phone ? '13.5px' : '12px', icon: phone ? '15' : '13',
+      border: open ? '#3f3f46' : 'transparent', bg: open ? '#1f1f1f' : 'transparent'
+    };
+  }
+}
+</script>
+</body>
+</html>

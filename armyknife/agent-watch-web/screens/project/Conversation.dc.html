@@ -176,6 +176,7 @@ a{color:#ef4444}
 <sc-if value="{{t.isLine}}" hint-placeholder-val="{{ true }}"><div style="flex: none"><dc-import name="ActionItem" a="{{ t.line }}" form="line" hint-size="100%,24px"></dc-import></div></sc-if>
 <sc-if value="{{t.isYou}}" hint-placeholder-val="{{ false }}"><article style="flex: none; align-self: flex-end; max-width: 80%; display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: flex-end; gap: 8px; font-size: 12px; color: #8b8b94">You · {{t.time}}</div><div style="padding: 10px 14px; background: #1f1f1f; color: #fafafa">{{t.you}}</div></article></sc-if>
 <sc-if value="{{t.isText}}" hint-placeholder-val="{{ false }}"><article style="flex: none; max-width: 100%; color: #d4d4d8">{{t.text}}</article></sc-if>
+<sc-if value="{{t.isPlace}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="DetailsPlace" place="{{t.place}}" hint-size="100%,420px"></dc-import></div></sc-if>
 </sc-for>
 </sc-if>
 <sc-if value="{{hasActionLine}}" hint-placeholder-val="{{ false }}">
@@ -208,7 +209,7 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","review","drafts","todo","code"],"default":"question"},"draftsDetail":{"editor":null},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"todoRunning":{"editor":"boolean","default":false},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","waiting","review","drafts","todo","code"],"default":"question"},"draftsDetail":{"editor":null},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"todoRunning":{"editor":"boolean","default":false},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
   // bang: the ! command in the last reply. '' (none) | idle | running | succeeded | failed | timedOut.
   // The server sends each run's result to the session as your message; bangHighlight outlines it (Show output landed there).
@@ -244,7 +245,8 @@ class Component extends DCLogic {
       review: { main: pr(2049, '配信前のチェックを追加する', 'example/web-app', 'passed'), others: [] },
       drafts: { main: pr(2049, '配信前のチェックを追加する', 'example/web-app', 'running'), others: [] },
       todo: { main: pr(3102, '通知の音を設定に足す', 'example/mobile-app', 'running'), others: [] },
-      code: { main: pr(2061, '再送の上限を retry() に渡す', 'example/service', 'running'), others: [] }
+      code: { main: pr(2061, '再送の上限を retry() に渡す', 'example/service', 'running'), others: [] },
+      waiting: { main: pr(2061, '配信チェックを本番に出す', 'example/web-app', 'passed'), others: [] }
     }[variant] ?? { main: pr(2047, '', '', 'running'), others: [] };
     if (this.props.ciFailing) P.main = { ...P.main, kind: 'failing', ...CI.failing };
     // mergeState: the merge confirmed on PR #mergeTarget (default: this branch's PR), shown on the merge band and that PR's row until the PR refreshes.
@@ -272,6 +274,8 @@ class Component extends DCLogic {
     const w = variant === 'working';
     const V = {
       question: { engine: 'claude', title: '通知の再送処理を見直す', taskId: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', userText: '通知の再送処理を見直して。失敗したら何回か再試行したい。', assistantText: '再送処理を', assistantCode: 'retry()', assistantTail: 'にまとめました。上限の回数だけ決めてください。', toolSummary: 'Edit client.ts · Read ×3 · Shell ×1', bandState: 'question', bandLabel: '', bandDetail: '再試行は 3 回で止めてよいですか?' },
+      // waiting: the session stopped to wait on a PR merge (activityStatus 'waiting'), and the band shows what it waits on.
+      waiting: { engine: 'claude', title: '配信チェックを本番に出す', taskId: 'P1 #2050', taskTitle: '配信チェックを入れる', repo: 'example/web-app', userText: '配信チェックを本番に出して。', assistantText: '本番に出す変更を PR #2061 にまとめました。マージされたら', assistantCode: 'deploy', assistantTail: 'を流します。', toolSummary: 'Edit deploy.yml · Read ×2 · Shell ×1', bandState: 'waiting', bandLabel: '', bandDetail: 'PR #2061 のマージ待ち' },
       working: { engine: 'codex', title: '配信メトリクスを追加する', taskId: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/service', userText: '配信の成功率と遅延をメトリクスに出して。', assistantText: '送信ごとに', assistantCode: 'delivery_latency_ms', assistantTail: 'を記録するようにしました。', toolSummary: 'Edit metrics.rs · Read ×4 · Shell ×2', bandState: 'working', bandLabel: 'Working · 18s', bandDetail: 'Bash  cargo test -p metrics' },
       review: { engine: 'codex', title: '配信チェックの PR を確認する', taskId: '', taskTitle: '', repo: 'example/web-app', userText: '配信チェックを足して PR にして。', assistantText: '配信前のチェックを', assistantCode: 'preflight()', assistantTail: 'にまとめて PR #2049 を作りました。crit で差分を見てください。', toolSummary: 'Edit preflight.ts · Read ×2 · Shell ×2', bandState: 'crit', bandLabel: '', bandDetail: 'crit · PR #2049 · 2m' },
       // drafts: the session opened drafts for review; draftsDetail says how many and which one is in the editor.
@@ -314,7 +318,7 @@ class Component extends DCLogic {
     const menuOn = menu !== 'closed';
     // draft: the composer holds an unsent message, as while typing.
     const draft = this.props.draft ?? false;
-    const timeline = (this.props.timeline ?? []).map((t) => ({ ...t, isLine: !!t.line, isYou: !!t.you, isText: !!t.text }));
+    const timeline = (this.props.timeline ?? []).map((t) => ({ ...t, isLine: !!t.line, isYou: !!t.you, isText: !!t.text, isPlace: !!t.place }));
     return {
       hasDraft: draft, noDraft: !draft, sendOpacity: draft ? '1' : '0.5',
       // h: shorter when the update band takes the top of the window.

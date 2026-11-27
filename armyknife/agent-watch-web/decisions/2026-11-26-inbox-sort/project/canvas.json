@@ -1,0 +1,454 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-26T11:15:12Z"
+  },
+  "title": "inbox-sort · Inbox の並び順の選び方",
+  "launch": {
+    "view": "canvas",
+    "page": "control"
+  },
+  "pages": [
+    {
+      "id": "today",
+      "name": "今"
+    },
+    {
+      "id": "control",
+      "name": "並び順の操作"
+    },
+    {
+      "id": "order",
+      "name": "並べ替えたあとの一覧"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "is-current-pc.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · Inbox · PC · 見出しの右に Sorted by tq priority",
+      "page": "today"
+    },
+    "is-current-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · Inbox · iPhone · 並び順の表示なし",
+      "page": "today"
+    },
+    "is-a-pc.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · 見出しの右に Sort Priority ⌄",
+      "page": "control"
+    },
+    "is-a-pc-open.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · 押すとメニューが開き、今の並び順に印",
+      "page": "control"
+    },
+    "is-a-phone.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · Inbox の右に Sort Priority ⌄",
+      "page": "control"
+    },
+    "is-a-phone-open.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · 押すと下からシートが出る",
+      "page": "control"
+    },
+    "is-b-pc.dc.html": {
+      "x": 0,
+      "y": 1320,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · 見出しの右に 3 つ並んだボタン",
+      "page": "control"
+    },
+    "is-b-phone.dc.html": {
+      "x": 3040,
+      "y": 1320,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · Inbox の右に 3 つ並んだボタン",
+      "page": "control"
+    },
+    "is-c-pc.dc.html": {
+      "x": 0,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC · 絞り込みの欄の右に ↕ Priority",
+      "page": "control"
+    },
+    "is-c-pc-open.dc.html": {
+      "x": 1520,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "C · PC · 押すと欄の下にメニュー",
+      "page": "control"
+    },
+    "is-c-phone.dc.html": {
+      "x": 3040,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone · 絞り込みの欄の右に ↕ Priority",
+      "page": "control"
+    },
+    "is-c-phone-open.dc.html": {
+      "x": 3510,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "C · iPhone · 押すと下からシートが出る",
+      "page": "control"
+    },
+    "is-updated-pc.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "Updated · PC · 各見出しの中で更新が新しい順",
+      "page": "order"
+    },
+    "is-updated-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "Updated · iPhone",
+      "page": "order"
+    },
+    "is-project-a-pc.dc.html": {
+      "x": 0,
+      "y": 1320,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · 行の右の repo 名で並ぶだけ",
+      "page": "order"
+    },
+    "is-project-a-phone.dc.html": {
+      "x": 1520,
+      "y": 1320,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone",
+      "page": "order"
+    },
+    "is-project-b-pc.dc.html": {
+      "x": 0,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · project ごとに小見出しを入れる",
+      "page": "order"
+    },
+    "is-project-b-phone.dc.html": {
+      "x": 1520,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone",
+      "page": "order"
+    },
+    "SortControl.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 240,
+      "h": 44,
+      "page": "parts"
+    },
+    "SortMenu.dc.html": {
+      "x": 1000,
+      "y": 0,
+      "w": 390,
+      "h": 300,
+      "page": "parts"
+    },
+    "InboxList.dc.html": {
+      "x": 2000,
+      "y": 0,
+      "w": 460,
+      "h": 900,
+      "page": "parts"
+    },
+    "PhoneInbox.dc.html": {
+      "x": 3000,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 4000,
+      "y": 0,
+      "w": 460,
+      "h": 76,
+      "page": "parts"
+    },
+    "Nav.dc.html": {
+      "x": 5000,
+      "y": 0,
+      "w": 240,
+      "h": 900,
+      "page": "parts"
+    },
+    "Conversation.dc.html": {
+      "x": 0,
+      "y": 1100,
+      "w": 880,
+      "h": 900,
+      "page": "parts"
+    },
+    "UpdateBand.dc.html": {
+      "x": 1000,
+      "y": 1100,
+      "w": 760,
+      "h": 40,
+      "page": "parts"
+    },
+    "PhoneRowMenu.dc.html": {
+      "x": 2000,
+      "y": 1100,
+      "w": 390,
+      "h": 250,
+      "page": "parts"
+    },
+    "PhoneLaterSheet.dc.html": {
+      "x": 3000,
+      "y": 1100,
+      "w": 390,
+      "h": 420,
+      "page": "parts"
+    },
+    "PhoneSaveViewSheet.dc.html": {
+      "x": 4000,
+      "y": 1100,
+      "w": 390,
+      "h": 300,
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 5000,
+      "y": 1100,
+      "w": 380,
+      "h": 200,
+      "page": "parts"
+    },
+    "ActionItem.dc.html": {
+      "x": 0,
+      "y": 2200,
+      "w": 360,
+      "h": 110,
+      "page": "parts"
+    },
+    "ActivityButton.dc.html": {
+      "x": 1000,
+      "y": 2200,
+      "w": 224,
+      "h": 44,
+      "page": "parts"
+    },
+    "CloseChecks.dc.html": {
+      "x": 2000,
+      "y": 2200,
+      "w": 408,
+      "h": 170,
+      "page": "parts"
+    },
+    "CodeBlock.dc.html": {
+      "x": 3000,
+      "y": 2200,
+      "w": 672,
+      "h": 160,
+      "page": "parts"
+    },
+    "MergeBand.dc.html": {
+      "x": 4000,
+      "y": 2200,
+      "w": 760,
+      "h": 60,
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 5000,
+      "y": 2200,
+      "w": 160,
+      "h": 44,
+      "page": "parts"
+    },
+    "PrButton.dc.html": {
+      "x": 0,
+      "y": 3300,
+      "w": 44,
+      "h": 44,
+      "page": "parts"
+    },
+    "Quota.dc.html": {
+      "x": 1000,
+      "y": 3300,
+      "w": 240,
+      "h": 140,
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 2000,
+      "y": 3300,
+      "w": 672,
+      "h": 40,
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 3000,
+      "y": 3300,
+      "w": 760,
+      "h": 60,
+      "page": "parts"
+    },
+    "TodoCard.dc.html": {
+      "x": 4000,
+      "y": 3300,
+      "w": 672,
+      "h": 40,
+      "page": "parts"
+    }
+  },
+  "order": [
+    "ActionItem.dc.html",
+    "ActivityButton.dc.html",
+    "CloseChecks.dc.html",
+    "CodeBlock.dc.html",
+    "ConfirmDialog.dc.html",
+    "Conversation.dc.html",
+    "InboxList.dc.html",
+    "MergeBand.dc.html",
+    "MergeButton.dc.html",
+    "Nav.dc.html",
+    "PhoneInbox.dc.html",
+    "PhoneLaterSheet.dc.html",
+    "PhoneRowMenu.dc.html",
+    "PhoneSaveViewSheet.dc.html",
+    "PrButton.dc.html",
+    "Quota.dc.html",
+    "SessionRow.dc.html",
+    "SessionUsage.dc.html",
+    "SortControl.dc.html",
+    "SortMenu.dc.html",
+    "StatusBand.dc.html",
+    "TodoCard.dc.html",
+    "UpdateBand.dc.html",
+    "is-a-pc-open.dc.html",
+    "is-a-pc.dc.html",
+    "is-a-phone-open.dc.html",
+    "is-a-phone.dc.html",
+    "is-b-pc.dc.html",
+    "is-b-phone.dc.html",
+    "is-c-pc-open.dc.html",
+    "is-c-pc.dc.html",
+    "is-c-phone-open.dc.html",
+    "is-c-phone.dc.html",
+    "is-current-pc.dc.html",
+    "is-current-phone.dc.html",
+    "is-project-a-pc.dc.html",
+    "is-project-a-phone.dc.html",
+    "is-project-b-pc.dc.html",
+    "is-project-b-phone.dc.html",
+    "is-updated-pc.dc.html",
+    "is-updated-phone.dc.html"
+  ],
+  "notes": {
+    "title-current": {
+      "x": 0,
+      "y": -300,
+      "text": "今 · PC は見出しの右に Sorted by tq priority と出るだけ。iPhone には何も出ない",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "today"
+    },
+    "title-a": {
+      "x": 0,
+      "y": -300,
+      "text": "A · 見出しの右の文字をメニューのボタンにする (iPhone はシート)",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "control"
+    },
+    "title-b": {
+      "x": 0,
+      "y": 1020,
+      "text": "B · 見出しの右に Priority / Updated / Project の 3 つのボタンを並べる",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "control"
+    },
+    "title-c": {
+      "x": 0,
+      "y": 2340,
+      "text": "C · 絞り込みの欄の右に並び順のボタンを置く (iPhone はシート)",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "control"
+    },
+    "title-updated": {
+      "x": 0,
+      "y": -300,
+      "text": "Updated · 見出しはそのままで、各見出しの中が更新の新しい順になる",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "order"
+    },
+    "title-project-a": {
+      "x": 0,
+      "y": 1020,
+      "text": "A · Project · 小見出しは付けず、行の右の repo 名の順に並ぶだけ",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "order"
+    },
+    "title-project-b": {
+      "x": 0,
+      "y": 2340,
+      "text": "B · Project · 各見出しの中に project ごとの小見出しを入れる",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "order"
+    },
+    "note-order": {
+      "x": 2000,
+      "y": 0,
+      "w": 420,
+      "text": "この page の操作は A で描いています。Project で同じ project の中は Priority の順です。",
+      "page": "order"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-15T10:37:15Z"
+    }
+  ]
+}

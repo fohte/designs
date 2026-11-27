@@ -16,13 +16,14 @@ body{margin:0}
 <sc-if value="{{line}}" hint-placeholder-val="{{ false }}">
 <div role="status" aria-live="polite" aria-label="Session status" style="width: 100%; box-sizing: border-box; border-top: 1px solid {{bandLine}}; background: #0f0f0f; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; line-height: 1.4">
 <button type="button" aria-expanded="{{openStr}}" style="width: 100%; min-height: {{rowH}}; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 0 {{padX}}; border: 0; background: transparent; color: #fafafa; font-family: inherit; font-size: {{fs}}; line-height: 1.4; text-align: left; white-space: nowrap; cursor: pointer">
-<span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{dotRadius}}; background: {{dotColor}}"></span>
+<sc-if value="{{isDot}}" hint-placeholder-val="{{ true }}"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; border-radius: {{dotRadius}}; background: {{dotColor}}"></span></sc-if>
+<sc-if value="{{isHourglass}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none; width: {{iconPx}}; height: {{iconPx}}"><path d="M5 22h14"></path><path d="M5 2h14"></path><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"></path><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"></path></svg></sc-if>
 <span style="flex: none; font-weight: 700; color: {{labelColor}}">{{label}}</span>
 <span aria-hidden="true" style="flex: none; color: #71717a">·</span>
 <span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; color: #a1a1aa; font-family: {{detailFont}}; font-size: {{fsDetail}}">{{detail}}</span>
 <span aria-hidden="true" style="flex: none; color: #a1a1aa">{{chev}}</span>
 </button>
-<sc-if value="{{showFull}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; padding: 0 {{padX}} 10px; padding-left: calc({{padX}} + 15px); color: #d4d4d8; font-size: {{fsDetail}}; white-space: pre-line">{{full}}</p></sc-if>
+<sc-if value="{{showFull}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; padding: 0 {{padX}} 10px; padding-left: calc({{padX}} + {{fullIndent}}); color: #d4d4d8; font-size: {{fsDetail}}; white-space: pre-line">{{full}}</p></sc-if>
 </div>
 </sc-if>
 <sc-if value="{{desk}}" hint-placeholder-val="{{ true }}">
@@ -92,6 +93,10 @@ class Component extends DCLogic {
       labelColor: warn ? '#fbbf24' : '#fafafa',
       dotColor: warn ? '#fbbf24' : tone === 'working' ? '#60a5fa' : '#a1a1aa',
       dotRadius: tone === 'working' ? '50%' : '0',
+      // Waiting shows the gray hourglass that marks a waiting session in the Inbox, Board and navigation.
+      isHourglass: st === 'waiting', isDot: st !== 'waiting',
+      iconPx: phone ? '16px' : '14px',
+      fullIndent: st === 'waiting' ? (phone ? '24px' : '22px') : '15px',
       rowH: phone ? '44px' : '32px',
       padX: phone ? '12px' : 'max(24px, calc((100% - 712px) / 2))',
       fs: phone ? '14px' : '13px',

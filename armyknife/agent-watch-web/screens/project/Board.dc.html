@@ -14,7 +14,7 @@ body{margin:0}
 </style>
 </helmet>
 <div style="width: 1440px; height: 900px; display: flex; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
-<div style="flex: none; width: 240px"><dc-import name="Nav" view="board" hint-size="240px,900px"></dc-import></div>
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="board" wait="{{ true }}" hint-size="240px,900px"></dc-import></div>
 <main style="flex: 1; min-width: 0; display: flex; flex-direction: column">
 <header style="flex: none; height: 48px; box-sizing: border-box; display: flex; align-items: center; gap: 12px; padding: 0 20px; border-bottom: 1px solid #2a2a2a">
 <h1 style="margin: 0; font-size: 15px; font-weight: 700">Board</h1>
@@ -34,6 +34,14 @@ body{margin:0}
 <h3 style="margin: 0; font-size: 11.5px; font-weight: 700; color: #fbbf24">Needs action</h3>
 <sc-for list="{{col.needs}}" as="c" hint-placeholder-count="2">
 <div style="margin: 0 -12px"><dc-import name="SessionRow" s="{{ c }}" density="compact" hint-size="100%,69px"></dc-import></div>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{col.hasWaits}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-size: 11.5px; font-weight: 700; color: #a1a1aa">Waiting</h3>
+<sc-for list="{{col.waits}}" as="c" hint-placeholder-count="1">
+<div style="margin: 0 -12px"><dc-import name="SessionRow" s="{{ c }}" density="compact" hint-size="100%,90px"></dc-import></div>
 </sc-for>
 </div>
 </sc-if>
@@ -58,17 +66,20 @@ body{margin:0}
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
-    const col = (name, repos, needs, working, more, done) => ({
-      name, repos, needs, working, more, done,
+    // waits: sessions stopped to wait on something else (activityStatus 'waiting'), between Needs action and In progress.
+    const col = (name, repos, needs, waits, working, more, done) => ({
+      name, repos, needs, waits, working, more, done,
       need: needs.length ? needs.length + ' need action' : 'Nothing needed',
       needColor: needs.length ? '#fbbf24' : '#8b8b94',
       needWeight: needs.length ? 700 : 400,
       hasNeeds: needs.length > 0,
+      hasWaits: waits.length > 0,
       hasWorking: working.length > 0,
       hasMore: more !== '',
       hasDone: done !== ''
     });
     const n = (status, age, title, role, engine, taskRef, taskTitle, repo) => ({ status, unread: true, age, title, role, engine, taskRef, taskTitle, repo });
+    const z = (note, age, title, role, engine, taskRef, taskTitle, repo) => ({ status: 'Waiting', preview: note, age, title, role, engine, taskRef, taskTitle, repo });
     const w = (age, title, role, engine, taskRef, taskTitle, repo) => ({ status: 'Working', age, title, role, engine, taskRef, taskTitle, repo });
     return {
       columns: [
@@ -76,19 +87,19 @@ class Component extends DCLogic {
           n('Question', '8s', '通知の再送処理を見直す', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/service'),
           n('Error', '4m', '統合テストの失敗を直す', 'debug-flow', 'claude', 'P1 #2052', 'テストを安定させる', 'example/service'),
           n('Approve', '6m', 'ステージングの設定を書き換える', 'development', 'codex', 'P2 #2053', '新しい設定を段階的に公開する', 'example/service')
-        ], [w('30s', '再送の記録を残す', 'development', 'codex', 'P1 #2048', '通知の信頼性を上げる', 'example/service')], '', '送信キューを分ける and 2 more'),
+        ], [z('子セッション 2 件の PR のマージ待ち', '14m', '通知まわりの改修', 'PM', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/service')], [w('30s', '再送の記録を残す', 'development', 'codex', 'P1 #2048', '通知の信頼性を上げる', 'example/service')], '', '送信キューを分ける and 2 more'),
         col('web-app', 'example/web-app', [
           n('Review', '2m', '配信チェックの PR を確認する', '', 'codex', 'P2 #2050', '配信チェックを入れる', 'example/web-app'),
           { ...n('Plan', '5m', '段階的な公開の計画を立てる', 'PM', 'claude', 'P2 #2054', '新しい設定を段階的に公開する', 'example/web-app'), unread: false }
-        ], [w('1m', '設定画面の文言を直す', 'design', 'claude', 'P3 #2056', '設定画面を作り直す', 'example/web-app')], '', 'ログイン画面を直す'),
+        ], [z('PR #2061 のマージ待ち', '6m', '配信チェックを本番に出す', 'development', 'claude', 'P1 #2050', '配信チェックを入れる', 'example/web-app')], [w('1m', '設定画面の文言を直す', 'design', 'claude', 'P3 #2056', '設定画面を作り直す', 'example/web-app')], '', 'ログイン画面を直す'),
         col('observability', 'example/observability', [
           n('Proposal', '12m', 'アラートの送り先を決める', 'designer', 'claude', 'P2 #2051', '監視を整える', 'example/observability')
-        ], [
+        ], [z('CI の結果を待っています', '3m', '監視の設定を入れ替える', 'development', 'claude', 'P3 #2055', '監視を整える', 'example/observability')], [
           w('18s', '配信メトリクスを追加する', 'development', 'codex', 'P3 #2055', '監視を整える', 'example/observability'),
           w('2m', '配信ログの保存期間を決める', 'research', 'codex', 'P2 #2051', '監視を整える', 'example/observability'),
           w('5m', 'ダッシュボードの遅延を調べる', 'debug-flow', 'codex', 'P3 #2057', '監視を整える', 'example/observability')
         ], '1 more', ''),
-        col('handbook', 'example/handbook', [], [], '', 'セットアップ手順を更新する')
+        col('handbook', 'example/handbook', [], [], [], '', 'セットアップ手順を更新する')
       ]
     };
   }

@@ -1546,6 +1546,94 @@
       "h": 844,
       "title": "iPhone · Waiting 3 ⌄ を開いた",
       "page": "inbox"
+    },
+    "NewSessionStarting.dc.html": {
+      "x": 0,
+      "y": 13900,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション · Start を押した直後 (送ったメッセージと Starting Claude Code in …)",
+      "page": "inbox"
+    },
+    "PhoneNewSessionStarting.dc.html": {
+      "x": 1520,
+      "y": 13900,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Start を押した直後",
+      "page": "inbox"
+    },
+    "NewSessionStartingAway.dc.html": {
+      "x": 1990,
+      "y": 13900,
+      "w": 1440,
+      "h": 900,
+      "title": "別のセッションを開いた · 左下のトーストとナビの Activity に青い 1",
+      "page": "inbox"
+    },
+    "NewSessionStartingActivity.dc.html": {
+      "x": 3510,
+      "y": 13900,
+      "w": 1440,
+      "h": 900,
+      "title": "Activity を開いた · 先頭に Starting session の行",
+      "page": "inbox"
+    },
+    "PhoneNewSessionStartingAway.dc.html": {
+      "x": 5030,
+      "y": 13900,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Inbox に戻った · 下端のトースト",
+      "page": "inbox"
+    },
+    "PhoneNewSessionStartingActivity.dc.html": {
+      "x": 5500,
+      "y": 13900,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ☰ から Activity を開いた",
+      "page": "inbox"
+    },
+    "NewSessionStarted.dc.html": {
+      "x": 0,
+      "y": 15520,
+      "w": 1440,
+      "h": 900,
+      "title": "始まった · トーストが Session started と Open に変わり、5 秒で消える",
+      "page": "inbox"
+    },
+    "PhoneNewSessionStarted.dc.html": {
+      "x": 1520,
+      "y": 15520,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 始まった",
+      "page": "inbox"
+    },
+    "NewSessionStartFailed.dc.html": {
+      "x": 1990,
+      "y": 15520,
+      "w": 1440,
+      "h": 900,
+      "title": "始められなかった · 赤いトーストに理由と Retry、Details",
+      "page": "inbox"
+    },
+    "NewSessionStartFailedActivity.dc.html": {
+      "x": 3510,
+      "y": 15520,
+      "w": 1440,
+      "h": 900,
+      "title": "Details で Activity を開いた · 行に理由と Retry",
+      "page": "inbox"
+    },
+    "PhoneNewSessionStartFailed.dc.html": {
+      "x": 5030,
+      "y": 15520,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 始められなかった (☰ に赤い印)",
+      "page": "inbox"
     }
   },
   "order": [
@@ -1742,7 +1830,18 @@
     "PhoneStatusReviewDetails.dc.html",
     "InboxWaiting.dc.html",
     "PhoneInboxWaiting.dc.html",
-    "PhoneDrawerWaiting.dc.html"
+    "PhoneDrawerWaiting.dc.html",
+    "NewSessionStarting.dc.html",
+    "PhoneNewSessionStarting.dc.html",
+    "NewSessionStartingAway.dc.html",
+    "NewSessionStartingActivity.dc.html",
+    "PhoneNewSessionStartingAway.dc.html",
+    "PhoneNewSessionStartingActivity.dc.html",
+    "NewSessionStarted.dc.html",
+    "PhoneNewSessionStarted.dc.html",
+    "NewSessionStartFailed.dc.html",
+    "NewSessionStartFailedActivity.dc.html",
+    "PhoneNewSessionStartFailed.dc.html"
   ],
   "pages": [
     {
@@ -2080,6 +2179,22 @@
       "text": "Inbox · 他の作業を待っているセッション · Waiting の区分と灰色の砂時計",
       "kind": "title1",
       "maxW": 2380,
+      "page": "inbox"
+    },
+    "rowNewSessionStarting": {
+      "x": 0,
+      "y": 13600,
+      "text": "新しいセッション · Start のあとは裏で待つ · + の画面を離れたらトーストと Activity の先頭の行に Starting session",
+      "kind": "title1",
+      "maxW": 5890,
+      "page": "inbox"
+    },
+    "rowNewSessionStarted": {
+      "x": 0,
+      "y": 15220,
+      "text": "新しいセッション · 始まったら Session started と Open、始められなかったら理由と Retry",
+      "kind": "title1",
+      "maxW": 5420,
       "page": "inbox"
     }
   },

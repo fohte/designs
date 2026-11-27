@@ -14,6 +14,11 @@ body{margin:0}
 </style>
 </helmet>
 <main style="position: relative; width: 100%; height: 100vh; box-sizing: border-box; display: flex; flex-direction: column; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.55">
+<sc-if value="{{isStarting}}" hint-placeholder-val="{{ false }}">
+<header style="flex: none; display: flex; align-items: center; gap: 8px; min-height: 50px; padding: max(8px, env(safe-area-inset-top)) 16px 6px; border-bottom: 1px solid #2a2a2a"><button type="button" aria-label="Back to Inbox" style="width: 44px; height: 44px; margin-left: -14px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button><h1 style="margin: 0; font-size: 15px; white-space: nowrap">New session</h1>
+<button type="button" aria-haspopup="listbox" aria-expanded="false" aria-disabled="true" style="margin-left: auto; min-width: 0; height: 32px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: 12px; white-space: nowrap; overflow: hidden"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">notification-service</span> ▾</button></header>
+</sc-if>
+<sc-if value="{{notStarting}}" hint-placeholder-val="{{ true }}">
 <header style="flex: none; display: grid; grid-template-columns: auto 1fr auto; align-items: center; column-gap: 6px; padding: 6px 8px {{headerPadB}} 0; border-bottom: 1px solid #2a2a2a">
 <div style="display: flex"><button type="button" aria-label="Back to Inbox" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button><button type="button" aria-label="{{navAria}}" aria-haspopup="dialog" aria-expanded="false" style="position: relative; width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg><sc-if value="{{navFailed}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; top: 9px; right: 7px; width: 7px; height: 7px; background: #f87171"></span></sc-if></button></div>
 <div style="display: flex; align-items: center; gap: 5px; min-width: 0"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Starred" style="flex: none; color: #fbbf24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"></path></svg><h1 style="margin: 0; min-width: 0; font-size: 13px; font-weight: 700; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere">{{title}}</h1><sc-if value="{{cMark}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="{{zapFill}}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="{{vibeAria}}" style="flex: none; color: #a1a1aa"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg></sc-if></div>
@@ -24,6 +29,7 @@ body{margin:0}
 </div>
 <div style="grid-column: 1 / -1; min-width: 0; min-height: {{lineH}}; display: flex; align-items: center; gap: 8px; padding: 0 0 0 14px"><a href="#" style="min-width: 0; display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa; text-decoration: none; white-space: nowrap"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">{{taskLine}}</span><span aria-hidden="true" style="flex: none">·</span><span style="flex: none">{{repoName}}</span></a><sc-if value="{{manyTasks}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="3 more tasks for this session" style="flex: none; height: 36px; min-width: 44px; padding: 0 6px; border: 0; background: transparent; color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 12px; text-align: left">+3</button></sc-if></div>
 </header>
+</sc-if>
 <sc-if value="{{update}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="UpdateBand" phone="{{ true }}" hint-size="100%,52px"></dc-import></div></sc-if>
 <sc-if value="{{menuOpen}}">
 <div role="menu" aria-label="Session actions" lang="en" style="position: absolute; top: {{menuTop}}; right: 8px; z-index: 20; width: 248px; display: flex; flex-direction: column; border: 1px solid #2a2a2a; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%)">
@@ -42,11 +48,13 @@ body{margin:0}
 </sc-if>
 
 <div style="flex: 1; min-height: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; padding: 0 16px 16px">
+<sc-if value="{{notStarting}}" hint-placeholder-val="{{ true }}">
 <article style="align-self: flex-end; max-width: 92%; display: flex; flex-direction: column; gap: 4px">
 <div style="text-align: right; font-size: 12px; color: #8b8b94">You · 10:02</div>
 <sc-if value="{{notCode}}" hint-placeholder-val="{{ true }}"><div style="padding: 10px 14px; background: #1f1f1f">{{userText}}</div></sc-if>
 <sc-if value="{{isCode}}" hint-placeholder-val="{{ false }}"><div style="min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 10px 14px; background: #1f1f1f"><div>{{userText}}</div><dc-import name="CodeBlock" code="err" phone="{{ true }}" copied="{{ cbErr.copied }}" scrolled="{{ cbErr.scrolled }}" hint-size="100%,66px"></dc-import></div></sc-if>
 </article>
+</sc-if>
 <sc-if value="{{isCode}}" hint-placeholder-val="{{ false }}">
 <article style="min-width: 0; display: flex; flex-direction: column; gap: 12px; color: #d4d4d8">
 <div>原因は <code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">limit</code> が渡っていないことでした。<code style="padding: 0.1em 0.35em; background: #262626; font-family: 'JetBrains Mono', monospace; font-size: 0.9em">retry()</code> を次のように直しました。</div>
@@ -142,14 +150,15 @@ body{margin:0}
 </div>
 </sc-if>
 <sc-if value="{{live}}" hint-placeholder-val="{{ true }}">
-<div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" phone="{{ true }}" detail="{{bandDetail}}" hint-size="100%,110px"></dc-import></div>
+<sc-if value="{{notStarting}}" hint-placeholder-val="{{ true }}"><div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" phone="{{ true }}" detail="{{bandDetail}}" hint-size="100%,110px"></dc-import></div></sc-if>
 <form style="flex: none; display: grid; grid-template-columns: 1fr 44px; gap: 8px; padding: 10px 12px 6px; border-top: 1px solid #2a2a2a; background: #141414">
-<sc-if value="{{noDraft}}" hint-placeholder-val="{{ true }}"><textarea aria-label="Message" rows="1" placeholder="{{placeholder}}" style="min-height: 44px; box-sizing: border-box; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: 16px; resize: none; outline: none"></textarea></sc-if>
+<sc-if value="{{noDraft}}" hint-placeholder-val="{{ true }}"><textarea aria-label="Message" rows="1" placeholder="{{placeholder}}" aria-disabled="{{startingStr}}" style="min-height: 44px; box-sizing: border-box; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: 16px; resize: none; outline: none"></textarea></sc-if>
 <sc-if value="{{hasDraft}}" hint-placeholder-val="{{ false }}"><textarea aria-label="Message" rows="3" style="min-height: 44px; box-sizing: border-box; padding: 10px 12px; border: 1px solid #a1a1aa; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: 16px; line-height: 1.5; resize: none; outline: none">上限は 5 回にしてください。待ち時間は 1 秒から倍にしていき、最後に失敗したときだけ</textarea></sc-if>
 <button type="submit" aria-label="Send message" style="width: 44px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; background: #fafafa; color: #141414"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button>
 </form>
 </sc-if>
-<div style="flex: none; padding: 0 14px 24px; background: #141414"><dc-import name="SessionUsage" engine="claude" phone="{{ true }}" hint-size="100%,36px"></dc-import></div>
+<sc-if value="{{notStarting}}" hint-placeholder-val="{{ true }}"><div style="flex: none; padding: 0 14px 24px; background: #141414"><dc-import name="SessionUsage" engine="claude" phone="{{ true }}" hint-size="100%,36px"></dc-import></div></sc-if>
+<sc-if value="{{isStarting}}" hint-placeholder-val="{{ false }}"><div style="flex: none; height: max(24px, env(safe-area-inset-bottom)); background: #141414"></div></sc-if>
 
 <sc-if value="{{vibeOpen}}" hint-placeholder-val="{{ false }}">
 <div style="position: absolute; inset: 0; z-index: 30; display: flex; flex-direction: column; justify-content: flex-end; background: rgba(0, 0, 0, 0.55)">
@@ -164,7 +173,7 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"update":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"state":{"editor":"enum","options":["question","review","todo","code"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"longTitle":{"editor":"boolean","default":false},"activity":{"editor":null},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"update":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"state":{"editor":"enum","options":["question","review","todo","code","starting"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"longTitle":{"editor":"boolean","default":false},"activity":{"editor":null},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
   // bang: the ! command in the last reply. '' (none) | idle | running | succeeded | failed | timedOut.
   // The server sends each run's result to the session as your message; bangHighlight outlines it (Show output landed there).
@@ -280,7 +289,9 @@ class Component extends DCLogic {
       headerPadB: '6px',
       bandState: todo ? 'idle' : review ? 'crit' : 'question',
       bandDetail: todo ? '' : review ? 'crit · PR #2050 · 1m' : '再試行は 3 回で止めてよいですか?',
-      placeholder: todo ? 'Message the session' : review ? 'Message PR 2050' : 'Choose an option above, or message the session',
+      // starting: the New session screen after Start, drawn as the conversation to come; the board passes the sent message and the starting line as timeline.
+      isStarting: st === 'starting', notStarting: st !== 'starting', startingStr: st === 'starting' ? 'true' : 'false',
+      placeholder: st === 'starting' ? 'Reply once the session starts' : todo ? 'Message the session' : review ? 'Message PR 2050' : 'Choose an option above, or message the session',
       choices: ['3 回で止める', '5 回まで続ける', '上限を設定ファイルに出す'],
       menuOpen,
       done: this.props.done ?? false,

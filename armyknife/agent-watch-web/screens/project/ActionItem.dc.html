@@ -24,8 +24,8 @@ body{margin:0}
 <sc-if value="{{errIcon}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if>
 </span>
 <div style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><strong style="color: #fafafa">{{title}}</strong><span style="min-width: 0; color: #a1a1aa; font-family: {{subFont}}; font-size: {{subFs}}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{session}}</span>
-<sc-if value="{{hasMsg}}" hint-placeholder-val="{{ false }}"><span style="color: #d4d4d8; font-size: {{subFs}}">{{msg}}</span></sc-if>
-<sc-if value="{{toastControls}}" hint-placeholder-val="{{ false }}"><div style="display: grid; grid-template-columns: {{actCols}}; gap: 8px; margin-top: 8px"><sc-if value="{{hasKeep}}" hint-placeholder-val="{{ false }}"><button type="button" style="grid-column: 1 / -1; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Close and keep worktree</button></sc-if><sc-if value="{{hasRetry}}" hint-placeholder-val="{{ true }}"><button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{retryBorder}}; background: {{retryBg}}; color: {{retryFg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{retryWeight}}; white-space: nowrap">Retry</button></sc-if><sc-if value="{{hasDetails}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="{{detailsAria}}" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{detailsBorder}}; background: {{detailsBg}}; color: {{detailsFg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{detailsWeight}}; white-space: nowrap">{{detailsLabel}}</button></sc-if></div></sc-if>
+<sc-if value="{{hasMsg}}" hint-placeholder-val="{{ false }}"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: {{msgWs}}; color: {{msgFg}}; font-family: {{msgFont}}; font-size: {{subFs}}">{{msg}}</span></sc-if>
+<sc-if value="{{toastControls}}" hint-placeholder-val="{{ false }}"><div style="display: grid; grid-template-columns: {{actCols}}; gap: 8px; margin-top: 8px"><sc-if value="{{hasOpen}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-width: {{retryW}}; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Open</button></sc-if><sc-if value="{{hasKeep}}" hint-placeholder-val="{{ false }}"><button type="button" style="grid-column: 1 / -1; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Close and keep worktree</button></sc-if><sc-if value="{{hasRetry}}" hint-placeholder-val="{{ true }}"><button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{retryBorder}}; background: {{retryBg}}; color: {{retryFg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{retryWeight}}; white-space: nowrap">Retry</button></sc-if><sc-if value="{{hasDetails}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="{{detailsAria}}" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{detailsBorder}}; background: {{detailsBg}}; color: {{detailsFg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{detailsWeight}}; white-space: nowrap">{{detailsLabel}}</button></sc-if></div></sc-if>
 </div>
 <button type="button" aria-label="Dismiss" style="width: {{closeW}}; height: {{closeH}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #8b8b94"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
 <sc-if value="{{autoDismiss}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; left: 0; bottom: 0; width: 60%; height: 2px; background: #52525b"></span></sc-if>
@@ -42,9 +42,9 @@ body{margin:0}
 </span>
 <div style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><strong style="color: #fafafa">{{title}}</strong><a href="#" style="min-width: 0; color: #a1a1aa; font-family: {{subFont}}; font-size: {{subFs}}; text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{session}}</a>
 <sc-if value="{{hasRowCmd}}" hint-placeholder-val="{{ false }}"><code style="min-width: 0; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{cmdFs}}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{cmd}}</code></sc-if>
-<sc-if value="{{hasRowMsg}}" hint-placeholder-val="{{ false }}"><span style="font-size: {{subFs}}">{{msg}}</span></sc-if>
+<sc-if value="{{hasRowMsg}}" hint-placeholder-val="{{ false }}"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: {{msgWs}}; color: {{msgFg}}; font-family: {{msgFont}}; font-size: {{subFs}}">{{msg}}</span></sc-if>
 <sc-if value="{{hasChecks}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; gap: 4px; margin-top: 6px"><dc-import name="CloseChecks" items="{{ checkItems }}" phone="{{ phone }}" hint-size="100%,150px"></dc-import><code style="overflow-wrap: anywhere; color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: {{pathFs}}">{{path}}</code></div></sc-if>
-<sc-if value="{{rowControls}}" hint-placeholder-val="{{ false }}"><div style="display: {{rowActDisplay}}; grid-template-columns: 1fr 1fr; flex-wrap: wrap; gap: 8px; margin-top: 6px"><sc-if value="{{hasKeep}}" hint-placeholder-val="{{ false }}"><button type="button" style="grid-column: 1 / -1; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Close and keep worktree</button></sc-if><sc-if value="{{hasRetry}}" hint-placeholder-val="{{ true }}"><button type="button" style="grid-column: {{retrySpan}}; min-width: {{retryW}}; min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{retryBorder}}; background: {{retryBg}}; color: {{retryFg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{retryWeight}}; white-space: nowrap">Retry</button></sc-if><sc-if value="{{hasOutputBtn}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-width: {{retryW}}; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Show output</button></sc-if><sc-if value="{{hasTerminal}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{subFs}}; white-space: nowrap">Open in terminal</button></sc-if></div></sc-if>
+<sc-if value="{{rowControls}}" hint-placeholder-val="{{ false }}"><div style="display: {{rowActDisplay}}; grid-template-columns: 1fr 1fr; flex-wrap: wrap; gap: 8px; margin-top: 6px"><sc-if value="{{hasOpen}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-width: {{retryW}}; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Open</button></sc-if><sc-if value="{{hasKeep}}" hint-placeholder-val="{{ false }}"><button type="button" style="grid-column: 1 / -1; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Close and keep worktree</button></sc-if><sc-if value="{{hasRetry}}" hint-placeholder-val="{{ true }}"><button type="button" style="grid-column: {{retrySpan}}; min-width: {{retryW}}; min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{retryBorder}}; background: {{retryBg}}; color: {{retryFg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{retryWeight}}; white-space: nowrap">Retry</button></sc-if><sc-if value="{{hasOutputBtn}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-width: {{retryW}}; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Show output</button></sc-if><sc-if value="{{hasTerminal}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{subFs}}; white-space: nowrap">Open in terminal</button></sc-if></div></sc-if>
 </div>
 <span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 12px">{{time}}</span>
 </div>
@@ -71,7 +71,7 @@ body{margin:0}
 <script type="text/x-dc" data-dc-script data-props='{"a":{"editor":null},"form":{"editor":"enum","options":["toast","row","line"],"default":"toast"},"phone":{"editor":"boolean","default":false},"$preview":{"width":360,"height":110}}'>
 class Component extends DCLogic {
   renderVals() {
-    // a.result: merging | merged | alreadyMerged | queued | mergeFailed | closing | closed | closeFailed.
+    // a.result: merging | merged | alreadyMerged | queued | mergeFailed | closing | closed | closeFailed | running | succeeded | commandFailed | timedOut | starting | started | startFailed.
     const a = this.props.a ?? { result: 'mergeFailed', pr: 2049, session: '配信チェックの PR を確認する', reason: 'Head branch was updated after you confirmed. Confirm the new head to merge.', time: '12:03' };
     const form = this.props.form ?? 'toast';
     const phone = this.props.phone ?? false;
@@ -90,11 +90,18 @@ class Component extends DCLogic {
       running: { icon: 'spin', title: 'Running command', line: 'Running command…' },
       succeeded: { icon: 'ok', title: 'Ran command', line: 'Ran command' },
       commandFailed: { icon: 'err', title: 'Command failed · exit ' + a.exit, line: 'Command failed (exit ' + a.exit + ')' },
-      timedOut: { icon: 'timeout', title: 'Command timed out', line: 'Command timed out', msg: 'Stopped after 30 s.' }
+      timedOut: { icon: 'timeout', title: 'Command timed out', line: 'Command timed out', msg: 'Stopped after 30 s.' },
+      // A session launched from New session. a.session: the first line of its first message; a.repo: where it runs.
+      // The line stands under the sent first message on the New session screen, so it names the engine and says you can leave.
+      starting: { icon: 'spin', title: 'Starting session', line: 'Starting ' + (a.engine ?? 'session') + (a.repo ? ' in ' + a.repo : '') + '…', lineMsg: 'You can leave this page. We’ll let you know when it starts.' },
+      started: { icon: 'ok', title: 'Session started', line: 'Session started' },
+      startFailed: { icon: 'err', title: 'Could not start session', line: 'Could not start session' }
     }[a.result];
     const IC = { spin: '#a1a1aa', ok: '#4ade80', done: '#a1a1aa', queue: '#60a5fa', err: '#f87171', timeout: '#f87171' };
     const isCmd = ['running', 'succeeded', 'commandFailed', 'timedOut'].includes(a.result);
     const failed = W.icon === 'err' || W.icon === 'timeout';
+    const isLaunch = ['starting', 'started', 'startFailed'].includes(a.result);
+    const hasOpen = a.result === 'started';
     // a.checks: a close stopped by its guards, with all three results (the close API runs every guard):
     // path, files (uncommitted), branch + merged + reason, processes ('pid name'). Without it, a.reason is the API's plain message.
     const c = a.checks ?? null;
@@ -111,16 +118,18 @@ class Component extends DCLogic {
       procs.length ? n(procs.length, 'running process', 'running processes') : ''
     ].filter(Boolean);
     // The toast and the conversation line show only this summary; the Activity row lists all three checks.
-    const msg = c ? 'Left in the worktree: ' + left.join(', ') : (a.reason ?? W.msg ?? '');
+    const msg = c ? 'Left in the worktree: ' + left.join(', ') : (a.reason ?? (form === 'line' ? W.lineMsg : null) ?? W.msg ?? (isLaunch && form !== 'line' ? a.repo ?? '' : ''));
+    const msgIsRepo = isLaunch && !a.reason;
     const hasKeep = !!c;
     const hasTerminal = !!c?.path;
     // A command failure offers only Show output: its full result is already in the conversation, and Retry from a toast could run it twice.
     return {
       // A close failure without guard results has nothing more to show in Activity.
-      hasDetails: isCmd || !(a.result === 'closeFailed' && !c),
-      hasRetry: !isCmd,
+      hasDetails: !hasOpen && (isCmd || !(a.result === 'closeFailed' && !c)),
+      hasRetry: !isCmd && !hasOpen, hasOpen,
       hasOutputBtn: isCmd && failed,
-      toastControls: failed, rowControls: failed, lineControls: failed && !isCmd,
+      toastControls: failed || hasOpen, rowControls: failed || hasOpen, lineControls: failed && !isCmd,
+      msgWs: msgIsRepo ? "nowrap" : "normal", msgFg: msgIsRepo ? '#8b8b94' : '#d4d4d8', msgFont: msgIsRepo ? "'JetBrains Mono', monospace" : 'inherit',
       detailsLabel: isCmd ? 'Show output' : 'Details',
       detailsAria: isCmd ? 'Show output in the conversation' : 'Details in Activity',
       detailsBorder: isCmd ? '#fafafa' : '#3f3f46', detailsBg: isCmd ? '#fafafa' : 'transparent', detailsFg: isCmd ? '#0a0a0a' : '#d4d4d8', detailsWeight: isCmd ? 700 : 400,
@@ -146,7 +155,7 @@ class Component extends DCLogic {
       autoDismiss: W.icon === 'ok' || W.icon === 'done' || W.icon === 'queue',
       fs: phone ? '14px' : '13px', subFs: phone ? '13px' : '12px',
       btnH: phone ? '44px' : '26px', lineBtnH: phone ? '44px' : '24px', retryW: phone ? '88px' : '0',
-      actCols: phone ? (isCmd ? '1fr' : '1fr 1fr') : 'max-content max-content',
+      actCols: phone ? (isCmd || hasOpen ? '1fr' : '1fr 1fr') : 'max-content max-content',
       closeW: phone ? '44px' : '22px', closeH: phone ? '32px' : '22px', toastPadR: phone ? '0' : '10px',
       gap: phone ? '12px' : '10px', rowPad: phone ? '12px 16px' : '10px 14px'
     };

@@ -16,6 +16,11 @@ a{color:#ef4444}
 </helmet>
 <section aria-label="Conversation with {{title}}" style="width: 100%; height: {{h}}; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
 
+<sc-if value="{{isStarting}}" hint-placeholder-val="{{ false }}">
+<header style="flex: none; display: flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 16px; border-bottom: 1px solid #2a2a2a"><h1 style="margin: 0; font-size: 15px">New session</h1>
+<button type="button" aria-haspopup="listbox" aria-expanded="false" aria-disabled="true" style="margin-left: auto; min-width: 0; height: 32px; display: inline-flex; align-items: center; gap: 6px; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: 12px; white-space: nowrap"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg>{{repo}} ▾</button></header>
+</sc-if>
+<sc-if value="{{notStarting}}" hint-placeholder-val="{{ true }}">
 <header style="position: relative; flex: none; display: flex; align-items: flex-start; padding: 10px 24px 0; border-bottom: 1px solid #2a2a2a">
 <div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
 <div style="display: flex; align-items: center; gap: 10px; min-width: 0; font-size: 12px; color: #8b8b94">
@@ -72,10 +77,12 @@ a{color:#ef4444}
 </div>
 </div>
 </header>
+</sc-if>
 
 <div aria-live="polite" style="flex: 1; min-height: 0; box-sizing: border-box; display: flex; flex-direction: column; justify-content: {{scrollJustify}}; gap: 14px; overflow: hidden; padding: 24px max(24px, calc((100% - 672px) / 2))">
 <div style="display: flex; align-items: center; gap: 10px; margin-top: auto; font-size: 11px; color: #a1a1aa; white-space: nowrap"><span style="flex: 1; height: 1px; background: #1a1a1a"></span><span>Conversation</span><span style="flex: 1; height: 1px; background: #1a1a1a"></span></div>
 
+<sc-if value="{{notStarting}}" hint-placeholder-val="{{ true }}">
 <article style="flex: none; align-self: flex-end; max-width: 80%; display: flex; flex-direction: column; gap: 4px">
 <div style="display: flex; justify-content: flex-end; gap: 8px; font-size: 12px; color: #8b8b94">You · 10:02</div>
 <sc-if value="{{notCode}}" hint-placeholder-val="{{ true }}"><div style="padding: 10px 14px; background: #1f1f1f; color: #fafafa">{{userText}}</div></sc-if>
@@ -95,6 +102,7 @@ a{color:#ef4444}
 </sc-if>
 
 <details style="flex: none; width: 100%; margin-top: -8px; font-size: 12.5px; color: #a1a1aa"><summary style="display: flex; gap: 6px; list-style: none"><span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{toolSummary}}</span><span style="color: #71717a">›</span></summary></details>
+</sc-if>
 
 <sc-if value="{{webUiLink}}" hint-placeholder-val="{{ false }}">
 <article style="flex: none; max-width: 100%; color: #d4d4d8">画面の案を canvas に描きました。<a href="{{webUrl}}" title="Open in the canvas tab" style="white-space: nowrap; color: #ef4444; text-decoration: underline; text-underline-offset: 2px">案のページ<span style="display: inline-flex; align-items: center; gap: 4px; margin-left: 5px; padding: 0 5px; background: #262626; color: #d4d4d8; font-size: 11.5px; line-height: 18px; vertical-align: 1px"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M15 3v18"></path></svg>canvas</span></a> で比べてください。前提は <a href="https://docs.example.com/notify/preflight" target="_blank" rel="noopener noreferrer" style="color: #ef4444; text-decoration: underline; text-underline-offset: 2px">設計メモ</a> にあります。</article>
@@ -194,10 +202,10 @@ a{color:#ef4444}
 </div>
 </sc-if>
 <sc-if value="{{live}}" hint-placeholder-val="{{ true }}">
-<div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" label="{{bandLabel}}" detail="{{bandDetail}}" hint-size="100%,58px"></dc-import></div>
+<sc-if value="{{notStarting}}" hint-placeholder-val="{{ true }}"><div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" label="{{bandLabel}}" detail="{{bandDetail}}" hint-size="100%,58px"></dc-import></div></sc-if>
 
 <form style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 12px auto 6px; border: 1px solid #3f3f46; background: #141414">
-<sc-if value="{{noDraft}}" hint-placeholder-val="{{ true }}"><textarea aria-label="Message" rows="2" placeholder="{{placeholder}}" style="display: block; width: 100%; min-height: 54px; box-sizing: border-box; padding: 12px 14px 4px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; line-height: 1.6; resize: none"></textarea></sc-if>
+<sc-if value="{{noDraft}}" hint-placeholder-val="{{ true }}"><textarea aria-label="Message" rows="2" placeholder="{{placeholder}}" aria-disabled="{{startingStr}}" style="display: block; width: 100%; min-height: 54px; box-sizing: border-box; padding: 12px 14px 4px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; line-height: 1.6; resize: none"></textarea></sc-if>
 <sc-if value="{{hasDraft}}" hint-placeholder-val="{{ false }}"><textarea aria-label="Message" rows="2" style="display: block; width: 100%; min-height: 54px; box-sizing: border-box; padding: 12px 14px 4px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; line-height: 1.6; resize: none">上限は 5 回にしてください。待ち時間は 1 秒から倍にしていき、最後に失敗したときだけ</textarea></sc-if>
 <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 6px 8px 8px 14px; color: #a1a1aa; font-size: 11.5px">
 <span>↵ Send · ⇧↵ / ⌥↵ New line · Esc Interrupt</span>
@@ -206,10 +214,10 @@ a{color:#ef4444}
 </div>
 </form>
 </sc-if>
-<div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
+<sc-if value="{{notStarting}}" hint-placeholder-val="{{ true }}"><div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div></sc-if>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","waiting","review","drafts","todo","code"],"default":"question"},"draftsDetail":{"editor":null},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"todoRunning":{"editor":"boolean","default":false},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","waiting","review","drafts","todo","code","starting"],"default":"question"},"draftsDetail":{"editor":null},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"todoRunning":{"editor":"boolean","default":false},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
   // bang: the ! command in the last reply. '' (none) | idle | running | succeeded | failed | timedOut.
   // The server sends each run's result to the session as your message; bangHighlight outlines it (Show output landed there).
@@ -280,6 +288,8 @@ class Component extends DCLogic {
       review: { engine: 'codex', title: '配信チェックの PR を確認する', taskId: '', taskTitle: '', repo: 'example/web-app', userText: '配信チェックを足して PR にして。', assistantText: '配信前のチェックを', assistantCode: 'preflight()', assistantTail: 'にまとめて PR #2049 を作りました。crit で差分を見てください。', toolSummary: 'Edit preflight.ts · Read ×2 · Shell ×2', bandState: 'crit', bandLabel: '', bandDetail: 'crit · PR #2049 · 2m' },
       // drafts: the session opened drafts for review; draftsDetail says how many and which one is in the editor.
       drafts: { engine: 'claude', title: '再送の上限を設定で変える', taskId: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/web-app', userText: '再送の上限を設定で変えられるようにして。PR と返信の下書きもお願い。', assistantText: '下書きを', assistantCode: 'a ai draft', assistantTail: 'で開きました。Review タブで読んで、そのまま投稿や PR の作成ができます。', toolSummary: 'Edit retry.ts · Read ×3 · Shell ×2', bandState: 'drafts', bandLabel: '', bandDetail: this.props.draftsDetail ?? '4 drafts · Issue comment #412 is in the editor' },
+      // starting: the New session screen after Start, drawn as the conversation to come; the board passes the sent message and the starting line as timeline.
+      starting: { engine: 'claude', title: 'New session', taskId: '', taskTitle: '', repo: 'example/notification-service', bandState: 'idle', bandLabel: '', bandDetail: '' },
       todo: { engine: 'claude', title: '通知の音を選べるようにする', taskId: 'P2 #3101', taskTitle: '通知の設定を増やす', repo: 'example/mobile-app', userText: '通知の音を選べるようにして。', assistantText: '通知の音を', assistantCode: 'sound', assistantTail: 'で選べるようにしました。シミュレーターでは鳴りました。実機で鳴るかは、次に通知が届いたときに確かめてください。', toolSummary: 'Edit notify.ts · Read ×2 · Shell ×1', bandState: 'idle', bandLabel: '', bandDetail: '' }
     }[variant] ?? {};
     if (variant === 'code') Object.assign(V, { engine: 'claude', title: '再送のテストが落ちる', taskId: 'P2 #2060', taskTitle: '通知の信頼性を上げる', repo: 'example/service', userText: 'テストが落ちます。見てください。', toolSummary: 'Edit retry.ts · Read ×2 · Shell ×1', bandState: 'idle', bandLabel: '', bandDetail: '' });
@@ -363,7 +373,8 @@ class Component extends DCLogic {
         { key: '3', label: '上限を設定ファイルに出す', desc: '', hasDesc: false, divider: '1px solid #2a2a2a' }
       ],
       hasMoreTasks: w,
-      placeholder: 'Message PR ' + P.main.num,
+      placeholder: variant === 'starting' ? 'Reply once the session starts' : 'Message PR ' + P.main.num,
+      isStarting: variant === 'starting', notStarting: variant !== 'starting', startingStr: variant === 'starting' ? 'true' : 'false',
       pr: P.main,
       morePrs,
       hasMorePrs: morePrs > 0,

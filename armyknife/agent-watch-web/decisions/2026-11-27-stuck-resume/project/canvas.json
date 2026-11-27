@@ -1,0 +1,539 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-25T09:00:00Z"
+  },
+  "title": "Resume のあと起動しないセッション",
+  "launch": {
+    "view": "canvas",
+    "page": "show"
+  },
+  "pages": [
+    {
+      "id": "now",
+      "name": "今"
+    },
+    {
+      "id": "show",
+      "name": "画面の出し方"
+    },
+    {
+      "id": "refresh",
+      "name": "画面の更新"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "stuck-resume-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "page": "now",
+      "title": "今 · PC · Resume を押したあと (Resuming…)"
+    },
+    "now-pc-back.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "page": "now",
+      "title": "今 · PC · 起動しないまま 35 s たつと、何も言わずにこの帯へ戻る"
+    },
+    "now-phone-resuming.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "now",
+      "title": "今 · iPhone · Resuming…"
+    },
+    "now-phone-back.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "now",
+      "title": "今 · iPhone · 35 s で戻る"
+    },
+    "show-a-pc.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "page": "show",
+      "title": "A · PC · 20 s たつと会話の最後に画面が出る"
+    },
+    "show-a-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "show",
+      "title": "A · iPhone · 会話の最後に画面 (横はスクロール)"
+    },
+    "show-b-pc-closed.dc.html": {
+      "x": 0,
+      "y": 1400,
+      "w": 1440,
+      "h": 900,
+      "page": "show",
+      "title": "B · PC · 20 s たつと帯が変わる (画面は閉じている)"
+    },
+    "show-b-pc-open.dc.html": {
+      "x": 1520,
+      "y": 1400,
+      "w": 1440,
+      "h": 900,
+      "page": "show",
+      "title": "B · PC · Show pane で帯の中に画面が開く"
+    },
+    "show-b-phone-closed.dc.html": {
+      "x": 3040,
+      "y": 1400,
+      "w": 390,
+      "h": 844,
+      "page": "show",
+      "title": "B · iPhone · 帯 (閉じている)"
+    },
+    "show-b-phone-open.dc.html": {
+      "x": 3510,
+      "y": 1400,
+      "w": 390,
+      "h": 844,
+      "page": "show",
+      "title": "B · iPhone · 帯の中に画面"
+    },
+    "show-c-pc-closed.dc.html": {
+      "x": 0,
+      "y": 2800,
+      "w": 1440,
+      "h": 900,
+      "page": "show",
+      "title": "C · PC · 20 s たつと帯が変わる"
+    },
+    "show-c-pc-open.dc.html": {
+      "x": 1520,
+      "y": 2800,
+      "w": 1440,
+      "h": 900,
+      "page": "show",
+      "title": "C · PC · Show pane でダイアログが開く"
+    },
+    "show-c-phone-closed.dc.html": {
+      "x": 3040,
+      "y": 2800,
+      "w": 390,
+      "h": 844,
+      "page": "show",
+      "title": "C · iPhone · 帯"
+    },
+    "show-c-phone-open.dc.html": {
+      "x": 3510,
+      "y": 2800,
+      "w": 390,
+      "h": 844,
+      "page": "show",
+      "title": "C · iPhone · Show pane でシートが開く"
+    },
+    "pane-trust-pc.dc.html": {
+      "x": 0,
+      "y": 4200,
+      "w": 704,
+      "h": 368,
+      "page": "show",
+      "title": "画面の例 · フォルダーを信頼するかの確認"
+    },
+    "pane-update-pc.dc.html": {
+      "x": 784,
+      "y": 4200,
+      "w": 704,
+      "h": 368,
+      "page": "show",
+      "title": "画面の例 · アップデートの確認"
+    },
+    "pane-error-pc.dc.html": {
+      "x": 1568,
+      "y": 4200,
+      "w": 704,
+      "h": 368,
+      "page": "show",
+      "title": "画面の例 · エラーで止まってシェルに戻った"
+    },
+    "pane-trust-phone.dc.html": {
+      "x": 2352,
+      "y": 4200,
+      "w": 390,
+      "h": 328,
+      "page": "show",
+      "title": "画面の例 · iPhone"
+    },
+    "refresh-a-pc.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "page": "refresh",
+      "title": "A · PC · 開いているあいだ 2 s ごとに更新 (Live)"
+    },
+    "refresh-a-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "refresh",
+      "title": "A · iPhone · Live"
+    },
+    "refresh-b-pc.dc.html": {
+      "x": 0,
+      "y": 1400,
+      "w": 1440,
+      "h": 900,
+      "page": "refresh",
+      "title": "B · PC · 撮った時刻と Refresh"
+    },
+    "refresh-b-phone.dc.html": {
+      "x": 1520,
+      "y": 1400,
+      "w": 390,
+      "h": 844,
+      "page": "refresh",
+      "title": "B · iPhone · 時刻と Refresh"
+    },
+    "Conversation.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "page": "parts",
+      "title": "Conversation"
+    },
+    "PhoneChat.dc.html": {
+      "x": 960,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "page": "parts",
+      "title": "PhoneChat"
+    },
+    "Nav.dc.html": {
+      "x": 1430,
+      "y": 0,
+      "w": 240,
+      "h": 900,
+      "page": "parts",
+      "title": "Nav"
+    },
+    "InboxList.dc.html": {
+      "x": 1750,
+      "y": 0,
+      "w": 460,
+      "h": 900,
+      "page": "parts",
+      "title": "InboxList"
+    },
+    "StuckBand.dc.html": {
+      "x": 0,
+      "y": 1020,
+      "w": 760,
+      "h": 90,
+      "page": "parts",
+      "title": "StuckBand"
+    },
+    "PaneSnapshot.dc.html": {
+      "x": 840,
+      "y": 1020,
+      "w": 672,
+      "h": 380,
+      "page": "parts",
+      "title": "PaneSnapshot"
+    },
+    "PaneSheet.dc.html": {
+      "x": 1592,
+      "y": 1020,
+      "w": 720,
+      "h": 480,
+      "page": "parts",
+      "title": "PaneSheet"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 2392,
+      "y": 1020,
+      "w": 380,
+      "h": 200,
+      "page": "parts",
+      "title": "ConfirmDialog"
+    },
+    "ActionItem.dc.html": {
+      "x": 2852,
+      "y": 1020,
+      "w": 360,
+      "h": 110,
+      "page": "parts",
+      "title": "ActionItem"
+    },
+    "ToastStack.dc.html": {
+      "x": 3292,
+      "y": 1020,
+      "w": 360,
+      "h": 240,
+      "page": "parts",
+      "title": "ToastStack"
+    },
+    "CodeBlock.dc.html": {
+      "x": 0,
+      "y": 1620,
+      "w": 672,
+      "h": 160,
+      "page": "parts",
+      "title": "CodeBlock"
+    },
+    "SessionRow.dc.html": {
+      "x": 752,
+      "y": 1620,
+      "w": 460,
+      "h": 76,
+      "page": "parts",
+      "title": "SessionRow"
+    },
+    "Quota.dc.html": {
+      "x": 1292,
+      "y": 1620,
+      "w": 240,
+      "h": 140,
+      "page": "parts",
+      "title": "Quota"
+    },
+    "ActivityButton.dc.html": {
+      "x": 1612,
+      "y": 1620,
+      "w": 224,
+      "h": 44,
+      "page": "parts",
+      "title": "ActivityButton"
+    },
+    "CloseChecks.dc.html": {
+      "x": 1916,
+      "y": 1620,
+      "w": 408,
+      "h": 170,
+      "page": "parts",
+      "title": "CloseChecks"
+    },
+    "MergeButton.dc.html": {
+      "x": 2404,
+      "y": 1620,
+      "w": 160,
+      "h": 44,
+      "page": "parts",
+      "title": "MergeButton"
+    },
+    "PrButton.dc.html": {
+      "x": 2644,
+      "y": 1620,
+      "w": 44,
+      "h": 44,
+      "page": "parts",
+      "title": "PrButton"
+    },
+    "TodoCard.dc.html": {
+      "x": 2768,
+      "y": 1620,
+      "w": 672,
+      "h": 40,
+      "page": "parts",
+      "title": "TodoCard"
+    },
+    "StatusBand.dc.html": {
+      "x": 0,
+      "y": 1920,
+      "w": 760,
+      "h": 60,
+      "page": "parts",
+      "title": "StatusBand"
+    },
+    "SessionUsage.dc.html": {
+      "x": 840,
+      "y": 1920,
+      "w": 672,
+      "h": 40,
+      "page": "parts",
+      "title": "SessionUsage"
+    },
+    "UpdateBand.dc.html": {
+      "x": 1592,
+      "y": 1920,
+      "w": 760,
+      "h": 40,
+      "page": "parts",
+      "title": "UpdateBand"
+    },
+    "MergeBand.dc.html": {
+      "x": 2432,
+      "y": 1920,
+      "w": 760,
+      "h": 60,
+      "page": "parts",
+      "title": "MergeBand"
+    }
+  },
+  "order": [
+    "stuck-resume-current.dc.html",
+    "now-pc-back.dc.html",
+    "now-phone-resuming.dc.html",
+    "now-phone-back.dc.html",
+    "show-a-pc.dc.html",
+    "show-a-phone.dc.html",
+    "show-b-pc-closed.dc.html",
+    "show-b-pc-open.dc.html",
+    "show-b-phone-closed.dc.html",
+    "show-b-phone-open.dc.html",
+    "show-c-pc-closed.dc.html",
+    "show-c-pc-open.dc.html",
+    "show-c-phone-closed.dc.html",
+    "show-c-phone-open.dc.html",
+    "pane-trust-pc.dc.html",
+    "pane-update-pc.dc.html",
+    "pane-error-pc.dc.html",
+    "pane-trust-phone.dc.html",
+    "refresh-a-pc.dc.html",
+    "refresh-a-phone.dc.html",
+    "refresh-b-pc.dc.html",
+    "refresh-b-phone.dc.html",
+    "Conversation.dc.html",
+    "PhoneChat.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "StuckBand.dc.html",
+    "PaneSnapshot.dc.html",
+    "PaneSheet.dc.html",
+    "ConfirmDialog.dc.html",
+    "ActionItem.dc.html",
+    "ToastStack.dc.html",
+    "CodeBlock.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "ActivityButton.dc.html",
+    "CloseChecks.dc.html",
+    "MergeButton.dc.html",
+    "PrButton.dc.html",
+    "TodoCard.dc.html",
+    "StatusBand.dc.html",
+    "SessionUsage.dc.html",
+    "UpdateBand.dc.html",
+    "MergeBand.dc.html"
+  ],
+  "notes": {
+    "titleNow": {
+      "x": 0,
+      "y": -300,
+      "text": "今 · 起動しないと 35 s で何も言わずに This session has ended に戻る",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "now"
+    },
+    "noteNow": {
+      "x": 3980,
+      "y": 0,
+      "w": 520,
+      "page": "now",
+      "text": "今\n・Resume を押すと帯が Resuming… になる。サーバーは tmux に新しいペインを開いて claude --resume を走らせるだけで、起動したかは見ていない\n・エージェントがフックで状態を送ってこないまま、サーバーは 20 s、画面は 35 s で待つのをやめ、帯は This session has ended と Resume に戻る\n・その間ペインはフォルダーを信頼するかの確認などで止まっていることがあるが、画面には何も出ない。PC は Open in terminal で端末を開いて見るしかなく、iPhone では見る手段がない"
+    },
+    "titleA": {
+      "x": 0,
+      "y": -300,
+      "text": "A · 会話の最後にペインの画面がそのまま出る",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "show"
+    },
+    "titleB": {
+      "x": 0,
+      "y": 1100,
+      "text": "B · 帯の Show pane で、帯の中に画面を開く",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "show"
+    },
+    "titleC": {
+      "x": 0,
+      "y": 2500,
+      "text": "C · 帯の Show pane で、ダイアログ (iPhone はシート) を開く",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "show"
+    },
+    "titleExamples": {
+      "x": 0,
+      "y": 3900,
+      "text": "どの案でも同じ · ペインの画面の例",
+      "kind": "title1",
+      "maxW": 2742,
+      "page": "show"
+    },
+    "noteCommon": {
+      "x": 4500,
+      "y": 1400,
+      "w": 520,
+      "page": "show",
+      "text": "どの案でも同じ\n・Resume のあと 20 s (サーバーが待つのをやめる時間) たってもエージェントから何も届かないと、帯を Session hasn't started (黄) に替える。This session has ended には戻さない\n・2 行目は Resumed at 14:40 · no reply after 20 s\n・ペインの画面は tmux capture-pane の文字をそのまま等幅で出す。色は付けない。横に長い行は折り返さず、枠の中で横にスクロール\n・操作は PC が Open in terminal、Retry、Close session。iPhone は Open in terminal を出さない (Mac の端末を開く操作なので)\n・Retry は止まったペインを閉じてから Resume をやり直し、帯は Resuming… に戻る。Close session は今の Close と同じ確認を通る\n・画面に向けてキーを送る操作 (Enter を押すなど) は置かない。直すのは端末で"
+    },
+    "noteA": {
+      "x": 1990,
+      "y": 0,
+      "w": 520,
+      "page": "show",
+      "text": "動き\n・20 s たつと、会話の最後に Resumed at 14:40 · the pane shows と画面が出る。押さなくても見える\n・帯には Show pane がなく、Retry と Close session だけ\n・画面は会話の中にあるので、上へスクロールすると流れていく\n\n良い点\n・何が起きているかが、ひと目で分かる。iPhone でも 1 タップもいらない\n・置き場所が増えない\n\n気になる点\n・画面は会話のメッセージではないのに、メッセージと同じ列に並ぶ。起動したら消えるので、あとで見返せない\n・iPhone では画面の高さぶん会話が押し上げられる"
+    },
+    "noteB": {
+      "x": 3980,
+      "y": 1400,
+      "w": 480,
+      "page": "show",
+      "text": "動き\n・20 s たつと、帯が Session hasn't started と Show pane に変わる。画面は閉じている\n・Show pane で帯の中、返信欄の位置に画面が開き、ボタンは Hide pane になる。会話をスクロールしても動かない\n\n良い点\n・帯と画面と操作が 1 か所にまとまる。画面を見ながら Retry を押せる\n・会話の列を汚さない\n\n気になる点\n・見るのに 1 タップ要る\n・iPhone では帯が画面の半分近くを占め、会話がほとんど見えない"
+    },
+    "noteC": {
+      "x": 3980,
+      "y": 2800,
+      "w": 480,
+      "page": "show",
+      "text": "動き\n・帯は B と同じ\n・Show pane で PC は真ん中にダイアログ、iPhone は下からシートを開く。中に画面と Retry、Close session (PC は Open in terminal も)、Done\n\n良い点\n・画面を大きく出せる。iPhone でも 300px ほどの高さを取れる\n・ダイアログとシートは今ある形と同じ\n\n気になる点\n・見るのに 1 タップ、閉じるのにもう 1 タップ要る\n・開いているあいだは会話が隠れる\n・帯とダイアログに同じボタンが 2 組ある"
+    },
+    "titleRefreshA": {
+      "x": 0,
+      "y": -300,
+      "text": "A · 開いているあいだ 2 s ごとに撮り直す (Live)",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "refresh"
+    },
+    "titleRefreshB": {
+      "x": 0,
+      "y": 1100,
+      "text": "B · 開いた時に 1 回撮り、Refresh で撮り直す",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "refresh"
+    },
+    "noteRefresh": {
+      "x": 1990,
+      "y": 0,
+      "w": 520,
+      "page": "refresh",
+      "text": "画面の更新 (どの出し方とも組み合わせられる。ここでは B で描いた)\n\nA · Live\n・画面が出ているあいだ、サーバーが 2 s ごとに capture-pane して送る。見出しの右に青い点と Live · every 2 s\n・端末で確認に答えるとすぐ画面が変わり、そのまま起動すれば帯ごと消える\n・気になる点: 見ているあいだ tmux を叩き続ける。端末で何か押したかどうかと関係なく動く\n\nB · Refresh\n・画面を出した時に 1 回だけ撮り、Captured 14:41:05 と Refresh を出す\n・気になる点: 端末で答えたあと、Refresh を押すまで古い画面が残る。起動すれば帯ごと消えるので、困るのは起動しなかったときだけ"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-25T09:00:00Z"
+    }
+  ]
+}

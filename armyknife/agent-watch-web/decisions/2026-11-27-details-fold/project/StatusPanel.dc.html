@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Status panel</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<aside aria-label="{{asideLabel}}" style="width: 100%; height: 900px; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column; background: #0f0f0f; border-left: 1px solid {{asideBorder}}; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+<sc-if value="{{tabbed}}" hint-placeholder-val="{{ true }}"><dc-import name="StatusTabs" tab="{{tab}}" size="desktop" canvas-tab="{{canvasTab}}" linked="{{linked}}" many="{{many}}" hint-size="100%,48px"></dc-import></sc-if>
+<div style="position: relative; flex: 1; min-height: 0"><dc-import name="StatusBody" tab="{{tab}}" size="desktop" linked="{{linked}}" full="{{full}}" draft="{{draft}}" many="{{many}}" view="{{view}}" stage="{{stage}}" look="{{look}}" wide="{{wide}}" hint-size="100%,852px"></dc-import></div>
+</aside>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit","canvas"],"default":"running"},"canvasTab":{"editor":"boolean","default":false},"linked":{"editor":"boolean","default":false},"full":{"editor":"boolean","default":false},"draft":{"editor":"int","min":0,"max":4,"default":1},"many":{"editor":"boolean","default":false},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"stage":{"editor":"int","min":0,"max":2,"default":0},"look":{"editor":"enum","options":["","raw","a","b","c"],"default":""},"wide":{"editor":"boolean","default":false},"$preview":{"width":640,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // The tabs and their contents are StatusTabs and StatusBody, which the iPhone's PhoneStatusPanel imports too.
+    const tab = this.props.tab ?? 'running';
+    // full: the web UI over the whole window, as its ⛶ and a web UI link in the conversation open it.
+    const full = this.props.full ?? false;
+    const canvas = tab === 'canvas';
+    return {
+      tab, full,
+      draft: this.props.draft ?? 1, many: this.props.many ?? false, view: this.props.view ?? 'preview', stage: this.props.stage ?? 0, look: this.props.look ?? '', wide: this.props.wide ?? false,
+      canvasTab: this.props.canvasTab ?? false,
+      linked: this.props.linked ?? false,
+      tabbed: !full,
+      asideLabel: full ? (canvas ? 'canvas' : 'crit') : 'Session status',
+      asideBorder: full ? 'transparent' : '#2a2a2a'
+    };
+  }
+}
+</script>
+</body>
+</html>

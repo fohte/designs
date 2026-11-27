@@ -1642,206 +1642,6 @@
       "h": 844,
       "title": "iPhone · 取り下げ済みの to-do と proposal",
       "page": "conversation"
-    },
-    "before/BeforeConversationEnded.dc.html": {
-      "x": 3830,
-      "y": 4310,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · 終わったセッション",
-      "page": "conversation"
-    },
-    "before/BeforeCloseCopy.dc.html": {
-      "x": 9010,
-      "y": 5020,
-      "w": 1440,
-      "h": 1340,
-      "title": "Before · 閉じる前の確認 · 状態ごとの文言",
-      "page": "topbar"
-    },
-    "before/BeforeMain.dc.html": {
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 3900,
-      "title": "Before · 仕様のまとめ",
-      "page": "inbox"
-    },
-    "before/BeforeActionItem.dc.html": {
-      "x": 5900,
-      "y": 4310,
-      "w": 360,
-      "h": 110,
-      "title": "BeforeActionItem",
-      "page": "conversation"
-    },
-    "before/BeforeActivityButton.dc.html": {
-      "x": 6340,
-      "y": 4310,
-      "w": 224,
-      "h": 44,
-      "title": "BeforeActivityButton",
-      "page": "conversation"
-    },
-    "before/BeforeCloseChecks.dc.html": {
-      "x": 6644,
-      "y": 4310,
-      "w": 408,
-      "h": 170,
-      "title": "BeforeCloseChecks",
-      "page": "conversation"
-    },
-    "before/BeforeCodeBlock.dc.html": {
-      "x": 7132,
-      "y": 4310,
-      "w": 672,
-      "h": 160,
-      "title": "BeforeCodeBlock",
-      "page": "conversation"
-    },
-    "before/BeforeConfirmDialog.dc.html": {
-      "x": 7884,
-      "y": 4310,
-      "w": 380,
-      "h": 200,
-      "title": "BeforeConfirmDialog",
-      "page": "conversation"
-    },
-    "before/BeforeConversation.dc.html": {
-      "x": 8344,
-      "y": 4310,
-      "w": 880,
-      "h": 900,
-      "title": "BeforeConversation",
-      "page": "conversation"
-    },
-    "before/BeforeDetailsPlace.dc.html": {
-      "x": 9304,
-      "y": 4310,
-      "w": 672,
-      "h": 420,
-      "title": "BeforeDetailsPlace",
-      "page": "conversation"
-    },
-    "before/BeforeInboxList.dc.html": {
-      "x": 5900,
-      "y": 5290,
-      "w": 460,
-      "h": 900,
-      "title": "BeforeInboxList",
-      "page": "conversation"
-    },
-    "before/BeforeMdDetails.dc.html": {
-      "x": 6440,
-      "y": 5290,
-      "w": 672,
-      "h": 200,
-      "title": "BeforeMdDetails",
-      "page": "conversation"
-    },
-    "before/BeforeMergeBand.dc.html": {
-      "x": 7192,
-      "y": 5290,
-      "w": 760,
-      "h": 60,
-      "title": "BeforeMergeBand",
-      "page": "conversation"
-    },
-    "before/BeforeMergeButton.dc.html": {
-      "x": 8032,
-      "y": 5290,
-      "w": 160,
-      "h": 44,
-      "title": "BeforeMergeButton",
-      "page": "conversation"
-    },
-    "before/BeforeNav.dc.html": {
-      "x": 8272,
-      "y": 5290,
-      "w": 240,
-      "h": 900,
-      "title": "BeforeNav",
-      "page": "conversation"
-    },
-    "before/BeforePaneSnapshot.dc.html": {
-      "x": 8592,
-      "y": 5290,
-      "w": 672,
-      "h": 380,
-      "title": "BeforePaneSnapshot",
-      "page": "conversation"
-    },
-    "before/BeforePrButton.dc.html": {
-      "x": 9344,
-      "y": 5290,
-      "w": 44,
-      "h": 44,
-      "title": "BeforePrButton",
-      "page": "conversation"
-    },
-    "before/BeforeQuota.dc.html": {
-      "x": 9468,
-      "y": 5290,
-      "w": 240,
-      "h": 140,
-      "title": "BeforeQuota",
-      "page": "conversation"
-    },
-    "before/BeforeSessionRow.dc.html": {
-      "x": 9788,
-      "y": 5290,
-      "w": 460,
-      "h": 76,
-      "title": "BeforeSessionRow",
-      "page": "conversation"
-    },
-    "before/BeforeSessionUsage.dc.html": {
-      "x": 5900,
-      "y": 6270,
-      "w": 672,
-      "h": 40,
-      "title": "BeforeSessionUsage",
-      "page": "conversation"
-    },
-    "before/BeforeStatusBand.dc.html": {
-      "x": 6652,
-      "y": 6270,
-      "w": 760,
-      "h": 60,
-      "title": "BeforeStatusBand",
-      "page": "conversation"
-    },
-    "before/BeforeStuckBand.dc.html": {
-      "x": 7492,
-      "y": 6270,
-      "w": 760,
-      "h": 90,
-      "title": "BeforeStuckBand",
-      "page": "conversation"
-    },
-    "before/BeforeSortControl.dc.html": {
-      "x": 8332,
-      "y": 6270,
-      "w": 240,
-      "h": 44,
-      "title": "BeforeSortControl",
-      "page": "conversation"
-    },
-    "before/BeforeSortMenu.dc.html": {
-      "x": 8652,
-      "y": 6270,
-      "w": 390,
-      "h": 300,
-      "title": "BeforeSortMenu",
-      "page": "conversation"
-    },
-    "before/BeforeTodoCard.dc.html": {
-      "x": 9122,
-      "y": 6270,
-      "w": 672,
-      "h": 40,
-      "title": "BeforeTodoCard",
-      "page": "conversation"
     }
   },
   "order": [
@@ -2050,32 +1850,7 @@
     "PaneSnapshot.dc.html",
     "WithdrawnCard.dc.html",
     "ConversationWithdrawn.dc.html",
-    "PhoneChatWithdrawn.dc.html",
-    "before/BeforeConversationEnded.dc.html",
-    "before/BeforeCloseCopy.dc.html",
-    "before/BeforeMain.dc.html",
-    "before/BeforeActionItem.dc.html",
-    "before/BeforeActivityButton.dc.html",
-    "before/BeforeCloseChecks.dc.html",
-    "before/BeforeCodeBlock.dc.html",
-    "before/BeforeConfirmDialog.dc.html",
-    "before/BeforeConversation.dc.html",
-    "before/BeforeDetailsPlace.dc.html",
-    "before/BeforeInboxList.dc.html",
-    "before/BeforeMdDetails.dc.html",
-    "before/BeforeMergeBand.dc.html",
-    "before/BeforeMergeButton.dc.html",
-    "before/BeforeNav.dc.html",
-    "before/BeforePaneSnapshot.dc.html",
-    "before/BeforePrButton.dc.html",
-    "before/BeforeQuota.dc.html",
-    "before/BeforeSessionRow.dc.html",
-    "before/BeforeSessionUsage.dc.html",
-    "before/BeforeStatusBand.dc.html",
-    "before/BeforeStuckBand.dc.html",
-    "before/BeforeSortControl.dc.html",
-    "before/BeforeSortMenu.dc.html",
-    "before/BeforeTodoCard.dc.html"
+    "PhoneChatWithdrawn.dc.html"
   ],
   "pages": [
     {
@@ -2446,27 +2221,6 @@
       "kind": "title1",
       "maxW": 3900,
       "page": "conversation"
-    },
-    "diffConversationEnded": {
-      "x": 5350,
-      "y": 4310,
-      "w": 460,
-      "page": "conversation",
-      "text": "変更前 (左) と変更後 (その左の「終わったセッション」) の違い\n- 終わったセッションを Inbox の Needs action から外した。Review の行がなくなり、Inbox の数は 6 から 5\n- 開いている終わったセッションは、ナビの Recent の先頭に ✓ の行で出す"
-    },
-    "diffCloseCopy": {
-      "x": 10530,
-      "y": 5020,
-      "w": 460,
-      "page": "topbar",
-      "text": "変更前 (左) と変更後 (その左) の違い\n- Needs action · Proposal の本文から, and the proposal stays unchosen を外した。終わると proposal は取り下げるので、選ばれないまま残らない"
-    },
-    "diffMain": {
-      "x": 3040,
-      "y": 0,
-      "w": 460,
-      "page": "inbox",
-      "text": "変更前 (左) と変更後 (その左) の違い\n- Inbox: 終わったセッションは、答えていない to-do や proposal があっても Inbox に出さない、を足した\n- 返事を待つカード: 終わると to-do と proposal を取り下げ、カードは見出しとタイトルだけになる、を足した"
     }
   },
   "v": 3,
@@ -2514,9 +2268,6 @@
     "rowReviewDetails",
     "rowPartsDetails",
     "rowInboxWaiting",
-    "rowWithdrawn",
-    "diffConversationEnded",
-    "diffCloseCopy",
-    "diffMain"
+    "rowWithdrawn"
   ]
 }

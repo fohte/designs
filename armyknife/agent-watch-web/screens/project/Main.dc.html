@@ -13,7 +13,7 @@
 body{margin:0}
 </style>
 </helmet>
-<div style="width: 1440px; height: 3400px; box-sizing: border-box; padding: 72px 96px; display: flex; flex-direction: column; gap: 40px; background: #0a0a0a; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.7">
+<div style="width: 1440px; height: 3900px; box-sizing: border-box; padding: 72px 96px; display: flex; flex-direction: column; gap: 40px; background: #0a0a0a; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.7">
 <header>
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #fafafa"><span style="margin-right: 10px; color: #ef4444">&gt;</span>agent watch</div>
 <h1 style="margin: 12px 0 0; font-size: 32px; font-weight: 700; color: #fafafa">いまの画面の仕様</h1>
@@ -31,7 +31,7 @@ body{margin:0}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3400}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3900}}'>
 class Component extends DCLogic {
   renderVals() {
     return {
@@ -49,8 +49,8 @@ class Component extends DCLogic {
           '一番下に claude と codex の quota (5h と 7d) を常に出します。棒の細い縦線は均等に使ったときの量です。棒の右に、このペースで窓の終わりに何 % になるかを → 92% の形で出します。100% 未満は灰、100% 以上 150% 未満は黄、150% 以上は赤の太字で、窓の経過が 5% 未満のうちは出しません。その右はリセットまでの時間です。'
         ] },
         { title: 'Inbox', items: [
-          'Needs action を tq の優先度順に並べ、未読は太字で示します。',
-          'Later に回したもの、In progress (先頭 2 件)、Done を下に続けます。Done は Close all でまとめて閉じます。',
+          'Needs action などの区分の中の並び順は、見出しの右の Sort Priority ⌄ で Priority (既定。tq の優先度順、同じなら更新の新しい順)、Updated (更新の新しい順)、Project (project 名の順) から選びます。PC は Later と同じ形のメニュー、iPhone は下からのシートで、今の並び順に ✓ を付けます。選んだ並び順はブラウザごとに保存し、区分は変えません。Project では区分の中に project ごとの小見出しを入れ、同じ project の中は Priority の順に並べます。未読は太字で示します。',
+          'Later、Waiting と In progress (先頭 2 件ずつ)、Done を下に続けます。Done は Close all でまとめて閉じます。',
           'j / k で移動し、L で Later、E で閉じます。E は Done 以外の行でも効き、閉じる前に確認を出します。',
           'iPhone では行の中で左にスワイプすると Later と Close が出て、行を長押しすると Later と赤い Close session… のシートが出ます。画面の端からのスワイプはブラウザの戻る操作なので使いません。Later は PC と同じ選択肢を下からのシートで出し、Close は Done 以外なら PC の E と同じ文言の確認シートを出します。'
         ] },
@@ -65,8 +65,10 @@ class Component extends DCLogic {
           'Merge は返信欄の上の帯と、PR の一覧 (PC はポップオーバー、iPhone は状況パネルの先頭) のマージできる各行の 2 か所に出します。帯はマージできる PR があると Ready to merge と Merge を出し、Merging…、Merge failed と Retry に変わります。マージできる PR が複数なら行を重ね、Question や crit の帯とは縦に積みます。終わったセッションでも This session has ended の上に出し、マージ済みでは帯を出しません。一覧のマージできない行には、Merge の代わりにその理由を出します。帯と一覧の行は同じ PR を操作するので、同じ状態を出します。一覧の行は PC と iPhone で同じ部品を使い、iPhone では押せる高さを 44px にします。',
           'Done のセッションは PC ではヘッダーの Close、iPhone では ⋯ のメニューの Close ですぐ閉じます。それ以外はヘッダーの ⋯ (iPhone は ⋯ のメニューの一番下) の赤い Close session… から閉じ、Merge と同じ中央の確認ダイアログ (iPhone は下からのシート) を出します。確認の文言は状態ごとに変えます。',
           '返信欄の上に、会話欄の幅いっぱいの帯で今の状態を出します。状態と詳細 (質問の文、実行中のコマンド、タスク名) を 1 行にまとめ、はみ出た詳細は … で切ります。帯を押すと詳細を全部出し、質問と permission では会話の中のカードに戻ります。crit と draft のレビュー待ちだけは 2 行の帯にし、Review in crit で crit を全画面で、Open drafts で状況パネルの Review タブを開きます。止まっているときは帯を出しません。',
+          '終わったセッションの Resume から 20 秒たってもエージェントから返事がなければ、This session has ended に戻さず、黄色の枠の帯で Session hasn\'t started と Resumed at <時刻> · no reply after 20 s を出します。帯には Show pane、Retry、Close session (PC は Open in terminal も) を置きます。Show pane で帯の中、返信欄の位置に tmux の pane の画面を開き、ボタンを Hide pane にします。会話をスクロールしても画面は動きません。画面は capture-pane の文字を色を付けずに等幅で出し、横に長い行は枠の中で横にスクロールします。開いている間はサーバーが 2 秒ごとに撮り直し、見出しの右に青い点と Live · every 2 s (iPhone は Live) を出します。Retry は止まった pane を閉じて Resume をやり直し、帯を Resuming… に戻します。Close session は Close と同じ確認を通ります。pane にキーを送る操作は置かず、直すのは端末でします。',
           'メッセージの中のリンクの URL が登録済みの web UI の URL なら、リンクの後ろに開く先のタブ名のチップ (canvas など) を出します。押すと crit と同じく、そのタブを watch-web の中で全画面で開き、↙ で状況パネルに戻ります。iPhone は web UI だけのページを会話の上に重ねます。ブラウザの新しいタブへは、web UI のヘッダーの URL (iPhone は ↗) からだけ開きます。',
           'メッセージの中のコードブロックには、上に左が言語名 (ts、bash、text)、右が Copy の帯を付けます。押すと 1.5 秒 ✓ Copied に変わります。帯は PC で 30px、iPhone で 44px の高さで、コードと一緒に横へスクロールしないので、長い行のコードに重なりません。',
+          'Markdown の details は会話、カード、PR draft の Preview で GitHub と同じく、要約の左の ▸ で畳み、開くと ▾ にして中身を字下げせずに続けます。開いた状態はページを開いている間だけ保ちます。',
           '↵ で送り、Esc で止め、⌥↑ / ⌥↓ で自分のメッセージをたどります。',
           '返信欄の下に status line と同じ並びで engine、model (effort)、context、5h / 7d の quota (7d 76% → 92% の形で、今の使用率と窓の終わりの予測。色はナビと同じ)、バージョンを出します。表示だけで、押しても何も起きません。iPhone では折り返します。'
         ] },
@@ -93,8 +95,10 @@ class Component extends DCLogic {
           'draft を開いているあいだ、返信欄の上の帯は crit と同じ黄色の Waiting for your review にし、draft の数とエディタに出ている draft を出します。Open drafts で Review タブを開きます。'
         ] },
         { title: 'セッションの行', items: [
-          'セッションが並ぶ場所はすべて同じ行 (SessionRow) で描きます。先頭は状態で、種類のアイコン (Needs action)、青い丸 (Working)、✓ (Done) のどれかです。',
-          'Inbox はタイトル、プレビュー、role / engine / tq タスクとリポジトリの 3 行です。ほかの一覧はプレビューを省き、リポジトリを 3 行目に出します。',
+          'セッションが並ぶ場所はすべて同じ行 (SessionRow) で描きます。先頭は状態で、種類のアイコン (Needs action)、青い丸 (Working)、灰色の砂時計 (Waiting)、✓ (Done) のどれかです。ナビの Starred、Recent、PM の行も同じ印を使います。',
+          'Inbox はタイトル、プレビュー、role / engine / tq タスクとリポジトリの 3 行です。ほかの一覧はプレビューを省き、リポジトリとブランチ (⑂ のあと) を 3 行目に出します。Board の待っている行だけは、プレビューの代わりに待っている内容を 2 行目に出します。',
+          '1 行に入らないときは、タイトルとタスク名を残し、リポジトリとブランチを先に … で縮めます。ブランチは「⑂ fix-…」(7 文字) まで縮みます。リポジトリは全部入れば「example/notification-service」と出し、入らなければ org を 1 つの … にして「…/notification-service」とし、それでも入らなければ後ろを … にします (10 文字まで)。そこまで縮めても入らなければ、タスク名の後ろも … にします。並びは今のまま、Inbox はタスクの後ろにリポジトリ、ほかの一覧は 3 行目にリポジトリ ⑂ ブランチで、会話のヘッダー (リポジトリが先でタスク名から縮む) とは揃えません。縮めた文字は、上にマウスを置くと全文を出します。',
+          'Waiting は PR のマージや CI など他の作業を待つセッション (activityStatus waiting) です。In progress から分けた区分 (Inbox は Later の下、Board は各列の Needs action と In progress の間) に置き、2 行目に待っている内容 (PR #2061 のマージ待ちなど) を出します。ないときは区分ごと出しません。iPhone の Inbox では In progress と同じく 1 行にまとめ、押すと開きます。返信欄の上の帯も同じ砂時計に Waiting と待っている内容を続けます。',
           'role は灰色のアイコンで、role がないセッションは設定の agent.work_type_fallback のアイコンを出します。engine は claude / codex の文字で出します。'
         ] },
         { title: 'Board と ⌘K', items: [
@@ -103,7 +107,7 @@ class Component extends DCLogic {
           'コマンドの Close this session は開いている会話を閉じ、Done 以外では確認を出します。Close all done は Done だけを確認なしで閉じます。'
         ] },
         { title: '色', items: [
-          '黄色は返事待ち、青は実行中、赤は失敗、緑は ! コマンドの成功です。',
+          '黄色は返事待ち、青は実行中、赤は失敗、緑は ! コマンドの成功です。他の作業待ちは色を付けず、灰色の砂時計で示します。',
           'quota の使用率は 80% 以上で黄、95% 以上で赤にします。',
           '角は丸めず、影は画面の上に浮かぶものにだけ付けます。'
         ] }

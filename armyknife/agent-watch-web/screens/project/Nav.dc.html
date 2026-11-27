@@ -55,7 +55,7 @@ body{margin:0}
 <div style="flex: none"><dc-import name="Quota" hint-size="100%,140px"></dc-import></div>
 </nav>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"view":{"editor":"enum","options":["inbox","board"],"default":"inbox"},"inboxCollapsed":{"editor":"boolean","default":false},"inboxCount":{"editor":"int","default":6},"activity":{"editor":null},"activityOpen":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":240,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"view":{"editor":"enum","options":["inbox","board"],"default":"inbox"},"inboxCollapsed":{"editor":"boolean","default":false},"inboxCount":{"editor":"int","default":6},"activity":{"editor":null},"activityOpen":{"editor":"boolean","default":false},"h":{"editor":null},"wait":{"editor":"boolean","default":false},"long":{"editor":"boolean","default":false},"$preview":{"width":240,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const view = this.props.view ?? 'inbox';
@@ -65,7 +65,9 @@ class Component extends DCLogic {
     // activity: { count, tone: 'running' | 'failure' | 'idle' | 'empty' }. Unset is the muted entry without a count, as before any action ran.
     const activity = this.props.activity ?? { count: '', tone: 'empty' };
     const activityOpen = this.props.activityOpen ?? false;
-    return {
+    // wait: a starred session and a PM session have stopped to wait on something else (activityStatus 'waiting'). Their rows show the gray hourglass.
+    const wait = this.props.wait ?? false;
+    const vals = {
       // h: shorter when the update band takes the top of the window.
       h: this.props.h ?? '900px',
       inboxCount: this.props.inboxCount ?? 6,
@@ -78,7 +80,9 @@ class Component extends DCLogic {
       boardStyle: view === 'board' ? on : off,
       starred: [
         { status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', vibe: 'inherited' },
-        { status: 'Working', title: '配信ログの保存期間を決める', age: '2m', role: 'research', engine: 'codex', taskRef: 'P2 #2051', taskTitle: '監視を整える', repo: 'example/observability' }
+        wait
+          ? { status: 'Waiting', title: '配信チェックを本番に出す', age: '6m', role: 'development', engine: 'claude', taskRef: 'P1 #2050', taskTitle: '配信チェックを入れる', repo: 'example/web-app' }
+          : { status: 'Working', title: '配信ログの保存期間を決める', age: '2m', role: 'research', engine: 'codex', taskRef: 'P2 #2051', taskTitle: '監視を整える', repo: 'example/observability' }
       ],
       recent: [
         { status: 'Done', title: '再試行の上限を設定に出す', age: '1h', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service' },
@@ -87,7 +91,26 @@ class Component extends DCLogic {
       ],
       pm: [
         { status: 'Plan', title: '段階的な公開を進める', age: '5m', role: 'PM', engine: 'claude', taskRef: 'P2 #2052', taskTitle: '新しい設定を段階的に公開する', repo: 'example/web-app' },
-        { status: 'Working', title: '通知まわりの改修', age: '12m', role: 'PM', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', vibe: 'on' }
+        { status: wait ? 'Waiting' : 'Working', title: '通知まわりの改修', age: wait ? '14m' : '12m', role: 'PM', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', vibe: 'on' }
+      ]
+    };
+    // long: sessions with long repo and branch names, to show how a row shrinks them.
+    return this.props.long ? { ...vals, ...this.longRows() } : vals;
+  }
+  longRows() {
+    return {
+      starred: [
+        { status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/notification-service', branch: 'fix-resend-limit-on-timeout', vibe: 'inherited' },
+        { status: 'Working', title: '配信ログの保存期間を決める', age: '2m', role: 'research', engine: 'codex', taskRef: 'P2 #2051', taskTitle: '監視を整える', repo: 'example/observability-pipeline', branch: 'log-retention-config' }
+      ],
+      recent: [
+        { status: 'Done', title: '再試行の上限を設定に出す', age: '1h', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/notification-service', branch: 'resend-limit-config' },
+        { status: 'Working', title: 'ダッシュボードの遅延を調べる', age: '5m', role: 'debug-flow', engine: 'codex', taskRef: 'P3 #2057', taskTitle: '監視を整える', repo: 'example/observability-pipeline', branch: 'dashboard-latency-trace' },
+        { status: 'Done', title: 'セットアップ手順を更新する', age: '2h', role: '', engine: 'codex', taskRef: '', repo: 'example/handbook', branch: 'main' }
+      ],
+      pm: [
+        { status: 'Plan', title: '段階的な公開を進める', age: '5m', role: 'PM', engine: 'claude', taskRef: 'P2 #2052', taskTitle: '新しい設定を段階的に公開する', repo: 'example/storefront-web-app', branch: 'main' },
+        { status: 'Working', title: '通知まわりの改修', age: '12m', role: 'PM', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/notification-service', branch: 'main', vibe: 'on' }
       ]
     };
   }

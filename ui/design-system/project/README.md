@@ -61,6 +61,8 @@ Two themes. **Light** is `:root` in `tokens.css` and the package default; **Dark
 
 The component cards are static renditions: plain HTML styled by `components/bundle.css` with `fui-` classes that mirror each component's Tailwind classes. Hover, focus and open states that need interaction are shown with the `is-hover` and `is-focus` modifiers; open, selected and invalid states use the component's own `data-*` / `aria-*` attributes (`aria-expanded`, `data-popup-open`, `data-active`, `aria-invalid`). Dark-only rules apply under `[data-theme="dark"]` or `.dark`. The command palette's `md:` layout is the `fui-palette--md` modifier so both layouts fit one card.
 
+On a Design canvas, load `tokens.css` first and then `components/bundle.css`: `bundle.css` reads colors, fonts, radii, shadows and layout sizes from the variables in `tokens.css`.
+
 ## Not synced
 
 Source: fohte/ui `origin/main@2d45bab`, package `@fohte/ui` 0.1.8 (`tokens.css`, `package.json` exports, `src/components/*.tsx` and their stories; `src/index.ts` exports no component, the subpath exports in `package.json` are the inventory).

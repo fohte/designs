@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Discard changes and close: after confirming</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: {{w}}; height: {{h}}; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+
+<sc-if value="{{pc}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; width: 1440px; height: 900px">
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" activity="{{ activity }}" inbox-count="{{ inboxCount }}" hint-size="240px,900px"></dc-import></div>
+<div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" current="{{ cur }}" removed="{{ removed }}" hint-size="460px,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0"><dc-import name="Conversation" variant="review" done="{{ true }}" ended="{{ ended }}" action-line="{{ line }}" hint-size="100%,900px"></dc-import></div>
+</div>
+<div style="position: absolute; z-index: 10; left: 16px; bottom: 16px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,220px"></dc-import></div>
+<sc-if value="{{again}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 30; inset: 0; display: grid; place-items: center; background: rgb(0 0 0 / 55%)"><div style="width: 520px"><dc-import name="DiscardDialog" form="modal" again="{{ true }}" session="{{ session }}" branch="{{ branch }}" path="{{ path }}" changes="{{ changes }}" commits="{{ commits }}" hint-size="100%,560px"></dc-import></div></div></sc-if>
+</sc-if>
+
+<sc-if value="{{phone}}" hint-placeholder-val="{{ false }}">
+<dc-import name="PhoneChat" state="review" done="{{ true }}" ended="{{ ended }}" toasts="{{ toasts }}" action-line="{{ line }}" hint-size="390px,844px"></dc-import>
+<sc-if value="{{again}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 30; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; background: rgb(0 0 0 / 55%)"><dc-import name="DiscardDialog" form="sheet" again="{{ true }}" session="{{ session }}" branch="{{ branch }}" path="{{ path }}" changes="{{ changes }}" commits="{{ commits }}" hint-size="100%,600px"></dc-import></div></sc-if>
+</sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"result":{"editor":"enum","options":["deleting","deleted","deleteChanged","deleteBlocked","deleteFailed"],"default":"deleting"},"again":{"editor":"boolean","default":false},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const phone = (this.props.form ?? 'pc') === 'phone';
+    const result = this.props.result ?? 'deleting';
+    // again: Review again from deleteChanged reopens the confirmation with what appeared marked New.
+    const again = this.props.again ?? false;
+    const session = phone ? '通知の再送処理を見直す' : '配信チェックの PR を確認する';
+    const branch = 'feature/resend-limit';
+    const path = phone ? '~/src/example/service/.worktrees/resend-limit' : '~/src/example/web-app/.worktrees/resend-limit';
+    const changes = [
+      { s: 'M', path: 'src/resend.ts' }, { s: 'M', path: 'src/resend.test.ts' }, { s: 'A', path: 'src/resend-limit.ts' },
+      { s: 'A', path: 'src/resend-limit.test.ts' }, { s: 'M', path: 'config/resend.yaml' }, { s: 'D', path: 'src/legacy-retry.ts' },
+      { s: 'M', path: 'src/queue.ts' }, { s: 'M', path: 'src/queue.test.ts' }, { s: 'M', path: 'docs/resend.md' },
+      { s: 'M', path: 'package.json' }, { s: 'M', path: 'pnpm-lock.yaml' }, { s: '??', path: 'scripts/replay.sh' },
+      { s: '??', path: 'notes/limit.md' }, { s: '??', path: 'tmp/resend-debug.log' }
+    ];
+    const commits = [{ sha: 'a1b2c3d', subject: '再送の上限を設定に出す' }, { sha: 'e4f5a6b', subject: '上限に達したら警告を出す' }];
+    const extra = {
+      deleting: {},
+      deleted: { time: '14:32' },
+      deleteChanged: { grew: '1 new file and 1 new commit', time: '12:05' },
+      deleteBlocked: { process: '48213 node (vite)', time: '12:05' },
+      deleteFailed: { reason: 'Could not remove the worktree: tmp/cache is in use. The session is still open.', time: '12:05' }
+    }[result];
+    const a = { result, session, ...extra };
+    const failed = ['deleteChanged', 'deleteBlocked', 'deleteFailed'].includes(result);
+    return {
+      pc: !phone, phone, again,
+      w: phone ? '390px' : '1440px', h: phone ? '844px' : '900px',
+      // A deleted worktree closes the session: its Inbox row goes and the conversation shows it ended.
+      cur: result === 'deleted' ? -1 : 1, removed: result === 'deleted' ? 1 : -1, ended: result === 'deleted' ? 'ended' : 'no',
+      inboxCount: result === 'deleted' ? 5 : 6,
+      session, branch, path,
+      activity: { count: '1', tone: failed ? 'failure' : result === 'deleting' ? 'running' : 'idle' },
+      line: a,
+      // The dialog covers the toast it was opened from; it stays underneath.
+      toasts: [a],
+      changes: [{ s: '??', path: 'src/resend-limit.snap', isNew: true }, ...changes],
+      commits: [{ sha: '9f8e7d6', subject: '警告の文言を直す', isNew: true }, ...commits]
+    };
+  }
+}
+</script>
+</body>
+</html>

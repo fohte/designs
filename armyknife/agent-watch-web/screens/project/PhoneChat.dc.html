@@ -235,7 +235,7 @@ class Component extends DCLogic {
     const toasts = this.props.toasts ?? [];
     // A failed result on screen (this session's or another's) means Activity holds a failure, so ☰ carries the red dot as on Inbox.
     // activity: { count, tone } of the navigation's Activity when the artboard's scene has one; tone failure also marks ☰.
-    const navFailed = this.props.activity?.tone === 'failure' || [this.props.actionLine, ...toasts].some((a) => ['mergeFailed', 'closeFailed', 'commandFailed', 'timedOut'].includes(a?.result));
+    const navFailed = this.props.activity?.tone === 'failure' || [this.props.actionLine, ...toasts].some((a) => ['mergeFailed', 'closeFailed', 'commandFailed', 'timedOut', 'deleteChanged', 'deleteBlocked', 'deleteFailed'].includes(a?.result));
     // tasks many: 4 tq tasks; the +3 after the primary task opens the status panel on its Tasks tab, as the PC header's +N does.
     const manyTasks = (this.props.tasks ?? 'one') === 'many';
     const draft = this.props.draft ?? false;

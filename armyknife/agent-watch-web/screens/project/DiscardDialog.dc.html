@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Discard changes and close</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section role="dialog" aria-modal="true" aria-label="{{head}}" style="width: 100%; max-height: {{maxH}}; overflow-y: auto; box-sizing: border-box; display: flex; flex-direction: column; gap: {{gap}}; padding: {{pad}}; border: 1px solid {{frame}}; border-width: {{frameW}}; background: {{bg}}; box-shadow: {{shadow}}; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
+<h2 style="margin: 0; color: #fafafa; font-size: {{headFs}}; font-weight: 700">{{head}}</h2>
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0; font-size: {{metaFs}}"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: #f87171"></span><span style="flex: none; color: #f87171">Close failed</span><span style="min-width: 0; color: #fafafa; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{session}}</span></div>
+<p style="margin: 0">{{body}}</p>
+
+<div style="display: flex; flex-direction: column; border: 1px solid #2a2a2a; background: #141414">
+<sc-if value="{{hasFiles}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; align-items: baseline; gap: 8px; padding: {{secPad}}; border-bottom: 1px solid #2a2a2a"><span style="color: #fafafa; font-weight: 700">Uncommitted changes</span><span style="margin-left: auto; color: #a1a1aa; font-size: {{smallFs}}">{{filesCount}}</span></div>
+<ul style="margin: 0; padding: 0; list-style: none">
+<sc-for list="{{files}}" as="f" hint-placeholder-count="5">
+<li style="display: grid; grid-template-columns: {{letterCol}} 1fr{{newCol}}; column-gap: 8px; align-items: center; padding: {{rowPad}}; background: {{f.rowBg}}"><code style="color: {{f.color}}; font-family: 'JetBrains Mono', monospace; font-size: {{codeFs}}; font-weight: 700">{{f.s}}</code><code style="min-width: 0; overflow-wrap: anywhere; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{codeFs}}">{{f.path}}</code><sc-if value="{{f.isNew}}" hint-placeholder-val="{{ false }}"><span style="padding: 0 6px; border: 1px solid #60a5fa; color: #93c5fd; font-size: {{smallFs}}">New</span></sc-if></li>
+</sc-for>
+</ul>
+<sc-if value="{{filesMore}}" hint-placeholder-val="{{ false }}"><button type="button" aria-expanded="false" style="min-height: {{moreH}}; padding: 0 12px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #a1a1aa; font-family: inherit; font-size: {{smallFs}}; text-align: left">{{filesMoreLabel}}</button></sc-if>
+</sc-if>
+<sc-if value="{{hasCommits}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; align-items: baseline; gap: 8px; padding: {{secPad}}; border-top: {{commitsTop}}; border-bottom: 1px solid #2a2a2a"><span style="color: #fafafa; font-weight: 700">Commits not on main</span><span style="margin-left: auto; color: #a1a1aa; font-size: {{smallFs}}">{{commitsCount}}</span></div>
+<ul style="margin: 0; padding: 0; list-style: none">
+<sc-for list="{{commits}}" as="m" hint-placeholder-count="2">
+<li style="display: grid; grid-template-columns: auto 1fr{{newCol}}; column-gap: 10px; align-items: center; padding: {{rowPad}}; background: {{m.rowBg}}"><code style="color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: {{codeFs}}">{{m.sha}}</code><span style="min-width: 0; color: #d4d4d8">{{m.subject}}</span><sc-if value="{{m.isNew}}" hint-placeholder-val="{{ false }}"><span style="padding: 0 6px; border: 1px solid #60a5fa; color: #93c5fd; font-size: {{smallFs}}">New</span></sc-if></li>
+</sc-for>
+</ul>
+<sc-if value="{{commitsMore}}" hint-placeholder-val="{{ false }}"><button type="button" aria-expanded="false" style="min-height: {{moreH}}; padding: 0 12px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #a1a1aa; font-family: inherit; font-size: {{smallFs}}; text-align: left">{{commitsMoreLabel}}</button></sc-if>
+</sc-if>
+</div>
+<code style="overflow-wrap: anywhere; color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: {{pathFs}}">{{path}}</code>
+
+<div style="display: {{actDisplay}}; grid-template-columns: 1fr 1fr; justify-content: flex-end; gap: 8px; margin-top: 4px">
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: {{btnFs}}">Cancel</button>
+<button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #f87171; background: #f87171; color: #0a0a0a; font-family: inherit; font-size: {{btnFs}}; font-weight: 700">Discard and close</button>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["modal","sheet"],"default":"modal"},"again":{"editor":"boolean","default":false},"changes":{"editor":null},"commits":{"editor":null},"branch":{"editor":"text","default":"feature/resend-limit"},"path":{"editor":"text","default":"~/src/example/service/.worktrees/resend-limit"},"session":{"editor":"text","default":"通知の再送処理を見直す"},"$preview":{"width":520,"height":620}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const phone = (this.props.form ?? 'modal') === 'sheet';
+    const changes = this.props.changes ?? [
+      { s: 'M', path: 'src/resend.ts' }, { s: 'M', path: 'src/resend.test.ts' }, { s: '??', path: 'tmp/resend-debug.log' }
+    ];
+    const commits = this.props.commits ?? [
+      { sha: 'a1b2c3d', subject: '再送の上限を設定に出す' }, { sha: 'e4f5a6b', subject: '上限に達したら警告を出す' }
+    ];
+    // git status letters. Lightness differs too, so they are not told apart by hue alone.
+    const LC = { M: '#fbbf24', A: '#4ade80', D: '#f87171', R: '#60a5fa', '??': '#a1a1aa' };
+    // 5 per section; Show N more opens the rest in place and the dialog (sheet) grows and scrolls as a whole.
+    const LIMIT = 5;
+    const n = (k, one, many) => k + ' ' + (k === 1 ? one : many);
+    // again: the server stopped because the files and commits marked isNew appeared after you confirmed. Nothing was deleted.
+    const again = this.props.again ?? false;
+    const branch = this.props.branch ?? 'feature/resend-limit';
+    // New items come first so they are always among the 5 shown.
+    const order = (xs) => [...xs.filter((x) => x.isNew), ...xs.filter((x) => !x.isNew)];
+    const fs = order(changes), cs = order(commits);
+    const rowBg = (x) => x.isNew ? 'rgb(96 165 250 / 10%)' : 'transparent';
+    const newFiles = fs.filter((x) => x.isNew).length, newCommits = cs.filter((x) => x.isNew).length;
+    const grew = [newFiles ? n(newFiles, 'new file', 'new files') : '', newCommits ? n(newCommits, 'new commit', 'new commits') : ''].filter(Boolean).join(' and ');
+    return {
+      head: again ? 'Review the changes again' : 'Discard changes and close?',
+      body: again
+        ? 'Nothing was deleted: ' + grew + ' appeared after you confirmed. Discarding deletes these too.'
+        : 'Deletes the worktree and the branch ' + branch + '. These are not saved anywhere else.',
+      session: this.props.session ?? '通知の再送処理を見直す',
+      path: this.props.path ?? '~/src/example/service/.worktrees/resend-limit',
+      branch, newCol: newFiles || newCommits ? ' auto' : '',
+      hasFiles: changes.length > 0, hasCommits: commits.length > 0,
+      files: fs.slice(0, LIMIT).map((f) => ({ ...f, color: LC[f.s] ?? '#a1a1aa', rowBg: rowBg(f), isNew: !!f.isNew })),
+      commits: cs.slice(0, LIMIT).map((m) => ({ ...m, rowBg: rowBg(m), isNew: !!m.isNew })),
+      filesCount: n(changes.length, 'file', 'files'), commitsCount: n(commits.length, 'commit', 'commits'),
+      filesMore: changes.length > LIMIT, filesMoreLabel: 'Show ' + (changes.length - LIMIT) + ' more',
+      commitsMore: commits.length > LIMIT, commitsMoreLabel: 'Show ' + (commits.length - LIMIT) + ' more',
+      commitsTop: changes.length ? '1px solid #2a2a2a' : '0',
+      maxH: phone ? 'calc(100vh - 52px)' : 'none',
+      bg: phone ? '#1f1f1f' : '#0f0f0f', frame: phone ? '#3f3f46' : '#1a1a1a', frameW: phone ? '1px 0 0' : '1px',
+      shadow: phone ? '0 -12px 36px rgb(0 0 0 / 30%)' : '0 12px 36px rgba(0, 0, 0, 0.24)',
+      pad: phone ? '18px 16px max(30px, env(safe-area-inset-bottom))' : '16px',
+      gap: phone ? '12px' : '10px',
+      fs: phone ? '14px' : '12px', headFs: phone ? '15px' : '13px', metaFs: phone ? '13px' : '12px',
+      smallFs: phone ? '12.5px' : '11px', codeFs: phone ? '12.5px' : '11px', pathFs: phone ? '11.5px' : '10px',
+      letterCol: phone ? '24px' : '20px', rowPad: phone ? '6px 12px' : '3px 10px', secPad: phone ? '8px 12px' : '6px 10px',
+      moreH: phone ? '44px' : '28px', btnH: phone ? '44px' : '26px', btnFs: phone ? '13px' : '12px',
+      actDisplay: phone ? 'grid' : 'flex'
+    };
+  }
+}
+</script>
+</body>
+</html>

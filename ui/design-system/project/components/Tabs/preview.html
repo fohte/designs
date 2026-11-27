@@ -1,0 +1,24 @@
+<!-- @dsCard group="Navigation" height=170 subtitle="static rendition" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tabs</title>
+</head>
+<body>
+<div class="fui-stack">
+  <div class="fui-tabs-list" role="tablist">
+    <button class="fui-tab" type="button" role="tab" aria-selected="true" data-active>Summary</button>
+    <button class="fui-tab" type="button" role="tab" aria-selected="false">Details</button>
+    <button class="fui-tab" type="button" role="tab" aria-selected="false">History</button>
+  </div>
+  <div role="tabpanel" style="font-size:14px">The summary panel shows here; only the selected tab's panel is visible.</div>
+  <div class="fui-tabs-list" role="tablist" style="margin-top:8px">
+    <button class="fui-tab" type="button" role="tab" aria-selected="false">Summary</button>
+    <button class="fui-tab is-hover" type="button" role="tab" aria-selected="false">Details</button>
+    <button class="fui-tab is-focus" type="button" role="tab" aria-selected="true" data-active>History</button>
+  </div>
+  <span class="fui-note">active · inactive · hover · focused active tab</span>
+</div>
+</body>
+</html>

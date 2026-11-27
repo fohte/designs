@@ -1,0 +1,28 @@
+<!-- @dsCard group="Overlays" height=200 subtitle="static rendition" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Popover</title>
+</head>
+<body>
+<div class="fui-row" style="align-items:flex-start;gap:32px">
+  <div class="fui-cell"><span class="fui-note">padding="none"</span>
+    <button class="fui-button fui-button--outline" type="button" aria-expanded="true">Open menu</button>
+    <div class="fui-popover fui-pad-none" role="dialog">Menu content</div>
+  </div>
+  <div class="fui-cell"><span class="fui-note">padding="sm"</span>
+    <button class="fui-button fui-button--outline" type="button" aria-expanded="true">Open menu</button>
+    <div class="fui-popover fui-pad-sm" role="dialog">Menu content</div>
+  </div>
+  <div class="fui-cell"><span class="fui-note">padding="md" (default)</span>
+    <button class="fui-button fui-button--outline" type="button" aria-expanded="true">Open menu</button>
+    <div class="fui-popover fui-pad-md" role="dialog">Menu content</div>
+  </div>
+  <div class="fui-cell"><span class="fui-note">closed</span>
+    <button class="fui-button fui-button--outline" type="button" aria-expanded="false">Open menu</button>
+  </div>
+</div>
+<div class="fui-row"><span class="fui-note">content opens 4px below the trigger, start-aligned; the open trigger keeps its muted fill</span></div>
+</body>
+</html>

@@ -1522,14 +1522,6 @@
       "h": 844,
       "title": "iPhone · 状況パネル · Review · PR draft の Preview の details",
       "page": "status-panel"
-    },
-    "before/BeforeMain.dc.html": {
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 3400,
-      "title": "Before · 仕様のまとめ",
-      "page": "inbox"
     }
   },
   "order": [
@@ -1723,8 +1715,7 @@
     "DetailsProposal.dc.html",
     "PhoneChatDetailsProposal.dc.html",
     "StatusReviewDetails.dc.html",
-    "PhoneStatusReviewDetails.dc.html",
-    "before/BeforeMain.dc.html"
+    "PhoneStatusReviewDetails.dc.html"
   ],
   "pages": [
     {
@@ -2055,14 +2046,6 @@
       "kind": "title1",
       "maxW": 1424,
       "page": "components"
-    },
-    "diffMain": {
-      "x": 3040,
-      "y": 0,
-      "w": 420,
-      "fill": "yellow",
-      "page": "inbox",
-      "text": "左が変更前 (Before)。変更点:\n- 会話の 6 つ目に、Markdown の details の説明を足した (GitHub と同じく ▸ で畳み、開くと ▾ で中身を字下げせずに続ける。開いた状態はページを開いている間だけ保つ)\n- 文が増えた分、ボードの高さを 3400px から 3500px にした\n- 見た目は会話の「Markdown の折りたたみ」の行と、右側のタブの「Review · Preview の details」の行"
     }
   },
   "v": 3,
@@ -2108,7 +2091,6 @@
     "rowReviewPreview",
     "rowDetailsFold",
     "rowReviewDetails",
-    "rowPartsDetails",
-    "diffMain"
+    "rowPartsDetails"
   ]
 }

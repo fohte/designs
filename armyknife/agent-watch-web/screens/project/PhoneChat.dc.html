@@ -71,6 +71,9 @@ body{margin:0}
 <sc-if value="{{t.isFolded}}" hint-placeholder-val="{{ false }}">
 <dc-import name="TodoCard" form="folded" phone="{{ true }}" title="{{t.title}}" added="{{ t.added }}" hint-size="100%,48px"></dc-import>
 </sc-if>
+<sc-if value="{{t.isWithdrawn}}" hint-placeholder-val="{{ false }}">
+<dc-import name="WithdrawnCard" kind="{{t.kind}}" form="phone" title="{{t.title}}" hint-size="100%,84px"></dc-import>
+</sc-if>
 <sc-if value="{{t.isFull}}" hint-placeholder-val="{{ true }}">
 <article aria-label="User task" style="border: 1px solid #2a2a2a; padding: 14px; display: flex; flex-direction: column; gap: 8px">
 <dc-import name="TodoCard" form="header" phone="{{ true }}" hint-size="100%,24px"></dc-import>
@@ -174,7 +177,7 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"update":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"state":{"editor":"enum","options":["question","review","todo","code","starting"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"stuck":{"editor":"enum","options":["no","closed","open"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"longTitle":{"editor":"boolean","default":false},"activity":{"editor":null},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"update":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"state":{"editor":"enum","options":["question","review","todo","code","starting"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"withdrawn":{"editor":"boolean","default":false},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"stuck":{"editor":"enum","options":["no","closed","open"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"longTitle":{"editor":"boolean","default":false},"activity":{"editor":null},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
   // bang: the ! command in the last reply. '' (none) | idle | running | succeeded | failed | timedOut.
   // The server sends each run's result to the session as your message; bangHighlight outlines it (Show output landed there).
@@ -208,7 +211,12 @@ class Component extends DCLogic {
     const tLater = { title: '通知の音を実機で確かめる' };
     const tNow = { title: '設定画面の音の一覧を見る', detail: 'ステージングで設定画面を開き、音の一覧に 5 つ並んでいるか見てください。' };
     const added = (this.props.todo ?? 'folded') === 'added';
-    const todoItems = [
+    // withdrawn: as in Conversation, the to-do and proposal the server withdrew when the session ended.
+    const todoItems = (this.props.withdrawn ?? false) ? [
+      { isWithdrawn: true, kind: 'todo', title: tLater.title },
+      { isText: true, text: '既定の音は 2 つの案から選んでください。' },
+      { isWithdrawn: true, kind: 'proposal', title: '通知の既定の音を決める' }
+    ] : [
       { isFolded: true, ...tLater, added },
       { isText: true, text: '音の一覧はステージングでも見られます。こちらは今確かめてください。' },
       { isFull: true, ...tNow }

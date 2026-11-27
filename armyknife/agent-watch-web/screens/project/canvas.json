@@ -1588,29 +1588,29 @@
       "title": "PaneSnapshot",
       "page": "components"
     },
-    "NewSessionRestored.dc.html": {
-      "x": 1990,
-      "y": 8820,
+    "WithdrawnCard.dc.html": {
+      "x": 3956,
+      "y": 1740,
+      "w": 672,
+      "h": 80,
+      "title": "WithdrawnCard",
+      "page": "components"
+    },
+    "ConversationWithdrawn.dc.html": {
+      "x": 0,
+      "y": 16070,
       "w": 1440,
       "h": 900,
-      "title": "新しいセッション · Esc で閉じて c で開き直した · 書きかけの入力がそのまま戻る",
-      "page": "inbox"
+      "title": "終わったセッション · 答えていなかった to-do と proposal は取り下げ済みになる (Recent から開いた)",
+      "page": "conversation"
     },
-    "PhoneNewSessionRestored.dc.html": {
-      "x": 3510,
-      "y": 8820,
+    "PhoneChatWithdrawn.dc.html": {
+      "x": 1520,
+      "y": 16070,
       "w": 390,
       "h": 844,
-      "title": "iPhone · ‹ で戻って + で開き直した · 書きかけの入力がそのまま戻る",
-      "page": "inbox"
-    },
-    "NewSessionForm.dc.html": {
-      "x": 0,
-      "y": 7700,
-      "w": 740,
-      "h": 520,
-      "title": "NewSessionForm",
-      "page": "components"
+      "title": "iPhone · 取り下げ済みの to-do と proposal",
+      "page": "conversation"
     },
     "NewSessionStarting.dc.html": {
       "x": 0,
@@ -1827,6 +1827,30 @@
       "h": 900,
       "title": "DiscardResult",
       "page": "components"
+    },
+    "NewSessionRestored.dc.html": {
+      "x": 1990,
+      "y": 8820,
+      "w": 1440,
+      "h": 900,
+      "title": "新しいセッション · Esc で閉じて c で開き直した · 書きかけの入力がそのまま戻る",
+      "page": "inbox"
+    },
+    "PhoneNewSessionRestored.dc.html": {
+      "x": 3510,
+      "y": 8820,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ‹ で戻って + で開き直した · 書きかけの入力がそのまま戻る",
+      "page": "inbox"
+    },
+    "NewSessionForm.dc.html": {
+      "x": 0,
+      "y": 7700,
+      "w": 740,
+      "h": 520,
+      "title": "NewSessionForm",
+      "page": "components"
     }
   },
   "order": [
@@ -2029,9 +2053,9 @@
     "PhoneChatStuckOpen.dc.html",
     "StuckBand.dc.html",
     "PaneSnapshot.dc.html",
-    "NewSessionRestored.dc.html",
-    "PhoneNewSessionRestored.dc.html",
-    "NewSessionForm.dc.html",
+    "WithdrawnCard.dc.html",
+    "ConversationWithdrawn.dc.html",
+    "PhoneChatWithdrawn.dc.html",
     "DiscardDialog.dc.html",
     "DiscardResult.dc.html",
     "CloseDiscardConfirm.dc.html",
@@ -2058,7 +2082,10 @@
     "PhoneNewSessionStarted.dc.html",
     "NewSessionStartFailed.dc.html",
     "NewSessionStartFailedActivity.dc.html",
-    "PhoneNewSessionStartFailed.dc.html"
+    "PhoneNewSessionStartFailed.dc.html",
+    "NewSessionRestored.dc.html",
+    "PhoneNewSessionRestored.dc.html",
+    "NewSessionForm.dc.html"
   ],
   "pages": [
     {
@@ -2422,13 +2449,13 @@
       "maxW": 1512,
       "page": "components"
     },
-    "rowPartsNewSession": {
+    "rowWithdrawn": {
       "x": 0,
-      "y": 7400,
-      "text": "新しいセッションの入力と一覧 (+ と ⌘K で共通)",
+      "y": 15770,
+      "text": "終わったセッションの to-do と proposal · 終わったときに取り下げ、会話には見出しとタイトルだけ残す",
       "kind": "title1",
-      "maxW": 1512,
-      "page": "components"
+      "maxW": 3900,
+      "page": "conversation"
     },
     "rowNewSessionStarting": {
       "x": 0,
@@ -2461,6 +2488,14 @@
       "kind": "title1",
       "maxW": 5890,
       "page": "topbar"
+    },
+    "rowPartsNewSession": {
+      "x": 0,
+      "y": 7400,
+      "text": "新しいセッションの入力と一覧 (+ と ⌘K で共通)",
+      "kind": "title1",
+      "maxW": 1512,
+      "page": "components"
     }
   },
   "v": 3,
@@ -2507,6 +2542,7 @@
     "rowDetailsFold",
     "rowReviewDetails",
     "rowPartsDetails",
-    "rowInboxWaiting"
+    "rowInboxWaiting",
+    "rowWithdrawn"
   ]
 }

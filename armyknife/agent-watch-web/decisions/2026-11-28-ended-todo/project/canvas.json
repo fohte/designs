@@ -1,0 +1,118 @@
+{
+  "v": 3,
+  "createdOnFiles": {"v": 1, "at": "2026-11-24T10:00:00Z"},
+  "title": "終わったセッションの to-do を片付ける",
+  "launch": {"view": "canvas", "page": "current"},
+  "pages": [
+    {"id": "current", "name": "今の画面"},
+    {"id": "row", "name": "Inbox の行"},
+    {"id": "card", "name": "会話の to-do カード"},
+    {"id": "close", "name": "Close の確認"},
+    {"id": "left", "name": "Inbox から外したあとの to-do"},
+    {"id": "parts", "name": "部品"}
+  ],
+  "boards": {
+    "ended-todo-current.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 900, "title": "今の画面 · PC", "page": "current"},
+    "ended-todo-current-phone-inbox.dc.html": {"x": 1520, "y": 0, "w": 390, "h": 844, "title": "今の画面 · iPhone の Inbox", "page": "current"},
+    "ended-todo-current-phone.dc.html": {"x": 1990, "y": 0, "w": 390, "h": 844, "title": "今の画面 · iPhone の会話", "page": "current"},
+
+    "ended-todo-row-tag.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 900, "title": "A · PC (行にポインターを乗せた)", "page": "row"},
+    "ended-todo-row-tag-phone.dc.html": {"x": 1520, "y": 0, "w": 390, "h": 844, "title": "A · iPhone (行を左にスワイプした)", "page": "row"},
+    "ended-todo-row-group.dc.html": {"x": 0, "y": 1280, "w": 1440, "h": 900, "title": "B · PC", "page": "row"},
+    "ended-todo-row-group-phone.dc.html": {"x": 1520, "y": 1280, "w": 390, "h": 844, "title": "B · iPhone", "page": "row"},
+    "ended-todo-row-dim.dc.html": {"x": 0, "y": 2560, "w": 1440, "h": 900, "title": "C · PC", "page": "row"},
+    "ended-todo-row-dim-phone.dc.html": {"x": 1520, "y": 2560, "w": 390, "h": 844, "title": "C · iPhone", "page": "row"},
+
+    "ended-todo-card-tag.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 900, "title": "A · PC", "page": "card"},
+    "ended-todo-card-tag-phone.dc.html": {"x": 1520, "y": 0, "w": 390, "h": 844, "title": "A · iPhone", "page": "card"},
+    "ended-todo-card-primary.dc.html": {"x": 0, "y": 1280, "w": 1440, "h": 900, "title": "B · PC", "page": "card"},
+    "ended-todo-card-primary-phone.dc.html": {"x": 1520, "y": 1280, "w": 390, "h": 844, "title": "B · iPhone", "page": "card"},
+    "ended-todo-card-band.dc.html": {"x": 0, "y": 2560, "w": 1440, "h": 900, "title": "C · PC", "page": "card"},
+    "ended-todo-card-band-phone.dc.html": {"x": 1520, "y": 2560, "w": 390, "h": 844, "title": "C · iPhone", "page": "card"},
+    "ended-todo-card-after.dc.html": {"x": 0, "y": 3840, "w": 1440, "h": 900, "title": "Withdraw の後 · PC", "page": "card"},
+    "ended-todo-card-after-phone.dc.html": {"x": 1520, "y": 3840, "w": 390, "h": 844, "title": "Withdraw の後 · iPhone", "page": "card"},
+
+    "ended-todo-close-line.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 900, "title": "A · PC (会話の ⋯ から Close session…)", "page": "close"},
+    "ended-todo-close-line-phone.dc.html": {"x": 1520, "y": 0, "w": 390, "h": 844, "title": "A · iPhone", "page": "close"},
+    "ended-todo-close-line-copy.dc.html": {"x": 0, "y": 1020, "w": 1440, "h": 820, "title": "A · 状態ごとの文言", "page": "close"},
+    "ended-todo-close-list.dc.html": {"x": 0, "y": 2220, "w": 1440, "h": 900, "title": "B · PC (会話の ⋯ から Close session…)", "page": "close"},
+    "ended-todo-close-list-phone.dc.html": {"x": 1520, "y": 2220, "w": 390, "h": 844, "title": "B · iPhone", "page": "close"},
+    "ended-todo-close-list-copy.dc.html": {"x": 0, "y": 3240, "w": 1440, "h": 820, "title": "B · 状態ごとの文言", "page": "close"},
+    "ended-todo-auto.dc.html": {"x": 0, "y": 0, "w": 1440, "h": 900, "title": "A · PC (Recent から会話を開いた)", "page": "left"},
+    "ended-todo-auto-phone.dc.html": {"x": 1520, "y": 0, "w": 390, "h": 844, "title": "A · iPhone の会話", "page": "left"},
+    "ended-todo-auto-close.dc.html": {"x": 0, "y": 1020, "w": 1440, "h": 420, "title": "A · Close の確認の文言 (何も足さない)", "page": "left"},
+    "ended-todo-keep.dc.html": {"x": 0, "y": 1820, "w": 1440, "h": 900, "title": "B · PC (Recent から会話を開いた)", "page": "left"},
+    "ended-todo-keep-phone.dc.html": {"x": 1520, "y": 1820, "w": 390, "h": 844, "title": "B · iPhone の会話", "page": "left"},
+
+    "Conversation.dc.html": {"x": 0, "y": 0, "w": 880, "h": 900, "title": "Conversation", "page": "parts"},
+    "InboxList.dc.html": {"x": 960, "y": 0, "w": 460, "h": 900, "title": "InboxList", "page": "parts"},
+    "Nav.dc.html": {"x": 1500, "y": 0, "w": 240, "h": 900, "title": "Nav", "page": "parts"},
+    "PhoneChat.dc.html": {"x": 1820, "y": 0, "w": 390, "h": 844, "title": "PhoneChat", "page": "parts"},
+    "PhoneInbox.dc.html": {"x": 2290, "y": 0, "w": 390, "h": 844, "title": "PhoneInbox", "page": "parts"},
+    "EndedTodoCard.dc.html": {"x": 2760, "y": 0, "w": 672, "h": 250, "title": "EndedTodoCard", "page": "parts"},
+    "TodoCard.dc.html": {"x": 3512, "y": 0, "w": 672, "h": 40, "title": "TodoCard", "page": "parts"},
+    "ConfirmDialog.dc.html": {"x": 4264, "y": 0, "w": 380, "h": 200, "title": "ConfirmDialog", "page": "parts"},
+    "SessionRow.dc.html": {"x": 4724, "y": 0, "w": 460, "h": 76, "title": "SessionRow", "page": "parts"},
+    "ToastStack.dc.html": {"x": 5264, "y": 0, "w": 360, "h": 240, "title": "ToastStack", "page": "parts"},
+    "ActionItem.dc.html": {"x": 5704, "y": 0, "w": 360, "h": 110, "title": "ActionItem", "page": "parts"},
+    "CloseCopy.dc.html": {"x": 0, "y": 1020, "w": 1440, "h": 820, "title": "CloseCopy", "page": "parts"},
+    "CloseChecks.dc.html": {"x": 1520, "y": 1020, "w": 408, "h": 170, "title": "CloseChecks", "page": "parts"},
+    "CodeBlock.dc.html": {"x": 2008, "y": 1020, "w": 672, "h": 160, "title": "CodeBlock", "page": "parts"},
+    "MergeBand.dc.html": {"x": 2760, "y": 1020, "w": 760, "h": 60, "title": "MergeBand", "page": "parts"},
+    "MergeButton.dc.html": {"x": 3600, "y": 1020, "w": 160, "h": 44, "title": "MergeButton", "page": "parts"},
+    "PrButton.dc.html": {"x": 3840, "y": 1020, "w": 44, "h": 44, "title": "PrButton", "page": "parts"},
+    "Quota.dc.html": {"x": 3964, "y": 1020, "w": 240, "h": 140, "title": "Quota", "page": "parts"},
+    "SessionUsage.dc.html": {"x": 4284, "y": 1020, "w": 672, "h": 40, "title": "SessionUsage", "page": "parts"},
+    "StatusBand.dc.html": {"x": 5036, "y": 1020, "w": 760, "h": 60, "title": "StatusBand", "page": "parts"},
+    "UpdateBand.dc.html": {"x": 5876, "y": 1020, "w": 760, "h": 40, "title": "UpdateBand", "page": "parts"},
+    "ActivityButton.dc.html": {"x": 6716, "y": 1020, "w": 224, "h": 44, "title": "ActivityButton", "page": "parts"},
+    "PhoneLaterSheet.dc.html": {"x": 7020, "y": 1020, "w": 390, "h": 420, "title": "PhoneLaterSheet", "page": "parts"},
+    "PhoneRowMenu.dc.html": {"x": 7490, "y": 1020, "w": 390, "h": 250, "title": "PhoneRowMenu", "page": "parts"},
+    "PhoneSaveViewSheet.dc.html": {"x": 7960, "y": 1020, "w": 390, "h": 300, "title": "PhoneSaveViewSheet", "page": "parts"}
+  },
+  "order": [
+    "ended-todo-current.dc.html", "ended-todo-current-phone-inbox.dc.html", "ended-todo-current-phone.dc.html",
+    "ended-todo-row-tag.dc.html", "ended-todo-row-tag-phone.dc.html", "ended-todo-row-group.dc.html", "ended-todo-row-group-phone.dc.html", "ended-todo-row-dim.dc.html", "ended-todo-row-dim-phone.dc.html",
+    "ended-todo-card-tag.dc.html", "ended-todo-card-tag-phone.dc.html", "ended-todo-card-primary.dc.html", "ended-todo-card-primary-phone.dc.html", "ended-todo-card-band.dc.html", "ended-todo-card-band-phone.dc.html", "ended-todo-card-after.dc.html", "ended-todo-card-after-phone.dc.html",
+    "ended-todo-close-line.dc.html", "ended-todo-close-line-phone.dc.html", "ended-todo-close-line-copy.dc.html", "ended-todo-close-list.dc.html", "ended-todo-close-list-phone.dc.html", "ended-todo-close-list-copy.dc.html",
+    "ended-todo-auto.dc.html", "ended-todo-auto-phone.dc.html", "ended-todo-auto-close.dc.html", "ended-todo-keep.dc.html", "ended-todo-keep-phone.dc.html",
+    "Conversation.dc.html", "InboxList.dc.html", "Nav.dc.html", "PhoneChat.dc.html", "PhoneInbox.dc.html", "EndedTodoCard.dc.html", "TodoCard.dc.html", "ConfirmDialog.dc.html", "SessionRow.dc.html", "ToastStack.dc.html", "ActionItem.dc.html",
+    "CloseCopy.dc.html", "CloseChecks.dc.html", "CodeBlock.dc.html", "MergeBand.dc.html", "MergeButton.dc.html", "PrButton.dc.html", "Quota.dc.html", "SessionUsage.dc.html", "StatusBand.dc.html", "UpdateBand.dc.html", "ActivityButton.dc.html", "PhoneLaterSheet.dc.html", "PhoneRowMenu.dc.html", "PhoneSaveViewSheet.dc.html"
+  ],
+  "notes": {
+    "currentTitle": {"kind": "title1", "x": 0, "y": -260, "maxW": 2380, "page": "current", "text": "今の画面 · 終わったセッションの to-do が Needs action に残り続ける"},
+    "currentNote": {"x": 2460, "y": 0, "w": 460, "page": "current", "text": "前提\n- tmux の pane を閉じてセッションが終わっても、答えていない to-do があるセッションは Inbox に残す (プロセスが落ちたときに依頼を失わないため)\n- 行は動いているセッションの to-do と同じ見た目で、終わったことが分からない\n- 会話は This session has ended の帯と Resume になるが、to-do カードは Mark done / Reject だけで、Inbox から外す手段がない\n- 決まっていること: 行と会話で終わったことを示し、Withdraw (取り下げる) で Inbox から外す。Close は答えていない to-do と proposal を取り下げてから閉じる。pane を閉じても自動では取り下げない\n- データはすべて架空"},
+
+    "rowTagTitle": {"kind": "title1", "x": 0, "y": -260, "maxW": 1910, "page": "row", "text": "A · 行のタイトルの横に灰色の Ended を付け、ポインターを乗せると Withdraw が出る"},
+    "rowTagNote": {"x": 1990, "y": 0, "w": 460, "page": "row", "text": "A\n- 行は tq の優先度の位置のまま、Needs action の数にも入る。タイトルの横に灰色の枠の Ended\n- PC は行にポインターを乗せると、経過時間の代わりに Withdraw が出る\n- iPhone は行を左にスワイプすると Later と Withdraw。Close は長押しのシートに残る\n+ 行を開かずに 1 手で片付けられる\n+ 種類のアイコンは今のまま、Ended の文字で理由が読める\n- 数に入ったままなので、Needs action の数が今すぐ動けるものだけにならない"},
+    "rowGroupTitle": {"kind": "title1", "x": 0, "y": 1020, "maxW": 1910, "page": "row", "text": "B · Needs action の下に Ended sessions の区分を作り、Withdraw all でまとめて片付ける"},
+    "rowGroupNote": {"x": 1990, "y": 1280, "w": 460, "page": "row", "text": "B\n- 終わったセッションは Needs action の一番下の Ended sessions 2 に集め、Needs action の数から外す\n- 種類のアイコンは灰色\n- 区分の見出しの Withdraw all で全部取り下げる。1 件ずつは会話の中で\n+ Needs action の数が、動いているセッションの待ちだけになる\n+ たまった分を 1 手で片付けられる\n- 区分が 1 つ増える (To-do later の区分をなくした判断と逆向き)\n- Withdraw all は中身を見ずに取り下げやすい"},
+    "rowDimTitle": {"kind": "title1", "x": 0, "y": 2300, "maxW": 1910, "page": "row", "text": "C · 種類のアイコンを灰色にしてプレビューに Ended 14:32 と出し、Withdraw は会話の中だけに置く"},
+    "rowDimNote": {"x": 1990, "y": 2560, "w": 460, "page": "row", "text": "C\n- 行の位置と数は今のまま。アイコンを灰色にし、プレビューの先頭に Ended 14:32\n- 行には何も足さない。iPhone のスワイプも今のまま (Later と Close)\n- Withdraw は会話の to-do カードから (右の会話は「会話の to-do カード」の A で描いた)\n+ 行の変更がいちばん小さい\n+ to-do を読んでから取り下げるので、取り下げすぎない\n- 片付けるたびに会話を開くので 2 手かかる\n- 灰色のアイコンは Done の ✓ や Later と見分けにくい"},
+
+    "cardTagTitle": {"kind": "title1", "x": 0, "y": -260, "maxW": 1910, "page": "card", "text": "A · カードの見出しに Session ended と添え、Mark done / Reject の右に Withdraw を置く"},
+    "cardTagNote": {"x": 1990, "y": 0, "w": 460, "page": "card", "text": "A\n- 見出しは To-do · pending の横に灰色の枠の Session ended\n- ボタンは Mark done (白)、Reject、右に離して Withdraw。iPhone は 3 つを等分に並べる\n+ 今のカードに 1 つ足すだけで、答え方は変わらない\n+ 再開して答えるつもりなら、そのまま Mark done を押せる\n- Mark done が白のままなので、終わったセッションでも答えるのが正しく見える\n\nこのページの Inbox は「Inbox の行」の A で描いた"},
+    "cardPrimaryTitle": {"kind": "title1", "x": 0, "y": 1020, "maxW": 1910, "page": "card", "text": "B · カードに「再開するまで答えは届かない」と書き、Withdraw を白いボタンにする"},
+    "cardPrimaryNote": {"x": 1990, "y": 1280, "w": 460, "page": "card", "text": "B\n- 見出しに Session ended。説明の下に This session has ended. Mark done and Reject reach it only after you resume it.\n- Withdraw を白い主のボタンにし、Mark done / Reject は枠だけ。iPhone は Withdraw を幅いっぱいに置く\n+ 終わったセッションでいちばんよくする操作が一番目立つ\n+ 答えても届かないことが、押す前に分かる\n- 説明の 1 行ぶんカードが高くなる\n- 再開して答える人には主のボタンが合わない"},
+    "cardBandTitle": {"kind": "title1", "x": 0, "y": 2300, "maxW": 1910, "page": "card", "text": "C · カードは今のままにし、下の帯の Resume の横に Withdraw to-do を置く"},
+    "cardBandNote": {"x": 1990, "y": 2560, "w": 460, "page": "card", "text": "C\n- カードは今と同じ\n- This session has ended の帯が · 1 to-do is waiting になり、Resume の左に Withdraw to-do。iPhone は 2 つを並べる\n- to-do が複数あれば帯のボタンでまとめて取り下げる\n+ 終わったことと取り下げが同じ場所にあり、カードを探さなくてよい\n+ カードの部品を変えない\n- どの to-do を取り下げるのか、帯からは見えない\n- カードの Mark done は今のままで、届かないことは分からない"},
+    "cardAfterTitle": {"kind": "title1", "x": 0, "y": 3580, "maxW": 1910, "page": "card", "text": "Withdraw の後 · カードは withdrawn になり、行は Inbox から消える (どの案も同じ)"},
+    "cardAfterNote": {"x": 1990, "y": 3840, "w": 460, "page": "card", "text": "Withdraw の後\n- カードは To-do · withdrawn とタイトルだけになる (今の withdrawn と同じ形)\n- トーストは Withdrew to-do、2 行目にセッション名。成功なので自動で消える\n- 待ちの to-do がなくなった終わったセッションは Inbox に入れないので、行は Needs action から消える。Done には移さない\n- Inbox の行から取り下げたとき (行の A / B) も同じトーストを出す。B の Withdraw all は Withdrew 2 to-dos"},
+
+    "closeLineTitle": {"kind": "title1", "x": 0, "y": -260, "maxW": 1910, "page": "close", "text": "A · 本文の下に Withdraws 1 to-do and 1 proposal. の 1 行を足す"},
+    "closeLineNote": {"x": 1990, "y": 0, "w": 460, "page": "close", "text": "A\n- 今の見出しと本文の下に、取り下げる件数を白で 1 行\n- 取り下げるものがない状態 (Later など) では出さない\n- Proposal の本文は事実に合わせ、Closing ends the session. で止める (取り下げは下の 1 行で言う)\n+ 今のダイアログとほとんど同じ高さ\n- 何を取り下げるかはタイトルまで分からない"},
+    "closeListTitle": {"kind": "title1", "x": 0, "y": 1960, "maxW": 1910, "page": "close", "text": "B · 取り下げる to-do と proposal をタイトルで並べる"},
+    "closeListNote": {"x": 1990, "y": 2220, "w": 460, "page": "close", "text": "B\n- 本文の下の枠に Withdrawn when it closes と、種類とタイトルを 1 行ずつ\n- 取り下げるものがない状態では枠を出さない\n- Proposal の本文は A と同じに直す\n+ 何を失うのかが押す前に分かる\n- 件数が多いとダイアログが伸びる (iPhone のシートは今もスクロールできる)\n- 文言だけの違いなので、A との差は小さい"},
+
+    "leftPremise": {"x": 2440, "y": 0, "w": 460, "page": "left", "text": "前提 (決まったこと)\n- pane を閉じて終わったセッションは Inbox に出さない。未回答の to-do や proposal が残っていても出さない\n- Inbox の行でどう見分けるかの問いはなくなった (どの案でも Inbox は今の Needs action のまま)\n- 終わったセッションの会話は、ナビの Recent と ⌘K から開く\n\n決まった形\n- Close の確認には取り下げの件数も一覧も足さない\n- 会話のカードの形は、下の A / B のどちらを選ぶかで 1 つに決まる\n\nデータはすべて架空"},
+    "leftAutoTitle": {"kind": "title1", "x": 0, "y": -260, "maxW": 1910, "page": "left", "text": "A · 終わったときに、未回答の to-do と proposal を自動で取り下げる"},
+    "leftAutoNote": {"x": 1990, "y": 0, "w": 420, "page": "left", "text": "A\n- pane が閉じたとき、サーバーが未回答の to-do と proposal を取り下げる\n- 会話のカードは To-do · withdrawn · session ended 14:32 とタイトルだけ。ボタンはない\n- トーストも Activity も出さない (自分で押した操作ではないため)\n- Recent の行は ✓。Resume しても取り下げは戻らない\n- Close の確認は Proposal の本文から the proposal stays unchosen を外すだけ\n+ 終わったセッションに待ちが残らないので、片付ける操作が要らない\n+ カードを見れば、なぜ取り下げたかが分かる\n- 閉じたあとに気づいた to-do に答えるには、Resume して頼み直す"},
+    "leftKeepTitle": {"kind": "title1", "x": 0, "y": 1560, "maxW": 1910, "page": "left", "text": "B · 未回答のまま残し、Recent の行の印と会話のカードからだけ答える"},
+    "leftKeepNote": {"x": 1990, "y": 1820, "w": 420, "page": "left", "text": "B\n- to-do と proposal は pending のまま。Inbox には出さない\n- Recent の行の先頭を、待っているものの種類のアイコン (黄) にする\n- 会話のカードは今と同じ。Mark done / Reject を押すとセッションを再開して答えを届ける\n- Close の確認は今と同じ\n+ pane が落ちても頼まれたことを失わない\n+ カードの部品を変えない\n- Recent から押し出されると、ほぼ気づけない\n- 答えるたびにセッションが再開する"},
+
+    "partsNote": {"x": 0, "y": -300, "w": 600, "page": "parts", "text": "部品\n- 終わったセッションの to-do カードは EndedTodoCard にまとめ、PC と iPhone で phone prop を切り替える\n- SessionRow に s.tag (Ended)、s.dimIcon、s.action (ポインターを乗せたときの Withdraw) を足した\n- ConfirmDialog に note と items を足した (modal と sheet)\n- ActionItem に withdrawn を足した\n- CloseCopy は Proposal の本文を直し、withdraw prop で A / B を切り替える\n- EndedTodoCard に look=auto (終わったときに取り下げた形) を、TodoCard の withdrawn に note を足した\n- Nav に endedOpen (Recent の先頭に開いている終わったセッション) を足した"}
+  },
+  "designSystems": [
+    {"title": "agent watch", "namespace": "agentwatch", "artifact": "armyknife/agent-watch-web/design-system", "version": null, "copiedAt": "2026-11-24T10:00:00Z"}
+  ]
+}

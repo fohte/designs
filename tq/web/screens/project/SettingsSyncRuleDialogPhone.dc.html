@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Sync rule dialog, phone</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+input::placeholder{color:#71717a}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; display: flex; flex-direction: column; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', Meiryo, sans-serif">
+<div style="flex: 1; min-height: 0; overflow: hidden"><dc-import name="SettingsBody" form="phone" scroll="1800" h="791px" hint-size="100%,791px"></dc-import></div>
+<dc-import name="TabBar" view="none" hint-size="100%,53px"></dc-import>
+
+<div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(4px)"></div>
+
+<div role="dialog" aria-modal="true" aria-labelledby="sync-rule-title-phone" style="position: absolute; top: 50%; left: 16px; right: 16px; transform: translateY(-50%); box-sizing: border-box; display: grid; gap: 16px; padding: 16px; background: #0a0a0a; box-shadow: 0 0 0 1px rgba(250, 250, 250, 0.1); font-size: 14px; line-height: 20px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<sc-if value="{{create}}" hint-placeholder-val="{{true}}"><h2 id="sync-rule-title-phone" style="margin: 0; font-size: 16px; line-height: 1; font-weight: 500">同期ルールを追加</h2></sc-if>
+<sc-if value="{{edit}}" hint-placeholder-val="{{false}}"><h2 id="sync-rule-title-phone" style="margin: 0; font-size: 16px; line-height: 1; font-weight: 500">同期ルールを編集</h2></sc-if>
+<p style="margin: 0; font-size: 14px; color: #71717a">GitHub issue のアサインをタスクとして同期する条件を設定します。</p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 12px">
+<span style="width: 112px; flex-shrink: 0; font-size: 12px; line-height: 16px; font-weight: 500; color: #71717a">対象範囲</span>
+<sc-if value="{{create}}" hint-placeholder-val="{{true}}">
+<div role="group" aria-label="対象範囲" style="display: inline-flex; padding: 2px; border: 1px solid #2a2a2a; background: #141414">
+<sc-for list="{{scopes}}" as="s" hint-placeholder-count="3">
+<button type="button" aria-pressed="{{s.on}}" style="padding: 4px 10px; border: 0; background: {{s.bg}}; color: {{s.color}}; font-family: inherit; font-size: 12px; line-height: 16px; font-weight: 500">{{s.label}}</button>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{edit}}" hint-placeholder-val="{{false}}"><span style="font-size: 14px">{{scopeLabel}}</span></sc-if>
+</div>
+
+<sc-if value="{{showOrg}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; align-items: center; gap: 12px">
+<label for="sync-rule-org-phone" style="width: 112px; flex-shrink: 0; font-size: 12px; line-height: 16px; font-weight: 500; color: #71717a">Organization</label>
+<sc-if value="{{create}}" hint-placeholder-val="{{true}}"><input id="sync-rule-org-phone" type="text" placeholder="octocat" style="box-sizing: border-box; width: 100%; min-width: 0; height: 32px; padding: 4px 10px; border: 1px solid #2a2a2a; background: #141414; color: #fafafa; font-family: inherit; font-size: 16px; outline: none"></sc-if>
+<sc-if value="{{edit}}" hint-placeholder-val="{{false}}"><span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px">example-org</span></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{showRepo}}" hint-placeholder-val="{{true}}">
+<div style="display: flex; align-items: center; gap: 12px">
+<label for="sync-rule-repo-phone" style="width: 112px; flex-shrink: 0; font-size: 12px; line-height: 16px; font-weight: 500; color: #71717a">リポジトリ</label>
+<sc-if value="{{create}}" hint-placeholder-val="{{true}}"><input id="sync-rule-repo-phone" type="text" placeholder="hello-world" style="box-sizing: border-box; width: 100%; min-width: 0; height: 32px; padding: 4px 10px; border: 1px solid #2a2a2a; background: #141414; color: #fafafa; font-family: inherit; font-size: 16px; outline: none"></sc-if>
+<sc-if value="{{edit}}" hint-placeholder-val="{{false}}"><span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px">notes-app</span></sc-if>
+</div>
+</sc-if>
+
+<div style="display: flex; align-items: center; gap: 12px">
+<span style="width: 112px; flex-shrink: 0; font-size: 12px; line-height: 16px; font-weight: 500; color: #71717a">反映先プロジェクト</span>
+<button type="button" aria-label="反映先プロジェクト" style="flex: 1; min-width: 0; box-sizing: border-box; height: 32px; display: flex; align-items: center; justify-content: space-between; gap: 6px; padding: 0 4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: {{projectColor}}; font-family: inherit; font-size: 14px; text-align: left">{{projectLabel}}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+</div>
+
+<sc-if value="{{create}}" hint-placeholder-val="{{true}}">
+<label style="display: flex; align-items: center; gap: 8px; font-size: 14px"><input type="checkbox" style="appearance: none; flex-shrink: 0; box-sizing: border-box; width: 16px; height: 16px; margin: 0; border: 1px solid #2a2a2a; background: #141414">現在アサイン済みの open issue も取り込む</label>
+</sc-if>
+</div>
+
+<div style="margin: 0 -16px -16px; display: flex; flex-direction: column-reverse; gap: 8px; padding: 16px; border-top: 1px solid #2a2a2a; background: rgba(20, 20, 20, 0.5)">
+<button type="button" style="box-sizing: border-box; height: 32px; display: inline-flex; align-items: center; justify-content: center; padding: 0 10px; border: 1px solid #2a2a2a; background: #0a0a0a; color: #fafafa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500">キャンセル</button>
+<sc-if value="{{create}}" hint-placeholder-val="{{true}}"><button type="button" disabled style="width: 100%; box-sizing: border-box; height: 32px; display: inline-flex; align-items: center; justify-content: center; padding: 0 10px; border: 1px solid #71717a; background: #1f1f1f; color: #fafafa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500; opacity: 0.5">作成</button></sc-if>
+<sc-if value="{{edit}}" hint-placeholder-val="{{false}}"><button type="button" style="width: 100%; box-sizing: border-box; height: 32px; display: inline-flex; align-items: center; justify-content: center; padding: 0 10px; border: 1px solid #71717a; background: #1f1f1f; color: #fafafa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500">保存</button></sc-if>
+</div>
+
+<button type="button" style="position: absolute; top: 8px; right: 8px; width: 28px; height: 28px; display: grid; place-content: center; padding: 0; border: 0; background: transparent; color: #fafafa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">Close</span></button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mode":{"editor":"enum","options":["create","edit"],"default":"create"},"scope":{"editor":"enum","options":["all","org","repo"],"default":"repo"},"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const create = (this.props.mode ?? 'create') === 'create';
+    const scope = this.props.scope ?? 'repo';
+    const scopes = [
+      ['all', 'すべて'],
+      ['org', 'Organization'],
+      ['repo', 'リポジトリ'],
+    ].map(([value, label]) => ({
+      label,
+      on: value === scope,
+      bg: value === scope ? '#0a0a0a' : 'transparent',
+      color: value === scope ? '#fafafa' : '#71717a',
+    }));
+    return {
+      create,
+      edit: !create,
+      scopes,
+      scopeLabel: { all: 'すべてのリポジトリ', org: 'Organization', repo: 'リポジトリ' }[scope],
+      showOrg: scope !== 'all',
+      showRepo: scope === 'repo',
+      projectLabel: create ? '選択してください' : '個人開発',
+      projectColor: create ? '#71717a' : '#fafafa',
+    };
+  }
+}
+</script>
+</body>
+</html>

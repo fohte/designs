@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Memo window</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-labelledby="memo-title" style="width: 480px; height: 560px; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: column; padding: 8px 12px 12px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif">
+<div style="flex: none; height: 40px; box-sizing: border-box; margin: -8px -12px 0; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 12px 0 80px; -webkit-app-region: drag">
+<h1 id="memo-title" style="margin: 0; font-size: 14px; line-height: 20px; font-weight: 500">Work memo</h1>
+<span aria-live="polite" style="font-size: 10px; line-height: 14px; color: #71717a">Saved</span>
+</div>
+<div role="textbox" aria-multiline="true" aria-label="Work memo" style="flex: 1; min-height: 0; margin-top: 8px; overflow-y: auto; padding: 8px; border: 1px solid #2a2a2a; background: #141414; font-size: 14px; line-height: 2">
+<p style="margin: 0; font-weight: 600"><span style="color: #ef4444">## </span>10:00 3 日ビュー</p>
+<p style="margin: 0">列幅は 1fr ずつ。週末の扱いを確認する</p>
+<ul style="margin: 0; padding-left: 20px">
+<li>ヘッダーの日付表記を週ビューと揃える</li>
+<li>矢印キーで 3 日ずつ移動する</li>
+</ul>
+<p style="margin: 0; font-weight: 600"><span style="color: #ef4444">## </span>11:00 定例</p>
+<p style="margin: 0">リリース日を 9 月第 2 週に決定</p>
+<p style="margin: 0; font-weight: 600"><span style="color: #ef4444">### </span>あとで</p>
+<ul style="margin: 0; padding-left: 20px">
+<li>API レート制限の上限値を確認する</li>
+</ul>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":480,"height":560}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Repeat rule popover</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; overflow: hidden; background: #0a0a0a; color: #fafafa">
+<dc-import name="RecurringDetail" hint-size="1440px,900px"></dc-import>
+
+<div role="dialog" aria-label="Repeat" style="position: absolute; left: 1152px; top: 102px; width: 288px; box-sizing: border-box; padding: 12px; border: 1px solid #2a2a2a; background: #141414; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace">
+<div style="display: flex; flex-direction: column; gap: 12px">
+
+<button type="button" aria-label="Repeat type" style="width: calc(100% + 8px); height: 28px; box-sizing: border-box; margin: 0 -4px; display: flex; align-items: center; justify-content: flex-start; gap: 6px; padding: 0 4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px">{{typeLabel}}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+
+<div style="display: flex; align-items: center; gap: 6px; font-size: 12px; line-height: 16px; color: #fafafa">
+<label for="repeat-interval">Every</label>
+<input id="repeat-interval" type="number" min="1" value="1" style="width: 48px; height: 32px; box-sizing: border-box; padding: 4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; outline: none">
+<span>{{unit}}</span>
+</div>
+
+<sc-if value="{{isWeekly}}" hint-placeholder-val="{{true}}">
+<div role="group" aria-label="Days of week" style="display: flex; gap: 4px">
+<sc-for list="{{days}}" as="d" hint-placeholder-count="7">
+<button type="button" aria-pressed="{{d.on}}" aria-label="{{d.name}}" style="width: 32px; height: 32px; box-sizing: border-box; padding: 0; font-family: inherit; font-size: 14px; font-weight: 500; {{d.style}}">{{d.letter}}</button>
+</sc-for>
+</div>
+</sc-if>
+
+<sc-if value="{{isMonthly}}" hint-placeholder-val="{{false}}">
+<input type="number" min="1" max="31" value="1" placeholder="Day of month (1-31)" aria-label="Day of month" style="width: calc(100% + 8px); height: 32px; box-sizing: border-box; margin: 0 -4px; padding: 4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px; outline: none">
+</sc-if>
+
+<p style="margin: 0; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 10px; line-height: 14px; color: #71717a">Next: {{next}}</p>
+
+<button type="button" disabled style="align-self: flex-end; height: 28px; padding: 0 10px; border: 1px solid #71717a; background: #1f1f1f; color: #fafafa; opacity: 0.5; font-family: inherit; font-size: 12px; font-weight: 500">Save</button>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"type":{"editor":"enum","options":["weekly","daily","monthly"],"default":"weekly"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const type = this.props.type ?? 'weekly';
+    const names = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const picked = ['Sun', 'Wed'];
+    const on = 'border: 1px solid #71717a; background: #1f1f1f; color: #fafafa';
+    const off = 'border: 1px solid #2a2a2a; background: transparent; color: #a1a1aa';
+    return {
+      typeLabel: { daily: 'Daily', weekly: 'Weekly', monthly: 'Monthly' }[type],
+      unit: { daily: 'day', weekly: 'week', monthly: 'month' }[type],
+      next: { daily: 'Aug 16', weekly: 'Aug 16', monthly: 'Sep 1' }[type],
+      isWeekly: type === 'weekly',
+      isMonthly: type === 'monthly',
+      days: names.map((name) => ({
+        name,
+        letter: name[0],
+        on: picked.includes(name) ? 'true' : 'false',
+        style: picked.includes(name) ? on : off
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Task subtasks section</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; background: #0a0a0a; color: #fafafa; font-family: 'JetBrains Mono', monospace">
+
+<div style="display: flex; align-items: baseline; gap: 8px">
+<h3 style="margin: 0; display: inline-flex; align-items: baseline; gap: 8px; font-size: 14px; line-height: 20px; font-weight: 700"><span style="color: #ef4444; font-size: 12px">###</span>subtasks</h3>
+<sc-if value="{{filled}}" hint-placeholder-val="{{ true }}"><span style="font-size: 10px; line-height: 14px; color: #52525b">1/3</span></sc-if>
+</div>
+
+<div style="border: 1px solid #2a2a2a">
+<sc-if value="{{filled}}" hint-placeholder-val="{{ true }}">
+<dc-import name="TaskRow" num="#129" title="returnTo を検証する関数を切り出す" status="completed" priority="" labels="#backend" project="会員サイト改修" context="work" due="" overdue="false" children="" expanded="false" waiting="false" depth="0" selected="false" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#130" title="ログイン画面にリダイレクト先を渡す" status="todo" priority="" labels="#backend" project="会員サイト改修" context="work" due="Nov 27 → Nov 28" overdue="false" children="" expanded="false" waiting="false" depth="0" selected="false" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#131" title="Cookie 属性の見直し" status="todo" priority="" labels="#auth" project="会員サイト改修" context="work" due="" overdue="false" children="" expanded="false" waiting="true" depth="0" selected="false" hint-size="100%,57px"></dc-import>
+</sc-if>
+<div style="display: flex; align-items: center; border-top: 1px dashed #2a2a2a; padding: 0 12px; font-size: 12px"><button type="button" style="flex: 1; min-height: 44px; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 12px; text-align: left"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>add subtask</button></div>
+<div style="display: flex; align-items: center; border-top: 1px dashed #2a2a2a; padding: 0 12px; font-size: 12px"><button type="button" style="flex: 1; min-height: 44px; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 12px; text-align: left"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2"></path><path d="M15 7h2a5 5 0 1 1 0 10h-2"></path><line x1="8" x2="16" y1="12" y2="12"></line></svg>link existing task</button></div>
+</div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"empty":{"editor":"boolean","default":false},"$preview":{"width":768,"height":300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const empty = this.props.empty === true || this.props.empty === 'true';
+    return { filled: !empty };
+  }
+}
+</script>
+</body>
+</html>

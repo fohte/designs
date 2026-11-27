@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Task sessions section</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; background: #0a0a0a; color: #fafafa; font-family: 'JetBrains Mono', monospace">
+<h3 style="margin: 0; display: inline-flex; align-items: baseline; gap: 8px; font-size: 14px; line-height: 20px; font-weight: 700"><span style="color: #ef4444; font-size: 12px">###</span>sessions</h3>
+
+<sc-if value="{{empty}}" hint-placeholder-val="{{ false }}">
+<p style="margin: 0; font-size: 12px; line-height: 16px; color: #71717a">No sessions linked to this task yet.</p>
+</sc-if>
+
+<sc-if value="{{filled}}" hint-placeholder-val="{{ true }}">
+<div style="border: 1px solid #2a2a2a">
+<div style="display: flex; align-items: center; gap: 8px; padding: 4px 14px; border-bottom: 1px solid #2a2a2a; font-size: 12px; line-height: 16px">
+<span aria-label="active" role="img" style="flex: none; width: 8px; height: 8px; border-radius: 50%; background: #ef4444"></span>
+<div style="flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px">
+<div style="min-width: 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: 12px; row-gap: 2px">
+<span style="min-width: 0; max-width: 100%; color: #fafafa; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">~/src/web</span>
+<button type="button" style="padding: 0; border: 0; background: transparent; color: #71717a; font: inherit">リダイレクト修正</button>
+<span style="display: inline-flex; padding: 0 4px; border: 1px solid #2a2a2a; color: #71717a; font-size: 10px; line-height: 14px">work</span>
+</div>
+<span style="margin-left: auto; flex: none; color: #71717a">5m ago</span>
+<span style="flex: none; color: #71717a">1h20m</span>
+</div>
+<button type="button" aria-label="Focus session" style="flex: none; width: 24px; height: 24px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" x2="20" y1="19" y2="19"></line></svg></button>
+</div>
+<div style="display: flex; align-items: center; gap: 8px; padding: 4px 14px; font-size: 12px; line-height: 16px">
+<span aria-label="inactive" role="img" style="flex: none; width: 8px; height: 8px; box-sizing: border-box; border-radius: 50%; border: 1px solid #71717a"></span>
+<div style="flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px">
+<div style="min-width: 0; display: flex; flex-wrap: wrap; align-items: center; column-gap: 12px; row-gap: 2px">
+<span style="min-width: 0; max-width: 100%; color: #fafafa; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">~/src/auth-lib</span>
+<button type="button" style="padding: 0; border: 0; background: transparent; color: #52525b; font: inherit">no label</button>
+<span style="display: inline-flex; padding: 0 4px; border: 1px solid #2a2a2a; color: #71717a; font-size: 10px; line-height: 14px">work</span>
+</div>
+<span style="margin-left: auto; flex: none; color: #71717a">2d ago</span>
+<span style="flex: none; color: #71717a">45m</span>
+</div>
+<button type="button" aria-label="Resume session" style="flex: none; width: 24px; height: 24px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" x2="20" y1="19" y2="19"></line></svg></button>
+</div>
+</div>
+</sc-if>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"empty":{"editor":"boolean","default":false},"$preview":{"width":768,"height":100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const empty = this.props.empty === true || this.props.empty === 'true';
+    return { empty, filled: !empty };
+  }
+}
+</script>
+</body>
+</html>

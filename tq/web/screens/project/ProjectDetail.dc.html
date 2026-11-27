@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Project detail</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1440px; height: 900px; overflow: hidden; display: flex; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif">
+<div style="flex: none; width: 200px"><dc-import name="Nav" view="projects" hint-size="200px,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<main style="flex: 1; min-height: 0; overflow: hidden; display: flex">
+
+<div style="flex: 1; min-width: 0; padding: 24px; overflow-y: auto">
+<div style="max-width: 768px; display: flex; flex-direction: column; gap: 20px">
+
+<nav aria-label="Breadcrumb" style="display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">
+<a href="ProjectList.dc.html" style="color: #71717a; text-decoration: none">projects</a>
+<span style="color: #3f3f46">/</span>
+<span style="color: #fafafa">庭のリフォーム</span>
+</nav>
+
+<div style="display: flex; align-items: center; gap: 12px">
+<span aria-hidden="true" style="flex: none; width: 9px; height: 9px; background: #fafafa"></span>
+<button type="button" style="flex: 1; min-width: 0; min-height: 32px; padding: 0; border: 0; background: transparent; text-align: left; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 24px; line-height: 32px; font-weight: 700; color: #fafafa">庭のリフォーム</button>
+<span style="flex: none; display: inline-flex; padding: 2px 6px; border: 1px solid #71717a; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #fafafa">active</span>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; align-items: center">
+<span style="font-size: 12px; line-height: 16px; color: #71717a">Description</span>
+<button type="button" aria-label="Edit project description" style="margin-left: auto; width: 20px; height: 20px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg></button>
+</div>
+<div style="border: 1px solid #2a2a2a; padding: 12px 4px 4px; font-size: 14px; line-height: 1.625; color: #fafafa">
+<p style="margin: 0">裏庭の植栽と小道を計画して作る。</p>
+<ul style="margin: 0; padding-left: 20px">
+<li>予算は 50 万円まで</li>
+<li>秋の植え付けに間に合わせる</li>
+</ul>
+</div>
+</div>
+
+<div style="border-top: 1px solid #2a2a2a"></div>
+
+<div style="display: flex; flex-direction: column; gap: 12px; border-top: 1px solid #2a2a2a; padding-top: 20px">
+<div style="display: flex; align-items: baseline; gap: 10px">
+<span aria-hidden="true" style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 700; color: #ef4444">###</span>
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; line-height: 20px; font-weight: 700; color: #fafafa">tasks</span>
+<span style="margin-left: auto; white-space: nowrap; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #a1a1aa">3/8 completed (38%)</span>
+</div>
+<div style="height: 4px; background: #1f1f1f"><div style="width: 38%; height: 100%; background: #fafafa"></div></div>
+<div style="display: flex; gap: 24px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a"><span>Todo: 5</span><span>Completed: 3</span></div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; justify-content: flex-end; gap: 4px">
+<button type="button" aria-label="Link existing task" style="width: 28px; height: 28px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #fafafa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.34-4.34"></path></svg></button>
+<button type="button" aria-label="Add task" style="width: 28px; height: 28px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #fafafa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg></button>
+</div>
+<div style="border: 1px solid #2a2a2a">
+<div style="min-height: 48px; box-sizing: border-box; display: flex; align-items: center; gap: 12px; padding: 0 16px; border-bottom: 1px solid #2a2a2a; background: #0a0a0a">
+<label for="project-task-filter" style="flex: none; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; line-height: 20px; font-weight: 700; color: #ef4444">›</label>
+<div style="flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px">
+<span style="min-height: 20px; display: inline-flex; align-items: center; gap: 4px">
+<button type="button" aria-label="is todo" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="1"></circle></svg>is:<span style="padding: 0 4px; border-radius: 3px; background: #181d27; color: #82aaff">todo</span></button>
+<button type="button" aria-label="Remove status filter" style="width: 16px; height: 16px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</span>
+<span style="min-height: 20px; display: inline-flex; align-items: center; gap: 4px; opacity: 0.5">
+<button type="button" aria-label="Sort by priority, then updated" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 16 4 4 4-4"></path><path d="M7 20V4"></path><path d="M11 4h10"></path><path d="M11 8h7"></path><path d="M11 12h4"></path></svg>sort:<span style="padding: 0 4px; border-radius: 3px; background: #181d27; color: #82aaff">priority &gt; updated</span></button>
+</span>
+<div style="flex: 1; min-width: 128px; display: flex; align-items: center; padding: 0 4px">
+<input id="project-task-filter" type="text" placeholder="Filter…" aria-label="Filter query" style="width: 100%; height: 32px; box-sizing: border-box; padding: 4px 4px; margin: 0 -4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: 'Helvetica Neue', Arial, sans-serif; font-size: 14px; outline: none">
+</div>
+</div>
+</div>
+<div style="padding: 4px 0">
+<dc-import name="TaskRow" num="#214" title="植える木の種類を決める" status="todo" priority="Now" labels="#garden" project="庭のリフォーム" context="personal" due="Aug 10 → Aug 20" overdue="false" children="1/3" expanded="false" waiting="false" depth="0" selected="false" hint-size="100%,81px"></dc-import>
+<dc-import name="TaskRow" num="#230" title="散水ホースを買い替える" status="todo" priority="Next" labels="" project="庭のリフォーム" context="personal" due="Aug 1 → Aug 12" overdue="true" children="" expanded="false" waiting="false" depth="0" selected="false" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#221" title="ウッドデッキの塗装を業者に頼む" status="todo" priority="Normal" labels="#garden" project="庭のリフォーム" context="personal" due="" overdue="false" children="" expanded="false" waiting="true" depth="0" selected="false" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#215" title="小道の敷石を見積もる" status="todo" priority="" labels="" project="庭のリフォーム" context="personal" due="→ Sep 2" overdue="false" children="" expanded="false" waiting="false" depth="0" selected="false" hint-size="100%,57px"></dc-import>
+<dc-import name="TaskRow" num="#233" title="照明の配線を確認する" status="todo" priority="" labels="" project="庭のリフォーム" context="personal" due="" overdue="false" children="" expanded="false" waiting="false" depth="0" selected="false" hint-size="100%,57px"></dc-import>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+
+<aside style="flex: none; width: 240px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px; padding: 16px; border-left: 1px solid #2a2a2a; overflow-y: auto">
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; letter-spacing: 0.1em; color: #52525b">DETAILS</span>
+
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">STATUS</span>
+<div style="padding: 0 4px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; color: #fafafa">
+<button type="button" aria-label="Status" style="min-width: 80px; height: 28px; margin: 0 -4px; display: inline-flex; align-items: center; justify-content: space-between; gap: 6px; padding: 0 4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px">Active<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">CONTEXT</span>
+<div style="padding: 0 4px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; color: #fafafa">
+<button type="button" aria-label="Context" style="min-width: 82px; height: 28px; margin: 0 -4px; display: inline-flex; align-items: center; justify-content: space-between; gap: 6px; padding: 0 4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; font-family: inherit; font-size: 14px">Personal<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px">
+<label for="project-start-date" style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">START DATE</label>
+<input id="project-start-date" type="date" value="2026-07-01" style="width: 100%; box-sizing: border-box; padding: 0 4px; margin: 0 -4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; color-scheme: dark; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px">
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px">
+<label for="project-target-date" style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">TARGET DATE</label>
+<input id="project-target-date" type="date" value="2026-09-30" style="width: 100%; box-sizing: border-box; padding: 0 4px; margin: 0 -4px; border: 0; border-bottom: 1px solid transparent; background: transparent; color: #fafafa; color-scheme: dark; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px">
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span id="project-color-label" style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">COLOR</span>
+<div role="radiogroup" aria-labelledby="project-color-label" style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{swatches}}" as="s" hint-placeholder-count="8">
+<button type="button" role="radio" aria-checked="{{s.checked}}" aria-label="{{s.name}}" title="{{s.name}}" style="width: 20px; height: 20px; box-sizing: border-box; padding: 0; background: {{s.hex}}; {{s.ring}}"></button>
+</sc-for>
+</div>
+</div>
+
+<div style="border-top: 1px solid #2a2a2a"></div>
+<div style="display: flex; align-items: center; gap: 8px">
+<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#71717a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><line x1="10" x2="14" y1="2" y2="2"></line><line x1="12" x2="15" y1="14" y2="11"></line><circle cx="12" cy="14" r="8"></circle></svg>
+<div style="display: flex; flex-direction: column">
+<span style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; line-height: 20px; font-weight: 700; color: #fafafa">46 days remaining</span>
+<span style="font-size: 10px; line-height: 14px; color: #52525b">Target: Sep 30, 2026</span>
+</div>
+</div>
+</aside>
+
+</main>
+<dc-import name="StatusLine" path="/projects/0b6f3c2a-5d1e-4c8b-9a7f-2e4d6c8a1b3f" hint-size="100%,24px"></dc-import>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const presets = [
+      ['Orange', '#FF8400'], ['Red', '#FF5C33'], ['Green', '#4CAF50'], ['Blue', '#4A90D9'],
+      ['Purple', '#9B59B6'], ['Teal', '#26A69A'], ['Pink', '#E91E63'], ['Yellow', '#FFC107']
+    ];
+    const selected = 'Green';
+    return {
+      swatches: presets.map(([name, hex]) => ({
+        name, hex,
+        checked: name === selected ? 'true' : 'false',
+        ring: name === selected ? 'border: 2px solid #fafafa; transform: scale(1.1)' : 'border: 2px solid transparent'
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

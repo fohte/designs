@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Description template dialog</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400&amp;family=Noto+Sans+JP:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+input::placeholder{color:#71717a}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; overflow: hidden; display: flex; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', Meiryo, sans-serif">
+<div style="flex: none; width: 200px"><dc-import name="Nav" view="settings" hint-size="200px,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+<div style="flex: 1; min-height: 0; overflow: hidden"><dc-import name="SettingsBody" form="desktop" scroll="2120" h="876px" hint-size="100%,876px"></dc-import></div>
+<dc-import name="StatusLine" path="/settings" hint-size="100%,24px"></dc-import>
+</div>
+
+<div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(4px)"></div>
+
+<div role="dialog" aria-modal="true" aria-labelledby="template-title" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 576px; box-sizing: border-box; display: grid; gap: 16px; padding: 16px; background: #0a0a0a; box-shadow: 0 0 0 1px rgba(250, 250, 250, 0.1); font-size: 14px; line-height: 20px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<sc-if value="{{create}}" hint-placeholder-val="{{false}}"><h2 id="template-title" style="margin: 0; font-size: 16px; line-height: 1; font-weight: 500">テンプレートを追加</h2></sc-if>
+<sc-if value="{{edit}}" hint-placeholder-val="{{true}}"><h2 id="template-title" style="margin: 0; font-size: 16px; line-height: 1; font-weight: 500">テンプレートを編集</h2></sc-if>
+<p style="margin: 0; font-size: 14px; color: #71717a">新規作成時に description へ挿入する内容を設定します。</p>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div style="display: flex; align-items: center; gap: 12px">
+<label for="template-name" style="width: 112px; flex-shrink: 0; font-size: 12px; line-height: 16px; font-weight: 500; color: #71717a">名前</label>
+<input id="template-name" type="text" placeholder="Template name" value="{{name}}" style="box-sizing: border-box; width: 100%; height: 32px; padding: 4px 10px; border: 1px solid #2a2a2a; background: #141414; color: #fafafa; font-family: inherit; font-size: 14px; outline: none">
+</div>
+<div style="display: flex; align-items: center; gap: 12px">
+<label for="template-when" style="width: 112px; flex-shrink: 0; font-size: 12px; line-height: 16px; font-weight: 500; color: #71717a">使う場面</label>
+<input id="template-when" type="text" value="{{whenToUse}}" style="box-sizing: border-box; width: 100%; height: 32px; padding: 4px 10px; border: 1px solid #2a2a2a; background: #141414; color: #fafafa; font-family: inherit; font-size: 14px; outline: none">
+</div>
+
+<div style="display: flex; align-items: flex-start; gap: 12px">
+<span style="width: 112px; flex-shrink: 0; padding-top: 8px; font-size: 12px; line-height: 16px; font-weight: 500; color: #71717a">本文</span>
+<div style="flex: 1; min-width: 0; padding: 4px; border: 1px solid #2a2a2a; font-size: 14px">
+<div style="box-sizing: border-box; min-height: 120px; padding: 8px; line-height: 2">
+<sc-if value="{{create}}" hint-placeholder-val="{{false}}"><p style="margin: 0; color: #71717a">本文を入力してください</p></sc-if>
+<sc-if value="{{edit}}" hint-placeholder-val="{{true}}">
+<h3 style="margin: 0 0 1em; font-size: 1.25em; line-height: 1.4; font-weight: 700"><span aria-hidden="true" style="margin-right: 8px; font-size: 13px; color: #ef4444">##</span>背景</h3>
+<p style="margin: 0">どこで何が起きていて、誰が困っているか</p>
+<h3 style="margin: 1.5em 0 1em; font-size: 1.25em; line-height: 1.4; font-weight: 700"><span aria-hidden="true" style="margin-right: 8px; font-size: 13px; color: #ef4444">##</span>再現手順</h3>
+<p style="margin: 0">1. </p>
+<h3 style="margin: 1.5em 0 1em; font-size: 1.25em; line-height: 1.4; font-weight: 700"><span aria-hidden="true" style="margin-right: 8px; font-size: 13px; color: #ef4444">##</span>完了条件</h3>
+</sc-if>
+</div>
+</div>
+</div>
+
+<div style="display: flex; align-items: flex-start; gap: 12px">
+<span style="width: 112px; flex-shrink: 0; padding-top: 8px; font-size: 12px; line-height: 16px; font-weight: 500; color: #71717a">書き方</span>
+<div style="flex: 1; min-width: 0; padding: 4px; border: 1px solid #2a2a2a; font-size: 14px">
+<div style="box-sizing: border-box; min-height: 120px; padding: 8px; line-height: 2">
+<sc-if value="{{create}}" hint-placeholder-val="{{false}}"><p style="margin: 0; color: #71717a">各節の書き方を入力してください</p></sc-if>
+<sc-if value="{{edit}}" hint-placeholder-val="{{true}}"><p style="margin: 0">背景は 1〜2 文で書く。完了条件は、あとから確かめられる形で箇条書きにする。</p></sc-if>
+</div>
+</div>
+</div>
+
+<label style="display: flex; align-items: center; gap: 8px; font-size: 14px">
+<sc-if value="{{edit}}" hint-placeholder-val="{{true}}"><span style="position: relative; flex-shrink: 0; width: 16px; height: 16px"><input type="checkbox" checked style="appearance: none; display: block; box-sizing: border-box; width: 16px; height: 16px; margin: 0; border: 1px solid #ef4444; background: #ef4444"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fafafa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="position: absolute; top: 1px; left: 1px; pointer-events: none"><path d="M20 6 9 17l-5-5"></path></svg></span></sc-if>
+<sc-if value="{{create}}" hint-placeholder-val="{{false}}"><input type="checkbox" style="appearance: none; flex-shrink: 0; box-sizing: border-box; width: 16px; height: 16px; margin: 0; border: 1px solid #2a2a2a; background: #141414"></sc-if>
+新規作成時の既定にする</label>
+</div>
+
+<div style="margin: 0 -16px -16px; display: flex; justify-content: flex-end; gap: 8px; padding: 16px; border-top: 1px solid #2a2a2a; background: rgba(20, 20, 20, 0.5)">
+<button type="button" style="box-sizing: border-box; height: 32px; display: inline-flex; align-items: center; padding: 0 10px; border: 1px solid #2a2a2a; background: #0a0a0a; color: #fafafa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500">キャンセル</button>
+<sc-if value="{{create}}" hint-placeholder-val="{{false}}"><button type="button" disabled style="box-sizing: border-box; height: 32px; display: inline-flex; align-items: center; padding: 0 10px; border: 1px solid #71717a; background: #1f1f1f; color: #fafafa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500; opacity: 0.5">作成</button></sc-if>
+<sc-if value="{{edit}}" hint-placeholder-val="{{true}}"><button type="button" style="box-sizing: border-box; height: 32px; display: inline-flex; align-items: center; padding: 0 10px; border: 1px solid #71717a; background: #1f1f1f; color: #fafafa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; font-weight: 500">保存</button></sc-if>
+</div>
+
+<button type="button" style="position: absolute; top: 8px; right: 8px; width: 28px; height: 28px; display: grid; place-content: center; padding: 0; border: 0; background: transparent; color: #fafafa"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap">Close</span></button>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"mode":{"editor":"enum","options":["create","edit"],"default":"edit"},"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const create = (this.props.mode ?? 'edit') === 'create';
+    return {
+      create,
+      edit: !create,
+      name: create ? '' : 'バグ修正',
+      whenToUse: create ? '' : '不具合を直すタスク',
+    };
+  }
+}
+</script>
+</body>
+</html>

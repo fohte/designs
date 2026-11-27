@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Reference chips and cards</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 960px; height: 1180px; box-sizing: border-box; overflow: hidden; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 40px; align-content: start; padding: 32px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 14px; line-height: 20px">
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; font-weight: 400; letter-spacing: 0.1em; color: #52525b">TASK CHIP · HOVER</h2>
+<div style="position: relative; height: 150px">
+<p style="margin: 0; line-height: 28px">先に <a href="#task-120" style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 6px; border: 1px solid #71717a; color: #fafafa; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; vertical-align: middle"><span style="color: #71717a">#120</span><span style="max-width: 192px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">OAuth コールバックの整理</span></a> を終える。完了済み: <a href="#task-129" style="display: inline-flex; align-items: center; gap: 4px; padding: 2px 6px; border: 1px solid #71717a; color: #fafafa; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; vertical-align: middle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c792ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Completed"><path d="M20 6 9 17l-5-5"></path></svg><span style="color: #71717a">#129</span><span style="max-width: 192px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">returnTo を保存する</span></a></p>
+<div role="dialog" aria-label="#120 OAuth コールバックの整理" style="position: absolute; top: 34px; left: 28px; width: 288px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #0a0a0a; box-shadow: 0 0 0 1px rgba(250,250,250,0.1), 0 4px 12px rgba(0,0,0,0.5)">
+<div style="display: flex; align-items: center; gap: 6px; font-weight: 500"><svg width="14" height="14" viewBox="0 0 20 20" aria-label="Todo" style="flex: none; color: #71717a"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.5"></circle></svg><span style="font-family: 'JetBrains Mono', monospace; font-weight: 400; color: #71717a">#120</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">OAuth コールバックの整理</span></div>
+<p style="margin: 0; font-size: 12px; line-height: 16px; color: #71717a">プロバイダごとに分かれているコールバック処理を 1 つにまとめ、state の検証を共通化する。</p>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; font-weight: 400; letter-spacing: 0.1em; color: #52525b">TASK CARD</h2>
+<a href="#task-120" style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border: 1px solid #2a2a2a; background: #141414; color: #fafafa; text-decoration: none">
+<span style="display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true" style="color: #71717a"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.5"></circle></svg><span style="font-family: 'JetBrains Mono', monospace; color: #71717a">#120</span><span style="height: 20px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 0 8px; border: 1px solid #2a2a2a; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500">Todo</span></span>
+<span style="font-weight: 500">OAuth コールバックの整理</span>
+<span style="font-size: 12px; line-height: 16px; color: #71717a">プロバイダごとに分かれているコールバック処理を 1 つにまとめ、state の検証を共通化する。</span>
+</a>
+<a href="#task-129" style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border: 1px solid #2a2a2a; background: #141414; color: #fafafa; text-decoration: none">
+<span style="display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c792ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg><span style="font-family: 'JetBrains Mono', monospace; color: #71717a">#129</span><span style="height: 20px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 0 8px; border: 1px solid #2a2a2a; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500">Completed</span></span>
+<span style="font-weight: 500">returnTo を保存する</span>
+<span style="font-size: 12px; line-height: 16px; color: #71717a">ログイン画面へ飛ばす前に元の URL をセッションへ書き込む。</span>
+</a>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; font-weight: 400; letter-spacing: 0.1em; color: #52525b">GITHUB URL CHIP · HOVER</h2>
+<div style="position: relative; height: 150px">
+<p style="margin: 0; line-height: 28px">修正は <a href="https://github.com/example-org/web/pull/212" style="display: inline-flex; align-items: center; gap: 6px; padding: 2px 6px; border: 1px solid #71717a; color: #fafafa; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; vertical-align: middle"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c3e88d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg><span style="color: #71717a">example-org/web#212</span><span style="max-width: 192px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">ログイン後のリダイレクト先を復元する</span></a> で入れる。</p>
+<div role="dialog" aria-label="example-org/web#212" style="position: absolute; top: 34px; left: 40px; width: 288px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #0a0a0a; box-shadow: 0 0 0 1px rgba(250,250,250,0.1), 0 4px 12px rgba(0,0,0,0.5)">
+<div style="min-width: 0; display: flex; align-items: center; gap: 8px; font-weight: 500"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c3e88d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg><span style="flex: none; color: #71717a">example-org/web#212</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">ログイン後のリダイレクト先を復元する</span></div>
+<p style="margin: 0; font-size: 12px; line-height: 16px; color: #71717a">コールバックで returnTo を読み、同一オリジンのときだけ元のページへ戻す。</p>
+<a href="#task-128" style="font-size: 12px; line-height: 16px; color: #71717a; text-decoration: none">Linked to a TQ task →</a>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; font-weight: 400; letter-spacing: 0.1em; color: #52525b">GITHUB URL CARD</h2>
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border: 1px solid #2a2a2a; background: #141414">
+<div style="display: flex; align-items: center; gap: 8px"><a href="https://github.com/example-org/web/pull/212" style="display: flex; align-items: center; gap: 8px; color: #71717a; text-decoration: none"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c3e88d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg>example-org/web#212</a><span style="height: 20px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 0 8px; border: 1px solid #2a2a2a; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500">open</span></div>
+<span style="font-weight: 500">ログイン後のリダイレクト先を復元する</span>
+<span style="font-size: 12px; line-height: 16px; color: #71717a">コールバックで returnTo を読み、同一オリジンのときだけ元のページへ戻す。</span>
+<a href="#task-128" style="font-size: 12px; line-height: 16px; color: #71717a; text-decoration: none">Linked to a TQ task →</a>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; font-weight: 400; letter-spacing: 0.1em; color: #52525b">PROJECT CHIP · HOVER</h2>
+<div style="position: relative; height: 150px">
+<p style="margin: 0; line-height: 28px">関連: <a href="#project-3" style="display: inline-flex; align-items: center; gap: 6px; padding: 2px 6px; border: 1px solid #71717a; color: #fafafa; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; vertical-align: middle"><span aria-hidden="true" style="width: 7px; height: 7px; background: #fafafa"></span>会員サイト改修</a> <a href="#project-1" style="display: inline-flex; align-items: center; gap: 6px; padding: 2px 6px; border: 1px solid #71717a; color: #fafafa; text-decoration: none; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; vertical-align: middle"><span aria-hidden="true" style="width: 7px; height: 7px; box-sizing: border-box; border: 1px solid #71717a"></span>決済まわりの整理</a></p>
+<div role="dialog" aria-label="会員サイト改修" style="position: absolute; top: 34px; left: 40px; width: 288px; box-sizing: border-box; display: flex; flex-direction: column; gap: 6px; padding: 12px; background: #0a0a0a; box-shadow: 0 0 0 1px rgba(250,250,250,0.1), 0 4px 12px rgba(0,0,0,0.5)">
+<div style="display: flex; align-items: center; gap: 6px; font-weight: 500"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: #fafafa"></span><span style="flex: 1; min-width: 0">会員サイト改修</span><span style="display: inline-flex; padding: 0 4px; border: 1px solid #71717a; color: #fafafa; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; font-weight: 400">active</span></div>
+<p style="margin: 0; font-size: 12px; line-height: 16px; color: #71717a">ログインと会員情報まわりの不具合をまとめて直す。</p>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; font-weight: 400; letter-spacing: 0.1em; color: #52525b">PROJECT CARD</h2>
+<a href="#project-3" style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border: 1px solid #2a2a2a; background: #141414; color: #fafafa; text-decoration: none">
+<span style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: #fafafa"></span><span style="flex: 1; font-weight: 500">会員サイト改修</span><span style="display: inline-flex; padding: 0 4px; border: 1px solid #71717a; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px">active</span></span>
+<span style="font-size: 12px; line-height: 16px; color: #a1a1aa">ログインと会員情報まわりの不具合をまとめて直す。</span>
+<span style="display: flex; align-items: center; gap: 8px"><span role="progressbar" aria-valuenow="3" aria-valuemin="0" aria-valuemax="8" aria-label="Progress" style="flex: 1; height: 2px; background: #1f1f1f"><span style="display: block; width: 37.5%; height: 2px; background: #fafafa"></span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">3/8</span></span>
+<span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; color: #a1a1aa">Dec 18</span>
+</a>
+<a href="#project-1" style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border: 1px solid #2a2a2a; background: #141414; color: #fafafa; text-decoration: none">
+<span style="display: flex; align-items: center; gap: 6px"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; box-sizing: border-box; border: 1px solid #71717a"></span><span style="flex: 1; font-weight: 500">決済まわりの整理</span><span style="display: inline-flex; padding: 0 4px; border: 1px solid #2a2a2a; color: #52525b; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px">paused</span></span>
+<span style="font-size: 12px; line-height: 16px; color: #a1a1aa">古い決済 API の呼び出しを新しいクライアントへ寄せる。</span>
+<span style="display: flex; align-items: center; gap: 8px"><span role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="12" aria-label="Progress" style="flex: 1; height: 2px; background: #1f1f1f"><span style="display: block; width: 41.6%; height: 2px; background: #71717a"></span></span><span style="font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">5/12</span></span>
+</a>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; font-weight: 400; letter-spacing: 0.1em; color: #52525b">TIME BLOCK CARD · PREVIEW CARD</h2>
+<div style="display: flex; align-items: flex-start; gap: 16px">
+<div role="dialog" aria-label="Time block preview" style="width: 288px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; padding: 12px; background: #0a0a0a; box-shadow: 0 0 0 1px rgba(250,250,250,0.1), 0 4px 12px rgba(0,0,0,0.5)">
+<a href="#task-128" style="display: flex; flex-direction: column; gap: 6px; padding: 12px; border: 1px solid #2a2a2a; background: #141414; color: #fafafa; text-decoration: none">
+<span style="display: flex; align-items: center; gap: 6px"><svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true" style="color: #71717a"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.5"></circle></svg><span style="font-family: 'JetBrains Mono', monospace; color: #71717a">#128</span><span style="height: 20px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 0 8px; border: 1px solid #2a2a2a; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 500">Todo</span></span>
+<span style="font-weight: 500">ログイン後に元のページへ戻らない</span>
+<span style="font-size: 12px; line-height: 16px; color: #71717a">設定ページで再ログインを求められると、ログイン後にトップへ戻される。</span>
+</a>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 4px; padding: 8px; border: 1px solid #2a2a2a; background: #141414; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; color: #a1a1aa">
+<div style="display: flex; align-items: center; gap: 8px"><span style="color: #52525b">11-25</span><span>09:00–10:30</span><span style="color: #52525b">(1h30m)</span><span style="height: 20px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 0 8px; border: 1px solid #2a2a2a; color: #fafafa; font-size: 12px; font-weight: 500">auto</span></div>
+<button type="button" aria-label="Delete time block" style="display: flex; padding: 4px; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button>
+</div>
+</div>
+<div role="dialog" aria-label="Time block preview" style="width: 288px; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; padding: 12px; background: #0a0a0a; box-shadow: 0 0 0 1px rgba(250,250,250,0.1), 0 4px 12px rgba(0,0,0,0.5)">
+<p style="margin: 0; padding: 12px; font-size: 12px; line-height: 16px; color: #71717a">Failed to load task</p>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 4px; padding: 8px; border: 1px solid #2a2a2a; background: #141414; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; color: #a1a1aa">
+<div style="display: flex; align-items: center; gap: 8px"><span style="color: #52525b">11-26</span><span>14:00–14:45</span><span style="color: #52525b">(45m)</span><span style="height: 20px; box-sizing: border-box; display: inline-flex; align-items: center; padding: 0 8px; border: 1px solid #2a2a2a; color: #fafafa; font-size: 12px; font-weight: 500">manual</span></div>
+<button type="button" aria-label="Delete time block" style="display: flex; padding: 4px; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg></button>
+</div>
+</div>
+</div>
+</section>
+
+<section style="display: flex; flex-direction: column; gap: 12px">
+<h2 style="margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 10px; line-height: 14px; font-weight: 400; letter-spacing: 0.1em; color: #52525b">MENTION AUTOCOMPLETE</h2>
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 16px">
+<div role="listbox" aria-label="Tasks" style="width: 256px; box-sizing: border-box; padding: 4px; background: #141414; box-shadow: 0 0 0 1px rgba(250,250,250,0.1), 0 4px 12px rgba(0,0,0,0.5)">
+<div role="option" aria-selected="true" style="display: flex; align-items: center; gap: 6px; padding: 6px 8px; background: #1f1f1f"><svg width="14" height="14" viewBox="0 0 20 20" aria-hidden="true" style="flex: none; color: #71717a"><circle cx="10" cy="10" r="7" fill="none" stroke="currentColor" stroke-width="1.5"></circle></svg><span style="font-family: 'JetBrains Mono', monospace; color: #71717a">#120</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">OAuth コールバックの整理</span></div>
+<div role="option" aria-selected="false" style="display: flex; align-items: center; gap: 6px; padding: 6px 8px"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c792ea" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M20 6 9 17l-5-5"></path></svg><span style="font-family: 'JetBrains Mono', monospace; color: #71717a">#129</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">returnTo を保存する</span></div>
+</div>
+<div role="listbox" aria-label="Tasks" style="width: 256px; box-sizing: border-box; padding: 4px; background: #141414; box-shadow: 0 0 0 1px rgba(250,250,250,0.1), 0 4px 12px rgba(0,0,0,0.5)">
+<div style="padding: 6px 8px; color: #71717a">No matching tasks</div>
+</div>
+<div role="listbox" aria-label="Tasks" aria-busy="true" style="width: 256px; box-sizing: border-box; padding: 4px; background: #141414; box-shadow: 0 0 0 1px rgba(250,250,250,0.1), 0 4px 12px rgba(0,0,0,0.5)">
+<div style="padding: 6px 8px; color: #71717a">Searching...</div>
+</div>
+</div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":960,"height":1180}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

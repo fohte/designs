@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Generated tasks list states</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1648px; height: 660px; box-sizing: border-box; overflow: hidden; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; padding: 32px; background: #0a0a0a; color: #fafafa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace">
+
+<div style="display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 10px; line-height: 14px; letter-spacing: 0.1em; color: #52525b">LOADING</span>
+<dc-import name="RecurringGeneratedTasks" state="loading" hint-size="100%,90px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 10px; line-height: 14px; letter-spacing: 0.1em; color: #52525b">ERROR, NO DATA</span>
+<dc-import name="RecurringGeneratedTasks" state="error" hint-size="100%,54px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 10px; line-height: 14px; letter-spacing: 0.1em; color: #52525b">EMPTY</span>
+<dc-import name="RecurringGeneratedTasks" state="empty" hint-size="100%,90px"></dc-import>
+</div>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 10px; line-height: 14px; letter-spacing: 0.1em; color: #52525b">LOADING THE NEXT PAGE</span>
+<dc-import name="RecurringGeneratedTasks" state="loading more" hint-size="100%,260px"></dc-import>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 10px; line-height: 14px; letter-spacing: 0.1em; color: #52525b">NEXT PAGE FAILED</span>
+<dc-import name="RecurringGeneratedTasks" state="load more failed" hint-size="100%,240px"></dc-import>
+</div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1648,"height":660}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

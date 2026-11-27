@@ -1,0 +1,165 @@
+/* Static renditions of tq's own components. Values follow the app's Tailwind
+   classes; colors come from the tokens, spacing is written in px because the
+   Tailwind half steps (space-0.5, space-1.5) are not valid custom property names. */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+/* The @fohte/ui dark values the cards read, so they render in this system's
+   editor, which loads no ui/design-system tokens. :where() keeps specificity 0,
+   so ui/design-system's tokens.css wins wherever both are loaded. */
+:where(:root) {
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --secondary: #141414;
+  --surface-strong: #1f1f1f;
+  --muted-foreground-strong: #a1a1aa;
+  --muted-foreground: #71717a;
+  --muted-foreground-faint: #52525b;
+  --muted-foreground-ghost: #3f3f46;
+  --border: #2a2a2a;
+  --border-strong: #71717a;
+  --primary: #ef4444;
+  --tint-blue: #181d27;
+  --tint-blue-foreground: #82aaff;
+  --keycap-radius: 4px;
+  --font-sans: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', 'JetBrains Mono', 'IBM Plex Mono', monospace;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.tq-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+.tq-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+}
+
+.tq-note {
+  color: var(--muted-foreground);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 14px;
+}
+
+.tq-icon {
+  display: block;
+  flex: none;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+}
+
+/* KeybindHint: web/src/components/ui/keybind-hint.tsx */
+
+.tq-kbd { font-family: var(--font-mono); font-size: 10px; line-height: 14px; color: var(--muted-foreground-ghost); }
+.tq-kbd--strong { color: var(--muted-foreground-strong); }
+.tq-kbd--muted { color: var(--muted-foreground); }
+.tq-kbd--boxed {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: var(--keycap-radius);
+  background: var(--secondary);
+  color: var(--foreground);
+}
+
+/* SectionHeading: web/src/components/ui/section-heading.tsx */
+
+.tq-heading { display: inline-flex; align-items: baseline; gap: 8px; font-family: var(--font-mono); }
+.tq-heading__mark { color: var(--primary); font-size: 12px; line-height: 16px; font-weight: 700; }
+.tq-heading__label { font-size: 12px; line-height: 16px; font-weight: 500; }
+.tq-heading--3 .tq-heading__label { font-size: 14px; line-height: 20px; font-weight: 700; }
+
+/* ScreenHeaderBar: web/src/components/ui/screen-header-bar.tsx */
+
+.tq-header-bar {
+  box-sizing: border-box;
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  height: 40px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--background);
+}
+.tq-header-bar__title { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 700; }
+.tq-header-bar__end { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+/* Stand-in for @fohte/ui Button variant="secondary" size="sm" (ui/design-system's fui-button). */
+.tq-header-bar__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted-foreground-strong);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+.tq-header-bar__action .tq-icon { width: 14px; height: 14px; }
+
+/* StatusIcon: web/src/components/task/status-icon.tsx */
+
+.tq-status { display: flex; flex: none; align-items: center; justify-content: center; width: 20px; height: 20px; }
+.tq-status--todo { color: var(--muted-foreground); }
+.tq-status--todo svg { width: 20px; height: 20px; }
+.tq-status--completed, .tq-status--not-planned, .tq-status--duplicate { border-radius: var(--radius-round); color: var(--background); }
+.tq-status--completed { background: var(--status-completed); }
+.tq-status--not-planned, .tq-status--duplicate { background: var(--muted-foreground-faint); }
+.tq-status .tq-icon { width: 12px; height: 12px; stroke-width: 3; }
+
+/* PriorityBadge: web/src/components/task/priority-badge.tsx */
+
+.tq-priority {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  background: var(--secondary);
+  color: var(--foreground);
+  font-size: 10px;
+  line-height: 14px;
+}
+
+/* TaskFilterChip: web/src/components/task/task-filter-chip.tsx */
+
+.tq-filter-chip { display: inline-flex; align-items: center; gap: 4px; min-height: 20px; font-family: var(--font-mono); font-size: 12px; line-height: 16px; }
+.tq-filter-chip .tq-icon { width: 14px; height: 14px; color: var(--muted-foreground); }
+.tq-filter-chip__key { color: var(--muted-foreground); }
+.tq-filter-chip__value { padding: 0 4px; border-radius: var(--radius-task-filter-value); background: var(--tint-blue); color: var(--tint-blue-foreground); }
+/* @fohte/ui Button variant="plain" at size-4. */
+.tq-filter-chip__remove { display: inline-flex; align-items: center; justify-content: center; width: 16px; height: 16px; padding: 0; border: 0; background: none; color: var(--muted-foreground); cursor: pointer; }
+.tq-filter-chip__remove .tq-icon { width: 12px; height: 12px; }
+.tq-filter-chip--default { opacity: .5; }
+
+/* ProgressBar: web/src/components/ui/progress-bar.tsx */
+
+.tq-progress { height: 2px; background: var(--surface-strong); }
+.tq-progress__fill { height: 100%; background: var(--foreground); }
+.tq-progress--muted .tq-progress__fill { background: var(--muted-foreground); }

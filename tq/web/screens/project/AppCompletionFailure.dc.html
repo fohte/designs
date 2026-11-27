@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Task completion failure panel states</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#71717a}a:hover{color:#fafafa}
+</style>
+</helmet>
+<div style="width: 1860px; height: 360px; box-sizing: border-box; display: flex; align-items: flex-start; gap: 24px; padding: 24px; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif">
+
+<div style="flex: none; width: 448px; display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">blocked · ≥ 640px</div>
+<section role="alert" aria-label="Couldn't complete #221" style="box-sizing: border-box; border: 1px solid #71717a; border-left: 3px solid #ef4444; background: #141414; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)">
+<div style="display: flex; align-items: flex-start; gap: 8px; padding: 12px 16px 8px 20px">
+<span aria-hidden="true" style="flex: none; margin-top: 1px; width: 14px; height: 14px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 1px solid #ef4444; border-radius: 9999px; color: #ef4444; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1">!</span>
+<h2 style="flex: 1; min-width: 0; margin: 0; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 600">Couldn't complete #221</h2>
+<button type="button" aria-label="Dismiss completion error" style="flex: none; width: 28px; height: 28px; margin: -4px -4px 0 0; display: flex; align-items: center; justify-content: center; padding: 0; border: 1px solid transparent; background: transparent; color: #fafafa"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+<div style="padding-left: 20px">
+<p style="margin: 0; padding: 0 16px 8px; font-size: 12px; line-height: 16px; color: #71717a">Blocked by 3 items.</p>
+<div style="border-top: 1px solid #2a2a2a">
+<div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-bottom: 1px solid #2a2a2a; font-size: 12px; line-height: 16px"><span style="flex: none; width: 56px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">WAIT</span><span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">管理会社からの返事を待つ</span><button type="button" style="flex: none; height: 28px; display: inline-flex; align-items: center; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #a1a1aa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500">Resolve</button></div>
+<div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-bottom: 1px solid #2a2a2a; font-size: 12px; line-height: 16px"><span style="flex: none; width: 56px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">TASK</span><span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace">#203</span><a href="#" style="flex: none; text-decoration: underline; text-underline-offset: 2px">Open</a></div>
+<div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-bottom: 1px solid #2a2a2a; font-size: 12px; line-height: 16px"><span style="flex: none; width: 56px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">GITHUB</span><span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; color: #71717a; text-decoration: line-through">example-org/site#58</span><span style="flex: none; color: #71717a">✓ resolved</span></div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; font-size: 12px; line-height: 16px">
+<p style="margin: 0; color: #71717a">Resolve every item to complete.</p>
+<button type="button" disabled style="flex: none; height: 28px; display: inline-flex; align-items: center; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #a1a1aa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; opacity: 0.5">Complete</button>
+</div>
+</div>
+</section>
+</div>
+
+<div style="flex: none; width: 448px; display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">all resolved · ≥ 640px</div>
+<section role="alert" aria-label="Couldn't complete #221" style="box-sizing: border-box; border: 1px solid #71717a; border-left: 3px solid #ef4444; background: #141414; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)">
+<div style="display: flex; align-items: flex-start; gap: 8px; padding: 12px 16px 8px 20px">
+<span aria-hidden="true" style="flex: none; margin-top: 1px; width: 14px; height: 14px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 1px solid #ef4444; border-radius: 9999px; color: #ef4444; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1">!</span>
+<h2 style="flex: 1; min-width: 0; margin: 0; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 600">Couldn't complete #221</h2>
+<button type="button" aria-label="Dismiss completion error" style="flex: none; width: 28px; height: 28px; margin: -4px -4px 0 0; display: flex; align-items: center; justify-content: center; padding: 0; border: 1px solid transparent; background: transparent; color: #fafafa"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+<div style="padding-left: 20px">
+<p style="margin: 0; padding: 0 16px 8px; font-size: 12px; line-height: 16px; color: #71717a">Blocked by 3 items.</p>
+<div style="border-top: 1px solid #2a2a2a">
+<div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-bottom: 1px solid #2a2a2a; font-size: 12px; line-height: 16px"><span style="flex: none; width: 56px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">WAIT</span><span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #71717a; text-decoration: line-through">管理会社からの返事を待つ</span><span style="flex: none; color: #71717a">✓ resolved</span></div>
+<div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-bottom: 1px solid #2a2a2a; font-size: 12px; line-height: 16px"><span style="flex: none; width: 56px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">TASK</span><span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; color: #71717a; text-decoration: line-through">#203</span><span style="flex: none; color: #71717a">✓ resolved</span></div>
+<div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-bottom: 1px solid #2a2a2a; font-size: 12px; line-height: 16px"><span style="flex: none; width: 56px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">GITHUB</span><span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; color: #71717a; text-decoration: line-through">example-org/site#58</span><span style="flex: none; color: #71717a">✓ resolved</span></div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; font-size: 12px; line-height: 16px">
+<p style="margin: 0; color: #71717a">All items resolved.</p>
+<button type="button" style="flex: none; height: 28px; display: inline-flex; align-items: center; padding: 0 10px; border: 1px solid #ef4444; background: #ef4444; color: #fafafa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500">Complete</button>
+</div>
+</div>
+</section>
+</div>
+
+<div style="flex: none; width: 448px; display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">generic error · ≥ 640px</div>
+<section role="alert" aria-label="Couldn't complete #221" style="box-sizing: border-box; border: 1px solid #71717a; border-left: 3px solid #ef4444; background: #141414; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)">
+<div style="display: flex; align-items: flex-start; gap: 8px; padding: 12px 16px 8px 20px">
+<span aria-hidden="true" style="flex: none; margin-top: 1px; width: 14px; height: 14px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 1px solid #ef4444; border-radius: 9999px; color: #ef4444; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1">!</span>
+<h2 style="flex: 1; min-width: 0; margin: 0; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 600">Couldn't complete #221</h2>
+<button type="button" aria-label="Dismiss completion error" style="flex: none; width: 28px; height: 28px; margin: -4px -4px 0 0; display: flex; align-items: center; justify-content: center; padding: 0; border: 1px solid transparent; background: transparent; color: #fafafa"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+<div style="padding-left: 20px">
+<div style="padding: 0 16px 12px; font-size: 12px; line-height: 16px; color: #71717a">
+<p style="margin: 0">Failed to update task status.</p>
+<p style="margin: 4px 0 0">The status was changed back to todo.</p>
+</div>
+</div>
+</section>
+</div>
+
+<div style="flex: none; width: 390px; display: flex; flex-direction: column; gap: 8px">
+<div style="font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #52525b">blocked · &lt; 640px (full-width, pinned to the bottom)</div>
+<section role="alert" aria-label="Couldn't complete #221" style="box-sizing: border-box; border: 1px solid #71717a; border-left: 3px solid #ef4444; background: #141414; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)">
+<div style="display: flex; align-items: flex-start; gap: 8px; padding: 12px 16px 8px 20px">
+<span aria-hidden="true" style="flex: none; margin-top: 1px; width: 14px; height: 14px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 1px solid #ef4444; border-radius: 9999px; color: #ef4444; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 1">!</span>
+<h2 style="flex: 1; min-width: 0; margin: 0; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; font-weight: 600">Couldn't complete #221</h2>
+<button type="button" aria-label="Dismiss completion error" style="flex: none; width: 28px; height: 28px; margin: -4px -4px 0 0; display: flex; align-items: center; justify-content: center; padding: 0; border: 1px solid transparent; background: transparent; color: #fafafa"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+</div>
+<div style="padding-left: 20px">
+<p style="margin: 0; padding: 0 16px 8px; font-size: 12px; line-height: 16px; color: #71717a">Blocked by 1 item.</p>
+<div style="border-top: 1px solid #2a2a2a">
+<div style="display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-bottom: 1px solid #2a2a2a; font-size: 12px; line-height: 16px"><span style="flex: none; width: 56px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; color: #71717a">GITHUB</span><span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace">example-org/site#58</span><a href="#" style="flex: none; text-decoration: underline; text-underline-offset: 2px">Open ↗</a></div>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; font-size: 12px; line-height: 16px">
+<p style="margin: 0; color: #71717a">Resolve every item to complete.</p>
+<button type="button" disabled style="flex: none; height: 28px; display: inline-flex; align-items: center; padding: 0 10px; border: 1px solid #2a2a2a; background: transparent; color: #a1a1aa; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 500; opacity: 0.5">Complete</button>
+</div>
+</div>
+</section>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1860,"height":360}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {};
+  }
+}
+</script>
+</body>
+</html>

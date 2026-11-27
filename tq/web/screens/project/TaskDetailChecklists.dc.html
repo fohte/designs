@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Task checklists section</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section style="width: 100%; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; background: #0a0a0a; color: #fafafa; font-family: 'JetBrains Mono', monospace">
+
+<div style="display: flex; align-items: baseline; gap: 8px">
+<h3 style="margin: 0; display: inline-flex; align-items: baseline; gap: 8px; font-size: 14px; line-height: 20px; font-weight: 700"><span style="color: #ef4444; font-size: 12px">###</span>checklists</h3>
+<span style="font-size: 10px; line-height: 14px; color: #52525b">{{count}}</span>
+</div>
+
+<sc-if value="{{filled}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 8px">
+
+<div style="border: 1px solid #2a2a2a; overflow: hidden">
+<div style="min-height: 36px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 6px 12px; border-bottom: 1px solid #2a2a2a; background: #141414">
+<span style="font-size: 12px; line-height: 16px; font-weight: 500">リリース前</span>
+<span style="font-size: 10px; line-height: 14px; color: #52525b">1/5</span>
+<button type="button" aria-label="Checklist actions" style="margin-left: auto; width: {{act}}; height: {{act}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</div>
+
+<div style="min-height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 4px 12px 4px 12px">
+<button type="button" aria-label="Collapse サーバー側の修正" style="flex: none; width: 20px; height: 20px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<button type="button" role="checkbox" aria-checked="false" aria-label="Check サーバー側の修正" disabled style="flex: none; width: 16px; height: 16px; box-sizing: border-box; padding: 0; border: 1px solid #2a2a2a; background: transparent; opacity: 0.5"></button>
+<span style="flex: 1; min-width: 0; font-size: 12px; line-height: 16px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">サーバー側の修正</span>
+<span style="font-size: 10px; line-height: 14px; color: #52525b">1/2</span>
+<button type="button" aria-label="Actions for サーバー側の修正" style="flex: none; width: {{act}}; height: {{act}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</div>
+<div style="padding-left: 36px"><button type="button" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate(-90deg)"><path d="m6 9 6 6 6-6"></path></svg>add details</button></div>
+
+<div style="min-height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 4px 12px 4px 32px">
+<span style="flex: none; width: 20px; height: 20px"></span>
+<button type="button" role="checkbox" aria-checked="true" aria-label="Uncheck returnTo を state に保存する" style="flex: none; width: 16px; height: 16px; box-sizing: border-box; display: grid; place-items: center; padding: 0; border: 1px solid #ef4444; background: #ef4444; color: #fafafa"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></button>
+<span style="flex: 1; min-width: 0; font-size: 12px; line-height: 16px; color: #71717a; text-decoration: line-through; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><code style="padding: 2px 4px; background: #141414; font-family: inherit; font-size: 12px">returnTo</code> を state に保存する</span>
+<button type="button" aria-label="Actions for returnTo を state に保存する" style="flex: none; width: {{act}}; height: {{act}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</div>
+<div style="padding-left: 56px"><button type="button" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate(-90deg)"><path d="m6 9 6 6 6-6"></path></svg>add details</button></div>
+
+<div style="min-height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 4px 12px 4px 32px">
+<button type="button" aria-label="Collapse コールバックで復元する" style="flex: none; width: 20px; height: 20px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></button>
+<button type="button" role="checkbox" aria-checked="false" aria-label="Check コールバックで復元する" disabled style="flex: none; width: 16px; height: 16px; box-sizing: border-box; padding: 0; border: 1px solid #2a2a2a; background: transparent; opacity: 0.5"></button>
+<span style="flex: 1; min-width: 0; font-size: 12px; line-height: 16px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">コールバックで復元する</span>
+<span style="font-size: 10px; line-height: 14px; color: #52525b">0/1</span>
+<button type="button" aria-label="Actions for コールバックで復元する" style="flex: none; width: {{act}}; height: {{act}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</div>
+<div style="padding-left: 56px"><button type="button" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>details</button></div>
+<div style="margin-left: 66px; padding: 8px 12px 8px 10px; border-left: 1px solid #2a2a2a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 14px; line-height: 28px; color: #fafafa"><p style="margin: 0; padding: 0 8px">外部ドメインへのリダイレクトは弾く。</p></div>
+
+<div style="min-height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 4px 12px 4px 52px">
+<span style="flex: none; width: 20px; height: 20px"></span>
+<button type="button" role="checkbox" aria-checked="false" aria-label="Check 相対パスのみ許可する" style="flex: none; width: 16px; height: 16px; box-sizing: border-box; padding: 0; border: 1px solid #2a2a2a; background: transparent"></button>
+<span style="flex: 1; min-width: 0; font-size: 12px; line-height: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">相対パスのみ許可する</span>
+<button type="button" aria-label="Actions for 相対パスのみ許可する" style="flex: none; width: {{act}}; height: {{act}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</div>
+<div style="padding-left: 76px"><button type="button" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate(-90deg)"><path d="m6 9 6 6 6-6"></path></svg>add details</button></div>
+
+<div style="min-height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 4px 12px 4px 12px">
+<span style="flex: none; width: 20px; height: 20px"></span>
+<button type="button" role="checkbox" aria-checked="false" aria-label="Check E2E テストを追加する" disabled style="flex: none; width: 16px; height: 16px; box-sizing: border-box; padding: 0; border: 1px solid #2a2a2a; background: transparent; opacity: 0.5"></button>
+<div style="flex: 1; min-width: 0">
+<span style="display: block; font-size: 12px; line-height: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">E2E テストを追加する</span>
+<div style="margin-top: 4px; display: flex; flex-wrap: wrap; gap: 4px; font-size: 10px; line-height: 14px">
+<a href="https://github.com/example-org/web/pull/212" style="display: inline-flex; align-items: center; gap: 4px; padding: 0 4px; border: 1px solid #2a2a2a; color: #c3e88d; text-decoration: none"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg>web#212</a>
+</div>
+</div>
+<button type="button" aria-label="Actions for E2E テストを追加する" style="flex: none; width: {{act}}; height: {{act}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</div>
+<div style="padding-left: 36px"><button type="button" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate(-90deg)"><path d="m6 9 6 6 6-6"></path></svg>add details</button></div>
+
+<div style="min-height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 4px 12px 4px 12px">
+<span style="flex: none; width: 20px; height: 20px"></span>
+<button type="button" role="checkbox" aria-checked="false" aria-label="Check Cookie の属性を見直す" disabled style="flex: none; width: 16px; height: 16px; box-sizing: border-box; padding: 0; border: 1px solid #2a2a2a; background: transparent; opacity: 0.5"></button>
+<div style="flex: 1; min-width: 0">
+<span style="display: block; font-size: 12px; line-height: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Cookie の属性を見直す</span>
+<div style="margin-top: 4px; display: flex; flex-wrap: wrap; gap: 4px; font-size: 10px; line-height: 14px">
+<a href="#task-131" aria-label="#131 Cookie 属性の見直し" style="display: inline-flex; align-items: center; gap: 4px; max-width: 100%; padding: 0 4px; border: 1px solid #2a2a2a; color: #71717a; text-decoration: none"><span style="color: #ef4444; font-weight: 700">#131</span><span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap">Cookie 属性の見直し</span></a>
+</div>
+</div>
+<button type="button" aria-label="Actions for Cookie の属性を見直す" style="flex: none; width: {{act}}; height: {{act}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</div>
+<div style="padding-left: 36px"><button type="button" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate(-90deg)"><path d="m6 9 6 6 6-6"></path></svg>add details</button></div>
+
+<div style="position: relative; min-height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 4px 12px 4px 12px">
+<span style="flex: none; width: 20px; height: 20px"></span>
+<button type="button" role="checkbox" aria-checked="false" aria-label="Check ステージングで確認する" style="flex: none; width: 16px; height: 16px; box-sizing: border-box; padding: 0; border: 1px solid #2a2a2a; background: transparent"></button>
+<span style="flex: 1; min-width: 0; font-size: 12px; line-height: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">ステージングで確認する</span>
+<button type="button" aria-label="Actions for ステージングで確認する" style="flex: none; width: {{act}}; height: {{act}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: {{itemMenuColor}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}">
+<div role="menu" aria-label="Actions for ステージングで確認する" style="position: absolute; top: 34px; right: 12px; z-index: 5; min-width: 128px; box-sizing: border-box; padding: 4px; background: #141414; box-shadow: 0 0 0 1px rgba(250,250,250,0.1), 0 4px 12px rgba(0,0,0,0.5); font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', sans-serif; font-size: 14px; line-height: 20px; color: #fafafa">
+<button type="button" role="menuitem" style="width: 100%; display: flex; align-items: center; gap: 6px; padding: 4px 6px; border: 0; background: #1f1f1f; color: inherit; font: inherit; text-align: left; white-space: nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg>edit</button>
+<button type="button" role="menuitem" style="width: 100%; display: flex; align-items: center; gap: 6px; padding: 4px 6px; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; white-space: nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>add subitem</button>
+<button type="button" role="menuitem" style="width: 100%; display: flex; align-items: center; gap: 6px; padding: 4px 6px; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; white-space: nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><line x1="6" x2="6" y1="9" y2="21"></line></svg>link pull request</button>
+<button type="button" role="menuitem" style="width: 100%; display: flex; align-items: center; gap: 6px; padding: 4px 6px; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; white-space: nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>promote to subtask</button>
+<button type="button" role="menuitem" style="width: 100%; display: flex; align-items: center; gap: 6px; padding: 4px 6px; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; white-space: nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"></path><path d="m15 5 4 4"></path></svg>add details</button>
+<button type="button" role="menuitem" style="width: 100%; display: flex; align-items: center; gap: 6px; padding: 4px 6px; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; white-space: nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg>move up</button>
+<button type="button" role="menuitem" style="width: 100%; display: flex; align-items: center; gap: 6px; padding: 4px 6px; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; white-space: nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 10 20 15 15 20"></polyline><path d="M4 4v7a4 4 0 0 0 4 4h12"></path></svg>indent</button>
+<button type="button" role="menuitem" style="width: 100%; display: flex; align-items: center; gap: 6px; padding: 4px 6px; border: 0; background: transparent; color: #ef4444; font: inherit; text-align: left; white-space: nowrap"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h18"></path><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"></path><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"></path><line x1="10" x2="10" y1="11" y2="17"></line><line x1="14" x2="14" y1="11" y2="17"></line></svg>delete…</button>
+</div>
+</sc-if>
+</div>
+<div style="padding-left: 36px"><button type="button" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate(-90deg)"><path d="m6 9 6 6 6-6"></path></svg>add details</button></div>
+
+<div style="display: flex; align-items: center; border-top: 1px dashed #2a2a2a; padding: 0 12px; font-size: 12px"><button type="button" style="flex: 1; min-height: 44px; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 12px; text-align: left"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>add item</button></div>
+</div>
+
+<div style="border: 1px solid #2a2a2a; overflow: hidden">
+<div style="min-height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 4px 12px 4px 12px">
+<span style="flex: none; width: 20px; height: 20px"></span>
+<button type="button" role="checkbox" aria-checked="true" aria-label="Uncheck 影響範囲を洗い出す" style="flex: none; width: 16px; height: 16px; box-sizing: border-box; display: grid; place-items: center; padding: 0; border: 1px solid #ef4444; background: #ef4444; color: #fafafa"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></button>
+<span style="flex: 1; min-width: 0; font-size: 12px; line-height: 16px; color: #71717a; text-decoration: line-through; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">影響範囲を洗い出す</span>
+<button type="button" aria-label="Actions for 影響範囲を洗い出す" style="flex: none; width: {{act}}; height: {{act}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</div>
+<div style="padding-left: 36px"><button type="button" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate(-90deg)"><path d="m6 9 6 6 6-6"></path></svg>add details</button></div>
+<div style="min-height: 40px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; padding: 4px 12px 4px 12px">
+<span style="flex: none; width: 20px; height: 20px"></span>
+<button type="button" role="checkbox" aria-checked="false" aria-label="Check 告知文を書く" style="flex: none; width: 16px; height: 16px; box-sizing: border-box; padding: 0; border: 1px solid #2a2a2a; background: transparent"></button>
+<span style="flex: 1; min-width: 0; font-size: 12px; line-height: 16px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><strong>告知文</strong>を書く</span>
+<button type="button" aria-label="Actions for 告知文を書く" style="flex: none; width: {{act}}; height: {{act}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button>
+</div>
+<div style="padding-left: 36px"><button type="button" style="height: 20px; display: inline-flex; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 10px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate(-90deg)"><path d="m6 9 6 6 6-6"></path></svg>add details</button></div>
+<div style="display: flex; align-items: center; border-top: 1px dashed #2a2a2a; padding: 0 12px; font-size: 12px"><button type="button" style="flex: 1; min-height: 44px; display: flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 12px; text-align: left"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>add item</button><button type="button" aria-label="Checklist actions" style="flex: none; width: {{act}}; height: {{act}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #71717a"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></button></div>
+</div>
+
+</div>
+</sc-if>
+
+<button type="button" style="width: fit-content; display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: transparent; color: #71717a; font-family: inherit; font-size: 12px; line-height: 16px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>add checklist</button>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"empty":{"editor":"boolean","default":false},"form":{"editor":"enum","options":["desktop","phone"],"default":"desktop"},"menu":{"editor":"boolean","default":false},"$preview":{"width":768,"height":700}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const empty = this.props.empty === true || this.props.empty === 'true';
+    const menuOpen = this.props.menu === true || this.props.menu === 'true';
+    const phone = (this.props.form ?? 'desktop') === 'phone';
+    return {
+      filled: !empty,
+      count: empty ? '0/0' : '2/7',
+      act: phone ? '36px' : '20px',
+      menuOpen,
+      itemMenuColor: menuOpen ? '#fafafa' : '#71717a',
+    };
+  }
+}
+</script>
+</body>
+</html>

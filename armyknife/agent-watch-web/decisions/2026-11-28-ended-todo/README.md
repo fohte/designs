@@ -1,6 +1,6 @@
 # 終わったセッションの to-do
 
-tmux の pane を閉じてセッションが終わっても、答えていない to-do があるセッションは Inbox の Needs action に残り、動いているセッションの to-do と見分けがつかなかった。会話の to-do カードは Mark done / Reject だけで、Inbox から外す手段もなかった。
+セッションが終わっても、答えていない to-do があるセッションは Inbox の Needs action に残り、動いているセッションの to-do と見分けがつかなかった。会話の to-do カードは Mark done / Reject だけで、Inbox から外す手段もなかった。
 
 ## 退けた案
 

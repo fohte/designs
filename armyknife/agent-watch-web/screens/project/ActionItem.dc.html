@@ -26,6 +26,7 @@ body{margin:0}
 <div style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><strong style="color: #fafafa">{{title}}</strong><span style="min-width: 0; color: #a1a1aa; font-family: {{subFont}}; font-size: {{subFs}}; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{session}}</span>
 <sc-if value="{{hasMsg}}" hint-placeholder-val="{{ false }}"><span style="color: #d4d4d8; font-size: {{subFs}}">{{msg}}</span></sc-if>
 <sc-if value="{{toastControls}}" hint-placeholder-val="{{ false }}"><div style="display: grid; grid-template-columns: {{actCols}}; gap: 8px; margin-top: 8px"><sc-if value="{{hasRetry}}" hint-placeholder-val="{{ true }}"><button type="button" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Retry</button></sc-if><sc-if value="{{hasDetails}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="{{detailsAria}}" style="min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{detailsBorder}}; background: {{detailsBg}}; color: {{detailsFg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{detailsWeight}}; white-space: nowrap">{{detailsLabel}}</button></sc-if></div></sc-if>
+<sc-if value="{{hasBtns}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px"><sc-for list="{{btns}}" as="b" hint-placeholder-count="2"><button type="button" aria-label="{{b.aria}}" style="flex: {{b.flex}}; min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{b.border}}; background: {{b.bg}}; color: {{b.fg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{b.weight}}; white-space: nowrap">{{b.label}}</button></sc-for></div></sc-if>
 </div>
 <button type="button" aria-label="Dismiss" style="width: {{closeW}}; height: {{closeH}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #8b8b94"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
 <sc-if value="{{hasRows}}" hint-placeholder-val="{{ false }}"><div style="grid-column: 1 / -1; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; width: {{rowsW}}; margin-top: {{rowsMt}}; text-align: left"><sc-for list="{{rows}}" as="r" hint-placeholder-count="2"><div style="display: flex; flex-direction: column; gap: 4px"><sc-if value="{{r.hasCaption}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa; font-size: {{subFs}}">{{r.caption}}</span></sc-if><div role="group" aria-label="{{r.aria}}" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px"><sc-for list="{{r.btns}}" as="b" hint-placeholder-count="2"><button type="button" aria-label="{{b.aria}}" aria-haspopup="{{b.popup}}" style="display: flex; align-items: center; justify-content: center; gap: 6px; min-width: 0; min-height: {{btnH}}; padding: 0 10px; border: 1px solid {{b.border}}; background: {{b.bg}}; color: {{b.fg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{b.weight}}; white-space: nowrap"><sc-if value="{{b.trash}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></sc-if><span style="overflow: hidden; text-overflow: ellipsis">{{b.label}}</span></button></sc-for></div></div></sc-for></div></sc-if>
@@ -46,6 +47,7 @@ body{margin:0}
 <sc-if value="{{hasRowMsg}}" hint-placeholder-val="{{ false }}"><span style="font-size: {{subFs}}">{{msg}}</span></sc-if>
 <sc-if value="{{hasChecks}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; gap: 4px; margin-top: 6px"><dc-import name="CloseChecks" items="{{ checkItems }}" phone="{{ phone }}" hint-size="100%,150px"></dc-import><code style="overflow-wrap: anywhere; color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: {{pathFs}}">{{path}}</code></div></sc-if>
 <sc-if value="{{rowControls}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px"><sc-if value="{{hasRetry}}" hint-placeholder-val="{{ true }}"><button type="button" style="min-width: {{retryW}}; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Retry</button></sc-if><sc-if value="{{hasOutputBtn}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-width: {{retryW}}; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Show output</button></sc-if></div></sc-if>
+<sc-if value="{{hasBtns}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px"><sc-for list="{{btns}}" as="b" hint-placeholder-count="2"><button type="button" aria-label="{{b.aria}}" style="flex: {{b.flex}}; min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{b.border}}; background: {{b.bg}}; color: {{b.fg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{b.weight}}; white-space: nowrap">{{b.label}}</button></sc-for></div></sc-if>
 </div>
 <span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 12px">{{time}}</span>
 <sc-if value="{{hasRows}}" hint-placeholder-val="{{ false }}"><div style="grid-column: 1 / -1; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; width: {{rowsW}}; margin-top: {{rowsMt}}; text-align: left"><sc-for list="{{rows}}" as="r" hint-placeholder-count="2"><div style="display: flex; flex-direction: column; gap: 4px"><sc-if value="{{r.hasCaption}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa; font-size: {{subFs}}">{{r.caption}}</span></sc-if><div role="group" aria-label="{{r.aria}}" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px"><sc-for list="{{r.btns}}" as="b" hint-placeholder-count="2"><button type="button" aria-label="{{b.aria}}" aria-haspopup="{{b.popup}}" style="display: flex; align-items: center; justify-content: center; gap: 6px; min-width: 0; min-height: {{btnH}}; padding: 0 10px; border: 1px solid {{b.border}}; background: {{b.bg}}; color: {{b.fg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{b.weight}}; white-space: nowrap"><sc-if value="{{b.trash}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></sc-if><span style="overflow: hidden; text-overflow: ellipsis">{{b.label}}</span></button></sc-for></div></div></sc-for></div></sc-if>
@@ -65,6 +67,7 @@ body{margin:0}
 </div>
 <sc-if value="{{hasMsg}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa">{{msg}}</span></sc-if>
 <sc-if value="{{lineControls}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 2px"><sc-if value="{{hasRetry}}" hint-placeholder-val="{{ true }}"><button type="button" style="min-width: {{retryW}}; min-height: {{lineBtnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: {{subFs}}; white-space: nowrap">Retry</button></sc-if></div></sc-if>
+<sc-if value="{{hasBtns}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 2px"><sc-for list="{{btns}}" as="b" hint-placeholder-count="2"><button type="button" aria-label="{{b.aria}}" style="min-width: {{b.lineMinW}}; min-height: {{lineBtnH}}; padding: 0 12px; border: 1px solid {{b.border}}; background: {{b.bg}}; color: {{b.fg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{b.weight}}; white-space: nowrap">{{b.label}}</button></sc-for></div></sc-if>
 <sc-if value="{{hasRows}}" hint-placeholder-val="{{ false }}"><div style="grid-column: 1 / -1; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; width: {{rowsW}}; margin-top: {{rowsMt}}; text-align: left"><sc-for list="{{rows}}" as="r" hint-placeholder-count="2"><div style="display: flex; flex-direction: column; gap: 4px"><sc-if value="{{r.hasCaption}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa; font-size: {{subFs}}">{{r.caption}}</span></sc-if><div role="group" aria-label="{{r.aria}}" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px"><sc-for list="{{r.btns}}" as="b" hint-placeholder-count="2"><button type="button" aria-label="{{b.aria}}" aria-haspopup="{{b.popup}}" style="display: flex; align-items: center; justify-content: center; gap: 6px; min-width: 0; min-height: {{btnH}}; padding: 0 10px; border: 1px solid {{b.border}}; background: {{b.bg}}; color: {{b.fg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{b.weight}}; white-space: nowrap"><sc-if value="{{b.trash}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></sc-if><span style="overflow: hidden; text-overflow: ellipsis">{{b.label}}</span></button></sc-for></div></div></sc-for></div></sc-if>
 </div>
 </sc-if>
@@ -74,7 +77,7 @@ body{margin:0}
 <script type="text/x-dc" data-dc-script data-props='{"a":{"editor":null},"form":{"editor":"enum","options":["toast","row","line"],"default":"toast"},"phone":{"editor":"boolean","default":false},"$preview":{"width":360,"height":110}}'>
 class Component extends DCLogic {
   renderVals() {
-    // a.result: merging | merged | alreadyMerged | queued | mergeFailed | closing | closed | closeFailed.
+    // a.result: merging | merged | alreadyMerged | queued | mergeFailed | closing | closed | closeFailed | deleting | deleted | deleteChanged | deleteBlocked | deleteFailed.
     const a = this.props.a ?? { result: 'mergeFailed', pr: 2049, session: '配信チェックの PR を確認する', reason: 'Head branch was updated after you confirmed. Confirm the new head to merge.', time: '12:03' };
     const form = this.props.form ?? 'toast';
     const phone = this.props.phone ?? false;
@@ -89,6 +92,13 @@ class Component extends DCLogic {
       closing: { icon: 'spin', title: 'Closing session', line: 'Closing session…' },
       closed: { icon: 'ok', title: 'Closed session', line: 'Closed session' },
       closeFailed: { icon: 'err', title: 'Close failed', line: 'Close failed' },
+      // Discard changes and close: deletes the worktree and its branch after you confirm the list.
+      // The server checks again before deleting; anything new or a running process stops it with nothing deleted.
+      deleting: { icon: 'spin', title: 'Deleting worktree', line: 'Deleting worktree…' },
+      deleted: { icon: 'ok', title: 'Closed session and deleted worktree', line: 'Closed session and deleted worktree' },
+      deleteChanged: { icon: 'err', title: 'Did not delete worktree', line: 'Did not delete worktree', msg: 'Changed after you confirmed: ' + (a.grew ?? '') + '.' },
+      deleteBlocked: { icon: 'err', title: 'Did not delete worktree', line: 'Did not delete worktree', msg: 'Running in the worktree: ' + (a.process ?? '') + '. Stop it, then Retry.' },
+      deleteFailed: { icon: 'err', title: 'Delete failed', line: 'Delete failed' },
       // A ! command from a message. The server stops it after 30 s.
       running: { icon: 'spin', title: 'Running command', line: 'Running command…' },
       succeeded: { icon: 'ok', title: 'Ran command', line: 'Ran command' },
@@ -130,13 +140,32 @@ class Component extends DCLogic {
       // Activity already shows the details, so it offers the terminal instead.
       { caption: '', hasCaption: false, aria: 'Actions', btns: [btn('retry'), btn(form === 'row' ? 'terminal' : 'details')] }
     ] : [];
+    // A stopped or failed Discard changes and close. The web cannot tell what a running process is, so it never stops one itself.
+    const D = {
+      again: { ...B.keep, label: 'Review again', aria: 'Review again' },
+      keepPlain: { ...B.retry, label: 'Close and keep worktree' },
+      retryMain: { ...B.keep, label: 'Retry', aria: 'Retry' },
+      terminal: B.terminal, details: B.details
+    };
+    const sets = {
+      deleteChanged: { toast: ['again', 'keepPlain'], row: ['again', 'keepPlain'], line: ['again', 'keepPlain'] },
+      deleteBlocked: { toast: ['retryMain', 'terminal'], row: ['retryMain', 'terminal', 'keepPlain'], line: ['retryMain'] },
+      deleteFailed: { toast: ['retryMain', 'details'], row: ['retryMain'], line: ['retryMain'] }
+    };
+    const names = sets[a.result]?.[form] ?? null;
+    const btns = names ? names.map((k) => ({
+      aria: D[k].label, ...D[k],
+      // Phone: the buttons share each row; PC: they keep their own width.
+      flex: phone ? '1 1 0' : '0 0 auto', lineMinW: phone ? '88px' : '0'
+    })) : [];
     // A command failure offers only Show output: its full result is already in the conversation, and Retry from a toast could run it twice.
     return {
+      btns, hasBtns: !!names,
       // A close failure without guard results has nothing more to show in Activity.
       hasDetails: isCmd || !(a.result === 'closeFailed' && !c),
       hasRetry: !isCmd,
       hasOutputBtn: isCmd && failed,
-      toastControls: failed && !c, rowControls: failed && !c, lineControls: failed && !isCmd && !c,
+      toastControls: failed && !c && !names, rowControls: failed && !c && !names, lineControls: failed && !isCmd && !c && !names,
       rows, hasRows: !!c,
       rowsW: form === 'line' && !phone ? '360px' : '100%', rowsMt: form === 'toast' ? '10px' : form === 'row' ? '8px' : '4px',
       detailsLabel: isCmd ? 'Show output' : 'Details',

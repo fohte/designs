@@ -13,17 +13,17 @@
 body{margin:0}
 </style>
 </helmet>
-<section role="dialog" aria-modal="true" aria-label="Discard changes and close?" style="width: 100%; max-height: {{maxH}}; overflow-y: auto; box-sizing: border-box; display: flex; flex-direction: column; gap: {{gap}}; padding: {{pad}}; border: 1px solid {{frame}}; border-width: {{frameW}}; background: {{bg}}; box-shadow: {{shadow}}; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
-<h2 style="margin: 0; color: #fafafa; font-size: {{headFs}}; font-weight: 700">Discard changes and close?</h2>
+<section role="dialog" aria-modal="true" aria-label="{{head}}" style="width: 100%; max-height: {{maxH}}; overflow-y: auto; box-sizing: border-box; display: flex; flex-direction: column; gap: {{gap}}; padding: {{pad}}; border: 1px solid {{frame}}; border-width: {{frameW}}; background: {{bg}}; box-shadow: {{shadow}}; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
+<h2 style="margin: 0; color: #fafafa; font-size: {{headFs}}; font-weight: 700">{{head}}</h2>
 <div style="display: flex; align-items: center; gap: 8px; min-width: 0; font-size: {{metaFs}}"><span aria-hidden="true" style="flex: none; width: 7px; height: 7px; background: #f87171"></span><span style="flex: none; color: #f87171">Close failed</span><span style="min-width: 0; color: #fafafa; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{session}}</span></div>
-<p style="margin: 0">Deletes the worktree and the branch {{branch}}. These are not saved anywhere else.</p>
+<p style="margin: 0">{{body}}</p>
 
 <div style="display: flex; flex-direction: column; border: 1px solid #2a2a2a; background: #141414">
 <sc-if value="{{hasFiles}}" hint-placeholder-val="{{ true }}">
 <div style="display: flex; align-items: baseline; gap: 8px; padding: {{secPad}}; border-bottom: 1px solid #2a2a2a"><span style="color: #fafafa; font-weight: 700">Uncommitted changes</span><span style="margin-left: auto; color: #a1a1aa; font-size: {{smallFs}}">{{filesCount}}</span></div>
 <ul style="margin: 0; padding: 0; list-style: none">
 <sc-for list="{{files}}" as="f" hint-placeholder-count="5">
-<li style="display: grid; grid-template-columns: {{letterCol}} 1fr; column-gap: 8px; align-items: center; padding: {{rowPad}}"><code style="color: {{f.color}}; font-family: 'JetBrains Mono', monospace; font-size: {{codeFs}}; font-weight: 700">{{f.s}}</code><code style="min-width: 0; overflow-wrap: anywhere; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{codeFs}}">{{f.path}}</code></li>
+<li style="display: grid; grid-template-columns: {{letterCol}} 1fr{{newCol}}; column-gap: 8px; align-items: center; padding: {{rowPad}}; background: {{f.rowBg}}"><code style="color: {{f.color}}; font-family: 'JetBrains Mono', monospace; font-size: {{codeFs}}; font-weight: 700">{{f.s}}</code><code style="min-width: 0; overflow-wrap: anywhere; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{codeFs}}">{{f.path}}</code><sc-if value="{{f.isNew}}" hint-placeholder-val="{{ false }}"><span style="padding: 0 6px; border: 1px solid #60a5fa; color: #93c5fd; font-size: {{smallFs}}">New</span></sc-if></li>
 </sc-for>
 </ul>
 <sc-if value="{{filesMore}}" hint-placeholder-val="{{ false }}"><button type="button" aria-expanded="false" style="min-height: {{moreH}}; padding: 0 12px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #a1a1aa; font-family: inherit; font-size: {{smallFs}}; text-align: left">{{filesMoreLabel}}</button></sc-if>
@@ -32,7 +32,7 @@ body{margin:0}
 <div style="display: flex; align-items: baseline; gap: 8px; padding: {{secPad}}; border-top: {{commitsTop}}; border-bottom: 1px solid #2a2a2a"><span style="color: #fafafa; font-weight: 700">Commits not on main</span><span style="margin-left: auto; color: #a1a1aa; font-size: {{smallFs}}">{{commitsCount}}</span></div>
 <ul style="margin: 0; padding: 0; list-style: none">
 <sc-for list="{{commits}}" as="m" hint-placeholder-count="2">
-<li style="display: grid; grid-template-columns: auto 1fr; column-gap: 10px; align-items: center; padding: {{rowPad}}"><code style="color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: {{codeFs}}">{{m.sha}}</code><span style="min-width: 0; color: #d4d4d8">{{m.subject}}</span></li>
+<li style="display: grid; grid-template-columns: auto 1fr{{newCol}}; column-gap: 10px; align-items: center; padding: {{rowPad}}; background: {{m.rowBg}}"><code style="color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: {{codeFs}}">{{m.sha}}</code><span style="min-width: 0; color: #d4d4d8">{{m.subject}}</span><sc-if value="{{m.isNew}}" hint-placeholder-val="{{ false }}"><span style="padding: 0 6px; border: 1px solid #60a5fa; color: #93c5fd; font-size: {{smallFs}}">New</span></sc-if></li>
 </sc-for>
 </ul>
 <sc-if value="{{commitsMore}}" hint-placeholder-val="{{ false }}"><button type="button" aria-expanded="false" style="min-height: {{moreH}}; padding: 0 12px; border: 0; border-top: 1px solid #2a2a2a; background: transparent; color: #a1a1aa; font-family: inherit; font-size: {{smallFs}}; text-align: left">{{commitsMoreLabel}}</button></sc-if>
@@ -46,7 +46,7 @@ body{margin:0}
 </div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["modal","sheet"],"default":"modal"},"changes":{"editor":null},"commits":{"editor":null},"branch":{"editor":"text","default":"feature/resend-limit"},"path":{"editor":"text","default":"~/src/example/service/.worktrees/resend-limit"},"session":{"editor":"text","default":"通知の再送処理を見直す"},"$preview":{"width":520,"height":620}}'>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["modal","sheet"],"default":"modal"},"again":{"editor":"boolean","default":false},"changes":{"editor":null},"commits":{"editor":null},"branch":{"editor":"text","default":"feature/resend-limit"},"path":{"editor":"text","default":"~/src/example/service/.worktrees/resend-limit"},"session":{"editor":"text","default":"通知の再送処理を見直す"},"$preview":{"width":520,"height":620}}'>
 class Component extends DCLogic {
   renderVals() {
     const phone = (this.props.form ?? 'modal') === 'sheet';
@@ -61,13 +61,26 @@ class Component extends DCLogic {
     // 5 per section; Show N more opens the rest in place and the dialog (sheet) grows and scrolls as a whole.
     const LIMIT = 5;
     const n = (k, one, many) => k + ' ' + (k === 1 ? one : many);
+    // again: the server stopped because the files and commits marked isNew appeared after you confirmed. Nothing was deleted.
+    const again = this.props.again ?? false;
+    const branch = this.props.branch ?? 'feature/resend-limit';
+    // New items come first so they are always among the 5 shown.
+    const order = (xs) => [...xs.filter((x) => x.isNew), ...xs.filter((x) => !x.isNew)];
+    const fs = order(changes), cs = order(commits);
+    const rowBg = (x) => x.isNew ? 'rgb(96 165 250 / 10%)' : 'transparent';
+    const newFiles = fs.filter((x) => x.isNew).length, newCommits = cs.filter((x) => x.isNew).length;
+    const grew = [newFiles ? n(newFiles, 'new file', 'new files') : '', newCommits ? n(newCommits, 'new commit', 'new commits') : ''].filter(Boolean).join(' and ');
     return {
+      head: again ? 'Review the changes again' : 'Discard changes and close?',
+      body: again
+        ? 'Nothing was deleted: ' + grew + ' appeared after you confirmed. Discarding deletes these too.'
+        : 'Deletes the worktree and the branch ' + branch + '. These are not saved anywhere else.',
       session: this.props.session ?? '通知の再送処理を見直す',
       path: this.props.path ?? '~/src/example/service/.worktrees/resend-limit',
-      branch: this.props.branch ?? 'feature/resend-limit',
+      branch, newCol: newFiles || newCommits ? ' auto' : '',
       hasFiles: changes.length > 0, hasCommits: commits.length > 0,
-      files: changes.slice(0, LIMIT).map((f) => ({ ...f, color: LC[f.s] ?? '#a1a1aa' })),
-      commits: commits.slice(0, LIMIT),
+      files: fs.slice(0, LIMIT).map((f) => ({ ...f, color: LC[f.s] ?? '#a1a1aa', rowBg: rowBg(f), isNew: !!f.isNew })),
+      commits: cs.slice(0, LIMIT).map((m) => ({ ...m, rowBg: rowBg(m), isNew: !!m.isNew })),
       filesCount: n(changes.length, 'file', 'files'), commitsCount: n(commits.length, 'commit', 'commits'),
       filesMore: changes.length > LIMIT, filesMoreLabel: 'Show ' + (changes.length - LIMIT) + ' more',
       commitsMore: commits.length > LIMIT, commitsMoreLabel: 'Show ' + (commits.length - LIMIT) + ' more',

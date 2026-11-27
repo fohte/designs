@@ -134,7 +134,7 @@ body{margin:0}
 
 <sc-if value="{{toastsInline}}" hint-placeholder-val="{{ false }}"><div style="position: relative; z-index: 10; flex: none; height: 0"><div style="position: absolute; left: 12px; right: 12px; bottom: 8px"><dc-import name="ToastStack" items="{{ toasts }}" phone="{{ true }}" hint-size="100%,72px"></dc-import></div></div></sc-if>
 <sc-if value="{{hasMergeBand}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="MergeBand" phone="{{ true }}" prs="{{ mergeBand }}" hint-size="100%,66px"></dc-import></div></sc-if>
-<sc-if value="{{isStuck}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="StuckBand" form="phone" pane="{{stuckPane}}" from="{{stuckFrom}}" hint-size="100%,120px"></dc-import></div></sc-if>
+<sc-if value="{{isStuck}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="StuckBand" form="phone" pane="{{stuckPane}}" from="{{stuckFrom}}" busy="{{ paneBusy }}" hint-size="100%,120px"></dc-import></div></sc-if>
 <sc-if value="{{endedBand}}" hint-placeholder-val="{{ false }}">
 <div role="status" style="flex: none; display: flex; flex-direction: column; gap: 10px; padding: 12px 12px 6px; border-top: 1px solid #2a2a2a; background: #141414">
 <div style="display: flex; align-items: center; gap: 8px"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #71717a"></span><span><span style="font-weight: 700">This session has ended</span> <span style="color: #a1a1aa; font-size: 13px">· 14:32</span></span></div>
@@ -165,7 +165,7 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"update":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"state":{"editor":"enum","options":["question","review","todo","code"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"stuck":{"editor":"enum","options":["no","closed","open"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"longTitle":{"editor":"boolean","default":false},"activity":{"editor":null},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"update":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"state":{"editor":"enum","options":["question","review","todo","code"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"stuck":{"editor":"enum","options":["no","closed","open"],"default":"no"},"paneBusy":{"editor":"boolean","default":false},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"longTitle":{"editor":"boolean","default":false},"activity":{"editor":null},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
   // bang: the ! command in the last reply. '' (none) | idle | running | succeeded | failed | timedOut.
   // The server sends each run's result to the session as your message; bangHighlight outlines it (Show output landed there).
@@ -265,6 +265,8 @@ class Component extends DCLogic {
       stuckFrom: ended === 'no' ? 'paused' : 'ended',
       endedBand: ended !== 'no' && stuck === 'no',
       stuckPane: stuck === 'open' ? 'hide' : 'show',
+      // paneBusy: Refresh was pressed in the open pane.
+      paneBusy: this.props.paneBusy ?? false,
       resuming,
       notResuming: !resuming,
       resumeLabel: resuming ? 'Resuming…' : 'Resume session',

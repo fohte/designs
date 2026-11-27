@@ -291,7 +291,7 @@
     },
     "Inbox.dc.html": {
       "x": 0,
-      "y": 3760,
+      "y": 4160,
       "w": 1440,
       "h": 900,
       "title": "Inbox と会話",
@@ -299,7 +299,7 @@
     },
     "InboxFilter.dc.html": {
       "x": 3400,
-      "y": 5080,
+      "y": 5480,
       "w": 1440,
       "h": 900,
       "title": "Inbox の絞り込み (/)",
@@ -307,7 +307,7 @@
     },
     "InboxFiltered.dc.html": {
       "x": 5390,
-      "y": 5080,
+      "y": 5480,
       "w": 1440,
       "h": 900,
       "title": "絞り込んだ状態と Save view",
@@ -323,7 +323,7 @@
     },
     "InboxTodoLater.dc.html": {
       "x": 0,
-      "y": 9040,
+      "y": 9440,
       "w": 1440,
       "h": 900,
       "title": "畳んだ to-do だけのセッションは In progress に出す",
@@ -331,7 +331,7 @@
     },
     "Later.dc.html": {
       "x": 0,
-      "y": 5080,
+      "y": 5480,
       "w": 1440,
       "h": 900,
       "title": "Later メニュー (L)",
@@ -341,7 +341,7 @@
       "x": 0,
       "y": 0,
       "w": 1440,
-      "h": 3500,
+      "h": 3900,
       "title": "仕様のまとめ",
       "page": "inbox"
     },
@@ -371,7 +371,7 @@
     },
     "NewSession.dc.html": {
       "x": 0,
-      "y": 6400,
+      "y": 6800,
       "w": 1440,
       "h": 900,
       "title": "新しいセッション",
@@ -379,7 +379,7 @@
     },
     "NewSessionModel.dc.html": {
       "x": 0,
-      "y": 7720,
+      "y": 8120,
       "w": 1440,
       "h": 900,
       "title": "新しいセッション · モデルと effort を選ぶ",
@@ -387,7 +387,7 @@
     },
     "NewSessionModelSwitch.dc.html": {
       "x": 1990,
-      "y": 7720,
+      "y": 8120,
       "w": 1440,
       "h": 900,
       "title": "新しいセッション · engine を変えてモデルが default に戻った",
@@ -395,7 +395,7 @@
     },
     "NewSessionPicker.dc.html": {
       "x": 1520,
-      "y": 6400,
+      "y": 6800,
       "w": 1440,
       "h": 900,
       "title": "新しいセッション · ディレクトリを選ぶ",
@@ -719,7 +719,7 @@
     },
     "PhoneDrawer.dc.html": {
       "x": 1990,
-      "y": 3760,
+      "y": 4160,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーション",
@@ -727,7 +727,7 @@
     },
     "PhoneInbox.dc.html": {
       "x": 1520,
-      "y": 3760,
+      "y": 4160,
       "w": 390,
       "h": 844,
       "title": "iPhone · Inbox",
@@ -735,7 +735,7 @@
     },
     "PhoneInboxClose.dc.html": {
       "x": 2930,
-      "y": 5080,
+      "y": 5480,
       "w": 390,
       "h": 844,
       "title": "iPhone · Close を押したあと",
@@ -743,7 +743,7 @@
     },
     "PhoneInboxFilter.dc.html": {
       "x": 4920,
-      "y": 5080,
+      "y": 5480,
       "w": 390,
       "h": 844,
       "title": "iPhone · 絞り込みの欄を押したあと (kind: を入力中)",
@@ -751,7 +751,7 @@
     },
     "PhoneInboxFiltered.dc.html": {
       "x": 6910,
-      "y": 5080,
+      "y": 5480,
       "w": 390,
       "h": 844,
       "title": "iPhone · 絞り込んだ状態",
@@ -759,7 +759,7 @@
     },
     "PhoneInboxLater.dc.html": {
       "x": 2460,
-      "y": 5080,
+      "y": 5480,
       "w": 390,
       "h": 844,
       "title": "iPhone · Later を押したあと",
@@ -767,7 +767,7 @@
     },
     "PhoneInboxRowMenu.dc.html": {
       "x": 1990,
-      "y": 5080,
+      "y": 5480,
       "w": 390,
       "h": 844,
       "title": "iPhone · 行を長押し",
@@ -775,7 +775,7 @@
     },
     "PhoneInboxSaveView.dc.html": {
       "x": 7380,
-      "y": 5080,
+      "y": 5480,
       "w": 390,
       "h": 844,
       "title": "iPhone · Save view を押したあと",
@@ -783,7 +783,7 @@
     },
     "PhoneInboxSwipe.dc.html": {
       "x": 1520,
-      "y": 5080,
+      "y": 5480,
       "w": 390,
       "h": 844,
       "title": "iPhone · 行の中で左にスワイプ (Later と Close が出る)",
@@ -791,7 +791,7 @@
     },
     "PhoneInboxTodoLater.dc.html": {
       "x": 1520,
-      "y": 9040,
+      "y": 9440,
       "w": 390,
       "h": 844,
       "title": "iPhone · 畳んだ to-do だけのセッションは In progress に出す",
@@ -822,7 +822,7 @@
     },
     "PhoneNewSession.dc.html": {
       "x": 3040,
-      "y": 6400,
+      "y": 6800,
       "w": 390,
       "h": 844,
       "title": "iPhone · 新しいセッション",
@@ -830,7 +830,7 @@
     },
     "PhoneNewSessionModel.dc.html": {
       "x": 1520,
-      "y": 7720,
+      "y": 8120,
       "w": 390,
       "h": 844,
       "title": "iPhone · モデルと effort を選ぶ",
@@ -838,14 +838,14 @@
     },
     "PhoneNewSessionModelSwitch.dc.html": {
       "x": 3510,
-      "y": 7720,
+      "y": 8120,
       "w": 390,
       "h": 844,
       "page": "inbox"
     },
     "PhoneNewSessionPicker.dc.html": {
       "x": 3510,
-      "y": 6400,
+      "y": 6800,
       "w": 390,
       "h": 844,
       "title": "iPhone · ディレクトリを選ぶ",
@@ -1205,7 +1205,7 @@
     },
     "TaskLinks.dc.html": {
       "x": 2460,
-      "y": 3760,
+      "y": 4160,
       "w": 1440,
       "h": 900,
       "title": "1 つのセッションに tq タスクが複数 · +1 で状況パネルの Tasks を開く",
@@ -1397,7 +1397,7 @@
     },
     "InboxSort.dc.html": {
       "x": 0,
-      "y": 10660,
+      "y": 11060,
       "w": 1440,
       "h": 900,
       "title": "Inbox · Sort を押すとメニュー (今の並び順に ✓)",
@@ -1405,7 +1405,7 @@
     },
     "PhoneInboxSort.dc.html": {
       "x": 1520,
-      "y": 10660,
+      "y": 11060,
       "w": 390,
       "h": 844,
       "title": "iPhone · Sort を押すと下からシート",
@@ -1413,7 +1413,7 @@
     },
     "InboxSortProject.dc.html": {
       "x": 1990,
-      "y": 10660,
+      "y": 11060,
       "w": 1440,
       "h": 900,
       "title": "Inbox · Project で並べた (区分の中に project ごとの小見出し)",
@@ -1421,7 +1421,7 @@
     },
     "PhoneInboxSortProject.dc.html": {
       "x": 3510,
-      "y": 10660,
+      "y": 11060,
       "w": 390,
       "h": 844,
       "title": "iPhone · Project で並べた",
@@ -1525,7 +1525,7 @@
     },
     "InboxWaiting.dc.html": {
       "x": 0,
-      "y": 12280,
+      "y": 12680,
       "w": 1440,
       "h": 900,
       "title": "Inbox · 他の作業を待っているセッションは Later の下の Waiting に分ける (先頭を会話で開いている)",
@@ -1533,7 +1533,7 @@
     },
     "PhoneDrawerWaiting.dc.html": {
       "x": 1990,
-      "y": 12280,
+      "y": 12680,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーションの待っているセッションにも砂時計",
@@ -1541,7 +1541,7 @@
     },
     "PhoneInboxWaiting.dc.html": {
       "x": 1520,
-      "y": 12280,
+      "y": 12680,
       "w": 390,
       "h": 844,
       "title": "iPhone · Waiting 3 ⌄ を開いた",
@@ -1549,7 +1549,7 @@
     },
     "NewSessionStarting.dc.html": {
       "x": 0,
-      "y": 13900,
+      "y": 15500,
       "w": 1440,
       "h": 900,
       "title": "新しいセッション · Start を押した直後 (送ったメッセージと Starting Claude Code in …)",
@@ -1557,7 +1557,7 @@
     },
     "PhoneNewSessionStarting.dc.html": {
       "x": 1520,
-      "y": 13900,
+      "y": 15500,
       "w": 390,
       "h": 844,
       "title": "iPhone · Start を押した直後",
@@ -1565,7 +1565,7 @@
     },
     "NewSessionStartingAway.dc.html": {
       "x": 1990,
-      "y": 13900,
+      "y": 15500,
       "w": 1440,
       "h": 900,
       "title": "別のセッションを開いた · 左下のトーストとナビの Activity に青い 1",
@@ -1573,7 +1573,7 @@
     },
     "NewSessionStartingActivity.dc.html": {
       "x": 3980,
-      "y": 13900,
+      "y": 15500,
       "w": 1440,
       "h": 900,
       "title": "Activity を開いた · 先頭に Starting session の行",
@@ -1581,7 +1581,7 @@
     },
     "PhoneNewSessionStartingAway.dc.html": {
       "x": 3510,
-      "y": 13900,
+      "y": 15500,
       "w": 390,
       "h": 844,
       "title": "iPhone · Inbox に戻った · 下端のトースト",
@@ -1589,7 +1589,7 @@
     },
     "PhoneNewSessionStartingActivity.dc.html": {
       "x": 5500,
-      "y": 13900,
+      "y": 15500,
       "w": 390,
       "h": 844,
       "title": "iPhone · ☰ から Activity を開いた",
@@ -1597,7 +1597,7 @@
     },
     "NewSessionStarted.dc.html": {
       "x": 0,
-      "y": 15520,
+      "y": 17120,
       "w": 1440,
       "h": 900,
       "title": "始まった · トーストが Session started と Open に変わり、5 秒で消える",
@@ -1605,7 +1605,7 @@
     },
     "PhoneNewSessionStarted.dc.html": {
       "x": 1520,
-      "y": 15520,
+      "y": 17120,
       "w": 390,
       "h": 844,
       "title": "iPhone · 始まった",
@@ -1613,7 +1613,7 @@
     },
     "NewSessionStartFailed.dc.html": {
       "x": 1990,
-      "y": 15520,
+      "y": 17120,
       "w": 1440,
       "h": 900,
       "title": "始められなかった · 赤いトーストに理由と Retry、Details",
@@ -1621,7 +1621,7 @@
     },
     "NewSessionStartFailedActivity.dc.html": {
       "x": 3980,
-      "y": 15520,
+      "y": 17120,
       "w": 1440,
       "h": 900,
       "title": "Details で Activity を開いた · 行に理由と Retry",
@@ -1629,11 +1629,83 @@
     },
     "PhoneNewSessionStartFailed.dc.html": {
       "x": 3510,
-      "y": 15520,
+      "y": 17120,
       "w": 390,
       "h": 844,
       "title": "iPhone · 始められなかった (☰ に赤い印)",
       "page": "inbox"
+    },
+    "InboxLongNames.dc.html": {
+      "x": 0,
+      "y": 13900,
+      "w": 1440,
+      "h": 900,
+      "title": "長い repo 名とブランチ名 · repo とブランチから … で縮め、タスク名を残す (Proposal の行の repo にマウスを置いた)",
+      "page": "inbox"
+    },
+    "PhoneInboxLongNames.dc.html": {
+      "x": 1520,
+      "y": 13900,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 長い repo 名 · org を … にして repo 名を残す",
+      "page": "inbox"
+    },
+    "PhoneDrawerLongNames.dc.html": {
+      "x": 1990,
+      "y": 13900,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーション · 長い repo 名とブランチ名 (入れば org も出す)",
+      "page": "inbox"
+    },
+    "ConversationStuckClosed.dc.html": {
+      "x": 0,
+      "y": 14750,
+      "w": 1440,
+      "h": 900,
+      "title": "Resume から 20 秒たっても返事がない · Session hasn't started",
+      "page": "conversation"
+    },
+    "PhoneChatStuckClosed.dc.html": {
+      "x": 1520,
+      "y": 14750,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Session hasn't started",
+      "page": "conversation"
+    },
+    "ConversationStuckOpen.dc.html": {
+      "x": 1990,
+      "y": 14750,
+      "w": 1440,
+      "h": 900,
+      "title": "Show pane を押した · 帯の中に pane の画面 (2 秒ごとに更新)",
+      "page": "conversation"
+    },
+    "PhoneChatStuckOpen.dc.html": {
+      "x": 3510,
+      "y": 14750,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Show pane を押した",
+      "page": "conversation"
+    },
+    "StuckBand.dc.html": {
+      "x": 0,
+      "y": 6700,
+      "w": 760,
+      "h": 90,
+      "title": "StuckBand",
+      "page": "components"
+    },
+    "PaneSnapshot.dc.html": {
+      "x": 840,
+      "y": 6700,
+      "w": 672,
+      "h": 380,
+      "title": "PaneSnapshot",
+      "page": "components"
     }
   },
   "order": [
@@ -1841,7 +1913,16 @@
     "PhoneNewSessionStarted.dc.html",
     "NewSessionStartFailed.dc.html",
     "NewSessionStartFailedActivity.dc.html",
-    "PhoneNewSessionStartFailed.dc.html"
+    "PhoneNewSessionStartFailed.dc.html",
+    "InboxLongNames.dc.html",
+    "PhoneInboxLongNames.dc.html",
+    "PhoneDrawerLongNames.dc.html",
+    "ConversationStuckClosed.dc.html",
+    "PhoneChatStuckClosed.dc.html",
+    "ConversationStuckOpen.dc.html",
+    "PhoneChatStuckOpen.dc.html",
+    "StuckBand.dc.html",
+    "PaneSnapshot.dc.html"
   ],
   "pages": [
     {
@@ -1967,7 +2048,7 @@
     },
     "rowInboxConversation": {
       "x": 0,
-      "y": 3537,
+      "y": 3937,
       "text": "Inbox と会話 · tq タスクが複数のとき",
       "kind": "title1",
       "maxW": 3900,
@@ -1975,7 +2056,7 @@
     },
     "rowInboxLaterFilter": {
       "x": 0,
-      "y": 4780,
+      "y": 5180,
       "text": "Inbox · Later、閉じる、絞り込み · iPhone は行の中のスワイプか長押しと、/ と同じ絞り込みの欄",
       "kind": "title1",
       "maxW": 7770,
@@ -1983,7 +2064,7 @@
     },
     "rowNewSession": {
       "x": 0,
-      "y": 6100,
+      "y": 6500,
       "text": "新しいセッション · ディレクトリを選ぶ",
       "kind": "title1",
       "maxW": 3900,
@@ -1991,7 +2072,7 @@
     },
     "rowNewSessionModel": {
       "x": 0,
-      "y": 7420,
+      "y": 7820,
       "text": "新しいセッション · モデルと effort を選ぶ",
       "kind": "title1",
       "maxW": 3900,
@@ -2104,7 +2185,7 @@
     "rowTodoLater": {
       "kind": "title1",
       "x": 0,
-      "y": 8740,
+      "y": 9140,
       "maxW": 2450,
       "page": "inbox",
       "text": "Inbox · 畳んだ to-do だけのセッションは元の区分に出す"
@@ -2143,7 +2224,7 @@
     },
     "rowInboxSort": {
       "x": 0,
-      "y": 10360,
+      "y": 10760,
       "text": "Inbox · 並び順 · 見出しの右の Sort で選び、区分は変えない",
       "kind": "title1",
       "maxW": 3900,
@@ -2175,7 +2256,7 @@
     },
     "rowInboxWaiting": {
       "x": 0,
-      "y": 11980,
+      "y": 12380,
       "text": "Inbox · 他の作業を待っているセッション · Waiting の区分と灰色の砂時計",
       "kind": "title1",
       "maxW": 2380,
@@ -2183,7 +2264,7 @@
     },
     "rowNewSessionStarting": {
       "x": 0,
-      "y": 13600,
+      "y": 15200,
       "text": "新しいセッション · Start のあとは裏で待つ · + の画面を離れたらトーストと Activity の先頭の行に Starting session",
       "kind": "title1",
       "maxW": 5890,
@@ -2191,11 +2272,35 @@
     },
     "rowNewSessionStarted": {
       "x": 0,
-      "y": 15220,
+      "y": 16820,
       "text": "新しいセッション · 始まったら Session started と Open、始められなかったら理由と Retry",
       "kind": "title1",
       "maxW": 5420,
       "page": "inbox"
+    },
+    "rowLongNames": {
+      "x": 0,
+      "y": 13600,
+      "text": "Inbox · 長い repo 名とブランチ名 · repo やブランチから … で縮め、タイトルとタスク名を残す",
+      "kind": "title1",
+      "maxW": 2380,
+      "page": "inbox"
+    },
+    "rowStuckResume": {
+      "x": 0,
+      "y": 14450,
+      "text": "再開後に起動しないとき · 帯で示し、Show pane で帯の中に pane の画面を開く",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "conversation"
+    },
+    "rowPartsStuck": {
+      "x": 0,
+      "y": 6400,
+      "text": "再開後に起動しないときの帯",
+      "kind": "title1",
+      "maxW": 1512,
+      "page": "components"
     }
   },
   "v": 3,

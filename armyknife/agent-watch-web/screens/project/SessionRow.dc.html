@@ -30,10 +30,10 @@ body{margin:0}
 <sc-if value="{{isDone}}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="Done" title="Done" style="display: inline-grid; place-items: center; flex: none; width: {{iconPx}}; height: {{iconPx}}; color: #71717a; font-size: 11px">✓</span></sc-if>
 </span>
 <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
-<span style="display: flex; align-items: center; gap: 8px"><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: {{titleSize}}; color: {{titleColor}}; font-weight: {{titleWeight}}">{{title}}</span><sc-if value="{{vibeIcon}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="{{zapFill}}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="{{vibeLabel}}" style="flex: none; margin-left: -4px; color: #a1a1aa"><title>{{vibeLabel}}</title><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg></sc-if><span style="margin-left: auto"></span><span style="flex: none; font-family: 'JetBrains Mono', monospace; font-size: {{metaSize}}; color: #8b8b94">{{age}}</span></span>
+<span style="display: flex; align-items: center; gap: 8px"><span title="{{title}}" style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: {{titleSize}}; color: {{titleColor}}; font-weight: {{titleWeight}}">{{title}}</span><sc-if value="{{vibeIcon}}" hint-placeholder-val="{{ false }}"><svg width="12" height="12" viewBox="0 0 24 24" fill="{{zapFill}}" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="{{vibeLabel}}" style="flex: none; margin-left: -4px; color: #a1a1aa"><title>{{vibeLabel}}</title><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg></sc-if><span style="margin-left: auto"></span><span style="flex: none; font-family: 'JetBrains Mono', monospace; font-size: {{metaSize}}; color: #8b8b94">{{age}}</span></span>
 <sc-if value="{{hasPreview}}" hint-placeholder-val="{{ true }}"><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: {{previewSize}}; color: {{previewColor}}">{{preview}}</span></sc-if>
 <span style="display: flex; align-items: center; gap: 6px; font-size: {{metaSize}}; color: #8b8b94; white-space: nowrap">
-<span style="min-width: 0; display: flex; align-items: center; gap: 5px; overflow: hidden">
+<span title="{{taskTip}}" style="flex: 0 1 auto; min-width: 0; display: flex; align-items: center; gap: 5px; overflow: hidden">
 <span role="img" aria-label="{{roleLabel}}" title="{{roleLabel}}" style="display: inline-flex; flex: none; color: #8b8b94">
 <sc-if value="{{isDevelopment}}" hint-placeholder-val="{{ true }}"><svg width="12.5" height="12.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: {{rolePx}}; height: {{rolePx}}"><path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path></svg></sc-if>
 <sc-if value="{{isDesign}}" hint-placeholder-val="{{ false }}"><svg width="12.5" height="12.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: {{rolePx}}; height: {{rolePx}}"><rect x="16" y="16" width="6" height="6" rx="1"></rect><rect x="2" y="16" width="6" height="6" rx="1"></rect><rect x="9" y="2" width="6" height="6" rx="1"></rect><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"></path><path d="M12 12V8"></path></svg></sc-if>
@@ -46,9 +46,9 @@ body{margin:0}
 <sc-if value="{{hasEngine}}" hint-placeholder-val="{{ true }}"><span title="{{engineName}}" style="font-family: 'JetBrains Mono', monospace; font-size: {{metaSize}}; color: #8b8b94; white-space: nowrap">{{engine}}</span><span>·</span></sc-if>
 <span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis"><sc-if value="{{hasTask}}" hint-placeholder-val="{{ true }}"><span style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{taskRef}}</span> {{taskTitle}}</sc-if><sc-if value="{{noTask}}" hint-placeholder-val="{{ false }}"><span>— No task</span></sc-if></span>
 </span>
-<sc-if value="{{repoInline}}" hint-placeholder-val="{{ true }}"><span style="margin-left: auto"></span><span style="flex: none; font-family: 'JetBrains Mono', monospace">{{repo}}</span></sc-if>
+<sc-if value="{{repoInline}}" hint-placeholder-val="{{ true }}"><span title="{{repo}}" style="display: flex; flex: 1 1 0; max-width: max-content; min-width: 10ch; margin-left: auto; overflow: hidden; font-family: 'JetBrains Mono', monospace"><span style="{{orgStyle}}">{{org}}</span><span style="{{orgStyle}}">/</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">{{repoName}}</span></span></sc-if>
 </span>
-<sc-if value="{{repoOwnLine}}" hint-placeholder-val="{{ false }}"><span style="display: flex; align-items: center; gap: 6px; font-size: {{metaSize}}; color: #8b8b94; white-space: nowrap"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; font-family: 'JetBrains Mono', monospace">{{repo}}</span></span></sc-if>
+<sc-if value="{{repoOwnLine}}" hint-placeholder-val="{{ false }}"><span style="display: flex; align-items: center; gap: 6px; overflow: hidden; font-family: 'JetBrains Mono', monospace; font-size: {{metaSize}}; color: #8b8b94; white-space: nowrap"><span title="{{repo}}" style="display: flex; flex: 0 1 auto; min-width: 0; overflow: hidden"><span style="{{orgStyle}}">{{org}}</span><span style="{{orgStyle}}">/</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">{{repoName}}</span></span><sc-if value="{{hasBranch}}" hint-placeholder-val="{{ false }}"><span title="{{branch}}" style="display: flex; gap: 6px; flex: 1 1 0; max-width: max-content; min-width: 7ch; overflow: hidden"><span style="flex: none">⑂</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">{{branch}}</span></span></sc-if></span></sc-if>
 <sc-if value="{{closing}}" hint-placeholder-val="{{ false }}"><span role="status" style="display: flex; align-items: center; gap: 6px; margin-top: 2px; font-size: {{previewSize}}; color: #a1a1aa"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"></path></svg>Closing…</span></sc-if>
 <sc-if value="{{closeFailed}}" hint-placeholder-val="{{ false }}"><span role="alert" style="display: flex; align-items: center; gap: 8px; margin-top: 2px; font-size: {{previewSize}}; color: #f87171"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">Close failed · {{closeReason}}</span><button type="button" style="flex: none; margin-left: auto; min-height: {{retryH}}; padding: 0 10px; border: 1px solid #f87171; background: transparent; color: #fafafa; font-family: inherit; font-size: 12px">Retry</button></span></sc-if>
 </span>
@@ -70,6 +70,18 @@ class Component extends DCLogic {
     const kinds = ['Question', 'Review', 'Error', 'Plan', 'Approve', 'Proposal', 'Todo'];
     const role = s.role || '';
     const compact = density === 'compact' || density === 'compact-phone';
+    const slash = (s.repo ?? '').indexOf('/');
+    const org = slash < 0 ? '' : s.repo.slice(0, slash);
+    const repoName = slash < 0 ? (s.repo ?? '') : s.repo.slice(slash + 1);
+    // Stands in for the app's measuring whether the whole repo fits: rough text widths, CJK = 1em, monospace = 0.6em, other Latin = 0.55em.
+    // s.w: the row's width when it is not the usual one for its density (Inbox 460px, iPhone 390px, navigation 240px).
+    const tw = (t, px, mono) => [...(t ?? '')].reduce((n, c) => n + (c.charCodeAt(0) > 0x2e80 ? px : px * (mono ? 0.6 : 0.55)), 0);
+    const m = parseFloat(D.meta);
+    const [, padR = 0, , padL = padR] = (s.pad ?? D.pad).split(' ').map(parseFloat);
+    const avail = (s.w ?? { full: 460, phone: 390, compact: 240, 'compact-phone': 390 }[density]) - padL - padR - parseFloat(D.icon) - 8 - (s.caret !== undefined ? 18 : 0);
+    const lead = parseFloat(D.role) + 5 + (s.engine ? tw(s.engine, m, true) + tw(' · ', m) + 5 : 0) + (s.taskRef ? tw(s.taskRef, m, true) + tw(' ' + (s.taskTitle ?? ''), m) : tw('— No task', m));
+    const need = compact ? tw(s.repo, m, true) + (s.branch ? 6 + 4.2 * m : 0) : lead + 6 + tw(s.repo, m, true);
+    const orgShort = s.orgShort ?? (!!org && need > avail);
     return {
       pad: s.pad ?? D.pad, bg: s.bg ?? 'transparent', border: D.border, bar: s.bar ?? 'none', opacity: s.opacity ?? 1,
       hasCaret: s.caret !== undefined, caret: s.caret ?? '',
@@ -90,7 +102,12 @@ class Component extends DCLogic {
       isResearch: role === 'research', isDebugFlow: role === 'debug-flow', isPm: role === 'PM', isNoRole: role === '',
       engine: s.engine, hasEngine: !!s.engine, engineName: s.engine === 'codex' ? 'Codex' : s.engine === 'claude' ? 'Claude Code' : '',
       hasTask: !!s.taskRef, noTask: !s.taskRef, taskRef: s.taskRef ?? '', taskTitle: s.taskTitle ?? '',
-      repo: s.repo, repoInline: !compact, repoOwnLine: compact,
+      // The repo and the branch give way before the task: the branch down to "⑂ fix-…", the repo down to 10 characters.
+      // When the whole repo does not fit, the org shows as one … and the repo name keeps the rest.
+      repo: s.repo, org: orgShort ? '…' : org, repoName, orgStyle: org ? 'flex: none' : 'display: none',
+      repoInline: !compact, repoOwnLine: compact,
+      branch: s.branch ?? '', hasBranch: compact && !!s.branch,
+      taskTip: s.taskRef ? `${s.taskRef} ${s.taskTitle ?? ''}` : '',
       // s.close: 'closing' | 'failed' while a confirmed close runs in the background; a closed session leaves the list.
       closing: s.close === 'closing', closeFailed: s.close === 'failed', closeReason: s.closeReason ?? '',
       retryH: density === 'phone' || density === 'compact-phone' ? '44px' : '24px',

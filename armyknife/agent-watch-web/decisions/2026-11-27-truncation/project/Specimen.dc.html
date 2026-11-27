@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Session lists at their real widths</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 100%; height: {{h}}; box-sizing: border-box; overflow: hidden; display: flex; flex-direction: {{dir}}; align-items: flex-start; gap: {{gap}}; padding: {{pad}}; background: #050505; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+
+<sc-if value="{{showHeader}}" hint-placeholder-val="{{ false }}">
+<div style="flex: none; width: {{headerW}}; display: flex; flex-direction: column; gap: 8px">
+<div style="padding: {{labelPad}}; font-size: 12px; color: #8b8b94">{{headerLabel}}</div>
+<dc-import name="Header" form="{{form}}" hint-size="100%,76px"></dc-import>
+</div>
+</sc-if>
+
+<sc-if value="{{showRecent}}" hint-placeholder-val="{{ true }}">
+<div style="flex: none; width: {{recentW}}; display: flex; flex-direction: column; gap: 8px">
+<div style="padding: {{labelPad}}; font-size: 12px; color: #8b8b94">{{recentLabel}}</div>
+<nav aria-label="Recent sessions" style="box-sizing: border-box; padding: 4px 8px 8px; background: #0f0f0f; border-right: 1px solid #2a2a2a">
+<h2 style="height: 26px; display: flex; align-items: center; margin: 0; padding: 0 8px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">Recent</h2>
+<sc-for list="{{recent}}" as="s" hint-placeholder-count="3">
+<div style="margin: 0 -8px"><dc-import name="Row" s="{{ s }}" density="compact" opt="{{opt}}" cut="{{cut}}" order="{{order}}" hint-size="100%,69px"></dc-import></div>
+</sc-for>
+</nav>
+</div>
+</sc-if>
+
+<sc-if value="{{showInbox}}" hint-placeholder-val="{{ true }}">
+<div style="flex: none; width: {{inboxW}}; display: flex; flex-direction: column; gap: 8px">
+<div style="padding: {{labelPad}}; font-size: 12px; color: #8b8b94">{{inboxLabel}}</div>
+<ul aria-label="Inbox" style="margin: 0; padding: 0; list-style: none; background: #0a0a0a; border: 1px solid #1a1a1a">
+<sc-for list="{{inbox}}" as="s" hint-placeholder-count="3">
+<li><dc-import name="Row" s="{{ s }}" density="{{inboxDensity}}" opt="{{opt}}" cut="{{cut}}" order="{{order}}" hint-size="100%,76px"></dc-import></li>
+</sc-for>
+</ul>
+</div>
+</sc-if>
+
+<sc-if value="{{showBoard}}" hint-placeholder-val="{{ true }}">
+<div style="flex: none; width: {{boardW}}; display: flex; flex-direction: column; gap: 8px">
+<div style="padding: {{labelPad}}; font-size: 12px; color: #8b8b94">{{boardLabel}}</div>
+<section style="box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; padding: 12px; background: #111111">
+<header>
+<h2 style="margin: 0; font-size: {{boardH2}}; font-weight: 700">通知の信頼性を上げる</h2>
+<div style="font-size: 12px; font-weight: 700; color: #fbbf24">1 needs you</div>
+</header>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<h3 style="margin: 0; font-size: 11.5px; font-weight: 700; color: #fbbf24">Needs action</h3>
+<sc-for list="{{board}}" as="s" hint-placeholder-count="2">
+<div style="margin: 0 -12px"><dc-import name="Row" s="{{ s }}" density="{{boardDensity}}" opt="{{opt}}" cut="{{cut}}" order="{{order}}" hint-size="100%,69px"></dc-import></div>
+</sc-for>
+</div>
+</section>
+</div>
+</sc-if>
+
+<sc-if value="{{showTree}}" hint-placeholder-val="{{ true }}">
+<div style="flex: none; width: {{treeW}}; display: flex; flex-direction: column; gap: 8px">
+<div style="padding: {{labelPad}}; font-size: 12px; color: #8b8b94">{{treeLabel}}</div>
+<div role="tree" style="padding: 8px 0; background: #0f0f0f; border-left: 1px solid #2a2a2a">
+<sc-for list="{{tree}}" as="s" hint-placeholder-count="4">
+<div role="treeitem" aria-current="{{s.currentAttr}}"><dc-import name="Row" s="{{ s }}" density="{{treeDensity}}" tree="{{ true }}" opt="{{opt}}" cut="{{cut}}" order="{{order}}" hint-size="100%,69px"></dc-import></div>
+</sc-for>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{showTip}}" hint-placeholder-val="{{ false }}">
+<div role="tooltip" style="position: absolute; left: {{tipX}}; top: {{tipY}}; z-index: 5; padding: 4px 8px; background: #f4f4f5; color: #18181b; border: 1px solid #a1a1aa; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); font-size: 12px; white-space: nowrap">{{tipText}}</div>
+</sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"layout":{"editor":"enum","options":["normal","narrow","repo","header"],"default":"normal"},"opt":{"editor":"enum","options":["now","a","b","c"],"default":"now"},"cut":{"editor":"enum","options":["now","repo","drop","middle"],"default":"now"},"order":{"editor":"enum","options":["task","repo"],"default":"task"},"tip":{"editor":"boolean","default":false},"h":{"editor":"text","default":"600px"},"$preview":{"width":1804,"height":600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const form = p.form ?? 'pc';
+    const phone = form === 'phone';
+    const layout = p.layout ?? 'normal';
+    const opt = p.opt ?? 'now';
+    const cut = p.cut ?? (opt === 'now' ? 'now' : 'repo');
+    const order = p.order ?? 'task';
+
+    const R = (status, title, age, role, engine, taskRef, taskTitle, repo, branch, extra) => ({ status, title, age, role, engine, taskRef, taskTitle, repo, branch, ...(extra ?? {}) });
+    const longTitle = '配信ログの保存期間を設定ファイルから変えられるようにする';
+    let recent = [
+      R('Done', longTitle, '1h', 'development', 'codex', 'P2 #2051', '監視とログの扱いを整える', 'example/observability', 'log-retention-config'),
+      R('Working', '通知の再送処理を見直す', '5m', 'debug-flow', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/notification-service', 'fix-resend-limit'),
+      R('Done', 'セットアップ手順を更新する', '2h', '', 'codex', '', '', 'example/developer-handbook', 'main')
+    ];
+    let inbox = [
+      R('Question', '通知の再送処理を見直す', '8s', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/notification-service', 'fix-resend-limit', { unread: true, preview: '再試行は 3 回で止めてよいですか?' }),
+      R('Review', longTitle, '3m', 'research', 'codex', 'P2 #2051', '監視とログの扱いを整える', 'example/observability', 'log-retention-config', { unread: true, preview: '差分を確認してください' }),
+      R('Working', 'セットアップ手順を更新する', '1m', '', 'codex', '', '', 'example/developer-handbook', 'main')
+    ];
+    let board = [
+      R('Question', '通知の再送処理を見直す', '8s', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/notification-service', 'fix-resend-limit', { unread: true }),
+      R('Working', '再送の上限値を設定に出す', '2m', 'development', 'codex', 'P1 #2048', '通知の信頼性を上げる', 'example/notification-service', 'resend-limit-config')
+    ];
+    const T = (depth, caret, current, ...a) => ({ ...R(...a), indent: depth * 18, caret, current, unread: current, currentAttr: current ? 'true' : 'false', bg: current ? '#262626' : 'transparent', bar: current ? 'inset 2px 0 0 #fafafa' : 'none' });
+    let tree = [
+      T(0, '▾', false, 'Working', '通知まわりの改修を進める', '12m', 'PM', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/notification-service', 'main'),
+      T(1, '▾', true, 'Question', '通知の再送処理を見直す', '8s', 'development', 'claude', 'P1 #2048', '通知の信頼性を上げる', 'example/notification-service', 'fix-resend-limit'),
+      T(2, '▾', false, 'Working', longTitle, '1m', 'development', 'codex', 'P2 #2051', '監視とログの扱いを整える', 'example/observability', 'log-retention-config'),
+      T(3, '', false, 'Done', '再送の上限値を設定に出す', '2h', 'development', 'codex', 'P1 #2048', '通知の信頼性を上げる', 'example/notification-service', 'resend-limit-config')
+    ];
+
+    // Widths of each list as the app lays it out.
+    const W = phone
+      ? { recent: 320, inbox: 390, board: 300, tree: 390 }
+      : layout === 'narrow' ? { recent: 240, inbox: 340, board: 280, tree: 400 } : { recent: 240, inbox: 460, board: 280, tree: 640 };
+
+    // Stands in for the measuring the app would do: rough text widths, CJK = 1em, monospace = 0.6em, other Latin = 0.55em.
+    // A and B collapse the org to … as a whole once the repo cannot fit; B also drops whole items until a line fits.
+    const tw = (t, px, mono) => [...(t ?? '')].reduce((n, c) => n + (c.charCodeAt(0) > 0x2e80 ? px : px * (mono ? 0.6 : 0.55)), 0);
+    const fitOrg = (s, density, rowW, tree, drop) => {
+      const full = density === 'full' || density === 'phone';
+      const ph = density === 'phone' || density === 'compact-phone';
+      const m = tree && !ph ? 10.5 : ph ? 12.5 : 11.5;
+      const pads = density === 'full' ? 54 : density === 'phone' ? 56 : density === 'compact' ? (tree ? 38 + s.indent + 10 : 48) : (tree ? 56 + s.indent + 10 : 56);
+      const avail = rowW - pads;
+      const eng = s.engine && !drop.includes('engine') ? tw(s.engine, m, true) + 16 : 0;
+      const ref = s.taskRef ? tw(s.taskRef, m, true) : tw('— No task', m, false);
+      const name = s.taskRef ? 5 + tw(s.taskTitle, m, false) : 0;
+      const repo = tw(s.repo, m, true);
+      // C: the repo has a line of its own once it moves down.
+      if (opt === 'c') return (full || tree || ph ? 0 : 19) + repo > avail;
+      if (full) {
+        if (drop.includes('repo')) return false;
+        const task = order === 'repo' ? 5.5 * m : ref + name;
+        return m + 6 + eng + task + 16 + repo > avail;
+      }
+      const branch = drop.includes('branch') ? 0 : 16 + (opt === 'b' ? tw(s.branch, m, true) : Math.min(7, s.branch.length) * 0.6 * m);
+      return (tree || ph ? 0 : 19) + repo + branch > avail;
+    };
+    const fitB = (s, density, rowW, tree) => {
+      const full = density === 'full' || density === 'phone';
+      const ph = density === 'phone' || density === 'compact-phone';
+      const m = tree && !ph ? 10.5 : ph ? 12.5 : 11.5;
+      const pads = density === 'full' ? 54 : density === 'phone' ? 56 : density === 'compact' ? (tree ? 38 + s.indent + 10 : 48) : (tree ? 56 + s.indent + 10 : 56);
+      const avail = rowW - pads;
+      const drop = [];
+      const role = m + 6;
+      const eng = s.engine ? tw(s.engine, m, true) + 6 + 4 + 6 : 0;
+      const ref = s.taskRef ? tw(s.taskRef, m, true) : tw('— No task', m, false);
+      const name = s.taskRef ? 5 + tw(s.taskTitle, m, false) : 0;
+      const repo = 12 + tw(s.repo, m, true);
+      if (full) {
+        let w = role + eng + ref + name + repo;
+        if (w > avail && s.engine) { drop.push('engine'); w -= eng; }
+        if (w > avail) { drop.push('repo'); w -= repo; }
+      } else {
+        const repoLine = (tree || ph ? 0 : 19) + tw(s.repo, m, true) + 6 + 4 + 6 + tw(s.branch, m, true);
+        if (repoLine > avail) drop.push('branch');
+        if (role + eng + ref + name > avail && s.engine) drop.push('engine');
+      }
+      return drop;
+    };
+    if (opt !== 'now') {
+      const fit = (list, density, rowW, tr) => list.map((s) => {
+        const drop = opt === 'b' ? fitB(s, density, rowW, tr) : [];
+        return { ...s, drop, orgShort: cut === 'repo' && fitOrg(s, density, rowW, tr, drop) };
+      });
+      recent = fit(recent, 'compact', phone ? 312 : W.recent, false);
+      inbox = fit(inbox, phone ? 'phone' : 'full', W.inbox, false);
+      board = fit(board, phone ? 'phone' : 'compact', W.board, false);
+      tree = fit(tree, phone ? 'compact-phone' : 'compact', W.tree, true);
+    }
+
+    const showRecent = layout !== 'narrow' || phone;
+    const showInbox = true;
+    // The phone Board uses the same row as the phone Inbox, so the Inbox stands for both there.
+    const showBoard = layout === 'normal' && !phone;
+    const showTree = layout === 'normal' || layout === 'narrow';
+    const showHeader = layout === 'header';
+    const tip = !!p.tip;
+    return {
+      form, opt, cut, order,
+      h: p.h ?? (phone ? '844px' : '600px'),
+      dir: phone ? 'column' : 'row', gap: phone ? '18px' : '40px', pad: phone ? '20px 0 0' : '32px',
+      showRecent, showInbox, showBoard, showTree, showHeader,
+      recentW: phone ? '320px' : '240px', inboxW: W.inbox + 'px', boardW: W.board + 'px', treeW: W.tree + 'px', headerW: phone ? '390px' : '480px',
+      recentLabel: phone ? 'ドロワーの Recent · 320px' : '左のナビの Recent · 240px',
+      inboxLabel: phone ? 'Inbox の行 (Board のカードも同じ行) · 390px' : `Inbox の行 · ${W.inbox}px`,
+      boardLabel: phone ? 'Board のカード · 列 300px' : 'Board のカード · 列 280px',
+      treeLabel: phone ? '状況パネルの Tree · 390px' : `状況パネルの Tree · ${W.tree}px`,
+      headerLabel: phone ? '会話のヘッダー (header-context の A)' : '会話のヘッダー · 480px (header-context の A)',
+      inboxDensity: phone ? 'phone' : 'full', boardDensity: phone ? 'phone' : 'compact', treeDensity: phone ? 'compact-phone' : 'compact',
+      boardH2: phone ? '17px' : '15px',
+      recent: phone ? recent.slice(0, 2) : recent, inbox: phone && layout === 'normal' ? inbox.slice(0, 2) : inbox, board: phone ? board.slice(0, 1) : board, tree: phone ? tree.slice(0, 3) : tree, labelPad: phone ? '0 16px' : '0',
+      showTip: tip, tipX: '170px', tipY: opt === 'c' ? '328px' : '274px',
+      tipText: 'example/developer-handbook'
+    };
+  }
+}
+</script>
+</body>
+</html>

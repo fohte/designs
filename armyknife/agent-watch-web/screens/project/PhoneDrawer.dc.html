@@ -14,7 +14,7 @@ body{margin:0}
 </style>
 </helmet>
 <div style="position: relative; width: 100%; height: 100vh; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 14px; line-height: 1.55">
-<dc-import name="PhoneInbox" activity="{{ activity }}" wait="{{ wait }}" hint-size="100%,844px"></dc-import>
+<dc-import name="PhoneInbox" activity="{{ activity }}" wait="{{ wait }}" long="{{ long }}" hint-size="100%,844px"></dc-import>
 <div style="position: absolute; inset: 0; background: rgba(0, 0, 0, 0.45)"></div>
 <nav role="dialog" aria-modal="true" aria-label="Navigation" aria-hidden="{{navHidden}}" style="position: absolute; top: 0; bottom: 0; left: 0; width: 320px; max-width: 86%; box-sizing: border-box; display: flex; flex-direction: column; padding: 8px 12px; background: #0f0f0f; box-shadow: 8px 0 24px rgba(0, 0, 0, 0.5)">
 <div style="height: 48px; display: flex; align-items: center; padding: 0 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 700"><span style="margin-right: 7px; color: #ef4444">&gt;</span>agent watch</div>
@@ -47,16 +47,17 @@ body{margin:0}
 </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"activity":{"editor":null},"activityOpen":{"editor":"boolean","default":false},"activityItems":{"editor":null},"wait":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
+<script type="text/x-dc" data-dc-script data-props='{"activity":{"editor":null},"activityOpen":{"editor":"boolean","default":false},"activityItems":{"editor":null},"wait":{"editor":"boolean","default":false},"long":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
     // activity: { count, tone: 'running' | 'failure' | 'idle' }. Unset shows the idle entry after earlier actions finished.
     const activity = this.props.activity ?? { count: 3, tone: 'idle' };
     // wait: a starred session and a PM session have stopped to wait on something else (activityStatus 'waiting'). Their rows show the gray hourglass.
     const wait = this.props.wait ?? false;
-    return {
+    const long = this.props.long ?? false;
+    const vals = {
       // The Inbox under the drawer keeps 2 Needs action rows when it shows Waiting.
-      wait, inboxCount: wait ? 2 : 6,
+      wait, long, inboxCount: wait ? 2 : 6,
       hasActivity: !!activity, activity,
       activityOpen: this.props.activityOpen ?? false, activityItems: this.props.activityItems ?? [],
       // The Activity sheet is the only active modal while open; the drawer under it is hidden from assistive technology.
@@ -70,6 +71,20 @@ class Component extends DCLogic {
       pm: [
         { status: 'Plan', title: '段階的な公開を進める', age: '5m', role: 'PM', engine: 'claude', taskRef: 'P2 #2052', taskTitle: '新しい設定を段階的に公開する', repo: 'example/web-app' },
         { status: wait ? 'Waiting' : 'Working', title: '通知まわりの改修', age: wait ? '14m' : '12m', role: 'PM', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', vibe: 'on' }
+      ]
+    };
+    // long: sessions with long repo and branch names, to show how a row shrinks them. The drawer is 320px wide.
+    return long ? { ...vals, ...this.longRows() } : vals;
+  }
+  longRows() {
+    return {
+      starred: [
+        { status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/notification-service', branch: 'fix-resend-limit-on-timeout', vibe: 'inherited', w: 320 },
+        { status: 'Working', title: '配信ログの保存期間を決める', age: '2m', role: 'research', engine: 'codex', taskRef: 'P2 #2051', taskTitle: '監視を整える', repo: 'example/observability-pipeline', branch: 'log-retention-config', w: 320 }
+      ],
+      pm: [
+        { status: 'Plan', title: '段階的な公開を進める', age: '5m', role: 'PM', engine: 'claude', taskRef: 'P2 #2052', taskTitle: '新しい設定を段階的に公開する', repo: 'example/storefront-web-app', branch: 'main', w: 320 },
+        { status: 'Working', title: '通知まわりの改修', age: '12m', role: 'PM', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/notification-service', branch: 'main', vibe: 'on', w: 320 }
       ]
     };
   }

@@ -105,7 +105,7 @@ body{margin:0}
 <sc-if value="{{sortOpen}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; top: 42px; right: 14px; z-index: 20"><dc-import name="SortMenu" form="pc" value="{{sort}}" hint-size="236px,150px"></dc-import></div></sc-if>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"h":{"editor":null},"filter":{"editor":"enum","options":["none","chips","saving"],"default":"none"},"laterMenuOpen":{"editor":"boolean","default":false},"current":{"editor":"int","default":0},"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"closeReason":{"editor":"text","default":""},"todoLater":{"editor":"boolean","default":false},"sort":{"editor":"enum","options":["priority","updated","project"],"default":"priority"},"sortOpen":{"editor":"boolean","default":false},"wait":{"editor":"boolean","default":false},"long":{"editor":"boolean","default":false},"$preview":{"width":460,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"h":{"editor":null},"filter":{"editor":"enum","options":["none","chips","saving"],"default":"none"},"laterMenuOpen":{"editor":"boolean","default":false},"current":{"editor":"int","default":0},"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"closeReason":{"editor":"text","default":""},"todoLater":{"editor":"boolean","default":false},"sort":{"editor":"enum","options":["priority","updated","project"],"default":"priority"},"sortOpen":{"editor":"boolean","default":false},"wait":{"editor":"boolean","default":false},"long":{"editor":"boolean","default":false},"ended":{"editor":"boolean","default":false},"$preview":{"width":460,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const cur = this.props.current ?? 0;
@@ -126,6 +126,8 @@ class Component extends DCLogic {
       { status: 'Approve', title: 'ステージングの設定を書き換える', unread: false, age: '6m', preview: 'Bash の実行を許可してください。', role: 'development', engine: 'codex', taskRef: 'P2 #2052', taskTitle: '新しい設定を段階的に公開する', repo: 'example/service' },
       { status: 'Proposal', title: 'アラートの送り先を決める', unread: false, age: '12m', preview: '2 つの案から選んでください。', role: 'designer', engine: 'claude', taskRef: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/observability' }
     ];
+    // ended: the Review session has ended, and an ended session is never in the Inbox.
+    if (this.props.ended) rows.splice(1, 1);
     // close: a confirmed close of the Proposal row running in the background. 'closed' takes the row out.
     const close = this.props.close ?? 'none';
     const proposal = rows[rows.length - 1];

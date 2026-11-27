@@ -106,6 +106,9 @@ a{color:#ef4444}
 <sc-if value="{{t.isFolded}}" hint-placeholder-val="{{ false }}">
 <div style="flex: none"><dc-import name="TodoCard" form="folded" title="{{t.title}}" added="{{ t.added }}" hint-size="100%,40px"></dc-import></div>
 </sc-if>
+<sc-if value="{{t.isWithdrawn}}" hint-placeholder-val="{{ false }}">
+<div style="flex: none"><dc-import name="WithdrawnCard" kind="{{t.kind}}" form="pc" title="{{t.title}}" hint-size="100%,80px"></dc-import></div>
+</sc-if>
 <sc-if value="{{t.isFull}}" hint-placeholder-val="{{ true }}">
 <article aria-label="User task" style="flex: none; border: 1px solid #2a2a2a; padding: 14px; display: flex; flex-direction: column; gap: 8px">
 <dc-import name="TodoCard" form="header" hint-size="100%,26px"></dc-import>
@@ -210,7 +213,7 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","waiting","review","drafts","todo","code"],"default":"question"},"draftsDetail":{"editor":null},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"todoRunning":{"editor":"boolean","default":false},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"stuck":{"editor":"enum","options":["no","closed","open"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","waiting","review","drafts","todo","code"],"default":"question"},"draftsDetail":{"editor":null},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"todoRunning":{"editor":"boolean","default":false},"withdrawn":{"editor":"boolean","default":false},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"stuck":{"editor":"enum","options":["no","closed","open"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
   // bang: the ! command in the last reply. '' (none) | idle | running | succeeded | failed | timedOut.
   // The server sends each run's result to the session as your message; bangHighlight outlines it (Show output landed there).
@@ -293,7 +296,12 @@ class Component extends DCLogic {
     const tNow = { title: '設定画面の音の一覧を見る', detail: 'ステージングで設定画面を開き、音の一覧に 5 つ並んでいるか見てください。' };
     const added = (this.props.todo ?? 'folded') === 'added';
     // todoNow: false leaves only the folded to-do pending, so the session leaves Needs action for In progress.
-    const todoItems = [{ isFolded: true, ...tLater, added }].concat((this.props.todoNow ?? true) ? [
+    // withdrawn: the session ended with a to-do and a proposal unanswered, so the server withdrew both.
+    const todoItems = (this.props.withdrawn ?? false) ? [
+      { isWithdrawn: true, kind: 'todo', title: tLater.title },
+      { isText: true, text: '既定の音は 2 つの案から選んでください。' },
+      { isWithdrawn: true, kind: 'proposal', title: '通知の既定の音を決める' }
+    ] : [{ isFolded: true, ...tLater, added }].concat((this.props.todoNow ?? true) ? [
       { isText: true, text: '音の一覧はステージングでも見られます。こちらは今確かめてください。' },
       { isFull: true, ...tNow }
     ] : []);

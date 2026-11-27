@@ -13,7 +13,7 @@
 body{margin:0}
 </style>
 </helmet>
-<div style="width: 1440px; height: 4600px; box-sizing: border-box; padding: 72px 96px; display: flex; flex-direction: column; gap: 40px; background: #0a0a0a; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.7">
+<div style="width: 1440px; height: 5040px; box-sizing: border-box; padding: 72px 96px; display: flex; flex-direction: column; gap: 40px; background: #0a0a0a; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.7">
 <header>
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #fafafa"><span style="margin-right: 10px; color: #ef4444">&gt;</span>agent watch</div>
 <h1 style="margin: 12px 0 0; font-size: 32px; font-weight: 700; color: #fafafa">いまの画面の仕様</h1>
@@ -31,7 +31,7 @@ body{margin:0}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4600}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":5040}}'>
 class Component extends DCLogic {
   renderVals() {
     return {
@@ -70,6 +70,7 @@ class Component extends DCLogic {
           'メッセージの中のコードブロックには、上に左が言語名 (ts、bash、text)、右が Copy の帯を付けます。押すと 1.5 秒 ✓ Copied に変わります。帯は PC で 30px、iPhone で 44px の高さで、コードと一緒に横へスクロールしないので、長い行のコードに重なりません。',
           'Markdown の details は会話、カード、PR draft の Preview で GitHub と同じく、要約の左の ▸ で畳み、開くと ▾ にして中身を字下げせずに続けます。開いた状態はページを開いている間だけ保ちます。',
           '↵ で送り、Esc で止め、⌥↑ / ⌥↓ で自分のメッセージをたどります。',
+          '返信欄は新しいセッションの最初のメッセージと同じ箱です。画像は貼り付け、左下の + で選ぶ、PC では右側の画面のどこかに落とす、のどれでも添えられ、ファイルを持ってくると右側の画面に点線の枠を出します。添えた画像は箱の中の文の上にサムネイルで並べ、右上の × で外します。iPhone の +、送信、× は 44px です。',
           '返信欄の下に status line と同じ並びで engine、model (effort)、context、5h / 7d の quota (7d 76% → 92% の形で、今の使用率と窓の終わりの予測。色はナビと同じ)、バージョンを出します。表示だけで、押しても何も起きません。iPhone では折り返します。'
         ] },
         { title: '確認したあとの実行', items: [
@@ -111,7 +112,8 @@ class Component extends DCLogic {
           'コマンドの Close this session は開いている会話を閉じ、Done 以外では確認を出します。Close all done は Done だけを確認なしで閉じます。'
         ] },
         { title: '新しいセッション', items: [
-          'ナビの + か c で会話の列 (iPhone は全画面) に開きます。⌘K の New session は同じ入力と一覧をダイアログに出し、操作も同じです。',
+          'ナビの + か c で会話の列 (iPhone は全画面) に開きます。⌘K の New session は同じ入力と一覧をダイアログに出します。ディレクトリを選んで ↵ を押すと (iPhone は行を押すと)、そのディレクトリが入った + の画面に移って書きます。PC では Tab を押すと ⌘K の中で同じ箱に書いて始められます。',
+          '最初のメッセージは会話の返信欄と同じ箱に書き、画像も返信欄と同じく貼り付け、+、PC では右側の画面に落とす、で添えます。箱の右下の送信が Start を兼ねます。ディレクトリを選ぶ前に貼った画像も残し、そのあいだ送信は灰色で押せず、箱の下に Choose a directory to start を小さく出します。',
           '入力は 1 本です。ディレクトリを打って絞り、↵ で選ぶとチップになり、続けて最初のメッセージを打ちます。空の入力で ⌫ を押すとディレクトリに戻ります。⇧↵ / ⌥↵ で改行します。',
           '下の一覧は START WITH (Claude Code、Codex) と OPTIONS (New worktree from main、Model、Effort) です。カーソルは入力に置いたまま ↑↓ で行を移り、↵ でその engine で始めます。OPTIONS の行では ←→ で値を変えます。値は全部並べ、メニューは開きません。',
           'Model と Effort は engine ごとに持ち、最後にいた START WITH の行の engine のものを出します (見出しは CLAUDE CODE OPTIONS)。先頭の行で ↑ を押すと一番下の Effort に回ります。profile の既定値は行の名前の右に default atlas-5 の形で出します。Effort には選んだ model が受け付ける値だけを並べます (Claude Code は max まで、comet-5 は high まで)。',

@@ -15,7 +15,7 @@ body{margin:0}
 </helmet>
 <div style="width: 100%; box-sizing: border-box; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.55">
 <sc-if value="{{withdrawn}}" hint-placeholder-val="{{ false }}">
-<dc-import name="TodoCard" form="withdrawn" phone="{{ phone }}" title="{{title}}" hint-size="100%,80px"></dc-import>
+<dc-import name="TodoCard" form="withdrawn" phone="{{ phone }}" note="{{wNote}}" title="{{title}}" hint-size="100%,80px"></dc-import>
 </sc-if>
 <sc-if value="{{pending}}" hint-placeholder-val="{{ true }}">
 <article aria-label="User task" style="border: 1px solid #2a2a2a; padding: 14px; display: flex; flex-direction: column; gap: 8px">
@@ -34,7 +34,7 @@ body{margin:0}
 </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"look":{"editor":"enum","options":["plain","tag","primary"],"default":"plain"},"phone":{"editor":"boolean","default":false},"withdrawn":{"editor":"boolean","default":false},"title":{"editor":"text","default":"通知の音を実機で確かめる"},"$preview":{"width":672,"height":250}}'>
+<script type="text/x-dc" data-dc-script data-props='{"look":{"editor":"enum","options":["plain","tag","primary","auto"],"default":"plain"},"phone":{"editor":"boolean","default":false},"withdrawn":{"editor":"boolean","default":false},"title":{"editor":"text","default":"通知の音を実機で確かめる"},"$preview":{"width":672,"height":250}}'>
 class Component extends DCLogic {
   renderVals() {
     // look: plain is the card as today. tag adds Session ended to the heading and Withdraw after Mark done / Reject.
@@ -47,13 +47,16 @@ class Component extends DCLogic {
     const buttons = {
       plain: [b('Mark done', main), b('Reject', sub)],
       tag: [b('Mark done', main), b('Reject', sub), b('Withdraw', sub, { ml: phone ? '0' : 'auto' })],
-      primary: [b('Withdraw', main, { span: phone ? '1 / -1' : 'auto' }), b('Mark done', sub), b('Reject', sub)]
+      primary: [b('Withdraw', main, { span: phone ? '1 / -1' : 'auto' }), b('Mark done', sub), b('Reject', sub)],
+      // auto: the server withdrew it when the session ended; only the withdrawn card shows.
+      auto: []
     }[look];
     const withdrawn = this.props.withdrawn ?? false;
     return {
       phone, withdrawn, pending: !withdrawn,
       title: this.props.title ?? '通知の音を実機で確かめる',
-      note: look === 'plain' ? '' : 'Session ended',
+      note: look === 'plain' || look === 'auto' ? '' : 'Session ended',
+      wNote: look === 'auto' ? 'session ended 14:32' : '',
       explain: look === 'primary',
       buttons,
       btnDisplay: phone ? 'grid' : 'flex',

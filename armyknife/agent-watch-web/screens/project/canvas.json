@@ -341,7 +341,7 @@
       "x": 0,
       "y": 0,
       "w": 1440,
-      "h": 3400,
+      "h": 3500,
       "title": "仕様のまとめ",
       "page": "inbox"
     },
@@ -1443,6 +1443,86 @@
       "page": "components",
       "title": "SortMenu"
     },
+    "MdDetails.dc.html": {
+      "x": 0,
+      "y": 5680,
+      "w": 672,
+      "h": 200,
+      "title": "MdDetails",
+      "page": "components"
+    },
+    "DetailsPlace.dc.html": {
+      "x": 752,
+      "y": 5680,
+      "w": 672,
+      "h": 420,
+      "title": "DetailsPlace",
+      "page": "components"
+    },
+    "DetailsMessage.dc.html": {
+      "x": 0,
+      "y": 13430,
+      "w": 1440,
+      "h": 900,
+      "title": "Markdown の折りたたみ · 会話のメッセージ (閉じた details と開いた details、入れ子、長い要約)",
+      "page": "conversation"
+    },
+    "PhoneChatDetailsMessage.dc.html": {
+      "x": 1520,
+      "y": 13430,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 会話のメッセージ (要約の行は 44px)",
+      "page": "conversation"
+    },
+    "DetailsTodo.dc.html": {
+      "x": 1990,
+      "y": 13430,
+      "w": 1440,
+      "h": 900,
+      "title": "Markdown の折りたたみ · To-do のカード",
+      "page": "conversation"
+    },
+    "PhoneChatDetailsTodo.dc.html": {
+      "x": 3510,
+      "y": 13430,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · To-do のカード",
+      "page": "conversation"
+    },
+    "DetailsProposal.dc.html": {
+      "x": 3980,
+      "y": 13430,
+      "w": 1440,
+      "h": 900,
+      "title": "Markdown の折りたたみ · Proposal のカード",
+      "page": "conversation"
+    },
+    "PhoneChatDetailsProposal.dc.html": {
+      "x": 5500,
+      "y": 13430,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Proposal のカード",
+      "page": "conversation"
+    },
+    "StatusReviewDetails.dc.html": {
+      "x": 0,
+      "y": 5820,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Review · PR draft の Preview の details (閉じたものと開いたもの)",
+      "page": "status-panel"
+    },
+    "PhoneStatusReviewDetails.dc.html": {
+      "x": 1520,
+      "y": 5820,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Review · PR draft の Preview の details",
+      "page": "status-panel"
+    },
     "InboxWaiting.dc.html": {
       "x": 0,
       "y": 12280,
@@ -1451,20 +1531,20 @@
       "title": "Inbox · 他の作業を待っているセッションは Later の下の Waiting に分ける (先頭を会話で開いている)",
       "page": "inbox"
     },
-    "PhoneInboxWaiting.dc.html": {
-      "x": 1520,
-      "y": 12280,
-      "w": 390,
-      "h": 844,
-      "title": "iPhone · Waiting 3 ⌄ を開いた",
-      "page": "inbox"
-    },
     "PhoneDrawerWaiting.dc.html": {
       "x": 1990,
       "y": 12280,
       "w": 390,
       "h": 844,
       "title": "iPhone · ナビゲーションの待っているセッションにも砂時計",
+      "page": "inbox"
+    },
+    "PhoneInboxWaiting.dc.html": {
+      "x": 1520,
+      "y": 12280,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Waiting 3 ⌄ を開いた",
       "page": "inbox"
     }
   },
@@ -1650,6 +1730,16 @@
     "PhoneInboxSortProject.dc.html",
     "SortControl.dc.html",
     "SortMenu.dc.html",
+    "MdDetails.dc.html",
+    "DetailsPlace.dc.html",
+    "DetailsMessage.dc.html",
+    "PhoneChatDetailsMessage.dc.html",
+    "DetailsTodo.dc.html",
+    "PhoneChatDetailsTodo.dc.html",
+    "DetailsProposal.dc.html",
+    "PhoneChatDetailsProposal.dc.html",
+    "StatusReviewDetails.dc.html",
+    "PhoneStatusReviewDetails.dc.html",
     "InboxWaiting.dc.html",
     "PhoneInboxWaiting.dc.html",
     "PhoneDrawerWaiting.dc.html"
@@ -1778,7 +1868,7 @@
     },
     "rowInboxConversation": {
       "x": 0,
-      "y": 3460,
+      "y": 3537,
       "text": "Inbox と会話 · tq タスクが複数のとき",
       "kind": "title1",
       "maxW": 3900,
@@ -1960,6 +2050,30 @@
       "maxW": 3900,
       "page": "inbox"
     },
+    "rowDetailsFold": {
+      "x": 0,
+      "y": 13130,
+      "text": "Markdown の折りたたみ · details と summary",
+      "kind": "title1",
+      "maxW": 5890,
+      "page": "conversation"
+    },
+    "rowReviewDetails": {
+      "x": 0,
+      "y": 5520,
+      "text": "状況パネル · Review · Preview の details",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "status-panel"
+    },
+    "rowPartsDetails": {
+      "x": 0,
+      "y": 5380,
+      "text": "Markdown の details",
+      "kind": "title1",
+      "maxW": 1424,
+      "page": "components"
+    },
     "rowInboxWaiting": {
       "x": 0,
       "y": 11980,
@@ -2010,6 +2124,9 @@
     "rowPhoneTasks",
     "rowPhoneStatusTasks",
     "rowReviewPreview",
+    "rowDetailsFold",
+    "rowReviewDetails",
+    "rowPartsDetails",
     "rowInboxWaiting"
   ]
 }

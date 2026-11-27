@@ -36,11 +36,11 @@ body{margin:0}
 </section></sc-if>
 
 <sc-if value="{{tabbed}}" hint-placeholder-val="{{ true }}"><dc-import name="StatusTabs" tab="{{tab}}" size="phone" canvas-tab="{{canvasTab}}" linked="{{linked}}" tasks="{{tasks}}" many="{{many}}" hint-size="100%,45px"></dc-import></sc-if>
-<div style="position: relative; flex: 1; min-height: 0"><dc-import name="StatusBody" tab="{{tab}}" size="phone" linked="{{linked}}" tasks="{{tasks}}" full="{{full}}" draft="{{draft}}" many="{{many}}" view="{{view}}" stage="{{stage}}" hint-size="100%,742px"></dc-import></div>
+<div style="position: relative; flex: 1; min-height: 0"><dc-import name="StatusBody" tab="{{tab}}" size="phone" linked="{{linked}}" tasks="{{tasks}}" full="{{full}}" draft="{{draft}}" many="{{many}}" view="{{view}}" stage="{{stage}}" details="{{details}}" hint-size="100%,742px"></dc-import></div>
 </section>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"canvasTab":{"editor":"boolean","default":false},"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit","canvas"],"default":"running"},"linked":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"full":{"editor":"boolean","default":false},"draft":{"editor":"int","min":0,"max":4,"default":1},"many":{"editor":"boolean","default":false},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"stage":{"editor":"int","min":0,"max":2,"default":0},"prs":{"editor":"boolean","default":true},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"$preview":{"width":390,"height":844}}'>
+<script type="text/x-dc" data-dc-script data-props='{"canvasTab":{"editor":"boolean","default":false},"tab":{"editor":"enum","options":["running","tasks","tree","review","decisions","crit","canvas"],"default":"running"},"linked":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"full":{"editor":"boolean","default":false},"draft":{"editor":"int","min":0,"max":4,"default":1},"many":{"editor":"boolean","default":false},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"stage":{"editor":"int","min":0,"max":2,"default":0},"details":{"editor":"boolean","default":false},"prs":{"editor":"boolean","default":true},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
     // A full-screen page pushed over the conversation; the back button returns to it.
@@ -60,7 +60,7 @@ class Component extends DCLogic {
         { name: 'Opened elsewhere', rows: [{ num: 64, title: '再送キューの上限を設定に出す', repo: 'example/infra', dot: merged64 ? '#52525b' : '#4ade80', ci: merged64 ? 'Merged' : 'CI passed', meta: merged64 ? 'Merged' : 'Open', metaColor: '#a1a1aa', showMerge: true, showWhy: false, why: '', mergeState }] },
         { name: 'Merged', rows: [{ num: 2041, title: '再送のログを整える', repo: 'example/service', dot: '#52525b', ci: 'Merged', meta: '✓ Merged', metaColor: '#8b8b94', showMerge: false, showWhy: false, why: '' }] }
       ],
-      draft: this.props.draft ?? 1, many: this.props.many ?? false, view: this.props.view ?? 'preview', stage: this.props.stage ?? 0,
+      draft: this.props.draft ?? 1, many: this.props.many ?? false, view: this.props.view ?? 'preview', stage: this.props.stage ?? 0, details: this.props.details ?? false,
       canvasTab: this.props.canvasTab ?? false,
       linked: this.props.linked ?? false,
       // tasks many: opened from the conversation's +3; the tasks that are not primary are emphasized so the one to switch to stands out.

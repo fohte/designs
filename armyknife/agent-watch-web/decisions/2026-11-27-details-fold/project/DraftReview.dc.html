@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Status panel: Review tab</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<article aria-label="Draft" style="position: absolute; inset: 0; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; background: #0f0f0f; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+
+<sc-if value="{{many}}" hint-placeholder-val="{{ false }}">
+<div role="tablist" aria-label="Drafts" style="flex: none; display: flex; overflow-x: auto; scrollbar-width: none; border-bottom: 1px solid #2a2a2a; background: #0c0c0c">
+<sc-for list="{{docs}}" as="r" hint-placeholder-count="4">
+<button type="button" role="tab" aria-selected="{{r.selectedStr}}" style="flex: none; max-width: {{z.chipMaxW}}; min-height: {{z.chipH}}; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: 1px; padding: 0 14px; border: 0; border-right: 1px solid #1a1a1a; border-bottom: 2px solid {{r.underline}}; background: {{r.chipBg}}; color: {{r.chipColor}}; font-family: inherit; text-align: left">
+<span style="display: flex; align-items: center; gap: 6px; font-size: {{z.metaFs}}; font-weight: {{r.chipWeight}}; white-space: nowrap"><span aria-hidden="true" style="width: 6px; height: 6px; background: {{r.stateDot}}"></span>{{r.kind}}</span>
+<span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #a1a1aa">{{r.short}}</span>
+</button>
+</sc-for>
+</div>
+</sc-if>
+
+<header style="flex: none; display: flex; flex-direction: column; gap: 6px; padding: 10px {{z.headPadR}} 12px {{z.padX}}; border-bottom: 1px solid #1a1a1a">
+<div style="display: flex; align-items: center; gap: 8px; min-width: 0; font-size: {{z.metaFs}}">
+<span style="flex: none; padding: 0 6px; border: 1px solid #3f3f46; color: #fafafa; line-height: 1.6">{{doc.kind}}</span>
+<span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{doc.where}}</span>
+<span style="flex: none; margin-left: auto; display: inline-flex; align-items: center; gap: 6px; color: #8b8b94"><span aria-hidden="true" style="width: 7px; height: 7px; background: {{doc.stateDot}}"></span>{{doc.stateLong}}</span>
+<sc-if value="{{fullBtn}}" hint-placeholder-val="{{ true }}"><button type="button" aria-label="{{fullLabel}}" title="{{fullLabel}}" style="flex: none; width: 28px; height: 28px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #a1a1aa">
+<sc-if value="{{wide}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 10 7-7"></path><path d="M20 10h-6V4"></path><path d="m3 21 7-7"></path><path d="M4 14h6v6"></path></svg></sc-if>
+<sc-if value="{{notWide}}" hint-placeholder-val="{{ true }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6"></path><path d="m21 3-7 7"></path><path d="m3 21 7-7"></path><path d="M9 21H3v-6"></path></svg></sc-if>
+</button></sc-if>
+</div>
+<sc-if value="{{doc.titleStatic}}" hint-placeholder-val="{{ true }}"><h2 style="margin: 0; font-size: {{z.titleFs}}; font-weight: 700; color: #fafafa">{{doc.title}}</h2></sc-if>
+<sc-if value="{{doc.hasNote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: {{z.metaFs}}; color: #a1a1aa">{{doc.note}}</p></sc-if>
+</header>
+
+<div ref="{{ bodyScroll }}" style="flex: 1; min-height: 0; display: flex; flex-direction: column; overflow-y: auto">
+<sc-if value="{{hasFm}}" hint-placeholder-val="{{ false }}">
+<section aria-label="Frontmatter" style="flex: none; display: flex; flex-direction: column; padding: 8px {{z.padX}} 14px; border-bottom: 1px solid #2a2a2a; color: #d4d4d8; font-size: {{z.bodyFs}}">
+<h3 style="flex: none; margin: 0; height: 32px; display: flex; align-items: center; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">FRONTMATTER</h3>
+<label style="display: flex; flex-direction: column; gap: 4px; padding-top: 6px"><span style="font-size: {{z.metaFs}}; color: #8b8b94">{{doc.titleLabel}}</span><textarea value="{{doc.title}}" style="display: block; width: 100%; height: {{z.titleAreaH}}; box-sizing: border-box; padding: 6px 8px; border: 1px solid #3f3f46; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: {{z.titleInputFs}}; font-weight: 700; line-height: 1.4; resize: none"></textarea></label>
+<sc-if value="{{isIssue}}" hint-placeholder-val="{{ false }}">
+<dl style="margin: 12px 0 0; display: grid; grid-template-columns: {{z.fmLabelCol}} minmax(0, 1fr); align-items: start; gap: 10px 12px; font-size: {{z.metaFs}}">
+<dt style="min-height: {{z.chipH2}}; display: flex; align-items: center; color: #8b8b94">Labels</dt>
+<dd style="margin: 0; display: flex; flex-direction: column; gap: 6px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<sc-for list="{{doc.labels}}" as="l" hint-placeholder-count="2"><span style="height: {{z.chipH2}}; box-sizing: border-box; display: inline-flex; align-items: center; gap: 2px; padding: 0 0 0 8px; border: 1px solid #3f3f46; background: #161616; color: #fafafa">{{l.name}}<button type="button" aria-label="{{l.remove}}" style="width: {{z.xSize}}; height: 100%; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span></sc-for>
+<input aria-label="Add label" placeholder="Add label" value="{{labelQuery}}" style="width: {{z.addInputW}}; height: {{z.chipH2}}; box-sizing: border-box; padding: 0 8px; border: 1px solid {{addBorder}}; outline: none; background: #0a0a0a; color: #fafafa; font-family: inherit; font-size: {{z.addInputFs}}">
+</div>
+<sc-if value="{{suggestOpen}}" hint-placeholder-val="{{ true }}">
+<div role="listbox" aria-label="Label suggestions" style="width: 200px; max-width: 100%; box-sizing: border-box; padding: 4px 0; border: 1px solid #3f3f46; background: #1f1f1f; box-shadow: 0 12px 36px rgb(0 0 0 / 24%)">
+<sc-for list="{{doc.labelSuggest}}" as="o" hint-placeholder-count="2"><div role="option" aria-selected="{{o.sel}}" style="min-height: 30px; box-sizing: border-box; display: flex; align-items: center; padding: 0 10px; background: {{o.bg}}; color: #fafafa">{{o.name}}</div></sc-for>
+</div>
+</sc-if>
+</dd>
+<dt style="min-height: {{z.chipH2}}; display: flex; align-items: center; color: #8b8b94">Assignees</dt>
+<dd style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<sc-for list="{{doc.assignees}}" as="a" hint-placeholder-count="1"><span style="height: {{z.chipH2}}; box-sizing: border-box; display: inline-flex; align-items: center; gap: 6px; padding: 0 0 0 4px; border: 1px solid #3f3f46; background: #161616; color: #fafafa"><span aria-hidden="true" style="width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; background: #27272a; font-size: 10.5px; font-weight: 700">{{a.initial}}</span>{{a.name}}<button type="button" aria-label="{{a.remove}}" style="width: {{z.xSize}}; height: 100%; margin-left: -4px; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span></sc-for>
+<button type="button" style="height: {{z.chipH2}}; padding: 0 10px; border: 1px dashed #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{z.metaFs}}">+ Add assignee</button>
+</dd>
+<dt style="min-height: {{z.chipH2}}; display: flex; align-items: center; color: #8b8b94">Parent issue</dt>
+<dd style="margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
+<span style="flex: 1 1 220px; min-width: 0; height: {{z.chipH2}}; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 0 0 8px; border: 1px solid #3f3f46; background: #0a0a0a"><a href="#" style="flex: none; color: #93c5fd; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">{{doc.parent.ref}}</a><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #a1a1aa">{{doc.parent.title}}</span><button type="button" aria-label="Clear parent issue" style="flex: none; width: {{z.xSize}}; height: 100%; margin-left: auto; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span>
+<button type="button" style="height: {{z.chipH2}}; padding: 0 10px; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{z.metaFs}}">Set parent</button>
+</dd>
+<dt style="min-height: {{z.chipH2}}; display: flex; align-items: center; color: #8b8b94">Sub-issues</dt>
+<dd style="margin: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 6px">
+<sc-for list="{{doc.subIssues}}" as="s" hint-placeholder-count="2"><span style="width: 100%; height: {{z.chipH2}}; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 0 0 8px; border: 1px solid #3f3f46; background: #0a0a0a"><a href="#" style="flex: none; color: #93c5fd; font-family: 'JetBrains Mono', monospace; font-size: 11.5px">{{s.ref}}</a><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #a1a1aa">{{s.title}}</span><button type="button" aria-label="{{s.remove}}" style="flex: none; width: {{z.xSize}}; height: 100%; margin-left: auto; padding: 0; border: 0; background: transparent; color: #a1a1aa; font-size: 14px">×</button></span></sc-for>
+<button type="button" style="height: {{z.chipH2}}; padding: 0 10px; border: 1px dashed #3f3f46; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{z.metaFs}}">+ Add sub-issue</button>
+</dd>
+</dl>
+</sc-if>
+</section>
+</sc-if>
+
+<section aria-label="Body" style="flex: 1 0 auto; display: flex; flex-direction: column; padding: 8px {{z.padX}} 12px">
+<div style="flex: none; height: {{z.segRowH}}; display: flex; align-items: center; gap: 8px">
+<h3 style="margin: 0; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">BODY</h3>
+<sc-if value="{{notWide}}" hint-placeholder-val="{{ true }}">
+<div role="group" aria-label="Body view" style="margin-left: auto; display: flex">
+<button type="button" aria-pressed="{{previewOnStr}}" style="height: {{z.segH}}; padding: 0 {{z.segPadX}}; border: 1px solid {{previewBorder}}; background: {{previewBg}}; color: {{previewColor}}; font-family: inherit; font-size: {{z.segFs}}">Preview</button>
+<button type="button" aria-pressed="{{editOnStr}}" style="height: {{z.segH}}; margin-left: -1px; padding: 0 {{z.segPadX}}; border: 1px solid {{editBorder}}; background: {{editBg}}; color: {{editColor}}; font-family: inherit; font-size: {{z.segFs}}">Edit</button>
+</div>
+</sc-if>
+</div>
+<sc-if value="{{wide}}" hint-placeholder-val="{{ false }}"><p style="margin: 6px 0 0; display: flex; align-items: center; gap: 8px; color: #8b8b94; font-size: 12px"><span aria-hidden="true" style="width: 7px; height: 7px; background: #fafafa"></span>Open full width beside the panel · Esc closes it</p></sc-if>
+<sc-if value="{{isPreview}}" hint-placeholder-val="{{ true }}">
+<div style="flex: 1; min-height: 0; overflow: hidden; padding-top: 6px; color: #d4d4d8; font-size: {{z.bodyFs}}">
+<sc-if value="{{showThreads}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<sc-for list="{{doc.threads}}" as="t" hint-placeholder-count="2">
+<article aria-label="{{t.path}}" style="border: 1px solid #2a2a2a; background: #0a0a0a">
+<header style="display: flex; align-items: center; gap: 8px; padding: 4px 6px 4px 10px; border-bottom: 1px solid #1f1f1f">
+<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#a1a1aa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"></path><path d="M14 3v5h5"></path></svg>
+<span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: #fafafa">{{t.path}}</span>
+<label style="flex: none; margin-left: auto; min-height: {{z.segRowH}}; display: inline-flex; align-items: center; gap: 6px; padding: 0 6px; color: #d4d4d8; font-size: {{z.metaFs}}"><input type="checkbox" checked="{{t.resolved}}" style="width: {{z.checkSize}}; height: {{z.checkSize}}; margin: 0; accent-color: #fafafa">Resolve</label>
+</header>
+<div aria-label="Diff" style="padding: 4px 0; overflow: hidden; border-bottom: 1px solid #1f1f1f; font-family: 'JetBrains Mono', monospace; font-size: {{z.diffFs}}; line-height: 1.6">
+<sc-for list="{{t.diff}}" as="d" hint-placeholder-count="5">
+<div style="padding: 0 10px 0 8px; border-left: 2px solid {{d.mark}}; background: {{d.bg}}; color: {{d.color}}; white-space: pre; overflow: hidden; text-overflow: ellipsis">{{d.text}}</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 10px">
+<sc-for list="{{t.comments}}" as="c" hint-placeholder-count="1">
+<div style="display: flex; align-items: flex-start; gap: 8px">
+<span aria-hidden="true" style="flex: none; width: 24px; height: 24px; display: inline-flex; align-items: center; justify-content: center; background: #27272a; color: #fafafa; font-size: 11px; font-weight: 700">{{c.initial}}</span>
+<div style="flex: 1; min-width: 0; padding: 6px 10px; border: 1px solid #2a2a2a; background: #161616">
+<p style="margin: 0 0 2px; font-size: {{z.metaFs}}; color: #a1a1aa"><strong style="color: #fafafa">{{c.author}}</strong> · <time datetime="{{c.iso}}">{{c.time}}</time></p>
+<p style="margin: 0; color: #d4d4d8">{{c.body}}</p>
+</div>
+</div>
+</sc-for>
+<label style="display: flex; flex-direction: column; gap: 4px; padding-left: 32px"><span style="font-size: {{z.metaFs}}; color: #a1a1aa">Your reply</span><input value="{{t.reply}}" style="width: 100%; min-height: {{z.inputH}}; box-sizing: border-box; padding: 4px 8px; border: 1px solid #3f3f46; background: #0f0f0f; color: #fafafa; font-family: inherit; font-size: {{z.replyFs}}"></label>
+</div>
+</article>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{showBlocks}}" hint-placeholder-val="{{ true }}">
+<sc-for list="{{doc.blocks}}" as="b" hint-placeholder-count="4">
+<sc-if value="{{b.h}}" hint-placeholder-val="{{ false }}"><h4 style="margin: 4px 0 6px; color: #fafafa; font-size: {{z.h4Fs}}">{{b.text}}</h4></sc-if>
+<sc-if value="{{b.p}}" hint-placeholder-val="{{ true }}"><p style="margin: 0 0 10px">{{b.text}}</p></sc-if>
+<sc-if value="{{b.li}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 4px; padding-left: 14px; text-indent: -12px">· {{b.text}}</p></sc-if>
+<sc-if value="{{b.quote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 10px; padding-left: 10px; border-left: 2px solid #3f3f46; color: #a1a1aa">{{b.text}}</p></sc-if>
+<sc-if value="{{b.det}}" hint-placeholder-val="{{ false }}"><div style="margin: 0 0 10px"><dc-import name="MdDetails" look="{{look}}" open="{{ b.open }}" phone="{{ phone }}" summary="{{b.text}}" body="{{b.body}}" hint-size="100%,44px"></dc-import></div></sc-if>
+</sc-for>
+</sc-if>
+</div>
+</sc-if>
+<sc-if value="{{isEdit}}" hint-placeholder-val="{{ false }}">
+<pre role="textbox" aria-multiline="true" contenteditable="true" aria-label="Markdown body" style="flex: 1; min-height: 0; margin: 6px 0 0; overflow-y: auto; padding: 10px 12px; border: 1px solid #3f3f46; background: #0a0a0a; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{z.editorFs}}; line-height: 1.6; white-space: pre-wrap; overflow-wrap: anywhere; outline: none">{{doc.editRaw}}</pre>
+</sc-if>
+</section>
+</div>
+
+<footer style="flex: none; display: flex; flex-direction: column; gap: 10px; padding: 10px {{z.padX}} {{z.footPadB}}; border-top: 1px solid #2a2a2a; background: #0f0f0f">
+<sc-if value="{{hasStages}}" hint-placeholder-val="{{ false }}">
+<ol aria-label="Steps to create the PR" style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12px">
+<sc-for list="{{stageSteps}}" as="s" hint-placeholder-count="3">
+<li aria-current="{{s.current}}" style="display: inline-flex; align-items: center; gap: 6px; color: {{s.color}}; font-weight: {{s.weight}}"><span style="width: 18px; height: 18px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid {{s.border}}; background: {{s.bg}}; color: {{s.numColor}}; font-family: 'JetBrains Mono', monospace; font-size: 11px">{{s.n}}</span>{{s.label}}<span aria-hidden="true" style="display: {{s.sep}}; margin-left: 2px; color: #52525b">—</span></li>
+</sc-for>
+</ol>
+</sc-if>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<button type="button" style="height: {{z.btnH}}; padding: 0 12px; border: 0; background: transparent; color: #d4d4d8; font-family: inherit; font-size: {{z.btnFs}}">Save</button>
+<sc-if value="{{doc.sendBack}}" hint-placeholder-val="{{ true }}"><button type="button" title="Close the editor without approving. The session reads your edits and revises the draft." style="flex: {{z.bFlex}}; height: {{z.btnH}}; padding: 0 12px; margin-left: {{z.backMl}}; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: {{z.btnFs}}">Send back</button></sc-if>
+<button type="button" style="flex: {{z.bFlex}}; height: {{z.btnH}}; padding: 0 14px; margin-left: {{primaryMl}}; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{z.btnFs}}; font-weight: 700">{{doc.primary}}</button>
+</div>
+<p style="margin: 0; color: #8b8b94; font-size: 11.5px">{{doc.help}}</p>
+</footer>
+</article>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"size":{"editor":"enum","options":["desktop","phone"],"default":"desktop"},"draft":{"editor":"int","min":0,"max":4,"default":1},"many":{"editor":"boolean","default":false},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"stage":{"editor":"int","min":0,"max":2,"default":0},"wide":{"editor":"boolean","default":false},"look":{"editor":"enum","options":["","raw","a","b","c"],"default":""},"$preview":{"width":640,"height":852}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // The Review tab of the session status panel, shared by the PC right panel and the iPhone page through StatusBody.
+    const phone = (this.props.size ?? 'desktop') === 'phone';
+    // draft: 0 Issue comment, 1 PR draft, 2 Review replies, 3 Draft, 4 Issue (an issue the session edits; never one of several).
+    const di = Math.min(4, Math.max(0, this.props.draft ?? 1));
+    // many: the session has the first four drafts open; the first is in the editor, the rest wait in its queue.
+    const many = (this.props.many ?? false) && di < 4;
+    const preview = (this.props.view ?? 'preview') === 'preview';
+    // stage 0: a repo that takes PRs in Japanese. 1 / 2: a repo that takes PRs in English (approve the Japanese draft, then create the PR from the translation).
+    const stage = Math.min(2, Math.max(0, this.props.stage ?? 0));
+    // The panel already fills the iPhone screen, so there is no full width to open.
+    const wide = !phone && (this.props.wide ?? false);
+    const look = this.props.look ?? '';
+    const z = phone
+      ? { padX: '16px', headPadR: '16px', metaFs: '12.5px', titleFs: '16px', titleInputFs: '16px', titleAreaH: '66px', inputH: '44px', segRowH: '48px', segH: '44px', segPadX: '16px', segFs: '14px', btnH: '44px', btnFs: '14px', bFlex: '1 1 auto', backMl: '0', footPadB: 'max(16px, env(safe-area-inset-bottom))', bodyFs: '15px', h4Fs: '16px', editorFs: '16px', diffFs: '12px', replyFs: '16px', checkSize: '20px', chipMaxW: '160px', chipH: '52px', chipH2: '44px', xSize: '44px', fmLabelCol: '84px', addInputW: '96px', addInputFs: '16px' }
+      : { padX: '18px', headPadR: '10px', metaFs: '12px', titleFs: '15px', titleInputFs: '14px', titleAreaH: '36px', inputH: '32px', segRowH: '32px', segH: '26px', segPadX: '12px', segFs: '12px', btnH: '30px', btnFs: '12px', bFlex: '0 0 auto', backMl: 'auto', footPadB: '10px', bodyFs: '14px', h4Fs: '15px', editorFs: '12.5px', diffFs: '11.5px', replyFs: '13px', checkSize: '16px', chipMaxW: '180px', chipH: '46px', chipH2: '28px', xSize: '24px', fmLabelCol: '96px', addInputW: '120px', addInputFs: '12px' };
+
+    const IN = '#fbbf24';
+    const Q = '#71717a';
+    const en = stage === 2;
+    const D = [
+      {
+        kind: 'Issue comment', where: 'example/web-app #412', short: '#412',
+        title: '#412 配信が 4 件目から届かない', note: 'New comment on this issue', sendBack: true,
+        primary: 'Post comment', help: 'Post comment posts it to #412 right away. Send back returns your edits to the session.',
+        raw: '再現手順を足します。\n\n1. 送信先を応答の遅いサーバーにする\n2. 通知を 10 件続けて送る\n3. 4 件目から届かない',
+        blocks: [['p', '再現手順を足します。'], ['li', '1. 送信先を応答の遅いサーバーにする'], ['li', '2. 通知を 10 件続けて送る'], ['li', '3. 4 件目から届かない']]
+      },
+      {
+        kind: 'PR draft', where: (stage === 0 ? 'example/handbook' : 'example/web-app') + ' · feature/retry-limit', short: 'feature/retry-limit',
+        fm: true, titleLabel: 'PR title', sendBack: true,
+        title: en ? 'Make the retry limit configurable' : '再送の上限を設定で変えられるようにする',
+        primary: stage === 1 ? 'Approve for translation' : 'Create PR',
+        help: stage === 1
+          ? 'The session translates the title and body to English right away. You review the English draft next, then create the PR.'
+          : 'Create PR creates the PR on ' + (stage === 0 ? 'example/handbook' : 'example/web-app') + ' right away. Send back returns your edits to the session.',
+        // Stage 2 shows the English translation the session wrote after stage 1.
+        raw: en
+          ? '## Why\n\nThe retry limit is fixed at 3, which is too few for slow destinations.\n\n## What\n\n- Make the limit configurable with `RETRY_LIMIT`\n- Keep the default at 3'
+          : '## Why\n\n再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。\n\n## What\n\n- 上限を `RETRY_LIMIT` で変えられるようにする\n- 既定値は 3 回のまま',
+        blocks: en
+          ? [['h', 'Why'], ['p', 'The retry limit is fixed at 3, which is too few for slow destinations.'], ['h', 'What'], ['li', 'Make the limit configurable with RETRY_LIMIT'], ['li', 'Keep the default at 3']]
+          : [['h', 'Why'], ['p', '再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。'], ['h', 'What'], ['li', '上限を RETRY_LIMIT で変えられるようにする'], ['li', '既定値は 3 回のまま']]
+      },
+      {
+        kind: 'Review replies', where: 'example/web-app PR #2049', short: 'PR #2049',
+        title: '#2049 配信前のチェックを追加する', note: 'Replies to 2 threads · pulled 09:12', sendBack: true,
+        primary: 'Post replies', help: 'Post replies posts them on PR #2049 right away. Send back returns your edits to the session.',
+        blocks: [],
+        // The threads file a gh pr-review reply pull writes; diff lines start with ' ', '+', '-' or '@@', and '>' marks the commented line.
+        threads: [
+          {
+            id: 'RT_fx01', path: 'src/preflight.ts:42', resolved: false,
+            diff: ['@@ -39,5 +39,7 @@ export function preflight(msg) {', '   const target = msg.target;', "-  if (!target) return fail('no target');", '>+  if (target == null) {', "+    return fail('no target');", '+  }'],
+            comments: [{ author: '@hina-k', iso: '2026-01-15T10:30:00Z', body: 'この判定は null も通しますか?' }],
+            reply: '通しません。手前で弾いています。'
+          },
+          {
+            id: 'RT_fx02', path: 'src/preflight.ts:57', resolved: true,
+            diff: ['@@ -55,4 +57,6 @@ export function preflight(msg) {', '   } catch (e) {', ">+    log.warn('preflight failed', e);", '+    return fail(String(e));', '   }'],
+            comments: [
+              { author: '@hina-k', iso: '2026-01-15T10:34:00Z', body: '失敗したときのログはどこに出ますか?' },
+              { author: '@ren-o', iso: '2026-01-15T11:02:00Z', body: '送信ログと同じ場所だと追いやすいです。' }
+            ],
+            reply: '送信ログに理由と一緒に出します。'
+          }
+        ]
+      },
+      {
+        kind: 'Draft', where: 'docs/retry-plan.md', short: 'retry-plan.md',
+        title: 'retry-plan.md', note: '', sendBack: false,
+        primary: 'Finish', help: 'Finish saves and closes the editor. The session reads the file again.',
+        raw: '# 再送の設計メモ\n\n- 上限は設定で変える\n- 待ち時間は倍ずつ伸ばす',
+        blocks: [['h', '再送の設計メモ'], ['li', '上限は設定で変える'], ['li', '待ち時間は倍ずつ伸ばす']]
+      },
+      {
+        kind: 'Issue', where: 'example/web-app #418', short: '#418',
+        fm: true, titleLabel: 'Title', note: 'Edit this issue', sendBack: true,
+        title: '設定画面から再送の上限を変えられるようにする',
+        primary: 'Update issue', help: 'Update issue updates #418 right away. Send back returns your edits to the session.',
+        labels: [{ name: 'enhancement', remove: 'Remove label enhancement' }, { name: 'settings', remove: 'Remove label settings' }],
+        // Add label is drawn open, mid-typing, to show the frontmatter fields are editable.
+        labelQuery: 'se',
+        labelSuggest: [{ name: 'security', sel: 'true', bg: '#2a2a2e' }, { name: 'server', sel: 'false', bg: 'transparent' }],
+        assignees: [{ name: 'hina-k', initial: 'H', remove: 'Remove assignee hina-k' }],
+        parent: { ref: 'example/web-app#400', title: '再送の仕組みを見直す' },
+        subIssues: [{ ref: 'example/web-app#419', title: '上限の入力欄を足す', remove: 'Remove sub-issue example/web-app#419' }, { ref: 'example/web-app#420', title: '上限を API に渡す', remove: 'Remove sub-issue example/web-app#420' }],
+        raw: '---\ntitle: 設定画面から再送の上限を変えられるようにする\nlabels:\n  - enhancement\n  - settings\n---\n\n## 背景\n\n再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。\n\n## やること\n\n- 設定画面に再送の上限の入力欄を足す\n- 既定値は 3 回のまま',
+        blocks: [['h', '背景'], ['p', '再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。'], ['h', 'やること'], ['li', '設定画面に再送の上限の入力欄を足す'], ['li', '既定値は 3 回のまま']]
+      }
+    ].map((x, i) => {
+      const sel = i === di;
+      // Only one draft is in the editor at a time; the others wait in the session's queue.
+      const inEditor = many ? i === 0 : true;
+      return {
+        ...x,
+        titleStatic: !x.fm,
+        hasNote: !!x.note,
+        stateDot: inEditor ? IN : Q,
+        stateLong: inEditor ? 'In the editor · 3m' : 'Queued for the editor · ' + (i === 1 ? '2m' : '1m'),
+        // look: a PR body that ends with two details blocks, one closed and one opened, drawn in that look.
+        blocks: (look && i === 1 ? [['h', 'Why'], ['p', '再送の上限が 3 回で固定されていて、応答の遅い送信先では足りない。'], ['h', 'What'], ['li', '上限を RETRY_LIMIT で変えられるようにする'], ['h', 'Test'], ['det', '変更したファイル', 'files', false], ['det', '実行したテストのログ', 'log', true]] : x.blocks)
+          .map(([t, text, body, open]) => ({ h: t === 'h', p: t === 'p', li: t === 'li', quote: t === 'quote', det: t === 'det', text, body: body ?? '', open: !!open })),
+        // The frontmatter has its own fields, so Edit holds only the body; review replies edit the threads file as written.
+        editRaw: x.threads
+          ? x.threads.map((t) => [
+            '<!-- thread: ' + t.id + ' path: ' + t.path + ' -->',
+            '- [' + (t.resolved ? 'x' : ' ') + '] resolve',
+            '<!-- diff -->', ...t.diff.map((d) => d.replace(/^>/, '')), '<!-- /diff -->',
+            ...t.comments.flatMap((c) => ['<!-- comment: ' + c.author + ' ' + c.iso + ' -->', c.body, '<!-- /comment -->']),
+            t.reply
+          ].join('\n')).join('\n\n')
+          : x.raw.replace(/^---\n[\s\S]*?\n---\n\n/, ''),
+        threads: (x.threads || []).map((t) => ({
+          ...t,
+          diff: t.diff.map((d0) => {
+            const hit = d0.startsWith('>');
+            const text = hit ? d0.slice(1) : d0;
+            const add = text.startsWith('+');
+            const del = text.startsWith('-');
+            const hunk = text.startsWith('@@');
+            return {
+              text,
+              mark: hit ? '#fbbf24' : 'transparent',
+              bg: hit ? '#33290a' : add ? '#0f2418' : del ? '#2a1215' : 'transparent',
+              color: hunk ? '#8b8b94' : add ? '#bbf7d0' : del ? '#fecaca' : '#d4d4d8'
+            };
+          }),
+          comments: t.comments.map((c) => ({ ...c, initial: c.author.slice(1, 2).toUpperCase(), time: c.iso.slice(0, 10) + ' ' + c.iso.slice(11, 16) }))
+        })),
+        selectedStr: sel ? 'true' : 'false',
+        underline: sel ? '#fafafa' : 'transparent',
+        chipBg: sel ? '#141414' : 'transparent',
+        chipColor: sel ? '#fafafa' : '#a1a1aa',
+        chipWeight: sel ? 700 : 400
+      };
+    });
+    const doc = D[di];
+    return {
+      z,
+      look,
+      phone,
+      // The iPhone page is scrolled down to the details blocks at the end of the PR body.
+      // The nested parts lay out after this runs, so it scrolls again once they have.
+      bodyScroll: (el) => { if (el && look && phone) [100, 800, 2500].forEach((t) => setTimeout(() => { el.scrollTop = el.scrollHeight; }, t)); },
+      many,
+      docs: D.slice(0, 4),
+      doc,
+      desk: !phone,
+      fullBtn: !phone,
+      wide,
+      notWide: !wide,
+      fullLabel: wide ? 'Back to the conversation' : 'Open full width',
+      hasFm: !!doc.fm,
+      isIssue: !!doc.labels,
+      // The open suggestions would push the body below the fold on the iPhone.
+      suggestOpen: !phone,
+      labelQuery: phone ? '' : doc.labelQuery,
+      addBorder: phone ? '#3f3f46' : '#fafafa',
+      hasStages: di === 1 && stage > 0,
+      stageSteps: ['Review', 'Translate', 'Create PR'].map((label, i) => {
+        // Stage 1 is step 1; stage 2 is step 3, after the translation ran.
+        const cur = stage === 1 ? 0 : 2;
+        const done = i < cur;
+        const on = i === cur;
+        return {
+          n: done ? '✓' : String(i + 1), label,
+          current: on ? 'step' : 'false',
+          color: on ? '#fafafa' : '#a1a1aa', weight: on ? 700 : 400,
+          border: on ? '#fafafa' : done ? '#a1a1aa' : '#3f3f46',
+          bg: on ? '#fafafa' : 'transparent', numColor: on ? '#0a0a0a' : '#a1a1aa',
+          sep: i < 2 ? 'inline' : 'none'
+        };
+      }),
+      primaryMl: !doc.sendBack && !phone ? 'auto' : '0',
+      isPreview: preview && !wide,
+      isEdit: !preview && !wide,
+      showThreads: doc.threads.length > 0,
+      showBlocks: doc.threads.length === 0,
+      previewOnStr: preview ? 'true' : 'false',
+      editOnStr: preview ? 'false' : 'true',
+      previewBorder: preview ? '#a1a1aa' : '#3f3f46',
+      previewBg: preview ? '#262626' : 'transparent',
+      previewColor: preview ? '#fafafa' : '#a1a1aa',
+      editBorder: preview ? '#3f3f46' : '#a1a1aa',
+      editBg: preview ? 'transparent' : '#262626',
+      editColor: preview ? '#a1a1aa' : '#fafafa'
+    };
+  }
+}
+</script>
+</body>
+</html>

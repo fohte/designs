@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>A: phone Activity open</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 390px; height: 844px; overflow: hidden; background: #0a0a0a">
+<dc-import name="PhoneDrawer" activity="{{ activity }}" activity-open="{{ true }}" activity-items="{{ items }}" hint-size="390px,844px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      zero: 0, five: 5,
+      starting: { result: 'starting', session: '通知の再送処理を見直して', repo: 'example/notification-service', time: '12:03' },
+      started: { result: 'started', session: '通知の再送処理を見直して', repo: 'example/notification-service', time: '12:04' },
+      failed: { result: 'startFailed', session: '通知の再送処理を見直して', reason: 'tmux server is not running. Start tmux and retry.', time: '12:04' },
+      closed: { result: 'closed', session: 'アラートの送り先を決める', time: '12:02' },
+      merged: { result: 'merged', pr: 2041, session: '再送のログを整える', time: '11:40' },
+      activity: { count: '1', tone: 'running' },
+      items: [{ result: 'starting', session: '通知の再送処理を見直して', repo: 'example/notification-service', time: '12:03' }, { result: 'closed', session: 'アラートの送り先を決める', time: '12:02' }, { result: 'merged', pr: 2041, session: '再送のログを整える', time: '11:40' }]
+    };
+  }
+}
+</script>
+</body>
+</html>

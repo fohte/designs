@@ -55,7 +55,7 @@ body{margin:0}
 <div style="flex: none"><dc-import name="Quota" hint-size="100%,140px"></dc-import></div>
 </nav>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"view":{"editor":"enum","options":["inbox","board"],"default":"inbox"},"inboxCollapsed":{"editor":"boolean","default":false},"inboxCount":{"editor":"int","default":6},"activity":{"editor":null},"activityOpen":{"editor":"boolean","default":false},"h":{"editor":null},"wait":{"editor":"boolean","default":false},"long":{"editor":"boolean","default":false},"$preview":{"width":240,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"view":{"editor":"enum","options":["inbox","board"],"default":"inbox"},"inboxCollapsed":{"editor":"boolean","default":false},"inboxCount":{"editor":"int","default":6},"activity":{"editor":null},"activityOpen":{"editor":"boolean","default":false},"h":{"editor":null},"wait":{"editor":"boolean","default":false},"long":{"editor":"boolean","default":false},"endedOpen":{"editor":null},"$preview":{"width":240,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const view = this.props.view ?? 'inbox';
@@ -84,11 +84,13 @@ class Component extends DCLogic {
           ? { status: 'Waiting', title: '配信チェックを本番に出す', age: '6m', role: 'development', engine: 'claude', taskRef: 'P1 #2050', taskTitle: '配信チェックを入れる', repo: 'example/web-app' }
           : { status: 'Working', title: '配信ログの保存期間を決める', age: '2m', role: 'research', engine: 'codex', taskRef: 'P2 #2051', taskTitle: '監視を整える', repo: 'example/observability' }
       ],
+      // endedOpen: the ended session open in the conversation. It is out of the Inbox, so it is reached from the top of Recent.
       recent: [
+        ...(this.props.endedOpen ? [{ status: 'Done', age: '25m', ...this.props.endedOpen, bg: '#262626' }] : []),
         { status: 'Done', title: '再試行の上限を設定に出す', age: '1h', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service' },
         { status: 'Working', title: 'ダッシュボードの遅延を調べる', age: '5m', role: 'debug-flow', engine: 'codex', taskRef: 'P3 #2057', taskTitle: '監視を整える', repo: 'example/observability' },
         { status: 'Done', title: 'セットアップ手順を更新する', age: '2h', role: '', engine: 'codex', taskRef: '', repo: 'example/handbook' }
-      ],
+      ].slice(0, 3),
       pm: [
         { status: 'Plan', title: '段階的な公開を進める', age: '5m', role: 'PM', engine: 'claude', taskRef: 'P2 #2052', taskTitle: '新しい設定を段階的に公開する', repo: 'example/web-app' },
         { status: wait ? 'Waiting' : 'Working', title: '通知まわりの改修', age: wait ? '14m' : '12m', role: 'PM', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', vibe: 'on' }

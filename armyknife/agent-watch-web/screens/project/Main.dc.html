@@ -49,8 +49,8 @@ class Component extends DCLogic {
           '一番下に claude と codex の quota (5h と 7d) を常に出します。棒の細い縦線は均等に使ったときの量です。棒の右に、このペースで窓の終わりに何 % になるかを → 92% の形で出します。100% 未満は灰、100% 以上 150% 未満は黄、150% 以上は赤の太字で、窓の経過が 5% 未満のうちは出しません。その右はリセットまでの時間です。'
         ] },
         { title: 'Inbox', items: [
-          'Needs action を tq の優先度順に並べ、未読は太字で示します。',
-          'Later に回したもの、In progress (先頭 2 件)、Done を下に続けます。Done は Close all でまとめて閉じます。',
+          'Needs action などの区分の中の並び順は、見出しの右の Sort Priority ⌄ で Priority (既定。tq の優先度順、同じなら更新の新しい順)、Updated (更新の新しい順)、Project (project 名の順) から選びます。PC は Later と同じ形のメニュー、iPhone は下からのシートで、今の並び順に ✓ を付けます。選んだ並び順はブラウザごとに保存し、区分は変えません。Project では区分の中に project ごとの小見出しを入れ、同じ project の中は Priority の順に並べます。未読は太字で示します。',
+          'Later、Waiting と In progress (先頭 2 件ずつ)、Done を下に続けます。Done は Close all でまとめて閉じます。',
           'j / k で移動し、L で Later、E で閉じます。E は Done 以外の行でも効き、閉じる前に確認を出します。',
           'iPhone では行の中で左にスワイプすると Later と Close が出て、行を長押しすると Later と赤い Close session… のシートが出ます。画面の端からのスワイプはブラウザの戻る操作なので使いません。Later は PC と同じ選択肢を下からのシートで出し、Close は Done 以外なら PC の E と同じ文言の確認シートを出します。'
         ] },
@@ -93,8 +93,9 @@ class Component extends DCLogic {
           'draft を開いているあいだ、返信欄の上の帯は crit と同じ黄色の Waiting for your review にし、draft の数とエディタに出ている draft を出します。Open drafts で Review タブを開きます。'
         ] },
         { title: 'セッションの行', items: [
-          'セッションが並ぶ場所はすべて同じ行 (SessionRow) で描きます。先頭は状態で、種類のアイコン (Needs action)、青い丸 (Working)、✓ (Done) のどれかです。',
-          'Inbox はタイトル、プレビュー、role / engine / tq タスクとリポジトリの 3 行です。ほかの一覧はプレビューを省き、リポジトリを 3 行目に出します。',
+          'セッションが並ぶ場所はすべて同じ行 (SessionRow) で描きます。先頭は状態で、種類のアイコン (Needs action)、青い丸 (Working)、灰色の砂時計 (Waiting)、✓ (Done) のどれかです。ナビの Starred、Recent、PM の行も同じ印を使います。',
+          'Inbox はタイトル、プレビュー、role / engine / tq タスクとリポジトリの 3 行です。ほかの一覧はプレビューを省き、リポジトリを 3 行目に出します。Board の待っている行だけは、プレビューの代わりに待っている内容を 2 行目に出します。',
+          'Waiting は PR のマージや CI など他の作業を待つセッション (activityStatus waiting) です。In progress から分けた区分 (Inbox は Later の下、Board は各列の Needs action と In progress の間) に置き、2 行目に待っている内容 (PR #2061 のマージ待ちなど) を出します。ないときは区分ごと出しません。iPhone の Inbox では In progress と同じく 1 行にまとめ、押すと開きます。返信欄の上の帯も同じ砂時計に Waiting と待っている内容を続けます。',
           'role は灰色のアイコンで、role がないセッションは設定の agent.work_type_fallback のアイコンを出します。engine は claude / codex の文字で出します。'
         ] },
         { title: 'Board と ⌘K', items: [
@@ -103,7 +104,7 @@ class Component extends DCLogic {
           'コマンドの Close this session は開いている会話を閉じ、Done 以外では確認を出します。Close all done は Done だけを確認なしで閉じます。'
         ] },
         { title: '色', items: [
-          '黄色は返事待ち、青は実行中、赤は失敗、緑は ! コマンドの成功です。',
+          '黄色は返事待ち、青は実行中、赤は失敗、緑は ! コマンドの成功です。他の作業待ちは色を付けず、灰色の砂時計で示します。',
           'quota の使用率は 80% 以上で黄、95% 以上で赤にします。',
           '角は丸めず、影は画面の上に浮かぶものにだけ付けます。'
         ] }

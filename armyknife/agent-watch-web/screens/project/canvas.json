@@ -1394,6 +1394,78 @@
       "h": 844,
       "title": "iPhone · 長いタイトル · 2 行まで折り返し、3 行目から … で切る",
       "page": "topbar"
+    },
+    "InboxSort.dc.html": {
+      "x": 0,
+      "y": 10660,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox · Sort を押すとメニュー (今の並び順に ✓)",
+      "page": "inbox"
+    },
+    "PhoneInboxSort.dc.html": {
+      "x": 1520,
+      "y": 10660,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Sort を押すと下からシート",
+      "page": "inbox"
+    },
+    "InboxSortProject.dc.html": {
+      "x": 1990,
+      "y": 10660,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox · Project で並べた (区分の中に project ごとの小見出し)",
+      "page": "inbox"
+    },
+    "PhoneInboxSortProject.dc.html": {
+      "x": 3510,
+      "y": 10660,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Project で並べた",
+      "page": "inbox"
+    },
+    "SortControl.dc.html": {
+      "x": 3704,
+      "y": 2240,
+      "w": 240,
+      "h": 44,
+      "page": "components",
+      "title": "SortControl"
+    },
+    "SortMenu.dc.html": {
+      "x": 1410,
+      "y": 3340,
+      "w": 390,
+      "h": 300,
+      "page": "components",
+      "title": "SortMenu"
+    },
+    "InboxWaiting.dc.html": {
+      "x": 0,
+      "y": 12280,
+      "w": 1440,
+      "h": 900,
+      "title": "Inbox · 他の作業を待っているセッションは Later の下の Waiting に分ける (先頭を会話で開いている)",
+      "page": "inbox"
+    },
+    "PhoneInboxWaiting.dc.html": {
+      "x": 1520,
+      "y": 12280,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Waiting 3 ⌄ を開いた",
+      "page": "inbox"
+    },
+    "PhoneDrawerWaiting.dc.html": {
+      "x": 1990,
+      "y": 12280,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · ナビゲーションの待っているセッションにも砂時計",
+      "page": "inbox"
     }
   },
   "order": [
@@ -1571,7 +1643,16 @@
     "PhoneStatusReviewEnglish.dc.html",
     "StatusReviewFull.dc.html",
     "MergeButton.dc.html",
-    "PhoneChatLongTitle.dc.html"
+    "PhoneChatLongTitle.dc.html",
+    "InboxSort.dc.html",
+    "PhoneInboxSort.dc.html",
+    "InboxSortProject.dc.html",
+    "PhoneInboxSortProject.dc.html",
+    "SortControl.dc.html",
+    "SortMenu.dc.html",
+    "InboxWaiting.dc.html",
+    "PhoneInboxWaiting.dc.html",
+    "PhoneDrawerWaiting.dc.html"
   ],
   "pages": [
     {
@@ -1748,7 +1829,7 @@
       "y": 1940,
       "text": "ダイアログ、通知、ボタン",
       "kind": "title1",
-      "maxW": 3624,
+      "maxW": 3944,
       "page": "components"
     },
     "rowPartsLayout": {
@@ -1762,9 +1843,9 @@
     "rowPartsPhoneInbox": {
       "x": 0,
       "y": 3040,
-      "text": "iPhone の Inbox のシート",
+      "text": "Inbox のシートと並び順のメニュー",
       "kind": "title1",
-      "maxW": 1330,
+      "maxW": 1800,
       "page": "components"
     },
     "rowPartsRows": {
@@ -1870,6 +1951,22 @@
       "maxW": 1910,
       "page": "conversation",
       "text": "会話の中の web UI のリンク · 開く先のタブ名"
+    },
+    "rowInboxSort": {
+      "x": 0,
+      "y": 10360,
+      "text": "Inbox · 並び順 · 見出しの右の Sort で選び、区分は変えない",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "inbox"
+    },
+    "rowInboxWaiting": {
+      "x": 0,
+      "y": 11980,
+      "text": "Inbox · 他の作業を待っているセッション · Waiting の区分と灰色の砂時計",
+      "kind": "title1",
+      "maxW": 2380,
+      "page": "inbox"
     }
   },
   "v": 3,
@@ -1912,6 +2009,7 @@
     "rowPartsDialogs",
     "rowPhoneTasks",
     "rowPhoneStatusTasks",
-    "rowReviewPreview"
+    "rowReviewPreview",
+    "rowInboxWaiting"
   ]
 }

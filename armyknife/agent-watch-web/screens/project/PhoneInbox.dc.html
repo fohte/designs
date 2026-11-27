@@ -99,7 +99,7 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"update":{"editor":"boolean","default":false},"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"activity":{"editor":null},"todoLater":{"editor":"boolean","default":false},"filtered":{"editor":"boolean","default":false},"swipe":{"editor":"boolean","default":false},"sheet":{"editor":"enum","options":["none","rowMenu","later","close","saveView","sort"],"default":"none"},"sort":{"editor":"enum","options":["priority","updated","project"],"default":"priority"},"wait":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
+<script type="text/x-dc" data-dc-script data-props='{"update":{"editor":"boolean","default":false},"close":{"editor":"enum","options":["none","closing","failed","closed"],"default":"none"},"activity":{"editor":null},"todoLater":{"editor":"boolean","default":false},"filtered":{"editor":"boolean","default":false},"swipe":{"editor":"boolean","default":false},"sheet":{"editor":"enum","options":["none","rowMenu","later","close","saveView","sort"],"default":"none"},"sort":{"editor":"enum","options":["priority","updated","project"],"default":"priority"},"wait":{"editor":"boolean","default":false},"long":{"editor":"boolean","default":false},"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
     // close: a confirmed close of the Proposal row running in the background. 'closed' takes the row out.
@@ -127,7 +127,7 @@ class Component extends DCLogic {
     const sort = this.props.sort ?? 'priority';
     const secs = (a) => parseInt(a, 10) * ({ s: 1, m: 60, h: 3600 }[a.slice(-1)] ?? 1);
     const order = (list) => {
-      const out = list.map((r, i) => ({ ...r, project: r.repo, i }));
+      const out = list.map((r, i) => ({ ...r, project: r.repo.split('/').pop(), i }));
       if (sort === 'updated') out.sort((a, b) => secs(a.age) - secs(b.age) || a.i - b.i);
       if (sort === 'project') out.sort((a, b) => a.project.localeCompare(b.project) || a.i - b.i);
       return out.map((r, i) => ({ ...r, hasHead: sort === 'project' && (i === 0 || out[i - 1].project !== r.project) }));
@@ -156,18 +156,25 @@ class Component extends DCLogic {
     };
   }
   rows() {
+    // long: sessions with long repo names, to show how a row shrinks them.
+    if (this.props.long) return [
+        { status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', preview: '再試行は 3 回で止めてよいですか?', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/notification-service', vibe: 'inherited' },
+        { status: 'Review', unread: true, title: '配信チェックの PR を確認する', age: '2m', preview: 'PR #2049 を見てください', role: '', engine: 'codex', taskRef: 'P2 #2050', taskTitle: '配信チェックを入れる', repo: 'example/storefront-web-app' },
+        { status: 'Error', unread: true, title: 'リンク切れを直す', age: '4m', preview: 'リンクの確認が 3 件失敗しました', role: 'debug-flow', engine: 'claude', taskRef: '', repo: 'example/handbook' },
+        { status: 'Proposal', title: 'アラートの送り先を決める', age: '12m', preview: '2 つの案から選んでください', role: 'designer', engine: 'claude', taskRef: 'P2 #2051', taskTitle: '監視を整える', repo: 'example/observability-pipeline' }
+    ];
     return [
-        { status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', preview: '再試行は 3 回で止めてよいですか?', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'service', vibe: 'inherited', match: true },
-        { status: 'Review', unread: true, title: '配信チェックの PR を確認する', age: '2m', preview: 'PR #2049 を見てください', role: '', engine: 'codex', taskRef: 'P2 #2050', taskTitle: '配信チェックを入れる', repo: 'web-app', match: true },
-        { status: 'Error', unread: true, title: '統合テストの失敗を直す', age: '4m', preview: 'テストが 2 件失敗しました', role: 'debug-flow', engine: 'claude', taskRef: 'P1 #2052', taskTitle: 'テストを安定させる', repo: 'service' },
-        { status: 'Proposal', title: 'アラートの送り先を決める', age: '12m', preview: '2 つの案から選んでください', role: 'designer', engine: 'claude', taskRef: 'P2 #2051', taskTitle: '監視を整える', repo: 'observability' }
+        { status: 'Question', unread: true, title: '通知の再送処理を見直す', age: '8s', preview: '再試行は 3 回で止めてよいですか?', role: 'development', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', vibe: 'inherited', match: true },
+        { status: 'Review', unread: true, title: '配信チェックの PR を確認する', age: '2m', preview: 'PR #2049 を見てください', role: '', engine: 'codex', taskRef: 'P2 #2050', taskTitle: '配信チェックを入れる', repo: 'example/web-app', match: true },
+        { status: 'Error', unread: true, title: '統合テストの失敗を直す', age: '4m', preview: 'テストが 2 件失敗しました', role: 'debug-flow', engine: 'claude', taskRef: 'P1 #2052', taskTitle: 'テストを安定させる', repo: 'example/service' },
+        { status: 'Proposal', title: 'アラートの送り先を決める', age: '12m', preview: '2 つの案から選んでください', role: 'designer', engine: 'claude', taskRef: 'P2 #2051', taskTitle: '監視を整える', repo: 'example/observability' }
     ];
   }
   waits() {
     return [
-        { status: 'Waiting', title: '配信チェックを本番に出す', age: '6m', preview: 'PR #2061 のマージ待ち', role: 'development', engine: 'claude', taskRef: 'P1 #2050', taskTitle: '配信チェックを入れる', repo: 'web-app' },
-        { status: 'Waiting', title: '通知まわりの改修', age: '14m', preview: '子セッション 2 件の PR のマージ待ち', role: 'PM', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'service', vibe: 'on' },
-        { status: 'Waiting', title: '監視の設定を入れ替える', age: '3m', preview: 'CI の結果を待っています', role: 'development', engine: 'claude', taskRef: 'P3 #2055', taskTitle: '監視を整える', repo: 'observability' }
+        { status: 'Waiting', title: '配信チェックを本番に出す', age: '6m', preview: 'PR #2061 のマージ待ち', role: 'development', engine: 'claude', taskRef: 'P1 #2050', taskTitle: '配信チェックを入れる', repo: 'example/web-app' },
+        { status: 'Waiting', title: '通知まわりの改修', age: '14m', preview: '子セッション 2 件の PR のマージ待ち', role: 'PM', engine: 'claude', taskRef: 'P1 #2048', taskTitle: '通知の信頼性を上げる', repo: 'example/service', vibe: 'on' },
+        { status: 'Waiting', title: '監視の設定を入れ替える', age: '3m', preview: 'CI の結果を待っています', role: 'development', engine: 'claude', taskRef: 'P3 #2055', taskTitle: '監視を整える', repo: 'example/observability' }
     ];
   }
 }

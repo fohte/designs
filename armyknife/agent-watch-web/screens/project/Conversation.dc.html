@@ -185,7 +185,8 @@ a{color:#ef4444}
 </div>
 
 <sc-if value="{{hasMergeBand}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="MergeBand" prs="{{ mergeBand }}" hint-size="100%,58px"></dc-import></div></sc-if>
-<sc-if value="{{ended}}" hint-placeholder-val="{{ false }}">
+<sc-if value="{{isStuck}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="StuckBand" form="pc" pane="{{stuckPane}}" repo="{{repo}}" hint-size="100%,90px"></dc-import></div></sc-if>
+<sc-if value="{{endedBand}}" hint-placeholder-val="{{ false }}">
 <div role="status" style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); min-height: 56px; margin: 12px auto 6px; display: flex; align-items: center; gap: 12px; padding: 0 10px 0 14px; border: 1px solid #3f3f46; background: #141414">
 <span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #71717a"></span>
 <span style="min-width: 0; flex: 1"><span style="color: #fafafa; font-weight: 700">This session has ended</span> <span style="color: #a1a1aa; font-size: 13px">· 14:32 · {{endedHint}}</span></span>
@@ -209,7 +210,7 @@ a{color:#ef4444}
 <div style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 12px"><dc-import name="SessionUsage" engine="{{engine}}" hint-size="100%,18px"></dc-import></div>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","waiting","review","drafts","todo","code"],"default":"question"},"draftsDetail":{"editor":null},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"todoRunning":{"editor":"boolean","default":false},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"variant":{"editor":"enum","options":["question","working","waiting","review","drafts","todo","code"],"default":"question"},"draftsDetail":{"editor":null},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"todoNow":{"editor":"boolean","default":true},"todoRunning":{"editor":"boolean","default":false},"panelOpen":{"editor":"boolean","default":false},"prsOpen":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"stuck":{"editor":"enum","options":["no","closed","open"],"default":"no"},"vibe":{"editor":null},"vibeOpen":{"editor":"boolean","default":false},"ciFailing":{"editor":"boolean","default":false},"menu":{"editor":"enum","options":["closed","open","confirming"],"default":"closed"},"done":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"mergeTarget":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"h":{"editor":null},"$preview":{"width":880,"height":900},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
   // bang: the ! command in the last reply. '' (none) | idle | running | succeeded | failed | timedOut.
   // The server sends each run's result to the session as your message; bangHighlight outlines it (Show output landed there).
@@ -312,6 +313,7 @@ class Component extends DCLogic {
     }[vibe];
     const ended = this.props.ended ?? 'no';
     const resuming = ended === 'resuming';
+    const stuck = this.props.stuck ?? 'no';
     // confirming: the close confirmation is open over the screen, and ⋯ stays pressed under it.
     const menu = this.props.menu ?? 'closed';
     const menuOpen = menu === 'open';
@@ -342,6 +344,10 @@ class Component extends DCLogic {
       vibeColor: vibeOn || vibeOpen ? '#fafafa' : '#a1a1aa',
       ended: ended !== 'no',
       live: ended === 'no',
+      // stuck replaces the ended band when a resume gets no reply from the agent within 20 s.
+      isStuck: stuck !== 'no',
+      endedBand: ended !== 'no' && stuck === 'no',
+      stuckPane: stuck === 'open' ? 'hide' : 'show',
       // Done closes from the header right away; other states go through the ⋯ menu and a confirmation.
       showMenu: !(this.props.done ?? false),
       showDoneClose: this.props.done ?? false,

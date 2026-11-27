@@ -8,6 +8,7 @@
     { "id": "q1", "name": "1. 各欄のキー" },
     { "id": "q2", "name": "2. キーの出し方" },
     { "id": "q3", "name": "3. iPhone" },
+    { "id": "shape", "name": "4. 画面の形を見直す" },
     { "id": "parts", "name": "部品" }
   ],
   "boards": {
@@ -43,6 +44,19 @@
     "q3-a-open.dc.html": { "x": 0, "y": 0, "w": 390, "h": 844, "page": "q3", "title": "iPhone · + で開いた直後" },
     "q3-a-typed.dc.html": { "x": 470, "y": 0, "w": 390, "h": 844, "page": "q3", "title": "iPhone · 入力して New worktree を on" },
 
+    "q4-a-dir.dc.html": {"x":0,"y":0,"w":740,"h":520,"page":"shape","title":"A · c で開いた直後 · ヘッダーのディレクトリの欄にカーソル。打つと候補が出る"},
+    "q4-a-message.dc.html": {"x":820,"y":0,"w":740,"h":520,"page":"shape","title":"A · ↵ で選ぶとメッセージ欄へ · 設定は欄の上に 4 行で全部見えている"},
+    "q4-a-settings.dc.html": {"x":1640,"y":0,"w":740,"h":520,"page":"shape","title":"A · Tab で設定の行へ · ↓ で Model に移り → で borealis-5"},
+    "q4-a-phone.dc.html": {"x":2460,"y":0,"w":390,"h":844,"page":"shape","title":"A · iPhone · 同じ 4 行をタップで選ぶ"},
+    "q4-b-dir.dc.html": {"x":0,"y":1200,"w":740,"h":520,"page":"shape","title":"B · c で開いた直後 · 1 本の入力に打つとディレクトリの候補"},
+    "q4-b-message.dc.html": {"x":820,"y":1200,"w":740,"h":520,"page":"shape","title":"B · ↵ でディレクトリがチップになり、同じ入力にメッセージを打つ"},
+    "q4-b-option.dc.html": {"x":1640,"y":1200,"w":740,"h":520,"page":"shape","title":"B · ↓ で一覧の Model に移り、→ で borealis-5 に変えた"},
+    "q4-b-phone.dc.html": {"x":2460,"y":1200,"w":390,"h":844,"page":"shape","title":"B · iPhone · 行と値をタップで選ぶ"},
+    "q4-c-dir.dc.html": {"x":0,"y":2400,"w":740,"h":520,"page":"shape","title":"C · c で開いた直後 · 候補に前回の設定が付いている"},
+    "q4-c-message.dc.html": {"x":820,"y":2400,"w":740,"h":520,"page":"shape","title":"C · ↵ で設定ごと入る · 欄の上は設定の 1 行の要約だけ"},
+    "q4-c-settings.dc.html": {"x":1640,"y":2400,"w":740,"h":520,"page":"shape","title":"C · Tab で要約が A と同じ 4 行に開く · Worktree の行で ← で Off"},
+    "q4-c-phone.dc.html": {"x":2460,"y":2400,"w":390,"h":844,"page":"shape","title":"C · iPhone · 要約を押すと 4 行が開く"},
+    "NewSessionShape.dc.html": {"x":0,"y":640,"w":740,"h":520,"page":"parts","title":"NewSessionShape"},
     "NewSessionPane.dc.html": { "x": 0, "y": 0, "w": 740, "h": 520, "page": "parts", "title": "NewSessionPane" },
     "Nav.dc.html": { "x": 820, "y": 0, "w": 240, "h": 900, "page": "parts", "title": "Nav" },
     "InboxList.dc.html": { "x": 1140, "y": 0, "w": 460, "h": 900, "page": "parts", "title": "InboxList" },
@@ -57,12 +71,22 @@
     "q1-c-slash.dc.html", "q1-c-filter.dc.html", "q1-c-model.dc.html", "q1-c-esc.dc.html",
     "q2-a-message.dc.html", "q2-a-row.dc.html", "q2-b-message.dc.html", "q2-b-row.dc.html", "q2-c-message.dc.html", "q2-c-row.dc.html",
     "q3-a-open.dc.html", "q3-a-typed.dc.html",
-    "NewSessionPane.dc.html", "Nav.dc.html", "InboxList.dc.html", "SessionRow.dc.html", "Quota.dc.html", "ActivityButton.dc.html"
+    "q4-a-dir.dc.html", "q4-a-message.dc.html", "q4-a-settings.dc.html", "q4-a-phone.dc.html",
+    "q4-b-dir.dc.html", "q4-b-message.dc.html", "q4-b-option.dc.html", "q4-b-phone.dc.html",
+    "q4-c-dir.dc.html", "q4-c-message.dc.html", "q4-c-settings.dc.html", "q4-c-phone.dc.html",
+    "NewSessionPane.dc.html", "Nav.dc.html", "InboxList.dc.html", "SessionRow.dc.html", "Quota.dc.html", "ActivityButton.dc.html", "NewSessionShape.dc.html"
   ],
   "notes": {
     "current": { "kind": "title1", "x": 0, "y": -260, "maxW": 2820, "page": "current", "text": "今 · + の画面はキーで欄を選べず、↵ の他はマウスで操作する" },
     "current-note": { "x": 2340, "y": 0, "w": 480, "page": "current", "text": "今の + の画面\n- キーで開けない (c で開くことは決定済み)。\n- メッセージ欄の ↵ で始まり、⇧↵ / ⌥↵ で改行 (決定済み)。\n- ディレクトリ、engine、モデルと effort、New worktree はマウスで押すしかない。\n- アプリは入力欄の下に ↵ Start · ⇧↵ / ⌥↵ New line を出しているが、デザインでは決めていない。\n- ⌘K の New session は ↑↓ で engine、⌥M でモデル、⌥W で worktree、⌫ でディレクトリを選び直す。" },
 
+    "q4-common": {"x":0,"y":-560,"w":1560,"page":"shape","text":"どの案でも同じ\n- 押すとメニューが開くボタンをやめる。ディレクトリだけは候補が多いので、打って絞る欄にする。それ以外は値を全部並べ、←→ で選ぶ。\n- ⌥ と英字、⌘ と英字、⌃ と英字は使わない。c で開き、↵ で始め、⇧↵ / ⌥↵ で改行するのは決まったとおり。\n- キーの案内は、今カーソルがある場所で効くキーだけを出す。どこに出すかは案ごとに違う (各案の付箋)。\n- iPhone はキーの案内を出さず、同じ部品を form=phone で使う。並びは PC と同じで、押せる高さを 44px にする。\n- 1 と 2 のページの案 (Tab でボタンの列に移り d / e / m / w でメニューを開く、Tab で欄を順に移る、先頭の /dir など) は、どれもメニューを開く形のままキーを足していた。このページはメニューそのものをなくす。"},
+    "q4a": {"kind":"title1","x":0,"y":-260,"maxW":2850,"page":"shape","text":"A · 設定は欄の上に 4 行で値を全部並べ、Tab で入って ←→ で選ぶ"},
+    "q4a-note": {"x":2930,"y":0,"w":480,"page":"shape","text":"A\nキー: c → ディレクトリを打つ → ↵ → メッセージを打つ → ↵\nモデルを変えるとき: … メッセージ → Tab → ↓ → → → ↵\n- ディレクトリはヘッダーの打てる欄。開くとここにカーソルがあり、打つと候補が出る。前に選んだものが入っていれば、カーソルはメッセージ欄から始まる。\n- Engine、Model、Effort、Worktree を欄の上に 1 行ずつ、選べる値を全部並べる。メッセージ欄から Tab 1 回で設定の行に入り、↑↓ で行、←→ で値。Tab か Esc でメッセージ欄に戻る。\n- キーの案内: 欄の下の 1 行に今の場所のキーを出す (返信欄や ⌘K の下の行と同じ形)。設定の行にいるときは、その行が白く光り、右に ←→ を出す。\n- first-message-attach の B (設定は欄の上の 1 行、欄は返信欄と同じ) と、欄の形と設定の置き場所は同じ。設定が 1 行から 4 行に増える。\n+ 今の値と選べる値が開かずに見える。Tab 1 回と矢印だけで全部届く。\n- 欄の上が 4 行ぶん高い。モデルが増えると Model の行が長くなる。"},
+    "q4b": {"kind":"title1","x":0,"y":940,"maxW":2850,"page":"shape","text":"B · ⌘K の New session と同じ 1 本の入力と一覧にする"},
+    "q4b-note": {"x":2930,"y":1200,"w":480,"page":"shape","text":"B\nキー: c → ディレクトリを打つ → ↵ → メッセージを打つ → ↵\nCodex で始めるとき: … メッセージ → ↓ → ↵\nモデルを変えるとき: … メッセージ → ↓↓↓↓ → → → ↵\n- + の画面を ⌘K の New session と同じ部品にする。入力は 1 本で、まずディレクトリを打って選ぶとチップになり、続けてメッセージを打つ。空の入力で ⌫ を押すとディレクトリに戻る。\n- 下の一覧は START WITH (Claude Code、Codex) と OPTIONS (New worktree、Model、Effort)。カーソルは入力に置いたまま、↑↓ で一覧の行が動き、↵ はその engine で始める。OPTIONS の行では ←→ でその場の値を変える。\n- キーの案内: 一覧の下の 1 行 (⌘K と同じ場所) と、選んでいる行の右端 (↵ か ←→)。\n- 欄が返信欄と違う形なので、first-message-attach の B とは合わない。B にするなら + の画面の欄の形を決め直す。\n+ + と ⌘K が同じ操作になり、覚えるのは 1 つ。⌘K の ⌥M / ⌥W も要らなくなる。\n- ↑↓ が一覧に取られ、複数行の文の中でカーソルを上下に動かせない。\n- 欄が上、会話が始まると返信欄は下で、始める前とあとで場所が変わる。"},
+    "q4c": {"kind":"title1","x":0,"y":2140,"maxW":2850,"page":"shape","text":"C · ディレクトリの候補に前回の設定を付け、選ぶだけで設定ごと決める"},
+    "q4c-note": {"x":2930,"y":2400,"w":480,"page":"shape","text":"C\nキー: c → ディレクトリを打つ → (↓ で別の設定の行) → ↵ → メッセージを打つ → ↵\n設定を変えるとき: … メッセージ → Tab → ↓ → ←→ → ↵\n- 候補は前に始めたときの組み合わせ (ディレクトリ、engine、モデル、effort、worktree) を 1 行ずつ出す。同じディレクトリでも設定が違えば別の行。初めてのディレクトリは今の既定の設定で出す。\n- 選ぶと、欄の上には設定の要約が 1 行だけ出る。Tab を押すか要約を押すと、A と同じ 4 行が開く。\n- キーの案内: 要約の右に Tab Change を常に出す。欄の下の 1 行には今の場所のキー。候補の一覧では ↵ Choose with these settings。\n- 欄の上が 1 行なので、first-message-attach の B と同じ高さ。要約は B のボタンの行の代わりに置く。\n+ いつもの設定なら、設定に触れずにディレクトリを選ぶだけで済む。\n- 候補の行が設定のぶん長く、同じディレクトリの行が並ぶと迷う。\n- 変えたいときは A と同じ 4 行を開くので、A の作りも要る。"},
     "q1a": { "kind": "title1", "x": 0, "y": -260, "maxW": 4840, "page": "q1", "text": "A · Tab で欄を順に移り、移った欄を ←→ か Space で変える" },
     "q1a-note": { "x": 4920, "y": 0, "w": 480, "page": "q1", "text": "A\n- c で開くとディレクトリの一覧が開き、↑↓ と ↵ で選ぶとメッセージ欄に移る。\n- Tab の並び: ディレクトリ → メッセージ → engine → モデル → New worktree → Start。⇧Tab で戻る。移った欄は枠が明るくなる。\n- engine は ←→ で切り替え、New worktree は Space で on / off、ディレクトリとモデルは Space か ↵ で開く。開いたモデルは ↑↓ でモデル、←→ で effort、↵ で閉じる。\n- Esc: メニューが開いていれば閉じるだけで、枠はそのボタンに残る。何も開いていなければ + の画面を閉じる (打った文は次に c で開いたときに戻る)。\n+ 覚えるキーがない。ふつうの web のフォームと同じ。\n- worktree を on にするのに Tab を 3 回押す。" },
     "q1b": { "kind": "title1", "x": 0, "y": 640, "maxW": 4840, "page": "q1", "text": "B · Tab 1 回で下のボタンの列に移り、そこでは d / e / m / w で開く" },

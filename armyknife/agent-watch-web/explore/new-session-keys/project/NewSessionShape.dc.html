@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>NewSessionShape</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<section aria-label="New session" style="position: relative; width: {{w}}; height: {{h}}; box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; background: #0a0a0a; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+<header style="{{headerStyle}}">
+<sc-if value="{{phone}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Back to Inbox" style="flex: none; width: 44px; height: 44px; margin-left: -14px; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #d4d4d8"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button></sc-if>
+<h1 style="flex: none; margin: 0; font-size: 15px">New session</h1>
+<sc-if value="{{dirField}}" hint-placeholder-val="{{ true }}"><label style="{{dirFieldStyle}}"><span style="flex: none; display: inline-flex; color: #a1a1aa"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg></span><input role="combobox" aria-label="Directory" aria-expanded="{{dirOpen}}" value="{{dirValue}}" placeholder="Search repositories or type a path" style="{{dirInputStyle}}"><sc-if value="{{dirCaret}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; left: {{dirCaretLeft}}; top: 8px; width: 1px; height: 16px; background: #fafafa"></span></sc-if></label></sc-if>
+</header>
+
+<sc-if value="{{paletteShape}}" hint-placeholder-val="{{ false }}"><div style="flex: 1; min-height: 0; display: flex; flex-direction: column">
+<div style="{{pInputRowStyle}}"><sc-if value="{{pChip}}" hint-placeholder-val="{{ false }}"><span style="flex: none; height: 24px; display: inline-flex; align-items: center; gap: 6px; padding: 0 8px; background: #2a2a2e; font-family: 'JetBrains Mono', monospace; font-size: 12px"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg>example/notification-service</span></sc-if><span style="flex: 1 1 160px; min-width: 0; display: inline-flex; align-items: center"><span style="{{pTextStyle}}">{{pText}}</span><span aria-hidden="true" style="flex: none; width: 1px; height: 18px; margin-left: 1px; background: #fafafa"></span></span></div>
+<div role="listbox" aria-label="{{pListLabel}}" style="flex: 1; min-height: 0; overflow: hidden; padding: 4px 0">
+<sc-for list="{{pSections}}" as="sec" hint-placeholder-count="2"><h2 style="height: 28px; display: flex; align-items: center; margin: 4px 0 0; padding: 0 16px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">{{sec.title}}</h2>
+<sc-for list="{{sec.rows}}" as="r" hint-placeholder-count="2"><div role="option" aria-selected="{{r.on}}" style="{{r.style}}"><span style="flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap"><span style="{{r.nameStyle}}">{{r.name}}</span> <span style="color: #a1a1aa; font-size: 12px">{{r.sub}}</span></span><span style="flex: none; display: inline-flex; align-items: center; gap: 10px"><sc-for list="{{r.vals}}" as="v" hint-placeholder-count="2"><span style="{{v.style}}">{{v.label}}</span></sc-for><sc-if value="{{r.hasKey}}" hint-placeholder-val="{{ false }}"><kbd style="flex: none; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">{{r.key}}</kbd></sc-if></span></div></sc-for></sc-for>
+</div>
+</div></sc-if>
+
+<sc-if value="{{paneShape}}" hint-placeholder-val="{{ true }}"><div style="flex: 1; min-height: 0; display: grid; place-items: center; padding: 24px; color: #8b8b94; font-size: 13px; text-align: center">The conversation opens here when the session starts.</div>
+<div style="{{composerStyle}}">
+<sc-if value="{{summary}}" hint-placeholder-val="{{ false }}"><button type="button" aria-label="Change session settings" style="{{summaryStyle}}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M20 7h-9"></path><path d="M14 17H5"></path><circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle></svg><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: #d4d4d8">{{summaryText}}</span><span style="flex: none; margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; color: #8b8b94"><sc-if value="{{pc}}" hint-placeholder-val="{{ true }}"><kbd style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">Tab</kbd></sc-if> Change</span></button></sc-if>
+<sc-if value="{{grid}}" hint-placeholder-val="{{ true }}"><div aria-label="Session settings" style="{{gridStyle}}">
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="4"><div role="radiogroup" aria-label="{{r.label}}" style="display: flex; align-items: center; gap: 10px"><span style="{{r.labelStyle}}">{{r.label}}</span><div style="{{r.wrapStyle}}"><sc-for list="{{r.segs}}" as="s" hint-placeholder-count="3"><button type="button" role="radio" aria-checked="{{s.on}}" style="{{s.style}}">{{s.label}}</button></sc-for></div><sc-if value="{{r.hint}}" hint-placeholder-val="{{ false }}"><kbd style="flex: none; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: #a1a1aa">←→</kbd></sc-if></div></sc-for>
+</div></sc-if>
+<div style="border: 1px solid {{boxBorder}}; background: #0f0f0f">
+<textarea aria-label="First message" placeholder="First message (optional)" style="display: block; width: 100%; height: {{boxH}}; box-sizing: border-box; padding: 10px 12px; border: 0; outline: none; background: transparent; color: #fafafa; font-family: inherit; font-size: {{inputSize}}; resize: none" value="{{message}}"></textarea>
+<div style="display: flex; align-items: center; gap: 8px; padding: 6px 8px">
+<button type="button" aria-label="Attach files" style="{{clipStyle}}"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg></button>
+<span role="status" style="flex: 1 1 0; min-width: 0; text-align: right; font-size: 12px; color: #8b8b94">{{status}}</span>
+<button type="button" style="{{startStyle}}">Start ↵</button>
+</div>
+</div>
+</div></sc-if>
+
+<sc-if value="{{line}}" hint-placeholder-val="{{ false }}"><div aria-label="Keyboard shortcuts" style="{{lineStyle}}"><sc-for list="{{lineItems}}" as="it" hint-placeholder-count="4"><span><kbd style="font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{it.k}}</kbd> {{it.label}}</span></sc-for></div></sc-if>
+
+<sc-if value="{{dirOpen}}" hint-placeholder-val="{{ false }}"><div role="listbox" aria-label="Directories" style="{{popStyle}}">
+<h2 style="height: 28px; display: flex; align-items: center; margin: 4px 0 0; padding: 0 12px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: #8b8b94">{{popTitle}}</h2>
+<sc-for list="{{dirs}}" as="d" hint-placeholder-count="3"><div role="option" aria-selected="{{d.active}}" style="min-height: {{dirRowH}}; box-sizing: border-box; display: grid; grid-template-columns: 14px 1fr auto; align-items: center; gap: 10px; padding: 4px 12px; background: {{d.bg}}"><span style="color: #a1a1aa"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"></path></svg></span><div style="min-width: 0"><div style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{d.name}}</div><div style="{{d.subStyle}}">{{d.sub}}</div></div><span style="font-size: 11.5px; color: #8b8b94">{{d.when}}</span></div></sc-for>
+</div></sc-if>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"shape":{"editor":"enum","options":["a","b","c"],"default":"a"},"step":{"editor":"enum","options":["dir","message","settings"],"default":"message"},"row":{"editor":"enum","options":["engine","model","effort","worktree"],"default":"engine"},"hl":{"editor":"enum","options":["claude","codex","worktree","model","effort"],"default":"claude"},"codex":{"editor":"boolean","default":false},"model":{"editor":"int","default":0},"effort":{"editor":"int","default":0},"worktree":{"editor":"boolean","default":true},"query":{"editor":"text","default":"notif"},"w":{"editor":null},"h":{"editor":null},"$preview":{"width":740,"height":520}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    const phone = (p.form ?? 'pc') === 'phone';
+    const shape = p.shape ?? 'a';
+    const step = p.step ?? 'message';
+    const row = p.row ?? 'engine';
+    const hl = p.hl ?? 'claude';
+    const codex = p.codex ?? false;
+    const modelIdx = p.model ?? 0;
+    const effortIdx = p.effort ?? 0;
+    const wt = p.worktree ?? true;
+    const query = p.query ?? 'notif';
+    const palette = shape === 'b';
+    const choosing = step === 'dir';
+    const inGrid = step === 'settings';
+    const models = codex ? ['Default · vega-3', 'vega-3-mini'] : ['Default · atlas-5', 'borealis-5', 'comet-5'];
+    const efforts = [codex ? 'Default · medium' : 'Default · high', 'low', 'medium', 'high'];
+    const effortNames = [codex ? 'medium' : 'high', 'low', 'medium', 'high'];
+    const modelNames = codex ? ['vega-3', 'vega-3-mini'] : ['atlas-5', 'borealis-5', 'comet-5'];
+    const engine = codex ? 'Codex' : 'Claude Code';
+    const segH = phone ? '44px' : '28px';
+
+    // A / C: the settings laid out as rows of values; no menus.
+    const defs = [
+      { key: 'engine', label: 'Engine', opts: ['Claude Code', 'Codex'], sel: codex ? 1 : 0 },
+      { key: 'model', label: 'Model', opts: models, sel: modelIdx },
+      { key: 'effort', label: 'Effort', opts: efforts, sel: effortIdx },
+      { key: 'worktree', label: 'Worktree', opts: ['Off', 'New worktree'], sel: wt ? 1 : 0 }
+    ];
+    const rows = defs.map((d) => {
+      const focused = inGrid && row === d.key && !phone;
+      return {
+        label: d.label,
+        hint: focused,
+        labelStyle: 'flex: none; width: ' + (phone ? '70px' : '76px') + '; font-size: ' + (phone ? '11px' : '11.5px') + '; font-weight: 700; letter-spacing: ' + (phone ? '0.02em' : '0.04em') + '; text-transform: uppercase; color: ' + (focused ? '#fafafa' : '#8b8b94'),
+        wrapStyle: 'display: flex; min-width: 0; border: 1px solid ' + (focused ? '#a1a1aa' : '#3f3f46') + (focused ? '; box-shadow: 0 0 0 1px #a1a1aa' : '') + (phone ? '; flex: 1 1 auto' : '; flex: none'),
+        segs: d.opts.map((o, i) => {
+          const on = i === d.sel;
+          return {
+            label: o,
+            on,
+            style: 'flex: ' + (phone ? '1 1 auto' : 'none') + '; height: ' + segH + '; padding: 0 ' + (phone ? '6px' : '10px') + '; border: 0;' + (i < d.opts.length - 1 ? ' border-right: 1px solid #3f3f46;' : '') + ' background: ' + (on ? (focused ? '#fafafa' : '#3f3f46') : 'transparent') + '; color: ' + (on ? (focused ? '#0a0a0a' : '#fafafa') : '#a1a1aa') + '; font-family: inherit; font-size: ' + (phone ? '12.5px' : '12px') + '; white-space: nowrap'
+          };
+        })
+      };
+    });
+
+    const dirChosen = !choosing;
+    const showGrid = !palette && (shape === 'a' || inGrid);
+    const summary = shape === 'c' && !inGrid;
+
+    // Key line: what the keys do where the cursor is now.
+    const lines = {
+      a: {
+        dir: [['↑↓', 'Move'], ['↵', 'Choose'], ['Esc', 'Close']],
+        message: [['↵', 'Start'], ['⇧↵ / ⌥↵', 'New line'], ['Tab', 'Settings'], ['⇧Tab', 'Directory'], ['Esc', 'Close']],
+        settings: [['↑↓', 'Setting'], ['←→', 'Change'], ['↵', 'Start'], ['Tab / Esc', 'Message']]
+      },
+      b: {
+        dir: [['↑↓', 'Move'], ['↵', 'Choose'], ['Esc', 'Close']],
+        message: [['↵', 'Start'], ['↑↓', 'Engine and options'], ['⇧↵', 'New line'], ['⌫', 'Change directory'], ['Esc', 'Close']],
+        option: [['←→', 'Change'], ['↑↓', 'Move'], ['↵', 'Start'], ['Esc', 'Close']]
+      },
+      c: {
+        dir: [['↑↓', 'Move'], ['↵', 'Choose with these settings'], ['Esc', 'Close']],
+        message: [['↵', 'Start'], ['⇧↵ / ⌥↵', 'New line'], ['⇧Tab', 'Directory'], ['Esc', 'Close']],
+        settings: [['↑↓', 'Setting'], ['←→', 'Change'], ['↵', 'Start'], ['Tab / Esc', 'Message']]
+      }
+    };
+    const onOption = ['worktree', 'model', 'effort'].includes(hl);
+    const lineKey = palette && step !== 'dir' ? (onOption ? 'option' : 'message') : step;
+    const items = lines[shape][lineKey] || [];
+
+    // A / C directory candidates.
+    const recent = [
+      { name: 'example/notification-service', path: '~/ghq/github.com/example/notification-service', preset: 'Claude Code · atlas-5 · high · New worktree', when: '2h ago' },
+      { name: 'example/notification-service', path: '', preset: 'Codex · vega-3 · medium', when: 'yesterday' },
+      { name: 'example/notification-web', path: '~/ghq/github.com/example/notification-web', preset: 'Claude Code · borealis-5 · low', when: '3d ago' }
+    ];
+    const dirList = (shape === 'c' ? recent : recent.filter((d) => d.path)).map((d, i) => ({
+      name: d.name,
+      sub: shape === 'c' ? d.preset : d.path,
+      subStyle: 'font-family: \'JetBrains Mono\', monospace; font-size: 11px; color: ' + (shape === 'c' ? '#d4d4d8' : '#8b8b94') + '; white-space: nowrap; overflow: hidden; text-overflow: ellipsis',
+      when: d.when,
+      active: i === 0,
+      bg: i === 0 ? '#2a2a2e' : 'transparent'
+    }));
+
+    // B: the + screen is the ⌘K New session list.
+    const kbd = (on, k) => ({ hasKey: on, key: k });
+    const valStyle = (on, focused) => 'font-family: \'JetBrains Mono\', monospace; font-size: 12px; ' + (phone ? 'min-height: 44px; display: inline-flex; align-items: center; padding: 0 4px; ' : '') + (on ? 'color: #fafafa; font-weight: 700' + (focused ? '; text-decoration: underline; text-underline-offset: 3px' : '') : 'color: #8b8b94');
+    const optRow = (key, name, vals, sel) => {
+      const on = hl === key;
+      return Object.assign({
+        on, name, sub: '', icon: '',
+        nameStyle: '',
+        style: 'min-height: ' + (phone ? '44px' : '40px') + '; display: flex; align-items: center; gap: 10px; padding: 0 16px; background: ' + (on ? '#2a2a2e' : 'transparent'),
+        vals: vals.map((v, i) => ({ label: v, style: valStyle(i === sel, on) }))
+      }, kbd(on && !phone, '←→'));
+    };
+    const engRow = (key, name) => {
+      const on = hl === key;
+      return Object.assign({
+        on, name, sub: 'in example/notification-service', icon: '',
+        nameStyle: on ? 'font-weight: 700' : '',
+        style: 'min-height: ' + (phone ? '44px' : '40px') + '; display: flex; align-items: center; gap: 10px; padding: 0 16px; background: ' + (on ? '#2a2a2e' : 'transparent'),
+        vals: []
+      }, kbd(on && !phone, '↵'));
+    };
+    const pSections = !palette ? [] : (choosing
+      ? [{ title: 'DIRECTORIES', rows: recent.filter((d) => d.path).map((d, i) => Object.assign({
+          on: i === 0, name: d.name, sub: d.when, icon: '', nameStyle: i === 0 ? 'font-weight: 700' : '',
+          style: 'min-height: ' + (phone ? '44px' : '40px') + '; display: flex; align-items: center; gap: 10px; padding: 0 16px; background: ' + (i === 0 ? '#2a2a2e' : 'transparent'),
+          vals: []
+        }, kbd(i === 0 && !phone, '↵'))) }]
+      : [
+          { title: 'START WITH', rows: [engRow('claude', 'Claude Code'), engRow('codex', 'Codex')] },
+          { title: 'OPTIONS', rows: [
+            optRow('worktree', 'New worktree from main', ['off', 'on'], wt ? 1 : 0),
+            optRow('model', 'Model', modelNames, modelIdx),
+            optRow('effort', 'Effort', effortNames, effortIdx)
+          ] }
+        ]);
+
+    const message = choosing && shape !== 'b' ? '' : '通知の再送処理を見直したい。失敗した配信を 3 回まで再送する';
+    const boxFocus = step === 'message';
+    const dirW = phone ? 'flex: 1 1 auto' : 'width: 300px';
+
+    return {
+      phone,
+      pc: !phone,
+      w: p.w ?? (phone ? '390px' : '740px'),
+      h: p.h ?? (phone ? '844px' : '520px'),
+      headerStyle: phone
+        ? 'flex: none; display: flex; align-items: center; gap: 8px; min-height: 50px; padding: 8px 16px 6px; border-bottom: 1px solid #2a2a2a'
+        : 'flex: none; display: flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 16px; border-bottom: 1px solid #2a2a2a',
+      dirField: !palette,
+      dirFieldStyle: 'position: relative; margin-left: auto; ' + dirW + '; min-width: 0; height: ' + (phone ? '40px' : '32px') + '; box-sizing: border-box; display: flex; align-items: center; gap: 6px; padding: 0 10px; border: 1px solid ' + (choosing ? '#a1a1aa' : '#3f3f46') + (choosing ? '; box-shadow: 0 0 0 1px #a1a1aa' : '') + '; background: #0f0f0f',
+      dirInputStyle: 'flex: 1; min-width: 0; text-overflow: ellipsis; border: 0; outline: none; background: transparent; color: #fafafa; font-family: ' + (choosing ? 'inherit' : '\'JetBrains Mono\', monospace') + '; font-size: ' + (phone ? '16px' : (choosing ? '13px' : '12px')),
+      dirValue: choosing ? query : 'example/notification-service',
+      dirCaret: choosing,
+      dirCaretLeft: phone ? '68px' : '64px',
+      dirOpen: choosing && !palette,
+      popTitle: shape === 'c' ? 'RECENT STARTS' : 'RECENT',
+      popStyle: 'position: absolute; top: ' + (phone ? '52px' : '48px') + '; ' + (phone ? 'left: 8px; right: 8px' : 'right: 16px; width: 440px') + '; z-index: 10; box-sizing: border-box; padding-bottom: 4px; background: #161616; border: 1px solid #3f3f46; box-shadow: 0 12px 36px rgb(0 0 0 / 40%)',
+      dirRowH: phone ? '52px' : '44px',
+      dirs: dirList,
+
+      paletteShape: palette,
+      paneShape: !palette,
+      pChip: palette && !choosing,
+      pText: palette ? (choosing ? query : message) : '',
+      pTextStyle: 'min-width: 0; ' + (phone ? 'white-space: normal' : 'overflow: hidden; text-overflow: ellipsis; white-space: nowrap') + '; font-size: ' + (phone ? '16px' : '15px'),
+      pInputRowStyle: 'flex: none; min-height: 54px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 16px; box-sizing: border-box; border-bottom: 1px solid #2a2a2a; background: #0f0f0f',
+      pListLabel: choosing ? 'Directories' : 'Engine and options',
+      pSections,
+
+      composerStyle: phone
+        ? 'flex: none; display: flex; flex-direction: column; gap: 10px; padding: 10px 12px 30px; border-top: 1px solid #2a2a2a'
+        : 'flex: none; display: flex; flex-direction: column; gap: 10px; padding: 12px 16px 6px; border-top: 1px solid #2a2a2a',
+      grid: showGrid,
+      gridStyle: 'display: flex; flex-direction: column; gap: ' + (phone ? '8px' : '6px'),
+      rows,
+      summary,
+      summaryStyle: 'height: ' + (phone ? '44px' : '30px') + '; display: flex; align-items: center; gap: 8px; padding: 0 ' + (phone ? '12px' : '10px') + '; border: 1px solid #3f3f46; background: transparent; color: #a1a1aa; font-family: inherit; font-size: 12.5px; text-align: left',
+      summaryText: [engine, modelNames[modelIdx] ?? modelNames[0], effortNames[effortIdx], wt ? 'New worktree' : 'No worktree'].join(' · '),
+      boxBorder: boxFocus ? '#a1a1aa' : '#52525b',
+      boxH: phone ? '88px' : '64px',
+      inputSize: phone ? '16px' : '13px',
+      message,
+      clipStyle: 'flex: none; width: ' + (phone ? '44px' : '30px') + '; height: ' + (phone ? '44px' : '30px') + '; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #a1a1aa',
+      status: dirChosen ? '' : 'Choose a directory to start',
+      startStyle: 'flex: none; height: ' + (phone ? '44px' : '32px') + '; padding: 0 14px; border: 0; font-family: inherit; font-size: 13px; font-weight: 700; ' + (dirChosen ? 'background: #fafafa; color: #0a0a0a' : 'background: #27272a; color: #71717a'),
+
+      line: !phone,
+      lineStyle: palette
+        ? 'flex: none; height: 36px; display: flex; align-items: center; gap: 14px; padding: 0 16px; border-top: 1px solid #2a2a2a; overflow: hidden; font-size: 11.5px; color: #8b8b94; white-space: nowrap'
+        : 'flex: none; height: 28px; display: flex; align-items: center; gap: 14px; padding: 0 18px 6px; overflow: hidden; font-size: 11.5px; color: #8b8b94; white-space: nowrap',
+      lineItems: items.map(([k, label]) => ({ k, label }))
+    };
+  }
+}
+</script>
+</body>
+</html>

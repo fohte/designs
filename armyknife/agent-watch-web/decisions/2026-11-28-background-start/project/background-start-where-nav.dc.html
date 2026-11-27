@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>B: row above Activity</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; display: flex; overflow: hidden; background: #0a0a0a; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif">
+<div style="flex: none; width: 240px"><dc-import name="Nav" view="inbox" inbox-count="{{ five }}" activity="{{ activity }}" starting="{{ list }}" hint-size="240px,900px"></dc-import></div>
+<div style="flex: none; width: 460px; border-right: 1px solid #2a2a2a"><dc-import name="InboxList" filter="none" current="{{ zero }}" hint-size="460px,900px"></dc-import></div>
+<div style="flex: 1; min-width: 0"><dc-import name="Conversation" variant="question" hint-size="100%,900px"></dc-import></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      zero: 0, five: 5,
+      starting: { result: 'starting', session: '通知の再送処理を見直して', repo: 'example/notification-service', time: '12:03' },
+      started: { result: 'started', session: '通知の再送処理を見直して', repo: 'example/notification-service', time: '12:04' },
+      failed: { result: 'startFailed', session: '通知の再送処理を見直して', reason: 'tmux server is not running. Start tmux and retry.', time: '12:04' },
+      closed: { result: 'closed', session: 'アラートの送り先を決める', time: '12:02' },
+      merged: { result: 'merged', pr: 2041, session: '再送のログを整える', time: '11:40' },
+      activity: { count: '', tone: 'idle' }, list: [{ result: 'starting', session: '通知の再送処理を見直して', repo: 'example/notification-service', time: '12:03' }]
+    };
+  }
+}
+</script>
+</body>
+</html>

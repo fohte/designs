@@ -1,0 +1,688 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-24T12:00:00Z"
+  },
+  "title": "作成中のセッションを裏で待つ",
+  "launch": {
+    "view": "canvas",
+    "page": "now"
+  },
+  "pages": [
+    {
+      "id": "now",
+      "name": "今"
+    },
+    {
+      "id": "where",
+      "name": "作成中の見え方"
+    },
+    {
+      "id": "notice",
+      "name": "始まったときの通知"
+    },
+    {
+      "id": "plus",
+      "name": "Start 直後の + の画面"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "background-start-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC · Start を押した (Starting… で待つ)",
+      "page": "now"
+    },
+    "background-start-current-away.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC · 待つ間に別のセッションを開いた (作成中だと分かる表示はない)",
+      "page": "now"
+    },
+    "background-start-current-jump.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "今 · PC · 始まると、開いていた会話から新しいセッションに切り替わる",
+      "page": "now"
+    },
+    "background-start-current-phone.dc.html": {
+      "x": 4560,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone · Start を押した",
+      "page": "now"
+    },
+    "background-start-current-phone-away.dc.html": {
+      "x": 5030,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone · ‹ で Inbox に戻った",
+      "page": "now"
+    },
+    "background-start-current-phone-jump.dc.html": {
+      "x": 5500,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "今 · iPhone · 始まると新しいセッションに切り替わる",
+      "page": "now"
+    },
+    "background-start-where-toast.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · 別のセッションを開いた (トーストとナビの Activity に青い 1)",
+      "page": "where"
+    },
+    "background-start-where-toast-open.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · Activity を開いた (先頭に作成中の行)",
+      "page": "where"
+    },
+    "background-start-where-toast-phone.dc.html": {
+      "x": 3040,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · Inbox に戻った (トースト)",
+      "page": "where"
+    },
+    "background-start-where-toast-phone-open.dc.html": {
+      "x": 3510,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · ☰ から Activity を開いた",
+      "page": "where"
+    },
+    "background-start-where-nav.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · 別のセッションを開いた (ナビの Activity の上に作成中の行)",
+      "page": "where"
+    },
+    "background-start-where-nav-phone-inbox.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · Inbox に戻った (☰ に青い印)",
+      "page": "where"
+    },
+    "background-start-where-nav-phone.dc.html": {
+      "x": 1990,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · ☰ を開いた (Activity の上に作成中の行)",
+      "page": "where"
+    },
+    "background-start-notice-toast.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · 始まった (トーストに Open)",
+      "page": "notice"
+    },
+    "background-start-notice-toast-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · 始まった (トーストに Open)",
+      "page": "notice"
+    },
+    "background-start-notice-quiet.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · 始まった (ナビの Activity に緑の ✓ 1)",
+      "page": "notice"
+    },
+    "background-start-notice-quiet-open.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · Activity を開いた (行に Open)",
+      "page": "notice"
+    },
+    "background-start-notice-quiet-phone.dc.html": {
+      "x": 3040,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · 始まった (☰ に緑の印)",
+      "page": "notice"
+    },
+    "background-start-notice-quiet-phone-open.dc.html": {
+      "x": 3510,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · ☰ から Activity を開いた",
+      "page": "notice"
+    },
+    "background-start-notice-opened.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "共通 · PC · Open を押した",
+      "page": "notice"
+    },
+    "background-start-notice-opened-phone.dc.html": {
+      "x": 1520,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "共通 · iPhone · Open を押した",
+      "page": "notice"
+    },
+    "background-start-failed.dc.html": {
+      "x": 0,
+      "y": 3840,
+      "w": 1440,
+      "h": 900,
+      "title": "共通 · PC · 始められなかった (トーストに Retry と Details)",
+      "page": "notice"
+    },
+    "background-start-failed-open.dc.html": {
+      "x": 1520,
+      "y": 3840,
+      "w": 1440,
+      "h": 900,
+      "title": "共通 · PC · Details で Activity を開いた",
+      "page": "notice"
+    },
+    "background-start-failed-stay.dc.html": {
+      "x": 3040,
+      "y": 3840,
+      "w": 1440,
+      "h": 900,
+      "title": "共通 · PC · + の画面に留まっていたとき (今と同じ)",
+      "page": "notice"
+    },
+    "background-start-failed-phone.dc.html": {
+      "x": 4560,
+      "y": 3840,
+      "w": 390,
+      "h": 844,
+      "title": "共通 · iPhone · 始められなかった",
+      "page": "notice"
+    },
+    "background-start-plus-line.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "A · PC · Start を押した直後",
+      "page": "plus"
+    },
+    "background-start-plus-line-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "A · iPhone · Start を押した直後",
+      "page": "plus"
+    },
+    "background-start-plus-echo.dc.html": {
+      "x": 0,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B · PC · Start を押した直後",
+      "page": "plus"
+    },
+    "background-start-plus-echo-phone.dc.html": {
+      "x": 1520,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B · iPhone · Start を押した直後",
+      "page": "plus"
+    },
+    "NewSessionPane.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 740,
+      "h": 900,
+      "title": "NewSessionPane (form desktop / phone)",
+      "page": "parts"
+    },
+    "StartedChat.dc.html": {
+      "x": 820,
+      "y": 0,
+      "w": 740,
+      "h": 900,
+      "title": "StartedChat (form desktop / phone)",
+      "page": "parts"
+    },
+    "ActionItem.dc.html": {
+      "x": 1640,
+      "y": 0,
+      "w": 360,
+      "h": 110,
+      "title": "ActionItem",
+      "page": "parts"
+    },
+    "ToastStack.dc.html": {
+      "x": 2080,
+      "y": 0,
+      "w": 360,
+      "h": 240,
+      "title": "ToastStack",
+      "page": "parts"
+    },
+    "Activity.dc.html": {
+      "x": 2520,
+      "y": 0,
+      "w": 400,
+      "h": 360,
+      "title": "Activity",
+      "page": "parts"
+    },
+    "ActivityButton.dc.html": {
+      "x": 3000,
+      "y": 0,
+      "w": 224,
+      "h": 44,
+      "title": "ActivityButton",
+      "page": "parts"
+    },
+    "Nav.dc.html": {
+      "x": 3304,
+      "y": 0,
+      "w": 240,
+      "h": 900,
+      "title": "Nav",
+      "page": "parts"
+    },
+    "InboxList.dc.html": {
+      "x": 3624,
+      "y": 0,
+      "w": 460,
+      "h": 900,
+      "title": "InboxList",
+      "page": "parts"
+    },
+    "Conversation.dc.html": {
+      "x": 4164,
+      "y": 0,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "parts"
+    },
+    "PhoneInbox.dc.html": {
+      "x": 5124,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneInbox",
+      "page": "parts"
+    },
+    "PhoneDrawer.dc.html": {
+      "x": 5594,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneDrawer",
+      "page": "parts"
+    },
+    "PhoneChat.dc.html": {
+      "x": 6064,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneChat",
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 0,
+      "y": 1100,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "parts"
+    },
+    "Quota.dc.html": {
+      "x": 540,
+      "y": 1100,
+      "w": 240,
+      "h": 140,
+      "title": "Quota",
+      "page": "parts"
+    },
+    "CloseChecks.dc.html": {
+      "x": 860,
+      "y": 1100,
+      "w": 408,
+      "h": 170,
+      "title": "CloseChecks",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 1348,
+      "y": 1100,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    },
+    "MergeBand.dc.html": {
+      "x": 2188,
+      "y": 1100,
+      "w": 760,
+      "h": 60,
+      "title": "MergeBand",
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 3028,
+      "y": 1100,
+      "w": 160,
+      "h": 44,
+      "title": "MergeButton",
+      "page": "parts"
+    },
+    "PrButton.dc.html": {
+      "x": 3268,
+      "y": 1100,
+      "w": 44,
+      "h": 44,
+      "title": "PrButton",
+      "page": "parts"
+    },
+    "TodoCard.dc.html": {
+      "x": 3392,
+      "y": 1100,
+      "w": 672,
+      "h": 40,
+      "title": "TodoCard",
+      "page": "parts"
+    },
+    "CodeBlock.dc.html": {
+      "x": 4144,
+      "y": 1100,
+      "w": 672,
+      "h": 160,
+      "title": "CodeBlock",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 4896,
+      "y": 1100,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    },
+    "UpdateBand.dc.html": {
+      "x": 5648,
+      "y": 1100,
+      "w": 760,
+      "h": 40,
+      "title": "UpdateBand",
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 6488,
+      "y": 1100,
+      "w": 380,
+      "h": 200,
+      "title": "ConfirmDialog",
+      "page": "parts"
+    },
+    "PhoneRowMenu.dc.html": {
+      "x": 6948,
+      "y": 1100,
+      "w": 390,
+      "h": 250,
+      "title": "PhoneRowMenu",
+      "page": "parts"
+    },
+    "PhoneLaterSheet.dc.html": {
+      "x": 7418,
+      "y": 1100,
+      "w": 390,
+      "h": 420,
+      "title": "PhoneLaterSheet",
+      "page": "parts"
+    },
+    "PhoneSaveViewSheet.dc.html": {
+      "x": 7888,
+      "y": 1100,
+      "w": 390,
+      "h": 300,
+      "title": "PhoneSaveViewSheet",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "background-start-current.dc.html",
+    "background-start-current-away.dc.html",
+    "background-start-current-jump.dc.html",
+    "background-start-current-phone.dc.html",
+    "background-start-current-phone-away.dc.html",
+    "background-start-current-phone-jump.dc.html",
+    "background-start-where-toast.dc.html",
+    "background-start-where-toast-open.dc.html",
+    "background-start-where-toast-phone.dc.html",
+    "background-start-where-toast-phone-open.dc.html",
+    "background-start-where-nav.dc.html",
+    "background-start-where-nav-phone-inbox.dc.html",
+    "background-start-where-nav-phone.dc.html",
+    "background-start-notice-toast.dc.html",
+    "background-start-notice-toast-phone.dc.html",
+    "background-start-notice-quiet.dc.html",
+    "background-start-notice-quiet-open.dc.html",
+    "background-start-notice-quiet-phone.dc.html",
+    "background-start-notice-quiet-phone-open.dc.html",
+    "background-start-notice-opened.dc.html",
+    "background-start-notice-opened-phone.dc.html",
+    "background-start-failed.dc.html",
+    "background-start-failed-open.dc.html",
+    "background-start-failed-stay.dc.html",
+    "background-start-failed-phone.dc.html",
+    "background-start-plus-line.dc.html",
+    "background-start-plus-line-phone.dc.html",
+    "background-start-plus-echo.dc.html",
+    "background-start-plus-echo-phone.dc.html",
+    "NewSessionPane.dc.html",
+    "StartedChat.dc.html",
+    "ActionItem.dc.html",
+    "ToastStack.dc.html",
+    "Activity.dc.html",
+    "ActivityButton.dc.html",
+    "Nav.dc.html",
+    "InboxList.dc.html",
+    "Conversation.dc.html",
+    "PhoneInbox.dc.html",
+    "PhoneDrawer.dc.html",
+    "PhoneChat.dc.html",
+    "SessionRow.dc.html",
+    "Quota.dc.html",
+    "CloseChecks.dc.html",
+    "StatusBand.dc.html",
+    "MergeBand.dc.html",
+    "MergeButton.dc.html",
+    "PrButton.dc.html",
+    "TodoCard.dc.html",
+    "CodeBlock.dc.html",
+    "SessionUsage.dc.html",
+    "UpdateBand.dc.html",
+    "ConfirmDialog.dc.html",
+    "PhoneRowMenu.dc.html",
+    "PhoneLaterSheet.dc.html",
+    "PhoneSaveViewSheet.dc.html"
+  ],
+  "notes": {
+    "nowTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 5890,
+      "page": "now",
+      "text": "今 · Start を押すと、別の画面に移っていても新しいセッションに切り替わる"
+    },
+    "nowNote": {
+      "x": 5970,
+      "y": 0,
+      "w": 460,
+      "page": "now",
+      "text": "今の動き\n- Start を押すと Start ボタンが Starting… になり、空いた所に Starting session… Waiting for it to appear in the session list. を出す\n- 待つ間に Inbox やほかのセッションへ移れるが、作成中だと分かる表示はどこにもない\n- セッションの一覧に新しいセッションが現れた時点で、どの画面にいても新しいセッションの会話へ切り替わる (読んでいた会話や入力中の返信から引き離される)\n- サーバーが launchId を返したあとに始められなかったときは、何も起きずに待ち続ける\n- 決まっていること: + の画面に留まっていれば、今どおり新しいセッションへ移る。離れたら移らず、Activity に作成中として出し、始まったら通知し、Activity の行と通知の両方から開ける\n- データはすべて架空"
+    },
+    "whereATitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 3900,
+      "page": "where",
+      "text": "A · Merge と同じく、左下のトーストと Activity の先頭の行に Starting session を出す"
+    },
+    "whereANote": {
+      "x": 3980,
+      "y": 0,
+      "w": 460,
+      "page": "where",
+      "text": "A\n- + の画面を離れると、左下 (iPhone は下端) に Starting session のトーストを出し、始まるまで残す。2 行目は最初のメッセージの 1 行目、3 行目は repo\n- ナビの Activity は実行中として青い回転と 1。開くと先頭に同じ内容の行\n- iPhone は Inbox ではトーストで分かり、詳しくは ☰ → Activity\n+ Merge、Close、! コマンドと同じ見え方で、新しく覚えることがない\n+ 今の AsyncActionFeedback に種類を 1 つ足すだけ\n- 始まるまでトーストが画面の角を占める (数十秒かかると邪魔)"
+    },
+    "whereBTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 2380,
+      "page": "where",
+      "text": "B · トーストは出さず、ナビの Activity のすぐ上に作成中の行を出し続ける"
+    },
+    "whereBNote": {
+      "x": 2460,
+      "y": 1280,
+      "w": 460,
+      "page": "where",
+      "text": "B\n- トーストは出さない。ナビの Activity のすぐ上に、回転アイコン、Starting session、最初のメッセージ、repo の行を、始まるか失敗するまで出し続ける\n- PC はサイドバーを開いていれば常に見える\n- iPhone はナビゲーションが ☰ の奥にあるので、☰ に青い印を付け、開くと同じ行が Activity の上にある\n+ 画面の上に何も重ならず、待つ間の作業を邪魔しない\n+ PC では Activity を開かずに作成中だと分かる\n- 作成中だけ、ほかの操作と違う場所に出る\n- iPhone は ☰ の印に気付かないと作成中だと分からない"
+    },
+    "noticeATitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1910,
+      "page": "notice",
+      "text": "A · トーストが Session started と Open に変わり、5 秒で消える"
+    },
+    "noticeANote": {
+      "x": 1990,
+      "y": 0,
+      "w": 460,
+      "page": "notice",
+      "text": "A\n- 作成中のトーストが Session started に変わり、Open を出す。Merged と同じく 5 秒で消える (下の線が残り時間)\n- Activity の行も Session started と Open に変わり、Clear finished まで残る\n- 作成中の表示が B (ナビの行) のときは、トーストをここで初めて出す\n+ どの画面にいても、始まった瞬間に気付ける\n+ ほかの操作の成功と同じ見え方\n- 5 秒を過ぎたら Activity から開くしかない"
+    },
+    "noticeBTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 3900,
+      "page": "notice",
+      "text": "B · トーストは出さず、Activity に緑の ✓ 1 を付け、行に Open を出す"
+    },
+    "noticeBNote": {
+      "x": 3980,
+      "y": 1280,
+      "w": 460,
+      "page": "notice",
+      "text": "B\n- トーストは出さない。ナビの Activity に緑の ✓ と数を付け (iPhone は ☰ に緑の印)、まだ開いていない新しいセッションの数を示す\n- Activity の行は Session started と Open に変わる。Open を押すか行のメッセージを押すと開き、緑の印は消える\n+ 作業を一切さえぎらない\n+ 開くまで印が残るので見落とさない\n- 印に気付くまで始まったことが分からない (依頼の「通知する」としては弱い)\n- ActivityButton に新しい状態 (緑) が増える"
+    },
+    "noticeOpenTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 2300,
+      "maxW": 1910,
+      "page": "notice",
+      "text": "A と B 共通 · Open を押すと新しいセッションの会話を開く"
+    },
+    "noticeOpenNote": {
+      "x": 1990,
+      "y": 2560,
+      "w": 460,
+      "page": "notice",
+      "text": "共通\n- トーストの Open、Activity の行の Open、行のメッセージのどれからでも、新しいセッションの会話を開く (今の自動の切り替えと同じ画面)\n- 開いたら Activity の行は Session started のまま残る"
+    },
+    "noticeFailTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 3580,
+      "maxW": 4950,
+      "page": "notice",
+      "text": "A と B 共通 · 始められなかったら、トーストと Activity の行に理由と Retry を出す"
+    },
+    "noticeFailNote": {
+      "x": 5030,
+      "y": 3840,
+      "w": 460,
+      "page": "notice",
+      "text": "失敗したとき (A と B 共通)\n- + の画面を離れていれば、Merge の失敗と同じく赤いトーストに Could not start session、最初のメッセージ、理由、Retry と Details を出し、閉じるまで残す。ナビの Activity は赤い 1 (iPhone は ☰ に赤い印)\n- Retry は同じディレクトリ、engine、モデル、worktree、最初のメッセージでもう一度始める\n- Details は Activity を開く。行には理由と Retry\n- + の画面に留まっていれば、今どおり入力を残したまま下に赤い理由を出し、Start を押し直せる"
+    },
+    "plusATitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": -260,
+      "maxW": 1910,
+      "page": "plus",
+      "text": "A · Start の後、空いた所に Starting session… と「この画面を離れてよい」の 1 行を出す"
+    },
+    "plusANote": {
+      "x": 1990,
+      "y": 0,
+      "w": 460,
+      "page": "plus",
+      "text": "A\n- 今の Waiting for it to appear in the session list. の代わりに、回転アイコンと Starting session…、その下に You can leave this page. It shows in Activity, and we’ll let you know when it starts. を出す\n- 入力欄は今どおりメッセージを残して薄くし、触れないようにする\n+ 今の画面からの変更が文言だけ\n+ 離れても失われないことが分かる\n- 送ったメッセージが入力欄に残り、まだ送れていないように見える"
+    },
+    "plusBTitle": {
+      "kind": "title1",
+      "x": 0,
+      "y": 1020,
+      "maxW": 1910,
+      "page": "plus",
+      "text": "B · 送ったメッセージを会話の形で出し、その下に Starting Claude Code in … を出す"
+    },
+    "plusBNote": {
+      "x": 1990,
+      "y": 1280,
+      "w": 460,
+      "page": "plus",
+      "text": "B\n- 最初のメッセージを会話の自分の発言として出し、その下に Starting Claude Code in example/notification-service… と You can leave this page. We’ll let you know when it starts.\n- 入力欄は空にし、Reply once the session starts とだけ出す\n+ 始まったあとの会話と同じ形なので、切り替わったときに画面が飛ばない\n+ 何を送ったかと、どこで始めているかが読める\n- 今の画面からの変更が A より大きい\n- 最初のメッセージがないときは、自分の発言がなく 1 行だけになる"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-24T12:00:00Z"
+    }
+  ]
+}

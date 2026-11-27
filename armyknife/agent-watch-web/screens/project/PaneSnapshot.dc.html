@@ -23,14 +23,25 @@ body{margin:0}
 <pre tabindex="0" aria-label="Pane text" style="margin: 0; height: {{bodyH}}; box-sizing: border-box; padding: 10px 12px; overflow: auto; white-space: pre; color: #d4d4d8; font-family: 'JetBrains Mono', monospace; font-size: {{monoSize}}; line-height: 1.45">{{text}}</pre>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"repo":{"editor":"text","default":"example/service"},"content":{"editor":"enum","options":["trust","update","error"],"default":"trust"},"bodyH":{"editor":null},"$preview":{"width":672,"height":380}}'>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"repo":{"editor":"text","default":"example/service"},"engine":{"editor":"enum","options":["claude","codex"],"default":"claude"},"content":{"editor":"enum","options":["trust","update","error"],"default":"trust"},"bodyH":{"editor":null},"$preview":{"width":672,"height":380}}'>
 class Component extends DCLogic {
   renderVals() {
     const phone = (this.props.form ?? 'pc') === 'phone';
     const repo = this.props.repo ?? 'example/service';
     // The text is tmux capture-pane output as is: no colors, long lines scroll sideways instead of wrapping.
     const texts = {
-      trust: [
+      trust: (this.props.engine ?? 'claude') === 'codex' ? [
+        '',
+        ' You are in ~/src/' + repo,
+        '',
+        ' Do you trust the contents of this directory? Working with',
+        ' untrusted contents comes with higher risk of prompt injection.',
+        '',
+        ' > 1. Yes, continue',
+        '   2. No, quit',
+        '',
+        ' Press enter to continue'
+      ] : [
         '',
         ' Do you trust the files in this folder?',
         '',

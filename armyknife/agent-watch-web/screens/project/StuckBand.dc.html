@@ -25,14 +25,14 @@ body{margin:0}
 <button type="button" style="flex: none; height: 32px; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12.5px">Retry</button>
 <button type="button" style="flex: none; height: 32px; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #f87171; font-family: inherit; font-size: 12.5px">Close session</button>
 </div>
-<sc-if value="{{open}}" hint-placeholder-val="{{ false }}"><div style="min-width: 0; overflow: hidden; contain: inline-size"><dc-import name="PaneSnapshot" form="pc" repo="{{repo}}" body-h="{{ '260px' }}" hint-size="100%,296px"></dc-import></div></sc-if>
+<sc-if value="{{open}}" hint-placeholder-val="{{ false }}"><div style="min-width: 0; overflow: hidden; contain: inline-size"><dc-import name="PaneSnapshot" form="pc" repo="{{repo}}" engine="{{engine}}" body-h="{{ '260px' }}" hint-size="100%,296px"></dc-import></div></sc-if>
 </div>
 </sc-if>
 
 <sc-if value="{{isPhone}}" hint-placeholder-val="{{ false }}">
 <div role="status" style="display: flex; flex-direction: column; gap: 10px; padding: 12px 12px 6px; border-top: 1px solid #a16207; background: #141414">
 <div style="display: flex; align-items: flex-start; gap: 8px"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: #f59e0b"></span><span style="display: flex; flex-direction: column"><span style="font-weight: 700">Session hasn't started</span><span style="color: #a1a1aa; font-size: 13px">Resumed at 14:40 · no reply after 20 s</span></span></div>
-<sc-if value="{{open}}" hint-placeholder-val="{{ false }}"><div style="min-width: 0; overflow: hidden; contain: inline-size"><dc-import name="PaneSnapshot" form="phone" repo="{{repo}}" body-h="{{ '230px' }}" hint-size="100%,276px"></dc-import></div></sc-if>
+<sc-if value="{{open}}" hint-placeholder-val="{{ false }}"><div style="min-width: 0; overflow: hidden; contain: inline-size"><dc-import name="PaneSnapshot" form="phone" repo="{{repo}}" engine="{{engine}}" body-h="{{ '230px' }}" hint-size="100%,276px"></dc-import></div></sc-if>
 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px">
 <button type="button" aria-expanded="{{expanded}}" style="min-height: 44px; border: 1px solid #fafafa; background: {{paneBg}}; color: {{paneFg}}; font-family: inherit; font-size: 13px; font-weight: 700">{{paneLabel}}</button>
 <button type="button" style="min-height: 44px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 13px">Retry</button>
@@ -43,7 +43,7 @@ body{margin:0}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"pane":{"editor":"enum","options":["show","hide"],"default":"show"},"repo":{"editor":"text","default":"example/service"},"$preview":{"width":760,"height":90}}'>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"pane":{"editor":"enum","options":["show","hide"],"default":"show"},"repo":{"editor":"text","default":"example/service"},"engine":{"editor":"enum","options":["claude","codex"],"default":"claude"},"$preview":{"width":760,"height":90}}'>
 class Component extends DCLogic {
   renderVals() {
     const phone = (this.props.form ?? 'pc') === 'phone';
@@ -58,7 +58,8 @@ class Component extends DCLogic {
       // The open toggle reads as pressed, so it drops the fill.
       paneBg: open ? 'transparent' : '#fafafa',
       paneFg: open ? '#fafafa' : '#0a0a0a',
-      repo: this.props.repo ?? 'example/service'
+      repo: this.props.repo ?? 'example/service',
+      engine: this.props.engine ?? 'claude'
     };
   }
 }

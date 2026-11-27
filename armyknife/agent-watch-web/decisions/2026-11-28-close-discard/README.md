@@ -1,6 +1,6 @@
 # Close が止まったときに変更を捨てて worktree を消す
 
-Close は、コミットしていない変更か merge していないブランチがあると、何も消さずに止まる。選べるのは Close and keep worktree、Retry、Details (Activity では Open in terminal) だけで、変更を捨てて worktree ごと消すにはターミナルで消すしかなかった。赤い Discard changes and close… を足し、押すと消す前の確認を出す。
+Close は、コミットしていない変更か merge していないブランチがあると、何も消さずに止まる。選べるのは Close and keep worktree、Retry、Details (Activity では Open in terminal) だけで、変更を捨てて worktree ごと消す手段は web になく、ターミナルで消す必要があった。赤い Discard changes and close… を足し、押すと消す前の確認を出す。
 
 ## 案
 

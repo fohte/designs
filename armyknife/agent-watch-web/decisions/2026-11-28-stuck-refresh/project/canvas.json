@@ -1,0 +1,393 @@
+{
+  "v": 3,
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-27T15:43:18Z"
+  },
+  "title": "pane の画面の更新 (ポーリングをやめる)",
+  "launch": {
+    "view": "canvas",
+    "page": "refresh"
+  },
+  "pages": [
+    {
+      "id": "refresh",
+      "name": "画面の更新"
+    },
+    {
+      "id": "parts",
+      "name": "部品"
+    }
+  ],
+  "boards": {
+    "stuck-refresh-current.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 1440,
+      "h": 900,
+      "title": "PC · 今 (Live · every 2 s)",
+      "page": "refresh"
+    },
+    "now-phone.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 今 (Live)",
+      "page": "refresh"
+    },
+    "a-pc.dc.html": {
+      "x": 0,
+      "y": 1320,
+      "w": 1440,
+      "h": 900,
+      "title": "PC · Updated 14:40:22 と Refresh",
+      "page": "refresh"
+    },
+    "a-phone.dc.html": {
+      "x": 1520,
+      "y": 1320,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 14:40:22 と Refresh",
+      "page": "refresh"
+    },
+    "a-pc-busy.dc.html": {
+      "x": 1990,
+      "y": 1320,
+      "w": 1440,
+      "h": 900,
+      "title": "PC · Refresh を押した直後 (Refreshing…、時刻と画面は前のまま)",
+      "page": "refresh"
+    },
+    "a-phone-busy.dc.html": {
+      "x": 3510,
+      "y": 1320,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Refresh を押した直後",
+      "page": "refresh"
+    },
+    "a-pc-after.dc.html": {
+      "x": 3980,
+      "y": 1320,
+      "w": 1440,
+      "h": 900,
+      "title": "PC · 撮り直した後 (次の確認画面と新しい時刻)",
+      "page": "refresh"
+    },
+    "b-pc.dc.html": {
+      "x": 0,
+      "y": 2640,
+      "w": 1440,
+      "h": 900,
+      "title": "PC · Refresh だけ",
+      "page": "refresh"
+    },
+    "b-phone.dc.html": {
+      "x": 1520,
+      "y": 2640,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Refresh だけ",
+      "page": "refresh"
+    },
+    "c-pc.dc.html": {
+      "x": 0,
+      "y": 3960,
+      "w": 1440,
+      "h": 900,
+      "title": "PC · Updates when the session changes と Refresh",
+      "page": "refresh"
+    },
+    "c-phone.dc.html": {
+      "x": 1520,
+      "y": 3960,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Updates on change と Refresh",
+      "page": "refresh"
+    },
+    "PaneSnapshot.dc.html": {
+      "x": 0,
+      "y": 0,
+      "w": 672,
+      "h": 380,
+      "title": "PaneSnapshot",
+      "page": "parts"
+    },
+    "StuckBand.dc.html": {
+      "x": 752,
+      "y": 0,
+      "w": 760,
+      "h": 90,
+      "title": "StuckBand",
+      "page": "parts"
+    },
+    "ActionItem.dc.html": {
+      "x": 1592,
+      "y": 0,
+      "w": 360,
+      "h": 110,
+      "title": "ActionItem",
+      "page": "parts"
+    },
+    "ActivityButton.dc.html": {
+      "x": 2032,
+      "y": 0,
+      "w": 224,
+      "h": 44,
+      "title": "ActivityButton",
+      "page": "parts"
+    },
+    "CloseChecks.dc.html": {
+      "x": 2336,
+      "y": 0,
+      "w": 408,
+      "h": 170,
+      "title": "CloseChecks",
+      "page": "parts"
+    },
+    "CodeBlock.dc.html": {
+      "x": 2824,
+      "y": 0,
+      "w": 672,
+      "h": 160,
+      "title": "CodeBlock",
+      "page": "parts"
+    },
+    "ConfirmDialog.dc.html": {
+      "x": 3576,
+      "y": 0,
+      "w": 380,
+      "h": 200,
+      "title": "ConfirmDialog",
+      "page": "parts"
+    },
+    "Conversation.dc.html": {
+      "x": 0,
+      "y": 500,
+      "w": 880,
+      "h": 900,
+      "title": "Conversation",
+      "page": "parts"
+    },
+    "DetailsPlace.dc.html": {
+      "x": 960,
+      "y": 500,
+      "w": 672,
+      "h": 420,
+      "title": "DetailsPlace",
+      "page": "parts"
+    },
+    "InboxList.dc.html": {
+      "x": 1712,
+      "y": 500,
+      "w": 460,
+      "h": 900,
+      "title": "InboxList",
+      "page": "parts"
+    },
+    "MdDetails.dc.html": {
+      "x": 2252,
+      "y": 500,
+      "w": 672,
+      "h": 200,
+      "title": "MdDetails",
+      "page": "parts"
+    },
+    "MergeBand.dc.html": {
+      "x": 3004,
+      "y": 500,
+      "w": 760,
+      "h": 60,
+      "title": "MergeBand",
+      "page": "parts"
+    },
+    "MergeButton.dc.html": {
+      "x": 0,
+      "y": 1520,
+      "w": 160,
+      "h": 44,
+      "title": "MergeButton",
+      "page": "parts"
+    },
+    "Nav.dc.html": {
+      "x": 240,
+      "y": 1520,
+      "w": 240,
+      "h": 900,
+      "title": "Nav",
+      "page": "parts"
+    },
+    "PhoneChat.dc.html": {
+      "x": 560,
+      "y": 1520,
+      "w": 390,
+      "h": 844,
+      "title": "PhoneChat",
+      "page": "parts"
+    },
+    "PrButton.dc.html": {
+      "x": 1030,
+      "y": 1520,
+      "w": 44,
+      "h": 44,
+      "title": "PrButton",
+      "page": "parts"
+    },
+    "Quota.dc.html": {
+      "x": 1154,
+      "y": 1520,
+      "w": 240,
+      "h": 140,
+      "title": "Quota",
+      "page": "parts"
+    },
+    "SessionRow.dc.html": {
+      "x": 1474,
+      "y": 1520,
+      "w": 460,
+      "h": 76,
+      "title": "SessionRow",
+      "page": "parts"
+    },
+    "SessionUsage.dc.html": {
+      "x": 2014,
+      "y": 1520,
+      "w": 672,
+      "h": 40,
+      "title": "SessionUsage",
+      "page": "parts"
+    },
+    "SortControl.dc.html": {
+      "x": 2766,
+      "y": 1520,
+      "w": 240,
+      "h": 44,
+      "title": "SortControl",
+      "page": "parts"
+    },
+    "SortMenu.dc.html": {
+      "x": 3086,
+      "y": 1520,
+      "w": 390,
+      "h": 300,
+      "title": "SortMenu",
+      "page": "parts"
+    },
+    "StatusBand.dc.html": {
+      "x": 0,
+      "y": 2540,
+      "w": 760,
+      "h": 60,
+      "title": "StatusBand",
+      "page": "parts"
+    },
+    "ToastStack.dc.html": {
+      "x": 840,
+      "y": 2540,
+      "w": 360,
+      "h": 240,
+      "title": "ToastStack",
+      "page": "parts"
+    },
+    "TodoCard.dc.html": {
+      "x": 1280,
+      "y": 2540,
+      "w": 672,
+      "h": 40,
+      "title": "TodoCard",
+      "page": "parts"
+    },
+    "UpdateBand.dc.html": {
+      "x": 2032,
+      "y": 2540,
+      "w": 760,
+      "h": 40,
+      "title": "UpdateBand",
+      "page": "parts"
+    }
+  },
+  "order": [
+    "stuck-refresh-current.dc.html",
+    "now-phone.dc.html",
+    "a-pc.dc.html",
+    "a-phone.dc.html",
+    "a-pc-busy.dc.html",
+    "a-phone-busy.dc.html",
+    "a-pc-after.dc.html",
+    "b-pc.dc.html",
+    "b-phone.dc.html",
+    "c-pc.dc.html",
+    "c-phone.dc.html",
+    "PaneSnapshot.dc.html",
+    "StuckBand.dc.html",
+    "ActionItem.dc.html",
+    "ActivityButton.dc.html",
+    "CloseChecks.dc.html",
+    "CodeBlock.dc.html",
+    "ConfirmDialog.dc.html",
+    "Conversation.dc.html",
+    "DetailsPlace.dc.html",
+    "InboxList.dc.html",
+    "MdDetails.dc.html",
+    "MergeBand.dc.html",
+    "MergeButton.dc.html",
+    "Nav.dc.html",
+    "PhoneChat.dc.html",
+    "PrButton.dc.html",
+    "Quota.dc.html",
+    "SessionRow.dc.html",
+    "SessionUsage.dc.html",
+    "SortControl.dc.html",
+    "SortMenu.dc.html",
+    "StatusBand.dc.html",
+    "ToastStack.dc.html",
+    "TodoCard.dc.html",
+    "UpdateBand.dc.html"
+  ],
+  "notes": {
+    "rowNow": {
+      "x": 0,
+      "y": -300,
+      "text": "今 · 開いている間 2 秒ごとに撮り直し、Live · every 2 s を出す",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "refresh"
+    },
+    "rowA": {
+      "x": 0,
+      "y": 1020,
+      "text": "A · 見出しの右に撮った時刻と Refresh",
+      "kind": "title1",
+      "maxW": 5420,
+      "page": "refresh"
+    },
+    "rowB": {
+      "x": 0,
+      "y": 2340,
+      "text": "B · 見出しの右は Refresh だけ",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "refresh"
+    },
+    "rowC": {
+      "x": 0,
+      "y": 3660,
+      "text": "C · 状態が変わると撮り直すと書き、Refresh を添える",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "refresh"
+    }
+  },
+  "designSystems": [
+    {
+      "title": "agent watch",
+      "namespace": "agentwatch",
+      "artifact": "armyknife/agent-watch-web/design-system",
+      "version": null,
+      "copiedAt": "2026-11-27T15:43:18Z"
+    }
+  ]
+}

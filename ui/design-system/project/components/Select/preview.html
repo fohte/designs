@@ -1,0 +1,52 @@
+<!-- @dsCard group="Forms" height=400 subtitle="static rendition" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Select</title>
+</head>
+<body>
+<div class="fui-row" style="align-items:flex-start;gap:16px">
+  <div class="fui-cell"><span class="fui-note">placeholder</span>
+    <button class="fui-field-trigger-base fui-select-trigger fui-select-trigger--default" type="button" data-placeholder><span class="fui-select-value">Choose a fruit</span><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+  </div>
+  <div class="fui-cell"><span class="fui-note">value</span>
+    <button class="fui-field-trigger-base fui-select-trigger fui-select-trigger--default" type="button"><span class="fui-select-value">Pear</span><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+  </div>
+  <div class="fui-cell"><span class="fui-note">size sm</span>
+    <button class="fui-field-trigger-base fui-select-trigger fui-select-trigger--default fui-select-trigger--sm" type="button" data-placeholder><span class="fui-select-value">Choose a fruit</span><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+  </div>
+  <div class="fui-cell"><span class="fui-note">focus</span>
+    <button class="fui-field-trigger-base fui-select-trigger fui-select-trigger--default is-focus" type="button" data-placeholder><span class="fui-select-value">Choose a fruit</span><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+  </div>
+  <div class="fui-cell"><span class="fui-note">invalid</span>
+    <button class="fui-field-trigger-base fui-select-trigger fui-select-trigger--default" type="button" aria-invalid="true" data-placeholder><span class="fui-select-value">Choose a fruit</span><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+  </div>
+</div>
+<div class="fui-row" style="align-items:flex-start;gap:20px">
+  <div class="fui-cell"><span class="fui-note">ghost</span>
+    <div style="padding:0 4px"><button class="fui-field-trigger-base fui-ghost-field fui-select-trigger fui-select-trigger--ghost" type="button" data-placeholder><span class="fui-select-value">Choose a fruit</span><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+  <div class="fui-cell"><span class="fui-note">ghost · hover</span>
+    <div style="padding:0 4px"><button class="fui-field-trigger-base fui-ghost-field fui-select-trigger fui-select-trigger--ghost is-hover" type="button" data-placeholder><span class="fui-select-value">Choose a fruit</span><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+  <div class="fui-cell"><span class="fui-note">ghost · invalid, focus</span>
+    <div style="padding:0 4px"><button class="fui-field-trigger-base fui-ghost-field fui-select-trigger fui-select-trigger--ghost is-focus" type="button" aria-invalid="true" data-placeholder><span class="fui-select-value">Choose a fruit</span><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+  </div>
+  <div class="fui-cell"><span class="fui-note">ghost · open, with menu</span>
+    <div style="padding:0 4px"><button class="fui-field-trigger-base fui-ghost-field fui-select-trigger fui-select-trigger--ghost" type="button" data-popup-open><span class="fui-select-value">Pear</span><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+    <div class="fui-select-content" role="listbox" style="margin-top:4px">
+      <div class="fui-select-group" role="group">
+        <div class="fui-select-label">Fruit</div>
+        <div class="fui-select-item" role="option" aria-selected="false">Apple</div>
+        <div class="fui-select-item" role="option" aria-selected="true">Pear<span class="fui-select-item-indicator"><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span></div>
+        <div class="fui-select-item is-focus" role="option" aria-selected="false">Plum</div>
+        <div class="fui-select-item" role="option" aria-selected="false" aria-disabled="true" data-disabled>Quince</div>
+        <div class="fui-select-separator" role="separator"></div>
+        <div class="fui-select-item" role="option" aria-selected="false">Rye bread</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

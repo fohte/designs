@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Close checks</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<ul style="width: 100%; box-sizing: border-box; margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; border: 1px solid #2a2a2a; background: {{bg}}; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{fs}}; line-height: 1.5">
+<sc-for list="{{checks}}" as="c" hint-placeholder-count="3">
+<li style="display: grid; grid-template-columns: {{iconCol}} 1fr auto; column-gap: {{gap}}; align-items: start; padding: {{pad}}; border-top: {{c.border}}">
+<span style="padding-top: {{iconTop}}; color: {{c.color}}"><sc-if value="{{c.left}}" hint-placeholder-val="{{ true }}"><svg width="{{icon}}" height="{{icon}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><line x1="12" x2="12" y1="8" y2="12"></line><line x1="12" x2="12.01" y1="16" y2="16"></line></svg></sc-if><sc-if value="{{c.clear}}" hint-placeholder-val="{{ false }}"><svg width="{{icon}}" height="{{icon}}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></sc-if></span>
+<span style="min-width: 0; display: flex; flex-direction: column; gap: 2px"><span style="color: {{c.textColor}}; font-weight: {{c.weight}}">{{c.label}}</span><sc-if value="{{c.hasDetail}}" hint-placeholder-val="{{ true }}"><code style="overflow-wrap: anywhere; color: #a1a1aa; font-family: 'JetBrains Mono', monospace; font-size: {{codeFs}}">{{c.detail}}</code></sc-if></span>
+<span style="color: {{c.color}}; font-size: {{stateFs}}; white-space: nowrap">{{c.state}}</span>
+</li>
+</sc-for>
+</ul>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"items":{"editor":null},"phone":{"editor":"boolean","default":false},"$preview":{"width":408,"height":170}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const items = this.props.items ?? [
+      { label: 'Uncommitted changes', detail: 'src/app.ts · src/app.test.ts', state: '2 files' },
+      { label: 'Branch feature/example', detail: 'PR #1234 is still open', state: 'Not merged' },
+      { label: 'Running processes', detail: '', state: 'None' }
+    ];
+    const phone = this.props.phone ?? false;
+    return {
+      // c.ok: the check passed (state None, or a merged branch).
+      checks: items.map((c, i) => {
+        const ok = c.ok ?? c.state === 'None';
+        return {
+          ...c,
+          left: !ok, clear: ok,
+          color: ok ? '#8b8b94' : '#f87171',
+          textColor: ok ? '#a1a1aa' : '#fafafa',
+          weight: ok ? 400 : 700,
+          hasDetail: !!c.detail,
+          border: i === 0 ? '0' : '1px solid #2a2a2a'
+        };
+      }),
+      // The list sits on the #1f1f1f of the Activity panel, so it gets its own darker background.
+      bg: '#141414',
+      fs: phone ? '13.5px' : '12px', codeFs: phone ? '11.5px' : '10.5px', stateFs: phone ? '12.5px' : '11.5px',
+      icon: phone ? 14 : 12, iconCol: phone ? '16px' : '14px', iconTop: phone ? '3px' : '2px',
+      gap: phone ? '10px' : '8px', pad: phone ? '10px 12px' : '8px 10px'
+    };
+  }
+}
+</script>
+</body>
+</html>

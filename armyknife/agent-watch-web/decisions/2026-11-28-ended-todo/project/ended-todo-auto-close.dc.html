@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Auto withdraw: Close confirmation adds nothing; only the Proposal sentence changes</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 1440px; height: 420px; box-sizing: border-box; display: grid; grid-template-columns: repeat(3, 380px); grid-auto-rows: min-content; justify-content: center; align-content: center; gap: 40px 56px; padding: 48px; background: #050505; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 13px; line-height: 1.55">
+<sc-for list="{{kinds}}" as="k" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 12px; color: #a1a1aa">{{k.label}}</span>
+<dc-import name="ConfirmDialog" form="modal" head="{{k.head}}" body="{{k.body}}" action="Close session" session="{{ k.session }}" hint-size="100%,200px"></dc-import>
+</div>
+</sc-for>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":420}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = (state, title) => ({ state, dot: '#fbbf24', round: false, color: '#fbbf24', title });
+    return {
+      kinds: [
+        { label: 'Proposal · today', session: s('Proposal', 'アラートの送り先を決める'), head: 'Close without choosing?', body: 'It is waiting for you to choose a proposal. Closing ends the session, and the proposal stays unchosen.' },
+        { label: 'Proposal · auto withdraw', session: s('Proposal', 'アラートの送り先を決める'), head: 'Close without choosing?', body: 'It is waiting for you to choose a proposal. Closing ends the session.' },
+        { label: 'Question · 1 to-do pending · auto withdraw (same as today)', session: s('Question', '通知の再送処理を見直す'), head: 'Close without answering?', body: 'It is waiting for your answer to a question. Closing ends the session, and the question stays unanswered.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

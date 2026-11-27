@@ -1,0 +1,47 @@
+<!-- @dsCard group="Overlays" height=460 width=900 subtitle="static rendition" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dialog</title>
+<style>
+  .page { position: absolute; inset: 0; padding: 16px; display: grid; gap: 8px; align-content: start; }
+  .page span { display: block; height: 10px; background: var(--border-strong); }
+</style>
+</head>
+<body>
+<div class="fui-row" style="align-items:stretch;gap:16px">
+  <div class="fui-cell" style="flex:1 1 420px"><span class="fui-note">DialogContent: header, footer, close button, over DialogOverlay</span>
+    <div class="fui-dialog-stage" style="width:100%;min-height:320px">
+      <div class="page" aria-hidden="true"><span style="width:60%"></span><span style="width:85%"></span><span style="width:40%"></span><span style="width:70%"></span><span style="width:55%"></span></div>
+      <div class="fui-dialog-overlay"></div>
+      <div class="fui-dialog" role="dialog" aria-modal="true" aria-labelledby="t1">
+        <div class="fui-dialog-header">
+          <h2 class="fui-dialog-title" id="t1">Discard changes?</h2>
+          <p class="fui-dialog-description">Your edits to “Spring planting” will be lost. <a href="#keep">Keep a copy</a> first if you need it.</p>
+        </div>
+        <div class="fui-dialog-footer">
+          <button class="fui-button fui-button--outline" type="button">Cancel</button>
+          <button class="fui-button fui-button--default" type="button">Discard</button>
+        </div>
+        <button class="fui-button fui-button--ghost fui-button--icon-sm fui-dialog-close" type="button"><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg><span class="fui-sr-only">Close</span></button>
+      </div>
+    </div>
+  </div>
+  <div class="fui-cell" style="flex:1 1 360px"><span class="fui-note">DialogHeaderBar (for full-bleed layouts; consumer sets padding)</span>
+    <div class="fui-dialog" role="dialog" aria-modal="true" aria-labelledby="t2" style="padding:0;gap:0;max-width:none">
+      <div class="fui-dialog-header-bar">
+        <h2 class="fui-dialog-title" id="t2">Edit note</h2>
+        <button class="fui-button fui-button--ghost fui-button--icon-xs" type="button" aria-label="Close"><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      </div>
+      <div style="padding:16px 24px;color:var(--muted-foreground)">Body content sits below the 56px bar.</div>
+    </div>
+    <span class="fui-note" style="margin-top:8px">DialogFooter showCloseButton adds an outline “Close”</span>
+    <div class="fui-dialog" style="max-width:none">
+      <p class="fui-dialog-description">Saved to your drafts.</p>
+      <div class="fui-dialog-footer"><button class="fui-button fui-button--outline" type="button">Close</button></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

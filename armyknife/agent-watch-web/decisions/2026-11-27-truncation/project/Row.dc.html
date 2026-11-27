@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Session row with one shrinking rule</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&amp;family=Noto+Sans+JP:wght@400;700&amp;display=swap">
+<style>
+body{margin:0}
+</style>
+</helmet>
+<div style="width: 100%; box-sizing: border-box; display: flex; gap: {{D.gap}}; padding: {{pad}}; background: {{bg}}; border-bottom: {{D.border}}; box-shadow: {{bar}}; color: #fafafa; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: {{D.title}}; line-height: 1.5; text-align: left">
+<sc-if value="{{isTree}}" hint-placeholder-val="{{ false }}"><span style="width: 10px; flex: none; color: #71717a; font-size: 10px; margin-top: 4px">{{caret}}</span></sc-if>
+<span style="display: inline-flex; flex: none; width: {{D.icon}}; justify-content: center; margin-top: {{D.top}}">
+<sc-if value="{{isQuestion}}" hint-placeholder-val="{{ true }}"><span role="img" aria-label="Question" title="Question" style="display: inline-flex; color: #fbbf24"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: {{D.icon}}; height: {{D.icon}}"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"></path><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg></span></sc-if>
+<sc-if value="{{isReview}}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="Review" title="Review" style="display: inline-flex; color: #fbbf24"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: {{D.icon}}; height: {{D.icon}}"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"></path><circle cx="12" cy="12" r="3"></circle></svg></span></sc-if>
+<sc-if value="{{isWorking}}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="Working" title="Working" style="display: inline-grid; place-items: center; width: {{D.icon}}; height: {{D.icon}}"><span style="width: 7px; height: 7px; border-radius: 50%; background: #60a5fa"></span></span></sc-if>
+<sc-if value="{{isDone}}" hint-placeholder-val="{{ false }}"><span role="img" aria-label="Done" title="Done" style="display: inline-grid; place-items: center; width: {{D.icon}}; height: {{D.icon}}; color: #71717a; font-size: 11px">✓</span></sc-if>
+</span>
+<span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px">
+<span style="display: flex; align-items: center; gap: 8px"><span title="{{titleTip}}" style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: {{D.title}}; color: {{titleColor}}; font-weight: {{titleWeight}}">{{s.title}}</span><span style="margin-left: auto"></span><span style="flex: none; font-family: 'JetBrains Mono', monospace; font-size: {{D.meta}}; color: #8b8b94">{{s.age}}</span></span>
+<sc-if value="{{hasPreview}}" hint-placeholder-val="{{ false }}"><span style="min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: {{D.preview}}; color: #a1a1aa">{{s.preview}}</span></sc-if>
+
+<sc-if value="{{repoLineFirst}}" hint-placeholder-val="{{ false }}">
+<span style="{{repoLineStyle}}">
+<span title="{{s.repo}}" style="{{repoBox}}"><span style="{{r1Style}}">{{r1}}</span><span style="{{r2Style}}">/</span><span style="{{r3Style}}">{{r3}}</span></span>
+<sc-if value="{{showBranch}}" hint-placeholder-val="{{ false }}"><span title="{{s.branch}}" style="{{branchStyle}}"><span style="flex: none">{{branchSep}}</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">{{s.branch}}</span></span></sc-if>
+</span>
+</sc-if>
+
+<span style="{{metaStyle}}">
+<span style="display: inline-flex; flex: none; align-items: center; gap: 6px; order: -2">
+<span role="img" aria-label="{{roleLabel}}" title="{{roleLabel}}" style="display: inline-flex; color: #8b8b94">
+<sc-if value="{{isDevelopment}}" hint-placeholder-val="{{ true }}"><svg width="12.5" height="12.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: {{D.role}}; height: {{D.role}}"><path d="m16 18 6-6-6-6"></path><path d="m8 6-6 6 6 6"></path></svg></sc-if>
+<sc-if value="{{isResearch}}" hint-placeholder-val="{{ false }}"><svg width="12.5" height="12.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: {{D.role}}; height: {{D.role}}"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.34-4.34"></path></svg></sc-if>
+<sc-if value="{{isDebugFlow}}" hint-placeholder-val="{{ false }}"><svg width="12.5" height="12.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: {{D.role}}; height: {{D.role}}"><path d="M12 20c-3.3 0-6-2.7-6-6v-3a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v3c0 3.3-2.7 6-6 6"></path><path d="M12 20v-9"></path><path d="M6 13H2"></path><path d="M22 13h-4"></path><path d="M9 7.13v-1a3 3 0 1 1 6 0v1"></path></svg></sc-if>
+<sc-if value="{{isPm}}" hint-placeholder-val="{{ false }}"><svg width="12.5" height="12.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: {{D.role}}; height: {{D.role}}"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></sc-if>
+<sc-if value="{{isNoRole}}" hint-placeholder-val="{{ false }}"><svg width="12.5" height="12.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: {{D.role}}; height: {{D.role}}"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></sc-if>
+</span>
+<sc-if value="{{showEngine}}" hint-placeholder-val="{{ true }}"><span style="font-family: 'JetBrains Mono', monospace">{{s.engine}}</span><span>·</span></sc-if>
+</span>
+<span title="{{taskTip}}" style="{{taskStyle}}"><sc-if value="{{taskDot}}" hint-placeholder-val="{{ false }}"><span style="flex: none">·</span></sc-if><sc-if value="{{hasTask}}" hint-placeholder-val="{{ true }}"><span style="flex: none; font-family: 'JetBrains Mono', monospace; color: #a1a1aa">{{s.taskRef}}</span><sc-if value="{{showTaskName}}" hint-placeholder-val="{{ true }}"><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">{{s.taskTitle}}</span></sc-if></sc-if><sc-if value="{{noTask}}" hint-placeholder-val="{{ false }}"><span>— No task</span></sc-if></span>
+<sc-if value="{{repoInline}}" hint-placeholder-val="{{ true }}"><span style="{{repoInlineStyle}}"><sc-if value="{{inlineDot}}" hint-placeholder-val="{{ true }}"><span style="flex: none">·</span></sc-if><span title="{{s.repo}}" style="{{repoBox}}"><span style="{{r1Style}}">{{r1}}</span><span style="{{r2Style}}">/</span><span style="{{r3Style}}">{{r3}}</span></span></span></sc-if>
+</span>
+
+<sc-if value="{{repoLineAfter}}" hint-placeholder-val="{{ true }}">
+<span style="{{repoLineStyle}}">
+<span title="{{s.repo}}" style="{{repoBox}}"><span style="{{r1Style}}">{{r1}}</span><span style="{{r2Style}}">/</span><span style="{{r3Style}}">{{r3}}</span></span>
+<sc-if value="{{showBranch}}" hint-placeholder-val="{{ true }}"><span title="{{s.branch}}" style="{{branchStyle}}"><span style="flex: none">{{branchSep}}</span><span style="min-width: 0; overflow: hidden; text-overflow: ellipsis">{{s.branch}}</span></span></sc-if>
+</span>
+</sc-if>
+</span>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"s":{"editor":null},"density":{"editor":"enum","options":["full","phone","compact","compact-phone"],"default":"compact"},"opt":{"editor":"enum","options":["now","a","b","c"],"default":"now"},"cut":{"editor":"enum","options":["now","repo","drop","middle"],"default":"now"},"order":{"editor":"enum","options":["task","repo"],"default":"task"},"tree":{"editor":"boolean","default":false},"$preview":{"width":240,"height":69}}'>
+class Component extends DCLogic {
+  renderVals() {
+    // opt: now = the app today. a = secondary texts shrink first. b = secondary texts drop whole. c = secondary texts wrap to the next line.
+    // cut: how a repo name shrinks. order: task = task before repo, repo = repo first as in the conversation header.
+    const density = this.props.density ?? 'compact';
+    const opt = this.props.opt ?? 'now';
+    const cut = this.props.cut ?? (opt === 'now' ? 'now' : 'repo');
+    const order = this.props.order ?? 'task';
+    const tree = !!this.props.tree;
+    const s = this.props.s ?? { status: 'Working', title: '配信ログの保存期間を設定ファイルから変えられるようにする', age: '5m', role: 'development', engine: 'codex', taskRef: 'P2 #2051', taskTitle: '監視とログの扱いを整える', repo: 'example/notification-service', branch: 'log-retention-config' };
+    const drop = s.drop ?? [];
+    const compact = density === 'compact' || density === 'compact-phone';
+    const phone = density === 'phone' || density === 'compact-phone';
+    const D = {
+      full: { pad: '8px 18px 9px 14px', gap: '8px', border: '1px solid #1a1a1a', icon: '14px', top: '2px', title: '13.5px', meta: '11.5px', preview: '12.5px', role: '12.5px' },
+      phone: { pad: '10px 16px', gap: '8px', border: '1px solid #1a1a1a', icon: '16px', top: '3px', title: '15px', meta: '12.5px', preview: '13.5px', role: '13.5px' },
+      compact: { pad: '6px 12px 7px', gap: '10px', border: '0', icon: '14px', top: '2px', title: '13px', meta: '11.5px', preview: '12.5px', role: '12.5px' },
+      'compact-phone': { pad: '10px 16px', gap: '8px', border: '0', icon: '16px', top: '3px', title: '15px', meta: '12.5px', preview: '13.5px', role: '13.5px' }
+    }[density];
+    const Dt = tree && density === 'compact' ? { ...D, gap: '6px', title: '12.5px', meta: '10.5px' } : D;
+    const indent = s.indent ?? 0;
+    const pad = tree ? (density === 'compact' ? `5px 12px 5px ${indent + 12}px` : `10px 16px 10px ${indent + 16}px`) : D.pad;
+
+    // Repo name in three spans: r1 / r3. Which part gives way first depends on cut.
+    const repo = s.repo ?? '';
+    const i = repo.indexOf('/');
+    const org = i < 0 ? '' : repo.slice(0, i);
+    const name = i < 0 ? repo : repo.slice(i + 1);
+    const ell = 'min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap';
+    const hide = 'display: none';
+    let r1 = repo, r3 = '', r1Style = 'flex: none', r2Style = hide, r3Style = hide;
+    // A secondary part grows from zero into what the primary part leaves, so it gives way first and the primary part keeps every character until then.
+    const grow = 'flex: 1 1 0; max-width: max-content';
+    // s.orgShort: the whole repo does not fit, so the org shows as one … and the repo name keeps the rest.
+    if (cut === 'repo') { r1 = s.orgShort ? '…' : org; r3 = name; r1Style = 'flex: none'; r2Style = 'flex: none'; r3Style = `flex: 0 1 auto; ${ell}`; }
+    if (cut === 'drop') { r1Style = hide; r3 = name; r3Style = `flex: 0 1 auto; ${ell}`; }
+    if (cut === 'middle') { r1 = repo.slice(0, -7); r3 = repo.slice(-7); r1Style = `flex: 0 1 auto; ${ell}`; r3Style = 'flex: none'; }
+    if (cut === 'now') { r1Style = 'flex: none'; }
+
+    const lineBase = `display: flex; align-items: center; min-width: 0; font-size: ${Dt.meta}; color: #8b8b94; white-space: nowrap; line-height: 1.4`;
+    const metaStyle = opt === 'c' && !compact
+      ? `${lineBase}; flex-wrap: wrap; column-gap: 6px; row-gap: 2px`
+      : `${lineBase}; gap: 6px; overflow: hidden`;
+    const taskBase = 'display: flex; align-items: baseline; gap: 5px; min-width: 0; overflow: hidden';
+    const repoFirst = order === 'repo';
+    const metaPx = parseFloat(Dt.meta);
+    const leadW = Math.ceil(parseFloat(Dt.role) + 6 + (s.engine ? s.engine.length * 0.6 * metaPx + 16 : 0));
+    const taskStyle = {
+      now: `${taskBase}; flex: 0 1 auto`,
+      // Repo first (as in the conversation header): the task name gives way first and the task number stays.
+      a: repoFirst && !compact ? `${taskBase}; ${grow}; min-width: 5.5em` : `${taskBase}; flex: 0 1 auto`,
+      b: `${taskBase}; flex: 0 1 auto`,
+      // The task stays beside the role and engine; only the repo moves down.
+      c: compact ? `${taskBase}; flex: 0 1 auto` : `${taskBase}; flex: 0 1 auto; max-width: calc(100% - ${leadW}px)`
+    }[opt];
+    const repoBoxBase = 'display: flex; min-width: 0; overflow: hidden; font-family: \'JetBrains Mono\', monospace';
+    const repoBox = opt === 'now' ? `${repoBoxBase}; flex: none` : `${repoBoxBase}; flex: 0 1 auto`;
+    // Inline repo on the meta line (full and phone densities).
+    const repoInlineStyle = {
+      now: 'display: flex; gap: 6px; flex: none; margin-left: auto',
+      a: repoFirst ? 'display: flex; gap: 6px; flex: 0 1 auto; min-width: 12ch; overflow: hidden' : `display: flex; gap: 6px; ${grow}; min-width: 10ch; overflow: hidden; margin-left: auto`,
+      b: drop.includes('repo') ? hide : 'display: flex; gap: 6px; flex: none; margin-left: auto',
+      c: 'display: flex; gap: 6px; flex: 0 1 auto; min-width: 0; max-width: 100%; overflow: hidden; margin-left: auto'
+    }[opt];
+    // Repo line of the compact rows: repo, then the branch.
+    const repoLineStyle = opt === 'c'
+      ? `${lineBase}; flex-wrap: wrap; column-gap: 6px; row-gap: 2px; padding-left: ${tree ? '0' : '19px'}`
+      : `${lineBase}; gap: 6px; overflow: hidden; padding-left: ${tree || density === 'compact-phone' ? '0' : '19px'}`;
+    const branchStyle = {
+      now: `display: flex; gap: 6px; flex: 1 1 auto; ${ell}; font-family: 'JetBrains Mono', monospace`,
+      a: `display: flex; gap: 6px; ${grow}; ${ell}; min-width: 7ch; font-family: 'JetBrains Mono', monospace`,
+      b: `display: flex; gap: 6px; flex: none; font-family: 'JetBrains Mono', monospace`,
+      c: `display: flex; gap: 6px; flex: 0 1 auto; ${ell}; max-width: 100%; font-family: 'JetBrains Mono', monospace`
+    }[opt];
+    const st = s.status;
+    const role = s.role ?? '';
+    const hasBranch = !!s.branch && !(opt === 'b' && drop.includes('branch'));
+    return {
+      s, D: Dt, pad, bg: s.bg ?? 'transparent', bar: s.bar ?? 'none',
+      isTree: tree, caret: s.caret ?? '',
+      isQuestion: st === 'Question', isReview: st === 'Review', isWorking: st === 'Working', isDone: st === 'Done',
+      titleColor: tree && s.current ? '#fafafa' : s.unread ? '#fafafa' : '#d4d4d8',
+      titleWeight: tree ? 600 : s.unread ? 700 : 400,
+      titleTip: opt === 'now' ? '' : s.title,
+      hasPreview: !compact && !!s.preview,
+      roleLabel: role || 'no role',
+      isDevelopment: role === 'development', isResearch: role === 'research', isDebugFlow: role === 'debug-flow', isPm: role === 'PM', isNoRole: role === '',
+      showEngine: !!s.engine && !(opt === 'b' && drop.includes('engine')),
+      hasTask: !!s.taskRef, noTask: !s.taskRef,
+      showTaskName: !(opt === 'b' && drop.includes('taskTitle')),
+      taskTip: opt === 'now' || !s.taskRef ? '' : `${s.taskRef} ${s.taskTitle ?? ''}`,
+      metaStyle, taskStyle, repoBox, repoInlineStyle: repoInlineStyle + (repoFirst ? '; order: -1' : ''), repoLineStyle, branchStyle,
+      r1, r3, r1Style, r2Style, r3Style,
+      repoInline: !compact, inlineDot: opt !== 'c' && !repoFirst,
+      repoLineFirst: compact && repoFirst, taskDot: !compact && repoFirst, repoLineAfter: compact && !repoFirst,
+      showBranch: hasBranch, branchSep: opt === 'now' ? '·' : '⑂'
+    };
+  }
+}
+</script>
+</body>
+</html>

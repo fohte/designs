@@ -13,7 +13,7 @@
 body{margin:0}
 </style>
 </helmet>
-<div style="width: 1440px; height: 3400px; box-sizing: border-box; padding: 72px 96px; display: flex; flex-direction: column; gap: 40px; background: #0a0a0a; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.7">
+<div style="width: 1440px; height: 4600px; box-sizing: border-box; padding: 72px 96px; display: flex; flex-direction: column; gap: 40px; background: #0a0a0a; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.7">
 <header>
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #fafafa"><span style="margin-right: 10px; color: #ef4444">&gt;</span>agent watch</div>
 <h1 style="margin: 12px 0 0; font-size: 32px; font-weight: 700; color: #fafafa">いまの画面の仕様</h1>
@@ -31,7 +31,7 @@ body{margin:0}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3400}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":4600}}'>
 class Component extends DCLogic {
   renderVals() {
     return {
@@ -49,8 +49,8 @@ class Component extends DCLogic {
           '一番下に claude と codex の quota (5h と 7d) を常に出します。棒の細い縦線は均等に使ったときの量です。棒の右に、このペースで窓の終わりに何 % になるかを → 92% の形で出します。100% 未満は灰、100% 以上 150% 未満は黄、150% 以上は赤の太字で、窓の経過が 5% 未満のうちは出しません。その右はリセットまでの時間です。'
         ] },
         { title: 'Inbox', items: [
-          'Needs action を tq の優先度順に並べ、未読は太字で示します。',
-          'Later に回したもの、In progress (先頭 2 件)、Done を下に続けます。Done は Close all でまとめて閉じます。',
+          'Needs action などの区分の中の並び順は、見出しの右の Sort Priority ⌄ で Priority (既定。tq の優先度順、同じなら更新の新しい順)、Updated (更新の新しい順)、Project (project 名の順) から選びます。PC は Later と同じ形のメニュー、iPhone は下からのシートで、今の並び順に ✓ を付けます。選んだ並び順はブラウザごとに保存し、区分は変えません。Project では区分の中に project ごとの小見出しを入れ、同じ project の中は Priority の順に並べます。未読は太字で示します。',
+          'Later、Waiting と In progress (先頭 2 件ずつ)、Done を下に続けます。Done は Close all でまとめて閉じます。終わったセッションは、答えていない to-do や proposal があっても出しません (ナビの Recent と ⌘K から開きます)。',
           'j / k で移動し、L で Later、E で閉じます。E は Done 以外の行でも効き、閉じる前に確認を出します。',
           'iPhone では行の中で左にスワイプすると Later と Close が出て、行を長押しすると Later と赤い Close session… のシートが出ます。画面の端からのスワイプはブラウザの戻る操作なので使いません。Later は PC と同じ選択肢を下からのシートで出し、Close は Done 以外なら PC の E と同じ文言の確認シートを出します。'
         ] },
@@ -65,8 +65,10 @@ class Component extends DCLogic {
           'Merge は返信欄の上の帯と、PR の一覧 (PC はポップオーバー、iPhone は状況パネルの先頭) のマージできる各行の 2 か所に出します。帯はマージできる PR があると Ready to merge と Merge を出し、Merging…、Merge failed と Retry に変わります。マージできる PR が複数なら行を重ね、Question や crit の帯とは縦に積みます。終わったセッションでも This session has ended の上に出し、マージ済みでは帯を出しません。一覧のマージできない行には、Merge の代わりにその理由を出します。帯と一覧の行は同じ PR を操作するので、同じ状態を出します。一覧の行は PC と iPhone で同じ部品を使い、iPhone では押せる高さを 44px にします。',
           'Done のセッションは PC ではヘッダーの Close、iPhone では ⋯ のメニューの Close ですぐ閉じます。それ以外はヘッダーの ⋯ (iPhone は ⋯ のメニューの一番下) の赤い Close session… から閉じ、Merge と同じ中央の確認ダイアログ (iPhone は下からのシート) を出します。確認の文言は状態ごとに変えます。',
           '返信欄の上に、会話欄の幅いっぱいの帯で今の状態を出します。状態と詳細 (質問の文、実行中のコマンド、タスク名) を 1 行にまとめ、はみ出た詳細は … で切ります。帯を押すと詳細を全部出し、質問と permission では会話の中のカードに戻ります。crit と draft のレビュー待ちだけは 2 行の帯にし、Review in crit で crit を全画面で、Open drafts で状況パネルの Review タブを開きます。止まっているときは帯を出しません。',
+          '終わったセッションの Resume から 20 秒たってもエージェントから返事がなければ、This session has ended に戻さず、黄色の枠の帯で Session hasn\'t started と Resumed at <時刻> · no reply after 20 s を出します。帯には Show pane、Retry、Close session (PC は Open in terminal も) を置きます。Show pane で帯の中、返信欄の位置に tmux の pane の画面を開き、ボタンを Hide pane にします。会話をスクロールしても画面は動きません。画面は capture-pane の文字を色を付けずに等幅で出し、横に長い行は枠の中で横にスクロールします。開いている間はサーバーが 2 秒ごとに撮り直し、見出しの右に青い点と Live · every 2 s (iPhone は Live) を出します。Retry は止まった pane を閉じて Resume をやり直し、帯を Resuming… に戻します。Close session は Close と同じ確認を通ります。pane にキーを送る操作は置かず、直すのは端末でします。',
           'メッセージの中のリンクの URL が登録済みの web UI の URL なら、リンクの後ろに開く先のタブ名のチップ (canvas など) を出します。押すと crit と同じく、そのタブを watch-web の中で全画面で開き、↙ で状況パネルに戻ります。iPhone は web UI だけのページを会話の上に重ねます。ブラウザの新しいタブへは、web UI のヘッダーの URL (iPhone は ↗) からだけ開きます。',
           'メッセージの中のコードブロックには、上に左が言語名 (ts、bash、text)、右が Copy の帯を付けます。押すと 1.5 秒 ✓ Copied に変わります。帯は PC で 30px、iPhone で 44px の高さで、コードと一緒に横へスクロールしないので、長い行のコードに重なりません。',
+          'Markdown の details は会話、カード、PR draft の Preview で GitHub と同じく、要約の左の ▸ で畳み、開くと ▾ にして中身を字下げせずに続けます。開いた状態はページを開いている間だけ保ちます。',
           '↵ で送り、Esc で止め、⌥↑ / ⌥↓ で自分のメッセージをたどります。',
           '返信欄の下に status line と同じ並びで engine、model (effort)、context、5h / 7d の quota (7d 76% → 92% の形で、今の使用率と窓の終わりの予測。色はナビと同じ)、バージョンを出します。表示だけで、押しても何も起きません。iPhone では折り返します。'
         ] },
@@ -75,12 +77,16 @@ class Component extends DCLogic {
           '押した場所に結果を出します。Merge は、帯と PR の一覧の行のどちらで押しても両方が Merging… になります。帯と行は同じ見た目で、マージキューに入ったら Queued、失敗したら Merge failed と Retry を出します。マージできたら帯は消え、一覧の行は Merged か Already merged になります。Inbox の行は Closing… になり、閉じたら消え、失敗したら Close failed と Retry を出します。',
           'トーストは画面全体への通知です。PC はどの画面でも画面の左下 (左と下から 16px) に、iPhone は返信欄の上に重ね、2 つ以上は上に積みます。成功は自動で消え、失敗は Retry と Details を付けて残します。',
           'ナビの quota の上 (iPhone もナビゲーションの quota の上) に Activity を置き、実行中を青、失敗を赤の数で示し、一覧を開けます。まだ一度も実行していないあいだは数を出さずに Activity を薄く示し、開くと No recent activity. と Merge, Close and command results appear here. を出します。iPhone では失敗があるあいだ、Inbox と会話のナビゲーションのボタン ☰ に赤い印を付けます。会話にも結果を 1 行残します。この行は操作を始めた時点の位置に Merging PR #2049… として置き、同じ行を Merged PR #2049 · 12:03 や Merge of PR #2049 failed と Retry に書き換えます。会話の最後に残り続けることはなく、あとから来たメッセージはその下に並び、ほかのメッセージと一緒に上へ流れます。',
-          'Close は、コミットしていない変更、merge していないブランチ、動いているプロセスの 3 つを全部調べてから失敗を返します。どこから閉じても、トーストと会話の 1 行には残っているものの要約と Close and keep worktree を、Activity には 3 つの確認の結果 (ファイル、PR、pid) を全部並べ、Open in terminal も置きます。',
-          'メッセージの ! コマンドも、確認ダイアログで Run command を押すとすぐダイアログを閉じ、裏で実行します。トースト (2 行目はコマンド)、Activity、会話の 1 行 (実行した時点の位置) に Running command から Ran command、Command failed · exit 1、Command timed out (30 秒で止めます) のどれかを出します。失敗のトーストと Activity の行には Show output だけを置き、押すとそのセッションの会話で、サーバーが送った結果のメッセージ (終了コードと stdout / stderr) までスクロールして枠で示します。やり直すときは、メッセージのボタンをもう一度押します。'
+          'Close は、コミットしていない変更、merge していないブランチ、動いているプロセスの 3 つを全部調べてから失敗を返します。どこから閉じても、トーストと会話の 1 行には残っているものの要約を、Activity には 3 つの確認の結果 (ファイル、PR、pid) を全部並べます。ボタンは 3 か所とも同じ並びで、Close anyway の見出しの下に白い Keep worktree (worktree を残して閉じる) と赤い枠と文字の Discard changes… (ゴミ箱付き) を同じ幅で並べ、その下に Retry と Details (Activity では Open in terminal) を置きます。4 つとも同じ大きさで、PC は 26px、iPhone は 44px の高さです。',
+          'Discard changes… を押すと、消す前の確認を PC はダイアログ、iPhone は下からのシートで出します。消えるものを Uncommitted changes (M / A / D / ?? とパス) と Commits not on main (短い sha と件名) に分け、見出しの右に件数を出します。区分ごとに 5 件まで出し、残りは Show 9 more で同じ場所に開きます。赤い塗りのボタンはこの最後の Discard and close だけで、押すと worktree とブランチを消してセッションを閉じます。',
+          'Discard and close も確定するとすぐ閉じ、裏で実行します。トーストと会話の行は Deleting worktree… になり、成功すると Closed session and deleted worktree に変わり、Inbox の行は消え、開いていた会話は This session has ended になります。確認と関係のない失敗では Delete failed と理由、Retry (確認で見たものに対してやり直す) に変わります。消す直前にサーバーが確認で見たものと今の worktree を比べ、ファイルかコミットが増えていたら何も消さずに Did not delete worktree と Changed after you confirmed: 1 new file and 1 new commit. を出し、白い Review again と Close and keep worktree を置きます。Review again で開く確認は見出しを Review the changes again にし、増えたものを各区分の先頭に青い New と薄い青の背景で出します。worktree の中でプロセスが動いていたときも何も消さず、Running in the worktree: <pid> <名前>. Stop it, then Retry. を出します。プロセスは web からは止めず、トーストは Retry と Open in terminal、会話の行は Retry だけです。',
+          'メッセージの ! コマンドも、確認ダイアログで Run command を押すとすぐダイアログを閉じ、裏で実行します。トースト (2 行目はコマンド)、Activity、会話の 1 行 (実行した時点の位置) に Running command から Ran command、Command failed · exit 1、Command timed out (30 秒で止めます) のどれかを出します。失敗のトーストと Activity の行には Show output だけを置き、押すとそのセッションの会話で、サーバーが送った結果のメッセージ (終了コードと stdout / stderr) までスクロールして枠で示します。やり直すときは、メッセージのボタンをもう一度押します。',
+          '新しいセッションも Start で裏で始めます。+ の画面は会話の部品で描き、送った最初のメッセージの下に Starting Claude Code in <repo>… と You can leave this page. を出し、返信欄は Reply once the session starts にします。留まっていれば始まったときに会話へ切り替わり、失敗したら入力を残して理由を出します。離れたら切り替えず、Merge と同じトーストと Activity の行に Starting session を出します。始まったら Session started と Open に変え、トーストは 5 秒で消えます。失敗したら Could not start session と理由、Retry、Details を出し、Retry は同じ設定と最初のメッセージでもう一度始めます。'
         ] },
         { title: '返事を待つカード', items: [
           'Question、Permission、Proposal、To-do の 4 種類です。返事を待っている間は黄色の枠で囲みます。',
           'To-do は見出しの右の ⌃ で、To-do · later の見出しとタイトルだけの 1 行に畳めます。セッションが登録時に後で確かめる印を付けた to-do は、最初から畳んで出し、added folded と添えます。行を押すと開きます。畳んでいない待ちの to-do が 1 つでもあるセッションは Needs action に残します。待ちの to-do が全部畳んであるセッションだけを Needs action とその数から外し、畳んだ to-do がないものとして In progress、Later、Done のどれかに出します。行のプレビューには To-do · later と to-do のタイトルを出し、iPhone では In progress の行に 1 to-do later の形で件数を添えます。',
+          'セッションが終わると、サーバーが答えていない to-do と proposal を取り下げます。会話のカードは To-do · withdrawn · session ended 14:32 (Proposal は Proposal · withdrawn · …) の見出しとタイトルだけになり、ボタンを出しません。自分で押した操作ではないので、トーストも Activity も出しません。Resume しても取り下げたものは戻らず、答えるには頼み直します。PC と iPhone で同じ部品を使います。',
           'セッションが止まらずに決めたことは Decision として灰色の行で出し、あとから OK か Change… で返します。'
         ] },
         { title: '状況パネル', items: [
@@ -93,8 +99,10 @@ class Component extends DCLogic {
           'draft を開いているあいだ、返信欄の上の帯は crit と同じ黄色の Waiting for your review にし、draft の数とエディタに出ている draft を出します。Open drafts で Review タブを開きます。'
         ] },
         { title: 'セッションの行', items: [
-          'セッションが並ぶ場所はすべて同じ行 (SessionRow) で描きます。先頭は状態で、種類のアイコン (Needs action)、青い丸 (Working)、✓ (Done) のどれかです。',
-          'Inbox はタイトル、プレビュー、role / engine / tq タスクとリポジトリの 3 行です。ほかの一覧はプレビューを省き、リポジトリを 3 行目に出します。',
+          'セッションが並ぶ場所はすべて同じ行 (SessionRow) で描きます。先頭は状態で、種類のアイコン (Needs action)、青い丸 (Working)、灰色の砂時計 (Waiting)、✓ (Done) のどれかです。ナビの Starred、Recent、PM の行も同じ印を使います。',
+          'Inbox はタイトル、プレビュー、role / engine / tq タスクとリポジトリの 3 行です。ほかの一覧はプレビューを省き、リポジトリとブランチ (⑂ のあと) を 3 行目に出します。Board の待っている行だけは、プレビューの代わりに待っている内容を 2 行目に出します。',
+          '1 行に入らないときは、タイトルとタスク名を残し、リポジトリとブランチを先に … で縮めます。ブランチは「⑂ fix-…」(7 文字) まで縮みます。リポジトリは全部入れば「example/notification-service」と出し、入らなければ org を 1 つの … にして「…/notification-service」とし、それでも入らなければ後ろを … にします (10 文字まで)。そこまで縮めても入らなければ、タスク名の後ろも … にします。並びは今のまま、Inbox はタスクの後ろにリポジトリ、ほかの一覧は 3 行目にリポジトリ ⑂ ブランチで、会話のヘッダー (リポジトリが先でタスク名から縮む) とは揃えません。縮めた文字は、上にマウスを置くと全文を出します。',
+          'Waiting は PR のマージや CI など他の作業を待つセッション (activityStatus waiting) です。In progress から分けた区分 (Inbox は Later の下、Board は各列の Needs action と In progress の間) に置き、2 行目に待っている内容 (PR #2061 のマージ待ちなど) を出します。ないときは区分ごと出しません。iPhone の Inbox では In progress と同じく 1 行にまとめ、押すと開きます。返信欄の上の帯も同じ砂時計に Waiting と待っている内容を続けます。',
           'role は灰色のアイコンで、role がないセッションは設定の agent.work_type_fallback のアイコンを出します。engine は claude / codex の文字で出します。'
         ] },
         { title: 'Board と ⌘K', items: [
@@ -102,8 +110,16 @@ class Component extends DCLogic {
           '⌘K はセッション、tq タスク (#)、プロジェクト (@)、コマンド (>) を探して開きます。',
           'コマンドの Close this session は開いている会話を閉じ、Done 以外では確認を出します。Close all done は Done だけを確認なしで閉じます。'
         ] },
+        { title: '新しいセッション', items: [
+          'ナビの + か c で会話の列 (iPhone は全画面) に開きます。⌘K の New session は同じ入力と一覧をダイアログに出し、操作も同じです。',
+          '入力は 1 本です。ディレクトリを打って絞り、↵ で選ぶとチップになり、続けて最初のメッセージを打ちます。空の入力で ⌫ を押すとディレクトリに戻ります。⇧↵ / ⌥↵ で改行します。',
+          '下の一覧は START WITH (Claude Code、Codex) と OPTIONS (New worktree from main、Model、Effort) です。カーソルは入力に置いたまま ↑↓ で行を移り、↵ でその engine で始めます。OPTIONS の行では ←→ で値を変えます。値は全部並べ、メニューは開きません。',
+          'Model と Effort は engine ごとに持ち、最後にいた START WITH の行の engine のものを出します (見出しは CLAUDE CODE OPTIONS)。先頭の行で ↑ を押すと一番下の Effort に回ります。profile の既定値は行の名前の右に default atlas-5 の形で出します。Effort には選んだ model が受け付ける値だけを並べます (Claude Code は max まで、comet-5 は high まで)。',
+          'キーの案内は一覧の下の 1 行に今の場所で効くキーだけを出し、選んでいる行の右端に ↵ か ←→ を出します。iPhone はキーの案内を出さず、同じ部品で行と値を押して選び、engine の行を押すとその engine で始めるので、OPTIONS は Claude Code と Codex の両方を並べ、始める前にどちらの値も変えられます。',
+          '書きかけの入力 (ディレクトリ、打ちかけの文字、OPTIONS の値、最初のメッセージ、いた engine) は、Esc、‹、Cancel、ダイアログの外、別のセッションを開く、再読み込みのどれで閉じても消さず、次に + か c か ⌘K の New session で開くと閉じたときのまま戻します。下書きはブラウザごとに 1 つです。戻したときは入力の下に Restored your draft from 12:03 と Clear を出し、Clear で空の入力と既定の値に戻します。セッションを始めたら下書きを消し、始められなかったときは残します。'
+        ] },
         { title: '色', items: [
-          '黄色は返事待ち、青は実行中、赤は失敗、緑は ! コマンドの成功です。',
+          '黄色は返事待ち、青は実行中、赤は失敗、緑は ! コマンドの成功です。他の作業待ちは色を付けず、灰色の砂時計で示します。',
           'quota の使用率は 80% 以上で黄、95% 以上で赤にします。',
           '角は丸めず、影は画面の上に浮かぶものにだけ付けます。'
         ] }

@@ -1618,6 +1618,30 @@
       "h": 380,
       "title": "PaneSnapshot",
       "page": "components"
+    },
+    "ConversationStuckPaused.dc.html": {
+      "x": 3980,
+      "y": 14750,
+      "w": 1440,
+      "h": 900,
+      "title": "止まっているセッションにメッセージを送り、20 秒たっても返事がない",
+      "page": "conversation"
+    },
+    "PhoneChatStuckPaused.dc.html": {
+      "x": 5500,
+      "y": 14750,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 止まっているセッションにメッセージを送り、返事がない",
+      "page": "conversation"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 3900,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
     }
   },
   "order": [
@@ -1823,7 +1847,10 @@
     "ConversationStuckOpen.dc.html",
     "PhoneChatStuckOpen.dc.html",
     "StuckBand.dc.html",
-    "PaneSnapshot.dc.html"
+    "PaneSnapshot.dc.html",
+    "ConversationStuckPaused.dc.html",
+    "PhoneChatStuckPaused.dc.html",
+    "before/BeforeMain.dc.html"
   ],
   "pages": [
     {
@@ -2174,9 +2201,9 @@
     "rowStuckResume": {
       "x": 0,
       "y": 14450,
-      "text": "再開後に起動しないとき · 帯で示し、Show pane で帯の中に pane の画面を開く",
+      "text": "再開後に起動しないとき · 帯で示し、Show pane で帯の中に pane の画面を開く (止まっているセッションへの送信で再開したときも)",
       "kind": "title1",
-      "maxW": 3900,
+      "maxW": 5890,
       "page": "conversation"
     },
     "rowPartsStuck": {
@@ -2186,6 +2213,20 @@
       "kind": "title1",
       "maxW": 1512,
       "page": "components"
+    },
+    "diffMain": {
+      "x": 3040,
+      "y": 0,
+      "w": 480,
+      "text": "仕様のまとめ · 会話の節の違い\n\n- paused のセッションにメッセージを送って自動で再開し、20 秒たっても返事がないときも、返信欄の代わりに Session hasn't started の帯を出す\n- そのときの 2 行目は Sent at <時刻> · no reply after 20 s\n- Retry で帯を Resuming… に戻すのは終わったセッションだけ",
+      "page": "inbox"
+    },
+    "diffStuckPaused": {
+      "x": 5970,
+      "y": 14750,
+      "w": 420,
+      "text": "追加したボード\n\n- 止まっているセッションへの送信で再開し、起動しなかったとき (PC と iPhone)\n- 帯は終わったセッションと同じで、2 行目だけ Sent at 14:40 に変わる",
+      "page": "conversation"
     }
   },
   "v": 3,

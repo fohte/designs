@@ -19,7 +19,7 @@ body{margin:0}
 <div role="status" style="box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 12px auto 6px; display: flex; flex-direction: column; gap: 10px; padding: 10px 10px 10px 14px; border: 1px solid #a16207; background: #141414">
 <div style="display: flex; align-items: center; gap: 12px">
 <span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #f59e0b"></span>
-<span style="min-width: 0; flex: 1; display: flex; flex-direction: column"><span style="font-weight: 700">Session hasn't started</span><span style="color: #a1a1aa; font-size: 13px">Resumed at 14:40 · no reply after 20 s</span></span>
+<span style="min-width: 0; flex: 1; display: flex; flex-direction: column"><span style="font-weight: 700">Session hasn't started</span><span style="color: #a1a1aa; font-size: 13px">{{since}}</span></span>
 <button type="button" aria-expanded="{{expanded}}" style="flex: none; height: 32px; padding: 0 12px; border: 1px solid #fafafa; background: {{paneBg}}; color: {{paneFg}}; font-family: inherit; font-size: 12.5px; font-weight: 700">{{paneLabel}}</button>
 <button type="button" aria-label="Open in terminal" title="Open in terminal" style="flex: none; width: 32px; height: 32px; display: grid; place-items: center; padding: 0; border: 1px solid #3f3f46; background: transparent; color: #d4d4d8"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 11 2-2-2-2"></path><path d="M11 13h4"></path><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect></svg></button>
 <button type="button" style="flex: none; height: 32px; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: 12.5px">Retry</button>
@@ -31,7 +31,7 @@ body{margin:0}
 
 <sc-if value="{{isPhone}}" hint-placeholder-val="{{ false }}">
 <div role="status" style="display: flex; flex-direction: column; gap: 10px; padding: 12px 12px 6px; border-top: 1px solid #a16207; background: #141414">
-<div style="display: flex; align-items: flex-start; gap: 8px"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: #f59e0b"></span><span style="display: flex; flex-direction: column"><span style="font-weight: 700">Session hasn't started</span><span style="color: #a1a1aa; font-size: 13px">Resumed at 14:40 · no reply after 20 s</span></span></div>
+<div style="display: flex; align-items: flex-start; gap: 8px"><span aria-hidden="true" style="flex: none; width: 8px; height: 8px; margin-top: 7px; background: #f59e0b"></span><span style="display: flex; flex-direction: column"><span style="font-weight: 700">Session hasn't started</span><span style="color: #a1a1aa; font-size: 13px">{{since}}</span></span></div>
 <sc-if value="{{open}}" hint-placeholder-val="{{ false }}"><div style="min-width: 0; overflow: hidden; contain: inline-size"><dc-import name="PaneSnapshot" form="phone" repo="{{repo}}" engine="{{engine}}" body-h="{{ '230px' }}" hint-size="100%,276px"></dc-import></div></sc-if>
 <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px">
 <button type="button" aria-expanded="{{expanded}}" style="min-height: 44px; border: 1px solid #fafafa; background: {{paneBg}}; color: {{paneFg}}; font-family: inherit; font-size: 13px; font-weight: 700">{{paneLabel}}</button>
@@ -43,7 +43,7 @@ body{margin:0}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"pane":{"editor":"enum","options":["show","hide"],"default":"show"},"repo":{"editor":"text","default":"example/service"},"engine":{"editor":"enum","options":["claude","codex"],"default":"claude"},"$preview":{"width":760,"height":90}}'>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"pane":{"editor":"enum","options":["show","hide"],"default":"show"},"from":{"editor":"enum","options":["ended","paused"],"default":"ended"},"repo":{"editor":"text","default":"example/service"},"engine":{"editor":"enum","options":["claude","codex"],"default":"claude"},"$preview":{"width":760,"height":90}}'>
 class Component extends DCLogic {
   renderVals() {
     const phone = (this.props.form ?? 'pc') === 'phone';
@@ -53,7 +53,9 @@ class Component extends DCLogic {
       isPc: !phone,
       isPhone: phone,
       open,
-      paneLabel: open ? 'Hide pane' : 'Show pane',
+      // A paused session resumes on its own when a message is sent to it, so the line times the message, not a Resume press.
+      since: (this.props.from ?? 'ended') === 'paused' ? 'Sent at 14:40 · no reply after 20 s' : 'Resumed at 14:40 · no reply after 20 s',
+      paneLabel: open ?'Hide pane' : 'Show pane',
       expanded: open ? 'true' : 'false',
       // The open toggle reads as pressed, so it drops the fill.
       paneBg: open ? 'transparent' : '#fafafa',

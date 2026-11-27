@@ -185,7 +185,7 @@ a{color:#ef4444}
 </div>
 
 <sc-if value="{{hasMergeBand}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="MergeBand" prs="{{ mergeBand }}" hint-size="100%,58px"></dc-import></div></sc-if>
-<sc-if value="{{isStuck}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="StuckBand" form="pc" pane="{{stuckPane}}" repo="{{repo}}" engine="{{engine}}" hint-size="100%,90px"></dc-import></div></sc-if>
+<sc-if value="{{isStuck}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="StuckBand" form="pc" pane="{{stuckPane}}" from="{{stuckFrom}}" repo="{{repo}}" engine="{{engine}}" hint-size="100%,90px"></dc-import></div></sc-if>
 <sc-if value="{{endedBand}}" hint-placeholder-val="{{ false }}">
 <div role="status" style="flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); min-height: 56px; margin: 12px auto 6px; display: flex; align-items: center; gap: 12px; padding: 0 10px 0 14px; border: 1px solid #3f3f46; background: #141414">
 <span aria-hidden="true" style="flex: none; width: 8px; height: 8px; background: #71717a"></span>
@@ -343,9 +343,10 @@ class Component extends DCLogic {
       vibeBg: vibeOpen ? '#262626' : 'transparent',
       vibeColor: vibeOn || vibeOpen ? '#fafafa' : '#a1a1aa',
       ended: ended !== 'no',
-      live: ended === 'no',
-      // stuck replaces the ended band when a resume gets no reply from the agent within 20 s.
-      isStuck: ended !== 'no' && stuck !== 'no',
+      live: ended === 'no' && stuck === 'no',
+      // stuck: a resume got no reply from the agent within 20 s. With ended no, a message sent to the paused session resumed it.
+      isStuck: stuck !== 'no',
+      stuckFrom: ended === 'no' ? 'paused' : 'ended',
       endedBand: ended !== 'no' && stuck === 'no',
       stuckPane: stuck === 'open' ? 'hide' : 'show',
       // Done closes from the header right away; other states go through the ⋯ menu and a confirmation.

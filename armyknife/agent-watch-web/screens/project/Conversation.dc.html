@@ -345,7 +345,7 @@ class Component extends DCLogic {
       ended: ended !== 'no',
       live: ended === 'no',
       // stuck replaces the ended band when a resume gets no reply from the agent within 20 s.
-      isStuck: stuck !== 'no',
+      isStuck: ended !== 'no' && stuck !== 'no',
       endedBand: ended !== 'no' && stuck === 'no',
       stuckPane: stuck === 'open' ? 'hide' : 'show',
       // Done closes from the header right away; other states go through the ⋯ menu and a confirmation.

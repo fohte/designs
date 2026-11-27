@@ -1620,7 +1620,7 @@
       "page": "components"
     },
     "ConversationStuckPaused.dc.html": {
-      "x": 8960,
+      "x": 5970,
       "y": 14750,
       "w": 1440,
       "h": 900,
@@ -1628,39 +1628,15 @@
       "page": "conversation"
     },
     "PhoneChatStuckPaused.dc.html": {
-      "x": 10480,
+      "x": 7490,
       "y": 14750,
       "w": 390,
       "h": 844,
       "title": "iPhone · 止まっているセッションにメッセージを送り、返事がない",
       "page": "conversation"
     },
-    "before/BeforeMain.dc.html": {
-      "x": 1520,
-      "y": 0,
-      "w": 1440,
-      "h": 3900,
-      "title": "Before · 仕様のまとめ",
-      "page": "inbox"
-    },
-    "before/BeforeConversationStuckOpen.dc.html": {
-      "x": 3980,
-      "y": 14750,
-      "w": 1440,
-      "h": 900,
-      "title": "Before · Show pane を押した · 帯の中に pane の画面 (2 秒ごとに更新)",
-      "page": "conversation"
-    },
-    "before/BeforePhoneChatStuckOpen.dc.html": {
-      "x": 5500,
-      "y": 14750,
-      "w": 390,
-      "h": 844,
-      "title": "Before · iPhone · Show pane を押した",
-      "page": "conversation"
-    },
     "ConversationStuckRefreshing.dc.html": {
-      "x": 6470,
+      "x": 3980,
       "y": 14750,
       "w": 1440,
       "h": 900,
@@ -1668,211 +1644,11 @@
       "page": "conversation"
     },
     "PhoneChatStuckRefreshing.dc.html": {
-      "x": 7990,
+      "x": 5500,
       "y": 14750,
       "w": 390,
       "h": 844,
       "title": "iPhone · pane の Refresh を押した",
-      "page": "conversation"
-    },
-    "before/BeforePaneSnapshot.dc.html": {
-      "x": 1592,
-      "y": 6700,
-      "w": 672,
-      "h": 380,
-      "title": "Before · PaneSnapshot",
-      "page": "components"
-    },
-    "before/BeforeActionItem.dc.html": {
-      "x": 0,
-      "y": 15770,
-      "w": 360,
-      "h": 110,
-      "title": "BeforeActionItem",
-      "page": "conversation"
-    },
-    "before/BeforeActivityButton.dc.html": {
-      "x": 440,
-      "y": 15770,
-      "w": 224,
-      "h": 44,
-      "title": "BeforeActivityButton",
-      "page": "conversation"
-    },
-    "before/BeforeCloseChecks.dc.html": {
-      "x": 744,
-      "y": 15770,
-      "w": 408,
-      "h": 170,
-      "title": "BeforeCloseChecks",
-      "page": "conversation"
-    },
-    "before/BeforeCodeBlock.dc.html": {
-      "x": 1232,
-      "y": 15770,
-      "w": 672,
-      "h": 160,
-      "title": "BeforeCodeBlock",
-      "page": "conversation"
-    },
-    "before/BeforeConfirmDialog.dc.html": {
-      "x": 1984,
-      "y": 15770,
-      "w": 380,
-      "h": 200,
-      "title": "BeforeConfirmDialog",
-      "page": "conversation"
-    },
-    "before/BeforeConversation.dc.html": {
-      "x": 2444,
-      "y": 15770,
-      "w": 880,
-      "h": 900,
-      "title": "BeforeConversation",
-      "page": "conversation"
-    },
-    "before/BeforeDetailsPlace.dc.html": {
-      "x": 3404,
-      "y": 15770,
-      "w": 672,
-      "h": 420,
-      "title": "BeforeDetailsPlace",
-      "page": "conversation"
-    },
-    "before/BeforeInboxList.dc.html": {
-      "x": 4156,
-      "y": 15770,
-      "w": 460,
-      "h": 900,
-      "title": "BeforeInboxList",
-      "page": "conversation"
-    },
-    "before/BeforeMdDetails.dc.html": {
-      "x": 0,
-      "y": 16790,
-      "w": 672,
-      "h": 200,
-      "title": "BeforeMdDetails",
-      "page": "conversation"
-    },
-    "before/BeforeMergeBand.dc.html": {
-      "x": 752,
-      "y": 16790,
-      "w": 760,
-      "h": 60,
-      "title": "BeforeMergeBand",
-      "page": "conversation"
-    },
-    "before/BeforeMergeButton.dc.html": {
-      "x": 1592,
-      "y": 16790,
-      "w": 160,
-      "h": 44,
-      "title": "BeforeMergeButton",
-      "page": "conversation"
-    },
-    "before/BeforeNav.dc.html": {
-      "x": 1832,
-      "y": 16790,
-      "w": 240,
-      "h": 900,
-      "title": "BeforeNav",
-      "page": "conversation"
-    },
-    "before/BeforePhoneChat.dc.html": {
-      "x": 2152,
-      "y": 16790,
-      "w": 390,
-      "h": 844,
-      "title": "BeforePhoneChat",
-      "page": "conversation"
-    },
-    "before/BeforePrButton.dc.html": {
-      "x": 2622,
-      "y": 16790,
-      "w": 44,
-      "h": 44,
-      "title": "BeforePrButton",
-      "page": "conversation"
-    },
-    "before/BeforeQuota.dc.html": {
-      "x": 2746,
-      "y": 16790,
-      "w": 240,
-      "h": 140,
-      "title": "BeforeQuota",
-      "page": "conversation"
-    },
-    "before/BeforeSessionRow.dc.html": {
-      "x": 3066,
-      "y": 16790,
-      "w": 460,
-      "h": 76,
-      "title": "BeforeSessionRow",
-      "page": "conversation"
-    },
-    "before/BeforeSessionUsage.dc.html": {
-      "x": 3606,
-      "y": 16790,
-      "w": 672,
-      "h": 40,
-      "title": "BeforeSessionUsage",
-      "page": "conversation"
-    },
-    "before/BeforeSortControl.dc.html": {
-      "x": 4358,
-      "y": 16790,
-      "w": 240,
-      "h": 44,
-      "title": "BeforeSortControl",
-      "page": "conversation"
-    },
-    "before/BeforeSortMenu.dc.html": {
-      "x": 4678,
-      "y": 16790,
-      "w": 390,
-      "h": 300,
-      "title": "BeforeSortMenu",
-      "page": "conversation"
-    },
-    "before/BeforeStatusBand.dc.html": {
-      "x": 0,
-      "y": 17810,
-      "w": 760,
-      "h": 60,
-      "title": "BeforeStatusBand",
-      "page": "conversation"
-    },
-    "before/BeforeStuckBand.dc.html": {
-      "x": 840,
-      "y": 17810,
-      "w": 760,
-      "h": 90,
-      "title": "BeforeStuckBand",
-      "page": "conversation"
-    },
-    "before/BeforeToastStack.dc.html": {
-      "x": 1680,
-      "y": 17810,
-      "w": 360,
-      "h": 240,
-      "title": "BeforeToastStack",
-      "page": "conversation"
-    },
-    "before/BeforeTodoCard.dc.html": {
-      "x": 2120,
-      "y": 17810,
-      "w": 672,
-      "h": 40,
-      "title": "BeforeTodoCard",
-      "page": "conversation"
-    },
-    "before/BeforeUpdateBand.dc.html": {
-      "x": 2872,
-      "y": 17810,
-      "w": 760,
-      "h": 40,
-      "title": "BeforeUpdateBand",
       "page": "conversation"
     }
   },
@@ -2082,36 +1858,8 @@
     "PaneSnapshot.dc.html",
     "ConversationStuckPaused.dc.html",
     "PhoneChatStuckPaused.dc.html",
-    "before/BeforeMain.dc.html",
     "ConversationStuckRefreshing.dc.html",
-    "PhoneChatStuckRefreshing.dc.html",
-    "before/BeforeConversationStuckOpen.dc.html",
-    "before/BeforePhoneChatStuckOpen.dc.html",
-    "before/BeforePaneSnapshot.dc.html",
-    "before/BeforeActionItem.dc.html",
-    "before/BeforeActivityButton.dc.html",
-    "before/BeforeCloseChecks.dc.html",
-    "before/BeforeCodeBlock.dc.html",
-    "before/BeforeConfirmDialog.dc.html",
-    "before/BeforeConversation.dc.html",
-    "before/BeforeDetailsPlace.dc.html",
-    "before/BeforeInboxList.dc.html",
-    "before/BeforeMdDetails.dc.html",
-    "before/BeforeMergeBand.dc.html",
-    "before/BeforeMergeButton.dc.html",
-    "before/BeforeNav.dc.html",
-    "before/BeforePhoneChat.dc.html",
-    "before/BeforePrButton.dc.html",
-    "before/BeforeQuota.dc.html",
-    "before/BeforeSessionRow.dc.html",
-    "before/BeforeSessionUsage.dc.html",
-    "before/BeforeSortControl.dc.html",
-    "before/BeforeSortMenu.dc.html",
-    "before/BeforeStatusBand.dc.html",
-    "before/BeforeStuckBand.dc.html",
-    "before/BeforeToastStack.dc.html",
-    "before/BeforeTodoCard.dc.html",
-    "before/BeforeUpdateBand.dc.html"
+    "PhoneChatStuckRefreshing.dc.html"
   ],
   "pages": [
     {
@@ -2474,41 +2222,6 @@
       "kind": "title1",
       "maxW": 1512,
       "page": "components"
-    },
-    "diffMain": {
-      "x": 3040,
-      "y": 0,
-      "w": 480,
-      "text": "仕様のまとめ · 会話の節の違い\n\n- paused のセッションにメッセージを送って自動で再開し、20 秒たっても返事がないときも、返信欄の代わりに Session hasn't started の帯を出す\n- そのときの 2 行目は Sent at <時刻> · no reply after 20 s\n- Retry で帯を Resuming… に戻すのは終わったセッションだけ\n- pane の画面は Show pane、Refresh、セッションの状態が変わった通知 (SSE) で撮り、2 秒ごとには撮り直さない。見出しの右に Updated <時刻> と Refresh を出し、押すと Refreshing… にする",
-      "page": "inbox"
-    },
-    "diffStuckPaused": {
-      "x": 10950,
-      "y": 14750,
-      "w": 420,
-      "text": "追加したボード\n\n- 止まっているセッションへの送信で再開し、起動しなかったとき (PC と iPhone)\n- 帯は終わったセッションと同じで、2 行目だけ Sent at 14:40 に変わる",
-      "page": "conversation"
-    },
-    "diffStuckOpen": {
-      "x": 5970,
-      "y": 14750,
-      "w": 420,
-      "page": "conversation",
-      "text": "Show pane を押した · 違い\n\n- 見出しの右の青い点と Live · every 2 s (iPhone は Live) をやめ、撮った時刻 Updated 14:40:22 (iPhone は 14:40:22) と Refresh を置いた\n- pane の画面は Show pane で開いたとき、Refresh を押したとき、セッションの状態が変わった通知 (SSE) が届いたときに撮る"
-    },
-    "diffStuckRefreshing": {
-      "x": 8460,
-      "y": 14750,
-      "w": 420,
-      "page": "conversation",
-      "text": "追加したボード\n\n- pane の Refresh を押してから新しい画面が届くまで (PC と iPhone)\n- 前の画面を残し、ボタンを Refreshing… にして押せなくする"
-    },
-    "diffPaneSnapshot": {
-      "x": 2344,
-      "y": 6700,
-      "w": 420,
-      "page": "components",
-      "text": "PaneSnapshot · 違い\n\n- Live の表示を、撮った時刻と Refresh のボタンに変えた\n- busy で Refresh を Refreshing… にする"
     }
   },
   "v": 3,

@@ -124,6 +124,7 @@ body{margin:0}
 <sc-if value="{{t.isLine}}" hint-placeholder-val="{{ true }}"><dc-import name="ActionItem" a="{{ t.line }}" form="line" phone="{{ true }}" hint-size="100%,24px"></dc-import></sc-if>
 <sc-if value="{{t.isYou}}" hint-placeholder-val="{{ false }}"><article style="align-self: flex-end; max-width: 92%; display: flex; flex-direction: column; gap: 4px"><div style="text-align: right; font-size: 12px; color: #8b8b94">You · {{t.time}}</div><div style="padding: 10px 14px; background: #1f1f1f">{{t.you}}</div></article></sc-if>
 <sc-if value="{{t.isText}}" hint-placeholder-val="{{ false }}"><article style="color: #d4d4d8">{{t.text}}</article></sc-if>
+<sc-if value="{{t.isPlace}}" hint-placeholder-val="{{ false }}"><div style="flex: none; min-width: 0"><dc-import name="DetailsPlace" place="{{t.place}}" form="phone" hint-size="100%,420px"></dc-import></div></sc-if>
 </sc-for>
 </sc-if>
 <sc-if value="{{hasActionLine}}" hint-placeholder-val="{{ false }}">
@@ -239,7 +240,7 @@ class Component extends DCLogic {
       ...this.bangVals(),
       actionLine: this.props.actionLine ?? null, hasActionLine: !!this.props.actionLine,
       // timeline: entries after the reply above, oldest first: { line } (a result line where its action started), { you, time } or { text }.
-      timeline: (this.props.timeline ?? []).map((t) => ({ ...t, isLine: !!t.line, isYou: !!t.you, isText: !!t.text })),
+      timeline: (this.props.timeline ?? []).map((t) => ({ ...t, isLine: !!t.line, isYou: !!t.you, isText: !!t.text, isPlace: !!t.place })),
       hasTimeline: (this.props.timeline ?? []).length > 0,
       // vibeEvents: lines like 'Vibe mode turned on · 10:14'. The switch reaches the session as a message but draws as an event, not as You.
       vibeEvents: this.props.vibeEvents ?? [], hasVibeEvents: (this.props.vibeEvents ?? []).length > 0,

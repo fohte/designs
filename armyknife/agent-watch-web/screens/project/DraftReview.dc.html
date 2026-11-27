@@ -40,7 +40,7 @@ body{margin:0}
 <sc-if value="{{doc.hasNote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0; font-size: {{z.metaFs}}; color: #a1a1aa">{{doc.note}}</p></sc-if>
 </header>
 
-<div style="flex: 1; min-height: 0; display: flex; flex-direction: column; overflow-y: auto">
+<div ref="{{ bodyScroll }}" style="flex: 1; min-height: 0; display: flex; flex-direction: column; overflow-y: auto">
 <sc-if value="{{hasFm}}" hint-placeholder-val="{{ false }}">
 <section aria-label="Frontmatter" style="flex: none; display: flex; flex-direction: column; padding: 8px {{z.padX}} 14px; border-bottom: 1px solid #2a2a2a; color: #d4d4d8; font-size: {{z.bodyFs}}">
 <h3 style="flex: none; margin: 0; height: 32px; display: flex; align-items: center; color: #8b8b94; font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em">FRONTMATTER</h3>
@@ -128,6 +128,7 @@ body{margin:0}
 <sc-if value="{{b.p}}" hint-placeholder-val="{{ true }}"><p style="margin: 0 0 10px">{{b.text}}</p></sc-if>
 <sc-if value="{{b.li}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 4px; padding-left: 14px; text-indent: -12px">· {{b.text}}</p></sc-if>
 <sc-if value="{{b.quote}}" hint-placeholder-val="{{ false }}"><p style="margin: 0 0 10px; padding-left: 10px; border-left: 2px solid #3f3f46; color: #a1a1aa">{{b.text}}</p></sc-if>
+<sc-if value="{{b.det}}" hint-placeholder-val="{{ false }}"><div style="margin: 0 0 10px"><dc-import name="MdDetails" open="{{ b.open }}" form="{{size}}" summary="{{b.text}}" body="{{b.body}}" hint-size="100%,44px"></dc-import></div></sc-if>
 </sc-for>
 </sc-if>
 </div>
@@ -155,11 +156,13 @@ body{margin:0}
 </footer>
 </article>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"size":{"editor":"enum","options":["desktop","phone"],"default":"desktop"},"draft":{"editor":"int","min":0,"max":4,"default":1},"many":{"editor":"boolean","default":false},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"stage":{"editor":"int","min":0,"max":2,"default":0},"wide":{"editor":"boolean","default":false},"$preview":{"width":640,"height":852}}'>
+<script type="text/x-dc" data-dc-script data-props='{"size":{"editor":"enum","options":["desktop","phone"],"default":"desktop"},"draft":{"editor":"int","min":0,"max":4,"default":1},"many":{"editor":"boolean","default":false},"view":{"editor":"enum","options":["preview","edit"],"default":"preview"},"stage":{"editor":"int","min":0,"max":2,"default":0},"wide":{"editor":"boolean","default":false},"details":{"editor":"boolean","default":false},"$preview":{"width":640,"height":852}}'>
 class Component extends DCLogic {
   renderVals() {
     // The Review tab of the session status panel, shared by the PC right panel and the iPhone page through StatusBody.
     const phone = (this.props.size ?? 'desktop') === 'phone';
+    // details: the PR body ends with a Test section holding two details blocks, one closed and one opened.
+    const details = this.props.details ?? false;
     // draft: 0 Issue comment, 1 PR draft, 2 Review replies, 3 Draft, 4 Issue (an issue the session edits; never one of several).
     const di = Math.min(4, Math.max(0, this.props.draft ?? 1));
     // many: the session has the first four drafts open; the first is in the editor, the rest wait in its queue.
@@ -256,7 +259,8 @@ class Component extends DCLogic {
         hasNote: !!x.note,
         stateDot: inEditor ? IN : Q,
         stateLong: inEditor ? 'In the editor · 3m' : 'Queued for the editor · ' + (i === 1 ? '2m' : '1m'),
-        blocks: x.blocks.map(([t, text]) => ({ h: t === 'h', p: t === 'p', li: t === 'li', quote: t === 'quote', text })),
+        blocks: (details && i === 1 ? [...x.blocks, ['h', 'Test'], ['det', '変更したファイル', 'files', false], ['det', '実行したテストのログ', 'log', true]] : x.blocks)
+          .map(([t, text, body, open]) => ({ h: t === 'h', p: t === 'p', li: t === 'li', quote: t === 'quote', det: t === 'det', text, body: body ?? '', open: !!open })),
         // The frontmatter has its own fields, so Edit holds only the body; review replies edit the threads file as written.
         editRaw: x.threads
           ? x.threads.map((t) => [
@@ -298,6 +302,10 @@ class Component extends DCLogic {
       docs: D.slice(0, 4),
       doc,
       desk: !phone,
+      size: phone ? 'phone' : 'desktop',
+      // The iPhone page is scrolled down to the details blocks at the end of the PR body.
+      // The nested parts lay out after this runs, so it scrolls again once they have.
+      bodyScroll: (el) => { if (el && details && phone) [100, 800, 2500].forEach((t) => setTimeout(() => { el.scrollTop = el.scrollHeight; }, t)); },
       fullBtn: !phone,
       wide,
       notWide: !wide,

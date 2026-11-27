@@ -176,6 +176,7 @@ a{color:#ef4444}
 <sc-if value="{{t.isLine}}" hint-placeholder-val="{{ true }}"><div style="flex: none"><dc-import name="ActionItem" a="{{ t.line }}" form="line" hint-size="100%,24px"></dc-import></div></sc-if>
 <sc-if value="{{t.isYou}}" hint-placeholder-val="{{ false }}"><article style="flex: none; align-self: flex-end; max-width: 80%; display: flex; flex-direction: column; gap: 4px"><div style="display: flex; justify-content: flex-end; gap: 8px; font-size: 12px; color: #8b8b94">You · {{t.time}}</div><div style="padding: 10px 14px; background: #1f1f1f; color: #fafafa">{{t.you}}</div></article></sc-if>
 <sc-if value="{{t.isText}}" hint-placeholder-val="{{ false }}"><article style="flex: none; max-width: 100%; color: #d4d4d8">{{t.text}}</article></sc-if>
+<sc-if value="{{t.isPlace}}" hint-placeholder-val="{{ false }}"><div style="flex: none"><dc-import name="DetailsPlace" place="{{t.place}}" hint-size="100%,420px"></dc-import></div></sc-if>
 </sc-for>
 </sc-if>
 <sc-if value="{{hasActionLine}}" hint-placeholder-val="{{ false }}">
@@ -314,7 +315,7 @@ class Component extends DCLogic {
     const menuOn = menu !== 'closed';
     // draft: the composer holds an unsent message, as while typing.
     const draft = this.props.draft ?? false;
-    const timeline = (this.props.timeline ?? []).map((t) => ({ ...t, isLine: !!t.line, isYou: !!t.you, isText: !!t.text }));
+    const timeline = (this.props.timeline ?? []).map((t) => ({ ...t, isLine: !!t.line, isYou: !!t.you, isText: !!t.text, isPlace: !!t.place }));
     return {
       hasDraft: draft, noDraft: !draft, sendOpacity: draft ? '1' : '0.5',
       // h: shorter when the update band takes the top of the window.

@@ -13,7 +13,7 @@
 body{margin:0}
 </style>
 </helmet>
-<div style="width: 1440px; height: 3400px; box-sizing: border-box; padding: 72px 96px; display: flex; flex-direction: column; gap: 40px; background: #0a0a0a; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.7">
+<div style="width: 1440px; height: 3500px; box-sizing: border-box; padding: 72px 96px; display: flex; flex-direction: column; gap: 40px; background: #0a0a0a; color: #d4d4d8; font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif; font-size: 15px; line-height: 1.7">
 <header>
 <div style="font-family: 'JetBrains Mono', monospace; font-size: 20px; font-weight: 700; color: #fafafa"><span style="margin-right: 10px; color: #ef4444">&gt;</span>agent watch</div>
 <h1 style="margin: 12px 0 0; font-size: 32px; font-weight: 700; color: #fafafa">いまの画面の仕様</h1>
@@ -31,7 +31,7 @@ body{margin:0}
 </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3400}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3500}}'>
 class Component extends DCLogic {
   renderVals() {
     return {
@@ -67,6 +67,7 @@ class Component extends DCLogic {
           '返信欄の上に、会話欄の幅いっぱいの帯で今の状態を出します。状態と詳細 (質問の文、実行中のコマンド、タスク名) を 1 行にまとめ、はみ出た詳細は … で切ります。帯を押すと詳細を全部出し、質問と permission では会話の中のカードに戻ります。crit と draft のレビュー待ちだけは 2 行の帯にし、Review in crit で crit を全画面で、Open drafts で状況パネルの Review タブを開きます。止まっているときは帯を出しません。',
           'メッセージの中のリンクの URL が登録済みの web UI の URL なら、リンクの後ろに開く先のタブ名のチップ (canvas など) を出します。押すと crit と同じく、そのタブを watch-web の中で全画面で開き、↙ で状況パネルに戻ります。iPhone は web UI だけのページを会話の上に重ねます。ブラウザの新しいタブへは、web UI のヘッダーの URL (iPhone は ↗) からだけ開きます。',
           'メッセージの中のコードブロックには、上に左が言語名 (ts、bash、text)、右が Copy の帯を付けます。押すと 1.5 秒 ✓ Copied に変わります。帯は PC で 30px、iPhone で 44px の高さで、コードと一緒に横へスクロールしないので、長い行のコードに重なりません。',
+          'Markdown の details は会話、カード、PR draft の Preview で GitHub と同じく、要約の左の ▸ で畳み、開くと ▾ にして中身を字下げせずに続けます。開いた状態はページを開いている間だけ保ちます。',
           '↵ で送り、Esc で止め、⌥↑ / ⌥↓ で自分のメッセージをたどります。',
           '返信欄の下に status line と同じ並びで engine、model (effort)、context、5h / 7d の quota (7d 76% → 92% の形で、今の使用率と窓の終わりの予測。色はナビと同じ)、バージョンを出します。表示だけで、押しても何も起きません。iPhone では折り返します。'
         ] },

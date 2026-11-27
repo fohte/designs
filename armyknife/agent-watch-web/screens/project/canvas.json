@@ -341,7 +341,7 @@
       "x": 0,
       "y": 0,
       "w": 1440,
-      "h": 3400,
+      "h": 3500,
       "title": "仕様のまとめ",
       "page": "inbox"
     },
@@ -1442,6 +1442,94 @@
       "h": 300,
       "page": "components",
       "title": "SortMenu"
+    },
+    "MdDetails.dc.html": {
+      "x": 0,
+      "y": 5680,
+      "w": 672,
+      "h": 200,
+      "title": "MdDetails",
+      "page": "components"
+    },
+    "DetailsPlace.dc.html": {
+      "x": 752,
+      "y": 5680,
+      "w": 672,
+      "h": 420,
+      "title": "DetailsPlace",
+      "page": "components"
+    },
+    "DetailsMessage.dc.html": {
+      "x": 0,
+      "y": 13430,
+      "w": 1440,
+      "h": 900,
+      "title": "Markdown の折りたたみ · 会話のメッセージ (閉じた details と開いた details、入れ子、長い要約)",
+      "page": "conversation"
+    },
+    "PhoneChatDetailsMessage.dc.html": {
+      "x": 1520,
+      "y": 13430,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 会話のメッセージ (要約の行は 44px)",
+      "page": "conversation"
+    },
+    "DetailsTodo.dc.html": {
+      "x": 1990,
+      "y": 13430,
+      "w": 1440,
+      "h": 900,
+      "title": "Markdown の折りたたみ · To-do のカード",
+      "page": "conversation"
+    },
+    "PhoneChatDetailsTodo.dc.html": {
+      "x": 3510,
+      "y": 13430,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · To-do のカード",
+      "page": "conversation"
+    },
+    "DetailsProposal.dc.html": {
+      "x": 3980,
+      "y": 13430,
+      "w": 1440,
+      "h": 900,
+      "title": "Markdown の折りたたみ · Proposal のカード",
+      "page": "conversation"
+    },
+    "PhoneChatDetailsProposal.dc.html": {
+      "x": 5500,
+      "y": 13430,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · Proposal のカード",
+      "page": "conversation"
+    },
+    "StatusReviewDetails.dc.html": {
+      "x": 0,
+      "y": 5820,
+      "w": 1440,
+      "h": 900,
+      "title": "状況パネル · Review · PR draft の Preview の details (閉じたものと開いたもの)",
+      "page": "status-panel"
+    },
+    "PhoneStatusReviewDetails.dc.html": {
+      "x": 1520,
+      "y": 5820,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 状況パネル · Review · PR draft の Preview の details",
+      "page": "status-panel"
+    },
+    "before/BeforeMain.dc.html": {
+      "x": 1520,
+      "y": 0,
+      "w": 1440,
+      "h": 3400,
+      "title": "Before · 仕様のまとめ",
+      "page": "inbox"
     }
   },
   "order": [
@@ -1625,7 +1713,18 @@
     "InboxSortProject.dc.html",
     "PhoneInboxSortProject.dc.html",
     "SortControl.dc.html",
-    "SortMenu.dc.html"
+    "SortMenu.dc.html",
+    "MdDetails.dc.html",
+    "DetailsPlace.dc.html",
+    "DetailsMessage.dc.html",
+    "PhoneChatDetailsMessage.dc.html",
+    "DetailsTodo.dc.html",
+    "PhoneChatDetailsTodo.dc.html",
+    "DetailsProposal.dc.html",
+    "PhoneChatDetailsProposal.dc.html",
+    "StatusReviewDetails.dc.html",
+    "PhoneStatusReviewDetails.dc.html",
+    "before/BeforeMain.dc.html"
   ],
   "pages": [
     {
@@ -1751,7 +1850,7 @@
     },
     "rowInboxConversation": {
       "x": 0,
-      "y": 3460,
+      "y": 3537,
       "text": "Inbox と会話 · tq タスクが複数のとき",
       "kind": "title1",
       "maxW": 3900,
@@ -1932,6 +2031,38 @@
       "kind": "title1",
       "maxW": 3900,
       "page": "inbox"
+    },
+    "rowDetailsFold": {
+      "x": 0,
+      "y": 13130,
+      "text": "Markdown の折りたたみ · details と summary",
+      "kind": "title1",
+      "maxW": 5890,
+      "page": "conversation"
+    },
+    "rowReviewDetails": {
+      "x": 0,
+      "y": 5520,
+      "text": "状況パネル · Review · Preview の details",
+      "kind": "title1",
+      "maxW": 1910,
+      "page": "status-panel"
+    },
+    "rowPartsDetails": {
+      "x": 0,
+      "y": 5380,
+      "text": "Markdown の details",
+      "kind": "title1",
+      "maxW": 1424,
+      "page": "components"
+    },
+    "diffMain": {
+      "x": 3040,
+      "y": 0,
+      "w": 420,
+      "fill": "yellow",
+      "page": "inbox",
+      "text": "左が変更前 (Before)。変更点:\n- 会話の 6 つ目に、Markdown の details の説明を足した (GitHub と同じく ▸ で畳み、開くと ▾ で中身を字下げせずに続ける。開いた状態はページを開いている間だけ保つ)\n- 文が増えた分、ボードの高さを 3400px から 3500px にした\n- 見た目は会話の「Markdown の折りたたみ」の行と、右側のタブの「Review · Preview の details」の行"
     }
   },
   "v": 3,
@@ -1974,6 +2105,10 @@
     "rowPartsDialogs",
     "rowPhoneTasks",
     "rowPhoneStatusTasks",
-    "rowReviewPreview"
+    "rowReviewPreview",
+    "rowDetailsFold",
+    "rowReviewDetails",
+    "rowPartsDetails",
+    "diffMain"
   ]
 }

@@ -30,7 +30,7 @@ body{margin:0}
 </sc-if>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":672,"height":160},"code":{"editor":"enum","options":["cmd","ts","curl","err","delay","bang","agent"],"default":"ts"},"phone":{"editor":"boolean","default":false},"hovered":{"editor":"boolean","default":false},"copied":{"editor":"boolean","default":false},"scrolled":{"editor":"boolean","default":false}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":672,"height":160},"code":{"editor":"enum","options":["cmd","ts","curl","err","delay","bang","agent","log"],"default":"ts"},"phone":{"editor":"boolean","default":false},"hovered":{"editor":"boolean","default":false},"copied":{"editor":"boolean","default":false},"scrolled":{"editor":"boolean","default":false}}'>
 class Component extends DCLogic {
   renderVals() {
     const K = '#f97583', S = '#9ecbff', F = '#b392f0', C = '#79b8ff', P = '#e1e4e8', V = '#ffab70';
@@ -54,7 +54,14 @@ class Component extends DCLogic {
       ] },
       delay: { lang: 'ts', lines: [seg(['const', K], [' delay '], ['=', K], [' base '], ['*', K], [' '], ['2', C], [' '], ['**', K], [' attempt;'])] },
       bang: { lang: 'text', lines: [seg(['!cargo test -p service']), seg(['!cargo clippy'])] },
-      agent: { lang: 'text', lines: [seg(['!a agent todo add --title "差分を crit で見る"'])] }
+      agent: { lang: 'text', lines: [seg(['!a agent todo add --title "差分を crit で見る"'])] },
+      log: { lang: 'text', lines: [
+        seg(['$ bun run test --filter retry']),
+        seg([' ✓', '#85e89d'], [' src/notify/retry.test.ts (4 tests) 12ms']),
+        seg([' ✓', '#85e89d'], [' src/notify/send.test.ts (6 tests) 31ms']),
+        seg([' Test Files  '], ['2 passed', '#85e89d'], [' (2)']),
+        seg(['      Tests  '], ['10 passed', '#85e89d'], [' (10)'])
+      ] }
     }[this.props.code ?? 'ts'];
     const phone = this.props.phone ?? false;
     const copied = this.props.copied ?? false;

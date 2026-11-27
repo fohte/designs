@@ -22,20 +22,20 @@ body{margin:0}
 </div>
 <sc-if value="{{hasToasts}}" hint-placeholder-val="{{ true }}"><div style="position: absolute; z-index: 10; left: 16px; bottom: 16px; width: 360px"><dc-import name="ToastStack" items="{{ toasts }}" hint-size="100%,220px"></dc-import></div></sc-if>
 <sc-if value="{{activityOpen}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 10; left: 248px; bottom: 148px; width: 400px"><dc-import name="Activity" items="{{ items }}" hint-size="100%,560px"></dc-import></div></sc-if>
-<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 20; left: {{menuLeft}}; bottom: {{menuBottom}}; width: 220px"><dc-import name="DiscardMenu" session="{{session}}" form="popover" terminal="{{ menuTerminal }}" hint-size="100%,70px"></dc-import></div></sc-if>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 20; left: {{menuLeft}}; bottom: {{menuBottom}}; width: {{menuW}}"><dc-import name="DiscardMenu" session="{{session}}" form="popover" variant="{{menuVariant}}" terminal="{{ menuTerminal }}" hint-size="100%,70px"></dc-import></div></sc-if>
 <sc-if value="{{hasDialog}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 30; inset: 0; display: grid; place-items: center; background: rgb(0 0 0 / 55%)"><div style="width: 520px"><dc-import name="DiscardDialog" session="{{session}}" form="modal" list="{{ list }}" confirm="{{ confirm }}" again="{{ again }}" changes="{{ dlgChanges }}" commits="{{ dlgCommits }}" hint-size="100%,560px"></dc-import></div></div></sc-if>
 </sc-if>
 
 <sc-if value="{{phone}}" hint-placeholder-val="{{ false }}">
 <sc-if value="{{chat}}" hint-placeholder-val="{{ true }}"><dc-import name="PhoneChat" state="review" done="{{ true }}" toasts="{{ toasts }}" action-line="{{ line }}" hint-size="390px,844px"></dc-import></sc-if>
 <sc-if value="{{activityOpen}}" hint-placeholder-val="{{ false }}"><dc-import name="PhoneDrawer" activity="{{ activity }}" activity-open="{{ true }}" activity-items="{{ items }}" hint-size="390px,844px"></dc-import></sc-if>
-<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 30; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; background: rgb(0 0 0 / 55%)"><dc-import name="DiscardMenu" session="{{session}}" form="sheet" terminal="{{ menuTerminal }}" hint-size="100%,250px"></dc-import></div></sc-if>
+<sc-if value="{{menuOpen}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 30; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; background: rgb(0 0 0 / 55%)"><dc-import name="DiscardMenu" session="{{session}}" form="sheet" variant="{{menuVariant}}" terminal="{{ menuTerminal }}" hint-size="100%,250px"></dc-import></div></sc-if>
 <sc-if value="{{hasDialog}}" hint-placeholder-val="{{ false }}"><div style="position: absolute; z-index: 30; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; background: rgb(0 0 0 / 55%)"><dc-import name="DiscardDialog" session="{{session}}" form="sheet" list="{{ list }}" confirm="{{ confirm }}" again="{{ again }}" changes="{{ dlgChanges }}" commits="{{ dlgCommits }}" hint-size="100%,600px"></dc-import></div></sc-if>
 </sc-if>
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"opt":{"editor":"enum","options":["none","button","menu","review"],"default":"button"},"view":{"editor":"enum","options":["conversation","activity"],"default":"conversation"},"menuOpen":{"editor":"boolean","default":false},"dialog":{"editor":"enum","options":["none","scroll","collapse","type","again"],"default":"none"},"result":{"editor":"enum","options":["closeFailed","deleting","deleted","deleteChanged","deleteBlocked","deleteFailed"],"default":"closeFailed"},"$preview":{"width":1440,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"opt":{"editor":"enum","options":["none","button","menu","review","grid","split","stack"],"default":"button"},"view":{"editor":"enum","options":["conversation","activity"],"default":"conversation"},"menuOpen":{"editor":"boolean","default":false},"dialog":{"editor":"enum","options":["none","scroll","collapse","type","again"],"default":"none"},"result":{"editor":"enum","options":["closeFailed","deleting","deleted","deleteChanged","deleteBlocked","deleteFailed"],"default":"closeFailed"},"$preview":{"width":1440,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const phone = (this.props.form ?? 'pc') === 'phone';
@@ -44,6 +44,7 @@ class Component extends DCLogic {
     const dialog = this.props.dialog ?? 'none';
     const result = this.props.result ?? 'closeFailed';
     const menuOpen = this.props.menuOpen ?? false;
+    const split = opt === 'split';
     // The session open in each form's conversation.
     const session = phone ? '通知の再送処理を見直す' : '配信チェックの PR を確認する';
     const path = '~/src/example/notification-service/.worktrees/fix-resend-limit';
@@ -85,8 +86,9 @@ class Component extends DCLogic {
       toasts: view === 'conversation' ? [a] : [], hasToasts: view === 'conversation',
       items: [rowA, { result: 'merged', pr: 2041, session: '再送のログを整える', time: '11:40' }],
       menuOpen, menuTerminal: view === 'conversation',
-      // PC: the menu opens above the toast's ⋯.
-      menuLeft: '196px', menuBottom: '62px',
+      // PC: the menu opens above the toast's ⋯, or right-aligned above the ▾ of the split Close button.
+      menuLeft: split ? '66px' : '196px', menuBottom: split ? '92px' : '62px', menuW: split ? '300px' : '220px',
+      menuVariant: split ? 'close' : 'more',
       hasDialog: dialog !== 'none',
       list: dialog === 'scroll' ? 'scroll' : 'collapse', confirm: dialog === 'type' ? 'type' : 'button', again,
       dlgChanges: again ? mark([{ s: '??', path: 'src/resend-limit.snap' }, ...long], 1) : long,

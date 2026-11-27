@@ -29,6 +29,7 @@ body{margin:0}
 <sc-if value="{{hasBtns}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px"><sc-for list="{{btns}}" as="b" hint-placeholder-count="3"><button type="button" aria-label="{{b.aria}}" style="flex: {{b.flex}}; min-width: {{b.minW}}; min-height: {{btnH}}; padding: 0 12px; border: 1px solid {{b.border}}; background: {{b.bg}}; color: {{b.fg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{b.weight}}; white-space: nowrap">{{b.label}}</button></sc-for></div></sc-if>
 </div>
 <button type="button" aria-label="Dismiss" style="width: {{closeW}}; height: {{closeH}}; display: grid; place-items: center; padding: 0; border: 0; background: transparent; color: #8b8b94"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+<sc-if value="{{hasRows}}" hint-placeholder-val="{{ false }}"><div style="grid-column: 1 / -1; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; width: {{rowsW}}; margin-top: {{rowsMt}}; text-align: left"><sc-for list="{{rows}}" as="r" hint-placeholder-count="2"><div style="display: flex; flex-direction: column; gap: 4px"><sc-if value="{{r.hasCaption}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa; font-size: {{subFs}}">{{r.caption}}</span></sc-if><div role="group" aria-label="{{r.aria}}" style="display: grid; grid-template-columns: {{r.cols}}; gap: {{r.gap}}"><sc-for list="{{r.btns}}" as="b" hint-placeholder-count="2"><button type="button" aria-label="{{b.aria}}" aria-haspopup="{{b.popup}}" style="display: flex; align-items: center; justify-content: center; gap: 6px; min-width: 0; min-height: {{btnH}}; padding: 0 {{b.pad}}; border: 1px solid {{b.border}}; border-left-color: {{b.borderL}}; background: {{b.bg}}; color: {{b.fg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{b.weight}}; white-space: nowrap"><sc-if value="{{b.trash}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></sc-if><sc-if value="{{b.caret}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="m6 9 6 6 6-6"></path></svg></sc-if><sc-if value="{{b.hasLabel}}" hint-placeholder-val="{{ true }}"><span style="overflow: hidden; text-overflow: ellipsis">{{b.label}}</span></sc-if></button></sc-for></div></div></sc-for></div></sc-if>
 <sc-if value="{{autoDismiss}}" hint-placeholder-val="{{ false }}"><span aria-hidden="true" style="position: absolute; left: 0; bottom: 0; width: 60%; height: 2px; background: #52525b"></span></sc-if>
 </div>
 </sc-if>
@@ -50,6 +51,7 @@ body{margin:0}
 <sc-if value="{{hasFoot}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #2a2a2a"><span style="color: #a1a1aa; font-size: {{subFs}}">{{footText}}</span><button type="button" style="align-self: {{footAlign}}; min-height: {{btnH}}; padding: 0 12px; border: 1px solid #f87171; background: transparent; color: #f87171; font-family: inherit; font-size: {{subFs}}; white-space: nowrap">Discard changes and close…</button></div></sc-if>
 </div>
 <span style="color: #8b8b94; font-family: 'JetBrains Mono', monospace; font-size: 12px">{{time}}</span>
+<sc-if value="{{hasRows}}" hint-placeholder-val="{{ false }}"><div style="grid-column: 1 / -1; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; width: {{rowsW}}; margin-top: {{rowsMt}}; text-align: left"><sc-for list="{{rows}}" as="r" hint-placeholder-count="2"><div style="display: flex; flex-direction: column; gap: 4px"><sc-if value="{{r.hasCaption}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa; font-size: {{subFs}}">{{r.caption}}</span></sc-if><div role="group" aria-label="{{r.aria}}" style="display: grid; grid-template-columns: {{r.cols}}; gap: {{r.gap}}"><sc-for list="{{r.btns}}" as="b" hint-placeholder-count="2"><button type="button" aria-label="{{b.aria}}" aria-haspopup="{{b.popup}}" style="display: flex; align-items: center; justify-content: center; gap: 6px; min-width: 0; min-height: {{btnH}}; padding: 0 {{b.pad}}; border: 1px solid {{b.border}}; border-left-color: {{b.borderL}}; background: {{b.bg}}; color: {{b.fg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{b.weight}}; white-space: nowrap"><sc-if value="{{b.trash}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></sc-if><sc-if value="{{b.caret}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="m6 9 6 6 6-6"></path></svg></sc-if><sc-if value="{{b.hasLabel}}" hint-placeholder-val="{{ true }}"><span style="overflow: hidden; text-overflow: ellipsis">{{b.label}}</span></sc-if></button></sc-for></div></div></sc-for></div></sc-if>
 </div>
 </sc-if>
 
@@ -67,6 +69,7 @@ body{margin:0}
 <sc-if value="{{hasMsg}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa">{{msg}}</span></sc-if>
 <sc-if value="{{lineControls}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 2px"><sc-if value="{{hasKeep}}" hint-placeholder-val="{{ false }}"><button type="button" style="min-height: {{lineBtnH}}; padding: 0 12px; border: 1px solid #fafafa; background: #fafafa; color: #0a0a0a; font-family: inherit; font-size: {{subFs}}; font-weight: 700; white-space: nowrap">Close and keep worktree</button></sc-if><sc-if value="{{hasRetry}}" hint-placeholder-val="{{ true }}"><button type="button" style="min-width: {{retryW}}; min-height: {{lineBtnH}}; padding: 0 12px; border: 1px solid #3f3f46; background: transparent; color: #fafafa; font-family: inherit; font-size: {{subFs}}; white-space: nowrap">Retry</button></sc-if></div></sc-if>
 <sc-if value="{{hasBtns}}" hint-placeholder-val="{{ false }}"><div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-top: 2px"><sc-for list="{{btns}}" as="b" hint-placeholder-count="3"><button type="button" aria-label="{{b.aria}}" style="min-width: {{b.lineMinW}}; min-height: {{lineBtnH}}; padding: 0 12px; border: 1px solid {{b.border}}; background: {{b.bg}}; color: {{b.fg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{b.weight}}; white-space: nowrap">{{b.label}}</button></sc-for></div></sc-if>
+<sc-if value="{{hasRows}}" hint-placeholder-val="{{ false }}"><div style="grid-column: 1 / -1; box-sizing: border-box; display: flex; flex-direction: column; gap: 8px; width: {{rowsW}}; margin-top: {{rowsMt}}; text-align: left"><sc-for list="{{rows}}" as="r" hint-placeholder-count="2"><div style="display: flex; flex-direction: column; gap: 4px"><sc-if value="{{r.hasCaption}}" hint-placeholder-val="{{ false }}"><span style="color: #a1a1aa; font-size: {{subFs}}">{{r.caption}}</span></sc-if><div role="group" aria-label="{{r.aria}}" style="display: grid; grid-template-columns: {{r.cols}}; gap: {{r.gap}}"><sc-for list="{{r.btns}}" as="b" hint-placeholder-count="2"><button type="button" aria-label="{{b.aria}}" aria-haspopup="{{b.popup}}" style="display: flex; align-items: center; justify-content: center; gap: 6px; min-width: 0; min-height: {{btnH}}; padding: 0 {{b.pad}}; border: 1px solid {{b.border}}; border-left-color: {{b.borderL}}; background: {{b.bg}}; color: {{b.fg}}; font-family: inherit; font-size: {{subFs}}; font-weight: {{b.weight}}; white-space: nowrap"><sc-if value="{{b.trash}}" hint-placeholder-val="{{ false }}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="M3 6h18"></path><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6"></path><path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg></sc-if><sc-if value="{{b.caret}}" hint-placeholder-val="{{ false }}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none"><path d="m6 9 6 6 6-6"></path></svg></sc-if><sc-if value="{{b.hasLabel}}" hint-placeholder-val="{{ true }}"><span style="overflow: hidden; text-overflow: ellipsis">{{b.label}}</span></sc-if></button></sc-for></div></div></sc-for></div></sc-if>
 </div>
 </sc-if>
 
@@ -165,6 +168,39 @@ class Component extends DCLogic {
     }) : null;
     const nFiles = (c?.changes ?? files).length, nCommits = (c?.commits ?? []).length;
     const foot = [nFiles ? n(nFiles, 'file', 'files') : '', nCommits ? n(nCommits, 'commit', 'commits') : ''].filter(Boolean).join(' and ');
+    // grid / split / stack: every button in a grid of equal heights, the same rows in the toast, the conversation line and Activity.
+    // The trigger stays red text, never red fill: the red fill is the confirmation's final Discard and close.
+    const R = {
+      keep: { label: 'Close and keep worktree', kind: 'primary' },
+      keepShort: { label: 'Keep worktree', aria: 'Close and keep worktree', kind: 'primary' },
+      caret: { label: '', aria: 'More ways to close', kind: 'primary', caret: true, popup: 'menu', pad: '0', borderL: '#0a0a0a' },
+      retry: { label: 'Retry', kind: 'plain' },
+      details: { label: 'Details', kind: 'plain' },
+      terminal: { label: 'Open in terminal', kind: 'plain' },
+      discardShort: { label: 'Discard changes…', aria: 'Discard changes and close…', kind: 'dangerEdge', trash: true, popup: 'dialog' },
+      discard: { label: 'Discard changes and close…', kind: 'dangerText', trash: true, popup: 'dialog' }
+    };
+    const RS = {
+      primary: { border: '#fafafa', bg: '#fafafa', fg: '#0a0a0a', weight: 700 },
+      plain: { border: '#3f3f46', bg: 'transparent', fg: '#fafafa', weight: 400 },
+      dangerEdge: { border: '#f87171', bg: 'transparent', fg: '#f87171', weight: 400 },
+      dangerText: { border: '#3f3f46', bg: 'transparent', fg: '#f87171', weight: 400 }
+    };
+    const second = form === 'row' ? 'terminal' : 'details';
+    const tap = phone ? '44px' : '26px';
+    const layouts = {
+      grid: [{ caption: 'Close anyway', aria: 'Close anyway', btns: ['keepShort', 'discardShort'] }, { btns: ['retry', second] }],
+      split: [{ aria: 'Close', btns: ['keep', 'caret'], cols: '1fr ' + tap, gap: '0' }, { btns: ['retry', second] }],
+      stack: [{ btns: ['keep'] }, { btns: ['discard'] }, { btns: ['retry', second] }]
+    };
+    const rows = (c && layouts[a.discard]) ? layouts[a.discard].map((r) => ({
+      caption: r.caption ?? '', hasCaption: !!r.caption, aria: r.aria ?? 'Actions',
+      cols: r.cols ?? 'repeat(' + r.btns.length + ', minmax(0, 1fr))', gap: r.gap ?? '8px',
+      btns: r.btns.map((k) => {
+        const b = R[k], s = RS[b.kind];
+        return { ...s, ...b, aria: b.aria ?? b.label, hasLabel: !!b.label, trash: !!b.trash, caret: !!b.caret, popup: b.popup ?? 'false', pad: b.pad ?? '10px', borderL: b.borderL ?? s.border, ...(b.caret && a.menuOpen && form === 'toast' ? { bg: '#d4d4d8', border: '#d4d4d8' } : {}) };
+      })
+    })) : null;
     // A command failure offers only Show output: its full result is already in the conversation, and Retry from a toast could run it twice.
     return {
       btns: btns ?? [], hasBtns: !!btns,
@@ -173,7 +209,9 @@ class Component extends DCLogic {
       hasDetails: isCmd || !(a.result === 'closeFailed' && !c),
       hasRetry: !isCmd,
       hasOutputBtn: isCmd && failed,
-      toastControls: failed && !btns, rowControls: failed && !btns, lineControls: failed && !isCmd && !btns,
+      toastControls: failed && !btns && !rows, rowControls: failed && !btns && !rows, lineControls: failed && !isCmd && !btns && !rows,
+      rows: rows ?? [], hasRows: !!rows,
+      rowsW: form === 'line' && !phone ? '360px' : '100%', rowsMt: form === 'toast' ? '10px' : form === 'row' ? '8px' : '4px',
       detailsLabel: isCmd ? 'Show output' : 'Details',
       detailsAria: isCmd ? 'Show output in the conversation' : 'Details in Activity',
       detailsBorder: isCmd ? '#fafafa' : '#3f3f46', detailsBg: isCmd ? '#fafafa' : 'transparent', detailsFg: isCmd ? '#0a0a0a' : '#d4d4d8', detailsWeight: isCmd ? 700 : 400,

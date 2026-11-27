@@ -117,7 +117,7 @@
       "y": 1280,
       "w": 1440,
       "h": 900,
-      "title": "B · ディレクトリを選ぶ前に画像を 1 枚貼った",
+      "title": "B1 · ディレクトリを選ぶ前に画像を 1 枚貼った",
       "page": "q1"
     },
     "q1-b-three.dc.html": {
@@ -125,7 +125,7 @@
       "y": 1280,
       "w": 1440,
       "h": 900,
-      "title": "B · 画像 3 枚と 2 行の文",
+      "title": "B1 · 画像 3 枚と 2 行の文",
       "page": "q1"
     },
     "q1-b-phone-nodir.dc.html": {
@@ -133,7 +133,7 @@
       "y": 1280,
       "w": 390,
       "h": 844,
-      "title": "B · iPhone · ディレクトリを選ぶ前に 1 枚",
+      "title": "B1 · iPhone · ディレクトリを選ぶ前に 1 枚",
       "page": "q1"
     },
     "q1-b-phone-three.dc.html": {
@@ -141,12 +141,28 @@
       "y": 1280,
       "w": 390,
       "h": 844,
-      "title": "B · iPhone · 画像 3 枚と 2 行の文",
+      "title": "B1 · iPhone · 画像 3 枚と 2 行の文",
+      "page": "q1"
+    },
+    "q1-b-chat.dc.html": {
+      "x": 3980,
+      "y": 1280,
+      "w": 1440,
+      "h": 900,
+      "title": "B1 · 会話の返信欄も同じ箱で + が付く",
+      "page": "q1"
+    },
+    "q1-b-phone-chat.dc.html": {
+      "x": 5500,
+      "y": 1280,
+      "w": 390,
+      "h": 844,
+      "title": "B1 · iPhone · 会話の返信欄も同じ箱で + が付く",
       "page": "q1"
     },
     "q1-c-nodir.dc.html": {
       "x": 0,
-      "y": 2560,
+      "y": 3840,
       "w": 1440,
       "h": 900,
       "title": "C · ディレクトリを選ぶ前に画像を 1 枚貼った",
@@ -154,7 +170,7 @@
     },
     "q1-c-three.dc.html": {
       "x": 1520,
-      "y": 2560,
+      "y": 3840,
       "w": 1440,
       "h": 900,
       "title": "C · 画像 3 枚と 2 行の文",
@@ -162,7 +178,7 @@
     },
     "q1-c-phone-nodir.dc.html": {
       "x": 3040,
-      "y": 2560,
+      "y": 3840,
       "w": 390,
       "h": 844,
       "title": "C · iPhone · ディレクトリを選ぶ前に 1 枚",
@@ -170,7 +186,7 @@
     },
     "q1-c-phone-three.dc.html": {
       "x": 3510,
-      "y": 2560,
+      "y": 3840,
       "w": 390,
       "h": 844,
       "title": "C · iPhone · 画像 3 枚と 2 行の文",
@@ -495,6 +511,54 @@
       "h": 44,
       "title": "MergeButton",
       "page": "parts"
+    },
+    "q1-b2-nodir.dc.html": {
+      "x": 0,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "B2 · ディレクトリを選ぶ前に画像を 1 枚貼った",
+      "page": "q1"
+    },
+    "q1-b2-three.dc.html": {
+      "x": 1520,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "B2 · 画像 3 枚と 2 行の文",
+      "page": "q1"
+    },
+    "q1-b2-phone-nodir.dc.html": {
+      "x": 3040,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "B2 · iPhone · ディレクトリを選ぶ前に 1 枚",
+      "page": "q1"
+    },
+    "q1-b2-phone-three.dc.html": {
+      "x": 3510,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "B2 · iPhone · 画像 3 枚と 2 行の文",
+      "page": "q1"
+    },
+    "q1-b2-chat.dc.html": {
+      "x": 3980,
+      "y": 2560,
+      "w": 1440,
+      "h": 900,
+      "title": "B2 · 会話の返信欄も同じ箱で + が付く",
+      "page": "q1"
+    },
+    "q1-b2-phone-chat.dc.html": {
+      "x": 5500,
+      "y": 2560,
+      "w": 390,
+      "h": 844,
+      "title": "B2 · iPhone · 会話の返信欄も同じ箱で + が付く",
+      "page": "q1"
     }
   },
   "order": [
@@ -512,6 +576,14 @@
     "q1-b-three.dc.html",
     "q1-b-phone-nodir.dc.html",
     "q1-b-phone-three.dc.html",
+    "q1-b-chat.dc.html",
+    "q1-b-phone-chat.dc.html",
+    "q1-b2-nodir.dc.html",
+    "q1-b2-three.dc.html",
+    "q1-b2-phone-nodir.dc.html",
+    "q1-b2-phone-three.dc.html",
+    "q1-b2-chat.dc.html",
+    "q1-b2-phone-chat.dc.html",
     "q1-c-nodir.dc.html",
     "q1-c-three.dc.html",
     "q1-c-phone-nodir.dc.html",
@@ -600,21 +672,21 @@
     "q1b": {
       "x": 0,
       "y": 1020,
-      "text": "B · 設定のボタンは箱の上の 1 行に出し、箱は会話の返信欄と同じにする",
+      "text": "B1 · 設定は箱の上に丸いチップで 1 行に出し、箱はチャットアプリのような角の丸い返信欄にする。design-system の角も丸く直す",
       "kind": "title1",
       "maxW": 3900,
       "page": "q1"
     },
     "q1b-note": {
-      "x": 3980,
+      "x": 5970,
       "y": 1280,
-      "text": "B\n- 箱は会話の返信欄と同じ形 (📎、文、画像、右下に Start)。engine、モデル、New worktree は箱のすぐ上に 1 行で並べる。\n- iPhone は会話と同じ 1 行の形 (📎、欄、Start)。上の設定の列は横にスクロールする。\n+ 始めたあと、同じ場所に同じ形の返信欄が残る。\n- 設定が箱の外に出るぶん、下の帯が 1 行高い。",
+      "text": "B1\n- ChatGPT や Claude の iOS アプリの入力欄に寄せる。角の丸い 1 つの箱に、上から画像の角の丸い正方形のサムネイル (右上に丸い ×)、文、下の行の左に +、右に丸い送信ボタン。\n- 新しいセッションでは送信ボタンが Start を兼ねる。ディレクトリを選ぶ前は灰色で押せず、「Choose a directory to start」を箱の下に小さく出す。\n- engine、モデル、New worktree は箱のすぐ上に丸いチップで 1 行に並べる。iPhone では折り返さず、画面の端まで横にスクロールする。\n- iPhone も PC と同じ形で、箱は画面の幅近くまで広げる。+ と送信は 44px。\n- 会話の返信欄も PC と iPhone で同じ箱にする。\n+ 始めたあと、同じ場所に同じ形の返信欄が残る。\n- 角を丸くするのは design-system の四角い角と違う。決めるなら design-system も直す。\n- 設定が箱の外に出るぶん、下の帯が 1 行高い。",
       "w": 480,
       "page": "q1"
     },
     "q1c": {
       "x": 0,
-      "y": 2300,
+      "y": 3580,
       "text": "C · 設定のボタンはヘッダーに移し、下には会話と同じ返信欄だけを置く",
       "kind": "title1",
       "maxW": 3900,
@@ -622,7 +694,7 @@
     },
     "q1c-note": {
       "x": 3980,
-      "y": 2560,
+      "y": 3840,
       "text": "C\n- engine、モデル、New worktree をヘッダーのタイトルの右に移す。下には会話と同じ返信欄を、会話と同じ幅 (中央の 712px) で置く。\n- iPhone はヘッダーの下に 2 行目を足し、設定を横にスクロールする。\n+ 始める前とあとで画面の形が同じ。\n- 設定が Start から遠い。モデルのメニューはヘッダーから下に開くことになる。",
       "w": 480,
       "page": "q1"
@@ -755,7 +827,22 @@
       "w": 520,
       "page": "parts",
       "fill": "blue",
-      "text": "部品\n- Composer: 会話の返信欄、+ の画面、⌘K の欄が使う 1 つの部品。form (pc / phone)、place (conversation / plus / palette)、controls (箱の中に設定のボタンを入れる、1-1 の A)、images (0 / 1 / 3)、drop。\n- SessionControls: engine、モデル、New worktree のボタン。iPhone では 44px。\n- NewSessionPane: + の画面。layout が 1-1 の案。\n- NewSessionPalette: ⌘K の New session。layout が 1-2 の案。\n- Conversation と PhoneChat は screens の写しで、返信欄だけを Composer に替えた。ほかは screens の写しのまま。"
+      "text": "部品\n- Composer: 会話の返信欄、+ の画面、⌘K の欄が使う 1 つの部品。form (pc / phone)、place (conversation / plus / palette)、controls (箱の中に設定のボタンを入れる、1-1 の A)、round (角の丸い箱、正方形のサムネイル、+ と丸い送信ボタン、1-1 の B)、images (0 / 1 / 3)、drop。\n- SessionControls: engine、モデル、New worktree のボタン。iPhone では 44px。chip で小さな丸いチップにする (1-1 の B)。\n- NewSessionPane: + の画面。layout が 1-1 の案。\n- NewSessionPalette: ⌘K の New session。layout が 1-2 の案。\n- Conversation と PhoneChat は screens の写しで、返信欄だけを Composer に替えた。ほかは screens の写しのまま。"
+    },
+    "q1b2": {
+      "x": 0,
+      "y": 2300,
+      "text": "B2 · B1 と同じ配置で、箱、サムネイル、チップ、+ と送信の角は design-system どおり四角くする",
+      "kind": "title1",
+      "maxW": 3900,
+      "page": "q1"
+    },
+    "q1b2-note": {
+      "x": 5970,
+      "y": 2560,
+      "text": "B2\n- 配置は B1 と同じ。箱の中に上から画像のサムネイル (右上に ×)、文、下の行の左に +、右に送信ボタン。設定は箱のすぐ上に 1 行で並べる。\n- 送信ボタンが Start を兼ね、ディレクトリを選ぶ前は灰色で押せない。理由は箱の下に小さく出す。\n- 角はすべて四角。箱の枠と設定のボタンは今のアプリの欄やボタンと同じ色と線。\n- iPhone の設定、+、送信は 44px。\n+ design-system を変えずに、B1 と同じ使い勝手になる。\n- チャットアプリの入力欄とは見た目が離れる。",
+      "w": 480,
+      "page": "q1"
     }
   },
   "designSystems": [

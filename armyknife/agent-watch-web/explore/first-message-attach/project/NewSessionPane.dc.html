@@ -24,15 +24,15 @@ body{margin:0}
 <div style="flex: 1; min-height: 0; display: grid; place-items: center; padding: 24px; color: #8b8b94; font-size: 13px; text-align: center">The conversation opens here when the session starts.</div>
 <sc-if value="{{isA}}" hint-placeholder-val="{{ true }}"><div style="{{bottomStyle}}"><dc-import name="Composer" form="{{form}}" place="plus" controls="{{ true }}" worktree="{{worktree}}" images="{{images}}" msg="{{msgText}}" rows="{{rows}}" start="{{start}}" status="{{status}}" hint="" drop="{{dropField}}" hint-size="100%,140px"></dc-import></div></sc-if>
 <sc-if value="{{isB}}" hint-placeholder-val="{{ false }}"><div style="{{bottomStyle}}">
-<div style="display: flex; align-items: center; gap: 8px; min-width: 0"><div style="flex: 1 1 auto; min-width: 0; overflow: hidden"><dc-import name="SessionControls" form="{{form}}" wrap="{{ true }}" worktree="{{worktree}}" hint-size="100%,30px"></dc-import></div><sc-if value="{{pc}}" hint-placeholder-val="{{ true }}"><span role="status" style="margin-left: auto; font-size: 12px; color: #8b8b94; white-space: nowrap">{{status}}</span></sc-if></div>
-<div style="margin-top: 8px"><dc-import name="Composer" form="{{form}}" place="plus" bare="{{phone}}" images="{{images}}" msg="{{msgText}}" rows="{{rows}}" start="{{start}}" status="{{statusPhone}}" hint="" drop="{{dropField}}" hint-size="100%,120px"></dc-import></div>
+<div style="{{bCtlRow}}"><dc-import name="SessionControls" form="{{form}}" wrap="{{pc}}" icon="{{ true }}" chip="{{chip}}" pad="14px" worktree="{{worktree}}" hint-size="100%,30px"></dc-import></div>
+<div style="margin-top: 10px"><dc-import name="Composer" form="{{form}}" place="plus" round="{{ true }}" square="{{square}}" images="{{images}}" msg="{{msgText}}" rows="{{rows}}" start="{{start}}" status="{{status}}" hint="" drop="{{dropField}}" hint-size="100%,120px"></dc-import></div>
 </div></sc-if>
 <sc-if value="{{isC}}" hint-placeholder-val="{{ false }}"><div style="{{bottomStyle}}"><dc-import name="Composer" form="{{form}}" place="plus" bare="{{phone}}" images="{{images}}" msg="{{msgText}}" rows="{{rows}}" start="{{start}}" status="{{status}}" hint="" drop="{{dropField}}" hint-size="100%,120px"></dc-import></div></sc-if>
 <sc-if value="{{dropPane}}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="position: absolute; inset: 8px; z-index: 15; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; border: 1px dashed #a1a1aa; background: rgb(10 10 10 / 88%); color: #fafafa; font-size: 14px"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"></path></svg><span>Drop images to attach to the first message</span></div></sc-if>
 <sc-if value="{{ghost}}" hint-placeholder-val="{{ false }}"><div aria-hidden="true" style="position: absolute; left: {{gx}}; top: {{gy}}; z-index: 20; pointer-events: none"><div style="display: flex; align-items: center; gap: 8px; padding: 4px 8px 4px 4px; background: #262626; border: 1px solid #52525b; opacity: 0.9; font-size: 12px; color: #d4d4d8; box-shadow: 0 8px 24px rgb(0 0 0 / 40%)"><svg width="44" height="36" viewBox="0 0 44 36"><rect width="44" height="36" fill="#3f3f46"></rect><rect x="4" y="4" width="36" height="4" fill="#71717a"></rect><rect x="4" y="12" width="24" height="3" fill="#52525b"></rect><rect x="4" y="18" width="30" height="3" fill="#52525b"></rect><rect x="4" y="25" width="14" height="6" fill="#a1a1aa"></rect></svg>screenshot-1.png</div><svg width="18" height="22" viewBox="0 0 18 22" style="position: absolute; left: -6px; top: -8px"><path d="M1 1v17l4.5-4.2 3 6.7 2.6-1.2-3-6.6H14z" fill="#fafafa" stroke="#0a0a0a" stroke-width="1.2"></path></svg><sc-if value="{{noDrop}}" hint-placeholder-val="{{ false }}"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fafafa" stroke-width="2.5" style="position: absolute; left: 14px; top: 14px"><circle cx="12" cy="12" r="9" fill="#0a0a0a"></circle><path d="m5.7 5.7 12.6 12.6"></path></svg></sc-if></div></sc-if>
 </section>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"layout":{"editor":"enum","options":["a","b","c"],"default":"a"},"dir":{"editor":"boolean","default":true},"images":{"editor":"enum","options":["0","1","3"],"default":"1"},"msg":{"editor":"text","default":"この画面の通知の文言を直して"},"rows":{"editor":"int","default":2},"worktree":{"editor":"boolean","default":true},"drop":{"editor":"enum","options":["none","field","pane","ignored"],"default":"none"},"gx":{"editor":"text","default":"300px"},"gy":{"editor":"text","default":"400px"},"w":{"editor":null},"h":{"editor":null},"$preview":{"width":740,"height":900}}'>
+<script type="text/x-dc" data-dc-script data-props='{"form":{"editor":"enum","options":["pc","phone"],"default":"pc"},"layout":{"editor":"enum","options":["a","b","c"],"default":"a"},"dir":{"editor":"boolean","default":true},"square":{"editor":"boolean","default":false},"images":{"editor":"enum","options":["0","1","3"],"default":"1"},"msg":{"editor":"text","default":"この画面の通知の文言を直して"},"rows":{"editor":"int","default":2},"worktree":{"editor":"boolean","default":true},"drop":{"editor":"enum","options":["none","field","pane","ignored"],"default":"none"},"gx":{"editor":"text","default":"300px"},"gy":{"editor":"text","default":"400px"},"w":{"editor":null},"h":{"editor":null},"$preview":{"width":740,"height":900}}'>
 class Component extends DCLogic {
   renderVals() {
     const p = this.props;
@@ -46,6 +46,8 @@ class Component extends DCLogic {
     let bottomStyle;
     if (layout === 'c' && !phone) {
       bottomStyle = 'flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 12px auto 16px';
+    } else if (layout === 'b') {
+      bottomStyle = phone ? 'flex: none; padding: 8px 10px 30px' : 'flex: none; box-sizing: border-box; width: min(712px, calc(100% - 48px)); margin: 0 auto 20px';
     } else if (phone && layout !== 'a') {
       bottomStyle = 'flex: none; padding: 10px 12px 30px; border-top: 1px solid #2a2a2a; background: #141414';
     } else {
@@ -73,7 +75,11 @@ class Component extends DCLogic {
       worktree: p.worktree ?? true,
       start: dir ? 'start' : 'startOff',
       status,
-      statusPhone: phone ? status : '',
+      // Phone scrolls the settings row sideways out to the screen edges instead of wrapping it.
+      // square: layout b with the design system's square corners (1-1 B2); its settings are the plain square buttons.
+      square: p.square ?? false,
+      chip: !(p.square ?? false),
+      bCtlRow:phone ? 'margin: 0 -10px; min-width: 0' : 'min-width: 0',
       dropField: drop === 'field',
       dropPane: drop === 'pane',
       ghost: drop !== 'none',

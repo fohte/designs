@@ -142,7 +142,7 @@ body{margin:0}
 </sc-if>
 <sc-if value="{{live}}" hint-placeholder-val="{{ true }}">
 <div style="flex: none"><dc-import name="StatusBand" state="{{bandState}}" phone="{{ true }}" detail="{{bandDetail}}" hint-size="100%,110px"></dc-import></div>
-<div style="flex: none"><dc-import name="Composer" form="phone" place="conversation" msg="{{composerText}}" placeholder="{{placeholder}}" images="{{composerImages}}" attach="{{composerAttach}}" rows="{{ 3 }}" start="send" hint-size="100%,64px"></dc-import></div>
+<div style="{{composerWrap}}"><dc-import name="Composer" form="phone" place="conversation" round="{{composerBox}}" square="{{composerSquare}}" msg="{{composerText}}" placeholder="{{placeholder}}" images="{{composerImages}}" attach="{{composerAttach}}" rows="{{composerRows}}" start="send" hint-size="100%,64px"></dc-import></div>
 </sc-if>
 <div style="flex: none; padding: 0 14px 24px; background: #141414"><dc-import name="SessionUsage" engine="claude" phone="{{ true }}" hint-size="100%,36px"></dc-import></div>
 
@@ -159,7 +159,7 @@ body{margin:0}
 </sc-if>
 </main>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"update":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"composerText":{"editor":"text","default":"上限は 5 回にしてください。待ち時間は 1 秒から倍にしていき、最後に失敗したときだけ"},"composerImages":{"editor":"enum","options":["0","1","3"],"default":"0"},"composerAttach":{"editor":"boolean","default":true},"state":{"editor":"enum","options":["question","review","todo","code"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"longTitle":{"editor":"boolean","default":false},"activity":{"editor":null},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844},"update":{"editor":"boolean","default":false},"draft":{"editor":"boolean","default":false},"composerText":{"editor":"text","default":"上限は 5 回にしてください。待ち時間は 1 秒から倍にしていき、最後に失敗したときだけ"},"composerImages":{"editor":"enum","options":["0","1","3"],"default":"0"},"composerAttach":{"editor":"boolean","default":true},"composerBox":{"editor":"boolean","default":false},"composerSquare":{"editor":"boolean","default":false},"state":{"editor":"enum","options":["question","review","todo","code"],"default":"question"},"todo":{"editor":"enum","options":["folded","added"],"default":"folded"},"menuOpen":{"editor":"boolean","default":false},"done":{"editor":"boolean","default":false},"ended":{"editor":"enum","options":["no","ended","resuming"],"default":"no"},"vibe":{"editor":"enum","options":["on","onParent","inherited","off","unavailable"],"default":"inherited"},"vibeOpen":{"editor":"boolean","default":false},"closeConfirm":{"editor":"boolean","default":false},"mergeState":{"editor":"enum","options":["idle","merging","merged","alreadyMerged","queued","failed"],"default":"idle"},"toasts":{"editor":null},"actionLine":{"editor":null},"timeline":{"editor":null},"bang":{"editor":null},"bangHighlight":{"editor":"boolean","default":false},"vibeEvents":{"editor":null},"webUiLink":{"editor":"boolean","default":false},"tasks":{"editor":"enum","options":["one","many"],"default":"one"},"longTitle":{"editor":"boolean","default":false},"activity":{"editor":null},"codeState":{"editor":"enum","options":["normal","copied","scrolled","user"],"default":"normal"}}'>
 class Component extends DCLogic {
   // bang: the ! command in the last reply. '' (none) | idle | running | succeeded | failed | timedOut.
   // The server sends each run's result to the session as your message; bangHighlight outlines it (Show output landed there).
@@ -229,6 +229,12 @@ class Component extends DCLogic {
       composerText: draft ? (this.props.composerText ?? "上限は 5 回にしてください。待ち時間は 1 秒から倍にしていき、最後に失敗したときだけ") : "",
       composerImages: this.props.composerImages ?? "0",
       composerAttach: this.props.composerAttach ?? true,
+      // composerBox: the reply field in the + screen's rounded box of 1-1 B (+ and a round send under the text).
+      composerBox: this.props.composerBox ?? false,
+      // composerSquare: that box with square corners (1-1 B2).
+      composerSquare: this.props.composerSquare ?? false,
+      composerRows: this.props.composerBox ? 1 : 3,
+      composerWrap: this.props.composerBox ? 'flex: none; padding: 10px 10px 8px; border-top: 1px solid #2a2a2a; background: #141414' : 'flex: none',
       manyTasks, lineH: manyTasks ? '36px' : '24px', menuTop: manyTasks ? '96px' : '84px',
       // webUiLink: a message whose link points at a registered web UI; the chip names the tab it opens in.
       webUiLink: this.props.webUiLink ?? false,

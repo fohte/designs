@@ -32,11 +32,20 @@ body{margin:0}
 <sc-if value="{{isMatches}}" hint-placeholder-val="{{true}}">
 <div role="listbox" aria-label="Tasks">
 <sc-for list="{{matches}}" as="m" hint-placeholder-count="4">
+<sc-if value="{{m.linked}}" hint-placeholder-val="{{true}}">
 <a href="ProjectMoveConfirm.dc.html" role="option" aria-selected="false" style="min-height: 36px; box-sizing: border-box; width: 100%; display: flex; align-items: center; gap: 8px; padding: 0 12px; font-size: 14px; line-height: 20px; color: #fafafa; text-decoration: none; {{m.bg}}">
 <span style="flex: none; color: #52525b">#{{m.num}}</span>
 <span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{m.title}}</span>
 <sc-if value="{{m.hasParent}}" hint-placeholder-val="{{false}}"><span style="margin-left: auto; flex: none; font-size: 12px; line-height: 16px; color: #52525b">← #{{m.parent}}</span></sc-if>
 </a>
+</sc-if>
+<sc-if value="{{m.plain}}" hint-placeholder-val="{{false}}">
+<div role="option" aria-selected="false" style="min-height: 36px; box-sizing: border-box; width: 100%; display: flex; align-items: center; gap: 8px; padding: 0 12px; font-size: 14px; line-height: 20px; color: #fafafa; text-decoration: none; {{m.bg}}">
+<span style="flex: none; color: #52525b">#{{m.num}}</span>
+<span style="flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap">{{m.title}}</span>
+<sc-if value="{{m.hasParent}}" hint-placeholder-val="{{false}}"><span style="margin-left: auto; flex: none; font-size: 12px; line-height: 16px; color: #52525b">← #{{m.parent}}</span></sc-if>
+</div>
+</sc-if>
 </sc-for>
 </div>
 </sc-if>
@@ -57,6 +66,8 @@ class Component extends DCLogic {
     ].map(([num, title, parent], i) => ({
       num, title, parent,
       hasParent: parent != null,
+      // The confirm dialog depicts only #142.
+      linked: num === 142, plain: num !== 142,
       // The first row is hovered.
       bg: i === 0 ? 'background: rgba(31, 31, 31, 0.5)' : 'background: transparent'
     }));

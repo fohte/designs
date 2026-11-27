@@ -25,12 +25,22 @@ body{margin:0}
 <section aria-label="{{sec.label}}">
 <h3 style="margin: 0; padding: 6px 14px; background: #141414; border-bottom: 1px solid #2a2a2a; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 10px; line-height: 14px; font-weight: 400; letter-spacing: 0.1em; color: #52525b">{{sec.heading}}</h3>
 <sc-for list="{{sec.rows}}" as="r" hint-placeholder-count="3">
+<sc-if value="{{r.linked}}" hint-placeholder-val="{{true}}">
 <a href="RecurringDetailPhone.dc.html" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 1px solid #2a2a2a; color: inherit; text-decoration: none">
 <span style="max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; line-height: 20px; font-weight: 500; color: #fafafa">{{r.title}}</span>
 <span style="flex: none; display: inline-flex; align-items: center; gap: 4px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14"></path><path d="m7 22-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg>{{r.rule}}</span>
 <span aria-hidden="true" style="color: #52525b">·</span>
 <span style="flex: none; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #71717a">{{r.next}}</span>
 </a>
+</sc-if>
+<sc-if value="{{r.plain}}" hint-placeholder-val="{{false}}">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 14px; border-bottom: 1px solid #2a2a2a; color: inherit; text-decoration: none">
+<span style="max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 14px; line-height: 20px; font-weight: 500; color: #fafafa">{{r.title}}</span>
+<span style="flex: none; display: inline-flex; align-items: center; gap: 4px; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #71717a"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m17 2 4 4-4 4"></path><path d="M3 11v-1a4 4 0 0 1 4-4h14"></path><path d="m7 22-4-4 4-4"></path><path d="M21 13v1a4 4 0 0 1-4 4H3"></path></svg>{{r.rule}}</span>
+<span aria-hidden="true" style="color: #52525b">·</span>
+<span style="flex: none; font-family: 'JetBrains Mono', 'IBM Plex Mono', monospace; font-size: 12px; line-height: 16px; color: #71717a">{{r.next}}</span>
+</div>
+</sc-if>
 </sc-for>
 </section>
 </sc-for>
@@ -42,6 +52,8 @@ body{margin:0}
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":844}}'>
 class Component extends DCLogic {
   renderVals() {
+    // The detail screen depicts only this template.
+    const mark = (rows) => rows.map((r) => ({ ...r, linked: r.title === '植物に水をやる', plain: r.title !== '植物に水をやる' }));
     const active = [
       { title: '植物に水をやる', rule: 'Weekly · Sun, Wed', next: 'Next: Aug 16' },
       { title: '体重を記録する', rule: 'Daily', next: 'Next: Aug 16' },
@@ -53,8 +65,8 @@ class Component extends DCLogic {
     ];
     return {
       sections: [
-        { label: 'Active', heading: 'Active · ' + active.length, rows: active },
-        { label: 'Paused', heading: 'Paused · ' + paused.length, rows: paused }
+        { label: 'Active', heading: 'Active · ' + active.length, rows: mark(active) },
+        { label: 'Paused', heading: 'Paused · ' + paused.length, rows: mark(paused) }
       ]
     };
   }

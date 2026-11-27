@@ -16,14 +16,14 @@ Each app's designs live in `<repo>/<app>/`: `<repo>` is the name of the app's re
 
 Each canvas is a folder with `project/canvas.json`. An app's folder holds:
 
-- `design-system/`: the app's design system. It belongs in `@fohte/ui` and lives here until it moves there.
+- `design-system/`: the tokens and components the app defines itself. Those it takes from `@fohte/ui` belong in `ui/design-system/`, the design system of `fohte/ui`; a canvas for an app built on `@fohte/ui` installs both.
 - `screens/`: one canvas of the screens the app should have, with one canvas page per group of related screens, such as one page of the app and its dialogs, and a `部品` page holding the parts that screens `<dc-import>`. A screen that another screen `<dc-import>`s as its base, such as a phone screen with a menu open, stays on its group's page. A screen's mobile artboards sit beside its desktop artboard on the same page. The canvas differs from the app only between a design PR and the implementation PR that follows it.
 - `explore/<theme>/`: one canvas per theme being decided, holding its options and `<theme>-current.dc.html`, a copy of the screen as it is now to compare against.
 - `decisions/<YYYY-MM-DD>-<theme>/`: a decided theme. Its `README.md` records the options, the one chosen, and why; its `project/` is the theme's canvas, kept as it was when decided.
 
 ## Explore a theme
 
-1. Create a canvas at `<repo>/<app>/explore/<theme>/` with the `claude-design` skill, installing the design system from the app's `design-system/`.
+1. Create a canvas at `<repo>/<app>/explore/<theme>/` with the `claude-design` skill, installing the design systems its `screens/` canvas uses.
 2. Run `artifact.mjs check <repo>/<app>/explore/<theme>` until it reports no problems.
 
 ## Decide a theme
@@ -43,7 +43,7 @@ The reviewer cannot tell from the canvas alone what a design PR changed, so put 
 
 ## Keep the design system in step with the app
 
-The design system is written by hand from the app's source. When the app's CSS changes a token or a built component, update `design-system/`, then copy it into the `screens/` canvas and each canvas under `explore/`:
+The design system is written by hand from the app's source, and `ui/design-system/` from `fohte/ui`'s. When the source's CSS changes a token or a built component, update that `design-system/`, then copy it into each `screens/` canvas and each canvas under `explore/` that installs it:
 
 ```sh
 ~/.agents/skills/claude-design/scripts/artifact.mjs ds-sync <repo>/<app>/screens

@@ -1,0 +1,25 @@
+{
+  "v": 3,
+  "layout": "files",
+  "createdOnFiles": {
+    "v": 1,
+    "at": "2026-11-28T00:00:00Z"
+  },
+  "title": "@fohte/ui",
+  "namespace": "FohteUi",
+  "libraries": [],
+  "sections": {},
+  "groups": [],
+  "assetGroups": {},
+  "blobs": {},
+  "docs": {
+    "readme": "project/README.md",
+    "sections": []
+  },
+  "lastChange": {
+    "by": "fohte",
+    "at": "2026-11-28T00:00:00Z",
+    "via": "GitHub · fohte/ui@2d45bab",
+    "note": "Build the @fohte/ui system from tokens.css and the 18 exported components (static renditions)."
+  }
+}

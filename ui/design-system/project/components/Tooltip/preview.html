@@ -1,0 +1,24 @@
+<!-- @dsCard group="Overlays" height=170 subtitle="static rendition" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Tooltip</title>
+</head>
+<body>
+<div class="fui-row" style="align-items:flex-start;gap:40px;padding-top:16px">
+  <div class="fui-cell" style="align-items:center;gap:4px"><span class="fui-note">side="top" (default)</span>
+    <div class="fui-tooltip" role="tooltip" data-side="top">Copy link<span class="fui-tooltip-arrow" aria-hidden="true"></span></div>
+    <button class="fui-button fui-button--outline" type="button">Share</button>
+  </div>
+  <div class="fui-cell" style="align-items:center;gap:4px"><span class="fui-note">with a Kbd</span>
+    <div class="fui-tooltip" role="tooltip" data-side="top">Search notes <kbd class="fui-kbd">/</kbd><span class="fui-tooltip-arrow" aria-hidden="true"></span></div>
+    <button class="fui-button fui-button--outline fui-button--icon" type="button" aria-label="Search"><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></button>
+  </div>
+  <div class="fui-cell" style="align-items:center;gap:4px"><span class="fui-note">side="bottom"</span>
+    <button class="fui-button fui-button--outline" type="button">Share</button>
+    <div class="fui-tooltip" role="tooltip" data-side="bottom"><span class="fui-tooltip-arrow" aria-hidden="true"></span>Copy link</div>
+  </div>
+</div>
+</body>
+</html>

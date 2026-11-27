@@ -1,0 +1,32 @@
+<!-- @dsCard group="Forms" height=200 subtitle="static rendition" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>FieldTrigger</title>
+</head>
+<body>
+<div class="fui-row" style="gap:24px">
+  <div class="fui-cell"><span class="fui-note">inside text-xs mono, with chevron</span>
+    <div style="font-family:var(--font-mono);font-size:12px;line-height:16px;padding:0 4px">
+      <button class="fui-field-trigger-base fui-ghost-field fui-field-trigger" type="button">Weekly<svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+    </div>
+  </div>
+  <div class="fui-cell"><span class="fui-note">no icon</span>
+    <div style="padding:0 4px"><button class="fui-field-trigger-base fui-ghost-field fui-field-trigger" type="button">Example value</button></div>
+  </div>
+  <div class="fui-cell"><span class="fui-note">inside text-sm</span>
+    <div style="font-size:14px;line-height:20px;padding:0 4px"><button class="fui-field-trigger-base fui-ghost-field fui-field-trigger" type="button">Example value</button></div>
+  </div>
+  <div class="fui-cell"><span class="fui-note">inside text-2xl semibold</span>
+    <div style="font-size:24px;line-height:32px;font-weight:600;padding:0 4px"><button class="fui-field-trigger-base fui-ghost-field fui-field-trigger" type="button">Garden plan</button></div>
+  </div>
+</div>
+<div class="fui-row" style="gap:24px">
+  <div class="fui-cell"><span class="fui-note">hover</span><div style="padding:0 4px"><button class="fui-field-trigger-base fui-ghost-field fui-field-trigger is-hover" type="button">Example value</button></div></div>
+  <div class="fui-cell"><span class="fui-note">focus</span><div style="padding:0 4px"><button class="fui-field-trigger-base fui-ghost-field fui-field-trigger is-focus" type="button">Example value</button></div></div>
+  <div class="fui-cell"><span class="fui-note">invalid</span><div style="padding:0 4px"><button class="fui-field-trigger-base fui-ghost-field fui-field-trigger" type="button" aria-invalid="true">Example value</button></div></div>
+  <div class="fui-cell"><span class="fui-note">disabled, hovered</span><div style="padding:0 4px"><button class="fui-field-trigger-base fui-ghost-field fui-field-trigger is-hover" type="button" disabled>Example value</button></div></div>
+</div>
+</body>
+</html>

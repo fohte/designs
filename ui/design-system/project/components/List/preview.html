@@ -1,0 +1,29 @@
+<!-- @dsCard group="Navigation" height=290 subtitle="static rendition" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>List</title>
+</head>
+<body>
+<div class="fui-row" style="align-items:flex-start;gap:24px">
+  <div class="fui-cell" style="width:260px"><span class="fui-note">role="list" (buttons, aria-pressed)</span>
+    <div class="fui-list" role="list" style="width:100%">
+      <div role="listitem"><button class="fui-list-item" type="button" aria-pressed="false">Plain row</button></div>
+      <div role="listitem"><button class="fui-list-item is-hover" type="button" aria-pressed="false">Hovered row</button></div>
+      <div role="listitem"><button class="fui-list-item" type="button" aria-pressed="false" data-highlighted>Highlighted row</button></div>
+      <div role="listitem"><button class="fui-list-item" type="button" aria-pressed="true" data-selected>Selected row<svg class="fui-icon fui-icon--selected" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></button></div>
+      <div role="listitem"><button class="fui-list-item" type="button" aria-pressed="false" style="--list-item-indent:1rem">Nested row (indent 1)</button></div>
+      <div role="listitem"><button class="fui-list-item is-focus" type="button" aria-pressed="false">Focused row</button></div>
+    </div>
+  </div>
+  <div class="fui-cell" style="width:260px"><span class="fui-note">role="listbox" (options, aria-selected)</span>
+    <div class="fui-list" role="listbox" aria-label="Choose an option" style="width:100%">
+      <div class="fui-list-item" role="option" aria-selected="false">First option</div>
+      <div class="fui-list-item" role="option" aria-selected="true" data-highlighted data-selected>Second option<svg class="fui-icon fui-icon--selected" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+      <div class="fui-list-item" role="option" aria-selected="false">Third option</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!-- @dsCard group="Actions" height=150 subtitle="static rendition" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Chip</title>
+</head>
+<body>
+<div class="fui-row">
+  <span class="fui-note">sm</span>
+  <span class="fui-chip">muted</span>
+  <span class="fui-chip fui-chip--strong">strong</span>
+  <span class="fui-chip fui-chip--faint">faint</span>
+  <span class="fui-note" style="margin-left:16px">md</span>
+  <span class="fui-chip fui-chip--md">muted</span>
+  <span class="fui-chip fui-chip--md fui-chip--strong">strong</span>
+  <span class="fui-chip fui-chip--md fui-chip--faint">faint</span>
+</div>
+<div class="fui-row">
+  <span class="fui-chip">draft<button class="fui-button-plain" type="button" aria-label="Remove draft"><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></span>
+  <span class="fui-chip fui-chip--md fui-chip--strong">scope:garden<button class="fui-button-plain is-hover" type="button" aria-label="Remove scope"><svg class="fui-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></span>
+  <span class="fui-chip"><span class="fui-chip-dot"></span>Orchard</span>
+  <button class="fui-chip" type="button">Filter</button>
+  <button class="fui-chip fui-chip--md fui-chip--strong" type="button" aria-pressed="true">all</button>
+  <button class="fui-chip fui-chip--md" type="button" aria-pressed="false">notes</button>
+</div>
+<div class="fui-row">
+  <span class="fui-note">removable chip: plain remove button, red on hover · as="button": pointer cursor, same look</span>
+</div>
+</body>
+</html>

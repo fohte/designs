@@ -1561,7 +1561,7 @@
       "y": 14750,
       "w": 1440,
       "h": 900,
-      "title": "Show pane を押した · 帯の中に pane の画面 (2 秒ごとに更新)",
+      "title": "Show pane を押した · 帯の中に pane の画面 (撮った時刻と Refresh)",
       "page": "conversation"
     },
     "PhoneChatStuckOpen.dc.html": {
@@ -1587,6 +1587,38 @@
       "h": 380,
       "title": "PaneSnapshot",
       "page": "components"
+    },
+    "ConversationStuckPaused.dc.html": {
+      "x": 5970,
+      "y": 14750,
+      "w": 1440,
+      "h": 900,
+      "title": "止まっているセッションにメッセージを送り、20 秒たっても返事がない",
+      "page": "conversation"
+    },
+    "PhoneChatStuckPaused.dc.html": {
+      "x": 7490,
+      "y": 14750,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · 止まっているセッションにメッセージを送り、返事がない",
+      "page": "conversation"
+    },
+    "ConversationStuckRefreshing.dc.html": {
+      "x": 3980,
+      "y": 14750,
+      "w": 1440,
+      "h": 900,
+      "title": "pane の Refresh を押した · 新しい画面が届くまで Refreshing…",
+      "page": "conversation"
+    },
+    "PhoneChatStuckRefreshing.dc.html": {
+      "x": 5500,
+      "y": 14750,
+      "w": 390,
+      "h": 844,
+      "title": "iPhone · pane の Refresh を押した",
+      "page": "conversation"
     },
     "WithdrawnCard.dc.html": {
       "x": 3956,
@@ -2133,6 +2165,10 @@
     "PhoneChatStuckOpen.dc.html",
     "StuckBand.dc.html",
     "PaneSnapshot.dc.html",
+    "ConversationStuckPaused.dc.html",
+    "PhoneChatStuckPaused.dc.html",
+    "ConversationStuckRefreshing.dc.html",
+    "PhoneChatStuckRefreshing.dc.html",
     "WithdrawnCard.dc.html",
     "ConversationWithdrawn.dc.html",
     "PhoneChatWithdrawn.dc.html",
@@ -2526,9 +2562,9 @@
     "rowStuckResume": {
       "x": 0,
       "y": 14450,
-      "text": "再開後に起動しないとき · 帯で示し、Show pane で帯の中に pane の画面を開く",
+      "text": "再開後に起動しないとき · 帯で示し、Show pane で帯の中に pane の画面を開く (止まっているセッションへの送信で再開したときも)",
       "kind": "title1",
-      "maxW": 3900,
+      "maxW": 11370,
       "page": "conversation"
     },
     "rowPartsStuck": {

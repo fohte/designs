@@ -1,0 +1,28 @@
+<!-- @dsCard group="Forms" height=150 subtitle="static rendition" -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SegmentedControl</title>
+</head>
+<body>
+<div class="fui-stack">
+  <div class="fui-segmented" role="group" aria-label="Density">
+    <button class="fui-segment" type="button" aria-pressed="true">Compact</button>
+    <button class="fui-segment" type="button" aria-pressed="false">Comfortable</button>
+    <button class="fui-segment" type="button" aria-pressed="false">Spacious</button>
+  </div>
+  <div class="fui-segmented" role="group" aria-label="Density">
+    <button class="fui-segment is-hover" type="button" aria-pressed="false">Compact</button>
+    <button class="fui-segment is-focus" type="button" aria-pressed="true">Comfortable</button>
+    <button class="fui-segment" type="button" aria-pressed="false">Spacious</button>
+  </div>
+  <div class="fui-segmented" role="group" aria-label="Density">
+    <button class="fui-segment" type="button" aria-pressed="true" disabled>Compact</button>
+    <button class="fui-segment" type="button" aria-pressed="false" disabled>Comfortable</button>
+    <button class="fui-segment" type="button" aria-pressed="false" disabled>Spacious</button>
+  </div>
+  <span class="fui-note">selected · hover + focused selection · disabled</span>
+</div>
+</body>
+</html>

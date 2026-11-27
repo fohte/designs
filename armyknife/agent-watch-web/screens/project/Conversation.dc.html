@@ -244,7 +244,8 @@ class Component extends DCLogic {
       review: { main: pr(2049, '配信前のチェックを追加する', 'example/web-app', 'passed'), others: [] },
       drafts: { main: pr(2049, '配信前のチェックを追加する', 'example/web-app', 'running'), others: [] },
       todo: { main: pr(3102, '通知の音を設定に足す', 'example/mobile-app', 'running'), others: [] },
-      code: { main: pr(2061, '再送の上限を retry() に渡す', 'example/service', 'running'), others: [] }
+      code: { main: pr(2061, '再送の上限を retry() に渡す', 'example/service', 'running'), others: [] },
+      waiting: { main: pr(2061, '配信チェックを本番に出す', 'example/web-app', 'passed'), others: [] }
     }[variant] ?? { main: pr(2047, '', '', 'running'), others: [] };
     if (this.props.ciFailing) P.main = { ...P.main, kind: 'failing', ...CI.failing };
     // mergeState: the merge confirmed on PR #mergeTarget (default: this branch's PR), shown on the merge band and that PR's row until the PR refreshes.

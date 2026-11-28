@@ -1963,14 +1963,6 @@
       "h": 200,
       "title": "Composer",
       "page": "components"
-    },
-    "before/BeforeDiscardDialog.dc.html": {
-      "x": 6144,
-      "y": 2240,
-      "w": 520,
-      "h": 620,
-      "title": "Before · DiscardDialog",
-      "page": "components"
     }
   },
   "order": [
@@ -2219,8 +2211,7 @@
     "PhoneChatImage.dc.html",
     "ConversationDrop.dc.html",
     "PaletteNewSessionDir.dc.html",
-    "Composer.dc.html",
-    "before/BeforeDiscardDialog.dc.html"
+    "Composer.dc.html"
   ],
   "pages": [
     {
@@ -2647,13 +2638,6 @@
       "kind": "title1",
       "maxW": 3430,
       "page": "conversation"
-    },
-    "diffDiscardWording": {
-      "x": 6744,
-      "y": 2240,
-      "w": 420,
-      "page": "components",
-      "text": "DiscardDialog の本文\n- 前: Deletes the worktree and the branch X. These are not saved anywhere else.\n- 後: Deletes the worktree and the local branch X. Changes that are not saved elsewhere will be lost.\npush 済みの commit は remote に残るため、「どこにも残らない」は正しくない。CloseDiscardConfirm (PC / iPhone) も同じように変わる。"
     }
   },
   "v": 3,
@@ -2701,7 +2685,6 @@
     "rowReviewDetails",
     "rowPartsDetails",
     "rowInboxWaiting",
-    "rowWithdrawn",
-    "diffDiscardWording"
+    "rowWithdrawn"
   ]
 }

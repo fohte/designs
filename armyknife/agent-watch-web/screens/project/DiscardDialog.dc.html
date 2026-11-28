@@ -74,7 +74,7 @@ class Component extends DCLogic {
       head: again ? 'Review the changes again' : 'Discard changes and close?',
       body: again
         ? 'Nothing was deleted: ' + grew + ' appeared after you confirmed. Discarding deletes these too.'
-        : 'Deletes the worktree and the branch ' + branch + '. These are not saved anywhere else.',
+        : 'Deletes the worktree and the local branch ' + branch + '. Changes that are not saved elsewhere will be lost.',
       session: this.props.session ?? '通知の再送処理を見直す',
       path: this.props.path ?? '~/src/example/service/.worktrees/resend-limit',
       branch, newCol: newFiles || newCommits ? ' auto' : '',
